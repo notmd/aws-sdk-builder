@@ -8,6 +8,7 @@ pub struct ListGlobalTablesOutput {
     pub global_tables: ::std::option::Option<::std::vec::Vec<crate::types::GlobalTable>>,
     /// <p>Last evaluated global table name.</p>
     pub last_evaluated_global_table_name: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListGlobalTablesOutput {
     /// <p>List of global table names.</p>
@@ -17,6 +18,11 @@ impl ListGlobalTablesOutput {
     /// <p>Last evaluated global table name.</p>
     pub fn last_evaluated_global_table_name(&self) -> ::std::option::Option<&str> {
         self.last_evaluated_global_table_name.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListGlobalTablesOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListGlobalTablesOutput {
@@ -32,6 +38,7 @@ impl ListGlobalTablesOutput {
 pub struct ListGlobalTablesOutputBuilder {
     pub(crate) global_tables: ::std::option::Option<::std::vec::Vec<crate::types::GlobalTable>>,
     pub(crate) last_evaluated_global_table_name: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListGlobalTablesOutputBuilder {
     /// <p>List of global table names.</p>
@@ -55,11 +62,21 @@ impl ListGlobalTablesOutputBuilder {
     pub fn set_last_evaluated_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.last_evaluated_global_table_name = input; self }
     /// <p>Last evaluated global table name.</p>
     pub fn get_last_evaluated_global_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.last_evaluated_global_table_name }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListGlobalTablesOutput`](crate::operation::list_global_tables::ListGlobalTablesOutput).
     pub fn build(self) -> crate::operation::list_global_tables::ListGlobalTablesOutput {
         crate::operation::list_global_tables::ListGlobalTablesOutput {
             global_tables: self.global_tables,
             last_evaluated_global_table_name: self.last_evaluated_global_table_name,
+            _request_id: self._request_id,
         }
     }
 }

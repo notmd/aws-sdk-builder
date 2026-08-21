@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetUserError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetUserError::Unhandled(format!("GetUser returned HTTP {}", status)));
+                             return Err(super::GetUserError::unhandled_with_request_ids(format!("GetUser returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_user_output::GetUserOutputBuilder::default().build())
+                         let mut output = super::_get_user_output::GetUserOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetUserFluentBuilder;

@@ -141,6 +141,14 @@ JSON shape map before rendering. It recognizes the Smithy relationship used for 
 header member required by the AWS decorator. The renderer only consumes the resulting
 traits and shapes; it does not contain an S3 or operation-name branch.
 
+The request-ID decorator is similarly represented as a rendering plan derived from
+service metadata. Every operation output receives the standard AWS request-ID fields,
+builder setters, and RequestId implementation. A service whose aws.api#service
+metadata advertises the s3 ARN namespace additionally receives the s3_request_id
+helper and RequestIdExt fields. Response decoding populates both values from HTTP
+headers, including empty outputs, while operation unhandled errors retain the same
+header metadata.
+
 ## 3. Service-directed shape closure
 
 Start at the selected service shape and traverse only directed relationships. The

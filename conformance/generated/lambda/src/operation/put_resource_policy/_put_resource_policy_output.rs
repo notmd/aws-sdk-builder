@@ -8,6 +8,7 @@ pub struct PutResourcePolicyOutput {
     pub policy: ::std::option::Option<::std::string::String>,
     /// <p>The revision ID of the policy that Lambda adds to your Lambda resource.</p>
     pub revision_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl PutResourcePolicyOutput {
     /// <p>The resource-based policy that Lambda adds to the resource.</p>
@@ -17,6 +18,11 @@ impl PutResourcePolicyOutput {
     /// <p>The revision ID of the policy that Lambda adds to your Lambda resource.</p>
     pub fn revision_id(&self) -> ::std::option::Option<&str> {
         self.revision_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for PutResourcePolicyOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl PutResourcePolicyOutput {
@@ -32,6 +38,7 @@ impl PutResourcePolicyOutput {
 pub struct PutResourcePolicyOutputBuilder {
     pub(crate) policy: ::std::option::Option<::std::string::String>,
     pub(crate) revision_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl PutResourcePolicyOutputBuilder {
     /// <p>The resource-based policy that Lambda adds to the resource.</p>
@@ -50,11 +57,21 @@ impl PutResourcePolicyOutputBuilder {
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.revision_id = input; self }
     /// <p>The revision ID of the policy that Lambda adds to your Lambda resource.</p>
     pub fn get_revision_id(&self) -> &::std::option::Option<::std::string::String> { &self.revision_id }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`PutResourcePolicyOutput`](crate::operation::put_resource_policy::PutResourcePolicyOutput).
     pub fn build(self) -> crate::operation::put_resource_policy::PutResourcePolicyOutput {
         crate::operation::put_resource_policy::PutResourcePolicyOutput {
             policy: self.policy,
             revision_id: self.revision_id,
+            _request_id: self._request_id,
         }
     }
 }

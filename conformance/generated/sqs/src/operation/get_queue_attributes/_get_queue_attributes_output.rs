@@ -6,11 +6,17 @@
 pub struct GetQueueAttributesOutput {
     /// <p>A map of attributes to their respective values.</p>
     pub attributes: ::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>,
+    _request_id: Option<String>,
 }
 impl GetQueueAttributesOutput {
     /// <p>A map of attributes to their respective values.</p>
     pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>> {
         self.attributes.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetQueueAttributesOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetQueueAttributesOutput {
@@ -25,6 +31,7 @@ impl GetQueueAttributesOutput {
 #[non_exhaustive]
 pub struct GetQueueAttributesOutputBuilder {
     pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>,
+    _request_id: Option<String>,
 }
 impl GetQueueAttributesOutputBuilder {
     /// <p>A map of attributes to their respective values.</p>
@@ -40,10 +47,20 @@ impl GetQueueAttributesOutputBuilder {
     pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>) -> Self { self.attributes = input; self }
     /// <p>A map of attributes to their respective values.</p>
     pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>> { &self.attributes }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetQueueAttributesOutput`](crate::operation::get_queue_attributes::GetQueueAttributesOutput).
     pub fn build(self) -> crate::operation::get_queue_attributes::GetQueueAttributesOutput {
         crate::operation::get_queue_attributes::GetQueueAttributesOutput {
             attributes: self.attributes,
+            _request_id: self._request_id,
         }
     }
 }

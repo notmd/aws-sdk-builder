@@ -18,6 +18,7 @@ pub struct ReEncryptOutput {
     pub source_key_material_id: ::std::option::Option<::std::string::String>,
     /// <p>The identifier of the key material used to reencrypt the data. This field is present only when data is reencrypted using a symmetric encryption KMS key.</p>
     pub destination_key_material_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ReEncryptOutput {
     /// <p>The reencrypted data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -49,6 +50,11 @@ impl ReEncryptOutput {
         self.destination_key_material_id.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for ReEncryptOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ReEncryptOutput {
     /// Creates a new builder-style object to manufacture [`ReEncryptOutput`](crate::operation::re_encrypt::ReEncryptOutput).
     pub fn builder() -> crate::operation::re_encrypt::builders::ReEncryptOutputBuilder {
@@ -67,6 +73,7 @@ pub struct ReEncryptOutputBuilder {
     pub(crate) destination_encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
     pub(crate) source_key_material_id: ::std::option::Option<::std::string::String>,
     pub(crate) destination_key_material_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ReEncryptOutputBuilder {
     /// <p>The reencrypted data. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -125,6 +132,15 @@ impl ReEncryptOutputBuilder {
     pub fn set_destination_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.destination_key_material_id = input; self }
     /// <p>The identifier of the key material used to reencrypt the data. This field is present only when data is reencrypted using a symmetric encryption KMS key.</p>
     pub fn get_destination_key_material_id(&self) -> &::std::option::Option<::std::string::String> { &self.destination_key_material_id }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ReEncryptOutput`](crate::operation::re_encrypt::ReEncryptOutput).
     pub fn build(self) -> crate::operation::re_encrypt::ReEncryptOutput {
         crate::operation::re_encrypt::ReEncryptOutput {
@@ -135,6 +151,7 @@ impl ReEncryptOutputBuilder {
             destination_encryption_algorithm: self.destination_encryption_algorithm,
             source_key_material_id: self.source_key_material_id,
             destination_key_material_id: self.destination_key_material_id,
+            _request_id: self._request_id,
         }
     }
 }

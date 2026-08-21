@@ -22,12 +22,14 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetBucketReplicationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetBucketReplicationError::Unhandled(format!("GetBucketReplication returned HTTP {}", status)));
+                             return Err(super::GetBucketReplicationError::unhandled_with_request_ids(format!("GetBucketReplication returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_bucket_replication_output::GetBucketReplicationOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketReplicationError::Unhandled)?;
                          if let Some(value) = super::super::super::transport::xml_first(&body, "ReplicationConfiguration") { let mut item: crate::types::ReplicationConfigurationBuilder = ::std::default::Default::default(); item.role = super::super::super::transport::xml_first(&value, "Role").and_then(|value| value.parse().ok());
  if let Ok(item) = item.build() { output.replication_configuration = Some(item); } }
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

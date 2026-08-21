@@ -8,6 +8,7 @@ pub struct GetOutboundWebIdentityFederationInfoOutput {
     pub issuer_identifier: ::std::option::Option<::std::string::String>,
     /// <p>Indicates whether outbound identity federation is currently enabled for your Amazon Web Services account. When true, IAM principals in the account can call the <code>GetWebIdentityToken</code> API to obtain JSON Web Tokens (JWTs) for authentication with external services.</p>
     pub jwt_vending_enabled: ::std::option::Option<bool>,
+    _request_id: Option<String>,
 }
 impl GetOutboundWebIdentityFederationInfoOutput {
     /// <p>A unique issuer URL for your Amazon Web Services account that hosts the OpenID Connect (OIDC) discovery endpoints at <code>/.well-known/openid-configuration and /.well-known/jwks.json</code>. The OpenID Connect (OIDC) discovery endpoints contain verification keys and metadata necessary for token verification.</p>
@@ -17,6 +18,11 @@ impl GetOutboundWebIdentityFederationInfoOutput {
     /// <p>Indicates whether outbound identity federation is currently enabled for your Amazon Web Services account. When true, IAM principals in the account can call the <code>GetWebIdentityToken</code> API to obtain JSON Web Tokens (JWTs) for authentication with external services.</p>
     pub fn jwt_vending_enabled(&self) -> ::std::option::Option<bool> {
         self.jwt_vending_enabled
+    }
+}
+impl ::aws_types::request_id::RequestId for GetOutboundWebIdentityFederationInfoOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetOutboundWebIdentityFederationInfoOutput {
@@ -32,6 +38,7 @@ impl GetOutboundWebIdentityFederationInfoOutput {
 pub struct GetOutboundWebIdentityFederationInfoOutputBuilder {
     pub(crate) issuer_identifier: ::std::option::Option<::std::string::String>,
     pub(crate) jwt_vending_enabled: ::std::option::Option<bool>,
+    _request_id: Option<String>,
 }
 impl GetOutboundWebIdentityFederationInfoOutputBuilder {
     /// <p>A unique issuer URL for your Amazon Web Services account that hosts the OpenID Connect (OIDC) discovery endpoints at <code>/.well-known/openid-configuration and /.well-known/jwks.json</code>. The OpenID Connect (OIDC) discovery endpoints contain verification keys and metadata necessary for token verification.</p>
@@ -50,11 +57,21 @@ impl GetOutboundWebIdentityFederationInfoOutputBuilder {
     pub fn set_jwt_vending_enabled(mut self, input: ::std::option::Option<bool>) -> Self { self.jwt_vending_enabled = input; self }
     /// <p>Indicates whether outbound identity federation is currently enabled for your Amazon Web Services account. When true, IAM principals in the account can call the <code>GetWebIdentityToken</code> API to obtain JSON Web Tokens (JWTs) for authentication with external services.</p>
     pub fn get_jwt_vending_enabled(&self) -> &::std::option::Option<bool> { &self.jwt_vending_enabled }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetOutboundWebIdentityFederationInfoOutput`](crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput).
     pub fn build(self) -> crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput {
         crate::operation::get_outbound_web_identity_federation_info::GetOutboundWebIdentityFederationInfoOutput {
             issuer_identifier: self.issuer_identifier,
             jwt_vending_enabled: self.jwt_vending_enabled,
+            _request_id: self._request_id,
         }
     }
 }

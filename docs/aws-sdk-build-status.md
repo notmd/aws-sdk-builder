@@ -30,8 +30,8 @@ Updated 2026-08-21. Prompt.md is the project specification.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The current report
-  compares 6,584 files and has 492 exact matches (6.84% arithmetic average),
-  with 3,082 mismatches, 2,887 missing files, and 123 extra files. Both comparison
+  compares 6,584 files and has 661 exact matches (9.07% arithmetic average),
+  with 2,914 mismatches, 2,886 missing files, and 123 extra files. Both comparison
   trees are checked in under `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. The live
   `my_aws_sdk::tests::creates_then_heads_a_bucket` test passes against the
@@ -51,31 +51,32 @@ updated when the port adopts a new reusable abstraction.
 
 ## Evidence
 
-### Checkpoint: 2026-08-21 — Model-derived Expires customization
+### Checkpoint: 2026-08-21 — Generic request-ID decorator parity
 
 - State: in progress
-- Changed: `crates/aws-sdk-build/src/model.rs` now applies a declarative model
-  transform when a string shape is used by an `Expires` HTTP header: it changes the
-  target to a timestamp, adds a synthetic raw-string header member to output
-  structures, and marks the parsed output member deprecated. `codegen.rs` now renders
-  Smithy deprecated traits on fields, accessors, and builders, and treats streaming
-  output members as required in client documentation. The transform is relationship-
-  and trait-driven; it does not branch on service or operation names.
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now derives a request-ID rendering
+  plan from the selected service metadata. Every operation output, including empty
+  outputs, receives standard request-ID fields, RequestId implementations, builder
+  setters, and response-header propagation. S3’s aws.api#service ARN namespace also
+  selects the Smithy-aligned s3_request_id helper and extended request-ID trait.
+  Unhandled operation errors retain both request-ID values. The fixture declares the
+  generated runtime dependencies directly, and the all-operation snapshots and
+  reports were regenerated.
 - Evidence: `/tmp/smithy-rs` at pinned Smithy commit `f1b64a9...` was consulted;
   `cargo fmt --all`, `just conformance`, `cargo test --workspace`, `cargo clippy
   --workspace --all-targets -- -D warnings`, `cargo fmt --all -- --check`, and
   `git diff --check` pass (conformance intentionally exits 1 while parity is
   incomplete).
-- Conformance: the previous checkpoint had `490` exact matches, `3,084` mismatches,
-  `2,887` missing, and `123` extra overall, with `153` exact / `675` mismatches /
-  `516` missing for S3. This checkpoint has `492` exact, `3,082` mismatches, `2,887`
-  missing, and `123` extra overall (`6.84%`), with `155` exact / `673` mismatches /
-  `516` missing for S3 (`11.53%`). The newly exact files are the S3 `GetObject` and
-  `HeadObject` client modules.
-- Blocker: request-ID fields, protocol/runtime behavior, endpoint/auth/retry/checksum
-  support, and the remaining missing source tree are still incomplete.
-- Next action: port request-ID metadata through generic output builders and response
-  decoding, then rerun the all-service conformance comparison.
+- Conformance: the previous checkpoint had `492` exact matches, `3,082` mismatches,
+  `2,887` missing, and `123` extra overall, with `155` exact / `673` mismatches /
+  `516` missing for S3. This checkpoint has `661` exact, `2,914` mismatches, `2,886`
+  missing, and `123` extra overall (`9.07%`), with `193` exact / `636` mismatches /
+  `515` missing for S3 (`14.36%`). Exact coverage increased by `169` files overall
+  and `38` files for S3.
+- Blocker: modeled error metadata, full protocol/runtime behavior, endpoint/auth/
+  retry/checksum support, and the remaining missing source tree are still incomplete.
+- Next action: port request-ID metadata into modeled error structures and generic
+  protocol deserializers, then rerun the all-service conformance comparison.
 
 ### Checkpoint: 2026-08-21 — Inline client documentation whitespace parity
 

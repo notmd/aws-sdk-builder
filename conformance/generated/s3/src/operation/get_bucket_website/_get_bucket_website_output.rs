@@ -12,6 +12,8 @@ pub struct GetBucketWebsiteOutput {
     pub error_document: ::std::option::Option<crate::types::ErrorDocument>,
     /// <p>Rules that define when a redirect is applied and the redirect behavior.</p>
     pub routing_rules: ::std::option::Option<::std::vec::Vec<crate::types::RoutingRule>>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl GetBucketWebsiteOutput {
     /// <p>Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.</p>
@@ -31,6 +33,16 @@ impl GetBucketWebsiteOutput {
         self.routing_rules.as_deref().unwrap_or_default()
     }
 }
+impl crate::s3_request_id::RequestIdExt for GetBucketWebsiteOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetBucketWebsiteOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetBucketWebsiteOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketWebsiteOutput`](crate::operation::get_bucket_website::GetBucketWebsiteOutput).
     pub fn builder() -> crate::operation::get_bucket_website::builders::GetBucketWebsiteOutputBuilder {
@@ -46,6 +58,8 @@ pub struct GetBucketWebsiteOutputBuilder {
     pub(crate) index_document: ::std::option::Option<crate::types::IndexDocument>,
     pub(crate) error_document: ::std::option::Option<crate::types::ErrorDocument>,
     pub(crate) routing_rules: ::std::option::Option<::std::vec::Vec<crate::types::RoutingRule>>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl GetBucketWebsiteOutputBuilder {
     /// <p>Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.</p>
@@ -85,6 +99,24 @@ impl GetBucketWebsiteOutputBuilder {
     pub fn set_routing_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RoutingRule>>) -> Self { self.routing_rules = input; self }
     /// <p>Rules that define when a redirect is applied and the redirect behavior.</p>
     pub fn get_routing_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RoutingRule>> { &self.routing_rules }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetBucketWebsiteOutput`](crate::operation::get_bucket_website::GetBucketWebsiteOutput).
     pub fn build(self) -> crate::operation::get_bucket_website::GetBucketWebsiteOutput {
         crate::operation::get_bucket_website::GetBucketWebsiteOutput {
@@ -92,6 +124,8 @@ impl GetBucketWebsiteOutputBuilder {
             index_document: self.index_document,
             error_document: self.error_document,
             routing_rules: self.routing_rules,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

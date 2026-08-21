@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::CreateServiceLinkedRoleError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::CreateServiceLinkedRoleError::Unhandled(format!("CreateServiceLinkedRole returned HTTP {}", status)));
+                             return Err(super::CreateServiceLinkedRoleError::unhandled_with_request_ids(format!("CreateServiceLinkedRole returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_create_service_linked_role_output::CreateServiceLinkedRoleOutputBuilder::default().build())
+                         let mut output = super::_create_service_linked_role_output::CreateServiceLinkedRoleOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as CreateServiceLinkedRoleFluentBuilder;

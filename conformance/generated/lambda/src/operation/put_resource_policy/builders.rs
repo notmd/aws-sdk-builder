@@ -23,9 +23,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::PutResourcePolicyError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::PutResourcePolicyError::Unhandled(format!("PutResourcePolicy returned HTTP {}", status)));
+                             return Err(super::PutResourcePolicyError::unhandled_with_request_ids(format!("PutResourcePolicy returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_put_resource_policy_output::PutResourcePolicyOutputBuilder::default().build())
+                         let mut output = super::_put_resource_policy_output::PutResourcePolicyOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as PutResourcePolicyFluentBuilder;

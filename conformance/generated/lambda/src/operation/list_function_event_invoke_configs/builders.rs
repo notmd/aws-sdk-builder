@@ -23,9 +23,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::ListFunctionEventInvokeConfigsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListFunctionEventInvokeConfigsError::Unhandled(format!("ListFunctionEventInvokeConfigs returned HTTP {}", status)));
+                             return Err(super::ListFunctionEventInvokeConfigsError::unhandled_with_request_ids(format!("ListFunctionEventInvokeConfigs returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_list_function_event_invoke_configs_output::ListFunctionEventInvokeConfigsOutputBuilder::default().build())
+                         let mut output = super::_list_function_event_invoke_configs_output::ListFunctionEventInvokeConfigsOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as ListFunctionEventInvokeConfigsFluentBuilder;

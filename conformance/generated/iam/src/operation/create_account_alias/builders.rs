@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::CreateAccountAliasError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::CreateAccountAliasError::Unhandled(format!("CreateAccountAlias returned HTTP {}", status)));
+                             return Err(super::CreateAccountAliasError::unhandled_with_request_ids(format!("CreateAccountAlias returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::CreateAccountAliasOutput{})
+                         let mut output = super::_create_account_alias_output::CreateAccountAliasOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as CreateAccountAliasFluentBuilder;

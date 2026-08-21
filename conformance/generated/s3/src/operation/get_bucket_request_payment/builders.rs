@@ -22,11 +22,13 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetBucketRequestPaymentError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetBucketRequestPaymentError::Unhandled(format!("GetBucketRequestPayment returned HTTP {}", status)));
+                             return Err(super::GetBucketRequestPaymentError::unhandled_with_request_ids(format!("GetBucketRequestPayment returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_bucket_request_payment_output::GetBucketRequestPaymentOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketRequestPaymentError::Unhandled)?;
                          output.payer = super::super::super::transport::xml_first(&body, "Payer").and_then(|value| value.parse().ok());
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

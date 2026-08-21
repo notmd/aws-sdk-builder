@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetFunctionEventInvokeConfigError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetFunctionEventInvokeConfigError::Unhandled(format!("GetFunctionEventInvokeConfig returned HTTP {}", status)));
+                             return Err(super::GetFunctionEventInvokeConfigError::unhandled_with_request_ids(format!("GetFunctionEventInvokeConfig returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_function_event_invoke_config_output::GetFunctionEventInvokeConfigOutputBuilder::default().build())
+                         let mut output = super::_get_function_event_invoke_config_output::GetFunctionEventInvokeConfigOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetFunctionEventInvokeConfigFluentBuilder;

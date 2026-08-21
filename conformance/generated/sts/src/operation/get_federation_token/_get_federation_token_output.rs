@@ -12,6 +12,7 @@ pub struct GetFederationTokenOutput {
     pub federated_user: ::std::option::Option<crate::types::FederatedUser>,
     /// <p>A percentage value that indicates the packed size of the session policies and session tags combined passed in the request. The request fails if the packed size is greater than 100 percent, which means the policies and tags exceeded the allowed space.</p>
     pub packed_policy_size: ::std::option::Option<i32>,
+    _request_id: Option<String>,
 }
 impl GetFederationTokenOutput {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p><note>
@@ -29,6 +30,11 @@ impl GetFederationTokenOutput {
         self.packed_policy_size
     }
 }
+impl ::aws_types::request_id::RequestId for GetFederationTokenOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetFederationTokenOutput {
     /// Creates a new builder-style object to manufacture [`GetFederationTokenOutput`](crate::operation::get_federation_token::GetFederationTokenOutput).
     pub fn builder() -> crate::operation::get_federation_token::builders::GetFederationTokenOutputBuilder {
@@ -43,6 +49,7 @@ pub struct GetFederationTokenOutputBuilder {
     pub(crate) credentials: ::std::option::Option<crate::types::Credentials>,
     pub(crate) federated_user: ::std::option::Option<crate::types::FederatedUser>,
     pub(crate) packed_policy_size: ::std::option::Option<i32>,
+    _request_id: Option<String>,
 }
 impl GetFederationTokenOutputBuilder {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p><note>
@@ -73,12 +80,22 @@ impl GetFederationTokenOutputBuilder {
     pub fn set_packed_policy_size(mut self, input: ::std::option::Option<i32>) -> Self { self.packed_policy_size = input; self }
     /// <p>A percentage value that indicates the packed size of the session policies and session tags combined passed in the request. The request fails if the packed size is greater than 100 percent, which means the policies and tags exceeded the allowed space.</p>
     pub fn get_packed_policy_size(&self) -> &::std::option::Option<i32> { &self.packed_policy_size }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetFederationTokenOutput`](crate::operation::get_federation_token::GetFederationTokenOutput).
     pub fn build(self) -> crate::operation::get_federation_token::GetFederationTokenOutput {
         crate::operation::get_federation_token::GetFederationTokenOutput {
             credentials: self.credentials,
             federated_user: self.federated_user,
             packed_policy_size: self.packed_policy_size,
+            _request_id: self._request_id,
         }
     }
 }

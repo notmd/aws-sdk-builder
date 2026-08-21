@@ -22,6 +22,7 @@ pub struct GetOrganizationsAccessReportOutput {
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
     pub error_details: ::std::option::Option<crate::types::ErrorDetails>,
+    _request_id: Option<String>,
 }
 impl GetOrganizationsAccessReportOutput {
     /// <p>The status of the job.</p>
@@ -61,6 +62,11 @@ impl GetOrganizationsAccessReportOutput {
         self.error_details.as_ref()
     }
 }
+impl ::aws_types::request_id::RequestId for GetOrganizationsAccessReportOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetOrganizationsAccessReportOutput {
     /// Creates a new builder-style object to manufacture [`GetOrganizationsAccessReportOutput`](crate::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput).
     pub fn builder() -> crate::operation::get_organizations_access_report::builders::GetOrganizationsAccessReportOutputBuilder {
@@ -81,6 +87,7 @@ pub struct GetOrganizationsAccessReportOutputBuilder {
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     pub(crate) error_details: ::std::option::Option<crate::types::ErrorDetails>,
+    _request_id: Option<String>,
 }
 impl GetOrganizationsAccessReportOutputBuilder {
     /// <p>The status of the job.</p>
@@ -162,6 +169,15 @@ impl GetOrganizationsAccessReportOutputBuilder {
     }
     pub fn set_error_details(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self { self.error_details = input; self }
     pub fn get_error_details(&self) -> &::std::option::Option<crate::types::ErrorDetails> { &self.error_details }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetOrganizationsAccessReportOutput`](crate::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`job_status`](Self::job_status)
@@ -177,6 +193,7 @@ impl GetOrganizationsAccessReportOutputBuilder {
             is_truncated: self.is_truncated,
             marker: self.marker,
             error_details: self.error_details,
+            _request_id: self._request_id,
         })
     }
 }

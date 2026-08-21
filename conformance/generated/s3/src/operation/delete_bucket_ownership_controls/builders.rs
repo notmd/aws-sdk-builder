@@ -22,9 +22,12 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Delete, &path, &headers, &body).await.map_err(super::DeleteBucketOwnershipControlsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteBucketOwnershipControlsError::Unhandled(format!("DeleteBucketOwnershipControls returned HTTP {}", status)));
+                             return Err(super::DeleteBucketOwnershipControlsError::unhandled_with_request_ids(format!("DeleteBucketOwnershipControls returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
-                         Ok(super::DeleteBucketOwnershipControlsOutput{})
+                         let mut output = super::_delete_bucket_ownership_controls_output::DeleteBucketOwnershipControlsOutputBuilder::default();
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DeleteBucketOwnershipControlsFluentBuilder;

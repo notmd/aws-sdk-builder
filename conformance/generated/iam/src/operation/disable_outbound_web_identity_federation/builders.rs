@@ -19,9 +19,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DisableOutboundWebIdentityFederationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DisableOutboundWebIdentityFederationError::Unhandled(format!("DisableOutboundWebIdentityFederation returned HTTP {}", status)));
+                             return Err(super::DisableOutboundWebIdentityFederationError::unhandled_with_request_ids(format!("DisableOutboundWebIdentityFederation returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::DisableOutboundWebIdentityFederationOutput{})
+                         let mut output = super::_disable_outbound_web_identity_federation_output::DisableOutboundWebIdentityFederationOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DisableOutboundWebIdentityFederationFluentBuilder;

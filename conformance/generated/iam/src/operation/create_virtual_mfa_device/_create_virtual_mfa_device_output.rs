@@ -6,11 +6,17 @@
 pub struct CreateVirtualMfaDeviceOutput {
     /// <p>A structure containing details about the new virtual MFA device.</p>
     pub virtual_mfa_device: ::std::option::Option<crate::types::VirtualMfaDevice>,
+    _request_id: Option<String>,
 }
 impl CreateVirtualMfaDeviceOutput {
     /// <p>A structure containing details about the new virtual MFA device.</p>
     pub fn virtual_mfa_device(&self) -> ::std::option::Option<&crate::types::VirtualMfaDevice> {
         self.virtual_mfa_device.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for CreateVirtualMfaDeviceOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl CreateVirtualMfaDeviceOutput {
@@ -25,6 +31,7 @@ impl CreateVirtualMfaDeviceOutput {
 #[non_exhaustive]
 pub struct CreateVirtualMfaDeviceOutputBuilder {
     pub(crate) virtual_mfa_device: ::std::option::Option<crate::types::VirtualMfaDevice>,
+    _request_id: Option<String>,
 }
 impl CreateVirtualMfaDeviceOutputBuilder {
     /// <p>A structure containing details about the new virtual MFA device.</p>
@@ -35,10 +42,20 @@ impl CreateVirtualMfaDeviceOutputBuilder {
     pub fn set_virtual_mfa_device(mut self, input: ::std::option::Option<crate::types::VirtualMfaDevice>) -> Self { self.virtual_mfa_device = input; self }
     /// <p>A structure containing details about the new virtual MFA device.</p>
     pub fn get_virtual_mfa_device(&self) -> &::std::option::Option<crate::types::VirtualMfaDevice> { &self.virtual_mfa_device }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`CreateVirtualMfaDeviceOutput`](crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput).
     pub fn build(self) -> crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput {
         crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput {
             virtual_mfa_device: self.virtual_mfa_device,
+            _request_id: self._request_id,
         }
     }
 }

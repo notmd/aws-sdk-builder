@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DeleteResourcePolicyError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteResourcePolicyError::Unhandled(format!("DeleteResourcePolicy returned HTTP {}", status)));
+                             return Err(super::DeleteResourcePolicyError::unhandled_with_request_ids(format!("DeleteResourcePolicy returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_delete_resource_policy_output::DeleteResourcePolicyOutputBuilder::default().build())
+                         let mut output = super::_delete_resource_policy_output::DeleteResourcePolicyOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DeleteResourcePolicyFluentBuilder;

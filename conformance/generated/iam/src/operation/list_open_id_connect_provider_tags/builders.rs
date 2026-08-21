@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListOpenIdConnectProviderTagsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListOpenIdConnectProviderTagsError::Unhandled(format!("ListOpenIdConnectProviderTags returned HTTP {}", status)));
+                             return Err(super::ListOpenIdConnectProviderTagsError::unhandled_with_request_ids(format!("ListOpenIdConnectProviderTags returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         super::_list_open_id_connect_provider_tags_output::ListOpenIdConnectProviderTagsOutputBuilder::default().build().map_err(|error| super::ListOpenIdConnectProviderTagsError::Unhandled(error.to_string()))
+                         let mut output = super::_list_open_id_connect_provider_tags_output::ListOpenIdConnectProviderTagsOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         output.build().map_err(|error| super::ListOpenIdConnectProviderTagsError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as ListOpenIdConnectProviderTagsFluentBuilder;

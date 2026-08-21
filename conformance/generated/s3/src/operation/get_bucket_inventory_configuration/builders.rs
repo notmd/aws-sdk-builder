@@ -23,13 +23,15 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetBucketInventoryConfigurationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetBucketInventoryConfigurationError::Unhandled(format!("GetBucketInventoryConfiguration returned HTTP {}", status)));
+                             return Err(super::GetBucketInventoryConfigurationError::unhandled_with_request_ids(format!("GetBucketInventoryConfiguration returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_bucket_inventory_configuration_output::GetBucketInventoryConfigurationOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketInventoryConfigurationError::Unhandled)?;
                          if let Some(value) = super::super::super::transport::xml_first(&body, "InventoryConfiguration") { let mut item: crate::types::InventoryConfigurationBuilder = ::std::default::Default::default(); item.is_enabled = super::super::super::transport::xml_first(&value, "IsEnabled").and_then(|value| value.parse().ok());
  item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
  if let Ok(item) = item.build() { output.inventory_configuration = Some(item); } }
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

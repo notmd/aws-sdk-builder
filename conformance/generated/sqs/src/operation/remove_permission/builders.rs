@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::RemovePermissionError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::RemovePermissionError::Unhandled(format!("RemovePermission returned HTTP {}", status)));
+                             return Err(super::RemovePermissionError::unhandled_with_request_ids(format!("RemovePermission returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::RemovePermissionOutput{})
+                         let mut output = super::_remove_permission_output::RemovePermissionOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as RemovePermissionFluentBuilder;

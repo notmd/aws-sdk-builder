@@ -11,6 +11,7 @@ pub struct ListGroupPoliciesOutput {
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListGroupPoliciesOutput {
     /// <p>A list of policy names.</p>
@@ -28,6 +29,11 @@ impl ListGroupPoliciesOutput {
         self.marker.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for ListGroupPoliciesOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListGroupPoliciesOutput {
     /// Creates a new builder-style object to manufacture [`ListGroupPoliciesOutput`](crate::operation::list_group_policies::ListGroupPoliciesOutput).
     pub fn builder() -> crate::operation::list_group_policies::builders::ListGroupPoliciesOutputBuilder {
@@ -42,6 +48,7 @@ pub struct ListGroupPoliciesOutputBuilder {
     pub(crate) policy_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListGroupPoliciesOutputBuilder {
     /// <p>A list of policy names.</p>
@@ -75,6 +82,15 @@ impl ListGroupPoliciesOutputBuilder {
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListGroupPoliciesOutput`](crate::operation::list_group_policies::ListGroupPoliciesOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`policy_names`](Self::policy_names)
@@ -83,6 +99,7 @@ impl ListGroupPoliciesOutputBuilder {
             policy_names: self.policy_names.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("policy_names", "policy_names was not specified but it is required when building ListGroupPoliciesOutput"))?,
             is_truncated: self.is_truncated,
             marker: self.marker,
+            _request_id: self._request_id,
         })
     }
 }

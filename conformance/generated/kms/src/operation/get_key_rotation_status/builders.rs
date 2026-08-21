@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetKeyRotationStatusError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetKeyRotationStatusError::Unhandled(format!("GetKeyRotationStatus returned HTTP {}", status)));
+                             return Err(super::GetKeyRotationStatusError::unhandled_with_request_ids(format!("GetKeyRotationStatus returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_key_rotation_status_output::GetKeyRotationStatusOutputBuilder::default().build())
+                         let mut output = super::_get_key_rotation_status_output::GetKeyRotationStatusOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetKeyRotationStatusFluentBuilder;

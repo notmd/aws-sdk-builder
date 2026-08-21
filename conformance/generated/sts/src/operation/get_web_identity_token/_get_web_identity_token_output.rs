@@ -8,6 +8,7 @@ pub struct GetWebIdentityTokenOutput {
     pub web_identity_token: ::std::option::Option<::std::string::String>,
     /// <p>The date and time when the web identity token expires, in UTC. The expiration is determined by adding the <code>DurationSeconds</code> value to the time the token was issued. After this time, the token should no longer be considered valid.</p>
     pub expiration: ::std::option::Option<::aws_smithy_types::DateTime>,
+    _request_id: Option<String>,
 }
 impl GetWebIdentityTokenOutput {
     /// <p>A signed JSON Web Token (JWT) that represents the caller's Amazon Web Services identity. The token contains standard JWT claims such as subject, audience, expiration time, and additional identity attributes added by STS as custom claims. You can also add your own custom claims to the token by passing tags as request parameters to the <code>GetWebIdentityToken</code> API. The token is signed using the specified signing algorithm and can be verified using the verification keys available at the issuer's JWKS endpoint.</p>
@@ -17,6 +18,11 @@ impl GetWebIdentityTokenOutput {
     /// <p>The date and time when the web identity token expires, in UTC. The expiration is determined by adding the <code>DurationSeconds</code> value to the time the token was issued. After this time, the token should no longer be considered valid.</p>
     pub fn expiration(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
         self.expiration.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetWebIdentityTokenOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetWebIdentityTokenOutput {
@@ -32,6 +38,7 @@ impl GetWebIdentityTokenOutput {
 pub struct GetWebIdentityTokenOutputBuilder {
     pub(crate) web_identity_token: ::std::option::Option<::std::string::String>,
     pub(crate) expiration: ::std::option::Option<::aws_smithy_types::DateTime>,
+    _request_id: Option<String>,
 }
 impl GetWebIdentityTokenOutputBuilder {
     /// <p>A signed JSON Web Token (JWT) that represents the caller's Amazon Web Services identity. The token contains standard JWT claims such as subject, audience, expiration time, and additional identity attributes added by STS as custom claims. You can also add your own custom claims to the token by passing tags as request parameters to the <code>GetWebIdentityToken</code> API. The token is signed using the specified signing algorithm and can be verified using the verification keys available at the issuer's JWKS endpoint.</p>
@@ -50,11 +57,21 @@ impl GetWebIdentityTokenOutputBuilder {
     pub fn set_expiration(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.expiration = input; self }
     /// <p>The date and time when the web identity token expires, in UTC. The expiration is determined by adding the <code>DurationSeconds</code> value to the time the token was issued. After this time, the token should no longer be considered valid.</p>
     pub fn get_expiration(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.expiration }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetWebIdentityTokenOutput`](crate::operation::get_web_identity_token::GetWebIdentityTokenOutput).
     pub fn build(self) -> crate::operation::get_web_identity_token::GetWebIdentityTokenOutput {
         crate::operation::get_web_identity_token::GetWebIdentityTokenOutput {
             web_identity_token: self.web_identity_token,
             expiration: self.expiration,
+            _request_id: self._request_id,
         }
     }
 }

@@ -8,6 +8,7 @@ pub struct ListPhoneNumbersOptedOutOutput {
     pub phone_numbers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     /// <p>A <code>NextToken</code> string is returned when you call the <code>ListPhoneNumbersOptedOut</code> action if additional records are available after the first page of results.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListPhoneNumbersOptedOutOutput {
     /// <p>A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.</p>
@@ -17,6 +18,11 @@ impl ListPhoneNumbersOptedOutOutput {
     /// <p>A <code>NextToken</code> string is returned when you call the <code>ListPhoneNumbersOptedOut</code> action if additional records are available after the first page of results.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
         self.next_token.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListPhoneNumbersOptedOutOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListPhoneNumbersOptedOutOutput {
@@ -32,6 +38,7 @@ impl ListPhoneNumbersOptedOutOutput {
 pub struct ListPhoneNumbersOptedOutOutputBuilder {
     pub(crate) phone_numbers: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListPhoneNumbersOptedOutOutputBuilder {
     /// <p>A list of phone numbers that are opted out of receiving SMS messages. The list is paginated, and each page can contain up to 100 phone numbers.</p>
@@ -55,11 +62,21 @@ impl ListPhoneNumbersOptedOutOutputBuilder {
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
     /// <p>A <code>NextToken</code> string is returned when you call the <code>ListPhoneNumbersOptedOut</code> action if additional records are available after the first page of results.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListPhoneNumbersOptedOutOutput`](crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput).
     pub fn build(self) -> crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput {
         crate::operation::list_phone_numbers_opted_out::ListPhoneNumbersOptedOutOutput {
             phone_numbers: self.phone_numbers,
             next_token: self.next_token,
+            _request_id: self._request_id,
         }
     }
 }

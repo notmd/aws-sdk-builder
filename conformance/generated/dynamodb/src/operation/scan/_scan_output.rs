@@ -19,6 +19,7 @@ pub struct ScanOutput {
     pub last_evaluated_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     /// <p>The capacity units consumed by the <code>Scan</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
+    _request_id: Option<String>,
 }
 impl ScanOutput {
     /// <p>An array of item attributes that match the scan criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
@@ -47,6 +48,11 @@ impl ScanOutput {
         self.consumed_capacity.as_ref()
     }
 }
+impl ::aws_types::request_id::RequestId for ScanOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ScanOutput {
     /// Creates a new builder-style object to manufacture [`ScanOutput`](crate::operation::scan::ScanOutput).
     pub fn builder() -> crate::operation::scan::builders::ScanOutputBuilder {
@@ -63,6 +69,7 @@ pub struct ScanOutputBuilder {
     pub(crate) scanned_count: ::std::option::Option<i32>,
     pub(crate) last_evaluated_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     pub(crate) consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
+    _request_id: Option<String>,
 }
 impl ScanOutputBuilder {
     /// <p>An array of item attributes that match the scan criteria. Each element in this array consists of an attribute name and the value for that attribute.</p>
@@ -125,6 +132,15 @@ impl ScanOutputBuilder {
     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ConsumedCapacity>) -> Self { self.consumed_capacity = input; self }
     /// <p>The capacity units consumed by the <code>Scan</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn get_consumed_capacity(&self) -> &::std::option::Option<crate::types::ConsumedCapacity> { &self.consumed_capacity }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ScanOutput`](crate::operation::scan::ScanOutput).
     pub fn build(self) -> crate::operation::scan::ScanOutput {
         crate::operation::scan::ScanOutput {
@@ -133,6 +149,7 @@ impl ScanOutputBuilder {
             scanned_count: self.scanned_count,
             last_evaluated_key: self.last_evaluated_key,
             consumed_capacity: self.consumed_capacity,
+            _request_id: self._request_id,
         }
     }
 }

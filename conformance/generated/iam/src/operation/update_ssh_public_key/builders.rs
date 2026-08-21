@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UpdateSshPublicKeyError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UpdateSshPublicKeyError::Unhandled(format!("UpdateSshPublicKey returned HTTP {}", status)));
+                             return Err(super::UpdateSshPublicKeyError::unhandled_with_request_ids(format!("UpdateSshPublicKey returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::UpdateSshPublicKeyOutput{})
+                         let mut output = super::_update_ssh_public_key_output::UpdateSshPublicKeyOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UpdateSshPublicKeyFluentBuilder;

@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UpdateKinesisStreamingDestinationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UpdateKinesisStreamingDestinationError::Unhandled(format!("UpdateKinesisStreamingDestination returned HTTP {}", status)));
+                             return Err(super::UpdateKinesisStreamingDestinationError::unhandled_with_request_ids(format!("UpdateKinesisStreamingDestination returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_update_kinesis_streaming_destination_output::UpdateKinesisStreamingDestinationOutputBuilder::default().build())
+                         let mut output = super::_update_kinesis_streaming_destination_output::UpdateKinesisStreamingDestinationOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UpdateKinesisStreamingDestinationFluentBuilder;

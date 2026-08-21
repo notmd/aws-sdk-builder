@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::SendDurableExecutionCallbackHeartbeatError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::SendDurableExecutionCallbackHeartbeatError::Unhandled(format!("SendDurableExecutionCallbackHeartbeat returned HTTP {}", status)));
+                             return Err(super::SendDurableExecutionCallbackHeartbeatError::unhandled_with_request_ids(format!("SendDurableExecutionCallbackHeartbeat returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::SendDurableExecutionCallbackHeartbeatOutput{})
+                         let mut output = super::_send_durable_execution_callback_heartbeat_output::SendDurableExecutionCallbackHeartbeatOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as SendDurableExecutionCallbackHeartbeatFluentBuilder;

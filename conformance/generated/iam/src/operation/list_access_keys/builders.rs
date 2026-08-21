@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListAccessKeysError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListAccessKeysError::Unhandled(format!("ListAccessKeys returned HTTP {}", status)));
+                             return Err(super::ListAccessKeysError::unhandled_with_request_ids(format!("ListAccessKeys returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         super::_list_access_keys_output::ListAccessKeysOutputBuilder::default().build().map_err(|error| super::ListAccessKeysError::Unhandled(error.to_string()))
+                         let mut output = super::_list_access_keys_output::ListAccessKeysOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         output.build().map_err(|error| super::ListAccessKeysError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as ListAccessKeysFluentBuilder;

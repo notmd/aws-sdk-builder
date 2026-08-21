@@ -6,11 +6,17 @@
 pub struct SubscribeOutput {
     /// <p>The ARN of the subscription if it is confirmed, or the string "pending confirmation" if the subscription requires confirmation. However, if the API request parameter <code>ReturnSubscriptionArn</code> is true, then the value is always the subscription ARN, even if the subscription requires confirmation.</p>
     pub subscription_arn: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl SubscribeOutput {
     /// <p>The ARN of the subscription if it is confirmed, or the string "pending confirmation" if the subscription requires confirmation. However, if the API request parameter <code>ReturnSubscriptionArn</code> is true, then the value is always the subscription ARN, even if the subscription requires confirmation.</p>
     pub fn subscription_arn(&self) -> ::std::option::Option<&str> {
         self.subscription_arn.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for SubscribeOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl SubscribeOutput {
@@ -25,6 +31,7 @@ impl SubscribeOutput {
 #[non_exhaustive]
 pub struct SubscribeOutputBuilder {
     pub(crate) subscription_arn: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl SubscribeOutputBuilder {
     /// <p>The ARN of the subscription if it is confirmed, or the string "pending confirmation" if the subscription requires confirmation. However, if the API request parameter <code>ReturnSubscriptionArn</code> is true, then the value is always the subscription ARN, even if the subscription requires confirmation.</p>
@@ -35,10 +42,20 @@ impl SubscribeOutputBuilder {
     pub fn set_subscription_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.subscription_arn = input; self }
     /// <p>The ARN of the subscription if it is confirmed, or the string "pending confirmation" if the subscription requires confirmation. However, if the API request parameter <code>ReturnSubscriptionArn</code> is true, then the value is always the subscription ARN, even if the subscription requires confirmation.</p>
     pub fn get_subscription_arn(&self) -> &::std::option::Option<::std::string::String> { &self.subscription_arn }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`SubscribeOutput`](crate::operation::subscribe::SubscribeOutput).
     pub fn build(self) -> crate::operation::subscribe::SubscribeOutput {
         crate::operation::subscribe::SubscribeOutput {
             subscription_arn: self.subscription_arn,
+            _request_id: self._request_id,
         }
     }
 }

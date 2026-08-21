@@ -10,6 +10,7 @@ pub struct ListVirtualMfaDevicesOutput {
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListVirtualMfaDevicesOutput {
     /// <p>The list of virtual MFA devices in the current account that match the <code>AssignmentStatus</code> value that was passed in the request.</p>
@@ -26,6 +27,11 @@ impl ListVirtualMfaDevicesOutput {
         self.marker.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for ListVirtualMfaDevicesOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListVirtualMfaDevicesOutput {
     /// Creates a new builder-style object to manufacture [`ListVirtualMfaDevicesOutput`](crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput).
     pub fn builder() -> crate::operation::list_virtual_mfa_devices::builders::ListVirtualMfaDevicesOutputBuilder {
@@ -40,6 +46,7 @@ pub struct ListVirtualMfaDevicesOutputBuilder {
     pub(crate) virtual_mfa_devices: ::std::option::Option<::std::vec::Vec<crate::types::VirtualMfaDevice>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListVirtualMfaDevicesOutputBuilder {
     /// <p>The list of virtual MFA devices in the current account that match the <code>AssignmentStatus</code> value that was passed in the request.</p>
@@ -71,6 +78,15 @@ impl ListVirtualMfaDevicesOutputBuilder {
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListVirtualMfaDevicesOutput`](crate::operation::list_virtual_mfa_devices::ListVirtualMfaDevicesOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`virtual_mfa_devices`](Self::virtual_mfa_devices)
@@ -79,6 +95,7 @@ impl ListVirtualMfaDevicesOutputBuilder {
             virtual_mfa_devices: self.virtual_mfa_devices.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("virtual_mfa_devices", "virtual_mfa_devices was not specified but it is required when building ListVirtualMfaDevicesOutput"))?,
             is_truncated: self.is_truncated,
             marker: self.marker,
+            _request_id: self._request_id,
         })
     }
 }

@@ -10,6 +10,7 @@ pub struct EncryptOutput {
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>The encryption algorithm that was used to encrypt the plaintext.</p>
     pub encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
+    _request_id: Option<String>,
 }
 impl EncryptOutput {
     /// <p>The encrypted plaintext. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -23,6 +24,11 @@ impl EncryptOutput {
     /// <p>The encryption algorithm that was used to encrypt the plaintext.</p>
     pub fn encryption_algorithm(&self) -> ::std::option::Option<&crate::types::EncryptionAlgorithmSpec> {
         self.encryption_algorithm.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for EncryptOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl EncryptOutput {
@@ -39,6 +45,7 @@ pub struct EncryptOutputBuilder {
     pub(crate) ciphertext_blob: ::std::option::Option<::std::vec::Vec<u8>>,
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
     pub(crate) encryption_algorithm: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>,
+    _request_id: Option<String>,
 }
 impl EncryptOutputBuilder {
     /// <p>The encrypted plaintext. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -65,12 +72,22 @@ impl EncryptOutputBuilder {
     pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self { self.encryption_algorithm = input; self }
     /// <p>The encryption algorithm that was used to encrypt the plaintext.</p>
     pub fn get_encryption_algorithm(&self) -> &::std::option::Option<crate::types::EncryptionAlgorithmSpec> { &self.encryption_algorithm }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`EncryptOutput`](crate::operation::encrypt::EncryptOutput).
     pub fn build(self) -> crate::operation::encrypt::EncryptOutput {
         crate::operation::encrypt::EncryptOutput {
             ciphertext_blob: self.ciphertext_blob,
             key_id: self.key_id,
             encryption_algorithm: self.encryption_algorithm,
+            _request_id: self._request_id,
         }
     }
 }

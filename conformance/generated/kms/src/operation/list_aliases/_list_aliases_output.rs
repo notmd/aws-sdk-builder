@@ -10,6 +10,7 @@ pub struct ListAliasesOutput {
     pub next_marker: ::std::option::Option<::std::string::String>,
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
     pub truncated: ::std::option::Option<bool>,
+    _request_id: Option<String>,
 }
 impl ListAliasesOutput {
     /// <p>A list of aliases.</p>
@@ -23,6 +24,11 @@ impl ListAliasesOutput {
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
     pub fn truncated(&self) -> ::std::option::Option<bool> {
         self.truncated
+    }
+}
+impl ::aws_types::request_id::RequestId for ListAliasesOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListAliasesOutput {
@@ -39,6 +45,7 @@ pub struct ListAliasesOutputBuilder {
     pub(crate) aliases: ::std::option::Option<::std::vec::Vec<crate::types::AliasListEntry>>,
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
     pub(crate) truncated: ::std::option::Option<bool>,
+    _request_id: Option<String>,
 }
 impl ListAliasesOutputBuilder {
     /// <p>A list of aliases.</p>
@@ -70,12 +77,22 @@ impl ListAliasesOutputBuilder {
     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self { self.truncated = input; self }
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
     pub fn get_truncated(&self) -> &::std::option::Option<bool> { &self.truncated }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListAliasesOutput`](crate::operation::list_aliases::ListAliasesOutput).
     pub fn build(self) -> crate::operation::list_aliases::ListAliasesOutput {
         crate::operation::list_aliases::ListAliasesOutput {
             aliases: self.aliases,
             next_marker: self.next_marker,
             truncated: self.truncated,
+            _request_id: self._request_id,
         }
     }
 }

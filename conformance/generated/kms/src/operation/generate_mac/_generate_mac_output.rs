@@ -11,6 +11,7 @@ pub struct GenerateMacOutput {
     pub mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
     /// <p>The HMAC KMS key used in the operation.</p>
     pub key_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GenerateMacOutput {
     /// <p>The hash-based message authentication code (HMAC) that was generated for the specified message, HMAC KMS key, and MAC algorithm.</p>
@@ -27,6 +28,11 @@ impl GenerateMacOutput {
         self.key_id.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for GenerateMacOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GenerateMacOutput {
     /// Creates a new builder-style object to manufacture [`GenerateMacOutput`](crate::operation::generate_mac::GenerateMacOutput).
     pub fn builder() -> crate::operation::generate_mac::builders::GenerateMacOutputBuilder {
@@ -41,6 +47,7 @@ pub struct GenerateMacOutputBuilder {
     pub(crate) mac: ::std::option::Option<::std::vec::Vec<u8>>,
     pub(crate) mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GenerateMacOutputBuilder {
     /// <p>The hash-based message authentication code (HMAC) that was generated for the specified message, HMAC KMS key, and MAC algorithm.</p>
@@ -69,12 +76,22 @@ impl GenerateMacOutputBuilder {
     pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
     /// <p>The HMAC KMS key used in the operation.</p>
     pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GenerateMacOutput`](crate::operation::generate_mac::GenerateMacOutput).
     pub fn build(self) -> crate::operation::generate_mac::GenerateMacOutput {
         crate::operation::generate_mac::GenerateMacOutput {
             mac: self.mac,
             mac_algorithm: self.mac_algorithm,
             key_id: self.key_id,
+            _request_id: self._request_id,
         }
     }
 }

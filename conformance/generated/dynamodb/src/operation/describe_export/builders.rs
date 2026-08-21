@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DescribeExportError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DescribeExportError::Unhandled(format!("DescribeExport returned HTTP {}", status)));
+                             return Err(super::DescribeExportError::unhandled_with_request_ids(format!("DescribeExport returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_describe_export_output::DescribeExportOutputBuilder::default().build())
+                         let mut output = super::_describe_export_output::DescribeExportOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DescribeExportFluentBuilder;

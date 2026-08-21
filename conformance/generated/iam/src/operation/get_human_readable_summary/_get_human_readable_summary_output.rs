@@ -10,6 +10,7 @@ pub struct GetHumanReadableSummaryOutput {
     pub locale: ::std::option::Option<::std::string::String>,
     /// <p>State of summary generation. This generation process is asynchronous and this attribute indicates the state of the generation process.</p>
     pub summary_state: ::std::option::Option<crate::types::SummaryStateType>,
+    _request_id: Option<String>,
 }
 impl GetHumanReadableSummaryOutput {
     /// <p>Summary content in the specified locale. Summary content is non-empty only if the <code>SummaryState</code> is <code>AVAILABLE</code>.</p>
@@ -23,6 +24,11 @@ impl GetHumanReadableSummaryOutput {
     /// <p>State of summary generation. This generation process is asynchronous and this attribute indicates the state of the generation process.</p>
     pub fn summary_state(&self) -> ::std::option::Option<&crate::types::SummaryStateType> {
         self.summary_state.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetHumanReadableSummaryOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetHumanReadableSummaryOutput {
@@ -39,6 +45,7 @@ pub struct GetHumanReadableSummaryOutputBuilder {
     pub(crate) summary_content: ::std::option::Option<::std::string::String>,
     pub(crate) locale: ::std::option::Option<::std::string::String>,
     pub(crate) summary_state: ::std::option::Option<crate::types::SummaryStateType>,
+    _request_id: Option<String>,
 }
 impl GetHumanReadableSummaryOutputBuilder {
     /// <p>Summary content in the specified locale. Summary content is non-empty only if the <code>SummaryState</code> is <code>AVAILABLE</code>.</p>
@@ -65,12 +72,22 @@ impl GetHumanReadableSummaryOutputBuilder {
     pub fn set_summary_state(mut self, input: ::std::option::Option<crate::types::SummaryStateType>) -> Self { self.summary_state = input; self }
     /// <p>State of summary generation. This generation process is asynchronous and this attribute indicates the state of the generation process.</p>
     pub fn get_summary_state(&self) -> &::std::option::Option<crate::types::SummaryStateType> { &self.summary_state }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetHumanReadableSummaryOutput`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput).
     pub fn build(self) -> crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput {
         crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput {
             summary_content: self.summary_content,
             locale: self.locale,
             summary_state: self.summary_state,
+            _request_id: self._request_id,
         }
     }
 }

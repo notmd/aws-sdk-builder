@@ -21,7 +21,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListMessageMoveTasksError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListMessageMoveTasksError::Unhandled(format!("ListMessageMoveTasks returned HTTP {}", status)));
+                             return Err(super::ListMessageMoveTasksError::unhandled_with_request_ids(format!("ListMessageMoveTasks returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
                          let mut output = super::_list_message_move_tasks_output::ListMessageMoveTasksOutputBuilder::default();
                          let body = response.text().await.map_err(super::ListMessageMoveTasksError::Unhandled)?;
@@ -36,6 +36,7 @@ impl Builder {
  item.started_timestamp = super::super::super::transport::xml_first(&value, "StartedTimestamp").and_then(|value| value.parse().ok());
  item.build() }).collect();
                          output.results = Some(values);
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

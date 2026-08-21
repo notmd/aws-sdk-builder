@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::AssumeRootError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::AssumeRootError::Unhandled(format!("AssumeRoot returned HTTP {}", status)));
+                             return Err(super::AssumeRootError::unhandled_with_request_ids(format!("AssumeRoot returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_assume_root_output::AssumeRootOutputBuilder::default().build())
+                         let mut output = super::_assume_root_output::AssumeRootOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as AssumeRootFluentBuilder;

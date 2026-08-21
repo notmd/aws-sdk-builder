@@ -41,6 +41,8 @@ pub struct GetObjectAnnotationOutput {
     pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
     /// <p>The replication status of the annotation. Possible values include <code>PENDING</code>, <code>COMPLETED</code>, <code>FAILED</code>, and <code>REPLICA</code>.</p>
     pub replication_status: ::std::option::Option<crate::types::ReplicationStatus>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl GetObjectAnnotationOutput {
     /// <p>The annotation payload.</p>
@@ -119,6 +121,16 @@ impl GetObjectAnnotationOutput {
         self.replication_status.as_ref()
     }
 }
+impl crate::s3_request_id::RequestIdExt for GetObjectAnnotationOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetObjectAnnotationOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetObjectAnnotationOutput {
     /// Creates a new builder-style object to manufacture [`GetObjectAnnotationOutput`](crate::operation::get_object_annotation::GetObjectAnnotationOutput).
     pub fn builder() -> crate::operation::get_object_annotation::builders::GetObjectAnnotationOutputBuilder {
@@ -149,6 +161,8 @@ pub struct GetObjectAnnotationOutputBuilder {
     pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
     pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
     pub(crate) replication_status: ::std::option::Option<crate::types::ReplicationStatus>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl GetObjectAnnotationOutputBuilder {
     /// <p>The annotation payload.</p>
@@ -301,6 +315,24 @@ impl GetObjectAnnotationOutputBuilder {
     pub fn set_replication_status(mut self, input: ::std::option::Option<crate::types::ReplicationStatus>) -> Self { self.replication_status = input; self }
     /// <p>The replication status of the annotation. Possible values include <code>PENDING</code>, <code>COMPLETED</code>, <code>FAILED</code>, and <code>REPLICA</code>.</p>
     pub fn get_replication_status(&self) -> &::std::option::Option<crate::types::ReplicationStatus> { &self.replication_status }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetObjectAnnotationOutput`](crate::operation::get_object_annotation::GetObjectAnnotationOutput).
     pub fn build(self) -> crate::operation::get_object_annotation::GetObjectAnnotationOutput {
         crate::operation::get_object_annotation::GetObjectAnnotationOutput {
@@ -323,6 +355,8 @@ impl GetObjectAnnotationOutputBuilder {
             server_side_encryption: self.server_side_encryption,
             request_charged: self.request_charged,
             replication_status: self.replication_status,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

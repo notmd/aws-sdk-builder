@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::CreateGlobalTableError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::CreateGlobalTableError::Unhandled(format!("CreateGlobalTable returned HTTP {}", status)));
+                             return Err(super::CreateGlobalTableError::unhandled_with_request_ids(format!("CreateGlobalTable returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_create_global_table_output::CreateGlobalTableOutputBuilder::default().build())
+                         let mut output = super::_create_global_table_output::CreateGlobalTableOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as CreateGlobalTableFluentBuilder;

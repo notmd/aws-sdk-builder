@@ -20,6 +20,7 @@ pub struct GenerateDataKeyPairOutput {
     pub ciphertext_for_recipient: ::std::option::Option<::std::vec::Vec<u8>>,
     /// <p>The identifier of the key material used to encrypt the private key.</p>
     pub key_material_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GenerateDataKeyPairOutput {
     /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -53,6 +54,11 @@ impl GenerateDataKeyPairOutput {
         self.key_material_id.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for GenerateDataKeyPairOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GenerateDataKeyPairOutput {
     /// Creates a new builder-style object to manufacture [`GenerateDataKeyPairOutput`](crate::operation::generate_data_key_pair::GenerateDataKeyPairOutput).
     pub fn builder() -> crate::operation::generate_data_key_pair::builders::GenerateDataKeyPairOutputBuilder {
@@ -71,6 +77,7 @@ pub struct GenerateDataKeyPairOutputBuilder {
     pub(crate) key_pair_spec: ::std::option::Option<crate::types::DataKeyPairSpec>,
     pub(crate) ciphertext_for_recipient: ::std::option::Option<::std::vec::Vec<u8>>,
     pub(crate) key_material_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GenerateDataKeyPairOutputBuilder {
     /// <p>The encrypted copy of the private key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -133,6 +140,15 @@ impl GenerateDataKeyPairOutputBuilder {
     pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_material_id = input; self }
     /// <p>The identifier of the key material used to encrypt the private key.</p>
     pub fn get_key_material_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_material_id }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GenerateDataKeyPairOutput`](crate::operation::generate_data_key_pair::GenerateDataKeyPairOutput).
     pub fn build(self) -> crate::operation::generate_data_key_pair::GenerateDataKeyPairOutput {
         crate::operation::generate_data_key_pair::GenerateDataKeyPairOutput {
@@ -143,6 +159,7 @@ impl GenerateDataKeyPairOutputBuilder {
             key_pair_spec: self.key_pair_spec,
             ciphertext_for_recipient: self.ciphertext_for_recipient,
             key_material_id: self.key_material_id,
+            _request_id: self._request_id,
         }
     }
 }

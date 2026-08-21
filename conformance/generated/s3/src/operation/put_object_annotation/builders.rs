@@ -41,7 +41,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::PutObjectAnnotationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::PutObjectAnnotationError::Unhandled(format!("PutObjectAnnotation returned HTTP {}", status)));
+                             return Err(super::PutObjectAnnotationError::unhandled_with_request_ids(format!("PutObjectAnnotation returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_put_object_annotation_output::PutObjectAnnotationOutputBuilder::default();
                          let body = response.text().await.map_err(super::PutObjectAnnotationError::Unhandled)?;
@@ -59,6 +59,8 @@ impl Builder {
                          output.checksum_xxhash64 = response.header("x-amz-checksum-xxhash64").map(str::to_owned);
                          output.checksum_xxhash3 = response.header("x-amz-checksum-xxhash3").map(str::to_owned);
                          output.checksum_xxhash128 = response.header("x-amz-checksum-xxhash128").map(str::to_owned);
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

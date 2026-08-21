@@ -6,11 +6,23 @@
 pub struct GetBucketRequestPaymentOutput {
     /// <p>Specifies who pays for the download and request fees.</p>
     pub payer: ::std::option::Option<crate::types::Payer>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl GetBucketRequestPaymentOutput {
     /// <p>Specifies who pays for the download and request fees.</p>
     pub fn payer(&self) -> ::std::option::Option<&crate::types::Payer> {
         self.payer.as_ref()
+    }
+}
+impl crate::s3_request_id::RequestIdExt for GetBucketRequestPaymentOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetBucketRequestPaymentOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetBucketRequestPaymentOutput {
@@ -25,6 +37,8 @@ impl GetBucketRequestPaymentOutput {
 #[non_exhaustive]
 pub struct GetBucketRequestPaymentOutputBuilder {
     pub(crate) payer: ::std::option::Option<crate::types::Payer>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl GetBucketRequestPaymentOutputBuilder {
     /// <p>Specifies who pays for the download and request fees.</p>
@@ -35,10 +49,30 @@ impl GetBucketRequestPaymentOutputBuilder {
     pub fn set_payer(mut self, input: ::std::option::Option<crate::types::Payer>) -> Self { self.payer = input; self }
     /// <p>Specifies who pays for the download and request fees.</p>
     pub fn get_payer(&self) -> &::std::option::Option<crate::types::Payer> { &self.payer }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetBucketRequestPaymentOutput`](crate::operation::get_bucket_request_payment::GetBucketRequestPaymentOutput).
     pub fn build(self) -> crate::operation::get_bucket_request_payment::GetBucketRequestPaymentOutput {
         crate::operation::get_bucket_request_payment::GetBucketRequestPaymentOutput {
             payer: self.payer,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

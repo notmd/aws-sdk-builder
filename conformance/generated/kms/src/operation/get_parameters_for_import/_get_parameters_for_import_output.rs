@@ -12,6 +12,7 @@ pub struct GetParametersForImportOutput {
     pub public_key: ::std::option::Option<::std::vec::Vec<u8>>,
     /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <a>ImportKeyMaterial</a> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
     pub parameters_valid_to: ::std::option::Option<::aws_smithy_types::DateTime>,
+    _request_id: Option<String>,
 }
 impl GetParametersForImportOutput {
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <a>ImportKeyMaterial</a> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
@@ -31,6 +32,11 @@ impl GetParametersForImportOutput {
         self.parameters_valid_to.as_ref()
     }
 }
+impl ::aws_types::request_id::RequestId for GetParametersForImportOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetParametersForImportOutput {
     /// Creates a new builder-style object to manufacture [`GetParametersForImportOutput`](crate::operation::get_parameters_for_import::GetParametersForImportOutput).
     pub fn builder() -> crate::operation::get_parameters_for_import::builders::GetParametersForImportOutputBuilder {
@@ -46,6 +52,7 @@ pub struct GetParametersForImportOutputBuilder {
     pub(crate) import_token: ::std::option::Option<::std::vec::Vec<u8>>,
     pub(crate) public_key: ::std::option::Option<::std::vec::Vec<u8>>,
     pub(crate) parameters_valid_to: ::std::option::Option<::aws_smithy_types::DateTime>,
+    _request_id: Option<String>,
 }
 impl GetParametersForImportOutputBuilder {
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key to use in a subsequent <a>ImportKeyMaterial</a> request. This is the same KMS key specified in the <code>GetParametersForImport</code> request.</p>
@@ -80,6 +87,15 @@ impl GetParametersForImportOutputBuilder {
     pub fn set_parameters_valid_to(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.parameters_valid_to = input; self }
     /// <p>The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an <a>ImportKeyMaterial</a> request and you must send another <code>GetParametersForImport</code> request to get new ones.</p>
     pub fn get_parameters_valid_to(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.parameters_valid_to }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetParametersForImportOutput`](crate::operation::get_parameters_for_import::GetParametersForImportOutput).
     pub fn build(self) -> crate::operation::get_parameters_for_import::GetParametersForImportOutput {
         crate::operation::get_parameters_for_import::GetParametersForImportOutput {
@@ -87,6 +103,7 @@ impl GetParametersForImportOutputBuilder {
             import_token: self.import_token,
             public_key: self.public_key,
             parameters_valid_to: self.parameters_valid_to,
+            _request_id: self._request_id,
         }
     }
 }

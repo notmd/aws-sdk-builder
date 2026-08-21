@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetGroupError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetGroupError::Unhandled(format!("GetGroup returned HTTP {}", status)));
+                             return Err(super::GetGroupError::unhandled_with_request_ids(format!("GetGroup returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         super::_get_group_output::GetGroupOutputBuilder::default().build().map_err(|error| super::GetGroupError::Unhandled(error.to_string()))
+                         let mut output = super::_get_group_output::GetGroupOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         output.build().map_err(|error| super::GetGroupError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as GetGroupFluentBuilder;

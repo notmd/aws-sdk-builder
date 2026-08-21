@@ -10,6 +10,7 @@ pub struct ListDelegationRequestsOutput {
     pub marker: ::std::option::Option<::std::string::String>,
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items.</p>
     pub is_truncated: ::std::option::Option<bool>,
+    _request_id: Option<String>,
 }
 impl ListDelegationRequestsOutput {
     /// <p>A list of delegation requests that match the specified criteria.</p>
@@ -23,6 +24,11 @@ impl ListDelegationRequestsOutput {
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items.</p>
     pub fn is_truncated(&self) -> ::std::option::Option<bool> {
         self.is_truncated
+    }
+}
+impl ::aws_types::request_id::RequestId for ListDelegationRequestsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListDelegationRequestsOutput {
@@ -39,6 +45,7 @@ pub struct ListDelegationRequestsOutputBuilder {
     pub(crate) delegation_requests: ::std::option::Option<::std::vec::Vec<crate::types::DelegationRequest>>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
+    _request_id: Option<String>,
 }
 impl ListDelegationRequestsOutputBuilder {
     /// <p>A list of delegation requests that match the specified criteria.</p>
@@ -70,12 +77,22 @@ impl ListDelegationRequestsOutputBuilder {
     pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self { self.is_truncated = input; self }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items.</p>
     pub fn get_is_truncated(&self) -> &::std::option::Option<bool> { &self.is_truncated }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListDelegationRequestsOutput`](crate::operation::list_delegation_requests::ListDelegationRequestsOutput).
     pub fn build(self) -> crate::operation::list_delegation_requests::ListDelegationRequestsOutput {
         crate::operation::list_delegation_requests::ListDelegationRequestsOutput {
             delegation_requests: self.delegation_requests,
             marker: self.marker,
             is_truncated: self.is_truncated,
+            _request_id: self._request_id,
         }
     }
 }

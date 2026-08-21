@@ -22,11 +22,13 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetBucketPolicyError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetBucketPolicyError::Unhandled(format!("GetBucketPolicy returned HTTP {}", status)));
+                             return Err(super::GetBucketPolicyError::unhandled_with_request_ids(format!("GetBucketPolicy returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_bucket_policy_output::GetBucketPolicyOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketPolicyError::Unhandled)?;
                          output.policy = super::super::super::transport::xml_first(&body, "Policy").and_then(|value| value.parse().ok());
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

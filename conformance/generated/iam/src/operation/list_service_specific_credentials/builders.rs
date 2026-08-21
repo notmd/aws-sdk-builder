@@ -24,9 +24,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListServiceSpecificCredentialsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListServiceSpecificCredentialsError::Unhandled(format!("ListServiceSpecificCredentials returned HTTP {}", status)));
+                             return Err(super::ListServiceSpecificCredentialsError::unhandled_with_request_ids(format!("ListServiceSpecificCredentials returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_list_service_specific_credentials_output::ListServiceSpecificCredentialsOutputBuilder::default().build())
+                         let mut output = super::_list_service_specific_credentials_output::ListServiceSpecificCredentialsOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as ListServiceSpecificCredentialsFluentBuilder;

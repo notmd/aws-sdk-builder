@@ -6,11 +6,17 @@
 pub struct CreateServiceSpecificCredentialOutput {
     /// <p>A structure that contains information about the newly created service-specific credential.</p> <important><p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p></important>
     pub service_specific_credential: ::std::option::Option<crate::types::ServiceSpecificCredential>,
+    _request_id: Option<String>,
 }
 impl CreateServiceSpecificCredentialOutput {
     /// <p>A structure that contains information about the newly created service-specific credential.</p> <important><p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p></important>
     pub fn service_specific_credential(&self) -> ::std::option::Option<&crate::types::ServiceSpecificCredential> {
         self.service_specific_credential.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for CreateServiceSpecificCredentialOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl CreateServiceSpecificCredentialOutput {
@@ -25,6 +31,7 @@ impl CreateServiceSpecificCredentialOutput {
 #[non_exhaustive]
 pub struct CreateServiceSpecificCredentialOutputBuilder {
     pub(crate) service_specific_credential: ::std::option::Option<crate::types::ServiceSpecificCredential>,
+    _request_id: Option<String>,
 }
 impl CreateServiceSpecificCredentialOutputBuilder {
     /// <p>A structure that contains information about the newly created service-specific credential.</p> <important><p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p></important>
@@ -35,10 +42,20 @@ impl CreateServiceSpecificCredentialOutputBuilder {
     pub fn set_service_specific_credential(mut self, input: ::std::option::Option<crate::types::ServiceSpecificCredential>) -> Self { self.service_specific_credential = input; self }
     /// <p>A structure that contains information about the newly created service-specific credential.</p> <important><p>This is the only time that the password for this credential set is available. It cannot be recovered later. Instead, you must reset the password with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ResetServiceSpecificCredential.html">ResetServiceSpecificCredential</a>.</p></important>
     pub fn get_service_specific_credential(&self) -> &::std::option::Option<crate::types::ServiceSpecificCredential> { &self.service_specific_credential }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`CreateServiceSpecificCredentialOutput`](crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialOutput).
     pub fn build(self) -> crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialOutput {
         crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialOutput {
             service_specific_credential: self.service_specific_credential,
+            _request_id: self._request_id,
         }
     }
 }

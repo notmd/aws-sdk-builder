@@ -12,6 +12,7 @@ pub struct GetMfaDeviceOutput {
     pub enable_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/">FIDO Alliance Metadata Service (MDS)</a>.</p>
     pub certifications: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    _request_id: Option<String>,
 }
 impl GetMfaDeviceOutput {
     /// <p>The friendly name identifying the user.</p>
@@ -32,6 +33,11 @@ impl GetMfaDeviceOutput {
         self.certifications.as_ref()
     }
 }
+impl ::aws_types::request_id::RequestId for GetMfaDeviceOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetMfaDeviceOutput {
     /// Creates a new builder-style object to manufacture [`GetMfaDeviceOutput`](crate::operation::get_mfa_device::GetMfaDeviceOutput).
     pub fn builder() -> crate::operation::get_mfa_device::builders::GetMfaDeviceOutputBuilder {
@@ -47,6 +53,7 @@ pub struct GetMfaDeviceOutputBuilder {
     pub(crate) serial_number: ::std::option::Option<::std::string::String>,
     pub(crate) enable_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) certifications: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    _request_id: Option<String>,
 }
 impl GetMfaDeviceOutputBuilder {
     /// <p>The friendly name identifying the user.</p>
@@ -87,6 +94,15 @@ impl GetMfaDeviceOutputBuilder {
     pub fn set_certifications(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.certifications = input; self }
     /// <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/">FIDO Alliance Metadata Service (MDS)</a>.</p>
     pub fn get_certifications(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.certifications }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetMfaDeviceOutput`](crate::operation::get_mfa_device::GetMfaDeviceOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`serial_number`](Self::serial_number)
@@ -96,6 +112,7 @@ impl GetMfaDeviceOutputBuilder {
             serial_number: self.serial_number.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("serial_number", "serial_number was not specified but it is required when building GetMfaDeviceOutput"))?,
             enable_date: self.enable_date,
             certifications: self.certifications,
+            _request_id: self._request_id,
         })
     }
 }

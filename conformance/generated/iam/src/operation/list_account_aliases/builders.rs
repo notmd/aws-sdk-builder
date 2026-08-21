@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListAccountAliasesError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListAccountAliasesError::Unhandled(format!("ListAccountAliases returned HTTP {}", status)));
+                             return Err(super::ListAccountAliasesError::unhandled_with_request_ids(format!("ListAccountAliases returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         super::_list_account_aliases_output::ListAccountAliasesOutputBuilder::default().build().map_err(|error| super::ListAccountAliasesError::Unhandled(error.to_string()))
+                         let mut output = super::_list_account_aliases_output::ListAccountAliasesOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         output.build().map_err(|error| super::ListAccountAliasesError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as ListAccountAliasesFluentBuilder;

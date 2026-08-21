@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UpdateSigningCertificateError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UpdateSigningCertificateError::Unhandled(format!("UpdateSigningCertificate returned HTTP {}", status)));
+                             return Err(super::UpdateSigningCertificateError::unhandled_with_request_ids(format!("UpdateSigningCertificate returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::UpdateSigningCertificateOutput{})
+                         let mut output = super::_update_signing_certificate_output::UpdateSigningCertificateOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UpdateSigningCertificateFluentBuilder;

@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::AddRoleToInstanceProfileError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::AddRoleToInstanceProfileError::Unhandled(format!("AddRoleToInstanceProfile returned HTTP {}", status)));
+                             return Err(super::AddRoleToInstanceProfileError::unhandled_with_request_ids(format!("AddRoleToInstanceProfile returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::AddRoleToInstanceProfileOutput{})
+                         let mut output = super::_add_role_to_instance_profile_output::AddRoleToInstanceProfileOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as AddRoleToInstanceProfileFluentBuilder;

@@ -23,7 +23,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::ListBucketAnalyticsConfigurationsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListBucketAnalyticsConfigurationsError::Unhandled(format!("ListBucketAnalyticsConfigurations returned HTTP {}", status)));
+                             return Err(super::ListBucketAnalyticsConfigurationsError::unhandled_with_request_ids(format!("ListBucketAnalyticsConfigurations returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_list_bucket_analytics_configurations_output::ListBucketAnalyticsConfigurationsOutputBuilder::default();
                          let body = response.text().await.map_err(super::ListBucketAnalyticsConfigurationsError::Unhandled)?;
@@ -33,6 +33,8 @@ impl Builder {
                          let values = super::super::super::transport::xml_tags(&body, "AnalyticsConfiguration").into_iter().filter_map(|value| { let mut item: crate::types::AnalyticsConfigurationBuilder = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
  item.build().ok() }).collect();
                          output.analytics_configuration_list = Some(values);
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

@@ -6,11 +6,17 @@
 pub struct UpdateGlobalTableOutput {
     /// <p>Contains the details of the global table.</p>
     pub global_table_description: ::std::option::Option<crate::types::GlobalTableDescription>,
+    _request_id: Option<String>,
 }
 impl UpdateGlobalTableOutput {
     /// <p>Contains the details of the global table.</p>
     pub fn global_table_description(&self) -> ::std::option::Option<&crate::types::GlobalTableDescription> {
         self.global_table_description.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for UpdateGlobalTableOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl UpdateGlobalTableOutput {
@@ -25,6 +31,7 @@ impl UpdateGlobalTableOutput {
 #[non_exhaustive]
 pub struct UpdateGlobalTableOutputBuilder {
     pub(crate) global_table_description: ::std::option::Option<crate::types::GlobalTableDescription>,
+    _request_id: Option<String>,
 }
 impl UpdateGlobalTableOutputBuilder {
     /// <p>Contains the details of the global table.</p>
@@ -35,10 +42,20 @@ impl UpdateGlobalTableOutputBuilder {
     pub fn set_global_table_description(mut self, input: ::std::option::Option<crate::types::GlobalTableDescription>) -> Self { self.global_table_description = input; self }
     /// <p>Contains the details of the global table.</p>
     pub fn get_global_table_description(&self) -> &::std::option::Option<crate::types::GlobalTableDescription> { &self.global_table_description }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`UpdateGlobalTableOutput`](crate::operation::update_global_table::UpdateGlobalTableOutput).
     pub fn build(self) -> crate::operation::update_global_table::UpdateGlobalTableOutput {
         crate::operation::update_global_table::UpdateGlobalTableOutput {
             global_table_description: self.global_table_description,
+            _request_id: self._request_id,
         }
     }
 }

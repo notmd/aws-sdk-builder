@@ -6,11 +6,17 @@
 pub struct CreateBackupOutput {
     /// <p>Contains the details of the backup created for the table.</p>
     pub backup_details: ::std::option::Option<crate::types::BackupDetails>,
+    _request_id: Option<String>,
 }
 impl CreateBackupOutput {
     /// <p>Contains the details of the backup created for the table.</p>
     pub fn backup_details(&self) -> ::std::option::Option<&crate::types::BackupDetails> {
         self.backup_details.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for CreateBackupOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl CreateBackupOutput {
@@ -25,6 +31,7 @@ impl CreateBackupOutput {
 #[non_exhaustive]
 pub struct CreateBackupOutputBuilder {
     pub(crate) backup_details: ::std::option::Option<crate::types::BackupDetails>,
+    _request_id: Option<String>,
 }
 impl CreateBackupOutputBuilder {
     /// <p>Contains the details of the backup created for the table.</p>
@@ -35,10 +42,20 @@ impl CreateBackupOutputBuilder {
     pub fn set_backup_details(mut self, input: ::std::option::Option<crate::types::BackupDetails>) -> Self { self.backup_details = input; self }
     /// <p>Contains the details of the backup created for the table.</p>
     pub fn get_backup_details(&self) -> &::std::option::Option<crate::types::BackupDetails> { &self.backup_details }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`CreateBackupOutput`](crate::operation::create_backup::CreateBackupOutput).
     pub fn build(self) -> crate::operation::create_backup::CreateBackupOutput {
         crate::operation::create_backup::CreateBackupOutput {
             backup_details: self.backup_details,
+            _request_id: self._request_id,
         }
     }
 }

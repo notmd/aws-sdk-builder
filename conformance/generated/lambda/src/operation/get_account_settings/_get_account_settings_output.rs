@@ -8,6 +8,7 @@ pub struct GetAccountSettingsOutput {
     pub account_limit: ::std::option::Option<crate::types::AccountLimit>,
     /// <p>The number of functions and amount of storage in use.</p>
     pub account_usage: ::std::option::Option<crate::types::AccountUsage>,
+    _request_id: Option<String>,
 }
 impl GetAccountSettingsOutput {
     /// <p>Limits that are related to concurrency and code storage.</p>
@@ -17,6 +18,11 @@ impl GetAccountSettingsOutput {
     /// <p>The number of functions and amount of storage in use.</p>
     pub fn account_usage(&self) -> ::std::option::Option<&crate::types::AccountUsage> {
         self.account_usage.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetAccountSettingsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetAccountSettingsOutput {
@@ -32,6 +38,7 @@ impl GetAccountSettingsOutput {
 pub struct GetAccountSettingsOutputBuilder {
     pub(crate) account_limit: ::std::option::Option<crate::types::AccountLimit>,
     pub(crate) account_usage: ::std::option::Option<crate::types::AccountUsage>,
+    _request_id: Option<String>,
 }
 impl GetAccountSettingsOutputBuilder {
     /// <p>Limits that are related to concurrency and code storage.</p>
@@ -50,11 +57,21 @@ impl GetAccountSettingsOutputBuilder {
     pub fn set_account_usage(mut self, input: ::std::option::Option<crate::types::AccountUsage>) -> Self { self.account_usage = input; self }
     /// <p>The number of functions and amount of storage in use.</p>
     pub fn get_account_usage(&self) -> &::std::option::Option<crate::types::AccountUsage> { &self.account_usage }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetAccountSettingsOutput`](crate::operation::get_account_settings::GetAccountSettingsOutput).
     pub fn build(self) -> crate::operation::get_account_settings::GetAccountSettingsOutput {
         crate::operation::get_account_settings::GetAccountSettingsOutput {
             account_limit: self.account_limit,
             account_usage: self.account_usage,
+            _request_id: self._request_id,
         }
     }
 }

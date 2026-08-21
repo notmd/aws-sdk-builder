@@ -12,6 +12,8 @@ pub struct ListBucketIntelligentTieringConfigurationsOutput {
     pub next_continuation_token: ::std::option::Option<::std::string::String>,
     /// <p>The list of S3 Intelligent-Tiering configurations for a bucket.</p>
     pub intelligent_tiering_configuration_list: ::std::option::Option<::std::vec::Vec<crate::types::IntelligentTieringConfiguration>>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl ListBucketIntelligentTieringConfigurationsOutput {
     /// <p>Indicates whether the returned list of analytics configurations is complete. A value of <code>true</code> indicates that the list is not complete and the <code>NextContinuationToken</code> will be provided for a subsequent request.</p>
@@ -31,6 +33,16 @@ impl ListBucketIntelligentTieringConfigurationsOutput {
         self.intelligent_tiering_configuration_list.as_deref().unwrap_or_default()
     }
 }
+impl crate::s3_request_id::RequestIdExt for ListBucketIntelligentTieringConfigurationsOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListBucketIntelligentTieringConfigurationsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListBucketIntelligentTieringConfigurationsOutput {
     /// Creates a new builder-style object to manufacture [`ListBucketIntelligentTieringConfigurationsOutput`](crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsOutput).
     pub fn builder() -> crate::operation::list_bucket_intelligent_tiering_configurations::builders::ListBucketIntelligentTieringConfigurationsOutputBuilder {
@@ -46,6 +58,8 @@ pub struct ListBucketIntelligentTieringConfigurationsOutputBuilder {
     pub(crate) continuation_token: ::std::option::Option<::std::string::String>,
     pub(crate) next_continuation_token: ::std::option::Option<::std::string::String>,
     pub(crate) intelligent_tiering_configuration_list: ::std::option::Option<::std::vec::Vec<crate::types::IntelligentTieringConfiguration>>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl ListBucketIntelligentTieringConfigurationsOutputBuilder {
     /// <p>Indicates whether the returned list of analytics configurations is complete. A value of <code>true</code> indicates that the list is not complete and the <code>NextContinuationToken</code> will be provided for a subsequent request.</p>
@@ -85,6 +99,24 @@ impl ListBucketIntelligentTieringConfigurationsOutputBuilder {
     pub fn set_intelligent_tiering_configuration_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::IntelligentTieringConfiguration>>) -> Self { self.intelligent_tiering_configuration_list = input; self }
     /// <p>The list of S3 Intelligent-Tiering configurations for a bucket.</p>
     pub fn get_intelligent_tiering_configuration_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::IntelligentTieringConfiguration>> { &self.intelligent_tiering_configuration_list }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListBucketIntelligentTieringConfigurationsOutput`](crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsOutput).
     pub fn build(self) -> crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsOutput {
         crate::operation::list_bucket_intelligent_tiering_configurations::ListBucketIntelligentTieringConfigurationsOutput {
@@ -92,6 +124,8 @@ impl ListBucketIntelligentTieringConfigurationsOutputBuilder {
             continuation_token: self.continuation_token,
             next_continuation_token: self.next_continuation_token,
             intelligent_tiering_configuration_list: self.intelligent_tiering_configuration_list,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

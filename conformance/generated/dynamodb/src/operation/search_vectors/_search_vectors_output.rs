@@ -8,6 +8,7 @@ pub struct SearchVectorsOutput {
     pub consumed_capacity: ::std::option::Option<crate::types::VectorCapacity>,
     /// <p>A list of items returned by the vector similarity search, sorted by similarity with the most similar item first. Each item contains the projected attributes and a similarity score.</p>
     pub search_results: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>>,
+    _request_id: Option<String>,
 }
 impl SearchVectorsOutput {
     /// <p>The capacity units consumed by the <code>SearchVectors</code> operation. Contains <code>VectorSearchRequestBytes</code>, which represents the vector search capacity consumed.</p>
@@ -17,6 +18,11 @@ impl SearchVectorsOutput {
     /// <p>A list of items returned by the vector similarity search, sorted by similarity with the most similar item first. Each item contains the projected attributes and a similarity score.</p>
     pub fn search_results(&self) -> &[crate::types::SearchResultItem] {
         self.search_results.as_deref().unwrap_or_default()
+    }
+}
+impl ::aws_types::request_id::RequestId for SearchVectorsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl SearchVectorsOutput {
@@ -32,6 +38,7 @@ impl SearchVectorsOutput {
 pub struct SearchVectorsOutputBuilder {
     pub(crate) consumed_capacity: ::std::option::Option<crate::types::VectorCapacity>,
     pub(crate) search_results: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>>,
+    _request_id: Option<String>,
 }
 impl SearchVectorsOutputBuilder {
     /// <p>The capacity units consumed by the <code>SearchVectors</code> operation. Contains <code>VectorSearchRequestBytes</code>, which represents the vector search capacity consumed.</p>
@@ -55,11 +62,21 @@ impl SearchVectorsOutputBuilder {
     pub fn set_search_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>>) -> Self { self.search_results = input; self }
     /// <p>A list of items returned by the vector similarity search, sorted by similarity with the most similar item first. Each item contains the projected attributes and a similarity score.</p>
     pub fn get_search_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>> { &self.search_results }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`SearchVectorsOutput`](crate::operation::search_vectors::SearchVectorsOutput).
     pub fn build(self) -> crate::operation::search_vectors::SearchVectorsOutput {
         crate::operation::search_vectors::SearchVectorsOutput {
             consumed_capacity: self.consumed_capacity,
             search_results: self.search_results,
+            _request_id: self._request_id,
         }
     }
 }

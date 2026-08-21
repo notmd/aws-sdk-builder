@@ -12,6 +12,7 @@ pub struct UpdateContributorInsightsOutput {
     pub contributor_insights_status: ::std::option::Option<crate::types::ContributorInsightsStatus>,
     /// <p>The updated mode of CloudWatch Contributor Insights that determines whether to monitor all access and throttled events or to track throttled events exclusively.</p>
     pub contributor_insights_mode: ::std::option::Option<crate::types::ContributorInsightsMode>,
+    _request_id: Option<String>,
 }
 impl UpdateContributorInsightsOutput {
     /// <p>The name of the table.</p>
@@ -31,6 +32,11 @@ impl UpdateContributorInsightsOutput {
         self.contributor_insights_mode.as_ref()
     }
 }
+impl ::aws_types::request_id::RequestId for UpdateContributorInsightsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl UpdateContributorInsightsOutput {
     /// Creates a new builder-style object to manufacture [`UpdateContributorInsightsOutput`](crate::operation::update_contributor_insights::UpdateContributorInsightsOutput).
     pub fn builder() -> crate::operation::update_contributor_insights::builders::UpdateContributorInsightsOutputBuilder {
@@ -46,6 +52,7 @@ pub struct UpdateContributorInsightsOutputBuilder {
     pub(crate) index_name: ::std::option::Option<::std::string::String>,
     pub(crate) contributor_insights_status: ::std::option::Option<crate::types::ContributorInsightsStatus>,
     pub(crate) contributor_insights_mode: ::std::option::Option<crate::types::ContributorInsightsMode>,
+    _request_id: Option<String>,
 }
 impl UpdateContributorInsightsOutputBuilder {
     /// <p>The name of the table.</p>
@@ -80,6 +87,15 @@ impl UpdateContributorInsightsOutputBuilder {
     pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self { self.contributor_insights_mode = input; self }
     /// <p>The updated mode of CloudWatch Contributor Insights that determines whether to monitor all access and throttled events or to track throttled events exclusively.</p>
     pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<crate::types::ContributorInsightsMode> { &self.contributor_insights_mode }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`UpdateContributorInsightsOutput`](crate::operation::update_contributor_insights::UpdateContributorInsightsOutput).
     pub fn build(self) -> crate::operation::update_contributor_insights::UpdateContributorInsightsOutput {
         crate::operation::update_contributor_insights::UpdateContributorInsightsOutput {
@@ -87,6 +103,7 @@ impl UpdateContributorInsightsOutputBuilder {
             index_name: self.index_name,
             contributor_insights_status: self.contributor_insights_status,
             contributor_insights_mode: self.contributor_insights_mode,
+            _request_id: self._request_id,
         }
     }
 }

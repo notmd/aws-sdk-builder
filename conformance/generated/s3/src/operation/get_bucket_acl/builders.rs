@@ -22,7 +22,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetBucketAclError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetBucketAclError::Unhandled(format!("GetBucketAcl returned HTTP {}", status)));
+                             return Err(super::GetBucketAclError::unhandled_with_request_ids(format!("GetBucketAcl returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_bucket_acl_output::GetBucketAclOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketAclError::Unhandled)?;
@@ -30,6 +30,8 @@ impl Builder {
  item.id = super::super::super::transport::xml_first(&value, "ID").and_then(|value| value.parse().ok());
  let item = item.build(); output.owner = Some(item); }
                          output.grants = Some(::std::vec::Vec::new());
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

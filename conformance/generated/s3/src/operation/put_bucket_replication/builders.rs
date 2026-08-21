@@ -26,9 +26,12 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::PutBucketReplicationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::PutBucketReplicationError::Unhandled(format!("PutBucketReplication returned HTTP {}", status)));
+                             return Err(super::PutBucketReplicationError::unhandled_with_request_ids(format!("PutBucketReplication returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
-                         Ok(super::PutBucketReplicationOutput{})
+                         let mut output = super::_put_bucket_replication_output::PutBucketReplicationOutputBuilder::default();
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as PutBucketReplicationFluentBuilder;

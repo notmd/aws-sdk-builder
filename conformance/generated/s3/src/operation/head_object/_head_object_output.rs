@@ -132,6 +132,8 @@ pub struct HeadObjectOutput {
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
     pub object_lock_legal_hold_status: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl HeadObjectOutput {
     /// <p>Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p><note>
@@ -351,6 +353,16 @@ impl HeadObjectOutput {
         self.object_lock_legal_hold_status.as_ref()
     }
 }
+impl crate::s3_request_id::RequestIdExt for HeadObjectOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for HeadObjectOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl HeadObjectOutput {
     /// Creates a new builder-style object to manufacture [`HeadObjectOutput`](crate::operation::head_object::HeadObjectOutput).
     pub fn builder() -> crate::operation::head_object::builders::HeadObjectOutputBuilder {
@@ -406,6 +418,8 @@ pub struct HeadObjectOutputBuilder {
     pub(crate) object_lock_mode: ::std::option::Option<crate::types::ObjectLockMode>,
     pub(crate) object_lock_retain_until_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) object_lock_legal_hold_status: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl HeadObjectOutputBuilder {
     /// <p>Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p><note>
@@ -846,6 +860,24 @@ impl HeadObjectOutputBuilder {
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
     pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<crate::types::ObjectLockLegalHoldStatus> { &self.object_lock_legal_hold_status }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`HeadObjectOutput`](crate::operation::head_object::HeadObjectOutput).
     pub fn build(self) -> crate::operation::head_object::HeadObjectOutput {
         crate::operation::head_object::HeadObjectOutput {
@@ -893,6 +925,8 @@ impl HeadObjectOutputBuilder {
             object_lock_mode: self.object_lock_mode,
             object_lock_retain_until_date: self.object_lock_retain_until_date,
             object_lock_legal_hold_status: self.object_lock_legal_hold_status,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

@@ -23,6 +23,8 @@ pub struct ListObjectAnnotationsOutput {
     /// <p>The continuation token to use to retrieve the next page of results.</p>
     pub next_continuation_token: ::std::option::Option<::std::string::String>,
     pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl ListObjectAnnotationsOutput {
     /// <p>The list of annotations attached to the object.</p>
@@ -65,6 +67,16 @@ impl ListObjectAnnotationsOutput {
         self.request_charged.as_ref()
     }
 }
+impl crate::s3_request_id::RequestIdExt for ListObjectAnnotationsOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListObjectAnnotationsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListObjectAnnotationsOutput {
     /// Creates a new builder-style object to manufacture [`ListObjectAnnotationsOutput`](crate::operation::list_object_annotations::ListObjectAnnotationsOutput).
     pub fn builder() -> crate::operation::list_object_annotations::builders::ListObjectAnnotationsOutputBuilder {
@@ -86,6 +98,8 @@ pub struct ListObjectAnnotationsOutputBuilder {
     pub(crate) continuation_token: ::std::option::Option<::std::string::String>,
     pub(crate) next_continuation_token: ::std::option::Option<::std::string::String>,
     pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl ListObjectAnnotationsOutputBuilder {
     /// <p>The list of annotations attached to the object.</p>
@@ -171,6 +185,24 @@ impl ListObjectAnnotationsOutputBuilder {
     }
     pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
     pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListObjectAnnotationsOutput`](crate::operation::list_object_annotations::ListObjectAnnotationsOutput).
     pub fn build(self) -> crate::operation::list_object_annotations::ListObjectAnnotationsOutput {
         crate::operation::list_object_annotations::ListObjectAnnotationsOutput {
@@ -184,6 +216,8 @@ impl ListObjectAnnotationsOutputBuilder {
             continuation_token: self.continuation_token,
             next_continuation_token: self.next_continuation_token,
             request_charged: self.request_charged,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

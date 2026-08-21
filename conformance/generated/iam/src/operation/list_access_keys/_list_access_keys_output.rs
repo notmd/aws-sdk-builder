@@ -10,6 +10,7 @@ pub struct ListAccessKeysOutput {
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListAccessKeysOutput {
     /// <p>A list of objects containing metadata about the access keys.</p>
@@ -26,6 +27,11 @@ impl ListAccessKeysOutput {
         self.marker.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for ListAccessKeysOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListAccessKeysOutput {
     /// Creates a new builder-style object to manufacture [`ListAccessKeysOutput`](crate::operation::list_access_keys::ListAccessKeysOutput).
     pub fn builder() -> crate::operation::list_access_keys::builders::ListAccessKeysOutputBuilder {
@@ -40,6 +46,7 @@ pub struct ListAccessKeysOutputBuilder {
     pub(crate) access_key_metadata: ::std::option::Option<::std::vec::Vec<crate::types::AccessKeyMetadata>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListAccessKeysOutputBuilder {
     /// <p>A list of objects containing metadata about the access keys.</p>
@@ -71,6 +78,15 @@ impl ListAccessKeysOutputBuilder {
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListAccessKeysOutput`](crate::operation::list_access_keys::ListAccessKeysOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`access_key_metadata`](Self::access_key_metadata)
@@ -79,6 +95,7 @@ impl ListAccessKeysOutputBuilder {
             access_key_metadata: self.access_key_metadata.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("access_key_metadata", "access_key_metadata was not specified but it is required when building ListAccessKeysOutput"))?,
             is_truncated: self.is_truncated,
             marker: self.marker,
+            _request_id: self._request_id,
         })
     }
 }

@@ -6,11 +6,17 @@
 pub struct GetQueueUrlOutput {
     /// <p>The URL of the queue.</p>
     pub queue_url: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GetQueueUrlOutput {
     /// <p>The URL of the queue.</p>
     pub fn queue_url(&self) -> ::std::option::Option<&str> {
         self.queue_url.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetQueueUrlOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetQueueUrlOutput {
@@ -25,6 +31,7 @@ impl GetQueueUrlOutput {
 #[non_exhaustive]
 pub struct GetQueueUrlOutputBuilder {
     pub(crate) queue_url: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GetQueueUrlOutputBuilder {
     /// <p>The URL of the queue.</p>
@@ -35,10 +42,20 @@ impl GetQueueUrlOutputBuilder {
     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_url = input; self }
     /// <p>The URL of the queue.</p>
     pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> { &self.queue_url }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetQueueUrlOutput`](crate::operation::get_queue_url::GetQueueUrlOutput).
     pub fn build(self) -> crate::operation::get_queue_url::GetQueueUrlOutput {
         crate::operation::get_queue_url::GetQueueUrlOutput {
             queue_url: self.queue_url,
+            _request_id: self._request_id,
         }
     }
 }

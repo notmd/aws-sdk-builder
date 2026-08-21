@@ -6,11 +6,17 @@
 pub struct CreatePolicyVersionOutput {
     /// <p>A structure containing details about the new policy version.</p>
     pub policy_version: ::std::option::Option<crate::types::PolicyVersion>,
+    _request_id: Option<String>,
 }
 impl CreatePolicyVersionOutput {
     /// <p>A structure containing details about the new policy version.</p>
     pub fn policy_version(&self) -> ::std::option::Option<&crate::types::PolicyVersion> {
         self.policy_version.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for CreatePolicyVersionOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl CreatePolicyVersionOutput {
@@ -25,6 +31,7 @@ impl CreatePolicyVersionOutput {
 #[non_exhaustive]
 pub struct CreatePolicyVersionOutputBuilder {
     pub(crate) policy_version: ::std::option::Option<crate::types::PolicyVersion>,
+    _request_id: Option<String>,
 }
 impl CreatePolicyVersionOutputBuilder {
     /// <p>A structure containing details about the new policy version.</p>
@@ -35,10 +42,20 @@ impl CreatePolicyVersionOutputBuilder {
     pub fn set_policy_version(mut self, input: ::std::option::Option<crate::types::PolicyVersion>) -> Self { self.policy_version = input; self }
     /// <p>A structure containing details about the new policy version.</p>
     pub fn get_policy_version(&self) -> &::std::option::Option<crate::types::PolicyVersion> { &self.policy_version }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`CreatePolicyVersionOutput`](crate::operation::create_policy_version::CreatePolicyVersionOutput).
     pub fn build(self) -> crate::operation::create_policy_version::CreatePolicyVersionOutput {
         crate::operation::create_policy_version::CreatePolicyVersionOutput {
             policy_version: self.policy_version,
+            _request_id: self._request_id,
         }
     }
 }

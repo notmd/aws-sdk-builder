@@ -6,11 +6,17 @@
 pub struct ListMessageMoveTasksOutput {
     /// <p>A list of message movement tasks and their attributes.</p>
     pub results: ::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>>,
+    _request_id: Option<String>,
 }
 impl ListMessageMoveTasksOutput {
     /// <p>A list of message movement tasks and their attributes.</p>
     pub fn results(&self) -> &[crate::types::ListMessageMoveTasksResultEntry] {
         self.results.as_deref().unwrap_or_default()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListMessageMoveTasksOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListMessageMoveTasksOutput {
@@ -25,6 +31,7 @@ impl ListMessageMoveTasksOutput {
 #[non_exhaustive]
 pub struct ListMessageMoveTasksOutputBuilder {
     pub(crate) results: ::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>>,
+    _request_id: Option<String>,
 }
 impl ListMessageMoveTasksOutputBuilder {
     /// <p>A list of message movement tasks and their attributes.</p>
@@ -40,10 +47,20 @@ impl ListMessageMoveTasksOutputBuilder {
     pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>>) -> Self { self.results = input; self }
     /// <p>A list of message movement tasks and their attributes.</p>
     pub fn get_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>> { &self.results }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListMessageMoveTasksOutput`](crate::operation::list_message_move_tasks::ListMessageMoveTasksOutput).
     pub fn build(self) -> crate::operation::list_message_move_tasks::ListMessageMoveTasksOutput {
         crate::operation::list_message_move_tasks::ListMessageMoveTasksOutput {
             results: self.results,
+            _request_id: self._request_id,
         }
     }
 }

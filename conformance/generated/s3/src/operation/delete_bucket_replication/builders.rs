@@ -22,9 +22,12 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Delete, &path, &headers, &body).await.map_err(super::DeleteBucketReplicationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteBucketReplicationError::Unhandled(format!("DeleteBucketReplication returned HTTP {}", status)));
+                             return Err(super::DeleteBucketReplicationError::unhandled_with_request_ids(format!("DeleteBucketReplication returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
-                         Ok(super::DeleteBucketReplicationOutput{})
+                         let mut output = super::_delete_bucket_replication_output::DeleteBucketReplicationOutputBuilder::default();
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DeleteBucketReplicationFluentBuilder;

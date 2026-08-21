@@ -22,9 +22,12 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Delete, &path, &headers, &body).await.map_err(super::DeleteBucketWebsiteError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteBucketWebsiteError::Unhandled(format!("DeleteBucketWebsite returned HTTP {}", status)));
+                             return Err(super::DeleteBucketWebsiteError::unhandled_with_request_ids(format!("DeleteBucketWebsite returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
-                         Ok(super::DeleteBucketWebsiteOutput{})
+                         let mut output = super::_delete_bucket_website_output::DeleteBucketWebsiteOutputBuilder::default();
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DeleteBucketWebsiteFluentBuilder;

@@ -19,6 +19,7 @@ pub struct GetServiceLastAccessedDetailsWithEntitiesOutput {
     pub marker: ::std::option::Option<::std::string::String>,
     /// <p>An object that contains details about the reason the operation failed.</p>
     pub error: ::std::option::Option<crate::types::ErrorDetails>,
+    _request_id: Option<String>,
 }
 impl GetServiceLastAccessedDetailsWithEntitiesOutput {
     /// <p>The status of the job.</p>
@@ -52,6 +53,11 @@ impl GetServiceLastAccessedDetailsWithEntitiesOutput {
         self.error.as_ref()
     }
 }
+impl ::aws_types::request_id::RequestId for GetServiceLastAccessedDetailsWithEntitiesOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetServiceLastAccessedDetailsWithEntitiesOutput {
     /// Creates a new builder-style object to manufacture [`GetServiceLastAccessedDetailsWithEntitiesOutput`](crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesOutput).
     pub fn builder() -> crate::operation::get_service_last_accessed_details_with_entities::builders::GetServiceLastAccessedDetailsWithEntitiesOutputBuilder {
@@ -70,6 +76,7 @@ pub struct GetServiceLastAccessedDetailsWithEntitiesOutputBuilder {
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
     pub(crate) error: ::std::option::Option<crate::types::ErrorDetails>,
+    _request_id: Option<String>,
 }
 impl GetServiceLastAccessedDetailsWithEntitiesOutputBuilder {
     /// <p>The status of the job.</p>
@@ -138,6 +145,15 @@ impl GetServiceLastAccessedDetailsWithEntitiesOutputBuilder {
     pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self { self.error = input; self }
     /// <p>An object that contains details about the reason the operation failed.</p>
     pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorDetails> { &self.error }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetServiceLastAccessedDetailsWithEntitiesOutput`](crate::operation::get_service_last_accessed_details_with_entities::GetServiceLastAccessedDetailsWithEntitiesOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`job_status`](Self::job_status)
@@ -153,6 +169,7 @@ impl GetServiceLastAccessedDetailsWithEntitiesOutputBuilder {
             is_truncated: self.is_truncated,
             marker: self.marker,
             error: self.error,
+            _request_id: self._request_id,
         })
     }
 }

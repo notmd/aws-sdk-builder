@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UpdateContinuousBackupsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UpdateContinuousBackupsError::Unhandled(format!("UpdateContinuousBackups returned HTTP {}", status)));
+                             return Err(super::UpdateContinuousBackupsError::unhandled_with_request_ids(format!("UpdateContinuousBackups returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_update_continuous_backups_output::UpdateContinuousBackupsOutputBuilder::default().build())
+                         let mut output = super::_update_continuous_backups_output::UpdateContinuousBackupsOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UpdateContinuousBackupsFluentBuilder;

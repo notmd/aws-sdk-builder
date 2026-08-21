@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UpdateLoginProfileError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UpdateLoginProfileError::Unhandled(format!("UpdateLoginProfile returned HTTP {}", status)));
+                             return Err(super::UpdateLoginProfileError::unhandled_with_request_ids(format!("UpdateLoginProfile returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::UpdateLoginProfileOutput{})
+                         let mut output = super::_update_login_profile_output::UpdateLoginProfileOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UpdateLoginProfileFluentBuilder;

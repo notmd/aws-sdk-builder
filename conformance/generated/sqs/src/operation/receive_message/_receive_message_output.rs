@@ -6,11 +6,17 @@
 pub struct ReceiveMessageOutput {
     /// <p>A list of messages.</p>
     pub messages: ::std::option::Option<::std::vec::Vec<crate::types::Message>>,
+    _request_id: Option<String>,
 }
 impl ReceiveMessageOutput {
     /// <p>A list of messages.</p>
     pub fn messages(&self) -> &[crate::types::Message] {
         self.messages.as_deref().unwrap_or_default()
+    }
+}
+impl ::aws_types::request_id::RequestId for ReceiveMessageOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ReceiveMessageOutput {
@@ -25,6 +31,7 @@ impl ReceiveMessageOutput {
 #[non_exhaustive]
 pub struct ReceiveMessageOutputBuilder {
     pub(crate) messages: ::std::option::Option<::std::vec::Vec<crate::types::Message>>,
+    _request_id: Option<String>,
 }
 impl ReceiveMessageOutputBuilder {
     /// <p>A list of messages.</p>
@@ -40,10 +47,20 @@ impl ReceiveMessageOutputBuilder {
     pub fn set_messages(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Message>>) -> Self { self.messages = input; self }
     /// <p>A list of messages.</p>
     pub fn get_messages(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Message>> { &self.messages }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ReceiveMessageOutput`](crate::operation::receive_message::ReceiveMessageOutput).
     pub fn build(self) -> crate::operation::receive_message::ReceiveMessageOutput {
         crate::operation::receive_message::ReceiveMessageOutput {
             messages: self.messages,
+            _request_id: self._request_id,
         }
     }
 }

@@ -44,6 +44,8 @@ pub struct CreateMultipartUploadOutput {
     pub checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
     /// <p>Indicates the checksum type that you want Amazon S3 to use to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub checksum_type: ::std::option::Option<crate::types::ChecksumType>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl CreateMultipartUploadOutput {
     /// <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, the response includes this header. The header indicates when the initiated multipart upload becomes eligible for an abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -115,6 +117,16 @@ impl CreateMultipartUploadOutput {
         self.checksum_type.as_ref()
     }
 }
+impl crate::s3_request_id::RequestIdExt for CreateMultipartUploadOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for CreateMultipartUploadOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl CreateMultipartUploadOutput {
     /// Creates a new builder-style object to manufacture [`CreateMultipartUploadOutput`](crate::operation::create_multipart_upload::CreateMultipartUploadOutput).
     pub fn builder() -> crate::operation::create_multipart_upload::builders::CreateMultipartUploadOutputBuilder {
@@ -140,6 +152,8 @@ pub struct CreateMultipartUploadOutputBuilder {
     pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
     pub(crate) checksum_algorithm: ::std::option::Option<crate::types::ChecksumAlgorithm>,
     pub(crate) checksum_type: ::std::option::Option<crate::types::ChecksumType>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl CreateMultipartUploadOutputBuilder {
     /// <p>If the bucket has a lifecycle rule configured with an action to abort incomplete multipart uploads and the prefix in the lifecycle rule matches the object name in the request, the response includes this header. The header indicates when the initiated multipart upload becomes eligible for an abort operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuoverview.html#mpu-abort-incomplete-mpu-lifecycle-config">Aborting Incomplete Multipart Uploads Using a Bucket Lifecycle Configuration</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -278,6 +292,24 @@ impl CreateMultipartUploadOutputBuilder {
     pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self { self.checksum_type = input; self }
     /// <p>Indicates the checksum type that you want Amazon S3 to use to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn get_checksum_type(&self) -> &::std::option::Option<crate::types::ChecksumType> { &self.checksum_type }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`CreateMultipartUploadOutput`](crate::operation::create_multipart_upload::CreateMultipartUploadOutput).
     pub fn build(self) -> crate::operation::create_multipart_upload::CreateMultipartUploadOutput {
         crate::operation::create_multipart_upload::CreateMultipartUploadOutput {
@@ -295,6 +327,8 @@ impl CreateMultipartUploadOutputBuilder {
             request_charged: self.request_charged,
             checksum_algorithm: self.checksum_algorithm,
             checksum_type: self.checksum_type,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UntagInstanceProfileError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UntagInstanceProfileError::Unhandled(format!("UntagInstanceProfile returned HTTP {}", status)));
+                             return Err(super::UntagInstanceProfileError::unhandled_with_request_ids(format!("UntagInstanceProfile returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::UntagInstanceProfileOutput{})
+                         let mut output = super::_untag_instance_profile_output::UntagInstanceProfileOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UntagInstanceProfileFluentBuilder;

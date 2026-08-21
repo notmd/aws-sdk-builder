@@ -31,7 +31,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::ListObjectsV2Error::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListObjectsV2Error::Unhandled(format!("ListObjectsV2 returned HTTP {}", status)));
+                             return Err(super::ListObjectsV2Error::unhandled_with_request_ids(format!("ListObjectsV2 returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_list_objects_v2_output::ListObjectsV2OutputBuilder::default();
                          let body = response.text().await.map_err(super::ListObjectsV2Error::Unhandled)?;
@@ -53,6 +53,8 @@ impl Builder {
                          output.continuation_token = super::super::super::transport::xml_first(&body, "ContinuationToken").and_then(|value| value.parse().ok());
                          output.next_continuation_token = super::super::super::transport::xml_first(&body, "NextContinuationToken").and_then(|value| value.parse().ok());
                          output.start_after = super::super::super::transport::xml_first(&body, "StartAfter").and_then(|value| value.parse().ok());
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

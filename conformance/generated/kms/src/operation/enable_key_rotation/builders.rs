@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::EnableKeyRotationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::EnableKeyRotationError::Unhandled(format!("EnableKeyRotation returned HTTP {}", status)));
+                             return Err(super::EnableKeyRotationError::unhandled_with_request_ids(format!("EnableKeyRotation returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::EnableKeyRotationOutput{})
+                         let mut output = super::_enable_key_rotation_output::EnableKeyRotationOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as EnableKeyRotationFluentBuilder;

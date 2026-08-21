@@ -9,6 +9,7 @@ pub enum Error {
     InvalidRequest(super::super::types::error::InvalidRequest),
     NoSuchKey(super::super::types::error::NoSuchKey),
     Unhandled(::std::string::String),
+    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
 }
 impl Error {
     pub fn is_access_denied(&self) -> bool { matches!(self, Self::AccessDenied(_)) }
@@ -19,6 +20,7 @@ impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::Unhandled(message) => f.write_str(message),
+            Self::UnhandledWithRequestIds { message, .. } => f.write_str(message),
             Self::AccessDenied(value) => value.fmt(f),
             Self::InvalidRequest(value) => value.fmt(f),
             Self::NoSuchKey(value) => value.fmt(f),
@@ -26,6 +28,16 @@ impl ::std::fmt::Display for Error {
     }
 }
 impl ::std::error::Error for Error {}
+impl Error {
+    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
+    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+}
+impl ::aws_types::request_id::RequestId for Error {
+    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+}
+impl crate::s3_request_id::RequestIdExt for Error {
+    fn extended_request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { extended_request_id, .. } => extended_request_id.as_deref(), _ => None } }
+}
 pub mod _update_object_encryption_input {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/update_object_encryption/_update_object_encryption_input.rs"));
 }

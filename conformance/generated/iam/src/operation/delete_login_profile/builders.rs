@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DeleteLoginProfileError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteLoginProfileError::Unhandled(format!("DeleteLoginProfile returned HTTP {}", status)));
+                             return Err(super::DeleteLoginProfileError::unhandled_with_request_ids(format!("DeleteLoginProfile returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::DeleteLoginProfileOutput{})
+                         let mut output = super::_delete_login_profile_output::DeleteLoginProfileOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DeleteLoginProfileFluentBuilder;

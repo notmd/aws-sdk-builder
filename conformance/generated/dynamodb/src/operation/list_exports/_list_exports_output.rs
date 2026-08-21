@@ -8,6 +8,7 @@ pub struct ListExportsOutput {
     pub export_summaries: ::std::option::Option<::std::vec::Vec<crate::types::ExportSummary>>,
     /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListExports</code> again, with <code>NextToken</code> set to this value.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListExportsOutput {
     /// <p>A list of <code>ExportSummary</code> objects.</p>
@@ -17,6 +18,11 @@ impl ListExportsOutput {
     /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListExports</code> again, with <code>NextToken</code> set to this value.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
         self.next_token.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListExportsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListExportsOutput {
@@ -32,6 +38,7 @@ impl ListExportsOutput {
 pub struct ListExportsOutputBuilder {
     pub(crate) export_summaries: ::std::option::Option<::std::vec::Vec<crate::types::ExportSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListExportsOutputBuilder {
     /// <p>A list of <code>ExportSummary</code> objects.</p>
@@ -55,11 +62,21 @@ impl ListExportsOutputBuilder {
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
     /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListExports</code> again, with <code>NextToken</code> set to this value.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListExportsOutput`](crate::operation::list_exports::ListExportsOutput).
     pub fn build(self) -> crate::operation::list_exports::ListExportsOutput {
         crate::operation::list_exports::ListExportsOutput {
             export_summaries: self.export_summaries,
             next_token: self.next_token,
+            _request_id: self._request_id,
         }
     }
 }

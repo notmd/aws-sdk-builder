@@ -6,11 +6,17 @@
 pub struct UpdateSamlProviderOutput {
     /// <p>The Amazon Resource Name (ARN) of the SAML provider that was updated.</p>
     pub saml_provider_arn: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl UpdateSamlProviderOutput {
     /// <p>The Amazon Resource Name (ARN) of the SAML provider that was updated.</p>
     pub fn saml_provider_arn(&self) -> ::std::option::Option<&str> {
         self.saml_provider_arn.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for UpdateSamlProviderOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl UpdateSamlProviderOutput {
@@ -25,6 +31,7 @@ impl UpdateSamlProviderOutput {
 #[non_exhaustive]
 pub struct UpdateSamlProviderOutputBuilder {
     pub(crate) saml_provider_arn: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl UpdateSamlProviderOutputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the SAML provider that was updated.</p>
@@ -35,10 +42,20 @@ impl UpdateSamlProviderOutputBuilder {
     pub fn set_saml_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.saml_provider_arn = input; self }
     /// <p>The Amazon Resource Name (ARN) of the SAML provider that was updated.</p>
     pub fn get_saml_provider_arn(&self) -> &::std::option::Option<::std::string::String> { &self.saml_provider_arn }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`UpdateSamlProviderOutput`](crate::operation::update_saml_provider::UpdateSamlProviderOutput).
     pub fn build(self) -> crate::operation::update_saml_provider::UpdateSamlProviderOutput {
         crate::operation::update_saml_provider::UpdateSamlProviderOutput {
             saml_provider_arn: self.saml_provider_arn,
+            _request_id: self._request_id,
         }
     }
 }

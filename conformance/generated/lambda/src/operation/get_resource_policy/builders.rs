@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetResourcePolicyError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetResourcePolicyError::Unhandled(format!("GetResourcePolicy returned HTTP {}", status)));
+                             return Err(super::GetResourcePolicyError::unhandled_with_request_ids(format!("GetResourcePolicy returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_resource_policy_output::GetResourcePolicyOutputBuilder::default().build())
+                         let mut output = super::_get_resource_policy_output::GetResourcePolicyOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetResourcePolicyFluentBuilder;

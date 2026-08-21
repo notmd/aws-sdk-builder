@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetInstanceProfileError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetInstanceProfileError::Unhandled(format!("GetInstanceProfile returned HTTP {}", status)));
+                             return Err(super::GetInstanceProfileError::unhandled_with_request_ids(format!("GetInstanceProfile returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_instance_profile_output::GetInstanceProfileOutputBuilder::default().build())
+                         let mut output = super::_get_instance_profile_output::GetInstanceProfileOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetInstanceProfileFluentBuilder;

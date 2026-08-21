@@ -8,6 +8,7 @@ pub struct ChangeMessageVisibilityBatchOutput {
     pub successful: ::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>,
     /// <p>A list of <code><a>BatchResultErrorEntry</a></code> items.</p>
     pub failed: ::std::vec::Vec<crate::types::BatchResultErrorEntry>,
+    _request_id: Option<String>,
 }
 impl ChangeMessageVisibilityBatchOutput {
     /// <p>A list of <code><a>ChangeMessageVisibilityBatchResultEntry</a></code> items.</p>
@@ -19,6 +20,11 @@ impl ChangeMessageVisibilityBatchOutput {
     pub fn failed(&self) -> &[crate::types::BatchResultErrorEntry] {
         use std::ops::Deref;
         self.failed.deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ChangeMessageVisibilityBatchOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ChangeMessageVisibilityBatchOutput {
@@ -34,6 +40,7 @@ impl ChangeMessageVisibilityBatchOutput {
 pub struct ChangeMessageVisibilityBatchOutputBuilder {
     pub(crate) successful: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>>,
     pub(crate) failed: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
+    _request_id: Option<String>,
 }
 impl ChangeMessageVisibilityBatchOutputBuilder {
     /// <p>A list of <code><a>ChangeMessageVisibilityBatchResultEntry</a></code> items.</p>
@@ -62,6 +69,15 @@ impl ChangeMessageVisibilityBatchOutputBuilder {
     pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self { self.failed = input; self }
     /// <p>A list of <code><a>BatchResultErrorEntry</a></code> items.</p>
     pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> { &self.failed }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ChangeMessageVisibilityBatchOutput`](crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`successful`](Self::successful)
@@ -70,6 +86,7 @@ impl ChangeMessageVisibilityBatchOutputBuilder {
         ::std::result::Result::Ok(crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchOutput {
             successful: self.successful.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("successful", "successful was not specified but it is required when building ChangeMessageVisibilityBatchOutput"))?,
             failed: self.failed.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("failed", "failed was not specified but it is required when building ChangeMessageVisibilityBatchOutput"))?,
+            _request_id: self._request_id,
         })
     }
 }

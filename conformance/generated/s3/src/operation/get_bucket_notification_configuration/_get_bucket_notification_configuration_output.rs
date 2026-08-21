@@ -12,6 +12,8 @@ pub struct GetBucketNotificationConfigurationOutput {
     pub lambda_function_configurations: ::std::option::Option<::std::vec::Vec<crate::types::LambdaFunctionConfiguration>>,
     /// <p>Enables delivery of events to Amazon EventBridge.</p>
     pub event_bridge_configuration: ::std::option::Option<crate::types::EventBridgeConfiguration>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl GetBucketNotificationConfigurationOutput {
     /// <p>The topic to which notifications are sent and the events for which notifications are generated.</p>
@@ -31,6 +33,16 @@ impl GetBucketNotificationConfigurationOutput {
         self.event_bridge_configuration.as_ref()
     }
 }
+impl crate::s3_request_id::RequestIdExt for GetBucketNotificationConfigurationOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetBucketNotificationConfigurationOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetBucketNotificationConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketNotificationConfigurationOutput`](crate::operation::get_bucket_notification_configuration::GetBucketNotificationConfigurationOutput).
     pub fn builder() -> crate::operation::get_bucket_notification_configuration::builders::GetBucketNotificationConfigurationOutputBuilder {
@@ -46,6 +58,8 @@ pub struct GetBucketNotificationConfigurationOutputBuilder {
     pub(crate) queue_configurations: ::std::option::Option<::std::vec::Vec<crate::types::QueueConfiguration>>,
     pub(crate) lambda_function_configurations: ::std::option::Option<::std::vec::Vec<crate::types::LambdaFunctionConfiguration>>,
     pub(crate) event_bridge_configuration: ::std::option::Option<crate::types::EventBridgeConfiguration>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl GetBucketNotificationConfigurationOutputBuilder {
     /// <p>The topic to which notifications are sent and the events for which notifications are generated.</p>
@@ -95,6 +109,24 @@ impl GetBucketNotificationConfigurationOutputBuilder {
     pub fn set_event_bridge_configuration(mut self, input: ::std::option::Option<crate::types::EventBridgeConfiguration>) -> Self { self.event_bridge_configuration = input; self }
     /// <p>Enables delivery of events to Amazon EventBridge.</p>
     pub fn get_event_bridge_configuration(&self) -> &::std::option::Option<crate::types::EventBridgeConfiguration> { &self.event_bridge_configuration }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetBucketNotificationConfigurationOutput`](crate::operation::get_bucket_notification_configuration::GetBucketNotificationConfigurationOutput).
     pub fn build(self) -> crate::operation::get_bucket_notification_configuration::GetBucketNotificationConfigurationOutput {
         crate::operation::get_bucket_notification_configuration::GetBucketNotificationConfigurationOutput {
@@ -102,6 +134,8 @@ impl GetBucketNotificationConfigurationOutputBuilder {
             queue_configurations: self.queue_configurations,
             lambda_function_configurations: self.lambda_function_configurations,
             event_bridge_configuration: self.event_bridge_configuration,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

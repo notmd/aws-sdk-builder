@@ -7,12 +7,24 @@ pub struct GetBucketLocationOutput {
     /// <p>Specifies the Region where the bucket resides. For a list of all the Amazon S3 supported location constraints by Region, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a>.</p>
     /// <p>Buckets in Region <code>us-east-1</code> have a LocationConstraint of <code>null</code>. Buckets with a LocationConstraint of <code>EU</code> reside in <code>eu-west-1</code>.</p>
     pub location_constraint: ::std::option::Option<crate::types::BucketLocationConstraint>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl GetBucketLocationOutput {
     /// <p>Specifies the Region where the bucket resides. For a list of all the Amazon S3 supported location constraints by Region, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a>.</p>
     /// <p>Buckets in Region <code>us-east-1</code> have a LocationConstraint of <code>null</code>. Buckets with a LocationConstraint of <code>EU</code> reside in <code>eu-west-1</code>.</p>
     pub fn location_constraint(&self) -> ::std::option::Option<&crate::types::BucketLocationConstraint> {
         self.location_constraint.as_ref()
+    }
+}
+impl crate::s3_request_id::RequestIdExt for GetBucketLocationOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetBucketLocationOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetBucketLocationOutput {
@@ -27,6 +39,8 @@ impl GetBucketLocationOutput {
 #[non_exhaustive]
 pub struct GetBucketLocationOutputBuilder {
     pub(crate) location_constraint: ::std::option::Option<crate::types::BucketLocationConstraint>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl GetBucketLocationOutputBuilder {
     /// <p>Specifies the Region where the bucket resides. For a list of all the Amazon S3 supported location constraints by Region, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a>.</p>
@@ -39,10 +53,30 @@ impl GetBucketLocationOutputBuilder {
     /// <p>Specifies the Region where the bucket resides. For a list of all the Amazon S3 supported location constraints by Region, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">Regions and Endpoints</a>.</p>
     /// <p>Buckets in Region <code>us-east-1</code> have a LocationConstraint of <code>null</code>. Buckets with a LocationConstraint of <code>EU</code> reside in <code>eu-west-1</code>.</p>
     pub fn get_location_constraint(&self) -> &::std::option::Option<crate::types::BucketLocationConstraint> { &self.location_constraint }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetBucketLocationOutput`](crate::operation::get_bucket_location::GetBucketLocationOutput).
     pub fn build(self) -> crate::operation::get_bucket_location::GetBucketLocationOutput {
         crate::operation::get_bucket_location::GetBucketLocationOutput {
             location_constraint: self.location_constraint,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

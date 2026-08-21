@@ -10,6 +10,7 @@ pub struct ListKeysOutput {
     pub next_marker: ::std::option::Option<::std::string::String>,
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
     pub truncated: ::std::option::Option<bool>,
+    _request_id: Option<String>,
 }
 impl ListKeysOutput {
     /// <p>A list of KMS keys.</p>
@@ -23,6 +24,11 @@ impl ListKeysOutput {
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
     pub fn truncated(&self) -> ::std::option::Option<bool> {
         self.truncated
+    }
+}
+impl ::aws_types::request_id::RequestId for ListKeysOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListKeysOutput {
@@ -39,6 +45,7 @@ pub struct ListKeysOutputBuilder {
     pub(crate) keys: ::std::option::Option<::std::vec::Vec<crate::types::KeyListEntry>>,
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
     pub(crate) truncated: ::std::option::Option<bool>,
+    _request_id: Option<String>,
 }
 impl ListKeysOutputBuilder {
     /// <p>A list of KMS keys.</p>
@@ -70,12 +77,22 @@ impl ListKeysOutputBuilder {
     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self { self.truncated = input; self }
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
     pub fn get_truncated(&self) -> &::std::option::Option<bool> { &self.truncated }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListKeysOutput`](crate::operation::list_keys::ListKeysOutput).
     pub fn build(self) -> crate::operation::list_keys::ListKeysOutput {
         crate::operation::list_keys::ListKeysOutput {
             keys: self.keys,
             next_marker: self.next_marker,
             truncated: self.truncated,
+            _request_id: self._request_id,
         }
     }
 }

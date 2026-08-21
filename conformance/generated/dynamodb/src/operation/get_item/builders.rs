@@ -26,9 +26,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetItemError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetItemError::Unhandled(format!("GetItem returned HTTP {}", status)));
+                             return Err(super::GetItemError::unhandled_with_request_ids(format!("GetItem returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_item_output::GetItemOutputBuilder::default().build())
+                         let mut output = super::_get_item_output::GetItemOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetItemFluentBuilder;

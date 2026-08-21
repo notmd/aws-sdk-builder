@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DeletePolicyVersionError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeletePolicyVersionError::Unhandled(format!("DeletePolicyVersion returned HTTP {}", status)));
+                             return Err(super::DeletePolicyVersionError::unhandled_with_request_ids(format!("DeletePolicyVersion returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::DeletePolicyVersionOutput{})
+                         let mut output = super::_delete_policy_version_output::DeletePolicyVersionOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DeletePolicyVersionFluentBuilder;

@@ -8,6 +8,7 @@ pub struct UploadServerCertificateOutput {
     pub server_certificate_metadata: ::std::option::Option<crate::types::ServerCertificateMetadata>,
     /// <p>A list of tags that are attached to the new IAM server certificate. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    _request_id: Option<String>,
 }
 impl UploadServerCertificateOutput {
     /// <p>The meta information of the uploaded server certificate without its certificate body, certificate chain, and private key.</p>
@@ -17,6 +18,11 @@ impl UploadServerCertificateOutput {
     /// <p>A list of tags that are attached to the new IAM server certificate. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub fn tags(&self) -> &[crate::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
+    }
+}
+impl ::aws_types::request_id::RequestId for UploadServerCertificateOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl UploadServerCertificateOutput {
@@ -32,6 +38,7 @@ impl UploadServerCertificateOutput {
 pub struct UploadServerCertificateOutputBuilder {
     pub(crate) server_certificate_metadata: ::std::option::Option<crate::types::ServerCertificateMetadata>,
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    _request_id: Option<String>,
 }
 impl UploadServerCertificateOutputBuilder {
     /// <p>The meta information of the uploaded server certificate without its certificate body, certificate chain, and private key.</p>
@@ -55,11 +62,21 @@ impl UploadServerCertificateOutputBuilder {
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.tags = input; self }
     /// <p>A list of tags that are attached to the new IAM server certificate. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.tags }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`UploadServerCertificateOutput`](crate::operation::upload_server_certificate::UploadServerCertificateOutput).
     pub fn build(self) -> crate::operation::upload_server_certificate::UploadServerCertificateOutput {
         crate::operation::upload_server_certificate::UploadServerCertificateOutput {
             server_certificate_metadata: self.server_certificate_metadata,
             tags: self.tags,
+            _request_id: self._request_id,
         }
     }
 }

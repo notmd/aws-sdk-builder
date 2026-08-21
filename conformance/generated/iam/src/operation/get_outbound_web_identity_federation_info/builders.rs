@@ -19,9 +19,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetOutboundWebIdentityFederationInfoError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetOutboundWebIdentityFederationInfoError::Unhandled(format!("GetOutboundWebIdentityFederationInfo returned HTTP {}", status)));
+                             return Err(super::GetOutboundWebIdentityFederationInfoError::unhandled_with_request_ids(format!("GetOutboundWebIdentityFederationInfo returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_outbound_web_identity_federation_info_output::GetOutboundWebIdentityFederationInfoOutputBuilder::default().build())
+                         let mut output = super::_get_outbound_web_identity_federation_info_output::GetOutboundWebIdentityFederationInfoOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetOutboundWebIdentityFederationInfoFluentBuilder;

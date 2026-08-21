@@ -9,6 +9,8 @@ pub struct DeleteObjectsOutput {
     pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
     /// <p>Container for a failed delete action that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
     pub errors: ::std::option::Option<::std::vec::Vec<crate::types::Error>>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl DeleteObjectsOutput {
     /// <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
@@ -21,6 +23,16 @@ impl DeleteObjectsOutput {
     /// <p>Container for a failed delete action that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
     pub fn errors(&self) -> &[crate::types::Error] {
         self.errors.as_deref().unwrap_or_default()
+    }
+}
+impl crate::s3_request_id::RequestIdExt for DeleteObjectsOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for DeleteObjectsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl DeleteObjectsOutput {
@@ -37,6 +49,8 @@ pub struct DeleteObjectsOutputBuilder {
     pub(crate) deleted: ::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>>,
     pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
     pub(crate) errors: ::std::option::Option<::std::vec::Vec<crate::types::Error>>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl DeleteObjectsOutputBuilder {
     /// <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
@@ -71,12 +85,32 @@ impl DeleteObjectsOutputBuilder {
     pub fn set_errors(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Error>>) -> Self { self.errors = input; self }
     /// <p>Container for a failed delete action that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
     pub fn get_errors(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Error>> { &self.errors }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`DeleteObjectsOutput`](crate::operation::delete_objects::DeleteObjectsOutput).
     pub fn build(self) -> crate::operation::delete_objects::DeleteObjectsOutput {
         crate::operation::delete_objects::DeleteObjectsOutput {
             deleted: self.deleted,
             request_charged: self.request_charged,
             errors: self.errors,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

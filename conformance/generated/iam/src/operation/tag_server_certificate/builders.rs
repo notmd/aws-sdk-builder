@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::TagServerCertificateError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::TagServerCertificateError::Unhandled(format!("TagServerCertificate returned HTTP {}", status)));
+                             return Err(super::TagServerCertificateError::unhandled_with_request_ids(format!("TagServerCertificate returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::TagServerCertificateOutput{})
+                         let mut output = super::_tag_server_certificate_output::TagServerCertificateOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as TagServerCertificateFluentBuilder;

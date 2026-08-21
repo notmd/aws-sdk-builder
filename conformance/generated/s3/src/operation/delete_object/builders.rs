@@ -31,11 +31,13 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Delete, &path, &headers, &body).await.map_err(super::DeleteObjectError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteObjectError::Unhandled(format!("DeleteObject returned HTTP {}", status)));
+                             return Err(super::DeleteObjectError::unhandled_with_request_ids(format!("DeleteObject returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_delete_object_output::DeleteObjectOutputBuilder::default();
                          output.delete_marker = response.header("x-amz-delete-marker").and_then(|value| value.parse().ok());
                          output.version_id = response.header("x-amz-version-id").map(str::to_owned);
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

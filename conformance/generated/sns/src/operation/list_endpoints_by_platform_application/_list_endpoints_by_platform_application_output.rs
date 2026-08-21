@@ -8,6 +8,7 @@ pub struct ListEndpointsByPlatformApplicationOutput {
     pub endpoints: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>,
     /// <p><code>NextToken</code> string is returned when calling <code>ListEndpointsByPlatformApplication</code> action if additional records are available after the first page results.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListEndpointsByPlatformApplicationOutput {
     /// <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
@@ -17,6 +18,11 @@ impl ListEndpointsByPlatformApplicationOutput {
     /// <p><code>NextToken</code> string is returned when calling <code>ListEndpointsByPlatformApplication</code> action if additional records are available after the first page results.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
         self.next_token.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListEndpointsByPlatformApplicationOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListEndpointsByPlatformApplicationOutput {
@@ -32,6 +38,7 @@ impl ListEndpointsByPlatformApplicationOutput {
 pub struct ListEndpointsByPlatformApplicationOutputBuilder {
     pub(crate) endpoints: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListEndpointsByPlatformApplicationOutputBuilder {
     /// <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
@@ -55,11 +62,21 @@ impl ListEndpointsByPlatformApplicationOutputBuilder {
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
     /// <p><code>NextToken</code> string is returned when calling <code>ListEndpointsByPlatformApplication</code> action if additional records are available after the first page results.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListEndpointsByPlatformApplicationOutput`](crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput).
     pub fn build(self) -> crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput {
         crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationOutput {
             endpoints: self.endpoints,
             next_token: self.next_token,
+            _request_id: self._request_id,
         }
     }
 }

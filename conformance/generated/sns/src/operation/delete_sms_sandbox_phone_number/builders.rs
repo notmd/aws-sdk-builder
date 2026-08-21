@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DeleteSmsSandboxPhoneNumberError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteSmsSandboxPhoneNumberError::Unhandled(format!("DeleteSmsSandboxPhoneNumber returned HTTP {}", status)));
+                             return Err(super::DeleteSmsSandboxPhoneNumberError::unhandled_with_request_ids(format!("DeleteSmsSandboxPhoneNumber returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::DeleteSmsSandboxPhoneNumberOutput{})
+                         let mut output = super::_delete_sms_sandbox_phone_number_output::DeleteSmsSandboxPhoneNumberOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DeleteSmsSandboxPhoneNumberFluentBuilder;

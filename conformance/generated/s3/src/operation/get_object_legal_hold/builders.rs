@@ -26,11 +26,13 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetObjectLegalHoldError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetObjectLegalHoldError::Unhandled(format!("GetObjectLegalHold returned HTTP {}", status)));
+                             return Err(super::GetObjectLegalHoldError::unhandled_with_request_ids(format!("GetObjectLegalHold returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_object_legal_hold_output::GetObjectLegalHoldOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetObjectLegalHoldError::Unhandled)?;
                          if let Some(value) = super::super::super::transport::xml_first(&body, "LegalHold") { let mut item: crate::types::ObjectLockLegalHoldBuilder = ::std::default::Default::default(); let item = item.build(); output.legal_hold = Some(item); }
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

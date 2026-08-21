@@ -44,7 +44,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::UploadPartError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UploadPartError::Unhandled(format!("UploadPart returned HTTP {}", status)));
+                             return Err(super::UploadPartError::unhandled_with_request_ids(format!("UploadPart returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_upload_part_output::UploadPartOutputBuilder::default();
                          output.e_tag = response.header("ETag").map(str::to_owned);
@@ -62,6 +62,8 @@ impl Builder {
                          output.sse_customer_key_md5 = response.header("x-amz-server-side-encryption-customer-key-MD5").map(str::to_owned);
                          output.ssekms_key_id = response.header("x-amz-server-side-encryption-aws-kms-key-id").map(str::to_owned);
                          output.bucket_key_enabled = response.header("x-amz-server-side-encryption-bucket-key-enabled").and_then(|value| value.parse().ok());
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

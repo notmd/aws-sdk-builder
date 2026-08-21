@@ -53,6 +53,8 @@ pub struct CompleteMultipartUploadOutput {
     /// <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with Key Management Service (KMS) keys (SSE-KMS).</p>
     pub bucket_key_enabled: ::std::option::Option<bool>,
     pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl CompleteMultipartUploadOutput {
     /// <p>The URI that identifies the newly created object.</p>
@@ -147,6 +149,16 @@ impl CompleteMultipartUploadOutput {
         self.request_charged.as_ref()
     }
 }
+impl crate::s3_request_id::RequestIdExt for CompleteMultipartUploadOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for CompleteMultipartUploadOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl CompleteMultipartUploadOutput {
     /// Creates a new builder-style object to manufacture [`CompleteMultipartUploadOutput`](crate::operation::complete_multipart_upload::CompleteMultipartUploadOutput).
     pub fn builder() -> crate::operation::complete_multipart_upload::builders::CompleteMultipartUploadOutputBuilder {
@@ -179,6 +191,8 @@ pub struct CompleteMultipartUploadOutputBuilder {
     pub(crate) ssekms_key_id: ::std::option::Option<::std::string::String>,
     pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
     pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl CompleteMultipartUploadOutputBuilder {
     /// <p>The URI that identifies the newly created object.</p>
@@ -363,6 +377,24 @@ impl CompleteMultipartUploadOutputBuilder {
     }
     pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
     pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`CompleteMultipartUploadOutput`](crate::operation::complete_multipart_upload::CompleteMultipartUploadOutput).
     pub fn build(self) -> crate::operation::complete_multipart_upload::CompleteMultipartUploadOutput {
         crate::operation::complete_multipart_upload::CompleteMultipartUploadOutput {
@@ -387,6 +419,8 @@ impl CompleteMultipartUploadOutputBuilder {
             ssekms_key_id: self.ssekms_key_id,
             bucket_key_enabled: self.bucket_key_enabled,
             request_charged: self.request_charged,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

@@ -27,7 +27,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DeleteObjectsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteObjectsError::Unhandled(format!("DeleteObjects returned HTTP {}", status)));
+                             return Err(super::DeleteObjectsError::unhandled_with_request_ids(format!("DeleteObjects returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_delete_objects_output::DeleteObjectsOutputBuilder::default();
                          let body = response.text().await.map_err(super::DeleteObjectsError::Unhandled)?;
@@ -43,6 +43,8 @@ impl Builder {
  item.message = super::super::super::transport::xml_first(&value, "Message").and_then(|value| value.parse().ok());
  item.build() }).collect();
                          output.errors = Some(values);
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

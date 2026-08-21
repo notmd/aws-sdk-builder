@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DisconnectCustomKeyStoreError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DisconnectCustomKeyStoreError::Unhandled(format!("DisconnectCustomKeyStore returned HTTP {}", status)));
+                             return Err(super::DisconnectCustomKeyStoreError::unhandled_with_request_ids(format!("DisconnectCustomKeyStore returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::DisconnectCustomKeyStoreOutput{})
+                         let mut output = super::_disconnect_custom_key_store_output::DisconnectCustomKeyStoreOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DisconnectCustomKeyStoreFluentBuilder;

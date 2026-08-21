@@ -10,6 +10,7 @@ pub struct SimulatePrincipalPolicyOutput {
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl SimulatePrincipalPolicyOutput {
     /// <p>The results of the simulation.</p>
@@ -23,6 +24,11 @@ impl SimulatePrincipalPolicyOutput {
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn marker(&self) -> ::std::option::Option<&str> {
         self.marker.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for SimulatePrincipalPolicyOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl SimulatePrincipalPolicyOutput {
@@ -39,6 +45,7 @@ pub struct SimulatePrincipalPolicyOutputBuilder {
     pub(crate) evaluation_results: ::std::option::Option<::std::vec::Vec<crate::types::EvaluationResult>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl SimulatePrincipalPolicyOutputBuilder {
     /// <p>The results of the simulation.</p>
@@ -70,12 +77,22 @@ impl SimulatePrincipalPolicyOutputBuilder {
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`SimulatePrincipalPolicyOutput`](crate::operation::simulate_principal_policy::SimulatePrincipalPolicyOutput).
     pub fn build(self) -> crate::operation::simulate_principal_policy::SimulatePrincipalPolicyOutput {
         crate::operation::simulate_principal_policy::SimulatePrincipalPolicyOutput {
             evaluation_results: self.evaluation_results,
             is_truncated: self.is_truncated,
             marker: self.marker,
+            _request_id: self._request_id,
         }
     }
 }

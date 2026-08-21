@@ -31,11 +31,13 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::CreateBucketError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::CreateBucketError::Unhandled(format!("CreateBucket returned HTTP {}", status)));
+                             return Err(super::CreateBucketError::unhandled_with_request_ids(format!("CreateBucket returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_create_bucket_output::CreateBucketOutputBuilder::default();
                          output.location = response.header("Location").map(str::to_owned);
                          output.bucket_arn = response.header("x-amz-bucket-arn").map(str::to_owned);
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

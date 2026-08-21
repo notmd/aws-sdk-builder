@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::CreatePlatformApplicationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::CreatePlatformApplicationError::Unhandled(format!("CreatePlatformApplication returned HTTP {}", status)));
+                             return Err(super::CreatePlatformApplicationError::unhandled_with_request_ids(format!("CreatePlatformApplication returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_create_platform_application_output::CreatePlatformApplicationOutputBuilder::default().build())
+                         let mut output = super::_create_platform_application_output::CreatePlatformApplicationOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as CreatePlatformApplicationFluentBuilder;

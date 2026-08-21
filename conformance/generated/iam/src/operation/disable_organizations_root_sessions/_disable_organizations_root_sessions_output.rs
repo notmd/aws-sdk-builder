@@ -8,6 +8,7 @@ pub struct DisableOrganizationsRootSessionsOutput {
     pub organization_id: ::std::option::Option<::std::string::String>,
     /// <p>The features you have enabled for centralized root access of member accounts in your organization.</p>
     pub enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
+    _request_id: Option<String>,
 }
 impl DisableOrganizationsRootSessionsOutput {
     /// <p>The unique identifier (ID) of an organization.</p>
@@ -17,6 +18,11 @@ impl DisableOrganizationsRootSessionsOutput {
     /// <p>The features you have enabled for centralized root access of member accounts in your organization.</p>
     pub fn enabled_features(&self) -> &[crate::types::FeatureType] {
         self.enabled_features.as_deref().unwrap_or_default()
+    }
+}
+impl ::aws_types::request_id::RequestId for DisableOrganizationsRootSessionsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl DisableOrganizationsRootSessionsOutput {
@@ -32,6 +38,7 @@ impl DisableOrganizationsRootSessionsOutput {
 pub struct DisableOrganizationsRootSessionsOutputBuilder {
     pub(crate) organization_id: ::std::option::Option<::std::string::String>,
     pub(crate) enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
+    _request_id: Option<String>,
 }
 impl DisableOrganizationsRootSessionsOutputBuilder {
     /// <p>The unique identifier (ID) of an organization.</p>
@@ -55,11 +62,21 @@ impl DisableOrganizationsRootSessionsOutputBuilder {
     pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>) -> Self { self.enabled_features = input; self }
     /// <p>The features you have enabled for centralized root access of member accounts in your organization.</p>
     pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> { &self.enabled_features }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`DisableOrganizationsRootSessionsOutput`](crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsOutput).
     pub fn build(self) -> crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsOutput {
         crate::operation::disable_organizations_root_sessions::DisableOrganizationsRootSessionsOutput {
             organization_id: self.organization_id,
             enabled_features: self.enabled_features,
+            _request_id: self._request_id,
         }
     }
 }

@@ -9,6 +9,7 @@ pub struct GetDelegatedAccessTokenOutput {
     pub packed_policy_size: ::std::option::Option<i32>,
     /// <p>The Amazon Resource Name (ARN) of the principal that was assumed when obtaining the delegated access token. This ARN identifies the IAM entity whose permissions are granted by the temporary credentials.</p>
     pub assumed_principal: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GetDelegatedAccessTokenOutput {
     pub fn credentials(&self) -> ::std::option::Option<&crate::types::Credentials> {
@@ -21,6 +22,11 @@ impl GetDelegatedAccessTokenOutput {
     /// <p>The Amazon Resource Name (ARN) of the principal that was assumed when obtaining the delegated access token. This ARN identifies the IAM entity whose permissions are granted by the temporary credentials.</p>
     pub fn assumed_principal(&self) -> ::std::option::Option<&str> {
         self.assumed_principal.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetDelegatedAccessTokenOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetDelegatedAccessTokenOutput {
@@ -37,6 +43,7 @@ pub struct GetDelegatedAccessTokenOutputBuilder {
     pub(crate) credentials: ::std::option::Option<crate::types::Credentials>,
     pub(crate) packed_policy_size: ::std::option::Option<i32>,
     pub(crate) assumed_principal: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GetDelegatedAccessTokenOutputBuilder {
     pub fn credentials(mut self, input: crate::types::Credentials) -> Self {
@@ -61,12 +68,22 @@ impl GetDelegatedAccessTokenOutputBuilder {
     pub fn set_assumed_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.assumed_principal = input; self }
     /// <p>The Amazon Resource Name (ARN) of the principal that was assumed when obtaining the delegated access token. This ARN identifies the IAM entity whose permissions are granted by the temporary credentials.</p>
     pub fn get_assumed_principal(&self) -> &::std::option::Option<::std::string::String> { &self.assumed_principal }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetDelegatedAccessTokenOutput`](crate::operation::get_delegated_access_token::GetDelegatedAccessTokenOutput).
     pub fn build(self) -> crate::operation::get_delegated_access_token::GetDelegatedAccessTokenOutput {
         crate::operation::get_delegated_access_token::GetDelegatedAccessTokenOutput {
             credentials: self.credentials,
             packed_policy_size: self.packed_policy_size,
             assumed_principal: self.assumed_principal,
+            _request_id: self._request_id,
         }
     }
 }

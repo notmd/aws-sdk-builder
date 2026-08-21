@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::AcquireRoleError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::AcquireRoleError::Unhandled(format!("AcquireRole returned HTTP {}", status)));
+                             return Err(super::AcquireRoleError::unhandled_with_request_ids(format!("AcquireRole returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_acquire_role_output::AcquireRoleOutputBuilder::default().build())
+                         let mut output = super::_acquire_role_output::AcquireRoleOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as AcquireRoleFluentBuilder;

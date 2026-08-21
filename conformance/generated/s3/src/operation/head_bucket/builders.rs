@@ -22,13 +22,15 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Head, &path, &headers, &body).await.map_err(super::HeadBucketError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::HeadBucketError::Unhandled(format!("HeadBucket returned HTTP {}", status)));
+                             return Err(super::HeadBucketError::unhandled_with_request_ids(format!("HeadBucket returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_head_bucket_output::HeadBucketOutputBuilder::default();
                          output.bucket_arn = response.header("x-amz-bucket-arn").map(str::to_owned);
                          output.bucket_location_name = response.header("x-amz-bucket-location-name").map(str::to_owned);
                          output.bucket_region = response.header("x-amz-bucket-region").map(str::to_owned);
                          output.access_point_alias = response.header("x-amz-access-point-alias").and_then(|value| value.parse().ok());
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

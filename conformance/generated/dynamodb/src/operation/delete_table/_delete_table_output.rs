@@ -6,11 +6,17 @@
 pub struct DeleteTableOutput {
     /// <p>Represents the properties of a table.</p>
     pub table_description: ::std::option::Option<crate::types::TableDescription>,
+    _request_id: Option<String>,
 }
 impl DeleteTableOutput {
     /// <p>Represents the properties of a table.</p>
     pub fn table_description(&self) -> ::std::option::Option<&crate::types::TableDescription> {
         self.table_description.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for DeleteTableOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl DeleteTableOutput {
@@ -25,6 +31,7 @@ impl DeleteTableOutput {
 #[non_exhaustive]
 pub struct DeleteTableOutputBuilder {
     pub(crate) table_description: ::std::option::Option<crate::types::TableDescription>,
+    _request_id: Option<String>,
 }
 impl DeleteTableOutputBuilder {
     /// <p>Represents the properties of a table.</p>
@@ -35,10 +42,20 @@ impl DeleteTableOutputBuilder {
     pub fn set_table_description(mut self, input: ::std::option::Option<crate::types::TableDescription>) -> Self { self.table_description = input; self }
     /// <p>Represents the properties of a table.</p>
     pub fn get_table_description(&self) -> &::std::option::Option<crate::types::TableDescription> { &self.table_description }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`DeleteTableOutput`](crate::operation::delete_table::DeleteTableOutput).
     pub fn build(self) -> crate::operation::delete_table::DeleteTableOutput {
         crate::operation::delete_table::DeleteTableOutput {
             table_description: self.table_description,
+            _request_id: self._request_id,
         }
     }
 }

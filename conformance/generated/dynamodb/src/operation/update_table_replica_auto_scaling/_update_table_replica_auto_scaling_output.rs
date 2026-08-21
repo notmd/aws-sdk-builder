@@ -6,11 +6,17 @@
 pub struct UpdateTableReplicaAutoScalingOutput {
     /// <p>Returns information about the auto scaling settings of a table with replicas.</p>
     pub table_auto_scaling_description: ::std::option::Option<crate::types::TableAutoScalingDescription>,
+    _request_id: Option<String>,
 }
 impl UpdateTableReplicaAutoScalingOutput {
     /// <p>Returns information about the auto scaling settings of a table with replicas.</p>
     pub fn table_auto_scaling_description(&self) -> ::std::option::Option<&crate::types::TableAutoScalingDescription> {
         self.table_auto_scaling_description.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for UpdateTableReplicaAutoScalingOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl UpdateTableReplicaAutoScalingOutput {
@@ -25,6 +31,7 @@ impl UpdateTableReplicaAutoScalingOutput {
 #[non_exhaustive]
 pub struct UpdateTableReplicaAutoScalingOutputBuilder {
     pub(crate) table_auto_scaling_description: ::std::option::Option<crate::types::TableAutoScalingDescription>,
+    _request_id: Option<String>,
 }
 impl UpdateTableReplicaAutoScalingOutputBuilder {
     /// <p>Returns information about the auto scaling settings of a table with replicas.</p>
@@ -35,10 +42,20 @@ impl UpdateTableReplicaAutoScalingOutputBuilder {
     pub fn set_table_auto_scaling_description(mut self, input: ::std::option::Option<crate::types::TableAutoScalingDescription>) -> Self { self.table_auto_scaling_description = input; self }
     /// <p>Returns information about the auto scaling settings of a table with replicas.</p>
     pub fn get_table_auto_scaling_description(&self) -> &::std::option::Option<crate::types::TableAutoScalingDescription> { &self.table_auto_scaling_description }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`UpdateTableReplicaAutoScalingOutput`](crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingOutput).
     pub fn build(self) -> crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingOutput {
         crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingOutput {
             table_auto_scaling_description: self.table_auto_scaling_description,
+            _request_id: self._request_id,
         }
     }
 }

@@ -26,9 +26,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::AssumeRoleWithWebIdentityError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::AssumeRoleWithWebIdentityError::Unhandled(format!("AssumeRoleWithWebIdentity returned HTTP {}", status)));
+                             return Err(super::AssumeRoleWithWebIdentityError::unhandled_with_request_ids(format!("AssumeRoleWithWebIdentity returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_assume_role_with_web_identity_output::AssumeRoleWithWebIdentityOutputBuilder::default().build())
+                         let mut output = super::_assume_role_with_web_identity_output::AssumeRoleWithWebIdentityOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as AssumeRoleWithWebIdentityFluentBuilder;

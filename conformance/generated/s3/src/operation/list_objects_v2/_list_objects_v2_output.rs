@@ -41,6 +41,8 @@ pub struct ListObjectsV2Output {
     /// </note>
     pub start_after: ::std::option::Option<::std::string::String>,
     pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl ListObjectsV2Output {
     /// <p>Set to <code>false</code> if all of the results were returned. Set to <code>true</code> if more keys are available to return. If the number of results exceeds that specified by <code>MaxKeys</code>, all of the results might not be returned.</p>
@@ -107,6 +109,16 @@ impl ListObjectsV2Output {
         self.request_charged.as_ref()
     }
 }
+impl crate::s3_request_id::RequestIdExt for ListObjectsV2Output {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListObjectsV2Output {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListObjectsV2Output {
     /// Creates a new builder-style object to manufacture [`ListObjectsV2Output`](crate::operation::list_objects_v2::ListObjectsV2Output).
     pub fn builder() -> crate::operation::list_objects_v2::builders::ListObjectsV2OutputBuilder {
@@ -131,6 +143,8 @@ pub struct ListObjectsV2OutputBuilder {
     pub(crate) next_continuation_token: ::std::option::Option<::std::string::String>,
     pub(crate) start_after: ::std::option::Option<::std::string::String>,
     pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl ListObjectsV2OutputBuilder {
     /// <p>Set to <code>false</code> if all of the results were returned. Set to <code>true</code> if more keys are available to return. If the number of results exceeds that specified by <code>MaxKeys</code>, all of the results might not be returned.</p>
@@ -269,6 +283,24 @@ impl ListObjectsV2OutputBuilder {
     }
     pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
     pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListObjectsV2Output`](crate::operation::list_objects_v2::ListObjectsV2Output).
     pub fn build(self) -> crate::operation::list_objects_v2::ListObjectsV2Output {
         crate::operation::list_objects_v2::ListObjectsV2Output {
@@ -285,6 +317,8 @@ impl ListObjectsV2OutputBuilder {
             next_continuation_token: self.next_continuation_token,
             start_after: self.start_after,
             request_charged: self.request_charged,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

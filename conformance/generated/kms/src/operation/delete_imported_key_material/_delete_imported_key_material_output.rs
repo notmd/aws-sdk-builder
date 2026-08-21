@@ -8,6 +8,7 @@ pub struct DeleteImportedKeyMaterialOutput {
     pub key_id: ::std::option::Option<::std::string::String>,
     /// <p>Identifies the deleted key material.</p>
     pub key_material_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl DeleteImportedKeyMaterialOutput {
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key from which the key material was deleted.</p>
@@ -17,6 +18,11 @@ impl DeleteImportedKeyMaterialOutput {
     /// <p>Identifies the deleted key material.</p>
     pub fn key_material_id(&self) -> ::std::option::Option<&str> {
         self.key_material_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for DeleteImportedKeyMaterialOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl DeleteImportedKeyMaterialOutput {
@@ -32,6 +38,7 @@ impl DeleteImportedKeyMaterialOutput {
 pub struct DeleteImportedKeyMaterialOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
     pub(crate) key_material_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl DeleteImportedKeyMaterialOutputBuilder {
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key from which the key material was deleted.</p>
@@ -50,11 +57,21 @@ impl DeleteImportedKeyMaterialOutputBuilder {
     pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_material_id = input; self }
     /// <p>Identifies the deleted key material.</p>
     pub fn get_key_material_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_material_id }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`DeleteImportedKeyMaterialOutput`](crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialOutput).
     pub fn build(self) -> crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialOutput {
         crate::operation::delete_imported_key_material::DeleteImportedKeyMaterialOutput {
             key_id: self.key_id,
             key_material_id: self.key_material_id,
+            _request_id: self._request_id,
         }
     }
 }

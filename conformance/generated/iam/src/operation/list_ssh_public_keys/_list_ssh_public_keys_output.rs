@@ -10,6 +10,7 @@ pub struct ListSshPublicKeysOutput {
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListSshPublicKeysOutput {
     /// <p>A list of the SSH public keys assigned to IAM user.</p>
@@ -23,6 +24,11 @@ impl ListSshPublicKeysOutput {
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn marker(&self) -> ::std::option::Option<&str> {
         self.marker.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListSshPublicKeysOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListSshPublicKeysOutput {
@@ -39,6 +45,7 @@ pub struct ListSshPublicKeysOutputBuilder {
     pub(crate) ssh_public_keys: ::std::option::Option<::std::vec::Vec<crate::types::SshPublicKeyMetadata>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListSshPublicKeysOutputBuilder {
     /// <p>A list of the SSH public keys assigned to IAM user.</p>
@@ -70,12 +77,22 @@ impl ListSshPublicKeysOutputBuilder {
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListSshPublicKeysOutput`](crate::operation::list_ssh_public_keys::ListSshPublicKeysOutput).
     pub fn build(self) -> crate::operation::list_ssh_public_keys::ListSshPublicKeysOutput {
         crate::operation::list_ssh_public_keys::ListSshPublicKeysOutput {
             ssh_public_keys: self.ssh_public_keys,
             is_truncated: self.is_truncated,
             marker: self.marker,
+            _request_id: self._request_id,
         }
     }
 }

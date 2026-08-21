@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::SetSecurityTokenServicePreferencesError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::SetSecurityTokenServicePreferencesError::Unhandled(format!("SetSecurityTokenServicePreferences returned HTTP {}", status)));
+                             return Err(super::SetSecurityTokenServicePreferencesError::unhandled_with_request_ids(format!("SetSecurityTokenServicePreferences returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::SetSecurityTokenServicePreferencesOutput{})
+                         let mut output = super::_set_security_token_service_preferences_output::SetSecurityTokenServicePreferencesOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as SetSecurityTokenServicePreferencesFluentBuilder;

@@ -33,6 +33,8 @@ pub struct ListObjectVersionsOutput {
     /// <p><code>KeyMarker, NextKeyMarker, Prefix, Key</code>, and <code>Delimiter</code>.</p>
     pub encoding_type: ::std::option::Option<crate::types::EncodingType>,
     pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl ListObjectVersionsOutput {
     /// <p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request by using the <code>NextKeyMarker</code> and <code>NextVersionIdMarker</code> response parameters as a starting place in another request to return the rest of the results.</p>
@@ -93,6 +95,16 @@ impl ListObjectVersionsOutput {
         self.request_charged.as_ref()
     }
 }
+impl crate::s3_request_id::RequestIdExt for ListObjectVersionsOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListObjectVersionsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListObjectVersionsOutput {
     /// Creates a new builder-style object to manufacture [`ListObjectVersionsOutput`](crate::operation::list_object_versions::ListObjectVersionsOutput).
     pub fn builder() -> crate::operation::list_object_versions::builders::ListObjectVersionsOutputBuilder {
@@ -118,6 +130,8 @@ pub struct ListObjectVersionsOutputBuilder {
     pub(crate) common_prefixes: ::std::option::Option<::std::vec::Vec<crate::types::CommonPrefix>>,
     pub(crate) encoding_type: ::std::option::Option<crate::types::EncodingType>,
     pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl ListObjectVersionsOutputBuilder {
     /// <p>A flag that indicates whether Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request by using the <code>NextKeyMarker</code> and <code>NextVersionIdMarker</code> response parameters as a starting place in another request to return the rest of the results.</p>
@@ -249,6 +263,24 @@ impl ListObjectVersionsOutputBuilder {
     }
     pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
     pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListObjectVersionsOutput`](crate::operation::list_object_versions::ListObjectVersionsOutput).
     pub fn build(self) -> crate::operation::list_object_versions::ListObjectVersionsOutput {
         crate::operation::list_object_versions::ListObjectVersionsOutput {
@@ -266,6 +298,8 @@ impl ListObjectVersionsOutputBuilder {
             common_prefixes: self.common_prefixes,
             encoding_type: self.encoding_type,
             request_charged: self.request_charged,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

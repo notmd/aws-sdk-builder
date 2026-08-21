@@ -25,9 +25,12 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::PutBucketCorsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::PutBucketCorsError::Unhandled(format!("PutBucketCors returned HTTP {}", status)));
+                             return Err(super::PutBucketCorsError::unhandled_with_request_ids(format!("PutBucketCors returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
-                         Ok(super::PutBucketCorsOutput{})
+                         let mut output = super::_put_bucket_cors_output::PutBucketCorsOutputBuilder::default();
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as PutBucketCorsFluentBuilder;

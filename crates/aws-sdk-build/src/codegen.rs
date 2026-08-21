@@ -41,10 +41,14 @@ pub(crate) fn generate(
         let model = crate::model::Model::load(entry)?;
         let selected = model.select(&selection.operations, selection.all_operations)?;
         let protocol = selected.model.protocol()?;
+        let request_id_plan = request_id_plan(&selected);
         service_protocols.insert(entry.key.to_owned(), protocol.trait_id());
         let service_dir = generated.join(entry.key);
         let mut service_files = vec![
-            ("src/lib.rs".to_owned(), render_service_lib(entry.key)),
+            (
+                "src/lib.rs".to_owned(),
+                render_service_lib(entry.key, &selected),
+            ),
             ("src/primitives.rs".to_owned(), render_primitives()),
             ("src/config.rs".to_owned(), render_config_file()),
             ("src/error.rs".to_owned(), render_error_file()),
@@ -59,20 +63,23 @@ pub(crate) fn generate(
             ),
             (
                 "src/operation.rs".to_owned(),
-                render_operations_file(entry.key, &selected),
+                render_operations_file(entry.key, entry.module_name, &selected, consumer_namespace),
             ),
             (
                 "src/client.rs".to_owned(),
                 render_client_file(entry.key, &selected),
             ),
         ];
+        if request_id_plan.extended {
+            service_files.push(("src/s3_request_id.rs".to_owned(), render_s3_request_id()));
+        }
         let mut operation_names = selected.operations.clone();
         operation_names.sort();
         for operation_name in operation_names {
             let module = names::snake_case(&operation_name);
             service_files.push((
                 format!("src/operation/{module}.rs"),
-                render_operation_file(entry.key, &selected, &operation_name),
+                render_operation_file(entry.key, &selected, &operation_name, consumer_namespace),
             ));
             service_files.push((
                 format!("src/operation/{module}/_{module}_input.rs"),
@@ -182,8 +189,13 @@ pub(crate) fn generate(
         "service_protocols": service_protocols,
         "selected_operations": all_operations,
         "generated_source_files": files,
-        "runtime_crate_requirements": ["aws-runtime"],
-        "runtime_source_files": ["src/client.rs"],
+        "runtime_crate_requirements": [
+            "aws-runtime",
+            "aws-types",
+            "aws-smithy-runtime-api",
+            "aws-smithy-types"
+        ],
+        "runtime_source_files": ["src/client.rs", "src/s3_request_id.rs"],
     });
     let manifest_path = stage.join("aws_sdk_build_manifest.json");
     let manifest_text = serde_json::to_string_pretty(&manifest)
@@ -214,18 +226,65 @@ fn normalize_source(source: &str) -> String {
     format!("{}\n", source.trim_end_matches('\n'))
 }
 
-fn render_service_lib(service_key: &str) -> String {
+#[derive(Clone, Copy, Debug, Default)]
+struct RequestIdPlan {
+    standard: bool,
+    extended: bool,
+}
+
+fn request_id_plan(selected: &SelectedModel) -> RequestIdPlan {
+    let service = selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id);
+    let service_traits = service
+        .and_then(|shape| shape.get("traits"))
+        .and_then(Value::as_object);
+    let service_metadata = service_traits
+        .and_then(|traits| traits.get("aws.api#service"))
+        .and_then(Value::as_object);
+    RequestIdPlan {
+        standard: true,
+        extended: service_metadata
+            .and_then(|metadata| metadata.get("arnNamespace"))
+            .and_then(Value::as_str)
+            .is_some_and(|namespace| namespace.eq_ignore_ascii_case("s3")),
+    }
+}
+
+fn output_request_id_plan(selected: &SelectedModel, context: &Context) -> RequestIdPlan {
+    match context {
+        Context::Operation { input: false, .. } | Context::Builder { input: false, .. } => {
+            request_id_plan(selected)
+        }
+        _ => RequestIdPlan::default(),
+    }
+}
+
+fn render_service_lib(service_key: &str, selected: &SelectedModel) -> String {
     let mut output = String::new();
     header(&mut output);
     for file in [
         "primitives.rs",
         "config.rs",
         "error.rs",
+        "s3_request_id.rs",
         "meta.rs",
         "types.rs",
         "operation.rs",
         "client.rs",
     ] {
+        if file == "s3_request_id.rs" && !request_id_plan(selected).extended {
+            continue;
+        }
+        if file == "s3_request_id.rs" {
+            writeln!(
+                output,
+                "pub mod s3_request_id {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/{file}\"));\n}}"
+            )
+            .unwrap();
+            continue;
+        }
         writeln!(
             output,
             "include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/{file}\"));"
@@ -233,6 +292,153 @@ fn render_service_lib(service_key: &str) -> String {
         .unwrap();
     }
     output
+}
+
+fn render_s3_request_id() -> String {
+    normalize_source(
+        r#"// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
+/*
+ * Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+use aws_smithy_runtime_api::client::result::SdkError;
+use aws_smithy_runtime_api::http::{Headers, Response};
+use aws_smithy_types::error::metadata::{Builder as ErrorMetadataBuilder, ErrorMetadata};
+
+const EXTENDED_REQUEST_ID: &str = "s3_extended_request_id";
+
+/// Trait to retrieve the S3-specific extended request ID
+///
+/// Read more at <https://aws.amazon.com/premiumsupport/knowledge-center/s3-request-id-values/>.
+pub trait RequestIdExt {
+    /// Returns the S3 Extended Request ID necessary when contacting AWS Support.
+    fn extended_request_id(&self) -> Option<&str>;
+}
+
+impl<E> RequestIdExt for SdkError<E, Response> {
+    fn extended_request_id(&self) -> Option<&str> {
+        match self {
+            Self::ResponseError(err) => err.raw().headers().extended_request_id(),
+            Self::ServiceError(err) => err.raw().headers().extended_request_id(),
+            _ => None,
+        }
+    }
+}
+
+impl RequestIdExt for ErrorMetadata {
+    fn extended_request_id(&self) -> Option<&str> {
+        self.extra(EXTENDED_REQUEST_ID)
+    }
+}
+
+impl<B> RequestIdExt for Response<B> {
+    fn extended_request_id(&self) -> Option<&str> {
+        self.headers().extended_request_id()
+    }
+}
+
+impl RequestIdExt for Headers {
+    fn extended_request_id(&self) -> Option<&str> {
+        self.get("x-amz-id-2")
+    }
+}
+
+impl<O, E> RequestIdExt for Result<O, E>
+where
+    O: RequestIdExt,
+    E: RequestIdExt,
+{
+    fn extended_request_id(&self) -> Option<&str> {
+        match self {
+            Ok(ok) => ok.extended_request_id(),
+            Err(err) => err.extended_request_id(),
+        }
+    }
+}
+
+/// Applies the extended request ID to a generic error builder
+pub(crate) fn apply_extended_request_id(builder: ErrorMetadataBuilder, headers: &Headers) -> ErrorMetadataBuilder {
+    if let Some(extended_request_id) = headers.extended_request_id() {
+        builder.custom(EXTENDED_REQUEST_ID, extended_request_id)
+    } else {
+        builder
+    }
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+    use aws_smithy_runtime_api::client::result::SdkError;
+    use aws_smithy_types::body::SdkBody;
+
+    #[test]
+    fn handle_missing_header() {
+        let resp = Response::try_from(http_1x::Response::builder().status(400).body("").unwrap()).unwrap();
+        let mut builder = ErrorMetadata::builder().message("123");
+        builder = apply_extended_request_id(builder, resp.headers());
+        assert_eq!(builder.build().extended_request_id(), None);
+    }
+
+    #[test]
+    fn test_extended_request_id_sdk_error() {
+        let without_extended_request_id = || Response::try_from(http_1x::Response::builder().body(SdkBody::empty()).unwrap()).unwrap();
+        let with_extended_request_id = || {
+            Response::try_from(
+                http_1x::Response::builder()
+                    .header("x-amz-id-2", "some-request-id")
+                    .body(SdkBody::empty())
+                    .unwrap(),
+            )
+            .unwrap()
+        };
+        assert_eq!(
+            None,
+            SdkError::<(), _>::response_error("test", without_extended_request_id()).extended_request_id()
+        );
+        assert_eq!(
+            Some("some-request-id"),
+            SdkError::<(), _>::response_error("test", with_extended_request_id()).extended_request_id()
+        );
+        assert_eq!(None, SdkError::service_error((), without_extended_request_id()).extended_request_id());
+        assert_eq!(
+            Some("some-request-id"),
+            SdkError::service_error((), with_extended_request_id()).extended_request_id()
+        );
+    }
+
+    #[test]
+    fn test_extract_extended_request_id() {
+        let mut headers = Headers::new();
+        assert_eq!(None, headers.extended_request_id());
+
+        headers.append("x-amz-id-2", "some-request-id");
+        assert_eq!(Some("some-request-id"), headers.extended_request_id());
+    }
+
+    #[test]
+    fn test_apply_extended_request_id() {
+        let mut headers = Headers::new();
+        assert_eq!(
+            ErrorMetadata::builder().build(),
+            apply_extended_request_id(ErrorMetadata::builder(), &headers).build(),
+        );
+
+        headers.append("x-amz-id-2", "some-request-id");
+        assert_eq!(
+            ErrorMetadata::builder().custom(EXTENDED_REQUEST_ID, "some-request-id").build(),
+            apply_extended_request_id(ErrorMetadata::builder(), &headers).build(),
+        );
+    }
+
+    #[test]
+    fn test_error_metadata_extended_request_id_impl() {
+        let err = ErrorMetadata::builder().custom(EXTENDED_REQUEST_ID, "some-request-id").build();
+        assert_eq!(Some("some-request-id"), err.extended_request_id());
+    }
+}
+"#,
+    )
 }
 
 fn render_primitives() -> String {
@@ -344,7 +550,7 @@ fn render_error(output: &mut String) {
              pub fn unhandled(message: impl ::std::convert::Into<::std::string::String>) -> Self {\n\
                  Self { message: message.into() }\n\
              }\n\
-             pub fn meta(&self) -> ErrorMetadata { ErrorMetadata }\n\
+             pub fn meta(&self) -> ErrorMetadata { ErrorMetadata::default() }\n\
          }\n\
          impl ::std::fmt::Display for Error {\n\
              fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {\n\
@@ -353,7 +559,17 @@ fn render_error(output: &mut String) {
          }\n\
          impl ::std::error::Error for Error {}\n\
          #[derive(Clone, Debug, Default)]\n\
-         pub struct ErrorMetadata;\n\
+         pub struct ErrorMetadata {\n\
+             request_id: ::std::option::Option<::std::string::String>,\n\
+             extended_request_id: ::std::option::Option<::std::string::String>,\n\
+         }\n\
+         impl ErrorMetadata {\n\
+             pub(crate) fn from_request_ids(request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self {\n\
+                 Self { request_id, extended_request_id }\n\
+             }\n\
+             pub fn request_id(&self) -> ::std::option::Option<&str> { self.request_id.as_deref() }\n\
+             pub fn extended_request_id(&self) -> ::std::option::Option<&str> { self.extended_request_id.as_deref() }\n\
+         }\n\
          #[derive(Clone, Debug)]\n\
          pub struct UnknownVariantError { value: ::std::string::String }\n\
          impl UnknownVariantError {\n\
@@ -872,9 +1088,27 @@ fn render_types_with_context(
     output.push_str("}\n\n");
 }
 
-fn render_operations_file(service_key: &str, selected: &SelectedModel) -> String {
+fn render_operations_file(
+    service_key: &str,
+    service_module: &str,
+    selected: &SelectedModel,
+    consumer_namespace: bool,
+) -> String {
     let mut output = String::new();
     header(&mut output);
+    let request_id_plan = request_id_plan(selected);
+    if request_id_plan.standard {
+        output.push_str("pub use ::aws_types::request_id::RequestId;\n");
+    }
+    if request_id_plan.extended {
+        let request_id_path = if consumer_namespace {
+            format!("crate::{service_module}::s3_request_id::RequestIdExt")
+        } else {
+            "crate::s3_request_id::RequestIdExt".to_owned()
+        };
+        writeln!(output, "pub use {request_id_path};").unwrap();
+    }
+    output.push('\n');
     output.push_str("pub mod operation {\n");
     let mut operations = selected.operations.clone();
     operations.sort();
@@ -896,6 +1130,7 @@ fn render_operation_file(
     service_key: &str,
     selected: &SelectedModel,
     operation_name: &str,
+    consumer_namespace: bool,
 ) -> String {
     let module = names::snake_case(operation_name);
     let operation = operation_shape(selected, operation_name).expect("selected operation exists");
@@ -907,7 +1142,7 @@ fn render_operation_file(
         "#[derive(Clone, Debug, Default)]\npub struct {rust_operation};\nimpl {rust_operation} {{ pub fn new() -> Self {{ Self }} }}"
     )
     .unwrap();
-    render_operation_error(&mut output, operation);
+    render_operation_error(&mut output, selected, operation, consumer_namespace);
     writeln!(
         output,
         "pub mod _{module}_input {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/operation/{module}/_{module}_input.rs\"));\n}}\npub use _{module}_input::{rust_operation}Input;\npub type Input = {rust_operation}Input;"
@@ -978,6 +1213,9 @@ fn render_operation_shape_file(
     let mut output = String::new();
     header(&mut output);
     if let Some(shape) = shape {
+        if !input && members(shape).is_empty() && output.ends_with("\n\n") {
+            output.pop();
+        }
         render_structure_at_indent(
             &mut output,
             selected,
@@ -1014,12 +1252,53 @@ fn render_operation_shape_file(
             },
             0,
         );
-    } else {
+    } else if input {
         writeln!(
             output,
             "#[derive(Clone, Debug, Default)]\npub struct {rust_name};"
         )
         .unwrap();
+    } else {
+        let empty_output = serde_json::json!({
+            "type": "structure",
+            "traits": { "smithy.api#output": {} }
+        });
+        let context = Context::Operation {
+            module: module.clone(),
+            input: false,
+            consumer_namespace,
+        };
+        if output.ends_with("\n\n") {
+            output.pop();
+        }
+        render_structure_at_indent(
+            &mut output,
+            selected,
+            &empty_output,
+            &rust_name,
+            context.clone(),
+            0,
+        );
+        render_structure_accessors(
+            &mut output,
+            selected,
+            &empty_output,
+            &rust_name,
+            context.clone(),
+            0,
+        );
+        render_type_builder(
+            &mut output,
+            selected,
+            &empty_output,
+            &rust_name,
+            Context::Builder {
+                module,
+                input: false,
+                consumer_namespace,
+            },
+            0,
+        );
     }
     output
 }
@@ -1085,7 +1364,13 @@ fn render_operation_builder_file(
     output
 }
 
-fn render_operation_error(output: &mut String, operation: &Value) {
+fn render_operation_error(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation: &Value,
+    consumer_namespace: bool,
+) {
+    let request_id_plan = request_id_plan(selected);
     output.push_str("#[derive(Clone, Debug)]\npub enum Error {\n");
     if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
         for error in errors.iter().filter_map(target_value) {
@@ -1097,7 +1382,9 @@ fn render_operation_error(output: &mut String, operation: &Value) {
             .unwrap();
         }
     }
-    output.push_str("    Unhandled(::std::string::String),\n}\nimpl Error {\n");
+    output.push_str(
+        "    Unhandled(::std::string::String),\n    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },\n}\nimpl Error {\n",
+    );
     if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
         for error in errors.iter().filter_map(target_value) {
             let error_name = rust_type_name(terminal(error));
@@ -1105,7 +1392,7 @@ fn render_operation_error(output: &mut String, operation: &Value) {
             writeln!(output, "    pub fn is_{predicate}(&self) -> bool {{ matches!(self, Self::{error_name}(_)) }}").unwrap();
         }
     }
-    output.push_str("}\nimpl ::std::fmt::Display for Error {\n    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {\n        match self {\n            Self::Unhandled(message) => f.write_str(message),\n");
+    output.push_str("}\nimpl ::std::fmt::Display for Error {\n    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {\n        match self {\n            Self::Unhandled(message) => f.write_str(message),\n            Self::UnhandledWithRequestIds { message, .. } => f.write_str(message),\n");
     if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
         for error in errors.iter().filter_map(target_value) {
             let error_name = rust_type_name(terminal(error));
@@ -1117,6 +1404,31 @@ fn render_operation_error(output: &mut String, operation: &Value) {
         }
     }
     output.push_str("        }\n    }\n}\nimpl ::std::error::Error for Error {}\n");
+    if request_id_plan.standard {
+        let operation_path = "Error";
+        let error_path = if consumer_namespace {
+            "super::super::error::ErrorMetadata".to_owned()
+        } else {
+            "crate::error::ErrorMetadata".to_owned()
+        };
+        writeln!(
+            output,
+            "impl Error {{\n    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self {{ Self::UnhandledWithRequestIds {{ message: message.into(), request_id, extended_request_id }} }}\n    pub fn meta(&self) -> {error_path} {{ match self {{ Self::UnhandledWithRequestIds {{ request_id, extended_request_id, .. }} => {error_path}::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => {error_path}::default() }} }}\n}}\nimpl ::aws_types::request_id::RequestId for {operation_path} {{\n    fn request_id(&self) -> Option<&str> {{ match self {{ Self::UnhandledWithRequestIds {{ request_id, .. }} => request_id.as_deref(), _ => None }} }}\n}}",
+        )
+        .unwrap();
+        if request_id_plan.extended {
+            let trait_path = if consumer_namespace {
+                "super::super::s3_request_id::RequestIdExt"
+            } else {
+                "crate::s3_request_id::RequestIdExt"
+            };
+            writeln!(
+                output,
+                "impl {trait_path} for {operation_path} {{\n    fn extended_request_id(&self) -> Option<&str> {{ match self {{ Self::UnhandledWithRequestIds {{ extended_request_id, .. }} => extended_request_id.as_deref(), _ => None }} }}\n}}"
+            )
+            .unwrap();
+        }
+    }
 }
 
 fn render_operation_send(
@@ -1128,6 +1440,7 @@ fn render_operation_send(
     consumer_namespace: bool,
 ) {
     let rust_operation = rust_type_name(operation_name);
+    let request_id_plan = request_id_plan(selected);
     let method = operation
         .get("traits")
         .and_then(|traits| traits.get("smithy.api#http"))
@@ -1152,6 +1465,11 @@ fn render_operation_send(
     let input_shape = input_id.and_then(|id| selected.model.shapes.get(id));
     let output_id = operation.get("output").and_then(target_value);
     let output_shape = output_id.and_then(|id| selected.model.shapes.get(id));
+    let extended_request_id = if request_id_plan.extended {
+        "response.header(\"x-amz-id-2\").map(str::to_owned)"
+    } else {
+        "::std::option::Option::None"
+    };
     let path_expression = render_request_path(uri, input_shape, selected);
     let body_expression = render_request_body(selected, input_shape, protocol);
     let headers_expression = render_request_headers(input_shape, protocol);
@@ -1185,7 +1503,7 @@ fn render_operation_send(
     output.push_str("                         let status = response.status();\n                         if !status.is_success() {\n");
     writeln!(
         output,
-        "                             return Err(super::{rust_operation}Error::Unhandled(format!(\"{rust_operation} returned HTTP {{}}\", status)));"
+        "                             return Err(super::{rust_operation}Error::unhandled_with_request_ids(format!(\"{rust_operation} returned HTTP {{}}\", status), response.header(\"x-amzn-requestid\").map(str::to_owned), {extended_request_id}));"
     )
     .unwrap();
     output.push_str("                         }\n");
@@ -1533,6 +1851,7 @@ fn render_response_decode(
     consumer_namespace: bool,
 ) {
     let rust_operation = rust_type_name(operation_name);
+    let request_id_plan = request_id_plan(selected);
     let output_builder = format!(
         "super::_{}_output::{}OutputBuilder",
         names::snake_case(operation_name),
@@ -1582,24 +1901,26 @@ fn render_response_decode(
         .unwrap_or(false);
     if !has_decoded_values {
         let output_is_unit = shape.map(|shape| members(shape).is_empty()).unwrap_or(true);
-        if output_is_unit {
+        if output_is_unit && !request_id_plan.standard && !request_id_plan.extended {
             writeln!(
                 output,
                 "                         Ok(super::{rust_operation}Output{{}})"
             )
             .unwrap();
-        } else if output_requires_validation {
-            writeln!(
-                output,
-                "                         {output_builder}::default().build().map_err(|error| super::{rust_operation}Error::Unhandled(error.to_string()))"
-            )
-            .unwrap();
         } else {
-            writeln!(
-                output,
-                "                         Ok({output_builder}::default().build())"
-            )
-            .unwrap();
+            output.push_str(&format!(
+                "                         let mut output = {output_builder}::default();\n"
+            ));
+            render_response_request_ids(output, request_id_plan);
+            if output_requires_validation {
+                writeln!(
+                    output,
+                    "                         output.build().map_err(|error| super::{rust_operation}Error::Unhandled(error.to_string()))"
+                )
+                .unwrap();
+            } else {
+                output.push_str("                         Ok(output.build())\n");
+            }
         }
         return;
     }
@@ -1696,6 +2017,7 @@ fn render_response_decode(
             }
         }
     }
+    render_response_request_ids(output, request_id_plan);
     if output_requires_validation {
         writeln!(
             output,
@@ -1704,6 +2026,19 @@ fn render_response_decode(
         .unwrap();
     } else {
         output.push_str("                         Ok(output.build())\n");
+    }
+}
+
+fn render_response_request_ids(output: &mut String, request_id_plan: RequestIdPlan) {
+    if request_id_plan.extended {
+        output.push_str(
+            "                         output._set_extended_request_id(response.header(\"x-amz-id-2\").map(str::to_owned));\n",
+        );
+    }
+    if request_id_plan.standard {
+        output.push_str(
+            "                         output._set_request_id(response.header(\"x-amzn-requestid\").map(str::to_owned));\n",
+        );
     }
 }
 
@@ -2205,6 +2540,7 @@ fn render_structure_at_indent(
     indent: usize,
 ) {
     let padding = " ".repeat(indent);
+    let request_id_plan = output_request_id_plan(selected, &context);
     if let Some(documentation) = documentation(shape) {
         render_doc_lines(output, &documentation, indent);
     } else {
@@ -2220,7 +2556,7 @@ fn render_structure_at_indent(
     } else {
         "::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug"
     };
-    if members(shape).is_empty() {
+    if members(shape).is_empty() && !request_id_plan.standard && !request_id_plan.extended {
         writeln!(output, "{padding}#[derive({derives})]").unwrap();
         writeln!(output, "{padding}pub struct {} {{}}", rust_type_name(name)).unwrap();
         return;
@@ -2243,6 +2579,12 @@ fn render_structure_at_indent(
         let field_type = structure_member_type(selected, member, target, &context);
         writeln!(output, "{}    pub {}: {},", padding, field, field_type).unwrap();
     }
+    if request_id_plan.extended {
+        writeln!(output, "{padding}    _extended_request_id: Option<String>,").unwrap();
+    }
+    if request_id_plan.standard {
+        writeln!(output, "{padding}    _request_id: Option<String>,").unwrap();
+    }
     writeln!(output, "{}}}", padding).unwrap();
 }
 
@@ -2255,97 +2597,118 @@ fn render_structure_accessors(
     indent: usize,
 ) {
     let padding = " ".repeat(indent);
-    if members(shape).is_empty() {
-        return;
-    }
-    writeln!(output, "{padding}impl {} {{", rust_type_name(name)).unwrap();
-    for (member_name, member) in members(shape) {
-        let field = names::rust_identifier(&member_name);
-        let target = member_target(member).unwrap_or("smithy.api#String");
-        let target_type = type_expr(selected, target, context.clone());
-        if let Some(member_doc) = documentation(member) {
-            render_doc_lines(output, &member_doc, indent + 4);
-        }
-        render_deprecated_attribute(output, member, indent + 4);
-        let required = is_streaming_target(target)
-            || (!operation_input(&context)
-                && member_is_effectively_required(selected, member, target));
-        let target_shape = selected.model.shapes.get(target);
-        let target_kind = target_shape
-            .and_then(|shape| shape.get("type"))
-            .and_then(Value::as_str)
-            .unwrap_or_else(|| terminal(target));
-        if target_kind == "list" {
-            let element_target = target_shape
-                .and_then(|shape| shape.get("member"))
-                .and_then(member_target)
-                .unwrap_or("smithy.api#String");
-            let element_type = type_expr(selected, element_target, context.clone());
-            let return_type = format!("&[{element_type}]");
-            if required {
-                writeln!(
-                    output,
-                    "{padding}    pub fn {field}(&self) -> {return_type} {{"
-                )
-                .unwrap();
-                writeln!(output, "{padding}        use std::ops::Deref;").unwrap();
-                writeln!(output, "{padding}        self.{field}.deref()").unwrap();
-                writeln!(output, "{padding}    }}").unwrap();
-            } else {
-                writeln!(
-                    output,
-                    "{padding}    pub fn {field}(&self) -> {return_type} {{"
-                )
-                .unwrap();
-                writeln!(
-                    output,
-                    "{padding}        self.{field}.as_deref().unwrap_or_default()"
-                )
-                .unwrap();
-                writeln!(output, "{padding}    }}").unwrap();
+    let request_id_plan = output_request_id_plan(selected, &context);
+    if !members(shape).is_empty() {
+        writeln!(output, "{padding}impl {} {{", rust_type_name(name)).unwrap();
+        for (member_name, member) in members(shape) {
+            let field = names::rust_identifier(&member_name);
+            let target = member_target(member).unwrap_or("smithy.api#String");
+            let target_type = type_expr(selected, target, context.clone());
+            if let Some(member_doc) = documentation(member) {
+                render_doc_lines(output, &member_doc, indent + 4);
             }
-        } else if is_string_type(target, target_shape) {
-            if required {
-                writeln!(output, "{padding}    pub fn {field}(&self) -> &str {{").unwrap();
-                writeln!(output, "{padding}        use std::ops::Deref;").unwrap();
-                writeln!(output, "{padding}        self.{field}.deref()").unwrap();
-                writeln!(output, "{padding}    }}").unwrap();
-            } else {
-                writeln!(
+            render_deprecated_attribute(output, member, indent + 4);
+            let required = is_streaming_target(target)
+                || (!operation_input(&context)
+                    && member_is_effectively_required(selected, member, target));
+            let target_shape = selected.model.shapes.get(target);
+            let target_kind = target_shape
+                .and_then(|shape| shape.get("type"))
+                .and_then(Value::as_str)
+                .unwrap_or_else(|| terminal(target));
+            if target_kind == "list" {
+                let element_target = target_shape
+                    .and_then(|shape| shape.get("member"))
+                    .and_then(member_target)
+                    .unwrap_or("smithy.api#String");
+                let element_type = type_expr(selected, element_target, context.clone());
+                let return_type = format!("&[{element_type}]");
+                if required {
+                    writeln!(
+                        output,
+                        "{padding}    pub fn {field}(&self) -> {return_type} {{"
+                    )
+                    .unwrap();
+                    writeln!(output, "{padding}        use std::ops::Deref;").unwrap();
+                    writeln!(output, "{padding}        self.{field}.deref()").unwrap();
+                    writeln!(output, "{padding}    }}").unwrap();
+                } else {
+                    writeln!(
+                        output,
+                        "{padding}    pub fn {field}(&self) -> {return_type} {{"
+                    )
+                    .unwrap();
+                    writeln!(
+                        output,
+                        "{padding}        self.{field}.as_deref().unwrap_or_default()"
+                    )
+                    .unwrap();
+                    writeln!(output, "{padding}    }}").unwrap();
+                }
+            } else if is_string_type(target, target_shape) {
+                if required {
+                    writeln!(output, "{padding}    pub fn {field}(&self) -> &str {{").unwrap();
+                    writeln!(output, "{padding}        use std::ops::Deref;").unwrap();
+                    writeln!(output, "{padding}        self.{field}.deref()").unwrap();
+                    writeln!(output, "{padding}    }}").unwrap();
+                } else {
+                    writeln!(
                     output,
                     "{padding}    pub fn {field}(&self) -> ::std::option::Option<&str> {{\n{padding}        self.{field}.as_deref()\n{padding}    }}"
                 )
                 .unwrap();
-            }
-        } else if is_copy_type(target, target_shape) {
-            if required {
-                writeln!(
+                }
+            } else if is_copy_type(target, target_shape) {
+                if required {
+                    writeln!(
                     output,
                     "{padding}    pub fn {field}(&self) -> {target_type} {{\n{padding}        self.{field}\n{padding}    }}"
                 )
                 .unwrap();
-            } else {
-                writeln!(
+                } else {
+                    writeln!(
                     output,
                     "{padding}    pub fn {field}(&self) -> ::std::option::Option<{target_type}> {{\n{padding}        self.{field}\n{padding}    }}"
                 )
                 .unwrap();
-            }
-        } else if required {
-            writeln!(
+                }
+            } else if required {
+                writeln!(
                 output,
                 "{padding}    pub fn {field}(&self) -> &{target_type} {{\n{padding}        &self.{field}\n{padding}    }}"
             )
             .unwrap();
-        } else {
-            writeln!(
+            } else {
+                writeln!(
                 output,
                 "{padding}    pub fn {field}(&self) -> ::std::option::Option<&{target_type}> {{\n{padding}        self.{field}.as_ref()\n{padding}    }}"
             )
             .unwrap();
+            }
         }
+        writeln!(output, "{padding}}}").unwrap();
     }
-    writeln!(output, "{padding}}}").unwrap();
+    if request_id_plan.extended {
+        let trait_path = if context.consumer_namespace() {
+            "super::super::super::s3_request_id::RequestIdExt"
+        } else {
+            "crate::s3_request_id::RequestIdExt"
+        };
+        writeln!(
+            output,
+            "{padding}impl {trait_path} for {} {{\n{padding}    fn extended_request_id(&self) -> Option<&str> {{\n{padding}        self._extended_request_id.as_deref()\n{padding}    }}\n{padding}}}",
+            rust_type_name(name),
+        )
+        .unwrap();
+    }
+    if request_id_plan.standard {
+        writeln!(
+            output,
+            "{padding}impl ::aws_types::request_id::RequestId for {} {{\n{padding}    fn request_id(&self) -> Option<&str> {{\n{padding}        self._request_id.as_deref()\n{padding}    }}\n{padding}}}",
+            rust_type_name(name)
+        )
+        .unwrap();
+    }
 }
 
 fn render_type_builder(
@@ -2361,6 +2724,7 @@ fn render_type_builder(
     let inner = " ".repeat(indent + 4);
     let builder_path = builder_type_path(&context, &rust_name);
     let value_path = value_type_path(&context, &rust_name);
+    let request_id_plan = output_request_id_plan(selected, &context);
     writeln!(output, "{padding}impl {rust_name} {{").unwrap();
     writeln!(
         output,
@@ -2385,7 +2749,7 @@ fn render_type_builder(
     )
     .unwrap();
     writeln!(output, "{padding}#[non_exhaustive]").unwrap();
-    if members(shape).is_empty() {
+    if members(shape).is_empty() && !request_id_plan.standard && !request_id_plan.extended {
         writeln!(output, "{padding}pub struct {rust_name}Builder {{}}").unwrap();
         writeln!(output, "{padding}impl {rust_name}Builder {{").unwrap();
         writeln!(
@@ -2410,6 +2774,12 @@ fn render_type_builder(
             "{inner}pub(crate) {field}: ::std::option::Option<{target}>,"
         )
         .unwrap();
+    }
+    if request_id_plan.extended {
+        writeln!(output, "{inner}_extended_request_id: Option<String>,").unwrap();
+    }
+    if request_id_plan.standard {
+        writeln!(output, "{inner}_request_id: Option<String>,").unwrap();
     }
     writeln!(output, "{padding}}}").unwrap();
     writeln!(output, "{padding}impl {rust_name}Builder {{").unwrap();
@@ -2501,6 +2871,30 @@ fn render_type_builder(
         )
         .unwrap();
     }
+    if request_id_plan.extended {
+        writeln!(
+            output,
+            "{inner}pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {{\n{inner}    self._extended_request_id = Some(extended_request_id.into());\n{inner}    self\n{inner}}}\n"
+        )
+        .unwrap();
+        writeln!(
+            output,
+            "{inner}pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {{\n{inner}    self._extended_request_id = extended_request_id;\n{inner}    self\n{inner}}}"
+        )
+        .unwrap();
+    }
+    if request_id_plan.standard {
+        writeln!(
+            output,
+            "{inner}pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {{\n{inner}    self._request_id = Some(request_id.into());\n{inner}    self\n{inner}}}\n"
+        )
+        .unwrap();
+        writeln!(
+            output,
+            "{inner}pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {{\n{inner}    self._request_id = request_id;\n{inner}    self\n{inner}}}"
+        )
+        .unwrap();
+    }
     let required_members = members(shape)
         .into_iter()
         .filter(|(_, member)| {
@@ -2575,6 +2969,16 @@ fn render_type_builder(
         } else {
             writeln!(output, "{inner}        {field}: self.{field},").unwrap();
         }
+    }
+    if request_id_plan.extended {
+        writeln!(
+            output,
+            "{inner}        _extended_request_id: self._extended_request_id,"
+        )
+        .unwrap();
+    }
+    if request_id_plan.standard {
+        writeln!(output, "{inner}        _request_id: self._request_id,").unwrap();
     }
     if required_members.is_empty() {
         writeln!(output, "{inner}    }}").unwrap();

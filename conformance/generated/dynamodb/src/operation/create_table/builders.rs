@@ -37,9 +37,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::CreateTableError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::CreateTableError::Unhandled(format!("CreateTable returned HTTP {}", status)));
+                             return Err(super::CreateTableError::unhandled_with_request_ids(format!("CreateTable returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_create_table_output::CreateTableOutputBuilder::default().build())
+                         let mut output = super::_create_table_output::CreateTableOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as CreateTableFluentBuilder;

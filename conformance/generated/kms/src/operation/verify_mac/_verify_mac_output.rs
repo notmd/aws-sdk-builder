@@ -11,6 +11,7 @@ pub struct VerifyMacOutput {
     pub mac_valid: ::std::option::Option<bool>,
     /// <p>The MAC algorithm used in the verification.</p>
     pub mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
+    _request_id: Option<String>,
 }
 impl VerifyMacOutput {
     /// <p>The HMAC KMS key used in the verification.</p>
@@ -27,6 +28,11 @@ impl VerifyMacOutput {
         self.mac_algorithm.as_ref()
     }
 }
+impl ::aws_types::request_id::RequestId for VerifyMacOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl VerifyMacOutput {
     /// Creates a new builder-style object to manufacture [`VerifyMacOutput`](crate::operation::verify_mac::VerifyMacOutput).
     pub fn builder() -> crate::operation::verify_mac::builders::VerifyMacOutputBuilder {
@@ -41,6 +47,7 @@ pub struct VerifyMacOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
     pub(crate) mac_valid: ::std::option::Option<bool>,
     pub(crate) mac_algorithm: ::std::option::Option<crate::types::MacAlgorithmSpec>,
+    _request_id: Option<String>,
 }
 impl VerifyMacOutputBuilder {
     /// <p>The HMAC KMS key used in the verification.</p>
@@ -69,12 +76,22 @@ impl VerifyMacOutputBuilder {
     pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self { self.mac_algorithm = input; self }
     /// <p>The MAC algorithm used in the verification.</p>
     pub fn get_mac_algorithm(&self) -> &::std::option::Option<crate::types::MacAlgorithmSpec> { &self.mac_algorithm }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`VerifyMacOutput`](crate::operation::verify_mac::VerifyMacOutput).
     pub fn build(self) -> crate::operation::verify_mac::VerifyMacOutput {
         crate::operation::verify_mac::VerifyMacOutput {
             key_id: self.key_id,
             mac_valid: self.mac_valid,
             mac_algorithm: self.mac_algorithm,
+            _request_id: self._request_id,
         }
     }
 }

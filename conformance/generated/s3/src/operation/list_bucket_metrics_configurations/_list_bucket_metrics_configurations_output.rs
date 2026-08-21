@@ -12,6 +12,8 @@ pub struct ListBucketMetricsConfigurationsOutput {
     pub next_continuation_token: ::std::option::Option<::std::string::String>,
     /// <p>The list of metrics configurations for a bucket.</p>
     pub metrics_configuration_list: ::std::option::Option<::std::vec::Vec<crate::types::MetricsConfiguration>>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl ListBucketMetricsConfigurationsOutput {
     /// <p>Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</p>
@@ -31,6 +33,16 @@ impl ListBucketMetricsConfigurationsOutput {
         self.metrics_configuration_list.as_deref().unwrap_or_default()
     }
 }
+impl crate::s3_request_id::RequestIdExt for ListBucketMetricsConfigurationsOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListBucketMetricsConfigurationsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListBucketMetricsConfigurationsOutput {
     /// Creates a new builder-style object to manufacture [`ListBucketMetricsConfigurationsOutput`](crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsOutput).
     pub fn builder() -> crate::operation::list_bucket_metrics_configurations::builders::ListBucketMetricsConfigurationsOutputBuilder {
@@ -46,6 +58,8 @@ pub struct ListBucketMetricsConfigurationsOutputBuilder {
     pub(crate) continuation_token: ::std::option::Option<::std::string::String>,
     pub(crate) next_continuation_token: ::std::option::Option<::std::string::String>,
     pub(crate) metrics_configuration_list: ::std::option::Option<::std::vec::Vec<crate::types::MetricsConfiguration>>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl ListBucketMetricsConfigurationsOutputBuilder {
     /// <p>Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</p>
@@ -85,6 +99,24 @@ impl ListBucketMetricsConfigurationsOutputBuilder {
     pub fn set_metrics_configuration_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MetricsConfiguration>>) -> Self { self.metrics_configuration_list = input; self }
     /// <p>The list of metrics configurations for a bucket.</p>
     pub fn get_metrics_configuration_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MetricsConfiguration>> { &self.metrics_configuration_list }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListBucketMetricsConfigurationsOutput`](crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsOutput).
     pub fn build(self) -> crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsOutput {
         crate::operation::list_bucket_metrics_configurations::ListBucketMetricsConfigurationsOutput {
@@ -92,6 +124,8 @@ impl ListBucketMetricsConfigurationsOutputBuilder {
             continuation_token: self.continuation_token,
             next_continuation_token: self.next_continuation_token,
             metrics_configuration_list: self.metrics_configuration_list,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

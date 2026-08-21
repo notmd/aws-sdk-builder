@@ -33,10 +33,12 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::SelectObjectContentError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::SelectObjectContentError::Unhandled(format!("SelectObjectContent returned HTTP {}", status)));
+                             return Err(super::SelectObjectContentError::unhandled_with_request_ids(format!("SelectObjectContent returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_select_object_content_output::SelectObjectContentOutputBuilder::default();
                          let body = response.text().await.map_err(super::SelectObjectContentError::Unhandled)?;
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

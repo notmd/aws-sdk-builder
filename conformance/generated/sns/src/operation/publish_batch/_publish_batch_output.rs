@@ -8,6 +8,7 @@ pub struct PublishBatchOutput {
     pub successful: ::std::option::Option<::std::vec::Vec<crate::types::PublishBatchResultEntry>>,
     /// <p>A list of failed <code>PublishBatch</code> responses.</p>
     pub failed: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
+    _request_id: Option<String>,
 }
 impl PublishBatchOutput {
     /// <p>A list of successful <code>PublishBatch</code> responses.</p>
@@ -17,6 +18,11 @@ impl PublishBatchOutput {
     /// <p>A list of failed <code>PublishBatch</code> responses.</p>
     pub fn failed(&self) -> &[crate::types::BatchResultErrorEntry] {
         self.failed.as_deref().unwrap_or_default()
+    }
+}
+impl ::aws_types::request_id::RequestId for PublishBatchOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl PublishBatchOutput {
@@ -32,6 +38,7 @@ impl PublishBatchOutput {
 pub struct PublishBatchOutputBuilder {
     pub(crate) successful: ::std::option::Option<::std::vec::Vec<crate::types::PublishBatchResultEntry>>,
     pub(crate) failed: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
+    _request_id: Option<String>,
 }
 impl PublishBatchOutputBuilder {
     /// <p>A list of successful <code>PublishBatch</code> responses.</p>
@@ -60,11 +67,21 @@ impl PublishBatchOutputBuilder {
     pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self { self.failed = input; self }
     /// <p>A list of failed <code>PublishBatch</code> responses.</p>
     pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> { &self.failed }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`PublishBatchOutput`](crate::operation::publish_batch::PublishBatchOutput).
     pub fn build(self) -> crate::operation::publish_batch::PublishBatchOutput {
         crate::operation::publish_batch::PublishBatchOutput {
             successful: self.successful,
             failed: self.failed,
+            _request_id: self._request_id,
         }
     }
 }

@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListVirtualMfaDevicesError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListVirtualMfaDevicesError::Unhandled(format!("ListVirtualMfaDevices returned HTTP {}", status)));
+                             return Err(super::ListVirtualMfaDevicesError::unhandled_with_request_ids(format!("ListVirtualMfaDevices returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         super::_list_virtual_mfa_devices_output::ListVirtualMfaDevicesOutputBuilder::default().build().map_err(|error| super::ListVirtualMfaDevicesError::Unhandled(error.to_string()))
+                         let mut output = super::_list_virtual_mfa_devices_output::ListVirtualMfaDevicesOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         output.build().map_err(|error| super::ListVirtualMfaDevicesError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as ListVirtualMfaDevicesFluentBuilder;

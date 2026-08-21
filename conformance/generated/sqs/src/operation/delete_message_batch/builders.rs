@@ -21,7 +21,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DeleteMessageBatchError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteMessageBatchError::Unhandled(format!("DeleteMessageBatch returned HTTP {}", status)));
+                             return Err(super::DeleteMessageBatchError::unhandled_with_request_ids(format!("DeleteMessageBatch returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
                          let mut output = super::_delete_message_batch_output::DeleteMessageBatchOutputBuilder::default();
                          let body = response.text().await.map_err(super::DeleteMessageBatchError::Unhandled)?;
@@ -34,6 +34,7 @@ impl Builder {
  item.message = super::super::super::transport::xml_first(&value, "Message").and_then(|value| value.parse().ok());
  item.build().ok() }).collect();
                          output.failed = Some(values);
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          output.build().map_err(|error| super::DeleteMessageBatchError::Unhandled(error.to_string()))
                      }
 }

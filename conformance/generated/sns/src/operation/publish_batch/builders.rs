@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::PublishBatchError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::PublishBatchError::Unhandled(format!("PublishBatch returned HTTP {}", status)));
+                             return Err(super::PublishBatchError::unhandled_with_request_ids(format!("PublishBatch returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_publish_batch_output::PublishBatchOutputBuilder::default().build())
+                         let mut output = super::_publish_batch_output::PublishBatchOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as PublishBatchFluentBuilder;

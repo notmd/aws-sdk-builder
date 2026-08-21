@@ -19,6 +19,7 @@ pub struct DescribeContributorInsightsOutput {
     pub failure_exception: ::std::option::Option<crate::types::FailureException>,
     /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
     pub contributor_insights_mode: ::std::option::Option<crate::types::ContributorInsightsMode>,
+    _request_id: Option<String>,
 }
 impl DescribeContributorInsightsOutput {
     /// <p>The name of the table being described.</p>
@@ -51,6 +52,11 @@ impl DescribeContributorInsightsOutput {
         self.contributor_insights_mode.as_ref()
     }
 }
+impl ::aws_types::request_id::RequestId for DescribeContributorInsightsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl DescribeContributorInsightsOutput {
     /// Creates a new builder-style object to manufacture [`DescribeContributorInsightsOutput`](crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput).
     pub fn builder() -> crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsOutputBuilder {
@@ -69,6 +75,7 @@ pub struct DescribeContributorInsightsOutputBuilder {
     pub(crate) last_update_date_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) failure_exception: ::std::option::Option<crate::types::FailureException>,
     pub(crate) contributor_insights_mode: ::std::option::Option<crate::types::ContributorInsightsMode>,
+    _request_id: Option<String>,
 }
 impl DescribeContributorInsightsOutputBuilder {
     /// <p>The name of the table being described.</p>
@@ -134,6 +141,15 @@ impl DescribeContributorInsightsOutputBuilder {
     pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self { self.contributor_insights_mode = input; self }
     /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
     pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<crate::types::ContributorInsightsMode> { &self.contributor_insights_mode }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`DescribeContributorInsightsOutput`](crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput).
     pub fn build(self) -> crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput {
         crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput {
@@ -144,6 +160,7 @@ impl DescribeContributorInsightsOutputBuilder {
             last_update_date_time: self.last_update_date_time,
             failure_exception: self.failure_exception,
             contributor_insights_mode: self.contributor_insights_mode,
+            _request_id: self._request_id,
         }
     }
 }

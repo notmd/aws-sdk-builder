@@ -21,7 +21,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::SendMessageBatchError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::SendMessageBatchError::Unhandled(format!("SendMessageBatch returned HTTP {}", status)));
+                             return Err(super::SendMessageBatchError::unhandled_with_request_ids(format!("SendMessageBatch returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
                          let mut output = super::_send_message_batch_output::SendMessageBatchOutputBuilder::default();
                          let body = response.text().await.map_err(super::SendMessageBatchError::Unhandled)?;
@@ -39,6 +39,7 @@ impl Builder {
  item.message = super::super::super::transport::xml_first(&value, "Message").and_then(|value| value.parse().ok());
  item.build().ok() }).collect();
                          output.failed = Some(values);
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          output.build().map_err(|error| super::SendMessageBatchError::Unhandled(error.to_string()))
                      }
 }

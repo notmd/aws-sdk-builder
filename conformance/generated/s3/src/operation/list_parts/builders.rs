@@ -31,7 +31,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::ListPartsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListPartsError::Unhandled(format!("ListParts returned HTTP {}", status)));
+                             return Err(super::ListPartsError::unhandled_with_request_ids(format!("ListParts returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_list_parts_output::ListPartsOutputBuilder::default();
                          let body = response.text().await.map_err(super::ListPartsError::Unhandled)?;
@@ -67,6 +67,8 @@ impl Builder {
                          output.storage_class = super::super::super::transport::xml_first(&body, "StorageClass").and_then(|value| value.parse().ok());
                          output.checksum_algorithm = super::super::super::transport::xml_first(&body, "ChecksumAlgorithm").and_then(|value| value.parse().ok());
                          output.checksum_type = super::super::super::transport::xml_first(&body, "ChecksumType").and_then(|value| value.parse().ok());
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

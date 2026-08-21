@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetPlatformApplicationAttributesError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetPlatformApplicationAttributesError::Unhandled(format!("GetPlatformApplicationAttributes returned HTTP {}", status)));
+                             return Err(super::GetPlatformApplicationAttributesError::unhandled_with_request_ids(format!("GetPlatformApplicationAttributes returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_platform_application_attributes_output::GetPlatformApplicationAttributesOutputBuilder::default().build())
+                         let mut output = super::_get_platform_application_attributes_output::GetPlatformApplicationAttributesOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetPlatformApplicationAttributesFluentBuilder;

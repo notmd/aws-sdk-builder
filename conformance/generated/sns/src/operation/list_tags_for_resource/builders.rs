@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListTagsForResourceError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListTagsForResourceError::Unhandled(format!("ListTagsForResource returned HTTP {}", status)));
+                             return Err(super::ListTagsForResourceError::unhandled_with_request_ids(format!("ListTagsForResource returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_list_tags_for_resource_output::ListTagsForResourceOutputBuilder::default().build())
+                         let mut output = super::_list_tags_for_resource_output::ListTagsForResourceOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as ListTagsForResourceFluentBuilder;

@@ -12,6 +12,7 @@ pub struct GetKeyLastUsageOutput {
     pub tracking_start_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The date and time when the KMS key was created.</p>
     pub key_creation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+    _request_id: Option<String>,
 }
 impl GetKeyLastUsageOutput {
     /// <p>The globally unique identifier for the KMS key.</p>
@@ -31,6 +32,11 @@ impl GetKeyLastUsageOutput {
         self.key_creation_date.as_ref()
     }
 }
+impl ::aws_types::request_id::RequestId for GetKeyLastUsageOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetKeyLastUsageOutput {
     /// Creates a new builder-style object to manufacture [`GetKeyLastUsageOutput`](crate::operation::get_key_last_usage::GetKeyLastUsageOutput).
     pub fn builder() -> crate::operation::get_key_last_usage::builders::GetKeyLastUsageOutputBuilder {
@@ -46,6 +52,7 @@ pub struct GetKeyLastUsageOutputBuilder {
     pub(crate) key_last_usage: ::std::option::Option<crate::types::KeyLastUsageData>,
     pub(crate) tracking_start_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) key_creation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+    _request_id: Option<String>,
 }
 impl GetKeyLastUsageOutputBuilder {
     /// <p>The globally unique identifier for the KMS key.</p>
@@ -80,6 +87,15 @@ impl GetKeyLastUsageOutputBuilder {
     pub fn set_key_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.key_creation_date = input; self }
     /// <p>The date and time when the KMS key was created.</p>
     pub fn get_key_creation_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.key_creation_date }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetKeyLastUsageOutput`](crate::operation::get_key_last_usage::GetKeyLastUsageOutput).
     pub fn build(self) -> crate::operation::get_key_last_usage::GetKeyLastUsageOutput {
         crate::operation::get_key_last_usage::GetKeyLastUsageOutput {
@@ -87,6 +103,7 @@ impl GetKeyLastUsageOutputBuilder {
             key_last_usage: self.key_last_usage,
             tracking_start_date: self.tracking_start_date,
             key_creation_date: self.key_creation_date,
+            _request_id: self._request_id,
         }
     }
 }

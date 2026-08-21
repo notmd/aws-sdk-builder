@@ -6,11 +6,17 @@
 pub struct CreateQueueOutput {
     /// <p>The URL of the created Amazon SQS queue.</p>
     pub queue_url: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl CreateQueueOutput {
     /// <p>The URL of the created Amazon SQS queue.</p>
     pub fn queue_url(&self) -> ::std::option::Option<&str> {
         self.queue_url.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for CreateQueueOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl CreateQueueOutput {
@@ -25,6 +31,7 @@ impl CreateQueueOutput {
 #[non_exhaustive]
 pub struct CreateQueueOutputBuilder {
     pub(crate) queue_url: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl CreateQueueOutputBuilder {
     /// <p>The URL of the created Amazon SQS queue.</p>
@@ -35,10 +42,20 @@ impl CreateQueueOutputBuilder {
     pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_url = input; self }
     /// <p>The URL of the created Amazon SQS queue.</p>
     pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> { &self.queue_url }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`CreateQueueOutput`](crate::operation::create_queue::CreateQueueOutput).
     pub fn build(self) -> crate::operation::create_queue::CreateQueueOutput {
         crate::operation::create_queue::CreateQueueOutput {
             queue_url: self.queue_url,
+            _request_id: self._request_id,
         }
     }
 }

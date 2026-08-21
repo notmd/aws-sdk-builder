@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::TagInstanceProfileError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::TagInstanceProfileError::Unhandled(format!("TagInstanceProfile returned HTTP {}", status)));
+                             return Err(super::TagInstanceProfileError::unhandled_with_request_ids(format!("TagInstanceProfile returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::TagInstanceProfileOutput{})
+                         let mut output = super::_tag_instance_profile_output::TagInstanceProfileOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as TagInstanceProfileFluentBuilder;

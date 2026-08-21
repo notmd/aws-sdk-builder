@@ -6,11 +6,17 @@
 pub struct GetAccessKeyInfoOutput {
     /// <p>The number used to identify the Amazon Web Services account.</p>
     pub account: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GetAccessKeyInfoOutput {
     /// <p>The number used to identify the Amazon Web Services account.</p>
     pub fn account(&self) -> ::std::option::Option<&str> {
         self.account.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetAccessKeyInfoOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetAccessKeyInfoOutput {
@@ -25,6 +31,7 @@ impl GetAccessKeyInfoOutput {
 #[non_exhaustive]
 pub struct GetAccessKeyInfoOutputBuilder {
     pub(crate) account: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GetAccessKeyInfoOutputBuilder {
     /// <p>The number used to identify the Amazon Web Services account.</p>
@@ -35,10 +42,20 @@ impl GetAccessKeyInfoOutputBuilder {
     pub fn set_account(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.account = input; self }
     /// <p>The number used to identify the Amazon Web Services account.</p>
     pub fn get_account(&self) -> &::std::option::Option<::std::string::String> { &self.account }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetAccessKeyInfoOutput`](crate::operation::get_access_key_info::GetAccessKeyInfoOutput).
     pub fn build(self) -> crate::operation::get_access_key_info::GetAccessKeyInfoOutput {
         crate::operation::get_access_key_info::GetAccessKeyInfoOutput {
             account: self.account,
+            _request_id: self._request_id,
         }
     }
 }

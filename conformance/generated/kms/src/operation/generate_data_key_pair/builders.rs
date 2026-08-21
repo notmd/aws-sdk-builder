@@ -25,9 +25,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GenerateDataKeyPairError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GenerateDataKeyPairError::Unhandled(format!("GenerateDataKeyPair returned HTTP {}", status)));
+                             return Err(super::GenerateDataKeyPairError::unhandled_with_request_ids(format!("GenerateDataKeyPair returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_generate_data_key_pair_output::GenerateDataKeyPairOutputBuilder::default().build())
+                         let mut output = super::_generate_data_key_pair_output::GenerateDataKeyPairOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GenerateDataKeyPairFluentBuilder;

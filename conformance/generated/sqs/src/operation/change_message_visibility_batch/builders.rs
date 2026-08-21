@@ -21,7 +21,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ChangeMessageVisibilityBatchError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ChangeMessageVisibilityBatchError::Unhandled(format!("ChangeMessageVisibilityBatch returned HTTP {}", status)));
+                             return Err(super::ChangeMessageVisibilityBatchError::unhandled_with_request_ids(format!("ChangeMessageVisibilityBatch returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
                          let mut output = super::_change_message_visibility_batch_output::ChangeMessageVisibilityBatchOutputBuilder::default();
                          let body = response.text().await.map_err(super::ChangeMessageVisibilityBatchError::Unhandled)?;
@@ -34,6 +34,7 @@ impl Builder {
  item.message = super::super::super::transport::xml_first(&value, "Message").and_then(|value| value.parse().ok());
  item.build().ok() }).collect();
                          output.failed = Some(values);
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          output.build().map_err(|error| super::ChangeMessageVisibilityBatchError::Unhandled(error.to_string()))
                      }
 }

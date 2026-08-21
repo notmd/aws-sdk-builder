@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UntagMfaDeviceError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UntagMfaDeviceError::Unhandled(format!("UntagMfaDevice returned HTTP {}", status)));
+                             return Err(super::UntagMfaDeviceError::unhandled_with_request_ids(format!("UntagMfaDevice returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::UntagMfaDeviceOutput{})
+                         let mut output = super::_untag_mfa_device_output::UntagMfaDeviceOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UntagMfaDeviceFluentBuilder;

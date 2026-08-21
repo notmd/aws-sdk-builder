@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetDataProtectionPolicyError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetDataProtectionPolicyError::Unhandled(format!("GetDataProtectionPolicy returned HTTP {}", status)));
+                             return Err(super::GetDataProtectionPolicyError::unhandled_with_request_ids(format!("GetDataProtectionPolicy returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_data_protection_policy_output::GetDataProtectionPolicyOutputBuilder::default().build())
+                         let mut output = super::_get_data_protection_policy_output::GetDataProtectionPolicyOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetDataProtectionPolicyFluentBuilder;

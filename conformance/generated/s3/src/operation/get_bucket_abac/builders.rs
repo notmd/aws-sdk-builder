@@ -22,11 +22,13 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetBucketAbacError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetBucketAbacError::Unhandled(format!("GetBucketAbac returned HTTP {}", status)));
+                             return Err(super::GetBucketAbacError::unhandled_with_request_ids(format!("GetBucketAbac returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_bucket_abac_output::GetBucketAbacOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketAbacError::Unhandled)?;
                          if let Some(value) = super::super::super::transport::xml_first(&body, "AbacStatus") { let mut item: crate::types::AbacStatusBuilder = ::std::default::Default::default(); let item = item.build(); output.abac_status = Some(item); }
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

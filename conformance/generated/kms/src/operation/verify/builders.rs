@@ -26,9 +26,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::VerifyError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::VerifyError::Unhandled(format!("Verify returned HTTP {}", status)));
+                             return Err(super::VerifyError::unhandled_with_request_ids(format!("Verify returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_verify_output::VerifyOutputBuilder::default().build())
+                         let mut output = super::_verify_output::VerifyOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as VerifyFluentBuilder;

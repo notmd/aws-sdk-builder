@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetOpenIdConnectProviderError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetOpenIdConnectProviderError::Unhandled(format!("GetOpenIdConnectProvider returned HTTP {}", status)));
+                             return Err(super::GetOpenIdConnectProviderError::unhandled_with_request_ids(format!("GetOpenIdConnectProvider returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_open_id_connect_provider_output::GetOpenIdConnectProviderOutputBuilder::default().build())
+                         let mut output = super::_get_open_id_connect_provider_output::GetOpenIdConnectProviderOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetOpenIdConnectProviderFluentBuilder;

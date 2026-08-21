@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DescribeTableError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DescribeTableError::Unhandled(format!("DescribeTable returned HTTP {}", status)));
+                             return Err(super::DescribeTableError::unhandled_with_request_ids(format!("DescribeTable returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_describe_table_output::DescribeTableOutputBuilder::default().build())
+                         let mut output = super::_describe_table_output::DescribeTableOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DescribeTableFluentBuilder;

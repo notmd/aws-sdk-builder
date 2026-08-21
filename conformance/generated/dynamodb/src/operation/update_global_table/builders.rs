@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UpdateGlobalTableError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UpdateGlobalTableError::Unhandled(format!("UpdateGlobalTable returned HTTP {}", status)));
+                             return Err(super::UpdateGlobalTableError::unhandled_with_request_ids(format!("UpdateGlobalTable returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_update_global_table_output::UpdateGlobalTableOutputBuilder::default().build())
+                         let mut output = super::_update_global_table_output::UpdateGlobalTableOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UpdateGlobalTableFluentBuilder;

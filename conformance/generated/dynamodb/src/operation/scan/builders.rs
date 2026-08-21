@@ -35,9 +35,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ScanError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ScanError::Unhandled(format!("Scan returned HTTP {}", status)));
+                             return Err(super::ScanError::unhandled_with_request_ids(format!("Scan returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_scan_output::ScanOutputBuilder::default().build())
+                         let mut output = super::_scan_output::ScanOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as ScanFluentBuilder;

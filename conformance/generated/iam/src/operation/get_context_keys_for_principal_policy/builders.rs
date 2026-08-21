@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetContextKeysForPrincipalPolicyError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetContextKeysForPrincipalPolicyError::Unhandled(format!("GetContextKeysForPrincipalPolicy returned HTTP {}", status)));
+                             return Err(super::GetContextKeysForPrincipalPolicyError::unhandled_with_request_ids(format!("GetContextKeysForPrincipalPolicy returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_context_keys_for_principal_policy_output::GetContextKeysForPrincipalPolicyOutputBuilder::default().build())
+                         let mut output = super::_get_context_keys_for_principal_policy_output::GetContextKeysForPrincipalPolicyOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetContextKeysForPrincipalPolicyFluentBuilder;

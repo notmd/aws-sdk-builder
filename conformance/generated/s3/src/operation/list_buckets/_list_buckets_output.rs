@@ -13,6 +13,8 @@ pub struct ListBucketsOutput {
     /// <p>If <code>Prefix</code> was sent with the request, it is included in the response.</p>
     /// <p>All bucket names in the response begin with the specified bucket name prefix.</p>
     pub prefix: ::std::option::Option<::std::string::String>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl ListBucketsOutput {
     /// <p>The list of buckets owned by the requester.</p>
@@ -33,6 +35,16 @@ impl ListBucketsOutput {
         self.prefix.as_deref()
     }
 }
+impl crate::s3_request_id::RequestIdExt for ListBucketsOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListBucketsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListBucketsOutput {
     /// Creates a new builder-style object to manufacture [`ListBucketsOutput`](crate::operation::list_buckets::ListBucketsOutput).
     pub fn builder() -> crate::operation::list_buckets::builders::ListBucketsOutputBuilder {
@@ -48,6 +60,8 @@ pub struct ListBucketsOutputBuilder {
     pub(crate) owner: ::std::option::Option<crate::types::Owner>,
     pub(crate) continuation_token: ::std::option::Option<::std::string::String>,
     pub(crate) prefix: ::std::option::Option<::std::string::String>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl ListBucketsOutputBuilder {
     /// <p>The list of buckets owned by the requester.</p>
@@ -89,6 +103,24 @@ impl ListBucketsOutputBuilder {
     /// <p>If <code>Prefix</code> was sent with the request, it is included in the response.</p>
     /// <p>All bucket names in the response begin with the specified bucket name prefix.</p>
     pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.prefix }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListBucketsOutput`](crate::operation::list_buckets::ListBucketsOutput).
     pub fn build(self) -> crate::operation::list_buckets::ListBucketsOutput {
         crate::operation::list_buckets::ListBucketsOutput {
@@ -96,6 +128,8 @@ impl ListBucketsOutputBuilder {
             owner: self.owner,
             continuation_token: self.continuation_token,
             prefix: self.prefix,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

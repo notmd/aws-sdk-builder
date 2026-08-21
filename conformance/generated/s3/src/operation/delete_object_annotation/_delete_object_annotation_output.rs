@@ -7,6 +7,8 @@ pub struct DeleteObjectAnnotationOutput {
     /// <p>The version ID of the object that the annotation was deleted from.</p>
     pub object_version_id: ::std::option::Option<::std::string::String>,
     pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl DeleteObjectAnnotationOutput {
     /// <p>The version ID of the object that the annotation was deleted from.</p>
@@ -15,6 +17,16 @@ impl DeleteObjectAnnotationOutput {
     }
     pub fn request_charged(&self) -> ::std::option::Option<&crate::types::RequestCharged> {
         self.request_charged.as_ref()
+    }
+}
+impl crate::s3_request_id::RequestIdExt for DeleteObjectAnnotationOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for DeleteObjectAnnotationOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl DeleteObjectAnnotationOutput {
@@ -30,6 +42,8 @@ impl DeleteObjectAnnotationOutput {
 pub struct DeleteObjectAnnotationOutputBuilder {
     pub(crate) object_version_id: ::std::option::Option<::std::string::String>,
     pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl DeleteObjectAnnotationOutputBuilder {
     /// <p>The version ID of the object that the annotation was deleted from.</p>
@@ -46,11 +60,31 @@ impl DeleteObjectAnnotationOutputBuilder {
     }
     pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
     pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`DeleteObjectAnnotationOutput`](crate::operation::delete_object_annotation::DeleteObjectAnnotationOutput).
     pub fn build(self) -> crate::operation::delete_object_annotation::DeleteObjectAnnotationOutput {
         crate::operation::delete_object_annotation::DeleteObjectAnnotationOutput {
             object_version_id: self.object_version_id,
             request_charged: self.request_charged,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

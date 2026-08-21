@@ -23,7 +23,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::ListBucketInventoryConfigurationsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListBucketInventoryConfigurationsError::Unhandled(format!("ListBucketInventoryConfigurations returned HTTP {}", status)));
+                             return Err(super::ListBucketInventoryConfigurationsError::unhandled_with_request_ids(format!("ListBucketInventoryConfigurations returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_list_bucket_inventory_configurations_output::ListBucketInventoryConfigurationsOutputBuilder::default();
                          let body = response.text().await.map_err(super::ListBucketInventoryConfigurationsError::Unhandled)?;
@@ -34,6 +34,8 @@ impl Builder {
                          output.inventory_configuration_list = Some(values);
                          output.is_truncated = super::super::super::transport::xml_first(&body, "IsTruncated").and_then(|value| value.parse().ok());
                          output.next_continuation_token = super::super::super::transport::xml_first(&body, "NextContinuationToken").and_then(|value| value.parse().ok());
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

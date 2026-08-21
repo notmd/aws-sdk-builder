@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ChangePasswordError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ChangePasswordError::Unhandled(format!("ChangePassword returned HTTP {}", status)));
+                             return Err(super::ChangePasswordError::unhandled_with_request_ids(format!("ChangePassword returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::ChangePasswordOutput{})
+                         let mut output = super::_change_password_output::ChangePasswordOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as ChangePasswordFluentBuilder;

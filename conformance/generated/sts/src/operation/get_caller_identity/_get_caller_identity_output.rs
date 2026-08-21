@@ -10,6 +10,7 @@ pub struct GetCallerIdentityOutput {
     pub account: ::std::option::Option<::std::string::String>,
     /// <p>The Amazon Web Services ARN associated with the calling entity.</p>
     pub arn: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GetCallerIdentityOutput {
     /// <p>The unique identifier of the calling entity. The exact value depends on the type of entity that is making the call. The values returned are those listed in the <b>aws:userid</b> column in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable">Principal table</a> found on the <b>Policy Variables</b> reference page in the <i>IAM User Guide</i>.</p>
@@ -23,6 +24,11 @@ impl GetCallerIdentityOutput {
     /// <p>The Amazon Web Services ARN associated with the calling entity.</p>
     pub fn arn(&self) -> ::std::option::Option<&str> {
         self.arn.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetCallerIdentityOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetCallerIdentityOutput {
@@ -39,6 +45,7 @@ pub struct GetCallerIdentityOutputBuilder {
     pub(crate) user_id: ::std::option::Option<::std::string::String>,
     pub(crate) account: ::std::option::Option<::std::string::String>,
     pub(crate) arn: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GetCallerIdentityOutputBuilder {
     /// <p>The unique identifier of the calling entity. The exact value depends on the type of entity that is making the call. The values returned are those listed in the <b>aws:userid</b> column in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html#principaltable">Principal table</a> found on the <b>Policy Variables</b> reference page in the <i>IAM User Guide</i>.</p>
@@ -65,12 +72,22 @@ impl GetCallerIdentityOutputBuilder {
     pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.arn = input; self }
     /// <p>The Amazon Web Services ARN associated with the calling entity.</p>
     pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> { &self.arn }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetCallerIdentityOutput`](crate::operation::get_caller_identity::GetCallerIdentityOutput).
     pub fn build(self) -> crate::operation::get_caller_identity::GetCallerIdentityOutput {
         crate::operation::get_caller_identity::GetCallerIdentityOutput {
             user_id: self.user_id,
             account: self.account,
             arn: self.arn,
+            _request_id: self._request_id,
         }
     }
 }

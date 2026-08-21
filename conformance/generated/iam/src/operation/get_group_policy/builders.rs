@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetGroupPolicyError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetGroupPolicyError::Unhandled(format!("GetGroupPolicy returned HTTP {}", status)));
+                             return Err(super::GetGroupPolicyError::unhandled_with_request_ids(format!("GetGroupPolicy returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         super::_get_group_policy_output::GetGroupPolicyOutputBuilder::default().build().map_err(|error| super::GetGroupPolicyError::Unhandled(error.to_string()))
+                         let mut output = super::_get_group_policy_output::GetGroupPolicyOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         output.build().map_err(|error| super::GetGroupPolicyError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as GetGroupPolicyFluentBuilder;

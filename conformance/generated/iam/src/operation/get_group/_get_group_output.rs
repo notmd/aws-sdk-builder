@@ -12,6 +12,7 @@ pub struct GetGroupOutput {
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GetGroupOutput {
     /// <p>A structure that contains details about the group.</p>
@@ -32,6 +33,11 @@ impl GetGroupOutput {
         self.marker.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for GetGroupOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetGroupOutput {
     /// Creates a new builder-style object to manufacture [`GetGroupOutput`](crate::operation::get_group::GetGroupOutput).
     pub fn builder() -> crate::operation::get_group::builders::GetGroupOutputBuilder {
@@ -47,6 +53,7 @@ pub struct GetGroupOutputBuilder {
     pub(crate) users: ::std::option::Option<::std::vec::Vec<crate::types::User>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GetGroupOutputBuilder {
     /// <p>A structure that contains details about the group.</p>
@@ -86,6 +93,15 @@ impl GetGroupOutputBuilder {
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetGroupOutput`](crate::operation::get_group::GetGroupOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`users`](Self::users)
@@ -95,6 +111,7 @@ impl GetGroupOutputBuilder {
             users: self.users.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("users", "users was not specified but it is required when building GetGroupOutput"))?,
             is_truncated: self.is_truncated,
             marker: self.marker,
+            _request_id: self._request_id,
         })
     }
 }

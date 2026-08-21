@@ -28,6 +28,7 @@ pub struct GetPublicKeyOutput {
     pub signing_algorithms: ::std::option::Option<::std::vec::Vec<crate::types::SigningAlgorithmSpec>>,
     /// <p>The key agreement algorithm used to derive a shared secret. This field is present only when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p>
     pub key_agreement_algorithms: ::std::option::Option<::std::vec::Vec<crate::types::KeyAgreementAlgorithmSpec>>,
+    _request_id: Option<String>,
 }
 impl GetPublicKeyOutput {
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key from which the public key was downloaded.</p>
@@ -71,6 +72,11 @@ impl GetPublicKeyOutput {
         self.key_agreement_algorithms.as_deref().unwrap_or_default()
     }
 }
+impl ::aws_types::request_id::RequestId for GetPublicKeyOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetPublicKeyOutput {
     /// Creates a new builder-style object to manufacture [`GetPublicKeyOutput`](crate::operation::get_public_key::GetPublicKeyOutput).
     pub fn builder() -> crate::operation::get_public_key::builders::GetPublicKeyOutputBuilder {
@@ -90,6 +96,7 @@ pub struct GetPublicKeyOutputBuilder {
     pub(crate) encryption_algorithms: ::std::option::Option<::std::vec::Vec<crate::types::EncryptionAlgorithmSpec>>,
     pub(crate) signing_algorithms: ::std::option::Option<::std::vec::Vec<crate::types::SigningAlgorithmSpec>>,
     pub(crate) key_agreement_algorithms: ::std::option::Option<::std::vec::Vec<crate::types::KeyAgreementAlgorithmSpec>>,
+    _request_id: Option<String>,
 }
 impl GetPublicKeyOutputBuilder {
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key from which the public key was downloaded.</p>
@@ -188,6 +195,15 @@ impl GetPublicKeyOutputBuilder {
     pub fn set_key_agreement_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeyAgreementAlgorithmSpec>>) -> Self { self.key_agreement_algorithms = input; self }
     /// <p>The key agreement algorithm used to derive a shared secret. This field is present only when the KMS key has a <code>KeyUsage</code> value of <code>KEY_AGREEMENT</code>.</p>
     pub fn get_key_agreement_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeyAgreementAlgorithmSpec>> { &self.key_agreement_algorithms }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetPublicKeyOutput`](crate::operation::get_public_key::GetPublicKeyOutput).
     pub fn build(self) -> crate::operation::get_public_key::GetPublicKeyOutput {
         crate::operation::get_public_key::GetPublicKeyOutput {
@@ -199,6 +215,7 @@ impl GetPublicKeyOutputBuilder {
             encryption_algorithms: self.encryption_algorithms,
             signing_algorithms: self.signing_algorithms,
             key_agreement_algorithms: self.key_agreement_algorithms,
+            _request_id: self._request_id,
         }
     }
 }

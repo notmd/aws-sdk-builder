@@ -3,6 +3,9 @@
 include!(concat!(env!("OUT_DIR"), "/generated/s3/src/primitives.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/s3/src/config.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/s3/src/error.rs"));
+pub mod s3_request_id {
+    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/s3_request_id.rs"));
+}
 include!(concat!(env!("OUT_DIR"), "/generated/s3/src/meta.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation.rs"));

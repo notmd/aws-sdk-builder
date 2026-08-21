@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::StartMessageMoveTaskError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::StartMessageMoveTaskError::Unhandled(format!("StartMessageMoveTask returned HTTP {}", status)));
+                             return Err(super::StartMessageMoveTaskError::unhandled_with_request_ids(format!("StartMessageMoveTask returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_start_message_move_task_output::StartMessageMoveTaskOutputBuilder::default().build())
+                         let mut output = super::_start_message_move_task_output::StartMessageMoveTaskOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as StartMessageMoveTaskFluentBuilder;

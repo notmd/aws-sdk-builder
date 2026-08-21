@@ -8,6 +8,7 @@ pub struct ListPlatformApplicationsOutput {
     pub platform_applications: ::std::option::Option<::std::vec::Vec<crate::types::PlatformApplication>>,
     /// <p><code>NextToken</code> string is returned when calling <code>ListPlatformApplications</code> action if additional records are available after the first page results.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListPlatformApplicationsOutput {
     /// <p>Platform applications returned when calling <code>ListPlatformApplications</code> action.</p>
@@ -17,6 +18,11 @@ impl ListPlatformApplicationsOutput {
     /// <p><code>NextToken</code> string is returned when calling <code>ListPlatformApplications</code> action if additional records are available after the first page results.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
         self.next_token.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListPlatformApplicationsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListPlatformApplicationsOutput {
@@ -32,6 +38,7 @@ impl ListPlatformApplicationsOutput {
 pub struct ListPlatformApplicationsOutputBuilder {
     pub(crate) platform_applications: ::std::option::Option<::std::vec::Vec<crate::types::PlatformApplication>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListPlatformApplicationsOutputBuilder {
     /// <p>Platform applications returned when calling <code>ListPlatformApplications</code> action.</p>
@@ -55,11 +62,21 @@ impl ListPlatformApplicationsOutputBuilder {
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
     /// <p><code>NextToken</code> string is returned when calling <code>ListPlatformApplications</code> action if additional records are available after the first page results.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListPlatformApplicationsOutput`](crate::operation::list_platform_applications::ListPlatformApplicationsOutput).
     pub fn build(self) -> crate::operation::list_platform_applications::ListPlatformApplicationsOutput {
         crate::operation::list_platform_applications::ListPlatformApplicationsOutput {
             platform_applications: self.platform_applications,
             next_token: self.next_token,
+            _request_id: self._request_id,
         }
     }
 }

@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DeleteServerCertificateError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteServerCertificateError::Unhandled(format!("DeleteServerCertificate returned HTTP {}", status)));
+                             return Err(super::DeleteServerCertificateError::unhandled_with_request_ids(format!("DeleteServerCertificate returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::DeleteServerCertificateOutput{})
+                         let mut output = super::_delete_server_certificate_output::DeleteServerCertificateOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DeleteServerCertificateFluentBuilder;

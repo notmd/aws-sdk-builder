@@ -37,6 +37,8 @@ pub struct PutObjectAnnotationOutput {
     /// <p>The server-side encryption algorithm used to encrypt the annotation.</p>
     pub server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
     pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl PutObjectAnnotationOutput {
     /// <p>The object key.</p>
@@ -107,6 +109,16 @@ impl PutObjectAnnotationOutput {
         self.request_charged.as_ref()
     }
 }
+impl crate::s3_request_id::RequestIdExt for PutObjectAnnotationOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for PutObjectAnnotationOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl PutObjectAnnotationOutput {
     /// Creates a new builder-style object to manufacture [`PutObjectAnnotationOutput`](crate::operation::put_object_annotation::PutObjectAnnotationOutput).
     pub fn builder() -> crate::operation::put_object_annotation::builders::PutObjectAnnotationOutputBuilder {
@@ -135,6 +147,8 @@ pub struct PutObjectAnnotationOutputBuilder {
     pub(crate) checksum_type: ::std::option::Option<crate::types::ChecksumType>,
     pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
     pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl PutObjectAnnotationOutputBuilder {
     /// <p>The object key.</p>
@@ -271,6 +285,24 @@ impl PutObjectAnnotationOutputBuilder {
     }
     pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
     pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`PutObjectAnnotationOutput`](crate::operation::put_object_annotation::PutObjectAnnotationOutput).
     pub fn build(self) -> crate::operation::put_object_annotation::PutObjectAnnotationOutput {
         crate::operation::put_object_annotation::PutObjectAnnotationOutput {
@@ -291,6 +323,8 @@ impl PutObjectAnnotationOutputBuilder {
             checksum_type: self.checksum_type,
             server_side_encryption: self.server_side_encryption,
             request_charged: self.request_charged,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

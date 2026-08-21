@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Delete, &path, &headers, &body).await.map_err(super::DeleteFunctionError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteFunctionError::Unhandled(format!("DeleteFunction returned HTTP {}", status)));
+                             return Err(super::DeleteFunctionError::unhandled_with_request_ids(format!("DeleteFunction returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_delete_function_output::DeleteFunctionOutputBuilder::default().build())
+                         let mut output = super::_delete_function_output::DeleteFunctionOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DeleteFunctionFluentBuilder;

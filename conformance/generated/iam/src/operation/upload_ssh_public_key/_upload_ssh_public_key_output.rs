@@ -6,11 +6,17 @@
 pub struct UploadSshPublicKeyOutput {
     /// <p>Contains information about the SSH public key.</p>
     pub ssh_public_key: ::std::option::Option<crate::types::SshPublicKey>,
+    _request_id: Option<String>,
 }
 impl UploadSshPublicKeyOutput {
     /// <p>Contains information about the SSH public key.</p>
     pub fn ssh_public_key(&self) -> ::std::option::Option<&crate::types::SshPublicKey> {
         self.ssh_public_key.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for UploadSshPublicKeyOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl UploadSshPublicKeyOutput {
@@ -25,6 +31,7 @@ impl UploadSshPublicKeyOutput {
 #[non_exhaustive]
 pub struct UploadSshPublicKeyOutputBuilder {
     pub(crate) ssh_public_key: ::std::option::Option<crate::types::SshPublicKey>,
+    _request_id: Option<String>,
 }
 impl UploadSshPublicKeyOutputBuilder {
     /// <p>Contains information about the SSH public key.</p>
@@ -35,10 +42,20 @@ impl UploadSshPublicKeyOutputBuilder {
     pub fn set_ssh_public_key(mut self, input: ::std::option::Option<crate::types::SshPublicKey>) -> Self { self.ssh_public_key = input; self }
     /// <p>Contains information about the SSH public key.</p>
     pub fn get_ssh_public_key(&self) -> &::std::option::Option<crate::types::SshPublicKey> { &self.ssh_public_key }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`UploadSshPublicKeyOutput`](crate::operation::upload_ssh_public_key::UploadSshPublicKeyOutput).
     pub fn build(self) -> crate::operation::upload_ssh_public_key::UploadSshPublicKeyOutput {
         crate::operation::upload_ssh_public_key::UploadSshPublicKeyOutput {
             ssh_public_key: self.ssh_public_key,
+            _request_id: self._request_id,
         }
     }
 }

@@ -19,9 +19,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GenerateCredentialReportError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GenerateCredentialReportError::Unhandled(format!("GenerateCredentialReport returned HTTP {}", status)));
+                             return Err(super::GenerateCredentialReportError::unhandled_with_request_ids(format!("GenerateCredentialReport returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_generate_credential_report_output::GenerateCredentialReportOutputBuilder::default().build())
+                         let mut output = super::_generate_credential_report_output::GenerateCredentialReportOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GenerateCredentialReportFluentBuilder;

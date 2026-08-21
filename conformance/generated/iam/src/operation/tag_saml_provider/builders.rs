@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::TagSamlProviderError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::TagSamlProviderError::Unhandled(format!("TagSamlProvider returned HTTP {}", status)));
+                             return Err(super::TagSamlProviderError::unhandled_with_request_ids(format!("TagSamlProvider returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::TagSamlProviderOutput{})
+                         let mut output = super::_tag_saml_provider_output::TagSamlProviderOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as TagSamlProviderFluentBuilder;

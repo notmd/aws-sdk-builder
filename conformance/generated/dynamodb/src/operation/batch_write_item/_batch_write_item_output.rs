@@ -15,6 +15,7 @@ pub struct BatchWriteItemOutput {
     /// <p>The capacity units consumed by the entire <code>BatchWriteItem</code> operation.</p>
     /// <p>Each element consists of:</p><ul><li><p><code>TableName</code> - The table that consumed the provisioned throughput.</p></li><li><p><code>CapacityUnits</code> - The total number of capacity units consumed.</p></li></ul><p>If the table has vector indexes, each element also includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
     pub consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
+    _request_id: Option<String>,
 }
 impl BatchWriteItemOutput {
     /// <p>A map of tables and requests against those tables that were not processed. The <code>UnprocessedItems</code> value is in the same form as <code>RequestItems</code>, so you can provide this value directly to a subsequent <code>BatchWriteItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p>
@@ -35,6 +36,11 @@ impl BatchWriteItemOutput {
         self.consumed_capacity.as_deref().unwrap_or_default()
     }
 }
+impl ::aws_types::request_id::RequestId for BatchWriteItemOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl BatchWriteItemOutput {
     /// Creates a new builder-style object to manufacture [`BatchWriteItemOutput`](crate::operation::batch_write_item::BatchWriteItemOutput).
     pub fn builder() -> crate::operation::batch_write_item::builders::BatchWriteItemOutputBuilder {
@@ -49,6 +55,7 @@ pub struct BatchWriteItemOutputBuilder {
     pub(crate) unprocessed_items: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>>,
     pub(crate) item_collection_metrics: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>>,
     pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
+    _request_id: Option<String>,
 }
 impl BatchWriteItemOutputBuilder {
     /// <p>A map of tables and requests against those tables that were not processed. The <code>UnprocessedItems</code> value is in the same form as <code>RequestItems</code>, so you can provide this value directly to a subsequent <code>BatchWriteItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p>
@@ -100,12 +107,22 @@ impl BatchWriteItemOutputBuilder {
     /// <p>The capacity units consumed by the entire <code>BatchWriteItem</code> operation.</p>
     /// <p>Each element consists of:</p><ul><li><p><code>TableName</code> - The table that consumed the provisioned throughput.</p></li><li><p><code>CapacityUnits</code> - The total number of capacity units consumed.</p></li></ul><p>If the table has vector indexes, each element also includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
     pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>> { &self.consumed_capacity }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`BatchWriteItemOutput`](crate::operation::batch_write_item::BatchWriteItemOutput).
     pub fn build(self) -> crate::operation::batch_write_item::BatchWriteItemOutput {
         crate::operation::batch_write_item::BatchWriteItemOutput {
             unprocessed_items: self.unprocessed_items,
             item_collection_metrics: self.item_collection_metrics,
             consumed_capacity: self.consumed_capacity,
+            _request_id: self._request_id,
         }
     }
 }

@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UploadSigningCertificateError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UploadSigningCertificateError::Unhandled(format!("UploadSigningCertificate returned HTTP {}", status)));
+                             return Err(super::UploadSigningCertificateError::unhandled_with_request_ids(format!("UploadSigningCertificate returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_upload_signing_certificate_output::UploadSigningCertificateOutputBuilder::default().build())
+                         let mut output = super::_upload_signing_certificate_output::UploadSigningCertificateOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UploadSigningCertificateFluentBuilder;

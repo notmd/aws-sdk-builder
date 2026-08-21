@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::CheckIfPhoneNumberIsOptedOutError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::CheckIfPhoneNumberIsOptedOutError::Unhandled(format!("CheckIfPhoneNumberIsOptedOut returned HTTP {}", status)));
+                             return Err(super::CheckIfPhoneNumberIsOptedOutError::unhandled_with_request_ids(format!("CheckIfPhoneNumberIsOptedOut returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_check_if_phone_number_is_opted_out_output::CheckIfPhoneNumberIsOptedOutOutputBuilder::default().build())
+                         let mut output = super::_check_if_phone_number_is_opted_out_output::CheckIfPhoneNumberIsOptedOutOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as CheckIfPhoneNumberIsOptedOutFluentBuilder;

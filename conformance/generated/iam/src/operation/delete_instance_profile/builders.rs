@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DeleteInstanceProfileError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteInstanceProfileError::Unhandled(format!("DeleteInstanceProfile returned HTTP {}", status)));
+                             return Err(super::DeleteInstanceProfileError::unhandled_with_request_ids(format!("DeleteInstanceProfile returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::DeleteInstanceProfileOutput{})
+                         let mut output = super::_delete_instance_profile_output::DeleteInstanceProfileOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DeleteInstanceProfileFluentBuilder;

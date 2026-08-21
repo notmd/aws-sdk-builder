@@ -19,9 +19,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetAccountSettingsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetAccountSettingsError::Unhandled(format!("GetAccountSettings returned HTTP {}", status)));
+                             return Err(super::GetAccountSettingsError::unhandled_with_request_ids(format!("GetAccountSettings returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_account_settings_output::GetAccountSettingsOutputBuilder::default().build())
+                         let mut output = super::_get_account_settings_output::GetAccountSettingsOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetAccountSettingsFluentBuilder;

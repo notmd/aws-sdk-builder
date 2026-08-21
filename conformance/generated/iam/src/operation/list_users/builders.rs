@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListUsersError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListUsersError::Unhandled(format!("ListUsers returned HTTP {}", status)));
+                             return Err(super::ListUsersError::unhandled_with_request_ids(format!("ListUsers returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         super::_list_users_output::ListUsersOutputBuilder::default().build().map_err(|error| super::ListUsersError::Unhandled(error.to_string()))
+                         let mut output = super::_list_users_output::ListUsersOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         output.build().map_err(|error| super::ListUsersError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as ListUsersFluentBuilder;

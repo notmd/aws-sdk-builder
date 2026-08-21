@@ -23,9 +23,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::EnableMfaDeviceError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::EnableMfaDeviceError::Unhandled(format!("EnableMfaDevice returned HTTP {}", status)));
+                             return Err(super::EnableMfaDeviceError::unhandled_with_request_ids(format!("EnableMfaDevice returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::EnableMfaDeviceOutput{})
+                         let mut output = super::_enable_mfa_device_output::EnableMfaDeviceOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as EnableMfaDeviceFluentBuilder;

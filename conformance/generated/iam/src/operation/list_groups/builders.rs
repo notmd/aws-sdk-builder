@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListGroupsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListGroupsError::Unhandled(format!("ListGroups returned HTTP {}", status)));
+                             return Err(super::ListGroupsError::unhandled_with_request_ids(format!("ListGroups returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         super::_list_groups_output::ListGroupsOutputBuilder::default().build().map_err(|error| super::ListGroupsError::Unhandled(error.to_string()))
+                         let mut output = super::_list_groups_output::ListGroupsOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         output.build().map_err(|error| super::ListGroupsError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as ListGroupsFluentBuilder;

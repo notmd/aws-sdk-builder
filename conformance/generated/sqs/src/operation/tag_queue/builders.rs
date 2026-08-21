@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::TagQueueError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::TagQueueError::Unhandled(format!("TagQueue returned HTTP {}", status)));
+                             return Err(super::TagQueueError::unhandled_with_request_ids(format!("TagQueue returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::TagQueueOutput{})
+                         let mut output = super::_tag_queue_output::TagQueueOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as TagQueueFluentBuilder;

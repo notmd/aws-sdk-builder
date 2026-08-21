@@ -23,12 +23,14 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetBucketMetricsConfigurationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetBucketMetricsConfigurationError::Unhandled(format!("GetBucketMetricsConfiguration returned HTTP {}", status)));
+                             return Err(super::GetBucketMetricsConfigurationError::unhandled_with_request_ids(format!("GetBucketMetricsConfiguration returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_bucket_metrics_configuration_output::GetBucketMetricsConfigurationOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketMetricsConfigurationError::Unhandled)?;
                          if let Some(value) = super::super::super::transport::xml_first(&body, "MetricsConfiguration") { let mut item: crate::types::MetricsConfigurationBuilder = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
  if let Ok(item) = item.build() { output.metrics_configuration = Some(item); } }
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

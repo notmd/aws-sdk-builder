@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UntagPolicyError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UntagPolicyError::Unhandled(format!("UntagPolicy returned HTTP {}", status)));
+                             return Err(super::UntagPolicyError::unhandled_with_request_ids(format!("UntagPolicy returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::UntagPolicyOutput{})
+                         let mut output = super::_untag_policy_output::UntagPolicyOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UntagPolicyFluentBuilder;

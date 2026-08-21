@@ -14,6 +14,7 @@ pub struct GetOpenIdConnectProviderOutput {
     pub create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    _request_id: Option<String>,
 }
 impl GetOpenIdConnectProviderOutput {
     /// <p>The URL that the IAM OIDC provider resource object is associated with. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
@@ -37,6 +38,11 @@ impl GetOpenIdConnectProviderOutput {
         self.tags.as_deref().unwrap_or_default()
     }
 }
+impl ::aws_types::request_id::RequestId for GetOpenIdConnectProviderOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetOpenIdConnectProviderOutput {
     /// Creates a new builder-style object to manufacture [`GetOpenIdConnectProviderOutput`](crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput).
     pub fn builder() -> crate::operation::get_open_id_connect_provider::builders::GetOpenIdConnectProviderOutputBuilder {
@@ -53,6 +59,7 @@ pub struct GetOpenIdConnectProviderOutputBuilder {
     pub(crate) thumbprint_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    _request_id: Option<String>,
 }
 impl GetOpenIdConnectProviderOutputBuilder {
     /// <p>The URL that the IAM OIDC provider resource object is associated with. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
@@ -110,6 +117,15 @@ impl GetOpenIdConnectProviderOutputBuilder {
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.tags = input; self }
     /// <p>A list of tags that are attached to the specified IAM OIDC provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.tags }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetOpenIdConnectProviderOutput`](crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput).
     pub fn build(self) -> crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput {
         crate::operation::get_open_id_connect_provider::GetOpenIdConnectProviderOutput {
@@ -118,6 +134,7 @@ impl GetOpenIdConnectProviderOutputBuilder {
             thumbprint_list: self.thumbprint_list,
             create_date: self.create_date,
             tags: self.tags,
+            _request_id: self._request_id,
         }
     }
 }

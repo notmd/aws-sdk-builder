@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::AddUserToGroupError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::AddUserToGroupError::Unhandled(format!("AddUserToGroup returned HTTP {}", status)));
+                             return Err(super::AddUserToGroupError::unhandled_with_request_ids(format!("AddUserToGroup returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::AddUserToGroupOutput{})
+                         let mut output = super::_add_user_to_group_output::AddUserToGroupOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as AddUserToGroupFluentBuilder;

@@ -6,11 +6,17 @@
 pub struct EnableOutboundWebIdentityFederationOutput {
     /// <p>A unique issuer URL for your Amazon Web Services account that hosts the OpenID Connect (OIDC) discovery endpoints at <code>/.well-known/openid-configuration and /.well-known/jwks.json</code>. The OpenID Connect (OIDC) discovery endpoints contain verification keys and metadata necessary for token verification.</p>
     pub issuer_identifier: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl EnableOutboundWebIdentityFederationOutput {
     /// <p>A unique issuer URL for your Amazon Web Services account that hosts the OpenID Connect (OIDC) discovery endpoints at <code>/.well-known/openid-configuration and /.well-known/jwks.json</code>. The OpenID Connect (OIDC) discovery endpoints contain verification keys and metadata necessary for token verification.</p>
     pub fn issuer_identifier(&self) -> ::std::option::Option<&str> {
         self.issuer_identifier.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for EnableOutboundWebIdentityFederationOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl EnableOutboundWebIdentityFederationOutput {
@@ -25,6 +31,7 @@ impl EnableOutboundWebIdentityFederationOutput {
 #[non_exhaustive]
 pub struct EnableOutboundWebIdentityFederationOutputBuilder {
     pub(crate) issuer_identifier: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl EnableOutboundWebIdentityFederationOutputBuilder {
     /// <p>A unique issuer URL for your Amazon Web Services account that hosts the OpenID Connect (OIDC) discovery endpoints at <code>/.well-known/openid-configuration and /.well-known/jwks.json</code>. The OpenID Connect (OIDC) discovery endpoints contain verification keys and metadata necessary for token verification.</p>
@@ -35,10 +42,20 @@ impl EnableOutboundWebIdentityFederationOutputBuilder {
     pub fn set_issuer_identifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.issuer_identifier = input; self }
     /// <p>A unique issuer URL for your Amazon Web Services account that hosts the OpenID Connect (OIDC) discovery endpoints at <code>/.well-known/openid-configuration and /.well-known/jwks.json</code>. The OpenID Connect (OIDC) discovery endpoints contain verification keys and metadata necessary for token verification.</p>
     pub fn get_issuer_identifier(&self) -> &::std::option::Option<::std::string::String> { &self.issuer_identifier }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`EnableOutboundWebIdentityFederationOutput`](crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationOutput).
     pub fn build(self) -> crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationOutput {
         crate::operation::enable_outbound_web_identity_federation::EnableOutboundWebIdentityFederationOutput {
             issuer_identifier: self.issuer_identifier,
+            _request_id: self._request_id,
         }
     }
 }

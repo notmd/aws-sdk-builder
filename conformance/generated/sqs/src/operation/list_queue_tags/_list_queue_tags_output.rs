@@ -6,11 +6,17 @@
 pub struct ListQueueTagsOutput {
     /// <p>The list of all tags added to the specified queue.</p>
     pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    _request_id: Option<String>,
 }
 impl ListQueueTagsOutput {
     /// <p>The list of all tags added to the specified queue.</p>
     pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.tags.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListQueueTagsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListQueueTagsOutput {
@@ -25,6 +31,7 @@ impl ListQueueTagsOutput {
 #[non_exhaustive]
 pub struct ListQueueTagsOutputBuilder {
     pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    _request_id: Option<String>,
 }
 impl ListQueueTagsOutputBuilder {
     /// <p>The list of all tags added to the specified queue.</p>
@@ -40,10 +47,20 @@ impl ListQueueTagsOutputBuilder {
     pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.tags = input; self }
     /// <p>The list of all tags added to the specified queue.</p>
     pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.tags }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListQueueTagsOutput`](crate::operation::list_queue_tags::ListQueueTagsOutput).
     pub fn build(self) -> crate::operation::list_queue_tags::ListQueueTagsOutput {
         crate::operation::list_queue_tags::ListQueueTagsOutput {
             tags: self.tags,
+            _request_id: self._request_id,
         }
     }
 }

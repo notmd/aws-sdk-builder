@@ -42,7 +42,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Head, &path, &headers, &body).await.map_err(super::HeadObjectError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::HeadObjectError::Unhandled(format!("HeadObject returned HTTP {}", status)));
+                             return Err(super::HeadObjectError::unhandled_with_request_ids(format!("HeadObject returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_head_object_output::HeadObjectOutputBuilder::default();
                          output.delete_marker = response.header("x-amz-delete-marker").and_then(|value| value.parse().ok());
@@ -77,6 +77,8 @@ impl Builder {
                          output.bucket_key_enabled = response.header("x-amz-server-side-encryption-bucket-key-enabled").and_then(|value| value.parse().ok());
                          output.parts_count = response.header("x-amz-mp-parts-count").and_then(|value| value.parse().ok());
                          output.tag_count = response.header("x-amz-tagging-count").and_then(|value| value.parse().ok());
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

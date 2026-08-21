@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UpdateServerCertificateError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UpdateServerCertificateError::Unhandled(format!("UpdateServerCertificate returned HTTP {}", status)));
+                             return Err(super::UpdateServerCertificateError::unhandled_with_request_ids(format!("UpdateServerCertificate returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::UpdateServerCertificateOutput{})
+                         let mut output = super::_update_server_certificate_output::UpdateServerCertificateOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UpdateServerCertificateFluentBuilder;

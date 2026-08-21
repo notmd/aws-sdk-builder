@@ -22,7 +22,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetBucketWebsiteError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetBucketWebsiteError::Unhandled(format!("GetBucketWebsite returned HTTP {}", status)));
+                             return Err(super::GetBucketWebsiteError::unhandled_with_request_ids(format!("GetBucketWebsite returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_bucket_website_output::GetBucketWebsiteOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketWebsiteError::Unhandled)?;
@@ -33,6 +33,8 @@ impl Builder {
                          if let Some(value) = super::super::super::transport::xml_first(&body, "ErrorDocument") { let mut item: crate::types::ErrorDocumentBuilder = ::std::default::Default::default(); item.key = super::super::super::transport::xml_first(&value, "Key").and_then(|value| value.parse().ok());
  if let Ok(item) = item.build() { output.error_document = Some(item); } }
                          output.routing_rules = Some(::std::vec::Vec::new());
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

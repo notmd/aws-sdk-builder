@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DescribeImportError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DescribeImportError::Unhandled(format!("DescribeImport returned HTTP {}", status)));
+                             return Err(super::DescribeImportError::unhandled_with_request_ids(format!("DescribeImport returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_describe_import_output::DescribeImportOutputBuilder::default().build())
+                         let mut output = super::_describe_import_output::DescribeImportOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DescribeImportFluentBuilder;

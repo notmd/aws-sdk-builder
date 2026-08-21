@@ -11,6 +11,7 @@ pub struct ExecuteStatementOutput {
     pub consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
     /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved. If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
     pub last_evaluated_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    _request_id: Option<String>,
 }
 impl ExecuteStatementOutput {
     /// <p>If a read operation was used, this property will contain the result of the read operation; a map of attribute names and their values. For the write operations this value will be empty.</p>
@@ -29,6 +30,11 @@ impl ExecuteStatementOutput {
         self.last_evaluated_key.as_ref()
     }
 }
+impl ::aws_types::request_id::RequestId for ExecuteStatementOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ExecuteStatementOutput {
     /// Creates a new builder-style object to manufacture [`ExecuteStatementOutput`](crate::operation::execute_statement::ExecuteStatementOutput).
     pub fn builder() -> crate::operation::execute_statement::builders::ExecuteStatementOutputBuilder {
@@ -44,6 +50,7 @@ pub struct ExecuteStatementOutputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     pub(crate) consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
     pub(crate) last_evaluated_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    _request_id: Option<String>,
 }
 impl ExecuteStatementOutputBuilder {
     /// <p>If a read operation was used, this property will contain the result of the read operation; a map of attribute names and their values. For the write operations this value will be empty.</p>
@@ -86,6 +93,15 @@ impl ExecuteStatementOutputBuilder {
     pub fn set_last_evaluated_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.last_evaluated_key = input; self }
     /// <p>The primary key of the item where the operation stopped, inclusive of the previous result set. Use this value to start a new operation, excluding this value in the new request. If <code>LastEvaluatedKey</code> is empty, then the "last page" of results has been processed and there is no more data to be retrieved. If <code>LastEvaluatedKey</code> is not empty, it does not necessarily mean that there is more data in the result set. The only way to know when you have reached the end of the result set is when <code>LastEvaluatedKey</code> is empty.</p>
     pub fn get_last_evaluated_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> { &self.last_evaluated_key }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ExecuteStatementOutput`](crate::operation::execute_statement::ExecuteStatementOutput).
     pub fn build(self) -> crate::operation::execute_statement::ExecuteStatementOutput {
         crate::operation::execute_statement::ExecuteStatementOutput {
@@ -93,6 +109,7 @@ impl ExecuteStatementOutputBuilder {
             next_token: self.next_token,
             consumed_capacity: self.consumed_capacity,
             last_evaluated_key: self.last_evaluated_key,
+            _request_id: self._request_id,
         }
     }
 }

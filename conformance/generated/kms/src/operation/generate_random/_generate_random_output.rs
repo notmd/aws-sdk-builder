@@ -10,6 +10,7 @@ pub struct GenerateRandomOutput {
     /// <p>The plaintext random bytes encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub ciphertext_for_recipient: ::std::option::Option<::std::vec::Vec<u8>>,
+    _request_id: Option<String>,
 }
 impl GenerateRandomOutput {
     /// <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -21,6 +22,11 @@ impl GenerateRandomOutput {
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub fn ciphertext_for_recipient(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
         self.ciphertext_for_recipient.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GenerateRandomOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GenerateRandomOutput {
@@ -36,6 +42,7 @@ impl GenerateRandomOutput {
 pub struct GenerateRandomOutputBuilder {
     pub(crate) plaintext: ::std::option::Option<::std::vec::Vec<u8>>,
     pub(crate) ciphertext_for_recipient: ::std::option::Option<::std::vec::Vec<u8>>,
+    _request_id: Option<String>,
 }
 impl GenerateRandomOutputBuilder {
     /// <p>The random byte string. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
@@ -58,11 +65,21 @@ impl GenerateRandomOutputBuilder {
     /// <p>The plaintext random bytes encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub fn get_ciphertext_for_recipient(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.ciphertext_for_recipient }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GenerateRandomOutput`](crate::operation::generate_random::GenerateRandomOutput).
     pub fn build(self) -> crate::operation::generate_random::GenerateRandomOutput {
         crate::operation::generate_random::GenerateRandomOutput {
             plaintext: self.plaintext,
             ciphertext_for_recipient: self.ciphertext_for_recipient,
+            _request_id: self._request_id,
         }
     }
 }

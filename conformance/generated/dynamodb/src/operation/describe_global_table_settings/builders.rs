@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DescribeGlobalTableSettingsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DescribeGlobalTableSettingsError::Unhandled(format!("DescribeGlobalTableSettings returned HTTP {}", status)));
+                             return Err(super::DescribeGlobalTableSettingsError::unhandled_with_request_ids(format!("DescribeGlobalTableSettings returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_describe_global_table_settings_output::DescribeGlobalTableSettingsOutputBuilder::default().build())
+                         let mut output = super::_describe_global_table_settings_output::DescribeGlobalTableSettingsOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DescribeGlobalTableSettingsFluentBuilder;

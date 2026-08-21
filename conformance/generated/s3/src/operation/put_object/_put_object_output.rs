@@ -62,6 +62,8 @@ pub struct PutObjectOutput {
     /// </note>
     pub size: ::std::option::Option<i64>,
     pub request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl PutObjectOutput {
     /// <p>If the expiration is configured for the object (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a>) in the <i>Amazon S3 User Guide</i>, the response includes this header. It includes the <code>expiry-date</code> and <code>rule-id</code> key-value pairs that provide information about object expiration. The value of the <code>rule-id</code> is URL-encoded.</p><note>
@@ -167,6 +169,16 @@ impl PutObjectOutput {
         self.request_charged.as_ref()
     }
 }
+impl crate::s3_request_id::RequestIdExt for PutObjectOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for PutObjectOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl PutObjectOutput {
     /// Creates a new builder-style object to manufacture [`PutObjectOutput`](crate::operation::put_object::PutObjectOutput).
     pub fn builder() -> crate::operation::put_object::builders::PutObjectOutputBuilder {
@@ -200,6 +212,8 @@ pub struct PutObjectOutputBuilder {
     pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
     pub(crate) size: ::std::option::Option<i64>,
     pub(crate) request_charged: ::std::option::Option<crate::types::RequestCharged>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl PutObjectOutputBuilder {
     /// <p>If the expiration is configured for the object (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html">PutBucketLifecycleConfiguration</a>) in the <i>Amazon S3 User Guide</i>, the response includes this header. It includes the <code>expiry-date</code> and <code>rule-id</code> key-value pairs that provide information about object expiration. The value of the <code>rule-id</code> is URL-encoded.</p><note>
@@ -406,6 +420,24 @@ impl PutObjectOutputBuilder {
     }
     pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
     pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`PutObjectOutput`](crate::operation::put_object::PutObjectOutput).
     pub fn build(self) -> crate::operation::put_object::PutObjectOutput {
         crate::operation::put_object::PutObjectOutput {
@@ -431,6 +463,8 @@ impl PutObjectOutputBuilder {
             bucket_key_enabled: self.bucket_key_enabled,
             size: self.size,
             request_charged: self.request_charged,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

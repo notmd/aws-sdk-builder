@@ -23,9 +23,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListAttachedRolePoliciesError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListAttachedRolePoliciesError::Unhandled(format!("ListAttachedRolePolicies returned HTTP {}", status)));
+                             return Err(super::ListAttachedRolePoliciesError::unhandled_with_request_ids(format!("ListAttachedRolePolicies returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_list_attached_role_policies_output::ListAttachedRolePoliciesOutputBuilder::default().build())
+                         let mut output = super::_list_attached_role_policies_output::ListAttachedRolePoliciesOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as ListAttachedRolePoliciesFluentBuilder;

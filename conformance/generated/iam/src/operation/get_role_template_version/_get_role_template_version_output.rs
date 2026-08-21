@@ -6,11 +6,17 @@
 pub struct GetRoleTemplateVersionOutput {
     /// <p>A structure that contains details about the requested role template version.</p>
     pub role_template_version: ::std::option::Option<crate::types::RoleTemplateVersion>,
+    _request_id: Option<String>,
 }
 impl GetRoleTemplateVersionOutput {
     /// <p>A structure that contains details about the requested role template version.</p>
     pub fn role_template_version(&self) -> ::std::option::Option<&crate::types::RoleTemplateVersion> {
         self.role_template_version.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetRoleTemplateVersionOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetRoleTemplateVersionOutput {
@@ -25,6 +31,7 @@ impl GetRoleTemplateVersionOutput {
 #[non_exhaustive]
 pub struct GetRoleTemplateVersionOutputBuilder {
     pub(crate) role_template_version: ::std::option::Option<crate::types::RoleTemplateVersion>,
+    _request_id: Option<String>,
 }
 impl GetRoleTemplateVersionOutputBuilder {
     /// <p>A structure that contains details about the requested role template version.</p>
@@ -35,10 +42,20 @@ impl GetRoleTemplateVersionOutputBuilder {
     pub fn set_role_template_version(mut self, input: ::std::option::Option<crate::types::RoleTemplateVersion>) -> Self { self.role_template_version = input; self }
     /// <p>A structure that contains details about the requested role template version.</p>
     pub fn get_role_template_version(&self) -> &::std::option::Option<crate::types::RoleTemplateVersion> { &self.role_template_version }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetRoleTemplateVersionOutput`](crate::operation::get_role_template_version::GetRoleTemplateVersionOutput).
     pub fn build(self) -> crate::operation::get_role_template_version::GetRoleTemplateVersionOutput {
         crate::operation::get_role_template_version::GetRoleTemplateVersionOutput {
             role_template_version: self.role_template_version,
+            _request_id: self._request_id,
         }
     }
 }

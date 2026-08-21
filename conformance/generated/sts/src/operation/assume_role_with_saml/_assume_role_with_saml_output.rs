@@ -29,6 +29,7 @@ pub struct AssumeRoleWithSamlOutput {
     /// <p>You can require users to set a source identity value when they assume a role. You do this by using the <code>sts:SourceIdentity</code> condition key in a role trust policy. That way, actions that are taken with the role are associated with that user. After the source identity is set, the value cannot be changed. It is present in the request for all actions that are taken by the role and persists across <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#id_roles_terms-and-concepts">chained role</a> sessions. You can configure your SAML identity provider to use an attribute associated with your users, like user name or email, as the source identity when calling <code>AssumeRoleWithSAML</code>. You do this by adding an attribute to the SAML assertion. For more information about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</p>
     /// <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>
     pub source_identity: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl AssumeRoleWithSamlOutput {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p><note>
@@ -75,6 +76,11 @@ impl AssumeRoleWithSamlOutput {
         self.source_identity.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for AssumeRoleWithSamlOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl AssumeRoleWithSamlOutput {
     /// Creates a new builder-style object to manufacture [`AssumeRoleWithSamlOutput`](crate::operation::assume_role_with_saml::AssumeRoleWithSamlOutput).
     pub fn builder() -> crate::operation::assume_role_with_saml::builders::AssumeRoleWithSamlOutputBuilder {
@@ -95,6 +101,7 @@ pub struct AssumeRoleWithSamlOutputBuilder {
     pub(crate) audience: ::std::option::Option<::std::string::String>,
     pub(crate) name_qualifier: ::std::option::Option<::std::string::String>,
     pub(crate) source_identity: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl AssumeRoleWithSamlOutputBuilder {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p><note>
@@ -183,6 +190,15 @@ impl AssumeRoleWithSamlOutputBuilder {
     /// <p>You can require users to set a source identity value when they assume a role. You do this by using the <code>sts:SourceIdentity</code> condition key in a role trust policy. That way, actions that are taken with the role are associated with that user. After the source identity is set, the value cannot be changed. It is present in the request for all actions that are taken by the role and persists across <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html#id_roles_terms-and-concepts">chained role</a> sessions. You can configure your SAML identity provider to use an attribute associated with your users, like user name or email, as the source identity when calling <code>AssumeRoleWithSAML</code>. You do this by adding an attribute to the SAML assertion. For more information about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</p>
     /// <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>
     pub fn get_source_identity(&self) -> &::std::option::Option<::std::string::String> { &self.source_identity }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`AssumeRoleWithSamlOutput`](crate::operation::assume_role_with_saml::AssumeRoleWithSamlOutput).
     pub fn build(self) -> crate::operation::assume_role_with_saml::AssumeRoleWithSamlOutput {
         crate::operation::assume_role_with_saml::AssumeRoleWithSamlOutput {
@@ -195,6 +211,7 @@ impl AssumeRoleWithSamlOutputBuilder {
             audience: self.audience,
             name_qualifier: self.name_qualifier,
             source_identity: self.source_identity,
+            _request_id: self._request_id,
         }
     }
 }

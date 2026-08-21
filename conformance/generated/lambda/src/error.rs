@@ -6,7 +6,7 @@ impl Error {
 pub fn unhandled(message: impl ::std::convert::Into<::std::string::String>) -> Self {
 Self { message: message.into() }
 }
-pub fn meta(&self) -> ErrorMetadata { ErrorMetadata }
+pub fn meta(&self) -> ErrorMetadata { ErrorMetadata::default() }
 }
 impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -15,7 +15,17 @@ f.write_str(&self.message)
 }
 impl ::std::error::Error for Error {}
 #[derive(Clone, Debug, Default)]
-pub struct ErrorMetadata;
+pub struct ErrorMetadata {
+request_id: ::std::option::Option<::std::string::String>,
+extended_request_id: ::std::option::Option<::std::string::String>,
+}
+impl ErrorMetadata {
+pub(crate) fn from_request_ids(request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self {
+Self { request_id, extended_request_id }
+}
+pub fn request_id(&self) -> ::std::option::Option<&str> { self.request_id.as_deref() }
+pub fn extended_request_id(&self) -> ::std::option::Option<&str> { self.extended_request_id.as_deref() }
+}
 #[derive(Clone, Debug)]
 pub struct UnknownVariantError { value: ::std::string::String }
 impl UnknownVariantError {

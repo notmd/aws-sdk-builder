@@ -16,6 +16,7 @@ pub struct AssumeRoleOutput {
     /// <p>You can require users to specify a source identity when they assume a role. You do this by using the <code>sts:SourceIdentity</code> condition key in a role trust policy. You can use source identity information in CloudTrail logs to determine who took actions with a role. You can use the <code>aws:SourceIdentity</code> condition key to further control access to Amazon Web Services resources based on the value of source identity. For more information about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</p>
     /// <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>
     pub source_identity: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl AssumeRoleOutput {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p><note>
@@ -39,6 +40,11 @@ impl AssumeRoleOutput {
         self.source_identity.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for AssumeRoleOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl AssumeRoleOutput {
     /// Creates a new builder-style object to manufacture [`AssumeRoleOutput`](crate::operation::assume_role::AssumeRoleOutput).
     pub fn builder() -> crate::operation::assume_role::builders::AssumeRoleOutputBuilder {
@@ -54,6 +60,7 @@ pub struct AssumeRoleOutputBuilder {
     pub(crate) assumed_role_user: ::std::option::Option<crate::types::AssumedRoleUser>,
     pub(crate) packed_policy_size: ::std::option::Option<i32>,
     pub(crate) source_identity: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl AssumeRoleOutputBuilder {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.</p><note>
@@ -96,6 +103,15 @@ impl AssumeRoleOutputBuilder {
     /// <p>You can require users to specify a source identity when they assume a role. You do this by using the <code>sts:SourceIdentity</code> condition key in a role trust policy. You can use source identity information in CloudTrail logs to determine who took actions with a role. You can use the <code>aws:SourceIdentity</code> condition key to further control access to Amazon Web Services resources based on the value of source identity. For more information about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</p>
     /// <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>
     pub fn get_source_identity(&self) -> &::std::option::Option<::std::string::String> { &self.source_identity }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`AssumeRoleOutput`](crate::operation::assume_role::AssumeRoleOutput).
     pub fn build(self) -> crate::operation::assume_role::AssumeRoleOutput {
         crate::operation::assume_role::AssumeRoleOutput {
@@ -103,6 +119,7 @@ impl AssumeRoleOutputBuilder {
             assumed_role_user: self.assumed_role_user,
             packed_policy_size: self.packed_policy_size,
             source_identity: self.source_identity,
+            _request_id: self._request_id,
         }
     }
 }

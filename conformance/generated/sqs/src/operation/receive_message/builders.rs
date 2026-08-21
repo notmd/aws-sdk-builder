@@ -27,7 +27,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ReceiveMessageError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ReceiveMessageError::Unhandled(format!("ReceiveMessage returned HTTP {}", status)));
+                             return Err(super::ReceiveMessageError::unhandled_with_request_ids(format!("ReceiveMessage returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
                          let mut output = super::_receive_message_output::ReceiveMessageOutputBuilder::default();
                          let body = response.text().await.map_err(super::ReceiveMessageError::Unhandled)?;
@@ -38,6 +38,7 @@ impl Builder {
  item.md5_of_message_attributes = super::super::super::transport::xml_first(&value, "MD5OfMessageAttributes").and_then(|value| value.parse().ok());
  item.build() }).collect();
                          output.messages = Some(values);
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

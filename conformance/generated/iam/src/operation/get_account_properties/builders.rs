@@ -19,9 +19,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetAccountPropertiesError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetAccountPropertiesError::Unhandled(format!("GetAccountProperties returned HTTP {}", status)));
+                             return Err(super::GetAccountPropertiesError::unhandled_with_request_ids(format!("GetAccountProperties returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_account_properties_output::GetAccountPropertiesOutputBuilder::default().build())
+                         let mut output = super::_get_account_properties_output::GetAccountPropertiesOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetAccountPropertiesFluentBuilder;

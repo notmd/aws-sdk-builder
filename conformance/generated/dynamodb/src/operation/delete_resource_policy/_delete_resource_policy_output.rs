@@ -7,12 +7,18 @@ pub struct DeleteResourcePolicyOutput {
     /// <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
     /// <p>This value will be empty if you make a request against a resource without a policy.</p>
     pub revision_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl DeleteResourcePolicyOutput {
     /// <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
     /// <p>This value will be empty if you make a request against a resource without a policy.</p>
     pub fn revision_id(&self) -> ::std::option::Option<&str> {
         self.revision_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for DeleteResourcePolicyOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl DeleteResourcePolicyOutput {
@@ -27,6 +33,7 @@ impl DeleteResourcePolicyOutput {
 #[non_exhaustive]
 pub struct DeleteResourcePolicyOutputBuilder {
     pub(crate) revision_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl DeleteResourcePolicyOutputBuilder {
     /// <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
@@ -39,10 +46,20 @@ impl DeleteResourcePolicyOutputBuilder {
     /// <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
     /// <p>This value will be empty if you make a request against a resource without a policy.</p>
     pub fn get_revision_id(&self) -> &::std::option::Option<::std::string::String> { &self.revision_id }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`DeleteResourcePolicyOutput`](crate::operation::delete_resource_policy::DeleteResourcePolicyOutput).
     pub fn build(self) -> crate::operation::delete_resource_policy::DeleteResourcePolicyOutput {
         crate::operation::delete_resource_policy::DeleteResourcePolicyOutput {
             revision_id: self.revision_id,
+            _request_id: self._request_id,
         }
     }
 }

@@ -13,6 +13,7 @@ pub struct ListResourceTagsOutput {
     pub next_marker: ::std::option::Option<::std::string::String>,
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
     pub truncated: ::std::option::Option<bool>,
+    _request_id: Option<String>,
 }
 impl ListResourceTagsOutput {
     /// <p>A list of tags. Each tag consists of a tag key and a tag value.</p><note>
@@ -31,6 +32,11 @@ impl ListResourceTagsOutput {
         self.truncated
     }
 }
+impl ::aws_types::request_id::RequestId for ListResourceTagsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListResourceTagsOutput {
     /// Creates a new builder-style object to manufacture [`ListResourceTagsOutput`](crate::operation::list_resource_tags::ListResourceTagsOutput).
     pub fn builder() -> crate::operation::list_resource_tags::builders::ListResourceTagsOutputBuilder {
@@ -45,6 +51,7 @@ pub struct ListResourceTagsOutputBuilder {
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
     pub(crate) truncated: ::std::option::Option<bool>,
+    _request_id: Option<String>,
 }
 impl ListResourceTagsOutputBuilder {
     /// <p>A list of tags. Each tag consists of a tag key and a tag value.</p><note>
@@ -82,12 +89,22 @@ impl ListResourceTagsOutputBuilder {
     pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self { self.truncated = input; self }
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
     pub fn get_truncated(&self) -> &::std::option::Option<bool> { &self.truncated }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListResourceTagsOutput`](crate::operation::list_resource_tags::ListResourceTagsOutput).
     pub fn build(self) -> crate::operation::list_resource_tags::ListResourceTagsOutput {
         crate::operation::list_resource_tags::ListResourceTagsOutput {
             tags: self.tags,
             next_marker: self.next_marker,
             truncated: self.truncated,
+            _request_id: self._request_id,
         }
     }
 }

@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DeleteSshPublicKeyError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteSshPublicKeyError::Unhandled(format!("DeleteSshPublicKey returned HTTP {}", status)));
+                             return Err(super::DeleteSshPublicKeyError::unhandled_with_request_ids(format!("DeleteSshPublicKey returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::DeleteSshPublicKeyOutput{})
+                         let mut output = super::_delete_ssh_public_key_output::DeleteSshPublicKeyOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DeleteSshPublicKeyFluentBuilder;

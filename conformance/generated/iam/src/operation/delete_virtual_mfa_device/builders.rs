@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DeleteVirtualMfaDeviceError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteVirtualMfaDeviceError::Unhandled(format!("DeleteVirtualMfaDevice returned HTTP {}", status)));
+                             return Err(super::DeleteVirtualMfaDeviceError::unhandled_with_request_ids(format!("DeleteVirtualMfaDevice returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::DeleteVirtualMfaDeviceOutput{})
+                         let mut output = super::_delete_virtual_mfa_device_output::DeleteVirtualMfaDeviceOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DeleteVirtualMfaDeviceFluentBuilder;

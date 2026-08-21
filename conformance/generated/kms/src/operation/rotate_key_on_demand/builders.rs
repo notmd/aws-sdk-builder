@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::RotateKeyOnDemandError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::RotateKeyOnDemandError::Unhandled(format!("RotateKeyOnDemand returned HTTP {}", status)));
+                             return Err(super::RotateKeyOnDemandError::unhandled_with_request_ids(format!("RotateKeyOnDemand returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_rotate_key_on_demand_output::RotateKeyOnDemandOutputBuilder::default().build())
+                         let mut output = super::_rotate_key_on_demand_output::RotateKeyOnDemandOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as RotateKeyOnDemandFluentBuilder;

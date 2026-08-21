@@ -8,6 +8,7 @@ pub struct UpdateGlobalTableSettingsOutput {
     pub global_table_name: ::std::option::Option<::std::string::String>,
     /// <p>The Region-specific settings for the global table.</p>
     pub replica_settings: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>,
+    _request_id: Option<String>,
 }
 impl UpdateGlobalTableSettingsOutput {
     /// <p>The name of the global table.</p>
@@ -17,6 +18,11 @@ impl UpdateGlobalTableSettingsOutput {
     /// <p>The Region-specific settings for the global table.</p>
     pub fn replica_settings(&self) -> &[crate::types::ReplicaSettingsDescription] {
         self.replica_settings.as_deref().unwrap_or_default()
+    }
+}
+impl ::aws_types::request_id::RequestId for UpdateGlobalTableSettingsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl UpdateGlobalTableSettingsOutput {
@@ -32,6 +38,7 @@ impl UpdateGlobalTableSettingsOutput {
 pub struct UpdateGlobalTableSettingsOutputBuilder {
     pub(crate) global_table_name: ::std::option::Option<::std::string::String>,
     pub(crate) replica_settings: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>,
+    _request_id: Option<String>,
 }
 impl UpdateGlobalTableSettingsOutputBuilder {
     /// <p>The name of the global table.</p>
@@ -55,11 +62,21 @@ impl UpdateGlobalTableSettingsOutputBuilder {
     pub fn set_replica_settings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>) -> Self { self.replica_settings = input; self }
     /// <p>The Region-specific settings for the global table.</p>
     pub fn get_replica_settings(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>> { &self.replica_settings }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`UpdateGlobalTableSettingsOutput`](crate::operation::update_global_table_settings::UpdateGlobalTableSettingsOutput).
     pub fn build(self) -> crate::operation::update_global_table_settings::UpdateGlobalTableSettingsOutput {
         crate::operation::update_global_table_settings::UpdateGlobalTableSettingsOutput {
             global_table_name: self.global_table_name,
             replica_settings: self.replica_settings,
+            _request_id: self._request_id,
         }
     }
 }

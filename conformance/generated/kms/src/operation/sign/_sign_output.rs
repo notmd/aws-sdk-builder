@@ -10,6 +10,7 @@ pub struct SignOutput {
     pub signature: ::std::option::Option<::std::vec::Vec<u8>>,
     /// <p>The signing algorithm that was used to sign the message.</p>
     pub signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
+    _request_id: Option<String>,
 }
 impl SignOutput {
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key that was used to sign the message.</p>
@@ -23,6 +24,11 @@ impl SignOutput {
     /// <p>The signing algorithm that was used to sign the message.</p>
     pub fn signing_algorithm(&self) -> ::std::option::Option<&crate::types::SigningAlgorithmSpec> {
         self.signing_algorithm.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for SignOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl SignOutput {
@@ -39,6 +45,7 @@ pub struct SignOutputBuilder {
     pub(crate) key_id: ::std::option::Option<::std::string::String>,
     pub(crate) signature: ::std::option::Option<::std::vec::Vec<u8>>,
     pub(crate) signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
+    _request_id: Option<String>,
 }
 impl SignOutputBuilder {
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key that was used to sign the message.</p>
@@ -65,12 +72,22 @@ impl SignOutputBuilder {
     pub fn set_signing_algorithm(mut self, input: ::std::option::Option<crate::types::SigningAlgorithmSpec>) -> Self { self.signing_algorithm = input; self }
     /// <p>The signing algorithm that was used to sign the message.</p>
     pub fn get_signing_algorithm(&self) -> &::std::option::Option<crate::types::SigningAlgorithmSpec> { &self.signing_algorithm }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`SignOutput`](crate::operation::sign::SignOutput).
     pub fn build(self) -> crate::operation::sign::SignOutput {
         crate::operation::sign::SignOutput {
             key_id: self.key_id,
             signature: self.signature,
             signing_algorithm: self.signing_algorithm,
+            _request_id: self._request_id,
         }
     }
 }

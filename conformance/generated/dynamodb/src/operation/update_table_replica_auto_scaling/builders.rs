@@ -23,9 +23,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UpdateTableReplicaAutoScalingError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UpdateTableReplicaAutoScalingError::Unhandled(format!("UpdateTableReplicaAutoScaling returned HTTP {}", status)));
+                             return Err(super::UpdateTableReplicaAutoScalingError::unhandled_with_request_ids(format!("UpdateTableReplicaAutoScaling returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_update_table_replica_auto_scaling_output::UpdateTableReplicaAutoScalingOutputBuilder::default().build())
+                         let mut output = super::_update_table_replica_auto_scaling_output::UpdateTableReplicaAutoScalingOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UpdateTableReplicaAutoScalingFluentBuilder;

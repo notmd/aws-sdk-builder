@@ -36,9 +36,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::QueryError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::QueryError::Unhandled(format!("Query returned HTTP {}", status)));
+                             return Err(super::QueryError::unhandled_with_request_ids(format!("Query returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_query_output::QueryOutputBuilder::default().build())
+                         let mut output = super::_query_output::QueryOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as QueryFluentBuilder;

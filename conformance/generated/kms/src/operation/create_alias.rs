@@ -13,6 +13,7 @@ pub enum Error {
     LimitExceededException(super::super::types::error::LimitExceededException),
     NotFoundException(super::super::types::error::NotFoundException),
     Unhandled(::std::string::String),
+    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
 }
 impl Error {
     pub fn is_already_exists_exception(&self) -> bool { matches!(self, Self::AlreadyExistsException(_)) }
@@ -27,6 +28,7 @@ impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::Unhandled(message) => f.write_str(message),
+            Self::UnhandledWithRequestIds { message, .. } => f.write_str(message),
             Self::AlreadyExistsException(value) => value.fmt(f),
             Self::DependencyTimeoutException(value) => value.fmt(f),
             Self::InvalidAliasNameException(value) => value.fmt(f),
@@ -38,6 +40,13 @@ impl ::std::fmt::Display for Error {
     }
 }
 impl ::std::error::Error for Error {}
+impl Error {
+    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
+    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+}
+impl ::aws_types::request_id::RequestId for Error {
+    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+}
 pub mod _create_alias_input {
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/create_alias/_create_alias_input.rs"));
 }

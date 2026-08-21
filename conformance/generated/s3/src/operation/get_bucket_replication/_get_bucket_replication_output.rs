@@ -5,10 +5,22 @@
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct GetBucketReplicationOutput {
     pub replication_configuration: ::std::option::Option<crate::types::ReplicationConfiguration>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl GetBucketReplicationOutput {
     pub fn replication_configuration(&self) -> ::std::option::Option<&crate::types::ReplicationConfiguration> {
         self.replication_configuration.as_ref()
+    }
+}
+impl crate::s3_request_id::RequestIdExt for GetBucketReplicationOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetBucketReplicationOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetBucketReplicationOutput {
@@ -23,6 +35,8 @@ impl GetBucketReplicationOutput {
 #[non_exhaustive]
 pub struct GetBucketReplicationOutputBuilder {
     pub(crate) replication_configuration: ::std::option::Option<crate::types::ReplicationConfiguration>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl GetBucketReplicationOutputBuilder {
     pub fn replication_configuration(mut self, input: crate::types::ReplicationConfiguration) -> Self {
@@ -31,10 +45,30 @@ impl GetBucketReplicationOutputBuilder {
     }
     pub fn set_replication_configuration(mut self, input: ::std::option::Option<crate::types::ReplicationConfiguration>) -> Self { self.replication_configuration = input; self }
     pub fn get_replication_configuration(&self) -> &::std::option::Option<crate::types::ReplicationConfiguration> { &self.replication_configuration }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetBucketReplicationOutput`](crate::operation::get_bucket_replication::GetBucketReplicationOutput).
     pub fn build(self) -> crate::operation::get_bucket_replication::GetBucketReplicationOutput {
         crate::operation::get_bucket_replication::GetBucketReplicationOutput {
             replication_configuration: self.replication_configuration,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

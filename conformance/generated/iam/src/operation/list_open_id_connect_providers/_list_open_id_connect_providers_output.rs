@@ -6,11 +6,17 @@
 pub struct ListOpenIdConnectProvidersOutput {
     /// <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
     pub open_id_connect_provider_list: ::std::option::Option<::std::vec::Vec<crate::types::OpenIdConnectProviderListEntry>>,
+    _request_id: Option<String>,
 }
 impl ListOpenIdConnectProvidersOutput {
     /// <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
     pub fn open_id_connect_provider_list(&self) -> &[crate::types::OpenIdConnectProviderListEntry] {
         self.open_id_connect_provider_list.as_deref().unwrap_or_default()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListOpenIdConnectProvidersOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListOpenIdConnectProvidersOutput {
@@ -25,6 +31,7 @@ impl ListOpenIdConnectProvidersOutput {
 #[non_exhaustive]
 pub struct ListOpenIdConnectProvidersOutputBuilder {
     pub(crate) open_id_connect_provider_list: ::std::option::Option<::std::vec::Vec<crate::types::OpenIdConnectProviderListEntry>>,
+    _request_id: Option<String>,
 }
 impl ListOpenIdConnectProvidersOutputBuilder {
     /// <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
@@ -40,10 +47,20 @@ impl ListOpenIdConnectProvidersOutputBuilder {
     pub fn set_open_id_connect_provider_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OpenIdConnectProviderListEntry>>) -> Self { self.open_id_connect_provider_list = input; self }
     /// <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
     pub fn get_open_id_connect_provider_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OpenIdConnectProviderListEntry>> { &self.open_id_connect_provider_list }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListOpenIdConnectProvidersOutput`](crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput).
     pub fn build(self) -> crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput {
         crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput {
             open_id_connect_provider_list: self.open_id_connect_provider_list,
+            _request_id: self._request_id,
         }
     }
 }

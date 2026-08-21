@@ -10,6 +10,7 @@ pub struct ListTablesOutput {
     /// <p>The name of the last table in the current page of results. Use this value as the <code>ExclusiveStartTableName</code> in a new request to obtain the next page of results, until all the table names are returned.</p>
     /// <p>If you do not receive a <code>LastEvaluatedTableName</code> value in the response, this means that there are no more table names to be retrieved.</p>
     pub last_evaluated_table_name: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListTablesOutput {
     /// <p>The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.</p>
@@ -21,6 +22,11 @@ impl ListTablesOutput {
     /// <p>If you do not receive a <code>LastEvaluatedTableName</code> value in the response, this means that there are no more table names to be retrieved.</p>
     pub fn last_evaluated_table_name(&self) -> ::std::option::Option<&str> {
         self.last_evaluated_table_name.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListTablesOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListTablesOutput {
@@ -36,6 +42,7 @@ impl ListTablesOutput {
 pub struct ListTablesOutputBuilder {
     pub(crate) table_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
     pub(crate) last_evaluated_table_name: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListTablesOutputBuilder {
     /// <p>The names of the tables associated with the current account at the current endpoint. The maximum size of this array is 100.</p>
@@ -63,11 +70,21 @@ impl ListTablesOutputBuilder {
     /// <p>The name of the last table in the current page of results. Use this value as the <code>ExclusiveStartTableName</code> in a new request to obtain the next page of results, until all the table names are returned.</p>
     /// <p>If you do not receive a <code>LastEvaluatedTableName</code> value in the response, this means that there are no more table names to be retrieved.</p>
     pub fn get_last_evaluated_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.last_evaluated_table_name }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListTablesOutput`](crate::operation::list_tables::ListTablesOutput).
     pub fn build(self) -> crate::operation::list_tables::ListTablesOutput {
         crate::operation::list_tables::ListTablesOutput {
             table_names: self.table_names,
             last_evaluated_table_name: self.last_evaluated_table_name,
+            _request_id: self._request_id,
         }
     }
 }

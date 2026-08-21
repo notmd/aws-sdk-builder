@@ -22,9 +22,12 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Delete, &path, &headers, &body).await.map_err(super::DeleteBucketTaggingError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteBucketTaggingError::Unhandled(format!("DeleteBucketTagging returned HTTP {}", status)));
+                             return Err(super::DeleteBucketTaggingError::unhandled_with_request_ids(format!("DeleteBucketTagging returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
-                         Ok(super::DeleteBucketTaggingOutput{})
+                         let mut output = super::_delete_bucket_tagging_output::DeleteBucketTaggingOutputBuilder::default();
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DeleteBucketTaggingFluentBuilder;

@@ -28,7 +28,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetObjectAnnotationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetObjectAnnotationError::Unhandled(format!("GetObjectAnnotation returned HTTP {}", status)));
+                             return Err(super::GetObjectAnnotationError::unhandled_with_request_ids(format!("GetObjectAnnotation returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_object_annotation_output::GetObjectAnnotationOutputBuilder::default();
                          output.annotation_payload = Some(super::super::super::primitives::ByteStream::from(response.body().to_vec()));
@@ -45,6 +45,8 @@ impl Builder {
                          output.checksum_xxhash64 = response.header("x-amz-checksum-xxhash64").map(str::to_owned);
                          output.checksum_xxhash3 = response.header("x-amz-checksum-xxhash3").map(str::to_owned);
                          output.checksum_xxhash128 = response.header("x-amz-checksum-xxhash128").map(str::to_owned);
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

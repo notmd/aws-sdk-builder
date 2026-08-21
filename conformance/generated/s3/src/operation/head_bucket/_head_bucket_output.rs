@@ -23,6 +23,8 @@ pub struct HeadBucketOutput {
     /// <p>For directory buckets, the value of this field is <code>false</code>.</p>
     /// </note>
     pub access_point_alias: ::std::option::Option<bool>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl HeadBucketOutput {
     /// <p>The Amazon Resource Name (ARN) of the S3 bucket. ARNs uniquely identify Amazon Web Services resources across all of Amazon Web Services.</p><note>
@@ -55,6 +57,16 @@ impl HeadBucketOutput {
         self.access_point_alias
     }
 }
+impl crate::s3_request_id::RequestIdExt for HeadBucketOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for HeadBucketOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl HeadBucketOutput {
     /// Creates a new builder-style object to manufacture [`HeadBucketOutput`](crate::operation::head_bucket::HeadBucketOutput).
     pub fn builder() -> crate::operation::head_bucket::builders::HeadBucketOutputBuilder {
@@ -71,6 +83,8 @@ pub struct HeadBucketOutputBuilder {
     pub(crate) bucket_location_name: ::std::option::Option<::std::string::String>,
     pub(crate) bucket_region: ::std::option::Option<::std::string::String>,
     pub(crate) access_point_alias: ::std::option::Option<bool>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl HeadBucketOutputBuilder {
     /// <p>The Amazon Resource Name (ARN) of the S3 bucket. ARNs uniquely identify Amazon Web Services resources across all of Amazon Web Services.</p><note>
@@ -131,6 +145,24 @@ impl HeadBucketOutputBuilder {
     /// <p>For directory buckets, the value of this field is <code>false</code>.</p>
     /// </note>
     pub fn get_access_point_alias(&self) -> &::std::option::Option<bool> { &self.access_point_alias }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`HeadBucketOutput`](crate::operation::head_bucket::HeadBucketOutput).
     pub fn build(self) -> crate::operation::head_bucket::HeadBucketOutput {
         crate::operation::head_bucket::HeadBucketOutput {
@@ -139,6 +171,8 @@ impl HeadBucketOutputBuilder {
             bucket_location_name: self.bucket_location_name,
             bucket_region: self.bucket_region,
             access_point_alias: self.access_point_alias,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

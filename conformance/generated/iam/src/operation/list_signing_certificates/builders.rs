@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListSigningCertificatesError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListSigningCertificatesError::Unhandled(format!("ListSigningCertificates returned HTTP {}", status)));
+                             return Err(super::ListSigningCertificatesError::unhandled_with_request_ids(format!("ListSigningCertificates returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         super::_list_signing_certificates_output::ListSigningCertificatesOutputBuilder::default().build().map_err(|error| super::ListSigningCertificatesError::Unhandled(error.to_string()))
+                         let mut output = super::_list_signing_certificates_output::ListSigningCertificatesOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         output.build().map_err(|error| super::ListSigningCertificatesError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as ListSigningCertificatesFluentBuilder;

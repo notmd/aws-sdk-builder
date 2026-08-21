@@ -8,6 +8,7 @@ pub struct ListOriginationNumbersOutput {
     pub next_token: ::std::option::Option<::std::string::String>,
     /// <p>A list of the calling account's verified and pending origination numbers.</p>
     pub phone_numbers: ::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>>,
+    _request_id: Option<String>,
 }
 impl ListOriginationNumbersOutput {
     /// <p>A <code>NextToken</code> string is returned when you call the <code>ListOriginationNumbers</code> operation if additional pages of records are available.</p>
@@ -17,6 +18,11 @@ impl ListOriginationNumbersOutput {
     /// <p>A list of the calling account's verified and pending origination numbers.</p>
     pub fn phone_numbers(&self) -> &[crate::types::PhoneNumberInformation] {
         self.phone_numbers.as_deref().unwrap_or_default()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListOriginationNumbersOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListOriginationNumbersOutput {
@@ -32,6 +38,7 @@ impl ListOriginationNumbersOutput {
 pub struct ListOriginationNumbersOutputBuilder {
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
     pub(crate) phone_numbers: ::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>>,
+    _request_id: Option<String>,
 }
 impl ListOriginationNumbersOutputBuilder {
     /// <p>A <code>NextToken</code> string is returned when you call the <code>ListOriginationNumbers</code> operation if additional pages of records are available.</p>
@@ -55,11 +62,21 @@ impl ListOriginationNumbersOutputBuilder {
     pub fn set_phone_numbers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>>) -> Self { self.phone_numbers = input; self }
     /// <p>A list of the calling account's verified and pending origination numbers.</p>
     pub fn get_phone_numbers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>> { &self.phone_numbers }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListOriginationNumbersOutput`](crate::operation::list_origination_numbers::ListOriginationNumbersOutput).
     pub fn build(self) -> crate::operation::list_origination_numbers::ListOriginationNumbersOutput {
         crate::operation::list_origination_numbers::ListOriginationNumbersOutput {
             next_token: self.next_token,
             phone_numbers: self.phone_numbers,
+            _request_id: self._request_id,
         }
     }
 }

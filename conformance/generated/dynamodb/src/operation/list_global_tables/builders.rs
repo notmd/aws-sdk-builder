@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListGlobalTablesError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListGlobalTablesError::Unhandled(format!("ListGlobalTables returned HTTP {}", status)));
+                             return Err(super::ListGlobalTablesError::unhandled_with_request_ids(format!("ListGlobalTables returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_list_global_tables_output::ListGlobalTablesOutputBuilder::default().build())
+                         let mut output = super::_list_global_tables_output::ListGlobalTablesOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as ListGlobalTablesFluentBuilder;

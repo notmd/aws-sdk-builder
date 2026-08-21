@@ -8,6 +8,7 @@ pub struct ListContributorInsightsOutput {
     pub contributor_insights_summaries: ::std::option::Option<::std::vec::Vec<crate::types::ContributorInsightsSummary>>,
     /// <p>A token to go to the next page if there is one.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListContributorInsightsOutput {
     /// <p>A list of ContributorInsightsSummary.</p>
@@ -17,6 +18,11 @@ impl ListContributorInsightsOutput {
     /// <p>A token to go to the next page if there is one.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
         self.next_token.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListContributorInsightsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListContributorInsightsOutput {
@@ -32,6 +38,7 @@ impl ListContributorInsightsOutput {
 pub struct ListContributorInsightsOutputBuilder {
     pub(crate) contributor_insights_summaries: ::std::option::Option<::std::vec::Vec<crate::types::ContributorInsightsSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListContributorInsightsOutputBuilder {
     /// <p>A list of ContributorInsightsSummary.</p>
@@ -55,11 +62,21 @@ impl ListContributorInsightsOutputBuilder {
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
     /// <p>A token to go to the next page if there is one.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListContributorInsightsOutput`](crate::operation::list_contributor_insights::ListContributorInsightsOutput).
     pub fn build(self) -> crate::operation::list_contributor_insights::ListContributorInsightsOutput {
         crate::operation::list_contributor_insights::ListContributorInsightsOutput {
             contributor_insights_summaries: self.contributor_insights_summaries,
             next_token: self.next_token,
+            _request_id: self._request_id,
         }
     }
 }

@@ -10,6 +10,7 @@ pub struct ReplicateKeyOutput {
     pub replica_policy: ::std::option::Option<::std::string::String>,
     /// <p>The tags on the new replica key. The value is a list of tag key and tag value pairs.</p>
     pub replica_tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    _request_id: Option<String>,
 }
 impl ReplicateKeyOutput {
     /// <p>Displays details about the new replica key, including its Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a>. It also includes the ARN and Amazon Web Services Region of its primary key and other replica keys.</p>
@@ -23,6 +24,11 @@ impl ReplicateKeyOutput {
     /// <p>The tags on the new replica key. The value is a list of tag key and tag value pairs.</p>
     pub fn replica_tags(&self) -> &[crate::types::Tag] {
         self.replica_tags.as_deref().unwrap_or_default()
+    }
+}
+impl ::aws_types::request_id::RequestId for ReplicateKeyOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ReplicateKeyOutput {
@@ -39,6 +45,7 @@ pub struct ReplicateKeyOutputBuilder {
     pub(crate) replica_key_metadata: ::std::option::Option<crate::types::KeyMetadata>,
     pub(crate) replica_policy: ::std::option::Option<::std::string::String>,
     pub(crate) replica_tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    _request_id: Option<String>,
 }
 impl ReplicateKeyOutputBuilder {
     /// <p>Displays details about the new replica key, including its Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a>. It also includes the ARN and Amazon Web Services Region of its primary key and other replica keys.</p>
@@ -70,12 +77,22 @@ impl ReplicateKeyOutputBuilder {
     pub fn set_replica_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.replica_tags = input; self }
     /// <p>The tags on the new replica key. The value is a list of tag key and tag value pairs.</p>
     pub fn get_replica_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.replica_tags }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ReplicateKeyOutput`](crate::operation::replicate_key::ReplicateKeyOutput).
     pub fn build(self) -> crate::operation::replicate_key::ReplicateKeyOutput {
         crate::operation::replicate_key::ReplicateKeyOutput {
             replica_key_metadata: self.replica_key_metadata,
             replica_policy: self.replica_policy,
             replica_tags: self.replica_tags,
+            _request_id: self._request_id,
         }
     }
 }

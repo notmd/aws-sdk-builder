@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DisableKinesisStreamingDestinationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DisableKinesisStreamingDestinationError::Unhandled(format!("DisableKinesisStreamingDestination returned HTTP {}", status)));
+                             return Err(super::DisableKinesisStreamingDestinationError::unhandled_with_request_ids(format!("DisableKinesisStreamingDestination returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_disable_kinesis_streaming_destination_output::DisableKinesisStreamingDestinationOutputBuilder::default().build())
+                         let mut output = super::_disable_kinesis_streaming_destination_output::DisableKinesisStreamingDestinationOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DisableKinesisStreamingDestinationFluentBuilder;

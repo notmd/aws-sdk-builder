@@ -22,12 +22,14 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetBucketMetadataTableConfigurationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetBucketMetadataTableConfigurationError::Unhandled(format!("GetBucketMetadataTableConfiguration returned HTTP {}", status)));
+                             return Err(super::GetBucketMetadataTableConfigurationError::unhandled_with_request_ids(format!("GetBucketMetadataTableConfiguration returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_bucket_metadata_table_configuration_output::GetBucketMetadataTableConfigurationOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketMetadataTableConfigurationError::Unhandled)?;
                          if let Some(value) = super::super::super::transport::xml_first(&body, "GetBucketMetadataTableConfigurationResult") { let mut item: crate::types::GetBucketMetadataTableConfigurationResultBuilder = ::std::default::Default::default(); item.status = super::super::super::transport::xml_first(&value, "Status").and_then(|value| value.parse().ok());
  if let Ok(item) = item.build() { output.get_bucket_metadata_table_configuration_result = Some(item); } }
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

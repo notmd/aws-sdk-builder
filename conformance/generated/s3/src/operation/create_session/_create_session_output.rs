@@ -16,6 +16,8 @@ pub struct CreateSessionOutput {
     pub bucket_key_enabled: ::std::option::Option<bool>,
     /// <p>The established temporary security credentials for the created session.</p>
     pub credentials: ::std::option::Option<crate::types::SessionCredentials>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl CreateSessionOutput {
     /// <p>The server-side encryption algorithm used when you store objects in the directory bucket.</p><note>
@@ -41,6 +43,16 @@ impl CreateSessionOutput {
         self.credentials.as_ref()
     }
 }
+impl crate::s3_request_id::RequestIdExt for CreateSessionOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for CreateSessionOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl CreateSessionOutput {
     /// Creates a new builder-style object to manufacture [`CreateSessionOutput`](crate::operation::create_session::CreateSessionOutput).
     pub fn builder() -> crate::operation::create_session::builders::CreateSessionOutputBuilder {
@@ -57,6 +69,8 @@ pub struct CreateSessionOutputBuilder {
     pub(crate) ssekms_encryption_context: ::std::option::Option<::std::string::String>,
     pub(crate) bucket_key_enabled: ::std::option::Option<bool>,
     pub(crate) credentials: ::std::option::Option<crate::types::SessionCredentials>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl CreateSessionOutputBuilder {
     /// <p>The server-side encryption algorithm used when you store objects in the directory bucket.</p><note>
@@ -103,6 +117,24 @@ impl CreateSessionOutputBuilder {
     pub fn set_credentials(mut self, input: ::std::option::Option<crate::types::SessionCredentials>) -> Self { self.credentials = input; self }
     /// <p>The established temporary security credentials for the created session.</p>
     pub fn get_credentials(&self) -> &::std::option::Option<crate::types::SessionCredentials> { &self.credentials }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`CreateSessionOutput`](crate::operation::create_session::CreateSessionOutput).
     pub fn build(self) -> crate::operation::create_session::CreateSessionOutput {
         crate::operation::create_session::CreateSessionOutput {
@@ -111,6 +143,8 @@ impl CreateSessionOutputBuilder {
             ssekms_encryption_context: self.ssekms_encryption_context,
             bucket_key_enabled: self.bucket_key_enabled,
             credentials: self.credentials,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

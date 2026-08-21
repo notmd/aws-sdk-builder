@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::PutRolePermissionsBoundaryError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::PutRolePermissionsBoundaryError::Unhandled(format!("PutRolePermissionsBoundary returned HTTP {}", status)));
+                             return Err(super::PutRolePermissionsBoundaryError::unhandled_with_request_ids(format!("PutRolePermissionsBoundary returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::PutRolePermissionsBoundaryOutput{})
+                         let mut output = super::_put_role_permissions_boundary_output::PutRolePermissionsBoundaryOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as PutRolePermissionsBoundaryFluentBuilder;

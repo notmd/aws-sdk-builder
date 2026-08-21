@@ -22,11 +22,13 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetBucketOwnershipControlsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetBucketOwnershipControlsError::Unhandled(format!("GetBucketOwnershipControls returned HTTP {}", status)));
+                             return Err(super::GetBucketOwnershipControlsError::unhandled_with_request_ids(format!("GetBucketOwnershipControls returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_bucket_ownership_controls_output::GetBucketOwnershipControlsOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketOwnershipControlsError::Unhandled)?;
                          if let Some(value) = super::super::super::transport::xml_first(&body, "OwnershipControls") { let mut item: crate::types::OwnershipControlsBuilder = ::std::default::Default::default(); if let Ok(item) = item.build() { output.ownership_controls = Some(item); } }
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

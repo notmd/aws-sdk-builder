@@ -8,6 +8,7 @@ pub struct ListImportsOutput {
     pub import_summary_list: ::std::option::Option<::std::vec::Vec<crate::types::ImportSummary>>,
     /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListImports</code> again, with <code>NextToken</code> set to this value.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListImportsOutput {
     /// <p>A list of <code>ImportSummary</code> objects.</p>
@@ -17,6 +18,11 @@ impl ListImportsOutput {
     /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListImports</code> again, with <code>NextToken</code> set to this value.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
         self.next_token.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListImportsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListImportsOutput {
@@ -32,6 +38,7 @@ impl ListImportsOutput {
 pub struct ListImportsOutputBuilder {
     pub(crate) import_summary_list: ::std::option::Option<::std::vec::Vec<crate::types::ImportSummary>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListImportsOutputBuilder {
     /// <p>A list of <code>ImportSummary</code> objects.</p>
@@ -55,11 +62,21 @@ impl ListImportsOutputBuilder {
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
     /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListImports</code> again, with <code>NextToken</code> set to this value.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListImportsOutput`](crate::operation::list_imports::ListImportsOutput).
     pub fn build(self) -> crate::operation::list_imports::ListImportsOutput {
         crate::operation::list_imports::ListImportsOutput {
             import_summary_list: self.import_summary_list,
             next_token: self.next_token,
+            _request_id: self._request_id,
         }
     }
 }

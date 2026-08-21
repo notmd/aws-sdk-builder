@@ -12,6 +12,7 @@ pub struct AssumeRootOutput {
     /// <p>You can use the <code>aws:SourceIdentity</code> condition key to control access based on the value of source identity. For more information about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</p>
     /// <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>
     pub source_identity: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl AssumeRootOutput {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security token.</p><note>
@@ -27,6 +28,11 @@ impl AssumeRootOutput {
         self.source_identity.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for AssumeRootOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl AssumeRootOutput {
     /// Creates a new builder-style object to manufacture [`AssumeRootOutput`](crate::operation::assume_root::AssumeRootOutput).
     pub fn builder() -> crate::operation::assume_root::builders::AssumeRootOutputBuilder {
@@ -40,6 +46,7 @@ impl AssumeRootOutput {
 pub struct AssumeRootOutputBuilder {
     pub(crate) credentials: ::std::option::Option<crate::types::Credentials>,
     pub(crate) source_identity: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl AssumeRootOutputBuilder {
     /// <p>The temporary security credentials, which include an access key ID, a secret access key, and a security token.</p><note>
@@ -66,11 +73,21 @@ impl AssumeRootOutputBuilder {
     /// <p>You can use the <code>aws:SourceIdentity</code> condition key to control access based on the value of source identity. For more information about using source identity, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html">Monitor and control actions taken with assumed roles</a> in the <i>IAM User Guide</i>.</p>
     /// <p>The regex used to validate this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@-</p>
     pub fn get_source_identity(&self) -> &::std::option::Option<::std::string::String> { &self.source_identity }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`AssumeRootOutput`](crate::operation::assume_root::AssumeRootOutput).
     pub fn build(self) -> crate::operation::assume_root::AssumeRootOutput {
         crate::operation::assume_root::AssumeRootOutput {
             credentials: self.credentials,
             source_identity: self.source_identity,
+            _request_id: self._request_id,
         }
     }
 }

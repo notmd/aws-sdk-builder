@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetPolicyVersionError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetPolicyVersionError::Unhandled(format!("GetPolicyVersion returned HTTP {}", status)));
+                             return Err(super::GetPolicyVersionError::unhandled_with_request_ids(format!("GetPolicyVersion returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_policy_version_output::GetPolicyVersionOutputBuilder::default().build())
+                         let mut output = super::_get_policy_version_output::GetPolicyVersionOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetPolicyVersionFluentBuilder;

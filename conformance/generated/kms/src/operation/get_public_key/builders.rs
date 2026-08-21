@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetPublicKeyError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetPublicKeyError::Unhandled(format!("GetPublicKey returned HTTP {}", status)));
+                             return Err(super::GetPublicKeyError::unhandled_with_request_ids(format!("GetPublicKey returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_get_public_key_output::GetPublicKeyOutputBuilder::default().build())
+                         let mut output = super::_get_public_key_output::GetPublicKeyOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetPublicKeyFluentBuilder;

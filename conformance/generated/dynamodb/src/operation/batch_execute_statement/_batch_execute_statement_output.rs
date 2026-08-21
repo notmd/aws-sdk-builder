@@ -8,6 +8,7 @@ pub struct BatchExecuteStatementOutput {
     pub responses: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>>,
     /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
     pub consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
+    _request_id: Option<String>,
 }
 impl BatchExecuteStatementOutput {
     /// <p>The response to each PartiQL statement in the batch. The values of the list are ordered according to the ordering of the request statements.</p>
@@ -17,6 +18,11 @@ impl BatchExecuteStatementOutput {
     /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
     pub fn consumed_capacity(&self) -> &[crate::types::ConsumedCapacity] {
         self.consumed_capacity.as_deref().unwrap_or_default()
+    }
+}
+impl ::aws_types::request_id::RequestId for BatchExecuteStatementOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl BatchExecuteStatementOutput {
@@ -32,6 +38,7 @@ impl BatchExecuteStatementOutput {
 pub struct BatchExecuteStatementOutputBuilder {
     pub(crate) responses: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>>,
     pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
+    _request_id: Option<String>,
 }
 impl BatchExecuteStatementOutputBuilder {
     /// <p>The response to each PartiQL statement in the batch. The values of the list are ordered according to the ordering of the request statements.</p>
@@ -60,11 +67,21 @@ impl BatchExecuteStatementOutputBuilder {
     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = input; self }
     /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
     pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>> { &self.consumed_capacity }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`BatchExecuteStatementOutput`](crate::operation::batch_execute_statement::BatchExecuteStatementOutput).
     pub fn build(self) -> crate::operation::batch_execute_statement::BatchExecuteStatementOutput {
         crate::operation::batch_execute_statement::BatchExecuteStatementOutput {
             responses: self.responses,
             consumed_capacity: self.consumed_capacity,
+            _request_id: self._request_id,
         }
     }
 }

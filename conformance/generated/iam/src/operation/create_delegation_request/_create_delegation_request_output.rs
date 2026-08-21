@@ -9,6 +9,7 @@ pub struct CreateDelegationRequestOutput {
     pub console_deep_link: ::std::option::Option<::std::string::String>,
     /// <p>The unique identifier for the created delegation request.</p>
     pub delegation_request_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl CreateDelegationRequestOutput {
     /// <p>A deep link URL to the Amazon Web Services Management Console for managing the delegation request.</p>
@@ -19,6 +20,11 @@ impl CreateDelegationRequestOutput {
     /// <p>The unique identifier for the created delegation request.</p>
     pub fn delegation_request_id(&self) -> ::std::option::Option<&str> {
         self.delegation_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for CreateDelegationRequestOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl CreateDelegationRequestOutput {
@@ -34,6 +40,7 @@ impl CreateDelegationRequestOutput {
 pub struct CreateDelegationRequestOutputBuilder {
     pub(crate) console_deep_link: ::std::option::Option<::std::string::String>,
     pub(crate) delegation_request_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl CreateDelegationRequestOutputBuilder {
     /// <p>A deep link URL to the Amazon Web Services Management Console for managing the delegation request.</p>
@@ -54,11 +61,21 @@ impl CreateDelegationRequestOutputBuilder {
     pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.delegation_request_id = input; self }
     /// <p>The unique identifier for the created delegation request.</p>
     pub fn get_delegation_request_id(&self) -> &::std::option::Option<::std::string::String> { &self.delegation_request_id }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`CreateDelegationRequestOutput`](crate::operation::create_delegation_request::CreateDelegationRequestOutput).
     pub fn build(self) -> crate::operation::create_delegation_request::CreateDelegationRequestOutput {
         crate::operation::create_delegation_request::CreateDelegationRequestOutput {
             console_deep_link: self.console_deep_link,
             delegation_request_id: self.delegation_request_id,
+            _request_id: self._request_id,
         }
     }
 }

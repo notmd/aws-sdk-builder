@@ -10,6 +10,7 @@ pub struct ListRolesOutput {
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListRolesOutput {
     /// <p>A list of roles.</p>
@@ -26,6 +27,11 @@ impl ListRolesOutput {
         self.marker.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for ListRolesOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListRolesOutput {
     /// Creates a new builder-style object to manufacture [`ListRolesOutput`](crate::operation::list_roles::ListRolesOutput).
     pub fn builder() -> crate::operation::list_roles::builders::ListRolesOutputBuilder {
@@ -40,6 +46,7 @@ pub struct ListRolesOutputBuilder {
     pub(crate) roles: ::std::option::Option<::std::vec::Vec<crate::types::Role>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListRolesOutputBuilder {
     /// <p>A list of roles.</p>
@@ -71,6 +78,15 @@ impl ListRolesOutputBuilder {
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListRolesOutput`](crate::operation::list_roles::ListRolesOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`roles`](Self::roles)
@@ -79,6 +95,7 @@ impl ListRolesOutputBuilder {
             roles: self.roles.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("roles", "roles was not specified but it is required when building ListRolesOutput"))?,
             is_truncated: self.is_truncated,
             marker: self.marker,
+            _request_id: self._request_id,
         })
     }
 }

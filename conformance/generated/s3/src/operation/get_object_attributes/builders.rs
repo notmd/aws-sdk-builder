@@ -32,7 +32,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetObjectAttributesError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetObjectAttributesError::Unhandled(format!("GetObjectAttributes returned HTTP {}", status)));
+                             return Err(super::GetObjectAttributesError::unhandled_with_request_ids(format!("GetObjectAttributes returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_object_attributes_output::GetObjectAttributesOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetObjectAttributesError::Unhandled)?;
@@ -58,6 +58,8 @@ impl Builder {
  let item = item.build(); output.object_parts = Some(item); }
                          output.storage_class = super::super::super::transport::xml_first(&body, "StorageClass").and_then(|value| value.parse().ok());
                          output.object_size = super::super::super::transport::xml_first(&body, "ObjectSize").and_then(|value| value.parse().ok());
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

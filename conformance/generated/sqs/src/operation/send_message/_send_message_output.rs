@@ -16,6 +16,7 @@ pub struct SendMessageOutput {
     /// <p>The large, non-consecutive number that Amazon SQS assigns to each message.</p>
     /// <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>
     pub sequence_number: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl SendMessageOutput {
     /// <p>An MD5 digest of the non-URL-encoded message body string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
@@ -41,6 +42,11 @@ impl SendMessageOutput {
         self.sequence_number.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for SendMessageOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl SendMessageOutput {
     /// Creates a new builder-style object to manufacture [`SendMessageOutput`](crate::operation::send_message::SendMessageOutput).
     pub fn builder() -> crate::operation::send_message::builders::SendMessageOutputBuilder {
@@ -57,6 +63,7 @@ pub struct SendMessageOutputBuilder {
     pub(crate) md5_of_message_system_attributes: ::std::option::Option<::std::string::String>,
     pub(crate) message_id: ::std::option::Option<::std::string::String>,
     pub(crate) sequence_number: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl SendMessageOutputBuilder {
     /// <p>An MD5 digest of the non-URL-encoded message body string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
@@ -103,6 +110,15 @@ impl SendMessageOutputBuilder {
     /// <p>The large, non-consecutive number that Amazon SQS assigns to each message.</p>
     /// <p>The length of <code>SequenceNumber</code> is 128 bits. <code>SequenceNumber</code> continues to increase for a particular <code>MessageGroupId</code>.</p>
     pub fn get_sequence_number(&self) -> &::std::option::Option<::std::string::String> { &self.sequence_number }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`SendMessageOutput`](crate::operation::send_message::SendMessageOutput).
     pub fn build(self) -> crate::operation::send_message::SendMessageOutput {
         crate::operation::send_message::SendMessageOutput {
@@ -111,6 +127,7 @@ impl SendMessageOutputBuilder {
             md5_of_message_system_attributes: self.md5_of_message_system_attributes,
             message_id: self.message_id,
             sequence_number: self.sequence_number,
+            _request_id: self._request_id,
         }
     }
 }

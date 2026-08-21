@@ -6,11 +6,17 @@
 pub struct GetRoleOutput {
     /// <p>A structure containing details about the IAM role.</p>
     pub role: ::std::option::Option<crate::types::Role>,
+    _request_id: Option<String>,
 }
 impl GetRoleOutput {
     /// <p>A structure containing details about the IAM role.</p>
     pub fn role(&self) -> ::std::option::Option<&crate::types::Role> {
         self.role.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetRoleOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetRoleOutput {
@@ -25,6 +31,7 @@ impl GetRoleOutput {
 #[non_exhaustive]
 pub struct GetRoleOutputBuilder {
     pub(crate) role: ::std::option::Option<crate::types::Role>,
+    _request_id: Option<String>,
 }
 impl GetRoleOutputBuilder {
     /// <p>A structure containing details about the IAM role.</p>
@@ -35,10 +42,20 @@ impl GetRoleOutputBuilder {
     pub fn set_role(mut self, input: ::std::option::Option<crate::types::Role>) -> Self { self.role = input; self }
     /// <p>A structure containing details about the IAM role.</p>
     pub fn get_role(&self) -> &::std::option::Option<crate::types::Role> { &self.role }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetRoleOutput`](crate::operation::get_role::GetRoleOutput).
     pub fn build(self) -> crate::operation::get_role::GetRoleOutput {
         crate::operation::get_role::GetRoleOutput {
             role: self.role,
+            _request_id: self._request_id,
         }
     }
 }

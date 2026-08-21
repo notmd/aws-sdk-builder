@@ -25,9 +25,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::PutFunctionEventInvokeConfigError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::PutFunctionEventInvokeConfigError::Unhandled(format!("PutFunctionEventInvokeConfig returned HTTP {}", status)));
+                             return Err(super::PutFunctionEventInvokeConfigError::unhandled_with_request_ids(format!("PutFunctionEventInvokeConfig returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_put_function_event_invoke_config_output::PutFunctionEventInvokeConfigOutputBuilder::default().build())
+                         let mut output = super::_put_function_event_invoke_config_output::PutFunctionEventInvokeConfigOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as PutFunctionEventInvokeConfigFluentBuilder;

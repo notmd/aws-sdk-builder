@@ -6,11 +6,17 @@
 pub struct GetAccountPropertiesOutput {
     /// <p>A map of account property key-value pairs. Keys are in the format <code>Namespace/PropertyName</code>.</p>
     pub properties: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    _request_id: Option<String>,
 }
 impl GetAccountPropertiesOutput {
     /// <p>A map of account property key-value pairs. Keys are in the format <code>Namespace/PropertyName</code>.</p>
     pub fn properties(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
         self.properties.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetAccountPropertiesOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetAccountPropertiesOutput {
@@ -25,6 +31,7 @@ impl GetAccountPropertiesOutput {
 #[non_exhaustive]
 pub struct GetAccountPropertiesOutputBuilder {
     pub(crate) properties: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    _request_id: Option<String>,
 }
 impl GetAccountPropertiesOutputBuilder {
     /// <p>A map of account property key-value pairs. Keys are in the format <code>Namespace/PropertyName</code>.</p>
@@ -40,10 +47,20 @@ impl GetAccountPropertiesOutputBuilder {
     pub fn set_properties(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.properties = input; self }
     /// <p>A map of account property key-value pairs. Keys are in the format <code>Namespace/PropertyName</code>.</p>
     pub fn get_properties(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.properties }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetAccountPropertiesOutput`](crate::operation::get_account_properties::GetAccountPropertiesOutput).
     pub fn build(self) -> crate::operation::get_account_properties::GetAccountPropertiesOutput {
         crate::operation::get_account_properties::GetAccountPropertiesOutput {
             properties: self.properties,
+            _request_id: self._request_id,
         }
     }
 }

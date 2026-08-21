@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DescribeGlobalTableError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DescribeGlobalTableError::Unhandled(format!("DescribeGlobalTable returned HTTP {}", status)));
+                             return Err(super::DescribeGlobalTableError::unhandled_with_request_ids(format!("DescribeGlobalTable returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_describe_global_table_output::DescribeGlobalTableOutputBuilder::default().build())
+                         let mut output = super::_describe_global_table_output::DescribeGlobalTableOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DescribeGlobalTableFluentBuilder;

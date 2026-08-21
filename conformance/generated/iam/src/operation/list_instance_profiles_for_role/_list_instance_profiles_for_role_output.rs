@@ -10,6 +10,7 @@ pub struct ListInstanceProfilesForRoleOutput {
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListInstanceProfilesForRoleOutput {
     /// <p>A list of instance profiles.</p>
@@ -26,6 +27,11 @@ impl ListInstanceProfilesForRoleOutput {
         self.marker.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for ListInstanceProfilesForRoleOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListInstanceProfilesForRoleOutput {
     /// Creates a new builder-style object to manufacture [`ListInstanceProfilesForRoleOutput`](crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput).
     pub fn builder() -> crate::operation::list_instance_profiles_for_role::builders::ListInstanceProfilesForRoleOutputBuilder {
@@ -40,6 +46,7 @@ pub struct ListInstanceProfilesForRoleOutputBuilder {
     pub(crate) instance_profiles: ::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListInstanceProfilesForRoleOutputBuilder {
     /// <p>A list of instance profiles.</p>
@@ -71,6 +78,15 @@ impl ListInstanceProfilesForRoleOutputBuilder {
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListInstanceProfilesForRoleOutput`](crate::operation::list_instance_profiles_for_role::ListInstanceProfilesForRoleOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`instance_profiles`](Self::instance_profiles)
@@ -79,6 +95,7 @@ impl ListInstanceProfilesForRoleOutputBuilder {
             instance_profiles: self.instance_profiles.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("instance_profiles", "instance_profiles was not specified but it is required when building ListInstanceProfilesForRoleOutput"))?,
             is_truncated: self.is_truncated,
             marker: self.marker,
+            _request_id: self._request_id,
         })
     }
 }

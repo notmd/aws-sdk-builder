@@ -14,6 +14,7 @@ pub struct ListEntitiesForPolicyOutput {
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListEntitiesForPolicyOutput {
     /// <p>A list of IAM groups that the policy is attached to.</p>
@@ -37,6 +38,11 @@ impl ListEntitiesForPolicyOutput {
         self.marker.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for ListEntitiesForPolicyOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListEntitiesForPolicyOutput {
     /// Creates a new builder-style object to manufacture [`ListEntitiesForPolicyOutput`](crate::operation::list_entities_for_policy::ListEntitiesForPolicyOutput).
     pub fn builder() -> crate::operation::list_entities_for_policy::builders::ListEntitiesForPolicyOutputBuilder {
@@ -53,6 +59,7 @@ pub struct ListEntitiesForPolicyOutputBuilder {
     pub(crate) policy_roles: ::std::option::Option<::std::vec::Vec<crate::types::PolicyRole>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListEntitiesForPolicyOutputBuilder {
     /// <p>A list of IAM groups that the policy is attached to.</p>
@@ -110,6 +117,15 @@ impl ListEntitiesForPolicyOutputBuilder {
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListEntitiesForPolicyOutput`](crate::operation::list_entities_for_policy::ListEntitiesForPolicyOutput).
     pub fn build(self) -> crate::operation::list_entities_for_policy::ListEntitiesForPolicyOutput {
         crate::operation::list_entities_for_policy::ListEntitiesForPolicyOutput {
@@ -118,6 +134,7 @@ impl ListEntitiesForPolicyOutputBuilder {
             policy_roles: self.policy_roles,
             is_truncated: self.is_truncated,
             marker: self.marker,
+            _request_id: self._request_id,
         }
     }
 }

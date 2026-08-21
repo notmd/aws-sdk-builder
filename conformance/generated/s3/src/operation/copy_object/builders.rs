@@ -65,7 +65,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::CopyObjectError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::CopyObjectError::Unhandled(format!("CopyObject returned HTTP {}", status)));
+                             return Err(super::CopyObjectError::unhandled_with_request_ids(format!("CopyObject returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_copy_object_output::CopyObjectOutputBuilder::default();
                          let body = response.text().await.map_err(super::CopyObjectError::Unhandled)?;
@@ -89,6 +89,8 @@ impl Builder {
                          output.ssekms_key_id = response.header("x-amz-server-side-encryption-aws-kms-key-id").map(str::to_owned);
                          output.ssekms_encryption_context = response.header("x-amz-server-side-encryption-context").map(str::to_owned);
                          output.bucket_key_enabled = response.header("x-amz-server-side-encryption-bucket-key-enabled").and_then(|value| value.parse().ok());
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

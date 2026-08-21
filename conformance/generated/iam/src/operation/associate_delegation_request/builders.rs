@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::AssociateDelegationRequestError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::AssociateDelegationRequestError::Unhandled(format!("AssociateDelegationRequest returned HTTP {}", status)));
+                             return Err(super::AssociateDelegationRequestError::unhandled_with_request_ids(format!("AssociateDelegationRequest returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::AssociateDelegationRequestOutput{})
+                         let mut output = super::_associate_delegation_request_output::AssociateDelegationRequestOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as AssociateDelegationRequestFluentBuilder;

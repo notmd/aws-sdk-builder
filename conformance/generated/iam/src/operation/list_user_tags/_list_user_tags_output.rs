@@ -10,6 +10,7 @@ pub struct ListUserTagsOutput {
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListUserTagsOutput {
     /// <p>The list of tags that are currently attached to the user. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
@@ -26,6 +27,11 @@ impl ListUserTagsOutput {
         self.marker.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for ListUserTagsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListUserTagsOutput {
     /// Creates a new builder-style object to manufacture [`ListUserTagsOutput`](crate::operation::list_user_tags::ListUserTagsOutput).
     pub fn builder() -> crate::operation::list_user_tags::builders::ListUserTagsOutputBuilder {
@@ -40,6 +46,7 @@ pub struct ListUserTagsOutputBuilder {
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListUserTagsOutputBuilder {
     /// <p>The list of tags that are currently attached to the user. Each tag consists of a key name and an associated value. If no tags are attached to the specified resource, the response contains an empty list.</p>
@@ -71,6 +78,15 @@ impl ListUserTagsOutputBuilder {
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListUserTagsOutput`](crate::operation::list_user_tags::ListUserTagsOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`tags`](Self::tags)
@@ -79,6 +95,7 @@ impl ListUserTagsOutputBuilder {
             tags: self.tags.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("tags", "tags was not specified but it is required when building ListUserTagsOutput"))?,
             is_truncated: self.is_truncated,
             marker: self.marker,
+            _request_id: self._request_id,
         })
     }
 }

@@ -6,11 +6,17 @@
 pub struct CreateGroupOutput {
     /// <p>A structure containing details about the new group.</p>
     pub group: ::std::option::Option<crate::types::Group>,
+    _request_id: Option<String>,
 }
 impl CreateGroupOutput {
     /// <p>A structure containing details about the new group.</p>
     pub fn group(&self) -> ::std::option::Option<&crate::types::Group> {
         self.group.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for CreateGroupOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl CreateGroupOutput {
@@ -25,6 +31,7 @@ impl CreateGroupOutput {
 #[non_exhaustive]
 pub struct CreateGroupOutputBuilder {
     pub(crate) group: ::std::option::Option<crate::types::Group>,
+    _request_id: Option<String>,
 }
 impl CreateGroupOutputBuilder {
     /// <p>A structure containing details about the new group.</p>
@@ -35,10 +42,20 @@ impl CreateGroupOutputBuilder {
     pub fn set_group(mut self, input: ::std::option::Option<crate::types::Group>) -> Self { self.group = input; self }
     /// <p>A structure containing details about the new group.</p>
     pub fn get_group(&self) -> &::std::option::Option<crate::types::Group> { &self.group }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`CreateGroupOutput`](crate::operation::create_group::CreateGroupOutput).
     pub fn build(self) -> crate::operation::create_group::CreateGroupOutput {
         crate::operation::create_group::CreateGroupOutput {
             group: self.group,
+            _request_id: self._request_id,
         }
     }
 }

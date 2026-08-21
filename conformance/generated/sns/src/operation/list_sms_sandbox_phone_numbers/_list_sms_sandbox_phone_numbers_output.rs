@@ -8,6 +8,7 @@ pub struct ListSmsSandboxPhoneNumbersOutput {
     pub phone_numbers: ::std::vec::Vec<crate::types::SmsSandboxPhoneNumber>,
     /// <p>A <code>NextToken</code> string is returned when you call the <code>ListSMSSandboxPhoneNumbersInput</code> operation if additional pages of records are available.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListSmsSandboxPhoneNumbersOutput {
     /// <p>A list of the calling account's pending and verified phone numbers.</p>
@@ -18,6 +19,11 @@ impl ListSmsSandboxPhoneNumbersOutput {
     /// <p>A <code>NextToken</code> string is returned when you call the <code>ListSMSSandboxPhoneNumbersInput</code> operation if additional pages of records are available.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
         self.next_token.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListSmsSandboxPhoneNumbersOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListSmsSandboxPhoneNumbersOutput {
@@ -33,6 +39,7 @@ impl ListSmsSandboxPhoneNumbersOutput {
 pub struct ListSmsSandboxPhoneNumbersOutputBuilder {
     pub(crate) phone_numbers: ::std::option::Option<::std::vec::Vec<crate::types::SmsSandboxPhoneNumber>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListSmsSandboxPhoneNumbersOutputBuilder {
     /// <p>A list of the calling account's pending and verified phone numbers.</p>
@@ -56,6 +63,15 @@ impl ListSmsSandboxPhoneNumbersOutputBuilder {
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
     /// <p>A <code>NextToken</code> string is returned when you call the <code>ListSMSSandboxPhoneNumbersInput</code> operation if additional pages of records are available.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListSmsSandboxPhoneNumbersOutput`](crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`phone_numbers`](Self::phone_numbers)
@@ -63,6 +79,7 @@ impl ListSmsSandboxPhoneNumbersOutputBuilder {
         ::std::result::Result::Ok(crate::operation::list_sms_sandbox_phone_numbers::ListSmsSandboxPhoneNumbersOutput {
             phone_numbers: self.phone_numbers.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("phone_numbers", "phone_numbers was not specified but it is required when building ListSmsSandboxPhoneNumbersOutput"))?,
             next_token: self.next_token,
+            _request_id: self._request_id,
         })
     }
 }

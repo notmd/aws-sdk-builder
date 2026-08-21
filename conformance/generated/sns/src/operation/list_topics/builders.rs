@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListTopicsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListTopicsError::Unhandled(format!("ListTopics returned HTTP {}", status)));
+                             return Err(super::ListTopicsError::unhandled_with_request_ids(format!("ListTopics returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_list_topics_output::ListTopicsOutputBuilder::default().build())
+                         let mut output = super::_list_topics_output::ListTopicsOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as ListTopicsFluentBuilder;

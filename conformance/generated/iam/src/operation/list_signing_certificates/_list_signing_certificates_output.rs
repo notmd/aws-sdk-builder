@@ -10,6 +10,7 @@ pub struct ListSigningCertificatesOutput {
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListSigningCertificatesOutput {
     /// <p>A list of the user's signing certificate information.</p>
@@ -26,6 +27,11 @@ impl ListSigningCertificatesOutput {
         self.marker.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for ListSigningCertificatesOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListSigningCertificatesOutput {
     /// Creates a new builder-style object to manufacture [`ListSigningCertificatesOutput`](crate::operation::list_signing_certificates::ListSigningCertificatesOutput).
     pub fn builder() -> crate::operation::list_signing_certificates::builders::ListSigningCertificatesOutputBuilder {
@@ -40,6 +46,7 @@ pub struct ListSigningCertificatesOutputBuilder {
     pub(crate) certificates: ::std::option::Option<::std::vec::Vec<crate::types::SigningCertificate>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListSigningCertificatesOutputBuilder {
     /// <p>A list of the user's signing certificate information.</p>
@@ -71,6 +78,15 @@ impl ListSigningCertificatesOutputBuilder {
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListSigningCertificatesOutput`](crate::operation::list_signing_certificates::ListSigningCertificatesOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`certificates`](Self::certificates)
@@ -79,6 +95,7 @@ impl ListSigningCertificatesOutputBuilder {
             certificates: self.certificates.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("certificates", "certificates was not specified but it is required when building ListSigningCertificatesOutput"))?,
             is_truncated: self.is_truncated,
             marker: self.marker,
+            _request_id: self._request_id,
         })
     }
 }

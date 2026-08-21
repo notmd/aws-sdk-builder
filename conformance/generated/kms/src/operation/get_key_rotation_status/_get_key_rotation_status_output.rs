@@ -15,6 +15,7 @@ pub struct GetKeyRotationStatusOutput {
     /// <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p>
     /// <p>KMS uses a background process to perform rotations. As a result, there might be a slight delay between initiating on-demand key rotation and the rotation's completion. Once the on-demand rotation is complete, KMS removes this field from the response. You can use <a>ListKeyRotations</a> to view the details of the completed on-demand rotation.</p>
     pub on_demand_rotation_start_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+    _request_id: Option<String>,
 }
 impl GetKeyRotationStatusOutput {
     /// <p>A Boolean value that specifies whether key rotation is enabled.</p>
@@ -39,6 +40,11 @@ impl GetKeyRotationStatusOutput {
         self.on_demand_rotation_start_date.as_ref()
     }
 }
+impl ::aws_types::request_id::RequestId for GetKeyRotationStatusOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetKeyRotationStatusOutput {
     /// Creates a new builder-style object to manufacture [`GetKeyRotationStatusOutput`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput).
     pub fn builder() -> crate::operation::get_key_rotation_status::builders::GetKeyRotationStatusOutputBuilder {
@@ -55,6 +61,7 @@ pub struct GetKeyRotationStatusOutputBuilder {
     pub(crate) rotation_period_in_days: ::std::option::Option<i32>,
     pub(crate) next_rotation_date: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) on_demand_rotation_start_date: ::std::option::Option<::aws_smithy_types::DateTime>,
+    _request_id: Option<String>,
 }
 impl GetKeyRotationStatusOutputBuilder {
     /// <p>A Boolean value that specifies whether key rotation is enabled.</p>
@@ -99,6 +106,15 @@ impl GetKeyRotationStatusOutputBuilder {
     /// <p>Identifies the date and time that an in progress on-demand rotation was initiated.</p>
     /// <p>KMS uses a background process to perform rotations. As a result, there might be a slight delay between initiating on-demand key rotation and the rotation's completion. Once the on-demand rotation is complete, KMS removes this field from the response. You can use <a>ListKeyRotations</a> to view the details of the completed on-demand rotation.</p>
     pub fn get_on_demand_rotation_start_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.on_demand_rotation_start_date }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetKeyRotationStatusOutput`](crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput).
     pub fn build(self) -> crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput {
         crate::operation::get_key_rotation_status::GetKeyRotationStatusOutput {
@@ -107,6 +123,7 @@ impl GetKeyRotationStatusOutputBuilder {
             rotation_period_in_days: self.rotation_period_in_days,
             next_rotation_date: self.next_rotation_date,
             on_demand_rotation_start_date: self.on_demand_rotation_start_date,
+            _request_id: self._request_id,
         }
     }
 }

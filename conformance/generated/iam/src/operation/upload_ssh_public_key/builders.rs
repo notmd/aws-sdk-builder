@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UploadSshPublicKeyError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UploadSshPublicKeyError::Unhandled(format!("UploadSshPublicKey returned HTTP {}", status)));
+                             return Err(super::UploadSshPublicKeyError::unhandled_with_request_ids(format!("UploadSshPublicKey returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_upload_ssh_public_key_output::UploadSshPublicKeyOutputBuilder::default().build())
+                         let mut output = super::_upload_ssh_public_key_output::UploadSshPublicKeyOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UploadSshPublicKeyFluentBuilder;

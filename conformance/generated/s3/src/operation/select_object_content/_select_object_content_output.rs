@@ -6,11 +6,23 @@
 pub struct SelectObjectContentOutput {
     /// <p>The array of results.</p>
     pub payload: ::std::option::Option<crate::types::SelectObjectContentEventStream>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl SelectObjectContentOutput {
     /// <p>The array of results.</p>
     pub fn payload(&self) -> ::std::option::Option<&crate::types::SelectObjectContentEventStream> {
         self.payload.as_ref()
+    }
+}
+impl crate::s3_request_id::RequestIdExt for SelectObjectContentOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for SelectObjectContentOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl SelectObjectContentOutput {
@@ -25,6 +37,8 @@ impl SelectObjectContentOutput {
 #[non_exhaustive]
 pub struct SelectObjectContentOutputBuilder {
     pub(crate) payload: ::std::option::Option<crate::types::SelectObjectContentEventStream>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl SelectObjectContentOutputBuilder {
     /// <p>The array of results.</p>
@@ -35,10 +49,30 @@ impl SelectObjectContentOutputBuilder {
     pub fn set_payload(mut self, input: ::std::option::Option<crate::types::SelectObjectContentEventStream>) -> Self { self.payload = input; self }
     /// <p>The array of results.</p>
     pub fn get_payload(&self) -> &::std::option::Option<crate::types::SelectObjectContentEventStream> { &self.payload }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`SelectObjectContentOutput`](crate::operation::select_object_content::SelectObjectContentOutput).
     pub fn build(self) -> crate::operation::select_object_content::SelectObjectContentOutput {
         crate::operation::select_object_content::SelectObjectContentOutput {
             payload: self.payload,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

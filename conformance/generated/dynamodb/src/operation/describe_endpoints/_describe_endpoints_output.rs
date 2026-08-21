@@ -6,12 +6,18 @@
 pub struct DescribeEndpointsOutput {
     /// <p>List of endpoints.</p>
     pub endpoints: ::std::vec::Vec<crate::types::Endpoint>,
+    _request_id: Option<String>,
 }
 impl DescribeEndpointsOutput {
     /// <p>List of endpoints.</p>
     pub fn endpoints(&self) -> &[crate::types::Endpoint] {
         use std::ops::Deref;
         self.endpoints.deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for DescribeEndpointsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl DescribeEndpointsOutput {
@@ -26,6 +32,7 @@ impl DescribeEndpointsOutput {
 #[non_exhaustive]
 pub struct DescribeEndpointsOutputBuilder {
     pub(crate) endpoints: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>,
+    _request_id: Option<String>,
 }
 impl DescribeEndpointsOutputBuilder {
     /// <p>List of endpoints.</p>
@@ -41,12 +48,22 @@ impl DescribeEndpointsOutputBuilder {
     pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>) -> Self { self.endpoints = input; self }
     /// <p>List of endpoints.</p>
     pub fn get_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Endpoint>> { &self.endpoints }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`DescribeEndpointsOutput`](crate::operation::describe_endpoints::DescribeEndpointsOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`endpoints`](Self::endpoints)
     pub fn build(self) -> ::std::result::Result<crate::operation::describe_endpoints::DescribeEndpointsOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::describe_endpoints::DescribeEndpointsOutput {
             endpoints: self.endpoints.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("endpoints", "endpoints was not specified but it is required when building DescribeEndpointsOutput"))?,
+            _request_id: self._request_id,
         })
     }
 }

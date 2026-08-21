@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UntagResourceError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UntagResourceError::Unhandled(format!("UntagResource returned HTTP {}", status)));
+                             return Err(super::UntagResourceError::unhandled_with_request_ids(format!("UntagResource returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::UntagResourceOutput{})
+                         let mut output = super::_untag_resource_output::UntagResourceOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UntagResourceFluentBuilder;

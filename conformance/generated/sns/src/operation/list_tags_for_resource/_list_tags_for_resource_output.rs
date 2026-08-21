@@ -6,11 +6,17 @@
 pub struct ListTagsForResourceOutput {
     /// <p>The tags associated with the specified topic.</p>
     pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    _request_id: Option<String>,
 }
 impl ListTagsForResourceOutput {
     /// <p>The tags associated with the specified topic.</p>
     pub fn tags(&self) -> &[crate::types::Tag] {
         self.tags.as_deref().unwrap_or_default()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListTagsForResourceOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListTagsForResourceOutput {
@@ -25,6 +31,7 @@ impl ListTagsForResourceOutput {
 #[non_exhaustive]
 pub struct ListTagsForResourceOutputBuilder {
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
+    _request_id: Option<String>,
 }
 impl ListTagsForResourceOutputBuilder {
     /// <p>The tags associated with the specified topic.</p>
@@ -40,10 +47,20 @@ impl ListTagsForResourceOutputBuilder {
     pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.tags = input; self }
     /// <p>The tags associated with the specified topic.</p>
     pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.tags }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListTagsForResourceOutput`](crate::operation::list_tags_for_resource::ListTagsForResourceOutput).
     pub fn build(self) -> crate::operation::list_tags_for_resource::ListTagsForResourceOutput {
         crate::operation::list_tags_for_resource::ListTagsForResourceOutput {
             tags: self.tags,
+            _request_id: self._request_id,
         }
     }
 }

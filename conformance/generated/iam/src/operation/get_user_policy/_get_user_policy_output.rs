@@ -11,6 +11,7 @@ pub struct GetUserPolicyOutput {
     /// <p>The policy document.</p>
     /// <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
     pub policy_document: ::std::string::String,
+    _request_id: Option<String>,
 }
 impl GetUserPolicyOutput {
     /// <p>The user the policy is associated with.</p>
@@ -30,6 +31,11 @@ impl GetUserPolicyOutput {
         self.policy_document.deref()
     }
 }
+impl ::aws_types::request_id::RequestId for GetUserPolicyOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetUserPolicyOutput {
     /// Creates a new builder-style object to manufacture [`GetUserPolicyOutput`](crate::operation::get_user_policy::GetUserPolicyOutput).
     pub fn builder() -> crate::operation::get_user_policy::builders::GetUserPolicyOutputBuilder {
@@ -44,6 +50,7 @@ pub struct GetUserPolicyOutputBuilder {
     pub(crate) user_name: ::std::option::Option<::std::string::String>,
     pub(crate) policy_name: ::std::option::Option<::std::string::String>,
     pub(crate) policy_document: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GetUserPolicyOutputBuilder {
     /// <p>The user the policy is associated with.</p>
@@ -75,6 +82,15 @@ impl GetUserPolicyOutputBuilder {
     /// <p>The policy document.</p>
     /// <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
     pub fn get_policy_document(&self) -> &::std::option::Option<::std::string::String> { &self.policy_document }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetUserPolicyOutput`](crate::operation::get_user_policy::GetUserPolicyOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`user_name`](Self::user_name)
@@ -85,6 +101,7 @@ impl GetUserPolicyOutputBuilder {
             user_name: self.user_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("user_name", "user_name was not specified but it is required when building GetUserPolicyOutput"))?,
             policy_name: self.policy_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("policy_name", "policy_name was not specified but it is required when building GetUserPolicyOutput"))?,
             policy_document: self.policy_document.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("policy_document", "policy_document was not specified but it is required when building GetUserPolicyOutput"))?,
+            _request_id: self._request_id,
         })
     }
 }

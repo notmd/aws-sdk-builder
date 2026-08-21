@@ -6,11 +6,17 @@
 pub struct GenerateServiceLastAccessedDetailsOutput {
     /// <p>The <code>JobId</code> that you can use in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations. The <code>JobId</code> returned by <code>GenerateServiceLastAccessedDetail</code> must be used by the same role within a session, or by the same user when used to call <code>GetServiceLastAccessedDetail</code>.</p>
     pub job_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GenerateServiceLastAccessedDetailsOutput {
     /// <p>The <code>JobId</code> that you can use in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations. The <code>JobId</code> returned by <code>GenerateServiceLastAccessedDetail</code> must be used by the same role within a session, or by the same user when used to call <code>GetServiceLastAccessedDetail</code>.</p>
     pub fn job_id(&self) -> ::std::option::Option<&str> {
         self.job_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GenerateServiceLastAccessedDetailsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GenerateServiceLastAccessedDetailsOutput {
@@ -25,6 +31,7 @@ impl GenerateServiceLastAccessedDetailsOutput {
 #[non_exhaustive]
 pub struct GenerateServiceLastAccessedDetailsOutputBuilder {
     pub(crate) job_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GenerateServiceLastAccessedDetailsOutputBuilder {
     /// <p>The <code>JobId</code> that you can use in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations. The <code>JobId</code> returned by <code>GenerateServiceLastAccessedDetail</code> must be used by the same role within a session, or by the same user when used to call <code>GetServiceLastAccessedDetail</code>.</p>
@@ -35,10 +42,20 @@ impl GenerateServiceLastAccessedDetailsOutputBuilder {
     pub fn set_job_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.job_id = input; self }
     /// <p>The <code>JobId</code> that you can use in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations. The <code>JobId</code> returned by <code>GenerateServiceLastAccessedDetail</code> must be used by the same role within a session, or by the same user when used to call <code>GetServiceLastAccessedDetail</code>.</p>
     pub fn get_job_id(&self) -> &::std::option::Option<::std::string::String> { &self.job_id }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GenerateServiceLastAccessedDetailsOutput`](crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput).
     pub fn build(self) -> crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput {
         crate::operation::generate_service_last_accessed_details::GenerateServiceLastAccessedDetailsOutput {
             job_id: self.job_id,
+            _request_id: self._request_id,
         }
     }
 }

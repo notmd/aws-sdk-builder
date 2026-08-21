@@ -8,6 +8,7 @@ pub struct DeleteMessageBatchOutput {
     pub successful: ::std::vec::Vec<crate::types::DeleteMessageBatchResultEntry>,
     /// <p>A list of <code><a>BatchResultErrorEntry</a></code> items.</p>
     pub failed: ::std::vec::Vec<crate::types::BatchResultErrorEntry>,
+    _request_id: Option<String>,
 }
 impl DeleteMessageBatchOutput {
     /// <p>A list of <code><a>DeleteMessageBatchResultEntry</a></code> items.</p>
@@ -19,6 +20,11 @@ impl DeleteMessageBatchOutput {
     pub fn failed(&self) -> &[crate::types::BatchResultErrorEntry] {
         use std::ops::Deref;
         self.failed.deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for DeleteMessageBatchOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl DeleteMessageBatchOutput {
@@ -34,6 +40,7 @@ impl DeleteMessageBatchOutput {
 pub struct DeleteMessageBatchOutputBuilder {
     pub(crate) successful: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchResultEntry>>,
     pub(crate) failed: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
+    _request_id: Option<String>,
 }
 impl DeleteMessageBatchOutputBuilder {
     /// <p>A list of <code><a>DeleteMessageBatchResultEntry</a></code> items.</p>
@@ -62,6 +69,15 @@ impl DeleteMessageBatchOutputBuilder {
     pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self { self.failed = input; self }
     /// <p>A list of <code><a>BatchResultErrorEntry</a></code> items.</p>
     pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> { &self.failed }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`DeleteMessageBatchOutput`](crate::operation::delete_message_batch::DeleteMessageBatchOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`successful`](Self::successful)
@@ -70,6 +86,7 @@ impl DeleteMessageBatchOutputBuilder {
         ::std::result::Result::Ok(crate::operation::delete_message_batch::DeleteMessageBatchOutput {
             successful: self.successful.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("successful", "successful was not specified but it is required when building DeleteMessageBatchOutput"))?,
             failed: self.failed.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("failed", "failed was not specified but it is required when building DeleteMessageBatchOutput"))?,
+            _request_id: self._request_id,
         })
     }
 }

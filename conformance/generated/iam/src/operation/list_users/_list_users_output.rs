@@ -10,6 +10,7 @@ pub struct ListUsersOutput {
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListUsersOutput {
     /// <p>A list of users.</p>
@@ -26,6 +27,11 @@ impl ListUsersOutput {
         self.marker.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for ListUsersOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListUsersOutput {
     /// Creates a new builder-style object to manufacture [`ListUsersOutput`](crate::operation::list_users::ListUsersOutput).
     pub fn builder() -> crate::operation::list_users::builders::ListUsersOutputBuilder {
@@ -40,6 +46,7 @@ pub struct ListUsersOutputBuilder {
     pub(crate) users: ::std::option::Option<::std::vec::Vec<crate::types::User>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListUsersOutputBuilder {
     /// <p>A list of users.</p>
@@ -71,6 +78,15 @@ impl ListUsersOutputBuilder {
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListUsersOutput`](crate::operation::list_users::ListUsersOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`users`](Self::users)
@@ -79,6 +95,7 @@ impl ListUsersOutputBuilder {
             users: self.users.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("users", "users was not specified but it is required when building ListUsersOutput"))?,
             is_truncated: self.is_truncated,
             marker: self.marker,
+            _request_id: self._request_id,
         })
     }
 }

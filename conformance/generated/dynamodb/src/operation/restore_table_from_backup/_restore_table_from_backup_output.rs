@@ -6,11 +6,17 @@
 pub struct RestoreTableFromBackupOutput {
     /// <p>The description of the table created from an existing backup.</p>
     pub table_description: ::std::option::Option<crate::types::TableDescription>,
+    _request_id: Option<String>,
 }
 impl RestoreTableFromBackupOutput {
     /// <p>The description of the table created from an existing backup.</p>
     pub fn table_description(&self) -> ::std::option::Option<&crate::types::TableDescription> {
         self.table_description.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for RestoreTableFromBackupOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl RestoreTableFromBackupOutput {
@@ -25,6 +31,7 @@ impl RestoreTableFromBackupOutput {
 #[non_exhaustive]
 pub struct RestoreTableFromBackupOutputBuilder {
     pub(crate) table_description: ::std::option::Option<crate::types::TableDescription>,
+    _request_id: Option<String>,
 }
 impl RestoreTableFromBackupOutputBuilder {
     /// <p>The description of the table created from an existing backup.</p>
@@ -35,10 +42,20 @@ impl RestoreTableFromBackupOutputBuilder {
     pub fn set_table_description(mut self, input: ::std::option::Option<crate::types::TableDescription>) -> Self { self.table_description = input; self }
     /// <p>The description of the table created from an existing backup.</p>
     pub fn get_table_description(&self) -> &::std::option::Option<crate::types::TableDescription> { &self.table_description }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`RestoreTableFromBackupOutput`](crate::operation::restore_table_from_backup::RestoreTableFromBackupOutput).
     pub fn build(self) -> crate::operation::restore_table_from_backup::RestoreTableFromBackupOutput {
         crate::operation::restore_table_from_backup::RestoreTableFromBackupOutput {
             table_description: self.table_description,
+            _request_id: self._request_id,
         }
     }
 }

@@ -8,6 +8,7 @@ pub struct ListFunctionEventInvokeConfigsOutput {
     pub function_event_invoke_configs: ::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>>,
     /// <p>The pagination token that's included if more results are available.</p>
     pub next_marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListFunctionEventInvokeConfigsOutput {
     /// <p>A list of configurations.</p>
@@ -17,6 +18,11 @@ impl ListFunctionEventInvokeConfigsOutput {
     /// <p>The pagination token that's included if more results are available.</p>
     pub fn next_marker(&self) -> ::std::option::Option<&str> {
         self.next_marker.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListFunctionEventInvokeConfigsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListFunctionEventInvokeConfigsOutput {
@@ -32,6 +38,7 @@ impl ListFunctionEventInvokeConfigsOutput {
 pub struct ListFunctionEventInvokeConfigsOutputBuilder {
     pub(crate) function_event_invoke_configs: ::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>>,
     pub(crate) next_marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListFunctionEventInvokeConfigsOutputBuilder {
     /// <p>A list of configurations.</p>
@@ -55,11 +62,21 @@ impl ListFunctionEventInvokeConfigsOutputBuilder {
     pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
     /// <p>The pagination token that's included if more results are available.</p>
     pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListFunctionEventInvokeConfigsOutput`](crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsOutput).
     pub fn build(self) -> crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsOutput {
         crate::operation::list_function_event_invoke_configs::ListFunctionEventInvokeConfigsOutput {
             function_event_invoke_configs: self.function_event_invoke_configs,
             next_marker: self.next_marker,
+            _request_id: self._request_id,
         }
     }
 }

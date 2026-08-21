@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::CancelKeyDeletionError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::CancelKeyDeletionError::Unhandled(format!("CancelKeyDeletion returned HTTP {}", status)));
+                             return Err(super::CancelKeyDeletionError::unhandled_with_request_ids(format!("CancelKeyDeletion returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_cancel_key_deletion_output::CancelKeyDeletionOutputBuilder::default().build())
+                         let mut output = super::_cancel_key_deletion_output::CancelKeyDeletionOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as CancelKeyDeletionFluentBuilder;

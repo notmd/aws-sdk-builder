@@ -25,9 +25,12 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::UpdateBucketMetadataInventoryTableConfigurationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UpdateBucketMetadataInventoryTableConfigurationError::Unhandled(format!("UpdateBucketMetadataInventoryTableConfiguration returned HTTP {}", status)));
+                             return Err(super::UpdateBucketMetadataInventoryTableConfigurationError::unhandled_with_request_ids(format!("UpdateBucketMetadataInventoryTableConfiguration returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
-                         Ok(super::UpdateBucketMetadataInventoryTableConfigurationOutput{})
+                         let mut output = super::_update_bucket_metadata_inventory_table_configuration_output::UpdateBucketMetadataInventoryTableConfigurationOutputBuilder::default();
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UpdateBucketMetadataInventoryTableConfigurationFluentBuilder;

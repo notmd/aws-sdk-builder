@@ -8,6 +8,7 @@ pub struct GenerateCredentialReportOutput {
     pub state: ::std::option::Option<crate::types::ReportStateType>,
     /// <p>Information about the credential report.</p>
     pub description: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GenerateCredentialReportOutput {
     /// <p>Information about the state of the credential report.</p>
@@ -17,6 +18,11 @@ impl GenerateCredentialReportOutput {
     /// <p>Information about the credential report.</p>
     pub fn description(&self) -> ::std::option::Option<&str> {
         self.description.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GenerateCredentialReportOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GenerateCredentialReportOutput {
@@ -32,6 +38,7 @@ impl GenerateCredentialReportOutput {
 pub struct GenerateCredentialReportOutputBuilder {
     pub(crate) state: ::std::option::Option<crate::types::ReportStateType>,
     pub(crate) description: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GenerateCredentialReportOutputBuilder {
     /// <p>Information about the state of the credential report.</p>
@@ -50,11 +57,21 @@ impl GenerateCredentialReportOutputBuilder {
     pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.description = input; self }
     /// <p>Information about the credential report.</p>
     pub fn get_description(&self) -> &::std::option::Option<::std::string::String> { &self.description }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GenerateCredentialReportOutput`](crate::operation::generate_credential_report::GenerateCredentialReportOutput).
     pub fn build(self) -> crate::operation::generate_credential_report::GenerateCredentialReportOutput {
         crate::operation::generate_credential_report::GenerateCredentialReportOutput {
             state: self.state,
             description: self.description,
+            _request_id: self._request_id,
         }
     }
 }

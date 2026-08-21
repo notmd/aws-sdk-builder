@@ -10,6 +10,8 @@ pub struct CreateBucketOutput {
     /// <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with directory buckets</a>.</p>
     /// </note>
     pub bucket_arn: ::std::option::Option<::std::string::String>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl CreateBucketOutput {
     /// <p>A forward slash followed by the name of the bucket for all account regional namespace buckets and all global general purpose buckets created in us-east-1. For example, <code>/amzn-s3-demo-bucket</code>. For global general purpose buckets created in other Amazon Web Services Regions, the Location field is the global endpoint URL. For example, <code>http://amzn-s3-demo-bucket.s3.amazonaws.com/</code>.</p>
@@ -21,6 +23,16 @@ impl CreateBucketOutput {
     /// </note>
     pub fn bucket_arn(&self) -> ::std::option::Option<&str> {
         self.bucket_arn.as_deref()
+    }
+}
+impl crate::s3_request_id::RequestIdExt for CreateBucketOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for CreateBucketOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl CreateBucketOutput {
@@ -36,6 +48,8 @@ impl CreateBucketOutput {
 pub struct CreateBucketOutputBuilder {
     pub(crate) location: ::std::option::Option<::std::string::String>,
     pub(crate) bucket_arn: ::std::option::Option<::std::string::String>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl CreateBucketOutputBuilder {
     /// <p>A forward slash followed by the name of the bucket for all account regional namespace buckets and all global general purpose buckets created in us-east-1. For example, <code>/amzn-s3-demo-bucket</code>. For global general purpose buckets created in other Amazon Web Services Regions, the Location field is the global endpoint URL. For example, <code>http://amzn-s3-demo-bucket.s3.amazonaws.com/</code>.</p>
@@ -58,11 +72,31 @@ impl CreateBucketOutputBuilder {
     /// <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with directory buckets</a>.</p>
     /// </note>
     pub fn get_bucket_arn(&self) -> &::std::option::Option<::std::string::String> { &self.bucket_arn }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`CreateBucketOutput`](crate::operation::create_bucket::CreateBucketOutput).
     pub fn build(self) -> crate::operation::create_bucket::CreateBucketOutput {
         crate::operation::create_bucket::CreateBucketOutput {
             location: self.location,
             bucket_arn: self.bucket_arn,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

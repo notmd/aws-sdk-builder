@@ -28,6 +28,8 @@ pub struct GetObjectAttributesOutput {
     pub storage_class: ::std::option::Option<crate::types::StorageClass>,
     /// <p>The size of the object in bytes.</p>
     pub object_size: ::std::option::Option<i64>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl GetObjectAttributesOutput {
     /// <p>Specifies whether the object retrieved was (<code>true</code>) or was not (<code>false</code>) a delete marker. If <code>false</code>, this response header does not appear in the response. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working with delete markers</a>.</p><note>
@@ -73,6 +75,16 @@ impl GetObjectAttributesOutput {
         self.object_size
     }
 }
+impl crate::s3_request_id::RequestIdExt for GetObjectAttributesOutput {
+    fn extended_request_id(&self) -> Option<&str> {
+        self._extended_request_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetObjectAttributesOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetObjectAttributesOutput {
     /// Creates a new builder-style object to manufacture [`GetObjectAttributesOutput`](crate::operation::get_object_attributes::GetObjectAttributesOutput).
     pub fn builder() -> crate::operation::get_object_attributes::builders::GetObjectAttributesOutputBuilder {
@@ -93,6 +105,8 @@ pub struct GetObjectAttributesOutputBuilder {
     pub(crate) object_parts: ::std::option::Option<crate::types::GetObjectAttributesParts>,
     pub(crate) storage_class: ::std::option::Option<crate::types::StorageClass>,
     pub(crate) object_size: ::std::option::Option<i64>,
+    _extended_request_id: Option<String>,
+    _request_id: Option<String>,
 }
 impl GetObjectAttributesOutputBuilder {
     /// <p>Specifies whether the object retrieved was (<code>true</code>) or was not (<code>false</code>) a delete marker. If <code>false</code>, this response header does not appear in the response. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working with delete markers</a>.</p><note>
@@ -179,6 +193,24 @@ impl GetObjectAttributesOutputBuilder {
     pub fn set_object_size(mut self, input: ::std::option::Option<i64>) -> Self { self.object_size = input; self }
     /// <p>The size of the object in bytes.</p>
     pub fn get_object_size(&self) -> &::std::option::Option<i64> { &self.object_size }
+    pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
+        self._extended_request_id = Some(extended_request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_extended_request_id(&mut self, extended_request_id: Option<String>) -> &mut Self {
+        self._extended_request_id = extended_request_id;
+        self
+    }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetObjectAttributesOutput`](crate::operation::get_object_attributes::GetObjectAttributesOutput).
     pub fn build(self) -> crate::operation::get_object_attributes::GetObjectAttributesOutput {
         crate::operation::get_object_attributes::GetObjectAttributesOutput {
@@ -191,6 +223,8 @@ impl GetObjectAttributesOutputBuilder {
             object_parts: self.object_parts,
             storage_class: self.storage_class,
             object_size: self.object_size,
+            _extended_request_id: self._extended_request_id,
+            _request_id: self._request_id,
         }
     }
 }

@@ -12,6 +12,7 @@ pub struct DisableKinesisStreamingDestinationOutput {
     pub destination_status: ::std::option::Option<crate::types::DestinationStatus>,
     /// <p>The destination for the Kinesis streaming information that is being enabled.</p>
     pub enable_kinesis_streaming_configuration: ::std::option::Option<crate::types::EnableKinesisStreamingConfiguration>,
+    _request_id: Option<String>,
 }
 impl DisableKinesisStreamingDestinationOutput {
     /// <p>The name of the table being modified.</p>
@@ -31,6 +32,11 @@ impl DisableKinesisStreamingDestinationOutput {
         self.enable_kinesis_streaming_configuration.as_ref()
     }
 }
+impl ::aws_types::request_id::RequestId for DisableKinesisStreamingDestinationOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl DisableKinesisStreamingDestinationOutput {
     /// Creates a new builder-style object to manufacture [`DisableKinesisStreamingDestinationOutput`](crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationOutput).
     pub fn builder() -> crate::operation::disable_kinesis_streaming_destination::builders::DisableKinesisStreamingDestinationOutputBuilder {
@@ -46,6 +52,7 @@ pub struct DisableKinesisStreamingDestinationOutputBuilder {
     pub(crate) stream_arn: ::std::option::Option<::std::string::String>,
     pub(crate) destination_status: ::std::option::Option<crate::types::DestinationStatus>,
     pub(crate) enable_kinesis_streaming_configuration: ::std::option::Option<crate::types::EnableKinesisStreamingConfiguration>,
+    _request_id: Option<String>,
 }
 impl DisableKinesisStreamingDestinationOutputBuilder {
     /// <p>The name of the table being modified.</p>
@@ -80,6 +87,15 @@ impl DisableKinesisStreamingDestinationOutputBuilder {
     pub fn set_enable_kinesis_streaming_configuration(mut self, input: ::std::option::Option<crate::types::EnableKinesisStreamingConfiguration>) -> Self { self.enable_kinesis_streaming_configuration = input; self }
     /// <p>The destination for the Kinesis streaming information that is being enabled.</p>
     pub fn get_enable_kinesis_streaming_configuration(&self) -> &::std::option::Option<crate::types::EnableKinesisStreamingConfiguration> { &self.enable_kinesis_streaming_configuration }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`DisableKinesisStreamingDestinationOutput`](crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationOutput).
     pub fn build(self) -> crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationOutput {
         crate::operation::disable_kinesis_streaming_destination::DisableKinesisStreamingDestinationOutput {
@@ -87,6 +103,7 @@ impl DisableKinesisStreamingDestinationOutputBuilder {
             stream_arn: self.stream_arn,
             destination_status: self.destination_status,
             enable_kinesis_streaming_configuration: self.enable_kinesis_streaming_configuration,
+            _request_id: self._request_id,
         }
     }
 }

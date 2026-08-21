@@ -22,9 +22,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListMfaDevicesError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListMfaDevicesError::Unhandled(format!("ListMfaDevices returned HTTP {}", status)));
+                             return Err(super::ListMfaDevicesError::unhandled_with_request_ids(format!("ListMfaDevices returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         super::_list_mfa_devices_output::ListMfaDevicesOutputBuilder::default().build().map_err(|error| super::ListMfaDevicesError::Unhandled(error.to_string()))
+                         let mut output = super::_list_mfa_devices_output::ListMfaDevicesOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         output.build().map_err(|error| super::ListMfaDevicesError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as ListMfaDevicesFluentBuilder;

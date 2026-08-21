@@ -26,7 +26,7 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::CreateSessionError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::CreateSessionError::Unhandled(format!("CreateSession returned HTTP {}", status)));
+                             return Err(super::CreateSessionError::unhandled_with_request_ids(format!("CreateSession returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_create_session_output::CreateSessionOutputBuilder::default();
                          let body = response.text().await.map_err(super::CreateSessionError::Unhandled)?;
@@ -37,6 +37,8 @@ impl Builder {
  item.secret_access_key = super::super::super::transport::xml_first(&value, "SecretAccessKey").and_then(|value| value.parse().ok());
  item.session_token = super::super::super::transport::xml_first(&value, "SessionToken").and_then(|value| value.parse().ok());
  if let Ok(item) = item.build() { output.credentials = Some(item); } }
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

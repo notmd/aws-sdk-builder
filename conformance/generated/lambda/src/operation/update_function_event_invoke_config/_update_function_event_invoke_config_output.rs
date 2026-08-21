@@ -16,6 +16,7 @@ pub struct UpdateFunctionEventInvokeConfigOutput {
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
     pub destination_config: ::std::option::Option<crate::types::DestinationConfig>,
+    _request_id: Option<String>,
 }
 impl UpdateFunctionEventInvokeConfigOutput {
     /// <p>The date and time that the configuration was last updated.</p>
@@ -41,6 +42,11 @@ impl UpdateFunctionEventInvokeConfigOutput {
         self.destination_config.as_ref()
     }
 }
+impl ::aws_types::request_id::RequestId for UpdateFunctionEventInvokeConfigOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl UpdateFunctionEventInvokeConfigOutput {
     /// Creates a new builder-style object to manufacture [`UpdateFunctionEventInvokeConfigOutput`](crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigOutput).
     pub fn builder() -> crate::operation::update_function_event_invoke_config::builders::UpdateFunctionEventInvokeConfigOutputBuilder {
@@ -57,6 +63,7 @@ pub struct UpdateFunctionEventInvokeConfigOutputBuilder {
     pub(crate) maximum_retry_attempts: ::std::option::Option<i32>,
     pub(crate) maximum_event_age_in_seconds: ::std::option::Option<i32>,
     pub(crate) destination_config: ::std::option::Option<crate::types::DestinationConfig>,
+    _request_id: Option<String>,
 }
 impl UpdateFunctionEventInvokeConfigOutputBuilder {
     /// <p>The date and time that the configuration was last updated.</p>
@@ -103,6 +110,15 @@ impl UpdateFunctionEventInvokeConfigOutputBuilder {
     /// <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
     /// </note>
     pub fn get_destination_config(&self) -> &::std::option::Option<crate::types::DestinationConfig> { &self.destination_config }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`UpdateFunctionEventInvokeConfigOutput`](crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigOutput).
     pub fn build(self) -> crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigOutput {
         crate::operation::update_function_event_invoke_config::UpdateFunctionEventInvokeConfigOutput {
@@ -111,6 +127,7 @@ impl UpdateFunctionEventInvokeConfigOutputBuilder {
             maximum_retry_attempts: self.maximum_retry_attempts,
             maximum_event_age_in_seconds: self.maximum_event_age_in_seconds,
             destination_config: self.destination_config,
+            _request_id: self._request_id,
         }
     }
 }

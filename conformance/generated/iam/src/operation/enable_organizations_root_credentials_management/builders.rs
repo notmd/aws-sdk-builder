@@ -19,9 +19,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::EnableOrganizationsRootCredentialsManagementError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::EnableOrganizationsRootCredentialsManagementError::Unhandled(format!("EnableOrganizationsRootCredentialsManagement returned HTTP {}", status)));
+                             return Err(super::EnableOrganizationsRootCredentialsManagementError::unhandled_with_request_ids(format!("EnableOrganizationsRootCredentialsManagement returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_enable_organizations_root_credentials_management_output::EnableOrganizationsRootCredentialsManagementOutputBuilder::default().build())
+                         let mut output = super::_enable_organizations_root_credentials_management_output::EnableOrganizationsRootCredentialsManagementOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as EnableOrganizationsRootCredentialsManagementFluentBuilder;

@@ -23,12 +23,14 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetBucketIntelligentTieringConfigurationError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetBucketIntelligentTieringConfigurationError::Unhandled(format!("GetBucketIntelligentTieringConfiguration returned HTTP {}", status)));
+                             return Err(super::GetBucketIntelligentTieringConfigurationError::unhandled_with_request_ids(format!("GetBucketIntelligentTieringConfiguration returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_bucket_intelligent_tiering_configuration_output::GetBucketIntelligentTieringConfigurationOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketIntelligentTieringConfigurationError::Unhandled)?;
                          if let Some(value) = super::super::super::transport::xml_first(&body, "IntelligentTieringConfiguration") { let mut item: crate::types::IntelligentTieringConfigurationBuilder = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
  if let Ok(item) = item.build() { output.intelligent_tiering_configuration = Some(item); } }
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

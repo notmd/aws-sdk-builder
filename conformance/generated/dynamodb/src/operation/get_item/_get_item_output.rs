@@ -8,6 +8,7 @@ pub struct GetItemOutput {
     pub item: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     /// <p>The capacity units consumed by the <code>GetItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
+    _request_id: Option<String>,
 }
 impl GetItemOutput {
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, as specified by <code>ProjectionExpression</code>.</p>
@@ -17,6 +18,11 @@ impl GetItemOutput {
     /// <p>The capacity units consumed by the <code>GetItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn consumed_capacity(&self) -> ::std::option::Option<&crate::types::ConsumedCapacity> {
         self.consumed_capacity.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetItemOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetItemOutput {
@@ -32,6 +38,7 @@ impl GetItemOutput {
 pub struct GetItemOutputBuilder {
     pub(crate) item: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     pub(crate) consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
+    _request_id: Option<String>,
 }
 impl GetItemOutputBuilder {
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, as specified by <code>ProjectionExpression</code>.</p>
@@ -55,11 +62,21 @@ impl GetItemOutputBuilder {
     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ConsumedCapacity>) -> Self { self.consumed_capacity = input; self }
     /// <p>The capacity units consumed by the <code>GetItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn get_consumed_capacity(&self) -> &::std::option::Option<crate::types::ConsumedCapacity> { &self.consumed_capacity }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetItemOutput`](crate::operation::get_item::GetItemOutput).
     pub fn build(self) -> crate::operation::get_item::GetItemOutput {
         crate::operation::get_item::GetItemOutput {
             item: self.item,
             consumed_capacity: self.consumed_capacity,
+            _request_id: self._request_id,
         }
     }
 }

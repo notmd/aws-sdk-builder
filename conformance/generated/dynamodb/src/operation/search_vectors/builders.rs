@@ -28,9 +28,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::SearchVectorsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::SearchVectorsError::Unhandled(format!("SearchVectors returned HTTP {}", status)));
+                             return Err(super::SearchVectorsError::unhandled_with_request_ids(format!("SearchVectors returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_search_vectors_output::SearchVectorsOutputBuilder::default().build())
+                         let mut output = super::_search_vectors_output::SearchVectorsOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as SearchVectorsFluentBuilder;

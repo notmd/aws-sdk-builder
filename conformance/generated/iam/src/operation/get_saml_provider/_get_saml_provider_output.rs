@@ -18,6 +18,7 @@ pub struct GetSamlProviderOutput {
     pub assertion_encryption_mode: ::std::option::Option<crate::types::AssertionEncryptionModeType>,
     /// <p>The private key metadata for the SAML provider.</p>
     pub private_key_list: ::std::option::Option<::std::vec::Vec<crate::types::SamlPrivateKey>>,
+    _request_id: Option<String>,
 }
 impl GetSamlProviderOutput {
     /// <p>The unique identifier assigned to the SAML provider.</p>
@@ -49,6 +50,11 @@ impl GetSamlProviderOutput {
         self.private_key_list.as_deref().unwrap_or_default()
     }
 }
+impl ::aws_types::request_id::RequestId for GetSamlProviderOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl GetSamlProviderOutput {
     /// Creates a new builder-style object to manufacture [`GetSamlProviderOutput`](crate::operation::get_saml_provider::GetSamlProviderOutput).
     pub fn builder() -> crate::operation::get_saml_provider::builders::GetSamlProviderOutputBuilder {
@@ -67,6 +73,7 @@ pub struct GetSamlProviderOutputBuilder {
     pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
     pub(crate) assertion_encryption_mode: ::std::option::Option<crate::types::AssertionEncryptionModeType>,
     pub(crate) private_key_list: ::std::option::Option<::std::vec::Vec<crate::types::SamlPrivateKey>>,
+    _request_id: Option<String>,
 }
 impl GetSamlProviderOutputBuilder {
     /// <p>The unique identifier assigned to the SAML provider.</p>
@@ -135,6 +142,15 @@ impl GetSamlProviderOutputBuilder {
     pub fn set_private_key_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SamlPrivateKey>>) -> Self { self.private_key_list = input; self }
     /// <p>The private key metadata for the SAML provider.</p>
     pub fn get_private_key_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SamlPrivateKey>> { &self.private_key_list }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetSamlProviderOutput`](crate::operation::get_saml_provider::GetSamlProviderOutput).
     pub fn build(self) -> crate::operation::get_saml_provider::GetSamlProviderOutput {
         crate::operation::get_saml_provider::GetSamlProviderOutput {
@@ -145,6 +161,7 @@ impl GetSamlProviderOutputBuilder {
             tags: self.tags,
             assertion_encryption_mode: self.assertion_encryption_mode,
             private_key_list: self.private_key_list,
+            _request_id: self._request_id,
         }
     }
 }

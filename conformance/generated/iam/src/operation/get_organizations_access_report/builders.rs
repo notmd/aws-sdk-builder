@@ -23,9 +23,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetOrganizationsAccessReportError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetOrganizationsAccessReportError::Unhandled(format!("GetOrganizationsAccessReport returned HTTP {}", status)));
+                             return Err(super::GetOrganizationsAccessReportError::unhandled_with_request_ids(format!("GetOrganizationsAccessReport returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         super::_get_organizations_access_report_output::GetOrganizationsAccessReportOutputBuilder::default().build().map_err(|error| super::GetOrganizationsAccessReportError::Unhandled(error.to_string()))
+                         let mut output = super::_get_organizations_access_report_output::GetOrganizationsAccessReportOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         output.build().map_err(|error| super::GetOrganizationsAccessReportError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as GetOrganizationsAccessReportFluentBuilder;

@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UntagUserError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::UntagUserError::Unhandled(format!("UntagUser returned HTTP {}", status)));
+                             return Err(super::UntagUserError::unhandled_with_request_ids(format!("UntagUser returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::UntagUserOutput{})
+                         let mut output = super::_untag_user_output::UntagUserOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as UntagUserFluentBuilder;

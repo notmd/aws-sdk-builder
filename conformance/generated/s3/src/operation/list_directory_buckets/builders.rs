@@ -21,12 +21,14 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::ListDirectoryBucketsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListDirectoryBucketsError::Unhandled(format!("ListDirectoryBuckets returned HTTP {}", status)));
+                             return Err(super::ListDirectoryBucketsError::unhandled_with_request_ids(format!("ListDirectoryBuckets returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_list_directory_buckets_output::ListDirectoryBucketsOutputBuilder::default();
                          let body = response.text().await.map_err(super::ListDirectoryBucketsError::Unhandled)?;
                          output.buckets = Some(::std::vec::Vec::new());
                          output.continuation_token = super::super::super::transport::xml_first(&body, "ContinuationToken").and_then(|value| value.parse().ok());
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

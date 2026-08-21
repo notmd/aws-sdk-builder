@@ -6,11 +6,17 @@
 pub struct UpdateTimeToLiveOutput {
     /// <p>Represents the output of an <code>UpdateTimeToLive</code> operation.</p>
     pub time_to_live_specification: ::std::option::Option<crate::types::TimeToLiveSpecification>,
+    _request_id: Option<String>,
 }
 impl UpdateTimeToLiveOutput {
     /// <p>Represents the output of an <code>UpdateTimeToLive</code> operation.</p>
     pub fn time_to_live_specification(&self) -> ::std::option::Option<&crate::types::TimeToLiveSpecification> {
         self.time_to_live_specification.as_ref()
+    }
+}
+impl ::aws_types::request_id::RequestId for UpdateTimeToLiveOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl UpdateTimeToLiveOutput {
@@ -25,6 +31,7 @@ impl UpdateTimeToLiveOutput {
 #[non_exhaustive]
 pub struct UpdateTimeToLiveOutputBuilder {
     pub(crate) time_to_live_specification: ::std::option::Option<crate::types::TimeToLiveSpecification>,
+    _request_id: Option<String>,
 }
 impl UpdateTimeToLiveOutputBuilder {
     /// <p>Represents the output of an <code>UpdateTimeToLive</code> operation.</p>
@@ -35,10 +42,20 @@ impl UpdateTimeToLiveOutputBuilder {
     pub fn set_time_to_live_specification(mut self, input: ::std::option::Option<crate::types::TimeToLiveSpecification>) -> Self { self.time_to_live_specification = input; self }
     /// <p>Represents the output of an <code>UpdateTimeToLive</code> operation.</p>
     pub fn get_time_to_live_specification(&self) -> &::std::option::Option<crate::types::TimeToLiveSpecification> { &self.time_to_live_specification }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`UpdateTimeToLiveOutput`](crate::operation::update_time_to_live::UpdateTimeToLiveOutput).
     pub fn build(self) -> crate::operation::update_time_to_live::UpdateTimeToLiveOutput {
         crate::operation::update_time_to_live::UpdateTimeToLiveOutput {
             time_to_live_specification: self.time_to_live_specification,
+            _request_id: self._request_id,
         }
     }
 }

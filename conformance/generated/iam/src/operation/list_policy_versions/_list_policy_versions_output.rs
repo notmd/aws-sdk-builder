@@ -11,6 +11,7 @@ pub struct ListPolicyVersionsOutput {
     pub is_truncated: ::std::option::Option<bool>,
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListPolicyVersionsOutput {
     /// <p>A list of policy versions.</p>
@@ -27,6 +28,11 @@ impl ListPolicyVersionsOutput {
         self.marker.as_deref()
     }
 }
+impl ::aws_types::request_id::RequestId for ListPolicyVersionsOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl ListPolicyVersionsOutput {
     /// Creates a new builder-style object to manufacture [`ListPolicyVersionsOutput`](crate::operation::list_policy_versions::ListPolicyVersionsOutput).
     pub fn builder() -> crate::operation::list_policy_versions::builders::ListPolicyVersionsOutputBuilder {
@@ -41,6 +47,7 @@ pub struct ListPolicyVersionsOutputBuilder {
     pub(crate) versions: ::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>>,
     pub(crate) is_truncated: ::std::option::Option<bool>,
     pub(crate) marker: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListPolicyVersionsOutputBuilder {
     /// <p>A list of policy versions.</p>
@@ -74,12 +81,22 @@ impl ListPolicyVersionsOutputBuilder {
     pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListPolicyVersionsOutput`](crate::operation::list_policy_versions::ListPolicyVersionsOutput).
     pub fn build(self) -> crate::operation::list_policy_versions::ListPolicyVersionsOutput {
         crate::operation::list_policy_versions::ListPolicyVersionsOutput {
             versions: self.versions,
             is_truncated: self.is_truncated,
             marker: self.marker,
+            _request_id: self._request_id,
         }
     }
 }

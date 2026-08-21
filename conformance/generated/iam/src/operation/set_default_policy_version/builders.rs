@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::SetDefaultPolicyVersionError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::SetDefaultPolicyVersionError::Unhandled(format!("SetDefaultPolicyVersion returned HTTP {}", status)));
+                             return Err(super::SetDefaultPolicyVersionError::unhandled_with_request_ids(format!("SetDefaultPolicyVersion returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::SetDefaultPolicyVersionOutput{})
+                         let mut output = super::_set_default_policy_version_output::SetDefaultPolicyVersionOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as SetDefaultPolicyVersionFluentBuilder;

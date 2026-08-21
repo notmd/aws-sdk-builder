@@ -26,9 +26,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::SendMessageError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::SendMessageError::Unhandled(format!("SendMessage returned HTTP {}", status)));
+                             return Err(super::SendMessageError::unhandled_with_request_ids(format!("SendMessage returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_send_message_output::SendMessageOutputBuilder::default().build())
+                         let mut output = super::_send_message_output::SendMessageOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as SendMessageFluentBuilder;

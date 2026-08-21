@@ -21,9 +21,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::ListTagsError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::ListTagsError::Unhandled(format!("ListTags returned HTTP {}", status)));
+                             return Err(super::ListTagsError::unhandled_with_request_ids(format!("ListTags returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::_list_tags_output::ListTagsOutputBuilder::default().build())
+                         let mut output = super::_list_tags_output::ListTagsOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as ListTagsFluentBuilder;

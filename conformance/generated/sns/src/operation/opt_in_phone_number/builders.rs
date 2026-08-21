@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::OptInPhoneNumberError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::OptInPhoneNumberError::Unhandled(format!("OptInPhoneNumber returned HTTP {}", status)));
+                             return Err(super::OptInPhoneNumberError::unhandled_with_request_ids(format!("OptInPhoneNumber returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::OptInPhoneNumberOutput{})
+                         let mut output = super::_opt_in_phone_number_output::OptInPhoneNumberOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as OptInPhoneNumberFluentBuilder;

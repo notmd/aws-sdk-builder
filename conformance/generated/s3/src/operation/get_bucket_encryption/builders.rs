@@ -22,11 +22,13 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetBucketEncryptionError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::GetBucketEncryptionError::Unhandled(format!("GetBucketEncryption returned HTTP {}", status)));
+                             return Err(super::GetBucketEncryptionError::unhandled_with_request_ids(format!("GetBucketEncryption returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
                          }
                          let mut output = super::_get_bucket_encryption_output::GetBucketEncryptionOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketEncryptionError::Unhandled)?;
                          if let Some(value) = super::super::super::transport::xml_first(&body, "ServerSideEncryptionConfiguration") { let mut item: crate::types::ServerSideEncryptionConfigurationBuilder = ::std::default::Default::default(); if let Ok(item) = item.build() { output.server_side_encryption_configuration = Some(item); } }
+                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
                          Ok(output.build())
                      }
 }

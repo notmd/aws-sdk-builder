@@ -10,6 +10,7 @@ pub struct CreateGrantOutput {
     /// <p>The unique identifier for the grant.</p>
     /// <p>You can use the <code>GrantId</code> in a <a>ListGrants</a>, <a>RetireGrant</a>, or <a>RevokeGrant</a> operation.</p>
     pub grant_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl CreateGrantOutput {
     /// <p>The grant token.</p>
@@ -21,6 +22,11 @@ impl CreateGrantOutput {
     /// <p>You can use the <code>GrantId</code> in a <a>ListGrants</a>, <a>RetireGrant</a>, or <a>RevokeGrant</a> operation.</p>
     pub fn grant_id(&self) -> ::std::option::Option<&str> {
         self.grant_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for CreateGrantOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl CreateGrantOutput {
@@ -36,6 +42,7 @@ impl CreateGrantOutput {
 pub struct CreateGrantOutputBuilder {
     pub(crate) grant_token: ::std::option::Option<::std::string::String>,
     pub(crate) grant_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl CreateGrantOutputBuilder {
     /// <p>The grant token.</p>
@@ -58,11 +65,21 @@ impl CreateGrantOutputBuilder {
     /// <p>The unique identifier for the grant.</p>
     /// <p>You can use the <code>GrantId</code> in a <a>ListGrants</a>, <a>RetireGrant</a>, or <a>RevokeGrant</a> operation.</p>
     pub fn get_grant_id(&self) -> &::std::option::Option<::std::string::String> { &self.grant_id }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`CreateGrantOutput`](crate::operation::create_grant::CreateGrantOutput).
     pub fn build(self) -> crate::operation::create_grant::CreateGrantOutput {
         crate::operation::create_grant::CreateGrantOutput {
             grant_token: self.grant_token,
             grant_id: self.grant_id,
+            _request_id: self._request_id,
         }
     }
 }

@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DeleteRolePermissionsBoundaryError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteRolePermissionsBoundaryError::Unhandled(format!("DeleteRolePermissionsBoundary returned HTTP {}", status)));
+                             return Err(super::DeleteRolePermissionsBoundaryError::unhandled_with_request_ids(format!("DeleteRolePermissionsBoundary returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         Ok(super::DeleteRolePermissionsBoundaryOutput{})
+                         let mut output = super::_delete_role_permissions_boundary_output::DeleteRolePermissionsBoundaryOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         Ok(output.build())
                      }
 }
 pub use Builder as DeleteRolePermissionsBoundaryFluentBuilder;

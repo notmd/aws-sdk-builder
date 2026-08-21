@@ -20,9 +20,11 @@ impl Builder {
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DeleteServiceLinkedRoleError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
-                             return Err(super::DeleteServiceLinkedRoleError::Unhandled(format!("DeleteServiceLinkedRole returned HTTP {}", status)));
+                             return Err(super::DeleteServiceLinkedRoleError::unhandled_with_request_ids(format!("DeleteServiceLinkedRole returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
                          }
-                         super::_delete_service_linked_role_output::DeleteServiceLinkedRoleOutputBuilder::default().build().map_err(|error| super::DeleteServiceLinkedRoleError::Unhandled(error.to_string()))
+                         let mut output = super::_delete_service_linked_role_output::DeleteServiceLinkedRoleOutputBuilder::default();
+                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+                         output.build().map_err(|error| super::DeleteServiceLinkedRoleError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as DeleteServiceLinkedRoleFluentBuilder;

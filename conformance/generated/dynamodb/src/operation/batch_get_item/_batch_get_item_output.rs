@@ -12,6 +12,7 @@ pub struct BatchGetItemOutput {
     /// <p>The read capacity units consumed by the entire <code>BatchGetItem</code> operation.</p>
     /// <p>Each element consists of:</p><ul><li><p><code>TableName</code> - The table that consumed the provisioned throughput.</p></li><li><p><code>CapacityUnits</code> - The total number of capacity units consumed.</p></li></ul>
     pub consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
+    _request_id: Option<String>,
 }
 impl BatchGetItemOutput {
     /// <p>A map of table name or table ARN to a list of items. Each object in <code>Responses</code> consists of a table name or ARN, along with a map of attribute data consisting of the data type and attribute value.</p>
@@ -29,6 +30,11 @@ impl BatchGetItemOutput {
         self.consumed_capacity.as_deref().unwrap_or_default()
     }
 }
+impl ::aws_types::request_id::RequestId for BatchGetItemOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
+    }
+}
 impl BatchGetItemOutput {
     /// Creates a new builder-style object to manufacture [`BatchGetItemOutput`](crate::operation::batch_get_item::BatchGetItemOutput).
     pub fn builder() -> crate::operation::batch_get_item::builders::BatchGetItemOutputBuilder {
@@ -43,6 +49,7 @@ pub struct BatchGetItemOutputBuilder {
     pub(crate) responses: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>>>,
     pub(crate) unprocessed_keys: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>>,
     pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
+    _request_id: Option<String>,
 }
 impl BatchGetItemOutputBuilder {
     /// <p>A map of table name or table ARN to a list of items. Each object in <code>Responses</code> consists of a table name or ARN, along with a map of attribute data consisting of the data type and attribute value.</p>
@@ -88,12 +95,22 @@ impl BatchGetItemOutputBuilder {
     /// <p>The read capacity units consumed by the entire <code>BatchGetItem</code> operation.</p>
     /// <p>Each element consists of:</p><ul><li><p><code>TableName</code> - The table that consumed the provisioned throughput.</p></li><li><p><code>CapacityUnits</code> - The total number of capacity units consumed.</p></li></ul>
     pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>> { &self.consumed_capacity }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`BatchGetItemOutput`](crate::operation::batch_get_item::BatchGetItemOutput).
     pub fn build(self) -> crate::operation::batch_get_item::BatchGetItemOutput {
         crate::operation::batch_get_item::BatchGetItemOutput {
             responses: self.responses,
             unprocessed_keys: self.unprocessed_keys,
             consumed_capacity: self.consumed_capacity,
+            _request_id: self._request_id,
         }
     }
 }

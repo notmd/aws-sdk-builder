@@ -8,6 +8,7 @@ pub struct ListSubscriptionsByTopicOutput {
     pub subscriptions: ::std::option::Option<::std::vec::Vec<crate::types::Subscription>>,
     /// <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This element is returned if there are more subscriptions to retrieve.</p>
     pub next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListSubscriptionsByTopicOutput {
     /// <p>A list of subscriptions.</p>
@@ -17,6 +18,11 @@ impl ListSubscriptionsByTopicOutput {
     /// <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This element is returned if there are more subscriptions to retrieve.</p>
     pub fn next_token(&self) -> ::std::option::Option<&str> {
         self.next_token.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for ListSubscriptionsByTopicOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl ListSubscriptionsByTopicOutput {
@@ -32,6 +38,7 @@ impl ListSubscriptionsByTopicOutput {
 pub struct ListSubscriptionsByTopicOutputBuilder {
     pub(crate) subscriptions: ::std::option::Option<::std::vec::Vec<crate::types::Subscription>>,
     pub(crate) next_token: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl ListSubscriptionsByTopicOutputBuilder {
     /// <p>A list of subscriptions.</p>
@@ -55,11 +62,21 @@ impl ListSubscriptionsByTopicOutputBuilder {
     pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
     /// <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This element is returned if there are more subscriptions to retrieve.</p>
     pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`ListSubscriptionsByTopicOutput`](crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicOutput).
     pub fn build(self) -> crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicOutput {
         crate::operation::list_subscriptions_by_topic::ListSubscriptionsByTopicOutput {
             subscriptions: self.subscriptions,
             next_token: self.next_token,
+            _request_id: self._request_id,
         }
     }
 }

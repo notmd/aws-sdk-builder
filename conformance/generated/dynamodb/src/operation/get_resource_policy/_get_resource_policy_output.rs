@@ -8,6 +8,7 @@ pub struct GetResourcePolicyOutput {
     pub policy: ::std::option::Option<::std::string::String>,
     /// <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
     pub revision_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GetResourcePolicyOutput {
     /// <p>The resource-based policy document attached to the resource, which can be a table or stream, in JSON format.</p>
@@ -17,6 +18,11 @@ impl GetResourcePolicyOutput {
     /// <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
     pub fn revision_id(&self) -> ::std::option::Option<&str> {
         self.revision_id.as_deref()
+    }
+}
+impl ::aws_types::request_id::RequestId for GetResourcePolicyOutput {
+    fn request_id(&self) -> Option<&str> {
+        self._request_id.as_deref()
     }
 }
 impl GetResourcePolicyOutput {
@@ -32,6 +38,7 @@ impl GetResourcePolicyOutput {
 pub struct GetResourcePolicyOutputBuilder {
     pub(crate) policy: ::std::option::Option<::std::string::String>,
     pub(crate) revision_id: ::std::option::Option<::std::string::String>,
+    _request_id: Option<String>,
 }
 impl GetResourcePolicyOutputBuilder {
     /// <p>The resource-based policy document attached to the resource, which can be a table or stream, in JSON format.</p>
@@ -50,11 +57,21 @@ impl GetResourcePolicyOutputBuilder {
     pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.revision_id = input; self }
     /// <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
     pub fn get_revision_id(&self) -> &::std::option::Option<::std::string::String> { &self.revision_id }
+    pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
+        self._request_id = Some(request_id.into());
+        self
+    }
+
+    pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {
+        self._request_id = request_id;
+        self
+    }
     /// Consumes the builder and constructs a [`GetResourcePolicyOutput`](crate::operation::get_resource_policy::GetResourcePolicyOutput).
     pub fn build(self) -> crate::operation::get_resource_policy::GetResourcePolicyOutput {
         crate::operation::get_resource_policy::GetResourcePolicyOutput {
             policy: self.policy,
             revision_id: self.revision_id,
+            _request_id: self._request_id,
         }
     }
 }
