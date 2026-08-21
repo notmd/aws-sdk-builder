@@ -31,6 +31,11 @@
         #[derive(Clone, Debug)]
         pub struct SessionDurationEscalationException { pub meta: super::super::ErrorMetadata }
         impl SessionDurationEscalationException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_jwt_payload_size_exceeded_exception(&self) -> bool { matches!(self, Self::JwtPayloadSizeExceededException(_)) }
+            pub fn is_outbound_web_identity_federation_disabled_exception(&self) -> bool { matches!(self, Self::OutboundWebIdentityFederationDisabledException(_)) }
+            pub fn is_session_duration_escalation_exception(&self) -> bool { matches!(self, Self::SessionDurationEscalationException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -44,17 +49,23 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn audience(mut self, value: impl ::std::convert::Into<super::super::super::types::WebIdentityTokenAudienceListType>) -> Self { self.input.audience = Some(value.into()); self }
                      pub fn duration_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::WebIdentityTokenDurationSecondsType>) -> Self { self.input.duration_seconds = Some(value.into()); self }
                      pub fn signing_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::JwtAlgorithmType>) -> Self { self.input.signing_algorithm = Some(value.into()); self }
                      pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

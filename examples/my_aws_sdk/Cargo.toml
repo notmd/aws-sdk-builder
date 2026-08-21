@@ -6,6 +6,10 @@ publish = false
 
 [dependencies]
 aws-sdk-build = { path = "../../crates/aws-sdk-build" }
+aws-runtime = "1.9.1"
 
 [build-dependencies]
 aws-sdk-build = { path = "../../crates/aws-sdk-build" }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["macros", "rt-multi-thread"] }

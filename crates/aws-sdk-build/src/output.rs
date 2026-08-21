@@ -113,13 +113,60 @@ pub(crate) fn install(stage: &Path, out_dir: &Path) -> Result<CompileReport, Bui
     })
 }
 
-fn validate_tree(root: &Path) -> Result<(), BuildError> {
+pub(crate) fn validate_tree(root: &Path) -> Result<(), BuildError> {
     let mut files = Vec::new();
     collect_files(root, &mut files)?;
     for path in files {
         if path.extension().and_then(|extension| extension.to_str()) == Some("rs") {
             validate_rust_file(&path)?;
         }
+    }
+    Ok(())
+}
+
+pub(crate) fn install_snapshot(stage: &Path, output_dir: &Path) -> Result<(), BuildError> {
+    let staged_generated = stage.join("generated");
+    validate_tree(&staged_generated)?;
+    let parent = output_dir.parent().unwrap_or_else(|| Path::new("."));
+    fs::create_dir_all(parent).map_err(|source| BuildError::Install {
+        path: parent.to_owned(),
+        source,
+    })?;
+
+    let backup = parent.join(format!(".aws-sdk-snapshot-backup-{}", std::process::id()));
+    if backup.exists() {
+        return Err(BuildError::Install {
+            path: backup,
+            source: std::io::Error::new(
+                std::io::ErrorKind::AlreadyExists,
+                "snapshot backup path already exists",
+            ),
+        });
+    }
+
+    let had_existing = output_dir.exists();
+    if had_existing {
+        fs::rename(output_dir, &backup).map_err(|source| BuildError::Install {
+            path: output_dir.to_owned(),
+            source,
+        })?;
+    }
+
+    if let Err(source) = fs::rename(&staged_generated, output_dir) {
+        if had_existing {
+            let _ = fs::rename(&backup, output_dir);
+        }
+        return Err(BuildError::Install {
+            path: output_dir.to_owned(),
+            source,
+        });
+    }
+
+    if had_existing {
+        fs::remove_dir_all(&backup).map_err(|source| BuildError::Install {
+            path: backup,
+            source,
+        })?;
     }
     Ok(())
 }

@@ -63,6 +63,18 @@
         #[derive(Clone, Debug)]
         pub struct UnsupportedOperationException { pub meta: super::super::ErrorMetadata }
         impl UnsupportedOperationException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_dependency_timeout_exception(&self) -> bool { matches!(self, Self::DependencyTimeoutException(_)) }
+            pub fn is_expired_import_token_exception(&self) -> bool { matches!(self, Self::ExpiredImportTokenException(_)) }
+            pub fn is_incorrect_key_material_exception(&self) -> bool { matches!(self, Self::IncorrectKeyMaterialException(_)) }
+            pub fn is_invalid_arn_exception(&self) -> bool { matches!(self, Self::InvalidArnException(_)) }
+            pub fn is_invalid_ciphertext_exception(&self) -> bool { matches!(self, Self::InvalidCiphertextException(_)) }
+            pub fn is_invalid_import_token_exception(&self) -> bool { matches!(self, Self::InvalidImportTokenException(_)) }
+            pub fn is_kms_internal_exception(&self) -> bool { matches!(self, Self::KmsInternalException(_)) }
+            pub fn is_kms_invalid_state_exception(&self) -> bool { matches!(self, Self::KmsInvalidStateException(_)) }
+            pub fn is_not_found_exception(&self) -> bool { matches!(self, Self::NotFoundException(_)) }
+            pub fn is_unsupported_operation_exception(&self) -> bool { matches!(self, Self::UnsupportedOperationException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -83,9 +95,15 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn encrypted_key_material(mut self, value: impl ::std::convert::Into<super::super::super::types::CiphertextType>) -> Self { self.input.encrypted_key_material = Some(value.into()); self }
                      pub fn expiration_model(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpirationModelType>) -> Self { self.input.expiration_model = Some(value.into()); self }
                      pub fn import_token(mut self, value: impl ::std::convert::Into<super::super::super::types::CiphertextType>) -> Self { self.input.import_token = Some(value.into()); self }
@@ -95,9 +113,9 @@ pub fn new() -> Self { Self::default() }
                      pub fn key_material_id(mut self, value: impl ::std::convert::Into<super::super::super::types::BackingKeyIdType>) -> Self { self.input.key_material_id = Some(value.into()); self }
                      pub fn valid_to(mut self, value: impl ::std::convert::Into<super::super::super::types::DateType>) -> Self { self.input.valid_to = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

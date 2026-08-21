@@ -77,6 +77,21 @@
         #[derive(Clone, Debug)]
         pub struct UnsupportedOperation { pub meta: super::super::ErrorMetadata }
         impl UnsupportedOperation { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_invalid_address(&self) -> bool { matches!(self, Self::InvalidAddress(_)) }
+            pub fn is_invalid_message_contents(&self) -> bool { matches!(self, Self::InvalidMessageContents(_)) }
+            pub fn is_invalid_security(&self) -> bool { matches!(self, Self::InvalidSecurity(_)) }
+            pub fn is_kms_access_denied(&self) -> bool { matches!(self, Self::KmsAccessDenied(_)) }
+            pub fn is_kms_disabled(&self) -> bool { matches!(self, Self::KmsDisabled(_)) }
+            pub fn is_kms_invalid_key_usage(&self) -> bool { matches!(self, Self::KmsInvalidKeyUsage(_)) }
+            pub fn is_kms_invalid_state(&self) -> bool { matches!(self, Self::KmsInvalidState(_)) }
+            pub fn is_kms_not_found(&self) -> bool { matches!(self, Self::KmsNotFound(_)) }
+            pub fn is_kms_opt_in_required(&self) -> bool { matches!(self, Self::KmsOptInRequired(_)) }
+            pub fn is_kms_throttled(&self) -> bool { matches!(self, Self::KmsThrottled(_)) }
+            pub fn is_queue_does_not_exist(&self) -> bool { matches!(self, Self::QueueDoesNotExist(_)) }
+            pub fn is_request_throttled(&self) -> bool { matches!(self, Self::RequestThrottled(_)) }
+            pub fn is_unsupported_operation(&self) -> bool { matches!(self, Self::UnsupportedOperation(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -100,9 +115,15 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn delay_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.input.delay_seconds = Some(value.into()); self }
                      pub fn message_attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageBodyAttributeMap>) -> Self { self.input.message_attributes = Some(value.into()); self }
                      pub fn message_body(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.message_body = Some(value.into()); self }
@@ -111,9 +132,9 @@ pub fn new() -> Self { Self::default() }
                      pub fn message_system_attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageBodySystemAttributeMap>) -> Self { self.input.message_system_attributes = Some(value.into()); self }
                      pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

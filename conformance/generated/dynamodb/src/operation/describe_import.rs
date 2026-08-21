@@ -19,6 +19,9 @@
         #[derive(Clone, Debug)]
         pub struct ImportNotFoundException { pub meta: super::super::ErrorMetadata }
         impl ImportNotFoundException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_import_not_found_exception(&self) -> bool { matches!(self, Self::ImportNotFoundException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -30,14 +33,20 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn import_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ImportArn>) -> Self { self.input.import_arn = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

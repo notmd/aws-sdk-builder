@@ -45,6 +45,15 @@
         #[derive(Clone, Debug)]
         pub struct SubscriptionLimitExceededException { pub meta: super::super::ErrorMetadata }
         impl SubscriptionLimitExceededException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_authorization_error_exception(&self) -> bool { matches!(self, Self::AuthorizationErrorException(_)) }
+            pub fn is_filter_policy_limit_exceeded_exception(&self) -> bool { matches!(self, Self::FilterPolicyLimitExceededException(_)) }
+            pub fn is_internal_error_exception(&self) -> bool { matches!(self, Self::InternalErrorException(_)) }
+            pub fn is_invalid_parameter_exception(&self) -> bool { matches!(self, Self::InvalidParameterException(_)) }
+            pub fn is_not_found_exception(&self) -> bool { matches!(self, Self::NotFoundException(_)) }
+            pub fn is_replay_limit_exceeded_exception(&self) -> bool { matches!(self, Self::ReplayLimitExceededException(_)) }
+            pub fn is_subscription_limit_exceeded_exception(&self) -> bool { matches!(self, Self::SubscriptionLimitExceededException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -62,16 +71,22 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn authenticate_on_unsubscribe(mut self, value: impl ::std::convert::Into<super::super::super::types::AuthenticateOnUnsubscribe>) -> Self { self.input.authenticate_on_unsubscribe = Some(value.into()); self }
                      pub fn token(mut self, value: impl ::std::convert::Into<super::super::super::types::Token>) -> Self { self.input.token = Some(value.into()); self }
                      pub fn topic_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicArn>) -> Self { self.input.topic_arn = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

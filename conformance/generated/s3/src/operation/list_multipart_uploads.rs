@@ -45,9 +45,15 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
                      pub fn delimiter(mut self, value: impl ::std::convert::Into<super::super::super::types::Delimiter>) -> Self { self.input.delimiter = Some(value.into()); self }
                      pub fn encoding_type(mut self, value: impl ::std::convert::Into<super::super::super::types::EncodingType>) -> Self { self.input.encoding_type = Some(value.into()); self }
@@ -58,9 +64,9 @@ pub fn new() -> Self { Self::default() }
                      pub fn request_payer(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
                      pub fn upload_id_marker(mut self, value: impl ::std::convert::Into<super::super::super::types::UploadIdMarker>) -> Self { self.input.upload_id_marker = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

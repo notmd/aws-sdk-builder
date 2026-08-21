@@ -91,6 +91,25 @@
         #[derive(Clone, Debug)]
         pub struct XksProxyVpcEndpointServiceNotFoundException { pub meta: super::super::ErrorMetadata }
         impl XksProxyVpcEndpointServiceNotFoundException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_cloud_hsm_cluster_invalid_configuration_exception(&self) -> bool { matches!(self, Self::CloudHsmClusterInvalidConfigurationException(_)) }
+            pub fn is_cloud_hsm_cluster_not_active_exception(&self) -> bool { matches!(self, Self::CloudHsmClusterNotActiveException(_)) }
+            pub fn is_cloud_hsm_cluster_not_found_exception(&self) -> bool { matches!(self, Self::CloudHsmClusterNotFoundException(_)) }
+            pub fn is_cloud_hsm_cluster_not_related_exception(&self) -> bool { matches!(self, Self::CloudHsmClusterNotRelatedException(_)) }
+            pub fn is_custom_key_store_invalid_state_exception(&self) -> bool { matches!(self, Self::CustomKeyStoreInvalidStateException(_)) }
+            pub fn is_custom_key_store_name_in_use_exception(&self) -> bool { matches!(self, Self::CustomKeyStoreNameInUseException(_)) }
+            pub fn is_custom_key_store_not_found_exception(&self) -> bool { matches!(self, Self::CustomKeyStoreNotFoundException(_)) }
+            pub fn is_kms_internal_exception(&self) -> bool { matches!(self, Self::KmsInternalException(_)) }
+            pub fn is_xks_proxy_incorrect_authentication_credential_exception(&self) -> bool { matches!(self, Self::XksProxyIncorrectAuthenticationCredentialException(_)) }
+            pub fn is_xks_proxy_invalid_configuration_exception(&self) -> bool { matches!(self, Self::XksProxyInvalidConfigurationException(_)) }
+            pub fn is_xks_proxy_invalid_response_exception(&self) -> bool { matches!(self, Self::XksProxyInvalidResponseException(_)) }
+            pub fn is_xks_proxy_uri_endpoint_in_use_exception(&self) -> bool { matches!(self, Self::XksProxyUriEndpointInUseException(_)) }
+            pub fn is_xks_proxy_uri_in_use_exception(&self) -> bool { matches!(self, Self::XksProxyUriInUseException(_)) }
+            pub fn is_xks_proxy_uri_unreachable_exception(&self) -> bool { matches!(self, Self::XksProxyUriUnreachableException(_)) }
+            pub fn is_xks_proxy_vpc_endpoint_service_in_use_exception(&self) -> bool { matches!(self, Self::XksProxyVpcEndpointServiceInUseException(_)) }
+            pub fn is_xks_proxy_vpc_endpoint_service_invalid_configuration_exception(&self) -> bool { matches!(self, Self::XksProxyVpcEndpointServiceInvalidConfigurationException(_)) }
+            pub fn is_xks_proxy_vpc_endpoint_service_not_found_exception(&self) -> bool { matches!(self, Self::XksProxyVpcEndpointServiceNotFoundException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -118,9 +137,15 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn cloud_hsm_cluster_id(mut self, value: impl ::std::convert::Into<super::super::super::types::CloudHsmClusterIdType>) -> Self { self.input.cloud_hsm_cluster_id = Some(value.into()); self }
                      pub fn custom_key_store_id(mut self, value: impl ::std::convert::Into<super::super::super::types::CustomKeyStoreIdType>) -> Self { self.input.custom_key_store_id = Some(value.into()); self }
                      pub fn key_store_password(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyStorePasswordType>) -> Self { self.input.key_store_password = Some(value.into()); self }
@@ -132,9 +157,9 @@ pub fn new() -> Self { Self::default() }
                      pub fn xks_proxy_vpc_endpoint_service_name(mut self, value: impl ::std::convert::Into<super::super::super::types::XksProxyVpcEndpointServiceNameType>) -> Self { self.input.xks_proxy_vpc_endpoint_service_name = Some(value.into()); self }
                      pub fn xks_proxy_vpc_endpoint_service_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountIdType>) -> Self { self.input.xks_proxy_vpc_endpoint_service_owner = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

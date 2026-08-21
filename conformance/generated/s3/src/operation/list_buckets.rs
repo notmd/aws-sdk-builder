@@ -31,17 +31,23 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn bucket_region(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketRegion>) -> Self { self.input.bucket_region = Some(value.into()); self }
                      pub fn continuation_token(mut self, value: impl ::std::convert::Into<super::super::super::types::Token>) -> Self { self.input.continuation_token = Some(value.into()); self }
                      pub fn max_buckets(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxBuckets>) -> Self { self.input.max_buckets = Some(value.into()); self }
                      pub fn prefix(mut self, value: impl ::std::convert::Into<super::super::super::types::Prefix>) -> Self { self.input.prefix = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

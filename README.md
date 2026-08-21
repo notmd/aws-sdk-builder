@@ -32,6 +32,10 @@ consumer_crate_name::aws_sdk_s3::operation::abort_multipart_upload::AbortMultipa
 Generated output includes a deterministic manifest and is installed atomically,
 so a failed build cannot replace a previous result.
 
+Generated clients use the AWS runtime contract supplied by the downstream
+consumer. The generated manifest records `aws-runtime` as the required runtime
+crate; `aws-sdk-build` itself remains codegen-only.
+
 The pinned snapshot metadata and model checksums are in
 crates/aws-sdk-build/models-manifest.json. The conformance harness is invoked
 with:

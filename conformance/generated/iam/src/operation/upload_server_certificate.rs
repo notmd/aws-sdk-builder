@@ -49,6 +49,15 @@
         #[derive(Clone, Debug)]
         pub struct ServiceFailureException { pub meta: super::super::ErrorMetadata }
         impl ServiceFailureException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_concurrent_modification_exception(&self) -> bool { matches!(self, Self::ConcurrentModificationException(_)) }
+            pub fn is_entity_already_exists_exception(&self) -> bool { matches!(self, Self::EntityAlreadyExistsException(_)) }
+            pub fn is_invalid_input_exception(&self) -> bool { matches!(self, Self::InvalidInputException(_)) }
+            pub fn is_key_pair_mismatch_exception(&self) -> bool { matches!(self, Self::KeyPairMismatchException(_)) }
+            pub fn is_limit_exceeded_exception(&self) -> bool { matches!(self, Self::LimitExceededException(_)) }
+            pub fn is_malformed_certificate_exception(&self) -> bool { matches!(self, Self::MalformedCertificateException(_)) }
+            pub fn is_service_failure_exception(&self) -> bool { matches!(self, Self::ServiceFailureException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -66,9 +75,15 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn certificate_body(mut self, value: impl ::std::convert::Into<super::super::super::types::CertificateBodyType>) -> Self { self.input.certificate_body = Some(value.into()); self }
                      pub fn certificate_chain(mut self, value: impl ::std::convert::Into<super::super::super::types::CertificateChainType>) -> Self { self.input.certificate_chain = Some(value.into()); self }
                      pub fn path(mut self, value: impl ::std::convert::Into<super::super::super::types::PathType>) -> Self { self.input.path = Some(value.into()); self }
@@ -76,9 +91,9 @@ pub fn new() -> Self { Self::default() }
                      pub fn server_certificate_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ServerCertificateNameType>) -> Self { self.input.server_certificate_name = Some(value.into()); self }
                      pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

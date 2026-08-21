@@ -21,6 +21,52 @@ pub fn configure() -> Builder {
     Builder::default()
 }
 
+/// Generate an all-operation source snapshot for an external comparison or
+/// inspection tool.
+///
+/// This is intentionally separate from [`Builder::compile`]: consumers generate
+/// into Cargo's `OUT_DIR`, while tooling can own a source snapshot directory.
+pub fn generate_all<I, S>(
+    output_dir: impl AsRef<std::path::Path>,
+    services: I,
+) -> Result<usize, BuildError>
+where
+    I: IntoIterator<Item = S>,
+    S: AsRef<str>,
+{
+    let output_dir = output_dir.as_ref();
+    let parent = output_dir
+        .parent()
+        .unwrap_or_else(|| std::path::Path::new("."));
+    std::fs::create_dir_all(parent).map_err(|source| BuildError::StageCreate {
+        path: parent.to_owned(),
+        source,
+    })?;
+    let selections = services
+        .into_iter()
+        .map(|service| config::ServiceSelection {
+            key: service.as_ref().to_owned(),
+            operations: Vec::new(),
+            all_operations: true,
+        })
+        .collect::<Vec<_>>();
+    if selections.is_empty() {
+        return Err(BuildError::NoServices);
+    }
+
+    let stage = tempfile::Builder::new()
+        .prefix("aws-sdk-snapshot-")
+        .tempdir_in(parent)
+        .map_err(|source| BuildError::StageCreate {
+            path: parent.to_owned(),
+            source,
+        })?;
+    let generated = codegen::generate(stage.path(), "generated_snapshot", &selections)?;
+    output::validate_tree(&stage.path().join("generated"))?;
+    output::install_snapshot(stage.path(), output_dir)?;
+    Ok(generated.operations.len())
+}
+
 /// Includes the stable generated `OUT_DIR/aws_sdk.rs` facade.
 #[macro_export]
 macro_rules! include_sdk {
@@ -54,5 +100,25 @@ impl Builder {
             report.operations = generated.operations;
             report
         })
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::generate_all;
+
+    #[test]
+    fn generate_all_installs_an_all_operation_service_snapshot() {
+        let output_root = tempfile::tempdir().unwrap();
+        let generated = output_root.path().join("generated");
+        let operation_count = generate_all(&generated, ["s3"]).unwrap();
+
+        assert!(operation_count > 2);
+        assert!(
+            generated
+                .join("s3/src/operation/create_bucket.rs")
+                .is_file()
+        );
+        assert!(generated.join("s3/src/operation/head_bucket.rs").is_file());
     }
 }

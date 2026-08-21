@@ -34,6 +34,12 @@
         #[derive(Clone, Debug)]
         pub struct ResourceNotFoundException { pub meta: super::super::ErrorMetadata }
         impl ResourceNotFoundException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_internal_server_error(&self) -> bool { matches!(self, Self::InternalServerError(_)) }
+            pub fn is_limit_exceeded_exception(&self) -> bool { matches!(self, Self::LimitExceededException(_)) }
+            pub fn is_resource_in_use_exception(&self) -> bool { matches!(self, Self::ResourceInUseException(_)) }
+            pub fn is_resource_not_found_exception(&self) -> bool { matches!(self, Self::ResourceNotFoundException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -48,17 +54,23 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn global_secondary_index_updates(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdateList>) -> Self { self.input.global_secondary_index_updates = Some(value.into()); self }
                      pub fn provisioned_write_capacity_auto_scaling_update(mut self, value: impl ::std::convert::Into<super::super::super::types::AutoScalingSettingsUpdate>) -> Self { self.input.provisioned_write_capacity_auto_scaling_update = Some(value.into()); self }
                      pub fn replica_updates(mut self, value: impl ::std::convert::Into<super::super::super::types::ReplicaAutoScalingUpdateList>) -> Self { self.input.replica_updates = Some(value.into()); self }
                      pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

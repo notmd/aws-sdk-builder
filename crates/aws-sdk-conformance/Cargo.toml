@@ -4,10 +4,11 @@ version = "0.1.0"
 edition.workspace = true
 license.workspace = true
 repository.workspace = true
-description = "Deterministic Markdown source conformance reports for generated AWS SDKs."
+description = "All-operation AWS SDK snapshot generation and deterministic source conformance reports."
 publish = false
 
 [dependencies]
+aws-sdk-build = { path = "../aws-sdk-build" }
 diffy = { version = "0.5.1", features = ["std"] }
 quote = "1"
 syn = { version = "2", features = ["full", "parsing"] }

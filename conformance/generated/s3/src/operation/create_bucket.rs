@@ -34,6 +34,10 @@
         #[derive(Clone, Debug)]
         pub struct BucketAlreadyOwnedByYou { pub meta: super::super::ErrorMetadata }
         impl BucketAlreadyOwnedByYou { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_bucket_already_exists(&self) -> bool { matches!(self, Self::BucketAlreadyExists(_)) }
+            pub fn is_bucket_already_owned_by_you(&self) -> bool { matches!(self, Self::BucketAlreadyOwnedByYou(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -46,9 +50,15 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn acl(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketCannedAcl>) -> Self { self.input.acl = Some(value.into()); self }
                      pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
                      pub fn bucket_namespace(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketNamespace>) -> Self { self.input.bucket_namespace = Some(value.into()); self }
@@ -61,9 +71,23 @@ pub fn new() -> Self { Self::default() }
                      pub fn object_lock_enabled_for_bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockEnabledForBucket>) -> Self { self.input.object_lock_enabled_for_bucket = Some(value.into()); self }
                      pub fn object_ownership(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectOwnership>) -> Self { self.input.object_ownership = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
-Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+let bucket = self.input.bucket.ok_or_else(|| super::Error::Unhandled("CreateBucket requires bucket".to_owned()))?;
+let response = self.client.send_bucket_request(super::super::super::transport::Method::Put, &bucket).await.map_err(super::Error::Unhandled)?;
+if response.status().is_success() {
+return Ok(super::Output::default());
 }
+let status = response.status();
+let body = response.text().await.unwrap_or_default();
+let metadata = super::super::super::ErrorMetadata;
+if body.contains("BucketAlreadyExists") {
+return Err(super::Error::BucketAlreadyExists(super::BucketAlreadyExists { meta: metadata }));
 }
+if body.contains("BucketAlreadyOwnedByYou") || status == super::super::super::transport::StatusCode::CONFLICT {
+return Err(super::Error::BucketAlreadyOwnedByYou(super::BucketAlreadyOwnedByYou { meta: metadata }));
+}
+Err(super::Error::Unhandled(format!("CreateBucket returned HTTP {status}: {body}")))
+}
+                 }
 }
 pub use builders::Builder;

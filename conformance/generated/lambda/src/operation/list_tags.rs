@@ -31,6 +31,12 @@
         #[derive(Clone, Debug)]
         pub struct TooManyRequestsException { pub meta: super::super::ErrorMetadata }
         impl TooManyRequestsException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_invalid_parameter_value_exception(&self) -> bool { matches!(self, Self::InvalidParameterValueException(_)) }
+            pub fn is_resource_not_found_exception(&self) -> bool { matches!(self, Self::ResourceNotFoundException(_)) }
+            pub fn is_service_exception(&self) -> bool { matches!(self, Self::ServiceException(_)) }
+            pub fn is_too_many_requests_exception(&self) -> bool { matches!(self, Self::TooManyRequestsException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -45,14 +51,20 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn resource(mut self, value: impl ::std::convert::Into<super::super::super::types::TaggableResource>) -> Self { self.input.resource = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

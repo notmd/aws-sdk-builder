@@ -33,9 +33,15 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
                      pub fn bypass_governance_retention(mut self, value: impl ::std::convert::Into<super::super::super::types::BypassGovernanceRetention>) -> Self { self.input.bypass_governance_retention = Some(value.into()); self }
                      pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
@@ -46,9 +52,9 @@ pub fn new() -> Self { Self::default() }
                      pub fn retention(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockRetention>) -> Self { self.input.retention = Some(value.into()); self }
                      pub fn version_id(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectVersionId>) -> Self { self.input.version_id = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

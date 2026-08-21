@@ -50,6 +50,16 @@
         #[derive(Clone, Debug)]
         pub struct TransactionInProgressException { pub meta: super::super::ErrorMetadata }
         impl TransactionInProgressException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_idempotent_parameter_mismatch_exception(&self) -> bool { matches!(self, Self::IdempotentParameterMismatchException(_)) }
+            pub fn is_internal_server_error(&self) -> bool { matches!(self, Self::InternalServerError(_)) }
+            pub fn is_provisioned_throughput_exceeded_exception(&self) -> bool { matches!(self, Self::ProvisionedThroughputExceededException(_)) }
+            pub fn is_request_limit_exceeded(&self) -> bool { matches!(self, Self::RequestLimitExceeded(_)) }
+            pub fn is_resource_not_found_exception(&self) -> bool { matches!(self, Self::ResourceNotFoundException(_)) }
+            pub fn is_throttling_exception(&self) -> bool { matches!(self, Self::ThrottlingException(_)) }
+            pub fn is_transaction_canceled_exception(&self) -> bool { matches!(self, Self::TransactionCanceledException(_)) }
+            pub fn is_transaction_in_progress_exception(&self) -> bool { matches!(self, Self::TransactionInProgressException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -68,16 +78,22 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn client_request_token(mut self, value: impl ::std::convert::Into<super::super::super::types::ClientRequestToken>) -> Self { self.input.client_request_token = Some(value.into()); self }
                      pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
                      pub fn transact_statements(mut self, value: impl ::std::convert::Into<super::super::super::types::ParameterizedStatements>) -> Self { self.input.transact_statements = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

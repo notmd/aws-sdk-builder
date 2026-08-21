@@ -77,6 +77,21 @@
         #[derive(Clone, Debug)]
         pub struct XksKeyNotFoundException { pub meta: super::super::ErrorMetadata }
         impl XksKeyNotFoundException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_cloud_hsm_cluster_invalid_configuration_exception(&self) -> bool { matches!(self, Self::CloudHsmClusterInvalidConfigurationException(_)) }
+            pub fn is_custom_key_store_invalid_state_exception(&self) -> bool { matches!(self, Self::CustomKeyStoreInvalidStateException(_)) }
+            pub fn is_custom_key_store_not_found_exception(&self) -> bool { matches!(self, Self::CustomKeyStoreNotFoundException(_)) }
+            pub fn is_dependency_timeout_exception(&self) -> bool { matches!(self, Self::DependencyTimeoutException(_)) }
+            pub fn is_invalid_arn_exception(&self) -> bool { matches!(self, Self::InvalidArnException(_)) }
+            pub fn is_kms_internal_exception(&self) -> bool { matches!(self, Self::KmsInternalException(_)) }
+            pub fn is_limit_exceeded_exception(&self) -> bool { matches!(self, Self::LimitExceededException(_)) }
+            pub fn is_malformed_policy_document_exception(&self) -> bool { matches!(self, Self::MalformedPolicyDocumentException(_)) }
+            pub fn is_tag_exception(&self) -> bool { matches!(self, Self::TagException(_)) }
+            pub fn is_unsupported_operation_exception(&self) -> bool { matches!(self, Self::UnsupportedOperationException(_)) }
+            pub fn is_xks_key_already_in_use_exception(&self) -> bool { matches!(self, Self::XksKeyAlreadyInUseException(_)) }
+            pub fn is_xks_key_invalid_configuration_exception(&self) -> bool { matches!(self, Self::XksKeyInvalidConfigurationException(_)) }
+            pub fn is_xks_key_not_found_exception(&self) -> bool { matches!(self, Self::XksKeyNotFoundException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -100,9 +115,15 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn bypass_policy_lockout_safety_check(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.input.bypass_policy_lockout_safety_check = Some(value.into()); self }
                      pub fn custom_key_store_id(mut self, value: impl ::std::convert::Into<super::super::super::types::CustomKeyStoreIdType>) -> Self { self.input.custom_key_store_id = Some(value.into()); self }
                      pub fn customer_master_key_spec(mut self, value: impl ::std::convert::Into<super::super::super::types::CustomerMasterKeySpec>) -> Self { self.input.customer_master_key_spec = Some(value.into()); self }
@@ -115,9 +136,9 @@ pub fn new() -> Self { Self::default() }
                      pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.input.tags = Some(value.into()); self }
                      pub fn xks_key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::XksKeyIdType>) -> Self { self.input.xks_key_id = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

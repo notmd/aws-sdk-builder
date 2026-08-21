@@ -62,6 +62,18 @@
         #[derive(Clone, Debug)]
         pub struct UnsupportedOperationException { pub meta: super::super::ErrorMetadata }
         impl UnsupportedOperationException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_already_exists_exception(&self) -> bool { matches!(self, Self::AlreadyExistsException(_)) }
+            pub fn is_disabled_exception(&self) -> bool { matches!(self, Self::DisabledException(_)) }
+            pub fn is_invalid_arn_exception(&self) -> bool { matches!(self, Self::InvalidArnException(_)) }
+            pub fn is_kms_internal_exception(&self) -> bool { matches!(self, Self::KmsInternalException(_)) }
+            pub fn is_kms_invalid_state_exception(&self) -> bool { matches!(self, Self::KmsInvalidStateException(_)) }
+            pub fn is_limit_exceeded_exception(&self) -> bool { matches!(self, Self::LimitExceededException(_)) }
+            pub fn is_malformed_policy_document_exception(&self) -> bool { matches!(self, Self::MalformedPolicyDocumentException(_)) }
+            pub fn is_not_found_exception(&self) -> bool { matches!(self, Self::NotFoundException(_)) }
+            pub fn is_tag_exception(&self) -> bool { matches!(self, Self::TagException(_)) }
+            pub fn is_unsupported_operation_exception(&self) -> bool { matches!(self, Self::UnsupportedOperationException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -82,9 +94,15 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn bypass_policy_lockout_safety_check(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.input.bypass_policy_lockout_safety_check = Some(value.into()); self }
                      pub fn description(mut self, value: impl ::std::convert::Into<super::super::super::types::DescriptionType>) -> Self { self.input.description = Some(value.into()); self }
                      pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
@@ -92,9 +110,9 @@ pub fn new() -> Self { Self::default() }
                      pub fn replica_region(mut self, value: impl ::std::convert::Into<super::super::super::types::RegionType>) -> Self { self.input.replica_region = Some(value.into()); self }
                      pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.input.tags = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

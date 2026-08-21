@@ -46,6 +46,14 @@
         #[derive(Clone, Debug)]
         pub struct ThrottlingException { pub meta: super::super::ErrorMetadata }
         impl ThrottlingException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_internal_server_error(&self) -> bool { matches!(self, Self::InternalServerError(_)) }
+            pub fn is_invalid_endpoint_exception(&self) -> bool { matches!(self, Self::InvalidEndpointException(_)) }
+            pub fn is_provisioned_throughput_exceeded_exception(&self) -> bool { matches!(self, Self::ProvisionedThroughputExceededException(_)) }
+            pub fn is_request_limit_exceeded(&self) -> bool { matches!(self, Self::RequestLimitExceeded(_)) }
+            pub fn is_resource_not_found_exception(&self) -> bool { matches!(self, Self::ResourceNotFoundException(_)) }
+            pub fn is_throttling_exception(&self) -> bool { matches!(self, Self::ThrottlingException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -62,9 +70,15 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.input.attributes_to_get = Some(value.into()); self }
                      pub fn consistent_read(mut self, value: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.input.consistent_read = Some(value.into()); self }
                      pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
@@ -73,9 +87,9 @@ pub fn new() -> Self { Self::default() }
                      pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
                      pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

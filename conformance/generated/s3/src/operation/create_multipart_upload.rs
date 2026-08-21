@@ -68,9 +68,15 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn acl(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectCannedAcl>) -> Self { self.input.acl = Some(value.into()); self }
                      pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
                      pub fn bucket_key_enabled(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketKeyEnabled>) -> Self { self.input.bucket_key_enabled = Some(value.into()); self }
@@ -103,9 +109,9 @@ pub fn new() -> Self { Self::default() }
                      pub fn tagging(mut self, value: impl ::std::convert::Into<super::super::super::types::TaggingHeader>) -> Self { self.input.tagging = Some(value.into()); self }
                      pub fn website_redirect_location(mut self, value: impl ::std::convert::Into<super::super::super::types::WebsiteRedirectLocation>) -> Self { self.input.website_redirect_location = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

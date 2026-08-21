@@ -33,6 +33,11 @@
         #[derive(Clone, Debug)]
         pub struct RegionDisabledException { pub meta: super::super::ErrorMetadata }
         impl RegionDisabledException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_malformed_policy_document_exception(&self) -> bool { matches!(self, Self::MalformedPolicyDocumentException(_)) }
+            pub fn is_packed_policy_too_large_exception(&self) -> bool { matches!(self, Self::PackedPolicyTooLargeException(_)) }
+            pub fn is_region_disabled_exception(&self) -> bool { matches!(self, Self::RegionDisabledException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -46,18 +51,24 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn duration_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::DurationSecondsType>) -> Self { self.input.duration_seconds = Some(value.into()); self }
                      pub fn name(mut self, value: impl ::std::convert::Into<super::super::super::types::UserNameType>) -> Self { self.input.name = Some(value.into()); self }
                      pub fn policy(mut self, value: impl ::std::convert::Into<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.input.policy = Some(value.into()); self }
                      pub fn policy_arns(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorListType>) -> Self { self.input.policy_arns = Some(value.into()); self }
                      pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

@@ -54,6 +54,17 @@
         #[derive(Clone, Debug)]
         pub struct TopicLimitExceededException { pub meta: super::super::ErrorMetadata }
         impl TopicLimitExceededException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_authorization_error_exception(&self) -> bool { matches!(self, Self::AuthorizationErrorException(_)) }
+            pub fn is_concurrent_access_exception(&self) -> bool { matches!(self, Self::ConcurrentAccessException(_)) }
+            pub fn is_internal_error_exception(&self) -> bool { matches!(self, Self::InternalErrorException(_)) }
+            pub fn is_invalid_parameter_exception(&self) -> bool { matches!(self, Self::InvalidParameterException(_)) }
+            pub fn is_invalid_security_exception(&self) -> bool { matches!(self, Self::InvalidSecurityException(_)) }
+            pub fn is_stale_tag_exception(&self) -> bool { matches!(self, Self::StaleTagException(_)) }
+            pub fn is_tag_limit_exceeded_exception(&self) -> bool { matches!(self, Self::TagLimitExceededException(_)) }
+            pub fn is_tag_policy_exception(&self) -> bool { matches!(self, Self::TagPolicyException(_)) }
+            pub fn is_topic_limit_exceeded_exception(&self) -> bool { matches!(self, Self::TopicLimitExceededException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -73,17 +84,23 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicAttributesMap>) -> Self { self.input.attributes = Some(value.into()); self }
                      pub fn data_protection_policy(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeValue>) -> Self { self.input.data_protection_policy = Some(value.into()); self }
                      pub fn name(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicName>) -> Self { self.input.name = Some(value.into()); self }
                      pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.input.tags = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

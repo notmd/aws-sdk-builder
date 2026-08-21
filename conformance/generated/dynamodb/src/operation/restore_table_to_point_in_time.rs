@@ -58,6 +58,16 @@
         #[derive(Clone, Debug)]
         pub struct TableNotFoundException { pub meta: super::super::ErrorMetadata }
         impl TableNotFoundException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_internal_server_error(&self) -> bool { matches!(self, Self::InternalServerError(_)) }
+            pub fn is_invalid_endpoint_exception(&self) -> bool { matches!(self, Self::InvalidEndpointException(_)) }
+            pub fn is_invalid_restore_time_exception(&self) -> bool { matches!(self, Self::InvalidRestoreTimeException(_)) }
+            pub fn is_limit_exceeded_exception(&self) -> bool { matches!(self, Self::LimitExceededException(_)) }
+            pub fn is_point_in_time_recovery_unavailable_exception(&self) -> bool { matches!(self, Self::PointInTimeRecoveryUnavailableException(_)) }
+            pub fn is_table_already_exists_exception(&self) -> bool { matches!(self, Self::TableAlreadyExistsException(_)) }
+            pub fn is_table_in_use_exception(&self) -> bool { matches!(self, Self::TableInUseException(_)) }
+            pub fn is_table_not_found_exception(&self) -> bool { matches!(self, Self::TableNotFoundException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -76,9 +86,15 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn billing_mode_override(mut self, value: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.input.billing_mode_override = Some(value.into()); self }
                      pub fn global_secondary_index_override(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.input.global_secondary_index_override = Some(value.into()); self }
                      pub fn local_secondary_index_override(mut self, value: impl ::std::convert::Into<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.input.local_secondary_index_override = Some(value.into()); self }
@@ -92,9 +108,9 @@ pub fn new() -> Self { Self::default() }
                      pub fn use_latest_restorable_time(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanObject>) -> Self { self.input.use_latest_restorable_time = Some(value.into()); self }
                      pub fn vector_index_override(mut self, value: impl ::std::convert::Into<super::super::super::types::VectorIndexList>) -> Self { self.input.vector_index_override = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

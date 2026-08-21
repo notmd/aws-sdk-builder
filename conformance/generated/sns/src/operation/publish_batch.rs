@@ -97,6 +97,28 @@
         #[derive(Clone, Debug)]
         pub struct ValidationException { pub meta: super::super::ErrorMetadata }
         impl ValidationException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_authorization_error_exception(&self) -> bool { matches!(self, Self::AuthorizationErrorException(_)) }
+            pub fn is_batch_entry_ids_not_distinct_exception(&self) -> bool { matches!(self, Self::BatchEntryIdsNotDistinctException(_)) }
+            pub fn is_batch_request_too_long_exception(&self) -> bool { matches!(self, Self::BatchRequestTooLongException(_)) }
+            pub fn is_empty_batch_request_exception(&self) -> bool { matches!(self, Self::EmptyBatchRequestException(_)) }
+            pub fn is_endpoint_disabled_exception(&self) -> bool { matches!(self, Self::EndpointDisabledException(_)) }
+            pub fn is_internal_error_exception(&self) -> bool { matches!(self, Self::InternalErrorException(_)) }
+            pub fn is_invalid_batch_entry_id_exception(&self) -> bool { matches!(self, Self::InvalidBatchEntryIdException(_)) }
+            pub fn is_invalid_parameter_exception(&self) -> bool { matches!(self, Self::InvalidParameterException(_)) }
+            pub fn is_invalid_parameter_value_exception(&self) -> bool { matches!(self, Self::InvalidParameterValueException(_)) }
+            pub fn is_invalid_security_exception(&self) -> bool { matches!(self, Self::InvalidSecurityException(_)) }
+            pub fn is_kms_access_denied_exception(&self) -> bool { matches!(self, Self::KmsAccessDeniedException(_)) }
+            pub fn is_kms_disabled_exception(&self) -> bool { matches!(self, Self::KmsDisabledException(_)) }
+            pub fn is_kms_invalid_state_exception(&self) -> bool { matches!(self, Self::KmsInvalidStateException(_)) }
+            pub fn is_kms_not_found_exception(&self) -> bool { matches!(self, Self::KmsNotFoundException(_)) }
+            pub fn is_kms_opt_in_required(&self) -> bool { matches!(self, Self::KmsOptInRequired(_)) }
+            pub fn is_kms_throttling_exception(&self) -> bool { matches!(self, Self::KmsThrottlingException(_)) }
+            pub fn is_not_found_exception(&self) -> bool { matches!(self, Self::NotFoundException(_)) }
+            pub fn is_platform_application_disabled_exception(&self) -> bool { matches!(self, Self::PlatformApplicationDisabledException(_)) }
+            pub fn is_too_many_entries_in_batch_request_exception(&self) -> bool { matches!(self, Self::TooManyEntriesInBatchRequestException(_)) }
+            pub fn is_validation_exception(&self) -> bool { matches!(self, Self::ValidationException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -127,15 +149,21 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn publish_batch_request_entries(mut self, value: impl ::std::convert::Into<super::super::super::types::PublishBatchRequestEntryList>) -> Self { self.input.publish_batch_request_entries = Some(value.into()); self }
                      pub fn topic_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicArn>) -> Self { self.input.topic_arn = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

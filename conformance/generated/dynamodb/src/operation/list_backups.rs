@@ -29,6 +29,10 @@
         #[derive(Clone, Debug)]
         pub struct InvalidEndpointException { pub meta: super::super::ErrorMetadata }
         impl InvalidEndpointException { pub fn meta(&self) -> &super::super::ErrorMetadata { &self.meta } }
+        impl Error {
+            pub fn is_internal_server_error(&self) -> bool { matches!(self, Self::InternalServerError(_)) }
+            pub fn is_invalid_endpoint_exception(&self) -> bool { matches!(self, Self::InvalidEndpointException(_)) }
+        }
         impl ::std::fmt::Display for Error {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
 match self {
@@ -41,9 +45,15 @@ Self::Unhandled(message) => f.write_str(message),
 impl ::std::error::Error for Error {}
 pub mod builders {
 #[derive(Clone, Debug, Default)]
-pub struct Builder { input: super::Input }
+pub struct Builder {
+input: super::Input,
+client: super::super::super::Client,
+}
 impl Builder {
 pub fn new() -> Self { Self::default() }
+pub fn with_client(client: super::super::super::Client) -> Self {
+Self { input: super::Input::default(), client }
+}
                      pub fn backup_type(mut self, value: impl ::std::convert::Into<super::super::super::types::BackupTypeFilter>) -> Self { self.input.backup_type = Some(value.into()); self }
                      pub fn exclusive_start_backup_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::BackupArn>) -> Self { self.input.exclusive_start_backup_arn = Some(value.into()); self }
                      pub fn limit(mut self, value: impl ::std::convert::Into<super::super::super::types::BackupsInputLimit>) -> Self { self.input.limit = Some(value.into()); self }
@@ -51,9 +61,9 @@ pub fn new() -> Self { Self::default() }
                      pub fn time_range_lower_bound(mut self, value: impl ::std::convert::Into<super::super::super::types::TimeRangeLowerBound>) -> Self { self.input.time_range_lower_bound = Some(value.into()); self }
                      pub fn time_range_upper_bound(mut self, value: impl ::std::convert::Into<super::super::super::types::TimeRangeUpperBound>) -> Self { self.input.time_range_upper_bound = Some(value.into()); self }
                      pub fn build(self) -> super::Input { self.input }
-pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
+                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {
 Err(super::Error::Unhandled("operation execution is not linked to a runtime".to_owned()))
 }
-}
+                 }
 }
 pub use builders::Builder;

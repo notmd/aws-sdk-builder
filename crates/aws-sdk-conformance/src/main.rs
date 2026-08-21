@@ -1,6 +1,14 @@
-use std::{env, path::PathBuf, process::ExitCode};
+use std::{
+    collections::BTreeSet,
+    env, fs,
+    path::{Path, PathBuf},
+    process::ExitCode,
+};
 
-use aws_sdk_conformance::{compare_directories, write_reports};
+#[allow(dead_code)]
+mod report;
+
+use report::{compare_directories, write_reports};
 
 fn main() -> ExitCode {
     match run() {
@@ -32,6 +40,13 @@ fn run() -> Result<bool, Box<dyn std::error::Error>> {
     let generated = required_path(&arguments, "--generated")?;
     let output = required_path(&arguments, "--output")?;
     let snapshot = optional_string(&arguments, "--snapshot")?;
+    let services = service_names(&reference)?;
+    let operation_count = aws_sdk_build::generate_all(&generated, &services)?;
+    eprintln!(
+        "generated {} all-operation service snapshot(s), {} operation(s)",
+        services.len(),
+        operation_count
+    );
     let report = compare_directories(reference, generated, snapshot)?;
     write_reports(output, &report)?;
     eprintln!(
@@ -41,6 +56,33 @@ fn run() -> Result<bool, Box<dyn std::error::Error>> {
         report.total_files()
     );
     Ok(report.has_differences())
+}
+
+fn service_names(reference: &Path) -> Result<Vec<String>, String> {
+    if !reference.is_dir() {
+        return Err(format!(
+            "reference root is not a directory: {}",
+            reference.display()
+        ));
+    }
+    let mut services = BTreeSet::new();
+    for entry in fs::read_dir(reference).map_err(|error| error.to_string())? {
+        let entry = entry.map_err(|error| error.to_string())?;
+        if entry
+            .file_type()
+            .map_err(|error| error.to_string())?
+            .is_dir()
+        {
+            services.insert(entry.file_name().to_string_lossy().into_owned());
+        }
+    }
+    if services.is_empty() {
+        return Err(format!(
+            "reference root has no service directories: {}",
+            reference.display()
+        ));
+    }
+    Ok(services.into_iter().collect())
 }
 
 fn required_path(arguments: &[std::ffi::OsString], flag: &str) -> Result<PathBuf, String> {
@@ -70,5 +112,5 @@ fn print_usage() {
 }
 
 fn usage() -> &'static str {
-    "Usage: aws-sdk-conformance --reference DIR --generated DIR --output FILE [--snapshot SHA]\n\nCompares immediate service directories and writes a summary report plus one deterministic diffy Markdown report per service.\nExit status: 0 means equal, 1 means differences were reported, 2 means the runner failed."
+    "Usage: aws-sdk-conformance --reference DIR --generated DIR --output FILE [--snapshot SHA]\n\nGenerates all packaged operations for each reference service into DIR, then compares the source directories and writes a summary report plus one deterministic diffy Markdown report per service.\nExit status: 0 means equal, 1 means differences were reported, 2 means the runner failed."
 }
