@@ -50,8 +50,7 @@ impl Model {
             })?;
         let declared_operations = declared_operations
             .iter()
-            .filter_map(Value::as_str)
-            .map(ToOwned::to_owned)
+            .filter_map(operation_reference)
             .collect::<Vec<_>>();
 
         let selected_ids = match operations {
@@ -87,7 +86,11 @@ impl Model {
                     .map(|mut shape| {
                         if shape_id == service_id {
                             shape["operations"] = Value::Array(
-                                selected_ids.iter().cloned().map(Value::String).collect(),
+                                selected_ids
+                                    .iter()
+                                    .cloned()
+                                    .map(operation_reference_value)
+                                    .collect(),
                             );
                         }
                         shape
@@ -103,6 +106,21 @@ impl Model {
             operations: selected_names,
         })
     }
+}
+
+fn operation_reference(value: &Value) -> Option<String> {
+    value.as_str().map(ToOwned::to_owned).or_else(|| {
+        value
+            .get("target")
+            .and_then(Value::as_str)
+            .map(ToOwned::to_owned)
+    })
+}
+
+fn operation_reference_value(operation_id: String) -> Value {
+    let mut object = Map::new();
+    object.insert("target".to_owned(), Value::String(operation_id));
+    Value::Object(object)
 }
 
 impl Selection {

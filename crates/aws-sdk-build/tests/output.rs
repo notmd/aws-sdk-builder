@@ -7,7 +7,11 @@ use tempfile::tempdir;
 fn generated_projection(root: &Path) {
     let source = root.join("output/aws-sdk/src");
     fs::create_dir_all(&source).unwrap();
-    fs::write(source.join("lib.rs"), "pub mod client;\n").unwrap();
+    fs::write(
+        source.join("lib.rs"),
+        "#![allow(deprecated)]\n//! generated docs\npub mod client;\n",
+    )
+    .unwrap();
     fs::write(source.join("client.rs"), "pub struct Client;\n").unwrap();
     fs::write(
         root.join("output/aws-sdk/Cargo.toml"),
@@ -42,6 +46,10 @@ fn install_writes_include_root_manifest_and_rust_sources() {
     assert_eq!(
         fs::read_to_string(output.path().join("generated/src/client.rs")).unwrap(),
         "pub struct Client;\n"
+    );
+    assert_eq!(
+        fs::read_to_string(output.path().join("generated/src/lib.rs")).unwrap(),
+        "pub mod client;\n"
     );
 
     let manifest: Value = serde_json::from_slice(

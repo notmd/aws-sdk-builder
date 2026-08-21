@@ -104,7 +104,7 @@ impl Builder {
 }
 ```
 
-Set the default codegen coordinate to `software.amazon.smithy.rust:codegen-aws-sdk:0.1.25`; allow the method above to override it. Implement typed validation errors with `thiserror` and keep `validate` `pub(crate)` so unit tests exercise the same path as `compile`.
+Set the default codegen coordinate to `software.amazon.smithy.rust:codegen-aws-sdk:0.1.24`; allow the method above to override it. Implement typed validation errors with `thiserror` and keep `validate` `pub(crate)` so unit tests exercise the same path as `compile`.
 
 - [ ] **Step 4: Run the focused test and verify it passes**
 
@@ -228,7 +228,8 @@ Write the pruned model as `model.json` under a temporary workspace. Generate a c
   "imports": ["model.json"],
   "maven": {
     "dependencies": [
-      "software.amazon.smithy.rust:codegen-aws-sdk:0.1.25"
+      "software.amazon.smithy.rust:codegen-aws-sdk:0.1.24",
+      "org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.0"
     ]
   },
   "projections": {
@@ -239,9 +240,9 @@ Write the pruned model as `model.json` under a temporary workspace. Generate a c
           "module": "generated_sdk",
           "moduleVersion": "0.1.0",
           "moduleAuthors": ["aws-sdk-build"],
-          "codegen": { "includeFluentClient": true },
+          "codegen": { "includeFluentClient": false },
           "customizationConfig": {
-            "awsSdk": { "awsSdkBuild": false, "suppressReadme": true }
+            "awsSdk": { "awsSdkBuild": false, "integrationTestPath": ".", "suppressReadme": true }
           }
         }
       }
@@ -343,7 +344,7 @@ Expected: failure identifying the absent example build script or include target.
 
 - [ ] **Step 3: Create the Smithy fixture and consumer**
 
-Use an AWS-like Smithy JSON model containing an HTTP protocol trait, an endpoint trait, `GetThing`, `PutThing`, shared error, and disjoint payload shapes. The build script selects only `GetThing`. The consumer's normal dependencies use the smithy-rs checkout's current runtime version policy: every crate listed in `buildSrc/src/main/kotlin/CrateSet.kt` under `StableCrates` is pinned to `1.1.7`, and every other AWS/Smithy runtime crate emitted by the generator is pinned to `0.60.6`. Keep the example's crate feature set minimal.
+Use an AWS-like Smithy JSON model containing an HTTP protocol trait, an endpoint trait, `GetThing`, `PutThing`, shared error, and disjoint payload shapes. The build script selects only `GetThing`. The consumer's normal dependencies use the runtime versions embedded in the pinned `codegen-aws-sdk:0.1.24` artifact. Keep the example's crate feature set minimal. Also copy the official AWS SDK model corpus into `aws-models/` and verify that the S3 model can be pruned to `GetObject`.
 
 - [ ] **Step 4: Implement the integration check script**
 

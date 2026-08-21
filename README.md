@@ -31,5 +31,6 @@ include!(concat!(env!("OUT_DIR"), "/aws_sdk.rs"));
 
 The model input is a local Smithy JSON AST file or directory. The build first prunes the model to the selected operation closure and then invokes the Smithy CLI with the smithy-rs AWS Rust codegen plugin. Install the Smithy CLI and make it available as `smithy`, set `SMITHY_CLI`, or pass an explicit path with `.smithy(...)`.
 
-The generator uses smithy-rs codegen coordinate `software.amazon.smithy.rust:codegen-aws-sdk:0.1.25` by default. Use `.rust_client_codegen(...)` to pin another Maven coordinate. Runtime crates are normal consumer dependencies; the build dependency is not part of the generated runtime.
+The repository also includes the AWS SDK model corpus copied from [`awslabs/aws-sdk-rust/aws-models`](https://github.com/awslabs/aws-sdk-rust/tree/main/aws-models). For example, S3 can be selected with `.model("aws-models/s3.json")` and `.service("com.amazonaws.s3#AmazonS3")`.
 
+The generator uses smithy-rs codegen coordinate `software.amazon.smithy.rust:codegen-aws-sdk:0.1.24` by default. Use `.rust_client_codegen(...)` to pin another Maven coordinate. Runtime crates are normal consumer dependencies; the build dependency is not part of the generated runtime.

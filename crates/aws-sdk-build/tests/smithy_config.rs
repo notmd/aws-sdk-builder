@@ -8,7 +8,7 @@ fn smithy_config_contains_aws_rust_codegen_projection() {
         Path::new("model.json"),
         "example#WeatherService",
         Path::new("output"),
-        "software.amazon.smithy.rust:codegen-aws-sdk:0.1.25",
+        "software.amazon.smithy.rust:codegen-aws-sdk:0.1.24",
     )
     .to_json();
 
@@ -17,13 +17,17 @@ fn smithy_config_contains_aws_rust_codegen_projection() {
     assert_eq!(config["imports"][0], "model.json");
     assert_eq!(
         config["maven"]["dependencies"][0],
-        "software.amazon.smithy.rust:codegen-aws-sdk:0.1.25"
+        "software.amazon.smithy.rust:codegen-aws-sdk:0.1.24"
+    );
+    assert_eq!(
+        config["maven"]["dependencies"][1],
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.0"
     );
 
     let plugin = &config["projections"]["aws-sdk"]["plugins"]["rust-client-codegen"];
     assert_eq!(plugin["service"], "example#WeatherService");
     assert_eq!(plugin["module"], "weather_service_sdk");
-    assert_eq!(plugin["codegen"]["includeFluentClient"], true);
+    assert_eq!(plugin["codegen"]["includeFluentClient"], false);
     assert_eq!(
         plugin["customizationConfig"]["awsSdk"]["awsSdkBuild"],
         false
@@ -31,5 +35,9 @@ fn smithy_config_contains_aws_rust_codegen_projection() {
     assert_eq!(
         plugin["customizationConfig"]["awsSdk"]["suppressReadme"],
         true
+    );
+    assert_eq!(
+        plugin["customizationConfig"]["awsSdk"]["integrationTestPath"],
+        "."
     );
 }

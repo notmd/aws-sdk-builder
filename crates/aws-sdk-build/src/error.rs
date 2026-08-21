@@ -14,8 +14,6 @@ pub enum BuildError {
     EmptyOperations,
     #[error("no output directory was configured")]
     MissingOutputDirectory,
-    #[error("code generation is not available yet")]
-    GenerationUnavailable,
     #[error("failed to read Smithy model {path}: {source}")]
     ModelRead {
         path: PathBuf,

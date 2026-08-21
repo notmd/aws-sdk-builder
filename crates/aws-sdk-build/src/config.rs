@@ -6,7 +6,7 @@ use crate::{
 };
 
 pub(crate) const DEFAULT_RUST_CLIENT_CODEGEN: &str =
-    "software.amazon.smithy.rust:codegen-aws-sdk:0.1.25";
+    "software.amazon.smithy.rust:codegen-aws-sdk:0.1.24";
 
 #[derive(Debug, Clone)]
 pub struct Builder {

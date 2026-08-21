@@ -135,3 +135,39 @@ fn directory_input_rejects_duplicate_shape_ids() {
         matches!(error, BuildError::DuplicateShape { shape, .. } if shape == "example#Duplicate")
     );
 }
+
+#[test]
+fn aws_json_ast_object_operation_references_are_supported() {
+    let path = fixture("object-operation-model.json");
+    let model = load(&path).unwrap();
+    let selection = model
+        .select("example#Service", Some(&["GetThing".into()]))
+        .unwrap();
+
+    assert_eq!(selection.operations(), &["GetThing"]);
+    assert_eq!(
+        selection.document()["shapes"]["example#Service"]["operations"][0]["target"],
+        "example#GetThing"
+    );
+    assert!(selection.document()["shapes"]
+        .get("example#DeleteThing")
+        .is_none());
+}
+
+#[test]
+fn aws_sdk_rust_s3_model_can_be_pruned_to_one_operation() {
+    let model_path = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../aws-models/s3.json");
+    let model = load(&model_path).expect("copied AWS SDK model should load");
+
+    let selection = model
+        .select("com.amazonaws.s3#AmazonS3", Some(&["GetObject".to_owned()]))
+        .expect("S3 model should contain GetObject");
+
+    assert_eq!(selection.operations(), &["GetObject"]);
+    assert!(selection.document()["shapes"]
+        .get("com.amazonaws.s3#GetObject")
+        .is_some());
+    assert!(selection.document()["shapes"]
+        .get("com.amazonaws.s3#PutObject")
+        .is_none());
+}

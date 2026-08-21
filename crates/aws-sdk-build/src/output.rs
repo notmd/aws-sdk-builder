@@ -31,6 +31,7 @@ pub fn install(
         })?;
     let staged_generated = stage.path().join("generated");
     copy_directory(&projection.join("src"), &staged_generated.join("src"))?;
+    sanitize_generated_lib(&staged_generated.join("src/lib.rs"))?;
 
     let files = rust_files(&staged_generated)?;
     let manifest = json!({
@@ -176,6 +177,22 @@ fn copy_directory(source: &Path, destination: &Path) -> Result<(), BuildError> {
         }
     }
     Ok(())
+}
+
+fn sanitize_generated_lib(path: &Path) -> Result<(), BuildError> {
+    let source = fs::read_to_string(path).map_err(|source| BuildError::OutputRead {
+        path: path.to_path_buf(),
+        source,
+    })?;
+    let sanitized = source
+        .lines()
+        .filter(|line| {
+            let trimmed = line.trim_start();
+            !trimmed.starts_with("#![") && !trimmed.starts_with("//!")
+        })
+        .collect::<Vec<_>>()
+        .join("\n");
+    write_file(path, &format!("{sanitized}\n"))
 }
 
 fn rust_files(root: &Path) -> Result<Vec<String>, BuildError> {

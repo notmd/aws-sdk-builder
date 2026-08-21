@@ -1,0 +1,98 @@
+{
+  "smithy": "1.0",
+  "metadata": {
+    "serviceFullName": "Example Service"
+  },
+  "shapes": {
+    "com.example#Example": {
+      "type": "service",
+      "version": "2026-01-01",
+      "operations": [
+        {"target": "com.example#GetThing"},
+        {"target": "com.example#PutThing"}
+      ],
+      "traits": {
+        "aws.api#service": {
+          "sdkId": "Example",
+          "arnNamespace": "example",
+          "cloudFormationName": "Example",
+          "cloudTrailEventSource": "example.amazonaws.com",
+          "endpointPrefix": "example"
+        },
+        "aws.auth#sigv4": {"name": "example"},
+        "aws.protocols#restJson1": {},
+        "smithy.api#title": "Example"
+      }
+    },
+    "com.example#GetThing": {
+      "type": "operation",
+      "input": {"target": "com.example#GetThingInput"},
+      "output": {"target": "com.example#GetThingOutput"},
+      "errors": [{"target": "com.example#ExampleError"}],
+      "traits": {
+        "smithy.api#readonly": {},
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/things/{id}",
+          "code": 200
+        }
+      }
+    },
+    "com.example#GetThingInput": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {},
+            "smithy.api#httpLabel": {}
+          }
+        }
+      }
+    },
+    "com.example#GetThingOutput": {
+      "type": "structure",
+      "members": {
+        "value": {"target": "smithy.api#String"}
+      }
+    },
+    "com.example#ExampleError": {
+      "type": "structure",
+      "members": {
+        "message": {"target": "smithy.api#String"}
+      },
+      "traits": {
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.example#PutThing": {
+      "type": "operation",
+      "input": {"target": "com.example#PutThingInput"},
+      "output": {"target": "com.example#PutThingOutput"},
+      "traits": {
+        "smithy.api#http": {
+          "method": "PUT",
+          "uri": "/things/{id}",
+          "code": 200
+        }
+      }
+    },
+    "com.example#PutThingInput": {
+      "type": "structure",
+      "members": {
+        "id": {"target": "smithy.api#String"},
+        "secret": {"target": "com.example#UnselectedShape"}
+      }
+    },
+    "com.example#PutThingOutput": {
+      "type": "structure",
+      "members": {
+        "written": {"target": "smithy.api#Boolean"}
+      }
+    },
+    "com.example#UnselectedShape": {"type": "string"},
+    "smithy.api#String": {"type": "string"},
+    "smithy.api#Boolean": {"type": "boolean"}
+  }
+}
