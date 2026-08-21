@@ -1,15 +1,166 @@
-# Prompt: Rust-native modular AWS SDK generation
+# Prompt: Rust-native modular AWS SDK generation and exact parity
 
 This file is the source of truth for the AWS SDK build/codegen rewrite. Follow it as a
-complete project specification. Keep the implementation plan and the status/audit log
-up to date as work proceeds. Do not treat the existing Smithy-CLI design as current; it
-is historical context and must be replaced by this document.
+complete project specification and durable runbook. Keep the implementation plan and
+the status/audit log up to date as work proceeds. Do not treat the existing Smithy-CLI
+design as current; it is historical context and must be replaced by this document.
+
+The project is incomplete until the generated crates match the pinned crates under
+`conformance/reference` exactly, subject only to the explicitly documented consumer
+namespace/header normalization. A compiling approximation, a working S3 subset, or a
+low-difference report is useful intermediate evidence but is not completion.
+
+## Current state (2026-08-21)
+
+The Rust-only implementation is operational but far from exact AWS SDK parity:
+
+- `aws-sdk-build` exposes `configure().add(...).compile()` and the
+  `include_sdk!()` facade. It packages 38 Smithy JSON service models and supports
+  selected-operation and all-operation generation.
+- The generator emits deterministic Rust source, manifests, service/client/config,
+  operation/builders/errors, model shapes, an initial local HTTP runtime, and atomic
+  output installation. The generator version is
+  `aws-sdk-build-rust-native-0.2.0`.
+- The checked-in consumer fixture exercises the seven core S3 operations
+  `CreateBucket`, `PutObject`, `HeadObject`, `GetObject`, `ListObjectsV2`,
+  `DeleteObject`, and `DeleteBucket` against a deterministic in-process HTTP server.
+- All eight checked-in P0 conformance services are regenerated from the packaged JSON
+  models: DynamoDB, IAM, KMS, Lambda, S3, SNS, SQS, and STS.
+- The latest conformance report compares 8,780 files: 16 exact matches, 1,800
+  mismatches, 4,645 missing files, and 2,319 extra files (0.30% arithmetic-average
+  match). `just conformance` therefore exits 1 by design until parity is achieved.
+- `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  formatting, and the local generated S3 runtime test pass. These checks prove build
+  health, not AWS SDK compatibility.
+- Full Smithy protocol behavior is still missing or incomplete, including exact
+  serializers/deserializers, endpoint rules, SigV4 auth, retries, checksums,
+  pagination, presigning, event streams, and complete streaming/error semantics.
+
+The status/audit log is [`docs/aws-sdk-build-status.md`](docs/aws-sdk-build-status.md).
+Update it whenever a milestone, conformance metric, limitation, or verification result
+changes. Never report the project as complete while the conformance report is
+non-zero.
+
+## Long-running goal mode and resumable execution
+
+This task is deliberately multi-step. Use a durable goal with a measurable outcome,
+explicit constraints, and verification criteria. In Codex CLI or the IDE extension,
+start the work by entering `/goal` followed by the trigger prompt below. Keep related
+work in the same session so the agent can resume from the existing repository state;
+pause the goal before losing connectivity and resume it in the same session afterward.
+For hosted ChatGPT work, keep the goal and source files in one project/chat. Use a
+separate session only for genuinely independent work that will not write to the same
+files.
+
+Paste this to start or resume the project:
+
+```text
+/goal
+Continue the Rust-native AWS SDK codegen parity project in this repository.
+
+Outcome: make every generated service crate match the pinned AWS SDK Rust crates in
+conformance/reference exactly, with only the documented consumer namespace and
+generator-header normalization allowed. The current report is intentionally non-zero;
+continue from the current files, status log, generated snapshots, and latest report.
+
+Constraints:
+- Keep codegen generic and driven by the packaged Smithy JSON model data. Do not add
+  service-by-service or operation-name hardcoded branches to the generic generator.
+- Use the pinned AWS SDK Rust source and
+  https://github.com/smithy-lang/smithy-rs/tree/f1b64a9c0dd001d4bac4277fec4041da59c1f48d/aws/codegen-aws-sdk
+  as behavioral/reference implementations; port behavior to Rust rather than invoking
+  Java, Kotlin, Smithy CLI, Gradle, Maven, or a network generator.
+- Work in small checkpoints. At the start of each checkpoint read Prompt.md,
+  docs/aws-sdk-build-status.md, git status, and the latest conformance summary.
+- After every codegen-affecting change, regenerate the all-operation snapshots and run
+  the conformance comparison. Verify that the exact-match count increases and the
+  mismatch/missing/extra diff decreases; if it does not, diagnose the regression and
+  repair or revert the checkpoint before continuing.
+- After each checkpoint run the relevant focused tests, then cargo fmt, cargo test
+  --workspace, cargo clippy --workspace --all-targets -- -D warnings, and git diff --check.
+- Persist a concise checkpoint in docs/aws-sdk-build-status.md: what changed, files,
+  commands, conformance counts, remaining blocker, and the exact next step. Do not
+  claim completion merely because a command compiles or a session is ending.
+- Continue autonomously through safe local edits, generation, tests, and report review.
+  Ask before destructive actions, external writes, credentials, or scope expansion.
+
+Completion: the conformance command exits 0, every reference file is matched, every
+generated file is justified by the exact reference tree or documented namespace
+wrapper, all Rust-only consumer/build tests pass, and the status log contains current
+reproducible evidence. If context is compacted or the session resumes, re-read the
+checkpoint and continue from the recorded next step instead of restarting.
+```
+
+At every interruption or context compaction, leave a checkpoint before stopping:
+
+1. Record the current milestone, changed files, commands run, exact conformance
+   counts, and next smallest step in `docs/aws-sdk-build-status.md`.
+2. Leave generated snapshots and reports in their deterministic checked-in locations;
+   do not summarize away failed comparisons.
+3. On resume, inspect the checkpoint, `git diff`, the latest report, and the current
+   generated/reference file pair before making a new change.
+
+This workflow follows the current OpenAI guidance for long-running work: define the
+outcome, constraints, and verification; keep related work together; and use `/goal`
+to pause, resume, and steer a durable task. See the [long-running work guide](https://learn.chatgpt.com/docs/long-running-work).
+
+## Agent memory model
+
+Do not treat the model’s conversational memory or an internal context summary as the
+project record. It is working memory and may be shortened or compacted during a long
+run. The durable project memory is the repository:
+
+- `Prompt.md` is the immutable specification, constraints, trigger prompt, and
+  completion definition.
+- `docs/aws-sdk-build-status.md` is the current checkpoint: milestone, completed
+  work, evidence, conformance counts, blockers, and exactly one next action.
+- `conformance/manifest.json`, `conformance/summary.md`, and
+  `conformance/summary/` are the reproducible parity evidence.
+- Git history and the working-tree diff preserve implementation history; never use an
+  unrecorded chat statement as the only explanation for a change.
+
+At the beginning of every session, after compaction, and after `/goal` resume, read
+those files plus `git status`, the latest report, and the relevant reference/generated
+file pair. Reconstruct the plan from the files before editing. Before pausing, write a
+checkpoint in this format:
+
+```markdown
+### Checkpoint: YYYY-MM-DD — Mx
+- State: in progress / blocked / complete
+- Changed: files and reusable rule implemented
+- Evidence: commands and pass/fail results
+- Conformance: before -> after counts for matched, mismatched, missing, extra
+- Blocker: exact unresolved issue, or `none`
+- Next action: one smallest concrete step
+```
+
+Keep the checkpoint concise and current; replace stale next actions instead of
+appending a diary. Never put credentials, tokens, or private user data in the prompt,
+status file, generated reports, or commit messages. If conversation memory conflicts
+with the repository checkpoint, trust the repository and verify it with the code.
 
 ## Goal
 
 Build a Rust-only `aws-sdk-build` build dependency that lets a consumer select AWS
-services and operations, then include a generated module with the same public API and
-generated source semantics as the AWS SDK for Rust.
+services and operations, then include generated modules that match the pinned AWS SDK
+Rust crates in `conformance/reference` exactly: public API, source tree, generated
+semantics, protocol behavior, runtime behavior, visibility, documentation, and
+formatting, apart from the explicitly permitted consumer namespace/header rewrite.
+
+The generator must be generic. Its input is the packaged Smithy JSON model plus generic
+Smithy/AWS traits and protocol metadata; its output is the corresponding Rust SDK
+crate. Do not encode one-off behavior with `if service == "s3"`, operation-name
+switches, or hand-maintained lists of fields/types. Service-specific behavior must be
+represented by model data, protocol traits, or a small declarative customization layer
+whose inputs are also derived from the JSON model. A temporary compatibility exception
+must be recorded as an explicit failing gap in the status log and must not become the
+architecture.
+
+Use the pinned [AWS SDK Rust repository](https://github.com/awslabs/aws-sdk-rust/tree/3c6d526c9d4775f41a8ef1ed2ef574d1b14481db)
+and the pinned [Smithy Rust `aws/codegen-aws-sdk` implementation](https://github.com/smithy-lang/smithy-rs/tree/f1b64a9c0dd001d4bac4277fec4041da59c1f48d/aws/codegen-aws-sdk)
+as reference implementations. Port their behavior to reusable Rust code; do not
+invoke their JVM build, use a Smithy executable, or copy service-specific output by
+hand.
 
 The consumer-facing workflow must be:
 
@@ -176,6 +327,25 @@ Port the behavior of the pinned
 [`aws/codegen-aws-sdk`](https://github.com/smithy-lang/smithy-rs/tree/f1b64a9c0dd001d4bac4277fec4041da59c1f48d/aws/codegen-aws-sdk)
 implementation to Rust. The Kotlin source is a behavioral reference, not a runtime
 dependency and not a reason to retain a JVM build step.
+
+### Generic model-driven rule
+
+Every generated service and operation must be produced by the same generic pipeline
+from its JSON model. The pipeline must discover operation names, input/output/error
+shapes, required members, HTTP method/URI/query/header/payload bindings, protocol,
+streaming, auth, endpoint, retry, checksum, pagination, and documentation behavior
+from model data and Smithy traits. It must not contain service-specific or
+operation-name-specific branches in the generic renderer. In particular, do not use
+special cases such as `if operation_name == "ListObjectsV2"` or a dedicated S3
+serializer to make one fixture pass. If the AWS reference uses a customization that
+cannot be expressed by the shared Smithy traits, add a typed, declarative AWS
+customization input and tests for it; keep the renderer generic and make the input
+traceable to model metadata.
+
+The reference source is evidence of behavior, not a template to copy selectively. For
+each mismatch, identify the model trait, generic Smithy rule, AWS decorator, runtime
+rule, or formatting rule that explains the reference output, implement that reusable
+rule, regenerate all affected services, and confirm that the aggregate diff shrinks.
 
 The AWS generator depends conceptually on generic Smithy client generation. Port the
 minimum required generic layer in Rust as well; do not call a hidden Java/Kotlin
@@ -356,6 +526,29 @@ not a claim that parity passed. The report header must identify the pinned AWS S
 snapshot, and all snapshots/reports must be regenerated when the generator or pinned
 reference changes. `just conformance` is the short form of the checked-in command.
 
+### Required codegen feedback loop
+
+Every checkpoint that changes model loading, selection, naming, closure, rendering,
+serialization, runtime support, output layout, or generated headers must run codegen
+before the next checkpoint:
+
+```text
+cargo fmt --all
+just conformance
+cargo test --workspace
+cargo clippy --workspace --all-targets -- -D warnings
+git diff --check
+```
+
+`just conformance` is expected to return 1 while differences remain, but its report is
+mandatory evidence and must not be discarded. Compare the new report with the previous
+checkpoint. The exact-match count must rise and the combined mismatch/missing/extra
+count must fall, or the checkpoint must include a concrete explanation and a repair
+before more work proceeds. A codegen change is not complete until both the selected
+consumer fixture and the all-operation `conformance/generated` tree have been
+regenerated. Record the before/after counts and the command result in
+`docs/aws-sdk-build-status.md`.
+
 ### Compile and negative checks
 
 For each conformance case:
@@ -459,28 +652,35 @@ Rust-only consumer compile pass.
 Work in small checkpoints. After each checkpoint, run its validation, repair failures,
 and update the status/audit markdown before moving on.
 
-- [ ] M1 — Replace the public API. Remove `.model`, `.service`, `.operations`,
+- [x] M1 — Replace the public API. Remove `.model`, `.service`, `.operations`,
   `.out_dir`, `.smithy`, and `.rust_client_codegen`; implement repeated `.add()` and
   `compile()` with Cargo environment discovery and typed diagnostics.
-- [ ] M2 — Package the model registry. Add snapshot metadata/checksums, service and
-  operation lookup, all-operation selection, and no consumer model inputs.
-- [ ] M3 — Port the generic Smithy Rust generator. Cover AST names, shapes, operation
-  modules, client/config, builders, and deterministic output on a small fixture.
-- [ ] M4 — Port AWS codegen behavior. Add protocols, runtime wiring, endpoint/auth,
-  retries, streaming, and the service decorators required by P0.
-- [ ] M5 — Add the consumer facade. Generate `aws_sdk.rs`, nested service modules,
-  stable public paths, output manifests, atomic installation, and the clean consumer
-  example.
-- [ ] M6 — Add conformance. Pin references, generate every operation for P0, compare
+- [x] M2 — Package the model registry for the current 38-service tier. Snapshot
+  metadata/checksums, service and operation lookup, all-operation selection, and no
+  consumer model inputs are implemented.
+- [ ] M3 — Port the generic Smithy Rust generator. The current renderer covers a
+  useful subset of AST names, shapes, operation modules, client/config, builders, and
+  deterministic output, but it still requires broad generic expansion and exact
+  parity work.
+- [ ] M4 — Port AWS codegen behavior. Initial local HTTP runtime wiring exists, but
+  protocols, endpoint/auth, retries, streaming, and the service decorators required
+  by P0 are not complete.
+- [ ] M5 — Complete the consumer facade. `aws_sdk.rs`, nested service modules, stable
+  public paths, output manifests, atomic installation, and the consumer example exist;
+  the generated API and runtime are not yet reference-equivalent.
+- [ ] M6 — Complete conformance. References are pinned, every operation for the
+  current P0 set is generated, and deterministic `diffy` Markdown reports are checked
+  in, but source/token parity is still far from complete. Continue to compare
   source and tokens under the namespace-only normalization, and write deterministic
   `diffy` Markdown reports to the checked-in summary
   `conformance/summary.md` plus one report per service. Keep the reference and
   generated source trees in `conformance/`, with a completed progress line and match
   percentage at the top of every service report. Commit each snapshot/report so
   parity changes remain reviewable in git history.
-- [ ] M6a — Add the Floci smoke test. Run the basic S3 operation sequence against the
-  local emulator and record the endpoint, SDK versions, and result without treating it
-  as source-conformance evidence.
+- [ ] M6a — Complete the Floci smoke test. The launcher and Rust example exist, but a
+  current live operation sequence is not completion evidence yet. Run the basic S3
+  operation sequence against the local emulator and record the endpoint, SDK versions,
+  and result without treating it as source-conformance evidence.
 - [ ] M7 — Expand P1–P3. A service advances only after its full operation list passes
   the same parity and Rust-only build gates.
 - [ ] M8 — Remove obsolete CLI code/docs and run the full audit. No stale API or
@@ -502,7 +702,9 @@ the project complete.
 
 ## Source references
 
-- OpenAI, [Run long horizon tasks with Codex](https://developers.openai.com/blog/run-long-horizon-tasks-with-codex): use a durable spec, milestone plan, runbook, continuous verification, and status/audit log.
+- OpenAI, [Long-running work](https://learn.chatgpt.com/docs/long-running-work): use a durable `/goal` with a clear outcome, constraints, verification criteria, and resumable checkpoints in the same session.
+- OpenAI, [Model guidance](https://developers.openai.com/api/docs/guides/latest-model): define autonomy/approval boundaries, name safe local actions, and track context during long sessions.
+- OpenAI, [Compact a response](https://developers.openai.com/api/reference/java/resources/responses/methods/compact): compaction supports long conversations, but compacted state is opaque; preserve critical project state in repository files.
 - [Pinned AWS SDK Rust models and generated SDK](https://github.com/awslabs/aws-sdk-rust/tree/3c6d526c9d4775f41a8ef1ed2ef574d1b14481db).
 - [Pinned Smithy AWS Rust codegen reference](https://github.com/smithy-lang/smithy-rs/tree/f1b64a9c0dd001d4bac4277fec4041da59c1f48d/aws/codegen-aws-sdk).
 - [`diffy` Rust diff library](https://docs.rs/diffy/latest/diffy/), used for deterministic in-memory unified patches.

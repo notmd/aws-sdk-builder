@@ -53,3 +53,25 @@ and generated source trees are checked in under `conformance/`.
 For a local S3 emulator smoke test, start Floci yourself and run
 scripts/check-s3-floci.sh. The launcher never starts or stops the emulator
 and refuses non-loopback endpoints unless ALLOW_NONLOCAL_FLOCI=1 is set.
+
+### Prompt
+
+```
+/goal
+  Continue the Rust-native AWS SDK codegen parity project in this repository.
+
+  Read Prompt.md and docs/aws-sdk-build-status.md first. Continue from the current
+  repository state. Keep codegen generic and driven by packaged Smithy JSON models.
+  Use the pinned AWS SDK Rust and smithy-rs implementations as references.
+
+  After every codegen change:
+  1. Regenerate all-operation snapshots.
+  2. Run conformance and verify the diff shrinks.
+  3. Run tests, clippy, formatting, and git diff --check.
+  4. Record a checkpoint in docs/aws-sdk-build-status.md.
+
+  Do not stop at compilation or partial S3 support. Completion requires exact parity
+  with conformance/reference and a passing conformance command.
+
+  For now target s3 sdk only
+```
