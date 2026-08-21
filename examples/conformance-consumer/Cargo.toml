@@ -1,0 +1,10 @@
+[package]
+name = "conformance-consumer"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[workspace]
+
+[build-dependencies]
+aws-sdk-build = { path = "../../crates/aws-sdk-build" }

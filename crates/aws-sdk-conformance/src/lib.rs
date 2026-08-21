@@ -30,6 +30,20 @@ impl ServiceReport {
             || !self.token_mismatches.is_empty()
             || !self.read_errors.is_empty()
     }
+
+    /// Render the complete deterministic Markdown report for this service.
+    pub fn to_markdown(&self, snapshot: Option<&str>) -> String {
+        let mut markdown = String::from("# AWS SDK Conformance Report: ");
+        markdown.push_str(&self.name);
+        markdown.push_str("\n\n");
+        if let Some(snapshot) = snapshot {
+            markdown.push_str("Snapshot: `");
+            markdown.push_str(&escape_inline(snapshot));
+            markdown.push_str("`\n\n");
+        }
+        append_service_details(&mut markdown, self);
+        markdown
+    }
 }
 
 /// A changed text file and its unified `diffy` patch.
@@ -107,9 +121,9 @@ impl ConformanceReport {
             .sum()
     }
 
-    /// Render a deterministic Markdown document. The progress line is deliberately
-    /// the first content line after each service heading.
-    pub fn to_markdown(&self) -> String {
+    /// Render a summary document with links to the complete per-service reports.
+    pub fn to_summary_markdown(&self, service_directory: impl AsRef<Path>) -> String {
+        let service_directory = service_directory.as_ref();
         let mut markdown = String::from("# AWS SDK Conformance Report\n\n");
         if let Some(snapshot) = &self.snapshot {
             markdown.push_str("Snapshot: `");
@@ -124,52 +138,37 @@ impl ConformanceReport {
             markdown.push_str("## ");
             markdown.push_str(&service.name);
             markdown.push('\n');
-            markdown.push_str("**Progress:** `");
-            markdown.push_str(&service.compared_files.to_string());
-            markdown.push('/');
-            markdown.push_str(&service.total_files.to_string());
-            markdown.push_str("` files compared · `");
-            markdown.push_str(&service.matched_files.to_string());
-            markdown.push_str("` matched · `");
-            markdown.push_str(&service.mismatched_files.to_string());
-            markdown.push_str("` mismatches · `");
-            markdown.push_str(&service.missing_files.len().to_string());
-            markdown.push_str("` missing · `");
-            markdown.push_str(&service.extra_files.len().to_string());
-            markdown.push_str("` extra\n\n");
+            append_progress(&mut markdown, service);
+            markdown.push_str("Detailed report: [");
+            markdown.push_str(&escape_inline(&service.name));
+            markdown.push_str("](");
+            markdown.push_str(
+                &service_directory
+                    .join(format!("{}.md", service.name))
+                    .display()
+                    .to_string(),
+            );
+            markdown.push_str(")\n\n");
+        }
 
-            for difference in &service.differences {
-                markdown.push_str("### `");
-                markdown.push_str(&escape_inline(&difference.path));
-                markdown.push_str("`\n\n```diff\n");
-                markdown.push_str(&difference.patch);
-                if !difference.patch.ends_with('\n') {
-                    markdown.push('\n');
-                }
-                markdown.push_str("```\n\n");
-            }
+        markdown
+    }
 
-            append_diagnostics(
-                &mut markdown,
-                "Missing reference files",
-                &service.missing_files,
-            );
-            append_diagnostics(
-                &mut markdown,
-                "Unexpected generated files",
-                &service.extra_files,
-            );
-            append_diagnostics(
-                &mut markdown,
-                "Binary file differences",
-                &service.binary_mismatches,
-            );
-            append_diagnostics(
-                &mut markdown,
-                "Rust token differences",
-                &service.token_mismatches,
-            );
-            append_diagnostics(&mut markdown, "Read errors", &service.read_errors);
+    /// Render a deterministic Markdown document. The progress line is deliberately
+    /// the first content line after each service heading.
+    pub fn to_markdown(&self) -> String {
+        let mut markdown = String::from("# AWS SDK Conformance Report\n\n");
+        if let Some(snapshot) = &self.snapshot {
+            markdown.push_str("Snapshot: `");
+            markdown.push_str(&escape_inline(snapshot));
+            markdown.push_str("`\n\n");
+        }
+        markdown.push_str("**Summary:** ");
+        markdown.push_str(&format_summary(self));
+        markdown.push_str("\n\n");
+
+        for service in &self.services {
+            append_service_details(&mut markdown, service);
         }
 
         markdown
@@ -212,7 +211,62 @@ pub fn write_markdown(
     path: impl AsRef<Path>,
     report: &ConformanceReport,
 ) -> Result<(), ReportError> {
-    let path = path.as_ref();
+    write_text(path.as_ref(), &report.to_markdown())
+}
+
+/// Write the summary report and one complete report per service.
+///
+/// The summary path `reports/aws-sdk-conformance.md` produces service reports at
+/// `reports/aws-sdk-conformance/<service>.md`. Each file is replaced atomically,
+/// and stale Markdown files in that generated directory are removed after all
+/// current service reports have been written.
+pub fn write_reports(
+    summary_path: impl AsRef<Path>,
+    report: &ConformanceReport,
+) -> Result<(), ReportError> {
+    let summary_path = summary_path.as_ref();
+    let parent = summary_path.parent().unwrap_or_else(|| Path::new("."));
+    let service_directory_name = summary_path
+        .file_stem()
+        .and_then(|stem| stem.to_str())
+        .ok_or_else(|| ReportError::InvalidOutputPath(summary_path.to_owned()))?;
+    let service_directory = parent.join(service_directory_name);
+    fs::create_dir_all(&service_directory)
+        .map_err(|source| ReportError::io(&service_directory, source))?;
+
+    let mut current_reports = BTreeSet::new();
+    for service in &report.services {
+        let filename = format!("{}.md", service.name);
+        current_reports.insert(filename.clone());
+        write_text(
+            &service_directory.join(&filename),
+            &service.to_markdown(report.snapshot.as_deref()),
+        )?;
+    }
+
+    let entries = fs::read_dir(&service_directory)
+        .map_err(|source| ReportError::io(&service_directory, source))?;
+    for entry in entries {
+        let entry = entry.map_err(|source| ReportError::io(&service_directory, source))?;
+        let path = entry.path();
+        if entry
+            .file_type()
+            .map_err(|source| ReportError::io(&path, source))?
+            .is_file()
+            && path.extension().and_then(|extension| extension.to_str()) == Some("md")
+            && !current_reports.contains(&entry.file_name().to_string_lossy().into_owned())
+        {
+            fs::remove_file(&path).map_err(|source| ReportError::io(&path, source))?;
+        }
+    }
+
+    write_text(
+        summary_path,
+        &report.to_summary_markdown(Path::new(service_directory_name)),
+    )
+}
+
+fn write_text(path: &Path, contents: &str) -> Result<(), ReportError> {
     let parent = path.parent().unwrap_or_else(|| Path::new("."));
     fs::create_dir_all(parent).map_err(|source| ReportError::io(parent, source))?;
 
@@ -222,8 +276,8 @@ pub fn write_markdown(
             .and_then(|extension| extension.to_str())
             .unwrap_or("report")
     ));
-    fs::write(&temporary, report.to_markdown())
-        .map_err(|source| ReportError::io(&temporary, source))?;
+    let contents = format!("{}\n", contents.trim_end_matches('\n'));
+    fs::write(&temporary, contents).map_err(|source| ReportError::io(&temporary, source))?;
     if let Err(source) = fs::rename(&temporary, path) {
         let _ = fs::remove_file(&temporary);
         return Err(ReportError::io(path, source));
@@ -504,9 +558,58 @@ fn escape_inline(value: &str) -> String {
     value.replace('`', "\\`").replace('\n', " ")
 }
 
+fn append_progress(markdown: &mut String, service: &ServiceReport) {
+    markdown.push_str("**Progress:** `");
+    markdown.push_str(&service.compared_files.to_string());
+    markdown.push('/');
+    markdown.push_str(&service.total_files.to_string());
+    markdown.push_str("` files compared · `");
+    markdown.push_str(&service.matched_files.to_string());
+    markdown.push_str("` matched · `");
+    markdown.push_str(&service.mismatched_files.to_string());
+    markdown.push_str("` mismatches · `");
+    markdown.push_str(&service.missing_files.len().to_string());
+    markdown.push_str("` missing · `");
+    markdown.push_str(&service.extra_files.len().to_string());
+    markdown.push_str("` extra\n\n");
+}
+
+fn append_service_details(markdown: &mut String, service: &ServiceReport) {
+    markdown.push_str("## ");
+    markdown.push_str(&service.name);
+    markdown.push('\n');
+    append_progress(markdown, service);
+
+    for difference in &service.differences {
+        markdown.push_str("### `");
+        markdown.push_str(&escape_inline(&difference.path));
+        markdown.push_str("`\n\n```diff\n");
+        markdown.push_str(&difference.patch);
+        if !difference.patch.ends_with('\n') {
+            markdown.push('\n');
+        }
+        markdown.push_str("```\n\n");
+    }
+
+    append_diagnostics(markdown, "Missing reference files", &service.missing_files);
+    append_diagnostics(markdown, "Unexpected generated files", &service.extra_files);
+    append_diagnostics(
+        markdown,
+        "Binary file differences",
+        &service.binary_mismatches,
+    );
+    append_diagnostics(
+        markdown,
+        "Rust token differences",
+        &service.token_mismatches,
+    );
+    append_diagnostics(markdown, "Read errors", &service.read_errors);
+}
+
 #[derive(Debug)]
 pub enum ReportError {
     InvalidRoot { label: String, path: PathBuf },
+    InvalidOutputPath(PathBuf),
     Io { path: PathBuf, source: io::Error },
 }
 
@@ -529,6 +632,11 @@ impl fmt::Display for ReportError {
                     path.display()
                 )
             }
+            Self::InvalidOutputPath(path) => write!(
+                formatter,
+                "report output path has no valid filename: {}",
+                path.display()
+            ),
             Self::Io { path, source } => write!(formatter, "{}: {source}", path.display()),
         }
     }
@@ -537,7 +645,7 @@ impl fmt::Display for ReportError {
 impl Error for ReportError {
     fn source(&self) -> Option<&(dyn Error + 'static)> {
         match self {
-            Self::InvalidRoot { .. } => None,
+            Self::InvalidRoot { .. } | Self::InvalidOutputPath(_) => None,
             Self::Io { source, .. } => Some(source),
         }
     }
@@ -626,5 +734,34 @@ mod tests {
         assert!(markdown.contains("# AWS SDK Conformance Report"));
         assert!(markdown.contains("--- reference/lib.rs"));
         assert!(markdown.contains("+++ generated/lib.rs"));
+    }
+
+    #[test]
+    fn write_reports_splits_service_details_and_removes_stale_reports() {
+        let reference = tempdir().unwrap();
+        let generated = tempdir().unwrap();
+        fs::create_dir_all(reference.path().join("s3")).unwrap();
+        fs::create_dir_all(generated.path().join("s3")).unwrap();
+        fs::write(reference.path().join("s3/lib.rs"), "old\n").unwrap();
+        fs::write(generated.path().join("s3/lib.rs"), "new\n").unwrap();
+
+        let report =
+            compare_directories(reference.path(), generated.path(), Some("abc".into())).unwrap();
+        let output_root = tempdir().unwrap();
+        let output = output_root.path().join("reports/conformance.md");
+        let service_directory = output_root.path().join("reports/conformance");
+        fs::create_dir_all(&service_directory).unwrap();
+        fs::write(service_directory.join("stale.md"), "stale\n").unwrap();
+
+        write_reports(&output, &report).unwrap();
+
+        let summary = fs::read_to_string(&output).unwrap();
+        let service = fs::read_to_string(service_directory.join("s3.md")).unwrap();
+        assert!(summary.contains("**Summary:**"));
+        assert!(summary.contains("Detailed report: [s3](conformance/s3.md)"));
+        assert!(!summary.contains("```diff"));
+        assert!(service.contains("# AWS SDK Conformance Report: s3"));
+        assert!(service.contains("```diff"));
+        assert!(!service_directory.join("stale.md").exists());
     }
 }

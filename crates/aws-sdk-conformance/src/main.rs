@@ -1,6 +1,6 @@
 use std::{env, path::PathBuf, process::ExitCode};
 
-use aws_sdk_conformance::{compare_directories, write_markdown};
+use aws_sdk_conformance::{compare_directories, write_reports};
 
 fn main() -> ExitCode {
     match run() {
@@ -33,7 +33,7 @@ fn run() -> Result<bool, Box<dyn std::error::Error>> {
     let output = required_path(&arguments, "--output")?;
     let snapshot = optional_string(&arguments, "--snapshot")?;
     let report = compare_directories(reference, generated, snapshot)?;
-    write_markdown(output, &report)?;
+    write_reports(output, &report)?;
     eprintln!(
         "compared {} service(s): {}/{} files matched",
         report.services.len(),
@@ -70,5 +70,5 @@ fn print_usage() {
 }
 
 fn usage() -> &'static str {
-    "Usage: aws-sdk-conformance --reference DIR --generated DIR --output FILE [--snapshot SHA]\n\nCompares immediate service directories and writes a deterministic diffy Markdown report.\nExit status: 0 means equal, 1 means differences were reported, 2 means the runner failed."
+    "Usage: aws-sdk-conformance --reference DIR --generated DIR --output FILE [--snapshot SHA]\n\nCompares immediate service directories and writes a summary report plus one deterministic diffy Markdown report per service.\nExit status: 0 means equal, 1 means differences were reported, 2 means the runner failed."
 }

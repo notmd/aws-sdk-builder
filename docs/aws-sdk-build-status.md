@@ -21,10 +21,11 @@ Updated 2026-08-21. Prompt.md is the project specification.
   manifests, syntax validation, and atomic installation are implemented. The
   clean generated-consumer cargo check passes.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
-  service trees and the deterministic result is checked in at
-  `reports/aws-sdk-conformance.md`. The report is intentionally nonconformant:
-  the current generator has a different source layout and no files matched.
-  The temporary reference checkout used for the run is not vendored.
+  service trees and the deterministic summary plus per-service results are checked in
+  under `reports/aws-sdk-conformance.md` and `reports/aws-sdk-conformance/`. The
+  report is intentionally nonconformant: the current generator has a different source
+  layout and no files matched. Both comparison trees are checked in under
+  `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. A live emulator result
   is not recorded in this audit.
 - M7: not complete; semantic parity gates for the priority queue remain open.

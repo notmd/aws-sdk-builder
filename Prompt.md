@@ -336,18 +336,21 @@ The checked-in runner should expose an invocation equivalent to:
 
 ```text
 cargo run -p aws-sdk-conformance -- \
-  --reference build/conformance/reference \
-  --generated build/conformance/generated \
+  --reference conformance/reference \
+  --generated conformance/generated \
   --output reports/aws-sdk-conformance.md \
   --snapshot <pinned-aws-sdk-rust-sha>
 ```
 
 Every conformance run must save its deterministic Markdown output at
-`reports/aws-sdk-conformance.md` and commit that report to version control for
-reviewable history. The report must retain non-zero differences; a committed report
-is evidence of what was compared, not a claim that parity passed. The report header
-must identify the pinned AWS SDK Rust snapshot, and the report must be regenerated
-when the generator or pinned reference changes.
+`reports/aws-sdk-conformance.md` and commit that summary plus one detailed report per
+service under `reports/aws-sdk-conformance/` to version control for reviewable history.
+The pinned reference and generated source trees must also be checked in under
+`conformance/`, with provenance recorded in `conformance/manifest.json`. The report
+must retain non-zero differences; a committed report is evidence of what was compared,
+not a claim that parity passed. The report header must identify the pinned AWS SDK Rust
+snapshot, and all snapshots/reports must be regenerated when the generator or pinned
+reference changes. `just conformance` is the short form of the checked-in command.
 
 ### Compile and negative checks
 
@@ -466,9 +469,11 @@ and update the status/audit markdown before moving on.
   example.
 - [ ] M6 — Add conformance. Pin references, generate every operation for P0, compare
   source and tokens under the namespace-only normalization, and write deterministic
-  `diffy` Markdown reports to the checked-in `reports/aws-sdk-conformance.md`, with a
-  completed progress line at the top of every service section. Commit each report so
-  parity changes remain reviewable in git history.
+  `diffy` Markdown reports to the checked-in summary
+  `reports/aws-sdk-conformance.md` plus one report per service. Keep the reference and
+  generated source trees in `conformance/`, with a completed progress line at the top
+  of every service report. Commit each snapshot/report so parity changes remain
+  reviewable in git history.
 - [ ] M6a — Add the Floci smoke test. Run the basic S3 operation sequence against the
   local emulator and record the endpoint, SDK versions, and result without treating it
   as source-conformance evidence.

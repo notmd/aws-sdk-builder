@@ -1,0 +1,18 @@
+{
+  "reference_repository": "https://github.com/awslabs/aws-sdk-rust",
+  "reference_commit": "3c6d526c9d4775f41a8ef1ed2ef574d1b14481db",
+  "reference_snapshot_date": "2026-08-21",
+  "reference_root": "conformance/reference",
+  "generated_root": "conformance/generated",
+  "generator": "examples/conformance-consumer",
+  "services": [
+    {"service_key": "dynamodb", "reference_files": 903, "generated_files": 639},
+    {"service_key": "iam", "reference_files": 1631, "generated_files": 992},
+    {"service_key": "kms", "reference_files": 599, "generated_files": 367},
+    {"service_key": "lambda", "reference_files": 1084, "generated_files": 622},
+    {"service_key": "s3", "reference_files": 1344, "generated_files": 938},
+    {"service_key": "sns", "reference_files": 449, "generated_files": 265},
+    {"service_key": "sqs", "reference_files": 299, "generated_files": 168},
+    {"service_key": "sts", "reference_files": 152, "generated_files": 128}
+  ]
+}
