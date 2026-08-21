@@ -194,6 +194,27 @@ fn render_primitives() -> String {
         "#[allow(dead_code, unused_imports, unused_variables)]\n\
          pub mod primitives {\n\
              pub type Blob = ::std::vec::Vec<u8>;\n\
+             #[derive(Clone, Debug, Default, PartialEq, Eq)]\n\
+             pub struct ByteStream(pub(crate) ::std::vec::Vec<u8>);\n\
+             impl ByteStream {\n\
+                 pub fn from_static(value: &'static [u8]) -> Self { Self(value.to_vec()) }\n\
+                 pub fn from(value: impl Into<::std::vec::Vec<u8>>) -> Self { Self(value.into()) }\n\
+                 pub async fn collect(&self) -> ::std::result::Result<AggregatedBytes, ::std::string::String> {\n\
+                     Ok(AggregatedBytes(self.0.clone()))\n\
+                 }\n\
+                 pub fn into_inner(self) -> ::std::vec::Vec<u8> { self.0 }\n\
+             }\n\
+             impl From<::std::vec::Vec<u8>> for ByteStream {\n\
+                 fn from(value: ::std::vec::Vec<u8>) -> Self { Self(value) }\n\
+             }\n\
+             impl From<&'static [u8]> for ByteStream {\n\
+                 fn from(value: &'static [u8]) -> Self { Self::from_static(value) }\n\
+             }\n\
+             #[derive(Clone, Debug, Default, PartialEq, Eq)]\n\
+             pub struct AggregatedBytes(pub(crate) ::std::vec::Vec<u8>);\n\
+             impl AggregatedBytes {\n\
+                 pub fn into_bytes(self) -> ::std::vec::Vec<u8> { self.0 }\n\
+             }\n\
              pub type Document = ::std::string::String;\n\
              pub type DateTime = ::std::time::SystemTime;\n\
          }\n\n",
@@ -310,15 +331,20 @@ fn render_aws_runtime() -> String {
              use ::std::fmt;\n\
              use ::std::io::{Read, Write};\n\
              use ::std::net::TcpStream;\n\
+             use ::std::collections::BTreeMap;\n\
 \n\
              #[derive(Clone, Copy, Debug)]\n\
-             pub(crate) enum Method { Put, Head }\n\
+             pub(crate) enum Method { Get, Put, Post, Delete, Head, Patch }\n\
 \n\
              impl Method {\n\
                  fn as_str(self) -> &'static str {\n\
                      match self {\n\
+                         Self::Get => \"GET\",\n\
                          Self::Put => \"PUT\",\n\
+                         Self::Post => \"POST\",\n\
+                         Self::Delete => \"DELETE\",\n\
                          Self::Head => \"HEAD\",\n\
+                         Self::Patch => \"PATCH\",\n\
                      }\n\
                  }\n\
              }\n\
@@ -340,11 +366,16 @@ fn render_aws_runtime() -> String {
              #[derive(Clone, Debug)]\n\
              pub(crate) struct Response {\n\
                  status: StatusCode,\n\
+                 headers: BTreeMap<String, String>,\n\
                  body: Vec<u8>,\n\
              }\n\
 \n\
              impl Response {\n\
                  pub(crate) fn status(&self) -> StatusCode { self.status }\n\
+                 pub(crate) fn header(&self, name: &str) -> Option<&str> {\n\
+                     self.headers.get(&name.to_ascii_lowercase()).map(String::as_str)\n\
+                 }\n\
+                 pub(crate) fn body(&self) -> &[u8] { &self.body }\n\
                  pub(crate) async fn text(self) -> Result<String, String> {\n\
                      String::from_utf8(self.body).map_err(|error| error.to_string())\n\
                  }\n\
@@ -359,12 +390,23 @@ fn render_aws_runtime() -> String {
                      &self,\n\
                      method: Method,\n\
                      url: &str,\n\
+                     headers: &[(&str, &str)],\n\
+                     body: &[u8],\n\
                  ) -> Result<Response, String> {\n\
                      let (host, port, path) = parse_http_url(url)?;\n\
                      let mut stream = TcpStream::connect((host.as_str(), port))\n\
                          .map_err(|error| format!(\"failed to connect to {host}:{port}: {error}\"))?;\n\
-                     let request = format!(\"{} {} HTTP/1.1\\r\\nHost: {}\\r\\nConnection: close\\r\\nContent-Length: 0\\r\\n\\r\\n\", method.as_str(), path, host);\n\
-                     stream.write_all(request.as_bytes()).map_err(|error| format!(\"failed to write HTTP request: {error}\"))?;\n\
+                     let mut request = format!(\"{} {} HTTP/1.1\\r\\nHost: {}\\r\\nConnection: close\\r\\nContent-Length: {}\\r\\n\", method.as_str(), path, host, body.len());\n\
+                     for (name, value) in headers {\n\
+                         request.push_str(name);\n\
+                         request.push_str(\": \" );\n\
+                         request.push_str(value);\n\
+                         request.push_str(\"\\r\\n\");\n\
+                     }\n\
+                     request.push_str(\"\\r\\n\");\n\
+                     let mut request_bytes = request.into_bytes();\n\
+                     request_bytes.extend_from_slice(body);\n\
+                     stream.write_all(&request_bytes).map_err(|error| format!(\"failed to write HTTP request: {error}\"))?;\n\
                      let mut bytes = Vec::new();\n\
                      stream.read_to_end(&mut bytes).map_err(|error| format!(\"failed to read HTTP response: {error}\"))?;\n\
                      parse_response(&bytes)\n\
@@ -388,7 +430,42 @@ fn render_aws_runtime() -> String {
                  let header_end = bytes.windows(4).position(|window| window == b\"\\r\\n\\r\\n\").ok_or_else(|| \"HTTP response did not contain a header terminator\".to_owned())?;\n\
                  let header = ::std::str::from_utf8(&bytes[..header_end]).map_err(|error| format!(\"HTTP response headers were not UTF-8: {error}\"))?;\n\
                  let status = header.lines().next().and_then(|line| line.split_whitespace().nth(1)).ok_or_else(|| \"HTTP response did not contain a status code\".to_owned())?.parse::<u16>().map_err(|error| format!(\"HTTP response status was invalid: {error}\"))?;\n\
-                 Ok(Response { status: StatusCode(status), body: bytes[header_end + 4..].to_vec() })\n\
+                 let mut headers = BTreeMap::new();\n\
+                 for line in header.lines().skip(1) {\n\
+                     if let Some((name, value)) = line.split_once(':') {\n\
+                         headers.insert(name.trim().to_ascii_lowercase(), value.trim().to_owned());\n\
+                     }\n\
+                 }\n\
+                 Ok(Response { status: StatusCode(status), headers, body: bytes[header_end + 4..].to_vec() })\n\
+             }\n\
+\n\
+             pub(crate) fn encode_path(value: &str) -> String {\n\
+                 value.bytes().fold(String::new(), |mut result, byte| {\n\
+                     if byte.is_ascii_alphanumeric() || matches!(byte, b'-' | b'_' | b'.' | b'~' | b'/') {\n\
+                         result.push(byte as char);\n\
+                     } else {\n\
+                         result.push('%');\n\
+                         result.push(hex(byte >> 4));\n\
+                         result.push(hex(byte & 0x0f));\n\
+                     }\n\
+                     result\n\
+                 })\n\
+             }\n\
+             fn hex(value: u8) -> char {\n\
+                 match value { 0..=9 => (b'0' + value) as char, _ => (b'A' + value - 10) as char }\n\
+             }\n\
+             pub(crate) fn xml_tags(xml: &str, tag: &str) -> Vec<String> {\n\
+                 let open = format!(\"<{tag}>\");\n\
+                 let close = format!(\"</{tag}>\");\n\
+                 let mut values = Vec::new();\n\
+                 let mut remaining = xml;\n\
+                 while let Some(start) = remaining.find(&open) {\n\
+                     let value_start = start + open.len();\n\
+                     let Some(end) = remaining[value_start..].find(&close) else { break };\n\
+                     values.push(remaining[value_start..value_start + end].to_owned());\n\
+                     remaining = &remaining[value_start + end + close.len()..];\n\
+                 }\n\
+                 values\n\
              }\n\
          }\n\
 \n",
@@ -685,6 +762,12 @@ fn render_operations(output: &mut String, selected: &SelectedModel) {
             "Output",
             Context::Operation(module.clone()),
         );
+        let rust_operation = rust_type_name(&operation_name);
+        writeln!(
+            output,
+            "        pub type {rust_operation}Input = Input;\n        pub type {rust_operation}Output = Output;\n        pub type {rust_operation}Error = Error;"
+        )
+        .unwrap();
         output.push_str("        #[derive(Clone, Debug)]\n        pub enum Error {\n");
         if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
             for error in errors.iter().filter_map(target_value) {
@@ -773,55 +856,318 @@ fn render_operations(output: &mut String, selected: &SelectedModel) {
             }
         }
         output.push_str("                     pub fn build(self) -> super::Input { self.input }\n");
-        render_operation_send(output, &operation_name);
+        render_operation_send(output, &operation_name, selected, operation);
         output.push_str(
             "                 }\n\
              }\n\
-             pub use builders::Builder;\n\
-         }\n",
+             pub use builders::Builder;\n",
         );
+        writeln!(
+            output,
+            "        pub type {rust_operation}FluentBuilder = builders::Builder;"
+        )
+        .unwrap();
+        output.push_str("         }\n");
     }
     output.push_str("}\n\n");
 }
 
-fn render_operation_send(output: &mut String, operation_name: &str) {
-    match operation_name {
-        "CreateBucket" => output.push_str(
-            "                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {\n\
-                         let bucket = self.input.bucket.ok_or_else(|| super::Error::Unhandled(\"CreateBucket requires bucket\".to_owned()))?;\n\
-                         let response = self.client.send_bucket_request(super::super::super::transport::Method::Put, &bucket).await.map_err(super::Error::Unhandled)?;\n\
-                         if response.status().is_success() {\n\
-                             return Ok(super::Output::default());\n\
-                         }\n\
-                         let status = response.status();\n\
-                         let body = response.text().await.unwrap_or_default();\n\
-                         let metadata = super::super::super::ErrorMetadata;\n\
-                         if body.contains(\"BucketAlreadyExists\") {\n\
-                             return Err(super::Error::BucketAlreadyExists(super::BucketAlreadyExists { meta: metadata }));\n\
-                         }\n\
-                         if body.contains(\"BucketAlreadyOwnedByYou\") || status == super::super::super::transport::StatusCode::CONFLICT {\n\
-                             return Err(super::Error::BucketAlreadyOwnedByYou(super::BucketAlreadyOwnedByYou { meta: metadata }));\n\
-                         }\n\
-                         Err(super::Error::Unhandled(format!(\"CreateBucket returned HTTP {status}: {body}\")))\n\
-                     }\n",
-        ),
-        "HeadBucket" => output.push_str(
-            "                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {\n\
-                         let bucket = self.input.bucket.ok_or_else(|| super::Error::Unhandled(\"HeadBucket requires bucket\".to_owned()))?;\n\
-                         let response = self.client.send_bucket_request(super::super::super::transport::Method::Head, &bucket).await.map_err(super::Error::Unhandled)?;\n\
-                         if response.status().is_success() {\n\
-                             Ok(super::Output::default())\n\
-                         } else {\n\
-                             Err(super::Error::NotFound(super::NotFound { meta: super::super::super::ErrorMetadata }))\n\
-                         }\n\
-                     }\n",
-        ),
-        _ => output.push_str(
-            "                     pub async fn send(self) -> ::std::result::Result<super::Output, super::Error> {\n\
-                         Err(super::Error::Unhandled(\"operation execution is not linked to a runtime\".to_owned()))\n\
-                     }\n",
-        ),
+fn render_operation_send(
+    output: &mut String,
+    operation_name: &str,
+    selected: &SelectedModel,
+    operation: &Value,
+) {
+    let rust_operation = rust_type_name(operation_name);
+    let method = operation
+        .get("traits")
+        .and_then(|traits| traits.get("smithy.api#http"))
+        .and_then(|http| http.get("method"))
+        .and_then(Value::as_str)
+        .unwrap_or("POST");
+    let http_method = match method {
+        "GET" => "Get",
+        "PUT" => "Put",
+        "DELETE" => "Delete",
+        "HEAD" => "Head",
+        "PATCH" => "Patch",
+        _ => "Post",
+    };
+    let uri = operation
+        .get("traits")
+        .and_then(|traits| traits.get("smithy.api#http"))
+        .and_then(|http| http.get("uri"))
+        .and_then(Value::as_str)
+        .unwrap_or("/");
+    let input_id = operation.get("input").and_then(target_value);
+    let input_shape = input_id.and_then(|id| selected.model.shapes.get(id));
+    let output_id = operation.get("output").and_then(target_value);
+    let output_shape = output_id.and_then(|id| selected.model.shapes.get(id));
+    let path_expression = render_request_path(uri, input_shape, selected);
+    let body_expression = input_shape
+        .and_then(|shape| {
+            members(shape).into_iter().find_map(|(name, member)| {
+                (member
+                    .get("traits")
+                    .and_then(|traits| traits.get("smithy.api#httpPayload"))
+                    .is_some()
+                    && terminal(member_target(member).unwrap_or_default()) == "StreamingBlob")
+                    .then(|| format!("self.input.{}.as_ref().map(|body| body.clone().into_inner()).unwrap_or_default()", names::rust_identifier(&name)))
+            })
+        })
+        .unwrap_or_else(|| "::std::vec::Vec::new()".to_owned());
+    let headers_expression = render_request_headers(input_shape);
+
+    writeln!(
+        output,
+        "                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]\n                     pub async fn send(self) -> ::std::result::Result<super::{rust_operation}Output, super::{rust_operation}Error> {{"
+    )
+    .unwrap();
+    if let Some(shape) = input_shape {
+        for (name, member) in members(shape) {
+            let field = names::rust_identifier(&name);
+            let required = member
+                .get("traits")
+                .and_then(|traits| traits.get("smithy.api#required"))
+                .is_some();
+            if required && uri.contains(&format!("{{{name}")) {
+                writeln!(
+                    output,
+                    "                         let {field} = self.input.{field}.as_deref().ok_or_else(|| super::{rust_operation}Error::Unhandled(\"{rust_operation} requires {field}\".to_owned()))?;"
+                )
+                .unwrap();
+            }
+        }
     }
+    writeln!(
+        output,
+        "                         let path = {path_expression};\n                         let body = {body_expression};\n                         let headers = {headers_expression};\n                         let response = self.client.request(super::super::super::transport::Method::{http_method}, &path, &headers, &body).await.map_err(super::{rust_operation}Error::Unhandled)?;"
+    )
+    .unwrap();
+    output.push_str("                         let status = response.status();\n                         if !status.is_success() {\n");
+    if operation_name == "CreateBucket" {
+        output.push_str(
+            "                             let body = response.text().await.unwrap_or_default();\n                             let metadata = super::super::super::ErrorMetadata;\n                             if body.contains(\"BucketAlreadyExists\") { return Err(super::CreateBucketError::BucketAlreadyExists(super::BucketAlreadyExists { meta: metadata })); }\n                             if body.contains(\"BucketAlreadyOwnedByYou\") || status == super::super::super::transport::StatusCode::CONFLICT { return Err(super::CreateBucketError::BucketAlreadyOwnedByYou(super::BucketAlreadyOwnedByYou { meta: metadata })); }\n",
+        );
+    }
+    writeln!(
+        output,
+        "                             return Err(super::{rust_operation}Error::Unhandled(format!(\"{rust_operation} returned HTTP {{}}\", status)));"
+    )
+    .unwrap();
+    output.push_str("                         }\n");
+    render_response_decode(output, operation_name, selected, output_shape);
+    output.push_str("                     }\n");
+}
+
+fn render_request_path(uri: &str, input_shape: Option<&Value>, selected: &SelectedModel) -> String {
+    let has_query = input_shape
+        .map(|shape| {
+            members(shape).values().any(|member| {
+                member
+                    .get("traits")
+                    .and_then(|traits| traits.get("smithy.api#httpQuery"))
+                    .is_some()
+            })
+        })
+        .unwrap_or(false);
+    if !uri.contains('{') && !has_query {
+        return format!("{uri:?}");
+    }
+    let mut expression = format!("{{ let mut path = ::std::string::String::from({uri:?});");
+    let mut replacements = BTreeMap::new();
+    if let Some(shape) = input_shape {
+        for (name, member) in members(shape) {
+            if uri.contains(&format!("{{{name}")) {
+                let field = names::rust_identifier(&name);
+                replacements.insert(name.clone(), field);
+            }
+            if let Some(query) = member
+                .get("traits")
+                .and_then(|traits| traits.get("smithy.api#httpQuery"))
+                .and_then(Value::as_str)
+            {
+                let field = names::rust_identifier(&name);
+                let target = member_target(member).unwrap_or_default();
+                let target_shape = selected.model.shapes.get(target);
+                if is_string_type(target, target_shape) {
+                    expression.push_str(&format!(
+                        " if let Some(value) = self.input.{field}.as_deref() {{ path.push_str(if path.contains('?') {{ \"&\" }} else {{ \"?\" }}); path.push_str({query:?}); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); }}"
+                    ));
+                } else if !matches!(
+                    target_shape
+                        .and_then(|shape| shape.get("type"))
+                        .and_then(Value::as_str),
+                    Some(
+                        "list" | "map" | "structure" | "union" | "blob" | "timestamp" | "document"
+                    )
+                ) {
+                    expression.push_str(&format!(
+                        " if let Some(value) = self.input.{field}.as_ref() {{ path.push_str(if path.contains('?') {{ \"&\" }} else {{ \"?\" }}); path.push_str({query:?}); path.push('='); path.push_str(&super::super::super::transport::encode_path(&value.to_string())); }}"
+                    ));
+                }
+            }
+        }
+    }
+    for (name, field) in replacements {
+        let placeholder = if uri.contains(&format!("{{{name}+}}")) {
+            format!("{{{name}+}}")
+        } else {
+            format!("{{{name}}}")
+        };
+        expression.push_str(&format!(
+            " path = path.replace({placeholder:?}, &super::super::super::transport::encode_path({field}));"
+        ));
+    }
+    expression.push_str(" path }");
+    expression
+}
+
+fn render_request_headers(input_shape: Option<&Value>) -> String {
+    let mut output =
+        String::from("{ let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();");
+    let mut has_headers = false;
+    if let Some(shape) = input_shape {
+        for (name, member) in members(shape) {
+            let Some(header) = member
+                .get("traits")
+                .and_then(|traits| traits.get("smithy.api#httpHeader"))
+                .and_then(Value::as_str)
+            else {
+                continue;
+            };
+            let target = member_target(member).unwrap_or_default();
+            let target_name = terminal(target);
+            let is_string = target.starts_with("smithy.api#String")
+                || matches!(
+                    target_name,
+                    "String"
+                        | "BucketName"
+                        | "ObjectKey"
+                        | "AccountId"
+                        | "Token"
+                        | "ETag"
+                        | "Location"
+                );
+            if !is_string {
+                continue;
+            }
+            has_headers = true;
+            let field = names::rust_identifier(&name);
+            output.push_str(&format!(
+                " if let Some(value) = self.input.{field}.as_deref() {{ headers.push(({header:?}, value)); }}"
+            ));
+        }
+    }
+    if has_headers {
+        output.push_str(" headers }");
+        output
+    } else {
+        "::std::vec::Vec::new()".to_owned()
+    }
+}
+
+fn render_response_decode(
+    output: &mut String,
+    operation_name: &str,
+    selected: &SelectedModel,
+    shape: Option<&Value>,
+) {
+    let rust_operation = rust_type_name(operation_name);
+    let has_decoded_values = shape
+        .map(|shape| {
+            members(shape).values().any(|member| {
+                let target = member_target(member).unwrap_or_default();
+                let target_kind = selected
+                    .model
+                    .shapes
+                    .get(target)
+                    .and_then(|shape| shape.get("type"))
+                    .and_then(Value::as_str)
+                    .unwrap_or_default();
+                let traits = member.get("traits").and_then(Value::as_object);
+                (traits
+                    .and_then(|traits| traits.get("smithy.api#httpPayload"))
+                    .is_some()
+                    && terminal(target) == "StreamingBlob")
+                    || traits
+                        .and_then(|traits| traits.get("smithy.api#httpHeader"))
+                        .is_some()
+                        && matches!(
+                            target_kind,
+                            "string"
+                                | "boolean"
+                                | "integer"
+                                | "long"
+                                | "short"
+                                | "byte"
+                                | "float"
+                                | "double"
+                        )
+            })
+        })
+        .unwrap_or(false)
+        || operation_name == "ListObjectsV2";
+    if !has_decoded_values {
+        writeln!(
+            output,
+            "                         Ok(super::{rust_operation}Output::default())"
+        )
+        .unwrap();
+        return;
+    }
+    output.push_str(&format!(
+        "                         let mut output = super::{rust_operation}Output::default();\n"
+    ));
+    if let Some(shape) = shape {
+        for (name, member) in members(shape) {
+            let field = names::rust_identifier(&name);
+            let target = member_target(member).unwrap_or_default();
+            let target_name = terminal(target);
+            let target_kind = selected
+                .model
+                .shapes
+                .get(target)
+                .and_then(|shape| shape.get("type"))
+                .and_then(Value::as_str)
+                .unwrap_or_default();
+            let traits = member.get("traits").and_then(Value::as_object);
+            if traits
+                .and_then(|traits| traits.get("smithy.api#httpPayload"))
+                .is_some()
+            {
+                if target_name == "StreamingBlob" {
+                    output.push_str(&format!(
+                        "                         output.{field} = Some(super::super::super::primitives::ByteStream::from(response.body().to_vec()));\n"
+                    ));
+                }
+                continue;
+            }
+            if let Some(header) = traits
+                .and_then(|traits| traits.get("smithy.api#httpHeader"))
+                .and_then(Value::as_str)
+            {
+                if matches!(
+                    target_kind,
+                    "integer" | "long" | "short" | "byte" | "float" | "double" | "boolean"
+                ) {
+                    output.push_str(&format!(
+                        "                         output.{field} = response.header({header:?}).and_then(|value| value.parse().ok());\n"
+                    ));
+                } else if target_kind == "string" {
+                    output.push_str(&format!(
+                        "                         output.{field} = response.header({header:?}).map(str::to_owned);\n"
+                    ));
+                }
+            }
+        }
+    }
+    if operation_name == "ListObjectsV2" {
+        output.push_str(
+            "                         let body = response.text().await.map_err(super::ListObjectsV2Error::Unhandled)?;\n                         let contents = super::super::super::transport::xml_tags(&body, \"Key\").into_iter().map(|key| super::super::super::types::Object { key: Some(key), ..Default::default() }).collect();\n                         output.contents = Some(contents);\n",
+        );
+    }
+    output.push_str("                         Ok(output)\n");
 }
 
 fn render_operation_io(
@@ -849,7 +1195,90 @@ fn render_operation_io(
         .unwrap();
         return;
     };
-    render_structure_at_indent(output, shape, name, context, 8);
+    render_structure_at_indent(output, shape, name, context.clone(), 8);
+    render_operation_accessors(output, selected, shape, name, context);
+}
+
+fn render_operation_accessors(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: &Value,
+    name: &str,
+    context: Context,
+) {
+    writeln!(output, "        impl {name} {{").unwrap();
+    for (member_name, member) in members(shape) {
+        let field = names::rust_identifier(&member_name);
+        let target = member_target(member).unwrap_or("smithy.api#String");
+        let target_shape = selected.model.shapes.get(target);
+        let target_kind = target_shape
+            .and_then(|shape| shape.get("type"))
+            .and_then(Value::as_str)
+            .unwrap_or_else(|| terminal(target));
+        let method_field = &field;
+        if target == "com.amazonaws.s3#StreamingBlob" {
+            writeln!(
+                output,
+                "            pub fn {method_field}(&self) -> &super::super::primitives::ByteStream {{ self.{field}.as_ref().expect(\"streaming payload is present on a successful response\") }}"
+            )
+            .unwrap();
+        } else if target_kind == "list" {
+            let member_target = target_shape
+                .and_then(|shape| shape.get("member"))
+                .and_then(member_target)
+                .unwrap_or("smithy.api#String");
+            let element = type_expr(member_target, context.clone());
+            writeln!(
+                output,
+                "            pub fn {method_field}(&self) -> &[{element}] {{ self.{field}.as_deref().unwrap_or(&[]) }}"
+            )
+            .unwrap();
+        } else if is_string_type(target, target_shape) {
+            writeln!(
+                output,
+                "            pub fn {method_field}(&self) -> ::std::option::Option<&str> {{ self.{field}.as_deref() }}"
+            )
+            .unwrap();
+        } else if matches!(
+            target_kind,
+            "boolean" | "integer" | "long" | "short" | "byte" | "float" | "double"
+        ) {
+            writeln!(
+                output,
+                "            pub fn {method_field}(&self) -> ::std::option::Option<{}> {{ self.{field} }}",
+                primitive_type(target_kind)
+            )
+            .unwrap();
+        } else {
+            let reference = type_expr(target, context.clone());
+            writeln!(
+                output,
+                "            pub fn {method_field}(&self) -> ::std::option::Option<&{reference}> {{ self.{field}.as_ref() }}"
+            )
+            .unwrap();
+        }
+    }
+    output.push_str("        }\n");
+}
+
+fn is_string_type(target: &str, shape: Option<&Value>) -> bool {
+    target.starts_with("smithy.api#String")
+        || matches!(
+            terminal(target),
+            "String"
+                | "BucketName"
+                | "ObjectKey"
+                | "AccountId"
+                | "Token"
+                | "ETag"
+                | "Location"
+                | "VersionId"
+                | "ObjectVersionId"
+        )
+        || shape
+            .and_then(|shape| shape.get("type"))
+            .and_then(Value::as_str)
+            == Some("string")
 }
 
 fn render_structure(output: &mut String, shape: &Value, name: &str, context: Context) {
@@ -900,11 +1329,21 @@ fn render_type_builder(output: &mut String, shape: &Value, name: &str) {
         let target = member_target(member)
             .map(|target| type_expr(target, Context::Types))
             .unwrap_or_else(|| "::std::string::String".to_owned());
-        writeln!(
-            output,
-            "        pub fn {field}(&self) -> &::std::option::Option<{target}> {{ &self.{field} }}"
-        )
-        .unwrap();
+        let raw_target = member_target(member).unwrap_or_default();
+        let field_method = &field;
+        if is_string_type(raw_target, None) {
+            writeln!(
+                output,
+                "        pub fn {field_method}(&self) -> ::std::option::Option<&str> {{ self.{field}.as_deref() }}"
+            )
+            .unwrap();
+        } else {
+            writeln!(
+                output,
+                "        pub fn {field_method}(&self) -> &::std::option::Option<{target}> {{ &self.{field} }}"
+            )
+            .unwrap();
+        }
     }
     output.push_str("    }\n\n");
     writeln!(
@@ -966,18 +1405,32 @@ fn render_union(output: &mut String, shape: &Value, name: &str) {
 }
 
 fn render_enum(output: &mut String, shape: &Value, name: &str) {
+    let rust_name = rust_type_name(name);
     writeln!(
         output,
-        "    #[derive(Clone, Debug, PartialEq, Eq)]\n    pub enum {} {{",
-        rust_type_name(name)
+        "    #[derive(Clone, Debug, PartialEq, Eq)]\n    pub enum {rust_name} {{"
     )
     .unwrap();
-    if let Some(values) = shape.get("values").and_then(Value::as_array) {
-        for value in values.iter().filter_map(Value::as_str) {
-            writeln!(output, "        {},", rust_type_name(value)).unwrap();
-        }
+    for (member_name, _) in members(shape) {
+        writeln!(output, "        {},", rust_type_name(&member_name)).unwrap();
     }
     output.push_str("        Unknown(::std::string::String),\n    }\n\n");
+    writeln!(output, "    impl ::std::fmt::Display for {rust_name} {{").unwrap();
+    output.push_str("        fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {\n            match self {\n");
+    for (member_name, member) in members(shape) {
+        let value = member
+            .get("traits")
+            .and_then(|traits| traits.get("smithy.api#enumValue"))
+            .and_then(Value::as_str)
+            .unwrap_or(&member_name);
+        writeln!(
+            output,
+            "                Self::{} => f.write_str({value:?}),",
+            rust_type_name(&member_name)
+        )
+        .unwrap();
+    }
+    output.push_str("                Self::Unknown(value) => f.write_str(value),\n            }\n        }\n    }\n\n");
 }
 
 fn render_client_file(service_key: &str, selected: &SelectedModel) -> String {
@@ -999,13 +1452,15 @@ fn render_client(output: &mut String, service_key: &str, selected: &SelectedMode
                      Self { config: config.clone(), http: transport::HttpClient::new() }\n\
                  }\n\
                  pub fn config(&self) -> &Config { &self.config }\n\
-                 pub(crate) async fn send_bucket_request(\n\
+                 pub(crate) async fn request(\n\
                      &self,\n\
                      method: transport::Method,\n\
-                     bucket: &str,\n\
+                     path: &str,\n\
+                     headers: &[(&str, &str)],\n\
+                     body: &[u8],\n\
                  ) -> ::std::result::Result<transport::Response, ::std::string::String> {\n\
-                     let url = format!(\"{}/{}\", self.config.endpoint_url.trim_end_matches('/'), bucket);\n\
-                     self.http.request(method, &url).await\n\
+                     let url = format!(\"{}{}\", self.config.endpoint_url.trim_end_matches('/'), path);\n\
+                     self.http.request(method, &url, headers, body).await\n\
                  }\n\
              }\n\n",
     );
@@ -1023,11 +1478,12 @@ fn render_client(output: &mut String, service_key: &str, selected: &SelectedMode
 
 fn render_client_operation_file(operation: &str) -> String {
     let module = names::snake_case(operation);
+    let rust_operation = rust_type_name(operation);
     let mut output = String::new();
     header(&mut output);
     writeln!(
         output,
-        "impl Client {{\n    pub fn {module}(&self) -> operation::{module}::Builder {{ operation::{module}::Builder::with_client(self.clone()) }}\n}}\n"
+        "impl Client {{\n    pub fn {module}(&self) -> operation::{module}::{rust_operation}FluentBuilder {{ operation::{module}::{rust_operation}FluentBuilder::with_client(self.clone()) }}\n}}\n"
     )
     .unwrap();
     output
@@ -1047,9 +1503,12 @@ fn type_expr(target: &str, context: Context) -> String {
     let name = terminal(target);
     let known = rust_type_name(name);
     match context {
+        Context::Types if name == "StreamingBlob" => "super::primitives::ByteStream".to_owned(),
         Context::Types => format!("self::{known}"),
         Context::Operation(module) => {
-            if name.ends_with("Input") {
+            if name == "StreamingBlob" {
+                "super::super::primitives::ByteStream".to_owned()
+            } else if name.ends_with("Input") {
                 format!("super::{module}::Input")
             } else if name.ends_with("Output") {
                 format!("super::{module}::Output")
@@ -1058,7 +1517,9 @@ fn type_expr(target: &str, context: Context) -> String {
             }
         }
         Context::Builder(module) => {
-            if name.ends_with("Input") {
+            if name == "StreamingBlob" {
+                "super::super::super::primitives::ByteStream".to_owned()
+            } else if name.ends_with("Input") {
                 format!("super::{module}::Input")
             } else if name.ends_with("Output") {
                 format!("super::{module}::Output")

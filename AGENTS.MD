@@ -1,0 +1,2 @@
+- Always take a look at https://github.com/smithy-lang/smithy-rs for codegen reference implementation. Clone to a temp `/tmp/smithy-rs` directory to avoid spam github api
+- Always run `just conformance` after making changes and verify the coverage increase
