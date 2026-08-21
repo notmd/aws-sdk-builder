@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for BucketCannedAcl { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "authenticated-read" => ::std::result::Result::Ok(Self::AuthenticatedRead),
+            "private" => ::std::result::Result::Ok(Self::Private),
+            "public-read" => ::std::result::Result::Ok(Self::PublicRead),
+            "public-read-write" => ::std::result::Result::Ok(Self::PublicReadWrite),
+            _ => ::std::result::Result::Err(()),
+        } } }

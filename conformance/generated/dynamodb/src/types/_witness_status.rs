@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for WitnessStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ACTIVE" => ::std::result::Result::Ok(Self::Active),
+            "CREATING" => ::std::result::Result::Ok(Self::Creating),
+            "DELETING" => ::std::result::Result::Ok(Self::Deleting),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ObjectVersionStorageClass { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "STANDARD" => ::std::result::Result::Ok(Self::Standard),
+            _ => ::std::result::Result::Err(()),
+        } } }

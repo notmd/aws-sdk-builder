@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ProjectionType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ALL" => ::std::result::Result::Ok(Self::All),
+            "INCLUDE" => ::std::result::Result::Ok(Self::Include),
+            "KEYS_ONLY" => ::std::result::Result::Ok(Self::KeysOnly),
+            _ => ::std::result::Result::Err(()),
+        } } }

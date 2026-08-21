@@ -72,3 +72,37 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for Event { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "s3:IntelligentTiering" => ::std::result::Result::Ok(Self::S3IntelligentTiering),
+            "s3:LifecycleExpiration:*" => ::std::result::Result::Ok(Self::S3LifecycleExpiration),
+            "s3:LifecycleExpiration:Delete" => ::std::result::Result::Ok(Self::S3LifecycleExpirationDelete),
+            "s3:LifecycleExpiration:DeleteMarkerCreated" => ::std::result::Result::Ok(Self::S3LifecycleExpirationDeleteMarkerCreated),
+            "s3:LifecycleTransition" => ::std::result::Result::Ok(Self::S3LifecycleTransition),
+            "s3:ObjectAcl:Put" => ::std::result::Result::Ok(Self::S3ObjectAclPut),
+            "s3:ObjectAnnotation:*" => ::std::result::Result::Ok(Self::S3ObjectAnnotation),
+            "s3:ObjectAnnotation:Delete" => ::std::result::Result::Ok(Self::S3ObjectAnnotationDelete),
+            "s3:ObjectAnnotation:Put" => ::std::result::Result::Ok(Self::S3ObjectAnnotationPut),
+            "s3:ObjectCreated:*" => ::std::result::Result::Ok(Self::S3ObjectCreated),
+            "s3:ObjectCreated:CompleteMultipartUpload" => ::std::result::Result::Ok(Self::S3ObjectCreatedCompleteMultipartUpload),
+            "s3:ObjectCreated:Copy" => ::std::result::Result::Ok(Self::S3ObjectCreatedCopy),
+            "s3:ObjectCreated:Post" => ::std::result::Result::Ok(Self::S3ObjectCreatedPost),
+            "s3:ObjectCreated:Put" => ::std::result::Result::Ok(Self::S3ObjectCreatedPut),
+            "s3:ObjectRemoved:*" => ::std::result::Result::Ok(Self::S3ObjectRemoved),
+            "s3:ObjectRemoved:Delete" => ::std::result::Result::Ok(Self::S3ObjectRemovedDelete),
+            "s3:ObjectRemoved:DeleteMarkerCreated" => ::std::result::Result::Ok(Self::S3ObjectRemovedDeleteMarkerCreated),
+            "s3:ObjectRestore:*" => ::std::result::Result::Ok(Self::S3ObjectRestore),
+            "s3:ObjectRestore:Completed" => ::std::result::Result::Ok(Self::S3ObjectRestoreCompleted),
+            "s3:ObjectRestore:Delete" => ::std::result::Result::Ok(Self::S3ObjectRestoreDelete),
+            "s3:ObjectRestore:Post" => ::std::result::Result::Ok(Self::S3ObjectRestorePost),
+            "s3:ObjectTagging:*" => ::std::result::Result::Ok(Self::S3ObjectTagging),
+            "s3:ObjectTagging:Delete" => ::std::result::Result::Ok(Self::S3ObjectTaggingDelete),
+            "s3:ObjectTagging:Put" => ::std::result::Result::Ok(Self::S3ObjectTaggingPut),
+            "s3:ReducedRedundancyLostObject" => ::std::result::Result::Ok(Self::S3ReducedRedundancyLostObject),
+            "s3:Replication:*" => ::std::result::Result::Ok(Self::S3Replication),
+            "s3:Replication:OperationFailedReplication" => ::std::result::Result::Ok(Self::S3ReplicationOperationFailedReplication),
+            "s3:Replication:OperationMissedThreshold" => ::std::result::Result::Ok(Self::S3ReplicationOperationMissedThreshold),
+            "s3:Replication:OperationNotTracked" => ::std::result::Result::Ok(Self::S3ReplicationOperationNotTracked),
+            "s3:Replication:OperationReplicatedAfterThreshold" => ::std::result::Result::Ok(Self::S3ReplicationOperationReplicatedAfterThreshold),
+            _ => ::std::result::Result::Err(()),
+        } } }

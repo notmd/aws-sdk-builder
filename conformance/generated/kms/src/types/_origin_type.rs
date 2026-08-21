@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for OriginType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AWS_CLOUDHSM" => ::std::result::Result::Ok(Self::AwsCloudhsm),
+            "AWS_KMS" => ::std::result::Result::Ok(Self::AwsKms),
+            "EXTERNAL" => ::std::result::Result::Ok(Self::External),
+            "EXTERNAL_KEY_STORE" => ::std::result::Result::Ok(Self::ExternalKeyStore),
+            _ => ::std::result::Result::Err(()),
+        } } }

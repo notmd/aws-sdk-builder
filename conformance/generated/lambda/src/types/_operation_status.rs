@@ -28,3 +28,15 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for OperationStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "CANCELLED" => ::std::result::Result::Ok(Self::Cancelled),
+            "FAILED" => ::std::result::Result::Ok(Self::Failed),
+            "PENDING" => ::std::result::Result::Ok(Self::Pending),
+            "READY" => ::std::result::Result::Ok(Self::Ready),
+            "STARTED" => ::std::result::Result::Ok(Self::Started),
+            "STOPPED" => ::std::result::Result::Ok(Self::Stopped),
+            "SUCCEEDED" => ::std::result::Result::Ok(Self::Succeeded),
+            "TIMED_OUT" => ::std::result::Result::Ok(Self::TimedOut),
+            _ => ::std::result::Result::Err(()),
+        } } }

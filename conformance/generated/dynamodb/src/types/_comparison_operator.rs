@@ -38,3 +38,20 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ComparisonOperator { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "BEGINS_WITH" => ::std::result::Result::Ok(Self::BeginsWith),
+            "BETWEEN" => ::std::result::Result::Ok(Self::Between),
+            "CONTAINS" => ::std::result::Result::Ok(Self::Contains),
+            "EQ" => ::std::result::Result::Ok(Self::Eq),
+            "GE" => ::std::result::Result::Ok(Self::Ge),
+            "GT" => ::std::result::Result::Ok(Self::Gt),
+            "IN" => ::std::result::Result::Ok(Self::In),
+            "LE" => ::std::result::Result::Ok(Self::Le),
+            "LT" => ::std::result::Result::Ok(Self::Lt),
+            "NE" => ::std::result::Result::Ok(Self::Ne),
+            "NOT_CONTAINS" => ::std::result::Result::Ok(Self::NotContains),
+            "NOT_NULL" => ::std::result::Result::Ok(Self::NotNull),
+            "NULL" => ::std::result::Result::Ok(Self::Null),
+            _ => ::std::result::Result::Err(()),
+        } } }

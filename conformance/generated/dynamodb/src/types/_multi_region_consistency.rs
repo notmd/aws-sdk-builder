@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for MultiRegionConsistency { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "EVENTUAL" => ::std::result::Result::Ok(Self::Eventual),
+            "STRONG" => ::std::result::Result::Ok(Self::Strong),
+            _ => ::std::result::Result::Err(()),
+        } } }

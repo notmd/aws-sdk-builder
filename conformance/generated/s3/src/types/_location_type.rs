@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for LocationType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AvailabilityZone" => ::std::result::Result::Ok(Self::AvailabilityZone),
+            "LocalZone" => ::std::result::Result::Ok(Self::LocalZone),
+            _ => ::std::result::Result::Err(()),
+        } } }

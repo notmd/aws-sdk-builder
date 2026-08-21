@@ -22,3 +22,12 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ReturnValue { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ALL_NEW" => ::std::result::Result::Ok(Self::AllNew),
+            "ALL_OLD" => ::std::result::Result::Ok(Self::AllOld),
+            "NONE" => ::std::result::Result::Ok(Self::None),
+            "UPDATED_NEW" => ::std::result::Result::Ok(Self::UpdatedNew),
+            "UPDATED_OLD" => ::std::result::Result::Ok(Self::UpdatedOld),
+            _ => ::std::result::Result::Err(()),
+        } } }

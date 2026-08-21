@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for PolicyEvaluationDecisionType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "allowed" => ::std::result::Result::Ok(Self::Allowed),
+            "explicitDeny" => ::std::result::Result::Ok(Self::ExplicitDeny),
+            "implicitDeny" => ::std::result::Result::Ok(Self::ImplicitDeny),
+            _ => ::std::result::Result::Err(()),
+        } } }

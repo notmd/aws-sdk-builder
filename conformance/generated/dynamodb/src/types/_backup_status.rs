@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for BackupStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AVAILABLE" => ::std::result::Result::Ok(Self::Available),
+            "CREATING" => ::std::result::Result::Ok(Self::Creating),
+            "DELETED" => ::std::result::Result::Ok(Self::Deleted),
+            _ => ::std::result::Result::Err(()),
+        } } }

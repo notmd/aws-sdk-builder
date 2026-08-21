@@ -22,3 +22,12 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ObjectAttributes { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Checksum" => ::std::result::Result::Ok(Self::Checksum),
+            "ETag" => ::std::result::Result::Ok(Self::Etag),
+            "ObjectParts" => ::std::result::Result::Ok(Self::ObjectParts),
+            "ObjectSize" => ::std::result::Result::Ok(Self::ObjectSize),
+            "StorageClass" => ::std::result::Result::Ok(Self::StorageClass),
+            _ => ::std::result::Result::Err(()),
+        } } }

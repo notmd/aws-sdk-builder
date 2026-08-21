@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for KeyType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "HASH" => ::std::result::Result::Ok(Self::Hash),
+            "RANGE" => ::std::result::Result::Ok(Self::Range),
+            _ => ::std::result::Result::Err(()),
+        } } }

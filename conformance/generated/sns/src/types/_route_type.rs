@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for RouteType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Premium" => ::std::result::Result::Ok(Self::Premium),
+            "Promotional" => ::std::result::Result::Ok(Self::Promotional),
+            "Transactional" => ::std::result::Result::Ok(Self::Transactional),
+            _ => ::std::result::Result::Err(()),
+        } } }

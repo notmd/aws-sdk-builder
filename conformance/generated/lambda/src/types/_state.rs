@@ -28,3 +28,15 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for State { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Active" => ::std::result::Result::Ok(Self::Active),
+            "ActiveNonInvocable" => ::std::result::Result::Ok(Self::ActiveNonInvocable),
+            "Deactivated" => ::std::result::Result::Ok(Self::Deactivated),
+            "Deactivating" => ::std::result::Result::Ok(Self::Deactivating),
+            "Deleting" => ::std::result::Result::Ok(Self::Deleting),
+            "Failed" => ::std::result::Result::Ok(Self::Failed),
+            "Inactive" => ::std::result::Result::Ok(Self::Inactive),
+            "Pending" => ::std::result::Result::Ok(Self::Pending),
+            _ => ::std::result::Result::Err(()),
+        } } }

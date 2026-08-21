@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for EncryptionType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "NONE" => ::std::result::Result::Ok(Self::None),
+            "SSE-C" => ::std::result::Result::Ok(Self::SseC),
+            _ => ::std::result::Result::Err(()),
+        } } }

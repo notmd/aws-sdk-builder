@@ -49,16 +49,24 @@ updated when the port adopts a new reusable abstraction.
 
 ## Evidence
 
+### Checkpoint: 2026-08-21 — M3 model-driven source placement and XML response bindings
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now classifies operation input/output and modeled error shapes from the selected model, emits per-operation input/output/builder files, places modeled errors under `types/error`, resolves XML-flattened lists from model traits, removes operation-name response branches, keeps primitive aliases inline in `types.rs`, and excludes `httpPrefixHeaders`/`httpResponseCode` members from REST-XML document-body reads. `crates/aws-sdk-build/src/model.rs` now also recognizes the packaged `aws.protocols#ec2Query` trait. The previous public aliases remain available.
+- Evidence: `cargo fmt --all`, `cargo test -p aws-sdk-build`, `cargo check --manifest-path examples/my_aws_sdk/Cargo.toml`, and `just conformance` completed; conformance intentionally exits 1 because parity is incomplete.
+- Conformance: the modeled-error checkpoint compared `6905` files with `16` exact matches; the current checkpoint compares `6906` files with `16` exact matches, `3557` mismatches, `2888` missing, and `445` extra. The XML body-binding fix removes invalid generated body reads but does not yet change byte-for-byte matches.
+- Blocker: operation source semantics, runtime/protocol behavior, endpoint/auth/retry/checksum support, documentation, and many AWS-specific decorators remain incomplete.
+- Next action: delete the obsolete inline-operation renderer and make the active generator warning-free before implementing the next model-driven protocol/runtime boundary.
+
 Passing checks:
 
 - cargo fmt --all
 - cargo check -p aws-sdk-build --lib
 - cargo test -p aws-sdk-build --lib --tests
 - cargo test --workspace
-- cargo clippy --workspace --all-targets -- -D warnings
 - cargo check --manifest-path examples/my_aws_sdk/Cargo.toml
 - `AWS_ENDPOINT_URL=http://localhost:4566 cargo test --manifest-path
-  examples/my_aws_sdk/Cargo.toml creates_then_heads_a_bucket` (Floci live
+examples/my_aws_sdk/Cargo.toml creates_then_heads_a_bucket` (Floci live
   test);
 - cargo check --manifest-path examples/floci-s3-smoke/Cargo.toml
 - checked-in all-operation conformance source snapshot;

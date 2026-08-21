@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for SummaryStateType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AVAILABLE" => ::std::result::Result::Ok(Self::Available),
+            "FAILED" => ::std::result::Result::Ok(Self::Failed),
+            "NOT_AVAILABLE" => ::std::result::Result::Ok(Self::NotAvailable),
+            "NOT_SUPPORTED" => ::std::result::Result::Ok(Self::NotSupported),
+            _ => ::std::result::Result::Err(()),
+        } } }

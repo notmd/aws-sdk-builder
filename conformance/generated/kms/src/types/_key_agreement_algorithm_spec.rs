@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for KeyAgreementAlgorithmSpec { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ECDH" => ::std::result::Result::Ok(Self::Ecdh),
+            _ => ::std::result::Result::Err(()),
+        } } }

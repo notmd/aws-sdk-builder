@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for KafkaSchemaRegistryAuthType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "BASIC_AUTH" => ::std::result::Result::Ok(Self::BasicAuth),
+            "CLIENT_CERTIFICATE_TLS_AUTH" => ::std::result::Result::Ok(Self::ClientCertificateTlsAuth),
+            "SERVER_ROOT_CA_CERTIFICATE" => ::std::result::Result::Ok(Self::ServerRootCaCertificate),
+            _ => ::std::result::Result::Err(()),
+        } } }

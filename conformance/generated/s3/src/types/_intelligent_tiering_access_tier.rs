@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for IntelligentTieringAccessTier { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ARCHIVE_ACCESS" => ::std::result::Result::Ok(Self::ArchiveAccess),
+            "DEEP_ARCHIVE_ACCESS" => ::std::result::Result::Ok(Self::DeepArchiveAccess),
+            _ => ::std::result::Result::Err(()),
+        } } }

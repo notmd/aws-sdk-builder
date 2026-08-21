@@ -24,3 +24,13 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ApplicationLogLevel { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "DEBUG" => ::std::result::Result::Ok(Self::Debug),
+            "ERROR" => ::std::result::Result::Ok(Self::Error),
+            "FATAL" => ::std::result::Result::Ok(Self::Fatal),
+            "INFO" => ::std::result::Result::Ok(Self::Info),
+            "TRACE" => ::std::result::Result::Ok(Self::Trace),
+            "WARN" => ::std::result::Result::Ok(Self::Warn),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for JsonType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "DOCUMENT" => ::std::result::Result::Ok(Self::Document),
+            "LINES" => ::std::result::Result::Ok(Self::Lines),
+            _ => ::std::result::Result::Err(()),
+        } } }

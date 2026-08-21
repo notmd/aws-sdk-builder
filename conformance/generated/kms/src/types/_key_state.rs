@@ -28,3 +28,15 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for KeyState { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Creating" => ::std::result::Result::Ok(Self::Creating),
+            "Disabled" => ::std::result::Result::Ok(Self::Disabled),
+            "Enabled" => ::std::result::Result::Ok(Self::Enabled),
+            "PendingDeletion" => ::std::result::Result::Ok(Self::PendingDeletion),
+            "PendingImport" => ::std::result::Result::Ok(Self::PendingImport),
+            "PendingReplicaDeletion" => ::std::result::Result::Ok(Self::PendingReplicaDeletion),
+            "Unavailable" => ::std::result::Result::Ok(Self::Unavailable),
+            "Updating" => ::std::result::Result::Ok(Self::Updating),
+            _ => ::std::result::Result::Err(()),
+        } } }

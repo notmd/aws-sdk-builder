@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for InvokeMode { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "BUFFERED" => ::std::result::Result::Ok(Self::Buffered),
+            "RESPONSE_STREAM" => ::std::result::Result::Ok(Self::ResponseStream),
+            _ => ::std::result::Result::Err(()),
+        } } }

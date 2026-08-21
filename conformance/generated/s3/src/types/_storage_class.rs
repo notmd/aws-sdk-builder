@@ -42,3 +42,22 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for StorageClass { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AWS_BACKUP_LOW_COST_WARM" => ::std::result::Result::Ok(Self::AwsBackupLowCostWarm),
+            "AWS_BACKUP_WARM" => ::std::result::Result::Ok(Self::AwsBackupWarm),
+            "DEEP_ARCHIVE" => ::std::result::Result::Ok(Self::DeepArchive),
+            "EXPRESS_ONEZONE" => ::std::result::Result::Ok(Self::ExpressOnezone),
+            "FSX_ONTAP" => ::std::result::Result::Ok(Self::FsxOntap),
+            "FSX_OPENZFS" => ::std::result::Result::Ok(Self::FsxOpenzfs),
+            "GLACIER" => ::std::result::Result::Ok(Self::Glacier),
+            "GLACIER_IR" => ::std::result::Result::Ok(Self::GlacierIr),
+            "INTELLIGENT_TIERING" => ::std::result::Result::Ok(Self::IntelligentTiering),
+            "ONEZONE_IA" => ::std::result::Result::Ok(Self::OnezoneIa),
+            "OUTPOSTS" => ::std::result::Result::Ok(Self::Outposts),
+            "REDUCED_REDUNDANCY" => ::std::result::Result::Ok(Self::ReducedRedundancy),
+            "SNOW" => ::std::result::Result::Ok(Self::Snow),
+            "STANDARD" => ::std::result::Result::Ok(Self::Standard),
+            "STANDARD_IA" => ::std::result::Result::Ok(Self::StandardIa),
+            _ => ::std::result::Result::Err(()),
+        } } }

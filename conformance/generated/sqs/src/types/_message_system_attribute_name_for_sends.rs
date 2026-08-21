@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for MessageSystemAttributeNameForSends { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AWSTraceHeader" => ::std::result::Result::Ok(Self::AwsTraceHeader),
+            _ => ::std::result::Result::Err(()),
+        } } }

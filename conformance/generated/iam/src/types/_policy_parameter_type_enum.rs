@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for PolicyParameterTypeEnum { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "string" => ::std::result::Result::Ok(Self::String),
+            "stringList" => ::std::result::Result::Ok(Self::StringList),
+            _ => ::std::result::Result::Err(()),
+        } } }

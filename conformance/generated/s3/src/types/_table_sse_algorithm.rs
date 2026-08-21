@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for TableSseAlgorithm { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AES256" => ::std::result::Result::Ok(Self::Aes256),
+            "aws:kms" => ::std::result::Result::Ok(Self::AwsKms),
+            _ => ::std::result::Result::Err(()),
+        } } }

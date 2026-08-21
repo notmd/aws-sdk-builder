@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for RecursiveLoop { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Allow" => ::std::result::Result::Ok(Self::Allow),
+            "Terminate" => ::std::result::Result::Ok(Self::Terminate),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -56,3 +56,29 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for QueueAttributeName { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "All" => ::std::result::Result::Ok(Self::All),
+            "ApproximateNumberOfMessages" => ::std::result::Result::Ok(Self::ApproximateNumberOfMessages),
+            "ApproximateNumberOfMessagesDelayed" => ::std::result::Result::Ok(Self::ApproximateNumberOfMessagesDelayed),
+            "ApproximateNumberOfMessagesNotVisible" => ::std::result::Result::Ok(Self::ApproximateNumberOfMessagesNotVisible),
+            "ContentBasedDeduplication" => ::std::result::Result::Ok(Self::ContentBasedDeduplication),
+            "CreatedTimestamp" => ::std::result::Result::Ok(Self::CreatedTimestamp),
+            "DeduplicationScope" => ::std::result::Result::Ok(Self::DeduplicationScope),
+            "DelaySeconds" => ::std::result::Result::Ok(Self::DelaySeconds),
+            "FifoQueue" => ::std::result::Result::Ok(Self::FifoQueue),
+            "FifoThroughputLimit" => ::std::result::Result::Ok(Self::FifoThroughputLimit),
+            "KmsDataKeyReusePeriodSeconds" => ::std::result::Result::Ok(Self::KmsDataKeyReusePeriodSeconds),
+            "KmsMasterKeyId" => ::std::result::Result::Ok(Self::KmsMasterKeyId),
+            "LastModifiedTimestamp" => ::std::result::Result::Ok(Self::LastModifiedTimestamp),
+            "MaximumMessageSize" => ::std::result::Result::Ok(Self::MaximumMessageSize),
+            "MessageRetentionPeriod" => ::std::result::Result::Ok(Self::MessageRetentionPeriod),
+            "Policy" => ::std::result::Result::Ok(Self::Policy),
+            "QueueArn" => ::std::result::Result::Ok(Self::QueueArn),
+            "ReceiveMessageWaitTimeSeconds" => ::std::result::Result::Ok(Self::ReceiveMessageWaitTimeSeconds),
+            "RedriveAllowPolicy" => ::std::result::Result::Ok(Self::RedriveAllowPolicy),
+            "RedrivePolicy" => ::std::result::Result::Ok(Self::RedrivePolicy),
+            "SqsManagedSseEnabled" => ::std::result::Result::Ok(Self::SqsManagedSseEnabled),
+            "VisibilityTimeout" => ::std::result::Result::Ok(Self::VisibilityTimeout),
+            _ => ::std::result::Result::Err(()),
+        } } }

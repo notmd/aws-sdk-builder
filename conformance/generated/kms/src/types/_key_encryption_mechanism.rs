@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for KeyEncryptionMechanism { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "RSAES_OAEP_SHA_256" => ::std::result::Result::Ok(Self::RsaesOaepSha256),
+            _ => ::std::result::Result::Err(()),
+        } } }

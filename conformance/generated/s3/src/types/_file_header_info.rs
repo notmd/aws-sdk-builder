@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for FileHeaderInfo { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "IGNORE" => ::std::result::Result::Ok(Self::Ignore),
+            "NONE" => ::std::result::Result::Ok(Self::None),
+            "USE" => ::std::result::Result::Ok(Self::Use),
+            _ => ::std::result::Result::Err(()),
+        } } }

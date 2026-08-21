@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for InvocationType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "DryRun" => ::std::result::Result::Ok(Self::DryRun),
+            "Event" => ::std::result::Result::Ok(Self::Event),
+            "RequestResponse" => ::std::result::Result::Ok(Self::RequestResponse),
+            _ => ::std::result::Result::Err(()),
+        } } }

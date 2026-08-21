@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ObjectLockLegalHoldStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "OFF" => ::std::result::Result::Ok(Self::Off),
+            "ON" => ::std::result::Result::Ok(Self::On),
+            _ => ::std::result::Result::Err(()),
+        } } }

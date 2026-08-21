@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for SnapStartApplyOn { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "None" => ::std::result::Result::Ok(Self::None),
+            "PublishedVersions" => ::std::result::Result::Ok(Self::PublishedVersions),
+            _ => ::std::result::Result::Err(()),
+        } } }

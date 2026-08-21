@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for KeyUsageType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ENCRYPT_DECRYPT" => ::std::result::Result::Ok(Self::EncryptDecrypt),
+            "GENERATE_VERIFY_MAC" => ::std::result::Result::Ok(Self::GenerateVerifyMac),
+            "KEY_AGREEMENT" => ::std::result::Result::Ok(Self::KeyAgreement),
+            "SIGN_VERIFY" => ::std::result::Result::Ok(Self::SignVerify),
+            _ => ::std::result::Result::Err(()),
+        } } }

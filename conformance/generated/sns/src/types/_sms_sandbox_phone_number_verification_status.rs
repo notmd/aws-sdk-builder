@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for SmsSandboxPhoneNumberVerificationStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Pending" => ::std::result::Result::Ok(Self::Pending),
+            "Verified" => ::std::result::Result::Ok(Self::Verified),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -50,8 +50,8 @@ pub(crate) fn header(&self, name: &str) -> Option<&str> {
 self.headers.get(&name.to_ascii_lowercase()).map(String::as_str)
 }
 pub(crate) fn body(&self) -> &[u8] { &self.body }
-pub(crate) async fn text(self) -> Result<String, String> {
-String::from_utf8(self.body).map_err(|error| error.to_string())
+pub(crate) async fn text(&self) -> Result<String, String> {
+String::from_utf8(self.body.clone()).map_err(|error| error.to_string())
 }
 }
 
@@ -127,6 +127,24 @@ result
 }
 fn hex(value: u8) -> char {
 match value { 0..=9 => (b'0' + value) as char, _ => (b'A' + value - 10) as char }
+}
+pub(crate) fn xml_escape(value: &str) -> String {
+value
+.replace('&', "&amp;")
+.replace('<', "&lt;")
+.replace('>', "&gt;")
+.replace('\"', "&quot;")
+.replace('\'', "&apos;")
+}
+pub(crate) fn xml_unescape(value: &str) -> String {
+value
+.replace("&lt;", "<")
+.replace("&gt;", ">")
+.replace("&apos;", "'")
+.replace("&amp;", "&")
+}
+pub(crate) fn xml_first(xml: &str, tag: &str) -> Option<String> {
+xml_tags(xml, tag).into_iter().next().map(|value| xml_unescape(&value))
 }
 pub(crate) fn xml_tags(xml: &str, tag: &str) -> Vec<String> {
 let open = format!("<{tag}>");

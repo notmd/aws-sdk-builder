@@ -18,6 +18,36 @@ pub(crate) struct SelectedModel {
     pub(crate) operations: Vec<String>,
 }
 
+/// Protocols understood by the generated client layer.
+///
+/// The model advertises protocols as service traits. Keeping this value in the
+/// model layer means renderers can consume a protocol plan instead of making
+/// service-name decisions.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub(crate) enum ProtocolKind {
+    RestXml,
+    RestJson1,
+    AwsJson1_0,
+    AwsJson1_1,
+    AwsQuery,
+    AwsQueryCompatible,
+    Ec2Query,
+}
+
+impl ProtocolKind {
+    pub(crate) const fn trait_id(self) -> &'static str {
+        match self {
+            Self::RestXml => "aws.protocols#restXml",
+            Self::RestJson1 => "aws.protocols#restJson1",
+            Self::AwsJson1_0 => "aws.protocols#awsJson1_0",
+            Self::AwsJson1_1 => "aws.protocols#awsJson1_1",
+            Self::AwsQuery => "aws.protocols#awsQuery",
+            Self::AwsQueryCompatible => "aws.protocols#awsQueryCompatible",
+            Self::Ec2Query => "aws.protocols#ec2Query",
+        }
+    }
+}
+
 impl Model {
     pub(crate) fn load(entry: ModelEntry) -> Result<Self, BuildError> {
         if let Some(expected) = crate::registry::checksum(entry.key) {
@@ -135,6 +165,45 @@ impl Model {
                 shapes: selected_shape_map,
             },
             operations,
+        })
+    }
+
+    pub(crate) fn protocol(&self) -> Result<ProtocolKind, BuildError> {
+        let service = self
+            .shapes
+            .get(self.entry.service_shape_id)
+            .ok_or_else(|| BuildError::InvalidModel {
+                model: self.entry.filename.to_owned(),
+                message: format!("service {} is missing", self.entry.service_shape_id),
+            })?;
+        let traits = service
+            .get("traits")
+            .and_then(Value::as_object)
+            .ok_or_else(|| BuildError::InvalidModel {
+                model: self.entry.filename.to_owned(),
+                message: format!("service {} has no traits", self.entry.service_shape_id),
+            })?;
+
+        // This order is the supported-protocol order used by the client
+        // generator. It is deliberately independent of service identity and
+        // of JSON object iteration order.
+        [
+            ProtocolKind::RestXml,
+            ProtocolKind::RestJson1,
+            ProtocolKind::AwsJson1_0,
+            ProtocolKind::AwsJson1_1,
+            ProtocolKind::AwsQuery,
+            ProtocolKind::AwsQueryCompatible,
+            ProtocolKind::Ec2Query,
+        ]
+        .into_iter()
+        .find(|protocol| traits.contains_key(protocol.trait_id()))
+        .ok_or_else(|| BuildError::InvalidModel {
+            model: self.entry.filename.to_owned(),
+            message: format!(
+                "service {} does not advertise a supported AWS protocol",
+                self.entry.service_shape_id
+            ),
         })
     }
 
@@ -363,5 +432,16 @@ mod tests {
                 .shapes
                 .contains_key("com.amazonaws.s3#NotificationConfiguration")
         );
+    }
+
+    #[test]
+    fn packaged_services_select_protocols_from_service_traits() {
+        for entry in crate::registry::entries() {
+            let model = Model::load(*entry).unwrap();
+            let protocol = model
+                .protocol()
+                .unwrap_or_else(|error| panic!("{} has no supported protocol: {error}", entry.key));
+            assert!(protocol.trait_id().starts_with("aws.protocols#"));
+        }
     }
 }

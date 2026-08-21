@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for OwnerOverride { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Destination" => ::std::result::Result::Ok(Self::Destination),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for MfaDeleteStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Disabled" => ::std::result::Result::Ok(Self::Disabled),
+            "Enabled" => ::std::result::Result::Ok(Self::Enabled),
+            _ => ::std::result::Result::Err(()),
+        } } }

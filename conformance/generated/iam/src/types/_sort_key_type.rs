@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for SortKeyType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "LAST_AUTHENTICATED_TIME_ASCENDING" => ::std::result::Result::Ok(Self::LastAuthenticatedTimeAscending),
+            "LAST_AUTHENTICATED_TIME_DESCENDING" => ::std::result::Result::Ok(Self::LastAuthenticatedTimeDescending),
+            "SERVICE_NAMESPACE_ASCENDING" => ::std::result::Result::Ok(Self::ServiceNamespaceAscending),
+            "SERVICE_NAMESPACE_DESCENDING" => ::std::result::Result::Ok(Self::ServiceNamespaceDescending),
+            _ => ::std::result::Result::Err(()),
+        } } }

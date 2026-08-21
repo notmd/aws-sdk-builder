@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ReportFormatType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "text/csv" => ::std::result::Result::Ok(Self::TextCsv),
+            _ => ::std::result::Result::Err(()),
+        } } }

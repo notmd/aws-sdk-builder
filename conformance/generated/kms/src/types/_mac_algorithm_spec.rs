@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for MacAlgorithmSpec { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "HMAC_SHA_224" => ::std::result::Result::Ok(Self::HmacSha224),
+            "HMAC_SHA_256" => ::std::result::Result::Ok(Self::HmacSha256),
+            "HMAC_SHA_384" => ::std::result::Result::Ok(Self::HmacSha384),
+            "HMAC_SHA_512" => ::std::result::Result::Ok(Self::HmacSha512),
+            _ => ::std::result::Result::Err(()),
+        } } }

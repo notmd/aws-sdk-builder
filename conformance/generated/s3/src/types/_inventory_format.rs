@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for InventoryFormat { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "CSV" => ::std::result::Result::Ok(Self::Csv),
+            "ORC" => ::std::result::Result::Ok(Self::Orc),
+            "Parquet" => ::std::result::Result::Ok(Self::Parquet),
+            _ => ::std::result::Result::Err(()),
+        } } }

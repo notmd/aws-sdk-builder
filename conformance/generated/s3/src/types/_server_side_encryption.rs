@@ -22,3 +22,12 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ServerSideEncryption { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AES256" => ::std::result::Result::Ok(Self::Aes256),
+            "aws:backup" => ::std::result::Result::Ok(Self::AwsBackup),
+            "aws:fsx" => ::std::result::Result::Ok(Self::AwsFsx),
+            "aws:kms" => ::std::result::Result::Ok(Self::AwsKms),
+            "aws:kms:dsse" => ::std::result::Result::Ok(Self::AwsKmsDsse),
+            _ => ::std::result::Result::Err(()),
+        } } }

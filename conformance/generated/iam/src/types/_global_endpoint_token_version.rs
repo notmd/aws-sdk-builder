@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for GlobalEndpointTokenVersion { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "v1Token" => ::std::result::Result::Ok(Self::V1Token),
+            "v2Token" => ::std::result::Result::Ok(Self::V2Token),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ReturnConsumedCapacity { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "INDEXES" => ::std::result::Result::Ok(Self::Indexes),
+            "NONE" => ::std::result::Result::Ok(Self::None),
+            "TOTAL" => ::std::result::Result::Ok(Self::Total),
+            _ => ::std::result::Result::Err(()),
+        } } }

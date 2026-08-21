@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for GlobalTableSettingsReplicationMode { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "DISABLED" => ::std::result::Result::Ok(Self::Disabled),
+            "ENABLED" => ::std::result::Result::Ok(Self::Enabled),
+            "ENABLED_WITH_OVERRIDES" => ::std::result::Result::Ok(Self::EnabledWithOverrides),
+            _ => ::std::result::Result::Err(()),
+        } } }

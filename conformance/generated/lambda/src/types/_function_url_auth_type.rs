@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for FunctionUrlAuthType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AWS_IAM" => ::std::result::Result::Ok(Self::AwsIam),
+            "NONE" => ::std::result::Result::Ok(Self::None),
+            _ => ::std::result::Result::Err(()),
+        } } }

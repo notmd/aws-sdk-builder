@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for SchemaRegistryEventRecordFormat { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "JSON" => ::std::result::Result::Ok(Self::Json),
+            "SOURCE" => ::std::result::Result::Ok(Self::Source),
+            _ => ::std::result::Result::Err(()),
+        } } }

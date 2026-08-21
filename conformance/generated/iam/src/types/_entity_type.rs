@@ -22,3 +22,12 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for EntityType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AWSManagedPolicy" => ::std::result::Result::Ok(Self::AwsManagedPolicy),
+            "Group" => ::std::result::Result::Ok(Self::Group),
+            "LocalManagedPolicy" => ::std::result::Result::Ok(Self::LocalManagedPolicy),
+            "Role" => ::std::result::Result::Ok(Self::Role),
+            "User" => ::std::result::Result::Ok(Self::User),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for PolicyType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "INLINE" => ::std::result::Result::Ok(Self::Inline),
+            "MANAGED" => ::std::result::Result::Ok(Self::Managed),
+            _ => ::std::result::Result::Err(()),
+        } } }

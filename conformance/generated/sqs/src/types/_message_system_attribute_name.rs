@@ -32,3 +32,17 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for MessageSystemAttributeName { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AWSTraceHeader" => ::std::result::Result::Ok(Self::AwsTraceHeader),
+            "All" => ::std::result::Result::Ok(Self::All),
+            "ApproximateFirstReceiveTimestamp" => ::std::result::Result::Ok(Self::ApproximateFirstReceiveTimestamp),
+            "ApproximateReceiveCount" => ::std::result::Result::Ok(Self::ApproximateReceiveCount),
+            "DeadLetterQueueSourceArn" => ::std::result::Result::Ok(Self::DeadLetterQueueSourceArn),
+            "MessageDeduplicationId" => ::std::result::Result::Ok(Self::MessageDeduplicationId),
+            "MessageGroupId" => ::std::result::Result::Ok(Self::MessageGroupId),
+            "SenderId" => ::std::result::Result::Ok(Self::SenderId),
+            "SentTimestamp" => ::std::result::Result::Ok(Self::SentTimestamp),
+            "SequenceNumber" => ::std::result::Result::Ok(Self::SequenceNumber),
+            _ => ::std::result::Result::Err(()),
+        } } }

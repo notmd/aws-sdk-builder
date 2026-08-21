@@ -24,3 +24,13 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for PolicyIdentifierPolicyType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "aws-managed" => ::std::result::Result::Ok(Self::AwsManaged),
+            "inline" => ::std::result::Result::Ok(Self::Inline),
+            "permission-boundary" => ::std::result::Result::Ok(Self::PermissionBoundary),
+            "rcp" => ::std::result::Result::Ok(Self::Rcp),
+            "scp" => ::std::result::Result::Ok(Self::Scp),
+            "user-managed" => ::std::result::Result::Ok(Self::UserManaged),
+            _ => ::std::result::Result::Err(()),
+        } } }

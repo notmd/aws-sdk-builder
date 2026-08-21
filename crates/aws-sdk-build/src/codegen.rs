@@ -1,6 +1,5 @@
-use std::{collections::BTreeMap, fmt::Write, fs, path::Path};
-
 use serde_json::Value;
+use std::{collections::BTreeMap, fmt::Write, fs, path::Path};
 
 use crate::{
     config::ServiceSelection,
@@ -34,11 +33,14 @@ pub(crate) fn generate(
     );
     let mut all_operations = Vec::new();
     let mut selected_services = Vec::new();
+    let mut service_protocols = BTreeMap::new();
     let mut files = Vec::new();
     for selection in selections {
         let entry = registry::lookup(&selection.key)?;
         let model = crate::model::Model::load(entry)?;
         let selected = model.select(&selection.operations, selection.all_operations)?;
+        let protocol = selected.model.protocol()?;
+        service_protocols.insert(entry.key.to_owned(), protocol.trait_id());
         let service_dir = generated.join(entry.key);
         let mut service_files = vec![
             ("src/lib.rs".to_owned(), render_service_lib(entry.key)),
@@ -67,26 +69,57 @@ pub(crate) fn generate(
         let mut operation_names = selected.operations.clone();
         operation_names.sort();
         for operation_name in operation_names {
+            let module = names::snake_case(&operation_name);
             service_files.push((
-                format!("src/operation/{}.rs", names::snake_case(&operation_name)),
-                render_operation_file(&selected, &operation_name),
+                format!("src/operation/{module}.rs"),
+                render_operation_file(entry.key, &selected, &operation_name),
             ));
             service_files.push((
-                format!("src/client/{}.rs", names::snake_case(&operation_name)),
+                format!("src/operation/{module}/_{module}_input.rs"),
+                render_operation_shape_file(&selected, &operation_name, true),
+            ));
+            service_files.push((
+                format!("src/operation/{module}/_{module}_output.rs"),
+                render_operation_shape_file(&selected, &operation_name, false),
+            ));
+            service_files.push((
+                format!("src/operation/{module}/builders.rs"),
+                render_operation_builder_file(&selected, &operation_name),
+            ));
+            service_files.push((
+                format!("src/client/{module}.rs"),
                 render_client_operation_file(&operation_name),
             ));
         }
+        let operation_shapes = operation_shape_ids(&selected);
         let mut shape_ids = selected.model.shapes.keys().cloned().collect::<Vec<_>>();
         shape_ids.sort();
         for shape_id in shape_ids {
+            let Some(shape) = selected.model.shapes.get(&shape_id) else {
+                continue;
+            };
             if shape_id == selected.model.entry.service_shape_id
+                || operation_shapes.contains(&shape_id)
                 || !is_renderable_type(selected.model.shapes.get(&shape_id))
             {
                 continue;
             }
+            let relative_dir = if is_error_shape(shape) {
+                "src/types/error"
+            } else {
+                "src/types"
+            };
             service_files.push((
-                format!("src/types/{}", type_file_name(&shape_id)),
-                render_type_file(&selected, &shape_id),
+                format!("{relative_dir}/{}", type_file_name(&shape_id)),
+                render_type_file(
+                    &selected,
+                    &shape_id,
+                    if is_error_shape(shape) {
+                        Context::Error
+                    } else {
+                        Context::Types
+                    },
+                ),
             ));
         }
         for (relative_path, source) in service_files {
@@ -137,6 +170,7 @@ pub(crate) fn generate(
         "snapshot_sha": registry::AWS_SDK_RUST_SNAPSHOT,
         "smithy_reference_sha": registry::SMITHY_RS_SNAPSHOT,
         "selected_service_keys": selected_services,
+        "service_protocols": service_protocols,
         "selected_operations": all_operations,
         "generated_source_files": files,
         "runtime_crate_requirements": ["aws-runtime"],
@@ -376,8 +410,8 @@ fn render_aws_runtime() -> String {
                      self.headers.get(&name.to_ascii_lowercase()).map(String::as_str)\n\
                  }\n\
                  pub(crate) fn body(&self) -> &[u8] { &self.body }\n\
-                 pub(crate) async fn text(self) -> Result<String, String> {\n\
-                     String::from_utf8(self.body).map_err(|error| error.to_string())\n\
+             pub(crate) async fn text(&self) -> Result<String, String> {\n\
+                 String::from_utf8(self.body.clone()).map_err(|error| error.to_string())\n\
                  }\n\
              }\n\
 \n\
@@ -454,6 +488,24 @@ fn render_aws_runtime() -> String {
              fn hex(value: u8) -> char {\n\
                  match value { 0..=9 => (b'0' + value) as char, _ => (b'A' + value - 10) as char }\n\
              }\n\
+             pub(crate) fn xml_escape(value: &str) -> String {\n\
+                 value\n\
+                     .replace('&', \"&amp;\")\n\
+                     .replace('<', \"&lt;\")\n\
+                     .replace('>', \"&gt;\")\n\
+                     .replace('\\\"', \"&quot;\")\n\
+                     .replace('\\'', \"&apos;\")\n\
+             }\n\
+             pub(crate) fn xml_unescape(value: &str) -> String {\n\
+                 value\n\
+                     .replace(\"&lt;\", \"<\")\n\
+                     .replace(\"&gt;\", \">\")\n\
+                     .replace(\"&apos;\", \"'\")\n\
+                     .replace(\"&amp;\", \"&\")\n\
+             }\n\
+             pub(crate) fn xml_first(xml: &str, tag: &str) -> Option<String> {\n\
+                 xml_tags(xml, tag).into_iter().next().map(|value| xml_unescape(&value))\n\
+             }\n\
              pub(crate) fn xml_tags(xml: &str, tag: &str) -> Vec<String> {\n\
                  let open = format!(\"<{tag}>\");\n\
                  let close = format!(\"</{tag}>\");\n\
@@ -523,9 +575,29 @@ fn render_types_file(service_key: &str, selected: &SelectedModel) -> String {
     let mut ids = selected.model.shapes.keys().cloned().collect::<Vec<_>>();
     ids.sort();
     for id in ids {
+        let Some(shape) = selected.model.shapes.get(&id) else {
+            continue;
+        };
         if id == selected.model.entry.service_shape_id
-            || !is_renderable_type(selected.model.shapes.get(&id))
+            || operation_shape_ids(selected).contains(&id)
+            || (!is_renderable_type(Some(shape)) && !is_primitive_shape(shape))
+            || is_error_shape(shape)
         {
+            continue;
+        }
+        if is_primitive_shape(shape) {
+            writeln!(
+                output,
+                "    pub type {} = {};",
+                rust_type_name(terminal(&id)),
+                primitive_type(
+                    shape
+                        .get("type")
+                        .and_then(Value::as_str)
+                        .unwrap_or("string")
+                )
+            )
+            .unwrap();
             continue;
         }
         let filename = type_file_name(&id);
@@ -535,11 +607,67 @@ fn render_types_file(service_key: &str, selected: &SelectedModel) -> String {
         )
         .unwrap();
     }
+    output.push_str("    pub mod error {\n");
+    let mut error_ids = selected
+        .model
+        .shapes
+        .iter()
+        .filter_map(|(id, shape)| is_error_shape(shape).then_some(id.clone()))
+        .collect::<Vec<_>>();
+    error_ids.sort();
+    for id in error_ids {
+        let filename = type_file_name(&id);
+        writeln!(
+            output,
+            "        include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/error/{filename}\"));"
+        )
+        .unwrap();
+    }
+    output.push_str("    }\n");
     output.push_str("}\n\n");
     output
 }
 
-fn render_type_file(selected: &SelectedModel, shape_id: &str) -> String {
+fn operation_shape_ids(selected: &SelectedModel) -> std::collections::BTreeSet<String> {
+    let namespace = selected
+        .model
+        .entry
+        .service_shape_id
+        .split('#')
+        .next()
+        .unwrap_or_default();
+    selected
+        .operations
+        .iter()
+        .filter_map(|operation_name| {
+            let operation_id = format!("{namespace}#{operation_name}");
+            selected.model.shapes.get(&operation_id)
+        })
+        .flat_map(|operation| {
+            operation
+                .get("input")
+                .into_iter()
+                .chain(operation.get("output"))
+                .flat_map(|value| match value {
+                    Value::Array(values) => values.iter().collect::<Vec<_>>(),
+                    value => vec![value],
+                })
+                .filter_map(target_value)
+                .map(ToOwned::to_owned)
+                .collect::<Vec<_>>()
+        })
+        .collect()
+}
+
+fn is_error_shape(shape: &Value) -> bool {
+    shape
+        .get("traits")
+        .and_then(Value::as_object)
+        .is_some_and(|traits| traits.contains_key("smithy.api#error"))
+}
+
+fn render_type_file(selected: &SelectedModel, shape_id: &str, context: Context) -> String {
+    let is_error = matches!(context, Context::Error);
     let mut one_shape = selected.clone();
     one_shape.model.shapes = BTreeMap::from([(
         shape_id.to_owned(),
@@ -551,7 +679,7 @@ fn render_type_file(selected: &SelectedModel, shape_id: &str) -> String {
             .clone(),
     )]);
     let mut rendered = String::new();
-    render_types(&mut rendered, &one_shape);
+    render_types_with_context(&mut rendered, &one_shape, context);
     let marker = "pub mod types {\n";
     let start = rendered.find(marker).expect("type module must be rendered") + marker.len();
     let end = rendered
@@ -561,6 +689,15 @@ fn render_type_file(selected: &SelectedModel, shape_id: &str) -> String {
     header(&mut output);
     output.push_str(rendered[start..end].trim_end());
     output.push('\n');
+    if is_error {
+        writeln!(
+            output,
+            "impl ::std::fmt::Display for {} {{ fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {{ f.write_str({:?}) }} }}",
+            rust_type_name(terminal(shape_id)),
+            terminal(shape_id)
+        )
+        .unwrap();
+    }
     output
 }
 
@@ -569,13 +706,15 @@ fn is_renderable_type(shape: Option<&Value>) -> bool {
         shape
             .and_then(|shape| shape.get("type"))
             .and_then(Value::as_str),
+        Some("structure" | "union" | "enum" | "list" | "map")
+    )
+}
+
+fn is_primitive_shape(shape: &Value) -> bool {
+    matches!(
+        shape.get("type").and_then(Value::as_str),
         Some(
-            "structure"
-                | "union"
-                | "enum"
-                | "list"
-                | "map"
-                | "string"
+            "string"
                 | "integer"
                 | "long"
                 | "short"
@@ -594,7 +733,7 @@ fn type_file_name(shape_id: &str) -> String {
     format!("_{}.rs", names::snake_case(terminal(shape_id)))
 }
 
-fn render_types(output: &mut String, selected: &SelectedModel) {
+fn render_types_with_context(output: &mut String, selected: &SelectedModel, context: Context) {
     header(output);
     output.push_str("pub mod types {\n");
     let mut ids = selected.model.shapes.keys().cloned().collect::<Vec<_>>();
@@ -607,7 +746,7 @@ fn render_types(output: &mut String, selected: &SelectedModel) {
             continue;
         };
         match shape.get("type").and_then(Value::as_str) {
-            Some("structure") => render_structure(output, shape, terminal(&id), Context::Types),
+            Some("structure") => render_structure(output, shape, terminal(&id), context.clone()),
             Some("union") => render_union(output, shape, terminal(&id)),
             Some("enum") => render_enum(output, shape, terminal(&id)),
             Some("list") => {
@@ -615,7 +754,7 @@ fn render_types(output: &mut String, selected: &SelectedModel) {
                     .get("member")
                     .and_then(|member| member.get("target"))
                     .and_then(Value::as_str)
-                    .map(|target| type_expr(target, Context::Types))
+                    .map(|target| type_expr(target, context.clone()))
                     .unwrap_or_else(|| "::std::string::String".to_owned());
                 writeln!(
                     output,
@@ -630,7 +769,7 @@ fn render_types(output: &mut String, selected: &SelectedModel) {
                     .get("key")
                     .and_then(|member| member.get("target"))
                     .and_then(Value::as_str)
-                    .map(|target| type_expr(target, Context::Types))
+                    .map(|target| type_expr(target, context.clone()))
                     .unwrap_or_else(|| "::std::string::String".to_owned());
                 let value = shape
                     .get("value")
@@ -689,187 +828,225 @@ fn render_operations_file(service_key: &str, selected: &SelectedModel) -> String
     output
 }
 
-fn render_operation_file(selected: &SelectedModel, operation_name: &str) -> String {
+fn render_operation_file(
+    service_key: &str,
+    selected: &SelectedModel,
+    operation_name: &str,
+) -> String {
     let module = names::snake_case(operation_name);
-    let mut one_operation = selected.clone();
-    one_operation.operations = vec![operation_name.to_owned()];
-    let mut rendered = String::new();
-    render_operations(&mut rendered, &one_operation);
-    let marker = format!("    pub mod {module} {{\n");
-    let start = rendered
-        .find(&marker)
-        .expect("selected operation must be rendered")
-        + marker.len();
-    let end = rendered
-        .rfind("\n}\n\n")
-        .expect("operation module must have an outer closing brace");
-    let body = rendered[start..end].trim_end();
-    let body_end = body
-        .rfind('\n')
-        .expect("operation module must have a closing brace");
+    let operation = operation_shape(selected, operation_name).expect("selected operation exists");
+    let rust_operation = rust_type_name(operation_name);
     let mut output = String::new();
     header(&mut output);
-    output.push_str(&body[..body_end]);
-    output.push('\n');
+    writeln!(
+        output,
+        "#[derive(Clone, Debug, Default)]\npub struct {rust_operation};\nimpl {rust_operation} {{ pub fn new() -> Self {{ Self }} }}"
+    )
+    .unwrap();
+    render_operation_error(&mut output, operation);
+    writeln!(
+        output,
+        "pub mod _{module}_input {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/operation/{module}/_{module}_input.rs\"));\n}}\npub use _{module}_input::{rust_operation}Input;\npub type Input = {rust_operation}Input;"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "pub mod _{module}_output {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/operation/{module}/_{module}_output.rs\"));\n}}\npub use _{module}_output::{rust_operation}Output;\npub type Output = {rust_operation}Output;"
+    )
+    .unwrap();
+    output.push_str("\n/// Builders\npub mod builders {\n");
+    writeln!(
+        output,
+        "    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/operation/{module}/builders.rs\"));"
+    )
+    .unwrap();
+    output.push_str("}\n");
+    writeln!(
+        output,
+        "pub type {rust_operation}Error = Error;\npub type {rust_operation}FluentBuilder = builders::Builder;"
+    )
+    .unwrap();
     output
 }
 
-fn render_operations(output: &mut String, selected: &SelectedModel) {
-    header(output);
-    output.push_str("pub mod operation {\n");
-    let mut operations = selected.operations.clone();
-    operations.sort();
-    for operation_name in operations {
-        let namespace = selected
-            .model
-            .entry
-            .service_shape_id
-            .split('#')
-            .next()
-            .unwrap_or_default();
-        let operation_id = format!("{namespace}#{operation_name}");
-        let Some(operation) = selected.model.shapes.get(&operation_id) else {
-            continue;
-        };
-        let module = names::snake_case(&operation_name);
-        writeln!(output, "    pub mod {} {{", module).unwrap();
-        writeln!(
-            output,
-            "        #[derive(Clone, Debug, Default)]\n        pub struct {};\n        impl {} {{ pub fn new() -> Self {{ Self }} }}",
-            rust_type_name(&operation_name)
-            , rust_type_name(&operation_name)
-        )
-        .unwrap();
-        let input = operation
-            .get("input")
-            .and_then(Value::as_str)
-            .or_else(|| operation.get("input").and_then(target_value));
-        let output_shape = operation
-            .get("output")
-            .and_then(Value::as_str)
-            .or_else(|| operation.get("output").and_then(target_value));
-        render_operation_io(
-            output,
-            selected,
-            input,
-            "Input",
+fn operation_shape<'a>(selected: &'a SelectedModel, operation_name: &str) -> Option<&'a Value> {
+    let namespace = selected
+        .model
+        .entry
+        .service_shape_id
+        .split('#')
+        .next()
+        .unwrap_or_default();
+    selected
+        .model
+        .shapes
+        .get(&format!("{namespace}#{operation_name}"))
+}
+
+fn operation_shape_file_name(operation_name: &str, input: bool) -> String {
+    format!(
+        "{}{}",
+        rust_type_name(operation_name),
+        if input { "Input" } else { "Output" }
+    )
+}
+
+fn render_operation_shape_file(
+    selected: &SelectedModel,
+    operation_name: &str,
+    input: bool,
+) -> String {
+    let operation = operation_shape(selected, operation_name).expect("selected operation exists");
+    let shape_id = operation
+        .get(if input { "input" } else { "output" })
+        .and_then(target_value);
+    let shape = shape_id.and_then(|id| selected.model.shapes.get(id));
+    let rust_name = operation_shape_file_name(operation_name, input);
+    let module = names::snake_case(operation_name);
+    let mut output = String::new();
+    header(&mut output);
+    if let Some(shape) = shape {
+        render_structure_at_indent(
+            &mut output,
+            shape,
+            &rust_name,
             Context::Operation(module.clone()),
+            0,
         );
-        render_operation_io(
-            output,
+        render_operation_accessors(
+            &mut output,
             selected,
-            output_shape,
-            "Output",
-            Context::Operation(module.clone()),
+            shape,
+            &rust_name,
+            Context::Operation(module),
         );
-        let rust_operation = rust_type_name(&operation_name);
+        render_operation_shape_builder(
+            &mut output,
+            shape,
+            &rust_name,
+            Context::Builder(String::new()),
+        );
+    } else {
         writeln!(
             output,
-            "        pub type {rust_operation}Input = Input;\n        pub type {rust_operation}Output = Output;\n        pub type {rust_operation}Error = Error;"
+            "#[derive(Clone, Debug, Default)]\npub struct {rust_name};"
         )
         .unwrap();
-        output.push_str("        #[derive(Clone, Debug)]\n        pub enum Error {\n");
-        if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
-            for error in errors.iter().filter_map(target_value) {
-                writeln!(
-                    output,
-                    "            {}({}),",
-                    rust_type_name(terminal(error)),
-                    rust_type_name(terminal(error))
-                )
-                .unwrap();
-            }
-        }
-        output.push_str("            Unhandled(::std::string::String),\n        }\n");
-        if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
-            for error in errors.iter().filter_map(target_value) {
-                let error_name = rust_type_name(terminal(error));
-                writeln!(
-                    output,
-                    "        #[derive(Clone, Debug)]\n        pub struct {} {{ pub meta: super::super::ErrorMetadata }}\n        impl {} {{ pub fn meta(&self) -> &super::super::ErrorMetadata {{ &self.meta }} }}",
-                    error_name, error_name
-                )
-                .unwrap();
-            }
-        }
-        if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
-            output.push_str("        impl Error {\n");
-            for error in errors.iter().filter_map(target_value) {
-                let error_name = rust_type_name(terminal(error));
-                let predicate = names::snake_case(terminal(error));
-                writeln!(
-                    output,
-                    "            pub fn is_{predicate}(&self) -> bool {{ matches!(self, Self::{error_name}(_)) }}"
-                )
-                .unwrap();
-            }
-            output.push_str("        }\n");
-        }
-        output.push_str(
-            "        impl ::std::fmt::Display for Error {\n\
-                 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {\n\
-                     match self {\n\
-                         Self::Unhandled(message) => f.write_str(message),\n",
-        );
-        if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
-            for error in errors.iter().filter_map(target_value) {
-                let error_name = rust_type_name(terminal(error));
-                writeln!(
-                    output,
-                    "                         Self::{}(_) => f.write_str(\"{}\"),",
-                    error_name, error_name
-                )
-                .unwrap();
-            }
-        }
-        output.push_str(
-            "                     }\n\
-                 }\n\
-             }\n\
-             impl ::std::error::Error for Error {}\n\
-             pub mod builders {\n\
-                 #[derive(Clone, Debug, Default)]\n\
-                 pub struct Builder {\n\
-                     input: super::Input,\n\
-                     client: super::super::super::Client,\n\
-                 }\n\
-                 impl Builder {\n\
-                     pub fn new() -> Self { Self::default() }\n\
-                     pub fn with_client(client: super::super::super::Client) -> Self {\n\
-                         Self { input: super::Input::default(), client }\n\
-                     }\n",
-        );
-        if let Some(input_id) = input
-            && let Some(shape) = selected.model.shapes.get(input_id)
-        {
-            for (name, member) in members(shape) {
-                let field = names::rust_identifier(&name);
-                let target = member_target(member)
-                    .map(|target| type_expr(target, Context::Builder(module.clone())))
-                    .unwrap_or_else(|| "::std::string::String".to_owned());
-                writeln!(
-                    output,
-                    "                     pub fn {}(mut self, value: impl ::std::convert::Into<{}>) -> Self {{ self.input.{} = Some(value.into()); self }}",
-                    field, target, field
-                )
-                .unwrap();
-            }
-        }
-        output.push_str("                     pub fn build(self) -> super::Input { self.input }\n");
-        render_operation_send(output, &operation_name, selected, operation);
-        output.push_str(
-            "                 }\n\
-             }\n\
-             pub use builders::Builder;\n",
-        );
-        writeln!(
-            output,
-            "        pub type {rust_operation}FluentBuilder = builders::Builder;"
-        )
-        .unwrap();
-        output.push_str("         }\n");
     }
-    output.push_str("}\n\n");
+    output
+}
+
+fn render_operation_shape_builder(
+    output: &mut String,
+    shape: &Value,
+    name: &str,
+    context: Context,
+) {
+    let rust_name = rust_type_name(name);
+    writeln!(
+        output,
+        "impl {rust_name} {{\n    pub fn builder() -> {rust_name}Builder {{ {rust_name}Builder::default() }}\n}}\n#[derive(Clone, Debug, Default)]\npub struct {rust_name}Builder {{"
+    )
+    .unwrap();
+    for (member_name, member) in members(shape) {
+        let field = names::rust_identifier(&member_name);
+        let target = member_target(member)
+            .map(|target| type_expr(target, context.clone()))
+            .unwrap_or_else(|| "::std::string::String".to_owned());
+        writeln!(output, "    {field}: ::std::option::Option<{target}>,").unwrap();
+    }
+    writeln!(output, "}}\nimpl {rust_name}Builder {{").unwrap();
+    for (member_name, member) in members(shape) {
+        let field = names::rust_identifier(&member_name);
+        let method = field.strip_prefix("r#").unwrap_or(&field);
+        let target = member_target(member)
+            .map(|target| type_expr(target, context.clone()))
+            .unwrap_or_else(|| "::std::string::String".to_owned());
+        writeln!(
+            output,
+            "    pub fn {field}(mut self, input: impl ::std::convert::Into<{target}>) -> Self {{ self.{field} = Some(input.into()); self }}\n    pub fn set_{method}(mut self, input: ::std::option::Option<{target}>) -> Self {{ self.{field} = input; self }}\n    pub fn get_{method}(&self) -> &::std::option::Option<{target}> {{ &self.{field} }}"
+        )
+        .unwrap();
+    }
+    writeln!(
+        output,
+        "    pub fn build(self) -> {rust_name} {{ {rust_name} {{"
+    )
+    .unwrap();
+    for (member_name, _) in members(shape) {
+        let field = names::rust_identifier(&member_name);
+        writeln!(output, "        {field}: self.{field},").unwrap();
+    }
+    output.push_str("    } }\n}\n");
+}
+
+fn render_operation_builder_file(selected: &SelectedModel, operation_name: &str) -> String {
+    let operation = operation_shape(selected, operation_name).expect("selected operation exists");
+    let protocol = selected
+        .model
+        .protocol()
+        .expect("selected model protocol was validated before rendering");
+    let module = names::snake_case(operation_name);
+    let rust_operation = rust_type_name(operation_name);
+    let mut output = String::new();
+    header(&mut output);
+    output.push_str(
+        "#[derive(Clone, Debug, Default)]\npub struct Builder {\n    input: super::Input,\n    client: super::super::super::Client,\n}\nimpl Builder {\n    pub fn new() -> Self { Self::default() }\n    pub fn with_client(client: super::super::super::Client) -> Self {\n        Self { input: super::Input::default(), client }\n    }\n",
+    );
+    if let Some(input_id) = operation.get("input").and_then(target_value)
+        && let Some(shape) = selected.model.shapes.get(input_id)
+    {
+        for (name, member) in members(shape) {
+            let field = names::rust_identifier(&name);
+            let target = member_target(member)
+                .map(|target| type_expr(target, Context::Builder(module.clone())))
+                .unwrap_or_else(|| "::std::string::String".to_owned());
+            writeln!(
+                output,
+                "    pub fn {field}(mut self, value: impl ::std::convert::Into<{target}>) -> Self {{ self.input.{field} = Some(value.into()); self }}"
+            )
+            .unwrap();
+        }
+    }
+    output.push_str("    pub fn build(self) -> super::Input { self.input }\n");
+    render_operation_send(&mut output, operation_name, selected, operation, protocol);
+    output.push_str("}\n");
+    writeln!(output, "pub use Builder as {rust_operation}FluentBuilder;").unwrap();
+    output
+}
+
+fn render_operation_error(output: &mut String, operation: &Value) {
+    output.push_str("#[derive(Clone, Debug)]\npub enum Error {\n");
+    if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
+        for error in errors.iter().filter_map(target_value) {
+            let error_name = rust_type_name(terminal(error));
+            writeln!(
+                output,
+                "    {error_name}(super::super::types::error::{error_name}),"
+            )
+            .unwrap();
+        }
+    }
+    output.push_str("    Unhandled(::std::string::String),\n}\nimpl Error {\n");
+    if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
+        for error in errors.iter().filter_map(target_value) {
+            let error_name = rust_type_name(terminal(error));
+            let predicate = names::snake_case(terminal(error));
+            writeln!(output, "    pub fn is_{predicate}(&self) -> bool {{ matches!(self, Self::{error_name}(_)) }}").unwrap();
+        }
+    }
+    output.push_str("}\nimpl ::std::fmt::Display for Error {\n    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {\n        match self {\n            Self::Unhandled(message) => f.write_str(message),\n");
+    if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
+        for error in errors.iter().filter_map(target_value) {
+            let error_name = rust_type_name(terminal(error));
+            writeln!(
+                output,
+                "            Self::{error_name}(value) => value.fmt(f),"
+            )
+            .unwrap();
+        }
+    }
+    output.push_str("        }\n    }\n}\nimpl ::std::error::Error for Error {}\n");
 }
 
 fn render_operation_send(
@@ -877,6 +1054,7 @@ fn render_operation_send(
     operation_name: &str,
     selected: &SelectedModel,
     operation: &Value,
+    protocol: crate::model::ProtocolKind,
 ) {
     let rust_operation = rust_type_name(operation_name);
     let method = operation
@@ -904,19 +1082,8 @@ fn render_operation_send(
     let output_id = operation.get("output").and_then(target_value);
     let output_shape = output_id.and_then(|id| selected.model.shapes.get(id));
     let path_expression = render_request_path(uri, input_shape, selected);
-    let body_expression = input_shape
-        .and_then(|shape| {
-            members(shape).into_iter().find_map(|(name, member)| {
-                (member
-                    .get("traits")
-                    .and_then(|traits| traits.get("smithy.api#httpPayload"))
-                    .is_some()
-                    && terminal(member_target(member).unwrap_or_default()) == "StreamingBlob")
-                    .then(|| format!("self.input.{}.as_ref().map(|body| body.clone().into_inner()).unwrap_or_default()", names::rust_identifier(&name)))
-            })
-        })
-        .unwrap_or_else(|| "::std::vec::Vec::new()".to_owned());
-    let headers_expression = render_request_headers(input_shape);
+    let body_expression = render_request_body(selected, input_shape, protocol);
+    let headers_expression = render_request_headers(input_shape, protocol);
 
     writeln!(
         output,
@@ -945,19 +1112,204 @@ fn render_operation_send(
     )
     .unwrap();
     output.push_str("                         let status = response.status();\n                         if !status.is_success() {\n");
-    if operation_name == "CreateBucket" {
-        output.push_str(
-            "                             let body = response.text().await.unwrap_or_default();\n                             let metadata = super::super::super::ErrorMetadata;\n                             if body.contains(\"BucketAlreadyExists\") { return Err(super::CreateBucketError::BucketAlreadyExists(super::BucketAlreadyExists { meta: metadata })); }\n                             if body.contains(\"BucketAlreadyOwnedByYou\") || status == super::super::super::transport::StatusCode::CONFLICT { return Err(super::CreateBucketError::BucketAlreadyOwnedByYou(super::BucketAlreadyOwnedByYou { meta: metadata })); }\n",
-        );
-    }
     writeln!(
         output,
         "                             return Err(super::{rust_operation}Error::Unhandled(format!(\"{rust_operation} returned HTTP {{}}\", status)));"
     )
     .unwrap();
     output.push_str("                         }\n");
-    render_response_decode(output, operation_name, selected, output_shape);
+    render_response_decode(output, operation_name, selected, output_shape, protocol);
     output.push_str("                     }\n");
+}
+
+fn render_request_body(
+    selected: &SelectedModel,
+    input_shape: Option<&Value>,
+    protocol: crate::model::ProtocolKind,
+) -> String {
+    let Some(shape) = input_shape else {
+        return "::std::vec::Vec::new()".to_owned();
+    };
+    let Some((name, member)) = members(shape).into_iter().find(|(_, member)| {
+        member
+            .get("traits")
+            .and_then(|traits| traits.get("smithy.api#httpPayload"))
+            .is_some()
+    }) else {
+        return "::std::vec::Vec::new()".to_owned();
+    };
+    let field = names::rust_identifier(&name);
+    let target = member_target(member).unwrap_or_default();
+    if terminal(target) == "StreamingBlob" {
+        return format!(
+            "self.input.{field}.as_ref().map(|body| body.clone().into_inner()).unwrap_or_default()"
+        );
+    }
+    if protocol != crate::model::ProtocolKind::RestXml {
+        return "::std::vec::Vec::new()".to_owned();
+    }
+
+    let Some(target_shape) = selected.model.shapes.get(target) else {
+        return "::std::vec::Vec::new()".to_owned();
+    };
+    let root = xml_name(member).unwrap_or_else(|| terminal(target).to_owned());
+    let mut expression = String::from(
+        "{ let mut body = ::std::string::String::new(); if let Some(value) = self.input.",
+    );
+    expression.push_str(&field);
+    expression.push_str(".as_ref() {");
+    render_xml_value(
+        &mut expression,
+        selected,
+        target,
+        target_shape,
+        "value",
+        &root,
+        false,
+        1,
+    );
+    expression.push_str(" } body.into_bytes() }");
+    expression
+}
+
+fn render_xml_value(
+    output: &mut String,
+    selected: &SelectedModel,
+    _target: &str,
+    shape: &Value,
+    value_expression: &str,
+    tag: &str,
+    flattened: bool,
+    _indent: usize,
+) {
+    let kind = shape
+        .get("type")
+        .and_then(Value::as_str)
+        .unwrap_or_default();
+    match kind {
+        "structure" => {
+            output.push_str(&format!(
+                " body.push_str({open:?});",
+                open = format!("<{tag}>")
+            ));
+            for (member_name, member) in members(shape) {
+                let traits = member.get("traits").and_then(Value::as_object);
+                if traits.is_some_and(|traits| {
+                    [
+                        "smithy.api#httpHeader",
+                        "smithy.api#httpLabel",
+                        "smithy.api#httpQuery",
+                    ]
+                    .iter()
+                    .any(|trait_id| traits.contains_key(*trait_id))
+                }) {
+                    continue;
+                }
+                let Some(member_target) = member_target(member) else {
+                    continue;
+                };
+                let Some(member_shape) = selected.model.shapes.get(member_target) else {
+                    continue;
+                };
+                let member_tag = xml_name(member)
+                    .or_else(|| xml_name(member_shape))
+                    .unwrap_or_else(|| member_name.clone());
+                let field = names::rust_identifier(&member_name);
+                let field_expression = format!("{value_expression}.{field}");
+                output.push_str(&format!(
+                    " if let Some(value) = {field_expression}.as_ref() {{"
+                ));
+                render_xml_value(
+                    output,
+                    selected,
+                    member_target,
+                    member_shape,
+                    "value",
+                    &member_tag,
+                    traits.is_some_and(|traits| traits.contains_key("smithy.api#xmlFlattened")),
+                    _indent + 1,
+                );
+                output.push_str(" }");
+            }
+            output.push_str(&format!(
+                " body.push_str({close:?});",
+                close = format!("</{tag}>")
+            ));
+        }
+        "list" => {
+            let element_target = shape
+                .get("member")
+                .and_then(member_target)
+                .unwrap_or("smithy.api#String");
+            let Some(element_shape) = selected.model.shapes.get(element_target) else {
+                return;
+            };
+            let flattened = shape
+                .get("traits")
+                .and_then(Value::as_object)
+                .is_some_and(|traits| traits.contains_key("smithy.api#xmlFlattened"))
+                || flattened;
+            if !flattened {
+                output.push_str(&format!(
+                    " body.push_str({open:?});",
+                    open = format!("<{tag}>")
+                ));
+            }
+            output.push_str(&format!(" for item in {value_expression} {{"));
+            let element_tag = shape
+                .get("member")
+                .and_then(xml_name)
+                .unwrap_or_else(|| tag.to_owned());
+            render_xml_value(
+                output,
+                selected,
+                element_target,
+                element_shape,
+                "item",
+                &element_tag,
+                false,
+                _indent + 1,
+            );
+            output.push_str(" }");
+            if !flattened {
+                output.push_str(&format!(
+                    " body.push_str({close:?});",
+                    close = format!("</{tag}>")
+                ));
+            }
+        }
+        _ => {
+            output.push_str(&format!(
+                " body.push_str({open:?}); body.push_str(&super::super::super::transport::xml_escape(&{value_expression}.to_string())); body.push_str({close:?});",
+                open = format!("<{tag}>"),
+                close = format!("</{tag}>")
+            ));
+        }
+    }
+}
+
+fn xml_name(value: &Value) -> Option<String> {
+    value
+        .get("traits")
+        .and_then(|traits| traits.get("smithy.api#xmlName"))
+        .and_then(Value::as_str)
+        .map(ToOwned::to_owned)
+}
+
+fn is_xml_body_member(member: &Value) -> bool {
+    let Some(traits) = member.get("traits").and_then(Value::as_object) else {
+        return true;
+    };
+    if traits.contains_key("smithy.api#httpHeader")
+        || traits.contains_key("smithy.api#httpPrefixHeaders")
+        || traits.contains_key("smithy.api#httpResponseCode")
+    {
+        return false;
+    }
+    if traits.contains_key("smithy.api#httpPayload") {
+        return terminal(member_target(member).unwrap_or_default()) != "StreamingBlob";
+    }
+    true
 }
 
 fn render_request_path(uri: &str, input_shape: Option<&Value>, selected: &SelectedModel) -> String {
@@ -1023,7 +1375,10 @@ fn render_request_path(uri: &str, input_shape: Option<&Value>, selected: &Select
     expression
 }
 
-fn render_request_headers(input_shape: Option<&Value>) -> String {
+fn render_request_headers(
+    input_shape: Option<&Value>,
+    protocol: crate::model::ProtocolKind,
+) -> String {
     let mut output =
         String::from("{ let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();");
     let mut has_headers = false;
@@ -1059,7 +1414,21 @@ fn render_request_headers(input_shape: Option<&Value>) -> String {
             ));
         }
     }
-    if has_headers {
+    let has_xml_payload = protocol == crate::model::ProtocolKind::RestXml
+        && input_shape.is_some_and(|shape| {
+            members(shape).values().any(|member| {
+                member
+                    .get("traits")
+                    .and_then(|traits| traits.get("smithy.api#httpPayload"))
+                    .is_some_and(|_| {
+                        terminal(member_target(member).unwrap_or_default()) != "StreamingBlob"
+                    })
+            })
+        });
+    if has_xml_payload {
+        output.push_str(" headers.push((\"content-type\", \"application/xml\"));");
+    }
+    if has_headers || has_xml_payload {
         output.push_str(" headers }");
         output
     } else {
@@ -1072,6 +1441,7 @@ fn render_response_decode(
     operation_name: &str,
     selected: &SelectedModel,
     shape: Option<&Value>,
+    protocol: crate::model::ProtocolKind,
 ) {
     let rust_operation = rust_type_name(operation_name);
     let has_decoded_values = shape
@@ -1104,10 +1474,12 @@ fn render_response_decode(
                                 | "float"
                                 | "double"
                         )
+                    || is_xml_flattened_list(member, selected)
+                    || (protocol == crate::model::ProtocolKind::RestXml
+                        && is_xml_body_member(member))
             })
         })
-        .unwrap_or(false)
-        || operation_name == "ListObjectsV2";
+        .unwrap_or(false);
     if !has_decoded_values {
         writeln!(
             output,
@@ -1119,6 +1491,25 @@ fn render_response_decode(
     output.push_str(&format!(
         "                         let mut output = super::{rust_operation}Output::default();\n"
     ));
+    let xml_flattened_lists = shape
+        .map(|shape| {
+            members(shape)
+                .into_iter()
+                .filter(|(_, member)| is_xml_flattened_list(member, selected))
+                .collect::<Vec<_>>()
+        })
+        .unwrap_or_default();
+    let has_xml_body = protocol == crate::model::ProtocolKind::RestXml
+        && shape.is_some_and(|shape| {
+            members(shape)
+                .values()
+                .any(|member| is_xml_body_member(member))
+        });
+    if has_xml_body || !xml_flattened_lists.is_empty() {
+        output.push_str(&format!(
+            "                         let body = response.text().await.map_err(super::{rust_operation}Error::Unhandled)?;\n"
+        ));
+    }
     if let Some(shape) = shape {
         for (name, member) in members(shape) {
             let field = names::rust_identifier(&name);
@@ -1140,7 +1531,13 @@ fn render_response_decode(
                     output.push_str(&format!(
                         "                         output.{field} = Some(super::super::super::primitives::ByteStream::from(response.body().to_vec()));\n"
                     ));
+                } else if protocol == crate::model::ProtocolKind::RestXml {
+                    render_xml_member_decode(output, selected, &field, &name, member);
                 }
+                continue;
+            }
+            if is_xml_flattened_list(member, selected) {
+                render_xml_flattened_list_decode(output, selected, &name, member);
                 continue;
             }
             if let Some(header) = traits
@@ -1159,44 +1556,183 @@ fn render_response_decode(
                         "                         output.{field} = response.header({header:?}).map(str::to_owned);\n"
                     ));
                 }
+            } else if protocol == crate::model::ProtocolKind::RestXml {
+                render_xml_member_decode(output, selected, &field, &name, member);
             }
         }
-    }
-    if operation_name == "ListObjectsV2" {
-        output.push_str(
-            "                         let body = response.text().await.map_err(super::ListObjectsV2Error::Unhandled)?;\n                         let contents = super::super::super::transport::xml_tags(&body, \"Key\").into_iter().map(|key| super::super::super::types::Object { key: Some(key), ..Default::default() }).collect();\n                         output.contents = Some(contents);\n",
-        );
     }
     output.push_str("                         Ok(output)\n");
 }
 
-fn render_operation_io(
+fn render_xml_flattened_list_decode(
     output: &mut String,
     selected: &SelectedModel,
-    shape_id: Option<&str>,
-    name: &str,
-    context: Context,
+    member_name: &str,
+    member: &Value,
 ) {
-    let Some(shape_id) = shape_id else {
+    let Some(list_id) = member_target(member) else {
+        return;
+    };
+    let Some(list_shape) = selected.model.shapes.get(list_id) else {
+        return;
+    };
+    let Some(element_id) = list_shape.get("member").and_then(member_target) else {
+        return;
+    };
+    let Some(element_shape) = selected.model.shapes.get(element_id) else {
+        return;
+    };
+    let output_field = names::rust_identifier(member_name);
+    let element_type = type_expr(element_id, Context::Builder(String::new()));
+    let tag = xml_name(member).unwrap_or_else(|| member_name.to_owned());
+    if element_shape.get("type").and_then(Value::as_str) != Some("structure") {
         writeln!(
             output,
-            "        #[derive(Clone, Debug, Default)]\n        pub struct {};",
-            name
+            "                         let values = super::super::super::transport::xml_tags(&body, {tag:?}).into_iter().filter_map(|value| value.parse().ok()).collect();\n                         output.{output_field} = Some(values);"
         )
         .unwrap();
         return;
-    };
-    let Some(shape) = selected.model.shapes.get(shape_id) else {
-        writeln!(
-            output,
-            "        #[derive(Clone, Debug, Default)]\n        pub struct {};",
-            name
-        )
-        .unwrap();
+    }
+    output.push_str(&format!(
+        "                         let values = super::super::super::transport::xml_tags(&body, {tag:?}).into_iter().map(|value| {{ let mut item: {element_type} = ::std::default::Default::default();"
+    ));
+    render_xml_structure_decode(output, selected, element_shape, "item", "value");
+    writeln!(
+        output,
+        " item }}).collect();\n                         output.{output_field} = Some(values);"
+    )
+    .unwrap();
+}
+
+fn render_xml_member_decode(
+    output: &mut String,
+    selected: &SelectedModel,
+    field: &str,
+    member_name: &str,
+    member: &Value,
+) {
+    let Some(target) = member_target(member) else {
         return;
     };
-    render_structure_at_indent(output, shape, name, context.clone(), 8);
-    render_operation_accessors(output, selected, shape, name, context);
+    let Some(shape) = selected.model.shapes.get(target) else {
+        return;
+    };
+    let tag = xml_name(member)
+        .or_else(|| xml_name(shape))
+        .unwrap_or_else(|| member_name.to_owned());
+    match shape.get("type").and_then(Value::as_str) {
+        Some("list") => {
+            let element_tag = shape
+                .get("member")
+                .and_then(xml_name)
+                .unwrap_or_else(|| tag.clone());
+            let element_target = shape.get("member").and_then(member_target);
+            let element_shape = element_target.and_then(|target| selected.model.shapes.get(target));
+            let element_kind = element_shape
+                .and_then(|shape| shape.get("type"))
+                .and_then(Value::as_str);
+            if !matches!(
+                element_kind,
+                Some(
+                    "string"
+                        | "integer"
+                        | "long"
+                        | "short"
+                        | "byte"
+                        | "float"
+                        | "double"
+                        | "boolean"
+                        | "enum"
+                )
+            ) {
+                writeln!(
+                    output,
+                    "                         output.{field} = Some(::std::vec::Vec::new());"
+                )
+                .unwrap();
+                return;
+            }
+            let element_type = element_target
+                .map(|target| type_expr(target, Context::Builder(String::new())))
+                .unwrap_or_else(|| "::std::string::String".to_owned());
+            writeln!(
+                output,
+                "                         output.{field} = Some(super::super::super::transport::xml_tags(&body, {tag:?}).into_iter().flat_map(|value| super::super::super::transport::xml_tags(&value, {element_tag:?})).filter_map(|value| value.parse::<{element_type}>().ok()).collect());"
+            )
+            .unwrap();
+        }
+        Some("structure") => {
+            let element_type = type_expr(target, Context::Builder(String::new()));
+            output.push_str(&format!(
+                "                         if let Some(value) = super::super::super::transport::xml_first(&body, {tag:?}) {{ let mut item: {element_type} = ::std::default::Default::default();"
+            ));
+            render_xml_structure_decode(output, selected, shape, "item", "value");
+            writeln!(output, " item; output.{field} = Some(item); }}").unwrap();
+        }
+        Some(
+            "string" | "integer" | "long" | "short" | "byte" | "float" | "double" | "boolean"
+            | "enum",
+        ) => {
+            writeln!(
+                output,
+                "                         output.{field} = super::super::super::transport::xml_first(&body, {tag:?}).and_then(|value| value.parse().ok());"
+            )
+            .unwrap();
+        }
+        _ => {}
+    }
+}
+
+fn render_xml_structure_decode(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: &Value,
+    item_expression: &str,
+    xml_expression: &str,
+) {
+    for (member_name, member) in members(shape) {
+        let Some(target) = member_target(member) else {
+            continue;
+        };
+        let Some(member_shape) = selected.model.shapes.get(target) else {
+            continue;
+        };
+        let kind = member_shape.get("type").and_then(Value::as_str);
+        if !matches!(
+            kind,
+            Some("string" | "integer" | "long" | "short" | "byte" | "float" | "double" | "boolean")
+        ) {
+            continue;
+        }
+        let tag = xml_name(member)
+            .or_else(|| xml_name(member_shape))
+            .unwrap_or_else(|| member_name.clone());
+        let field = names::rust_identifier(&member_name);
+        writeln!(
+            output,
+            " {item_expression}.{field} = super::super::super::transport::xml_first(&{xml_expression}, {tag:?}).and_then(|value| value.parse().ok());"
+        )
+        .unwrap();
+    }
+}
+
+fn is_xml_flattened_list(member: &Value, selected: &SelectedModel) -> bool {
+    let Some(traits) = member.get("traits").and_then(Value::as_object) else {
+        return false;
+    };
+    if !traits.contains_key("smithy.api#xmlFlattened") {
+        return false;
+    }
+    let Some(target) = member_target(member) else {
+        return false;
+    };
+    selected
+        .model
+        .shapes
+        .get(target)
+        .and_then(|shape| shape.get("type"))
+        .and_then(Value::as_str)
+        == Some("list")
 }
 
 fn render_operation_accessors(
@@ -1219,7 +1755,7 @@ fn render_operation_accessors(
         if target == "com.amazonaws.s3#StreamingBlob" {
             writeln!(
                 output,
-                "            pub fn {method_field}(&self) -> &super::super::primitives::ByteStream {{ self.{field}.as_ref().expect(\"streaming payload is present on a successful response\") }}"
+                "            pub fn {method_field}(&self) -> &super::super::super::primitives::ByteStream {{ self.{field}.as_ref().expect(\"streaming payload is present on a successful response\") }}"
             )
             .unwrap();
         } else if target_kind == "list" {
@@ -1282,8 +1818,8 @@ fn is_string_type(target: &str, shape: Option<&Value>) -> bool {
 }
 
 fn render_structure(output: &mut String, shape: &Value, name: &str, context: Context) {
-    render_structure_at_indent(output, shape, name, context, 4);
-    render_type_builder(output, shape, name);
+    render_structure_at_indent(output, shape, name, context.clone(), 4);
+    render_type_builder(output, shape, name, context);
 }
 
 fn render_structure_at_indent(
@@ -1317,7 +1853,7 @@ fn render_structure_at_indent(
     writeln!(output, "{}}}", padding).unwrap();
 }
 
-fn render_type_builder(output: &mut String, shape: &Value, name: &str) {
+fn render_type_builder(output: &mut String, shape: &Value, name: &str, context: Context) {
     let rust_name = rust_type_name(name);
     writeln!(
         output,
@@ -1327,7 +1863,7 @@ fn render_type_builder(output: &mut String, shape: &Value, name: &str) {
     for (member_name, member) in members(shape) {
         let field = names::rust_identifier(&member_name);
         let target = member_target(member)
-            .map(|target| type_expr(target, Context::Types))
+            .map(|target| type_expr(target, context.clone()))
             .unwrap_or_else(|| "::std::string::String".to_owned());
         let raw_target = member_target(member).unwrap_or_default();
         let field_method = &field;
@@ -1354,7 +1890,7 @@ fn render_type_builder(output: &mut String, shape: &Value, name: &str) {
     for (member_name, member) in members(shape) {
         let field = names::rust_identifier(&member_name);
         let target = member_target(member)
-            .map(|target| type_expr(target, Context::Types))
+            .map(|target| type_expr(target, context.clone()))
             .unwrap_or_else(|| "::std::string::String".to_owned());
         writeln!(output, "        {field}: ::std::option::Option<{target}>,").unwrap();
     }
@@ -1364,7 +1900,7 @@ fn render_type_builder(output: &mut String, shape: &Value, name: &str) {
         let field = names::rust_identifier(&member_name);
         let field_method = field.strip_prefix("r#").unwrap_or(&field);
         let target = member_target(member)
-            .map(|target| type_expr(target, Context::Types))
+            .map(|target| type_expr(target, context.clone()))
             .unwrap_or_else(|| "::std::string::String".to_owned());
         writeln!(
             output,
@@ -1431,6 +1967,25 @@ fn render_enum(output: &mut String, shape: &Value, name: &str) {
         .unwrap();
     }
     output.push_str("                Self::Unknown(value) => f.write_str(value),\n            }\n        }\n    }\n\n");
+    writeln!(
+        output,
+        "    impl ::std::str::FromStr for {rust_name} {{ type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> {{ match value {{"
+    )
+    .unwrap();
+    for (member_name, member) in members(shape) {
+        let value = member
+            .get("traits")
+            .and_then(|traits| traits.get("smithy.api#enumValue"))
+            .and_then(Value::as_str)
+            .unwrap_or(&member_name);
+        writeln!(
+            output,
+            "            {value:?} => ::std::result::Result::Ok(Self::{}),",
+            rust_type_name(&member_name)
+        )
+        .unwrap();
+    }
+    output.push_str("            _ => ::std::result::Result::Err(()),\n        } } }\n\n");
 }
 
 fn render_client_file(service_key: &str, selected: &SelectedModel) -> String {
@@ -1492,6 +2047,7 @@ fn render_client_operation_file(operation: &str) -> String {
 #[derive(Clone)]
 enum Context {
     Types,
+    Error,
     Operation(String),
     Builder(String),
 }
@@ -1505,15 +2061,16 @@ fn type_expr(target: &str, context: Context) -> String {
     match context {
         Context::Types if name == "StreamingBlob" => "super::primitives::ByteStream".to_owned(),
         Context::Types => format!("self::{known}"),
+        Context::Error => format!("super::super::types::{known}"),
         Context::Operation(module) => {
             if name == "StreamingBlob" {
-                "super::super::primitives::ByteStream".to_owned()
+                "super::super::super::primitives::ByteStream".to_owned()
             } else if name.ends_with("Input") {
-                format!("super::{module}::Input")
+                format!("super::super::{module}::Input")
             } else if name.ends_with("Output") {
-                format!("super::{module}::Output")
+                format!("super::super::{module}::Output")
             } else {
-                format!("super::super::types::{known}")
+                format!("super::super::super::types::{known}")
             }
         }
         Context::Builder(module) => {
@@ -1604,6 +2161,36 @@ mod tests {
     use super::*;
 
     #[test]
+    fn generated_runtime_is_valid_rust() {
+        let source = render_aws_runtime();
+        if let Err(error) = syn::parse_file(&source) {
+            panic!("{error}\n{source}");
+        }
+    }
+
+    #[test]
+    fn xml_body_detection_respects_http_response_bindings() {
+        let prefix_headers = serde_json::json!({
+            "traits": { "smithy.api#httpPrefixHeaders": "x-amz-meta-" }
+        });
+        let response_code = serde_json::json!({
+            "traits": { "smithy.api#httpResponseCode": "status" }
+        });
+        let streaming_payload = serde_json::json!({
+            "target": "example#StreamingBlob",
+            "traits": { "smithy.api#httpPayload": {} }
+        });
+        let document_body = serde_json::json!({
+            "target": "example#Result"
+        });
+
+        assert!(!is_xml_body_member(&prefix_headers));
+        assert!(!is_xml_body_member(&response_code));
+        assert!(!is_xml_body_member(&streaming_payload));
+        assert!(is_xml_body_member(&document_body));
+    }
+
+    #[test]
     fn generated_service_uses_reference_aligned_source_tree() {
         let stage = tempfile::tempdir().unwrap();
         let selections = [ServiceSelection {
@@ -1626,7 +2213,12 @@ mod tests {
                 .is_file()
         );
         assert!(generated.join("types.rs").is_file());
-        assert!(generated.join("types/_bucket_name.rs").is_file());
+        assert!(!generated.join("types/_bucket_name.rs").exists());
+        assert!(
+            fs::read_to_string(generated.join("types.rs"))
+                .unwrap()
+                .contains("pub type BucketName = ::std::string::String;")
+        );
         let manifest =
             fs::read_to_string(stage.path().join("aws_sdk_build_manifest.json")).unwrap();
         assert!(manifest.contains("\"aws-runtime\""));

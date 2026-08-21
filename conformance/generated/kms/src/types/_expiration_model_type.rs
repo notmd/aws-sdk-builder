@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ExpirationModelType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "KEY_MATERIAL_DOES_NOT_EXPIRE" => ::std::result::Result::Ok(Self::KeyMaterialDoesNotExpire),
+            "KEY_MATERIAL_EXPIRES" => ::std::result::Result::Ok(Self::KeyMaterialExpires),
+            _ => ::std::result::Result::Err(()),
+        } } }

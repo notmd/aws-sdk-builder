@@ -36,3 +36,19 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for KeyLastUsageTrackingOperation { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Decrypt" => ::std::result::Result::Ok(Self::Decrypt),
+            "DeriveSharedSecret" => ::std::result::Result::Ok(Self::DeriveSharedSecret),
+            "Encrypt" => ::std::result::Result::Ok(Self::Encrypt),
+            "GenerateDataKey" => ::std::result::Result::Ok(Self::GenerateDataKey),
+            "GenerateDataKeyPair" => ::std::result::Result::Ok(Self::GenerateDataKeyPair),
+            "GenerateDataKeyPairWithoutPlaintext" => ::std::result::Result::Ok(Self::GenerateDataKeyPairWithoutPlaintext),
+            "GenerateDataKeyWithoutPlaintext" => ::std::result::Result::Ok(Self::GenerateDataKeyWithoutPlaintext),
+            "GenerateMac" => ::std::result::Result::Ok(Self::GenerateMac),
+            "ReEncrypt" => ::std::result::Result::Ok(Self::ReEncrypt),
+            "Sign" => ::std::result::Result::Ok(Self::Sign),
+            "Verify" => ::std::result::Result::Ok(Self::Verify),
+            "VerifyMac" => ::std::result::Result::Ok(Self::VerifyMac),
+            _ => ::std::result::Result::Err(()),
+        } } }

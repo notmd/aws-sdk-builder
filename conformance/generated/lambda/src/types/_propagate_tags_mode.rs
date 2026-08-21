@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for PropagateTagsMode { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Explicit" => ::std::result::Result::Ok(Self::Explicit),
+            "None" => ::std::result::Result::Ok(Self::None),
+            _ => ::std::result::Result::Err(()),
+        } } }

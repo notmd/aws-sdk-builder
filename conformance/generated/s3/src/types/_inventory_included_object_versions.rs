@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for InventoryIncludedObjectVersions { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "All" => ::std::result::Result::Ok(Self::All),
+            "Current" => ::std::result::Result::Ok(Self::Current),
+            _ => ::std::result::Result::Err(()),
+        } } }

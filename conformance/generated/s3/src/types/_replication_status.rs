@@ -22,3 +22,12 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ReplicationStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "COMPLETE" => ::std::result::Result::Ok(Self::Complete),
+            "COMPLETED" => ::std::result::Result::Ok(Self::Completed),
+            "FAILED" => ::std::result::Result::Ok(Self::Failed),
+            "PENDING" => ::std::result::Result::Ok(Self::Pending),
+            "REPLICA" => ::std::result::Result::Ok(Self::Replica),
+            _ => ::std::result::Result::Err(()),
+        } } }

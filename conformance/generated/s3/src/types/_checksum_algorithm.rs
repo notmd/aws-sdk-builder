@@ -32,3 +32,17 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ChecksumAlgorithm { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "CRC32" => ::std::result::Result::Ok(Self::Crc32),
+            "CRC32C" => ::std::result::Result::Ok(Self::Crc32C),
+            "CRC64NVME" => ::std::result::Result::Ok(Self::Crc64Nvme),
+            "MD5" => ::std::result::Result::Ok(Self::Md5),
+            "SHA1" => ::std::result::Result::Ok(Self::Sha1),
+            "SHA256" => ::std::result::Result::Ok(Self::Sha256),
+            "SHA512" => ::std::result::Result::Ok(Self::Sha512),
+            "XXHASH128" => ::std::result::Result::Ok(Self::Xxhash128),
+            "XXHASH3" => ::std::result::Result::Ok(Self::Xxhash3),
+            "XXHASH64" => ::std::result::Result::Ok(Self::Xxhash64),
+            _ => ::std::result::Result::Err(()),
+        } } }

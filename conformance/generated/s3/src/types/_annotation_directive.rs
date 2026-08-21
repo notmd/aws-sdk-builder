@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for AnnotationDirective { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "COPY" => ::std::result::Result::Ok(Self::Copy),
+            "EXCLUDE" => ::std::result::Result::Ok(Self::Exclude),
+            _ => ::std::result::Result::Err(()),
+        } } }

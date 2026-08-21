@@ -38,3 +38,20 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for SigningAlgorithmSpec { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ECDSA_SHA_256" => ::std::result::Result::Ok(Self::EcdsaSha256),
+            "ECDSA_SHA_384" => ::std::result::Result::Ok(Self::EcdsaSha384),
+            "ECDSA_SHA_512" => ::std::result::Result::Ok(Self::EcdsaSha512),
+            "ED25519_PH_SHA_512" => ::std::result::Result::Ok(Self::Ed25519PhSha512),
+            "ED25519_SHA_512" => ::std::result::Result::Ok(Self::Ed25519Sha512),
+            "ML_DSA_SHAKE_256" => ::std::result::Result::Ok(Self::MlDsaShake256),
+            "RSASSA_PKCS1_V1_5_SHA_256" => ::std::result::Result::Ok(Self::RsassaPkcs1V15Sha256),
+            "RSASSA_PKCS1_V1_5_SHA_384" => ::std::result::Result::Ok(Self::RsassaPkcs1V15Sha384),
+            "RSASSA_PKCS1_V1_5_SHA_512" => ::std::result::Result::Ok(Self::RsassaPkcs1V15Sha512),
+            "RSASSA_PSS_SHA_256" => ::std::result::Result::Ok(Self::RsassaPssSha256),
+            "RSASSA_PSS_SHA_384" => ::std::result::Result::Ok(Self::RsassaPssSha384),
+            "RSASSA_PSS_SHA_512" => ::std::result::Result::Ok(Self::RsassaPssSha512),
+            "SM2DSA" => ::std::result::Result::Ok(Self::Sm2Dsa),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -28,3 +28,15 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for SourceAccessType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "BASIC_AUTH" => ::std::result::Result::Ok(Self::BasicAuth),
+            "CLIENT_CERTIFICATE_TLS_AUTH" => ::std::result::Result::Ok(Self::ClientCertificateTlsAuth),
+            "SASL_SCRAM_256_AUTH" => ::std::result::Result::Ok(Self::SaslScram256Auth),
+            "SASL_SCRAM_512_AUTH" => ::std::result::Result::Ok(Self::SaslScram512Auth),
+            "SERVER_ROOT_CA_CERTIFICATE" => ::std::result::Result::Ok(Self::ServerRootCaCertificate),
+            "VIRTUAL_HOST" => ::std::result::Result::Ok(Self::VirtualHost),
+            "VPC_SECURITY_GROUP" => ::std::result::Result::Ok(Self::VpcSecurityGroup),
+            "VPC_SUBNET" => ::std::result::Result::Ok(Self::VpcSubnet),
+            _ => ::std::result::Result::Err(()),
+        } } }

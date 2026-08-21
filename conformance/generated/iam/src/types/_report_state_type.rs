@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ReportStateType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "COMPLETE" => ::std::result::Result::Ok(Self::Complete),
+            "INPROGRESS" => ::std::result::Result::Ok(Self::Inprogress),
+            "STARTED" => ::std::result::Result::Ok(Self::Started),
+            _ => ::std::result::Result::Err(()),
+        } } }

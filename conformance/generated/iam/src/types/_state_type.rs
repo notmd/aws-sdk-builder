@@ -26,3 +26,14 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for StateType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ACCEPTED" => ::std::result::Result::Ok(Self::Accepted),
+            "ASSIGNED" => ::std::result::Result::Ok(Self::Assigned),
+            "EXPIRED" => ::std::result::Result::Ok(Self::Expired),
+            "FINALIZED" => ::std::result::Result::Ok(Self::Finalized),
+            "PENDING_APPROVAL" => ::std::result::Result::Ok(Self::PendingApproval),
+            "REJECTED" => ::std::result::Result::Ok(Self::Rejected),
+            "UNASSIGNED" => ::std::result::Result::Ok(Self::Unassigned),
+            _ => ::std::result::Result::Err(()),
+        } } }

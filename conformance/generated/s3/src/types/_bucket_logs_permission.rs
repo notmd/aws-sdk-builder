@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for BucketLogsPermission { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "FULL_CONTROL" => ::std::result::Result::Ok(Self::FullControl),
+            "READ" => ::std::result::Result::Ok(Self::Read),
+            "WRITE" => ::std::result::Result::Ok(Self::Write),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for Select { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ALL_ATTRIBUTES" => ::std::result::Result::Ok(Self::AllAttributes),
+            "ALL_PROJECTED_ATTRIBUTES" => ::std::result::Result::Ok(Self::AllProjectedAttributes),
+            "COUNT" => ::std::result::Result::Ok(Self::Count),
+            "SPECIFIC_ATTRIBUTES" => ::std::result::Result::Ok(Self::SpecificAttributes),
+            _ => ::std::result::Result::Err(()),
+        } } }

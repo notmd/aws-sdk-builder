@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for AttachmentType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "group" => ::std::result::Result::Ok(Self::Group),
+            "role" => ::std::result::Result::Ok(Self::Role),
+            "user" => ::std::result::Result::Ok(Self::User),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for Tier { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Bulk" => ::std::result::Result::Ok(Self::Bulk),
+            "Expedited" => ::std::result::Result::Ok(Self::Expedited),
+            "Standard" => ::std::result::Result::Ok(Self::Standard),
+            _ => ::std::result::Result::Err(()),
+        } } }

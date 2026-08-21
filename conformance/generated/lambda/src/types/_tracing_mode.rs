@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for TracingMode { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Active" => ::std::result::Result::Ok(Self::Active),
+            "PassThrough" => ::std::result::Result::Ok(Self::PassThrough),
+            _ => ::std::result::Result::Err(()),
+        } } }

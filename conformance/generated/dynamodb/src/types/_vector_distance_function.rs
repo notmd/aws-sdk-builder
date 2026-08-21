@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for VectorDistanceFunction { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "COSINE" => ::std::result::Result::Ok(Self::Cosine),
+            "DOT_PRODUCT" => ::std::result::Result::Ok(Self::DotProduct),
+            "EUCLIDEAN" => ::std::result::Result::Ok(Self::Euclidean),
+            _ => ::std::result::Result::Err(()),
+        } } }

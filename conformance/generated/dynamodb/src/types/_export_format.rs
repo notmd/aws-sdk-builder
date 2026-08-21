@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ExportFormat { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "DYNAMODB_JSON" => ::std::result::Result::Ok(Self::DynamodbJson),
+            "ION" => ::std::result::Result::Ok(Self::Ion),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ReturnValuesOnConditionCheckFailure { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ALL_OLD" => ::std::result::Result::Ok(Self::AllOld),
+            "NONE" => ::std::result::Result::Ok(Self::None),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for StorageClassAnalysisSchemaVersion { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "V_1" => ::std::result::Result::Ok(Self::V1),
+            _ => ::std::result::Result::Err(()),
+        } } }

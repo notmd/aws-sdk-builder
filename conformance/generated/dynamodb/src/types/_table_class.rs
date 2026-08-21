@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for TableClass { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "STANDARD" => ::std::result::Result::Ok(Self::Standard),
+            "STANDARD_INFREQUENT_ACCESS" => ::std::result::Result::Ok(Self::StandardInfrequentAccess),
+            _ => ::std::result::Result::Err(()),
+        } } }

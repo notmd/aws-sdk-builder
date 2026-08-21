@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for EventSourcePosition { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AT_TIMESTAMP" => ::std::result::Result::Ok(Self::AtTimestamp),
+            "LATEST" => ::std::result::Result::Ok(Self::Latest),
+            "TRIM_HORIZON" => ::std::result::Result::Ok(Self::TrimHorizon),
+            _ => ::std::result::Result::Err(()),
+        } } }

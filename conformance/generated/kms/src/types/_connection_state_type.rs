@@ -22,3 +22,12 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ConnectionStateType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "CONNECTED" => ::std::result::Result::Ok(Self::Connected),
+            "CONNECTING" => ::std::result::Result::Ok(Self::Connecting),
+            "DISCONNECTED" => ::std::result::Result::Ok(Self::Disconnected),
+            "DISCONNECTING" => ::std::result::Result::Ok(Self::Disconnecting),
+            "FAILED" => ::std::result::Result::Ok(Self::Failed),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ExportViewType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "NEW_AND_OLD_IMAGES" => ::std::result::Result::Ok(Self::NewAndOldImages),
+            "NEW_IMAGE" => ::std::result::Result::Ok(Self::NewImage),
+            _ => ::std::result::Result::Err(()),
+        } } }

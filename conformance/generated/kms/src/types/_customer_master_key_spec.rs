@@ -38,3 +38,20 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for CustomerMasterKeySpec { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ECC_NIST_P256" => ::std::result::Result::Ok(Self::EccNistP256),
+            "ECC_NIST_P384" => ::std::result::Result::Ok(Self::EccNistP384),
+            "ECC_NIST_P521" => ::std::result::Result::Ok(Self::EccNistP521),
+            "ECC_SECG_P256K1" => ::std::result::Result::Ok(Self::EccSecgP256K1),
+            "HMAC_224" => ::std::result::Result::Ok(Self::Hmac224),
+            "HMAC_256" => ::std::result::Result::Ok(Self::Hmac256),
+            "HMAC_384" => ::std::result::Result::Ok(Self::Hmac384),
+            "HMAC_512" => ::std::result::Result::Ok(Self::Hmac512),
+            "RSA_2048" => ::std::result::Result::Ok(Self::Rsa2048),
+            "RSA_3072" => ::std::result::Result::Ok(Self::Rsa3072),
+            "RSA_4096" => ::std::result::Result::Ok(Self::Rsa4096),
+            "SM2" => ::std::result::Result::Ok(Self::Sm2),
+            "SYMMETRIC_DEFAULT" => ::std::result::Result::Ok(Self::SymmetricDefault),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ChecksumType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "COMPOSITE" => ::std::result::Result::Ok(Self::Composite),
+            "FULL_OBJECT" => ::std::result::Result::Ok(Self::FullObject),
+            _ => ::std::result::Result::Err(()),
+        } } }

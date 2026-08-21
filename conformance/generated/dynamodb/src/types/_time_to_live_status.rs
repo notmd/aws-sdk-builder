@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for TimeToLiveStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "DISABLED" => ::std::result::Result::Ok(Self::Disabled),
+            "DISABLING" => ::std::result::Result::Ok(Self::Disabling),
+            "ENABLED" => ::std::result::Result::Ok(Self::Enabled),
+            "ENABLING" => ::std::result::Result::Ok(Self::Enabling),
+            _ => ::std::result::Result::Err(()),
+        } } }

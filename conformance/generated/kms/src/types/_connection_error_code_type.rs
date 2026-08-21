@@ -48,3 +48,25 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ConnectionErrorCodeType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "CLUSTER_NOT_FOUND" => ::std::result::Result::Ok(Self::ClusterNotFound),
+            "INSUFFICIENT_CLOUDHSM_HSMS" => ::std::result::Result::Ok(Self::InsufficientCloudhsmHsms),
+            "INSUFFICIENT_FREE_ADDRESSES_IN_SUBNET" => ::std::result::Result::Ok(Self::InsufficientFreeAddressesInSubnet),
+            "INTERNAL_ERROR" => ::std::result::Result::Ok(Self::InternalError),
+            "INVALID_CREDENTIALS" => ::std::result::Result::Ok(Self::InvalidCredentials),
+            "NETWORK_ERRORS" => ::std::result::Result::Ok(Self::NetworkErrors),
+            "SUBNET_NOT_FOUND" => ::std::result::Result::Ok(Self::SubnetNotFound),
+            "USER_LOCKED_OUT" => ::std::result::Result::Ok(Self::UserLockedOut),
+            "USER_LOGGED_IN" => ::std::result::Result::Ok(Self::UserLoggedIn),
+            "USER_NOT_FOUND" => ::std::result::Result::Ok(Self::UserNotFound),
+            "XKS_PROXY_ACCESS_DENIED" => ::std::result::Result::Ok(Self::XksProxyAccessDenied),
+            "XKS_PROXY_INVALID_CONFIGURATION" => ::std::result::Result::Ok(Self::XksProxyInvalidConfiguration),
+            "XKS_PROXY_INVALID_RESPONSE" => ::std::result::Result::Ok(Self::XksProxyInvalidResponse),
+            "XKS_PROXY_INVALID_TLS_CONFIGURATION" => ::std::result::Result::Ok(Self::XksProxyInvalidTlsConfiguration),
+            "XKS_PROXY_NOT_REACHABLE" => ::std::result::Result::Ok(Self::XksProxyNotReachable),
+            "XKS_PROXY_TIMED_OUT" => ::std::result::Result::Ok(Self::XksProxyTimedOut),
+            "XKS_VPC_ENDPOINT_SERVICE_INVALID_CONFIGURATION" => ::std::result::Result::Ok(Self::XksVpcEndpointServiceInvalidConfiguration),
+            "XKS_VPC_ENDPOINT_SERVICE_NOT_FOUND" => ::std::result::Result::Ok(Self::XksVpcEndpointServiceNotFound),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -60,3 +60,31 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for EventType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "CallbackFailed" => ::std::result::Result::Ok(Self::CallbackFailed),
+            "CallbackStarted" => ::std::result::Result::Ok(Self::CallbackStarted),
+            "CallbackSucceeded" => ::std::result::Result::Ok(Self::CallbackSucceeded),
+            "CallbackTimedOut" => ::std::result::Result::Ok(Self::CallbackTimedOut),
+            "ChainedInvokeFailed" => ::std::result::Result::Ok(Self::ChainedInvokeFailed),
+            "ChainedInvokeStarted" => ::std::result::Result::Ok(Self::ChainedInvokeStarted),
+            "ChainedInvokeStopped" => ::std::result::Result::Ok(Self::ChainedInvokeStopped),
+            "ChainedInvokeSucceeded" => ::std::result::Result::Ok(Self::ChainedInvokeSucceeded),
+            "ChainedInvokeTimedOut" => ::std::result::Result::Ok(Self::ChainedInvokeTimedOut),
+            "ContextFailed" => ::std::result::Result::Ok(Self::ContextFailed),
+            "ContextStarted" => ::std::result::Result::Ok(Self::ContextStarted),
+            "ContextSucceeded" => ::std::result::Result::Ok(Self::ContextSucceeded),
+            "ExecutionFailed" => ::std::result::Result::Ok(Self::ExecutionFailed),
+            "ExecutionStarted" => ::std::result::Result::Ok(Self::ExecutionStarted),
+            "ExecutionStopped" => ::std::result::Result::Ok(Self::ExecutionStopped),
+            "ExecutionSucceeded" => ::std::result::Result::Ok(Self::ExecutionSucceeded),
+            "ExecutionTimedOut" => ::std::result::Result::Ok(Self::ExecutionTimedOut),
+            "InvocationCompleted" => ::std::result::Result::Ok(Self::InvocationCompleted),
+            "StepFailed" => ::std::result::Result::Ok(Self::StepFailed),
+            "StepStarted" => ::std::result::Result::Ok(Self::StepStarted),
+            "StepSucceeded" => ::std::result::Result::Ok(Self::StepSucceeded),
+            "WaitCancelled" => ::std::result::Result::Ok(Self::WaitCancelled),
+            "WaitStarted" => ::std::result::Result::Ok(Self::WaitStarted),
+            "WaitSucceeded" => ::std::result::Result::Ok(Self::WaitSucceeded),
+            _ => ::std::result::Result::Err(()),
+        } } }

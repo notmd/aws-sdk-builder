@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for EncodingType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "PEM" => ::std::result::Result::Ok(Self::Pem),
+            "SSH" => ::std::result::Result::Ok(Self::Ssh),
+            _ => ::std::result::Result::Err(()),
+        } } }

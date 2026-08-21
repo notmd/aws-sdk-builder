@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for AssertionEncryptionModeType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Allowed" => ::std::result::Result::Ok(Self::Allowed),
+            "Required" => ::std::result::Result::Ok(Self::Required),
+            _ => ::std::result::Result::Err(()),
+        } } }

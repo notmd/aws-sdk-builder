@@ -24,3 +24,13 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for AlgorithmSpec { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "RSAES_OAEP_SHA_1" => ::std::result::Result::Ok(Self::RsaesOaepSha1),
+            "RSAES_OAEP_SHA_256" => ::std::result::Result::Ok(Self::RsaesOaepSha256),
+            "RSAES_PKCS1_V1_5" => ::std::result::Result::Ok(Self::RsaesPkcs1V15),
+            "RSA_AES_KEY_WRAP_SHA_1" => ::std::result::Result::Ok(Self::RsaAesKeyWrapSha1),
+            "RSA_AES_KEY_WRAP_SHA_256" => ::std::result::Result::Ok(Self::RsaAesKeyWrapSha256),
+            "SM2PKE" => ::std::result::Result::Ok(Self::Sm2Pke),
+            _ => ::std::result::Result::Err(()),
+        } } }

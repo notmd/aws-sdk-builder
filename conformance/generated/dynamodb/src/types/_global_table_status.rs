@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for GlobalTableStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ACTIVE" => ::std::result::Result::Ok(Self::Active),
+            "CREATING" => ::std::result::Result::Ok(Self::Creating),
+            "DELETING" => ::std::result::Result::Ok(Self::Deleting),
+            "UPDATING" => ::std::result::Result::Ok(Self::Updating),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for S3TablesBucketType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "aws" => ::std::result::Result::Ok(Self::Aws),
+            "customer" => ::std::result::Result::Ok(Self::Customer),
+            _ => ::std::result::Result::Err(()),
+        } } }

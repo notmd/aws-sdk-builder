@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for BucketType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Directory" => ::std::result::Result::Ok(Self::Directory),
+            _ => ::std::result::Result::Err(()),
+        } } }

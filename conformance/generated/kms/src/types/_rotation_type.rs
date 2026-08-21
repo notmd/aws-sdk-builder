@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for RotationType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AUTOMATIC" => ::std::result::Result::Ok(Self::Automatic),
+            "ON_DEMAND" => ::std::result::Result::Ok(Self::OnDemand),
+            _ => ::std::result::Result::Err(()),
+        } } }

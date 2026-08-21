@@ -46,3 +46,24 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for GrantOperation { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "CreateGrant" => ::std::result::Result::Ok(Self::CreateGrant),
+            "Decrypt" => ::std::result::Result::Ok(Self::Decrypt),
+            "DeriveSharedSecret" => ::std::result::Result::Ok(Self::DeriveSharedSecret),
+            "DescribeKey" => ::std::result::Result::Ok(Self::DescribeKey),
+            "Encrypt" => ::std::result::Result::Ok(Self::Encrypt),
+            "GenerateDataKey" => ::std::result::Result::Ok(Self::GenerateDataKey),
+            "GenerateDataKeyPair" => ::std::result::Result::Ok(Self::GenerateDataKeyPair),
+            "GenerateDataKeyPairWithoutPlaintext" => ::std::result::Result::Ok(Self::GenerateDataKeyPairWithoutPlaintext),
+            "GenerateDataKeyWithoutPlaintext" => ::std::result::Result::Ok(Self::GenerateDataKeyWithoutPlaintext),
+            "GenerateMac" => ::std::result::Result::Ok(Self::GenerateMac),
+            "GetPublicKey" => ::std::result::Result::Ok(Self::GetPublicKey),
+            "ReEncryptFrom" => ::std::result::Result::Ok(Self::ReEncryptFrom),
+            "ReEncryptTo" => ::std::result::Result::Ok(Self::ReEncryptTo),
+            "RetireGrant" => ::std::result::Result::Ok(Self::RetireGrant),
+            "Sign" => ::std::result::Result::Ok(Self::Sign),
+            "Verify" => ::std::result::Result::Ok(Self::Verify),
+            "VerifyMac" => ::std::result::Result::Ok(Self::VerifyMac),
+            _ => ::std::result::Result::Err(()),
+        } } }

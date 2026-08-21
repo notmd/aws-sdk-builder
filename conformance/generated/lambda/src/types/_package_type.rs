@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for PackageType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Image" => ::std::result::Result::Ok(Self::Image),
+            "Zip" => ::std::result::Result::Ok(Self::Zip),
+            _ => ::std::result::Result::Err(()),
+        } } }

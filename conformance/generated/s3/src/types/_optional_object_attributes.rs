@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for OptionalObjectAttributes { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "RestoreStatus" => ::std::result::Result::Ok(Self::RestoreStatus),
+            _ => ::std::result::Result::Err(()),
+        } } }

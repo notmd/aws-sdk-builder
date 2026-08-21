@@ -68,7 +68,7 @@ and refuses non-loopback endpoints unless ALLOW_NONLOCAL_FLOCI=1 is set.
   1. Regenerate all-operation snapshots.
   2. Run conformance and verify the diff shrinks.
   3. Run tests, clippy, formatting, and git diff --check.
-  4. Record a checkpoint in docs/aws-sdk-build-status.md.
+  4. Record a checkpoint in docs/aws-sdk-build-status.md and commit the change.
 
   Do not stop at compilation or partial S3 support. Completion requires exact parity
   with conformance/reference and a passing conformance command.

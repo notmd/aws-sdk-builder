@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for FilterRuleName { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "prefix" => ::std::result::Result::Ok(Self::Prefix),
+            "suffix" => ::std::result::Result::Ok(Self::Suffix),
+            _ => ::std::result::Result::Err(()),
+        } } }

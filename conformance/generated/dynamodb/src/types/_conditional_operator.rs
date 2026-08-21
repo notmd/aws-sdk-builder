@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ConditionalOperator { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AND" => ::std::result::Result::Ok(Self::And),
+            "OR" => ::std::result::Result::Ok(Self::Or),
+            _ => ::std::result::Result::Err(()),
+        } } }

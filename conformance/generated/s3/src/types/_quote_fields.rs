@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for QuoteFields { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ALWAYS" => ::std::result::Result::Ok(Self::Always),
+            "ASNEEDED" => ::std::result::Result::Ok(Self::Asneeded),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for StatusType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Active" => ::std::result::Result::Ok(Self::Active),
+            "Expired" => ::std::result::Result::Ok(Self::Expired),
+            "Inactive" => ::std::result::Result::Ok(Self::Inactive),
+            _ => ::std::result::Result::Err(()),
+        } } }

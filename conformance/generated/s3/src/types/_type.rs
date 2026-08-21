@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for Type { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AmazonCustomerByEmail" => ::std::result::Result::Ok(Self::AmazonCustomerByEmail),
+            "CanonicalUser" => ::std::result::Result::Ok(Self::CanonicalUser),
+            "Group" => ::std::result::Result::Ok(Self::Group),
+            _ => ::std::result::Result::Err(()),
+        } } }

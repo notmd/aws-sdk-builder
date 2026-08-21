@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ObjectLockEnabled { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Enabled" => ::std::result::Result::Ok(Self::Enabled),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -24,3 +24,13 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ParameterTypeType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Arn" => ::std::result::Result::Ok(Self::Arn),
+            "ArnList" => ::std::result::Result::Ok(Self::ArnList),
+            "Number" => ::std::result::Result::Ok(Self::Number),
+            "NumberList" => ::std::result::Result::Ok(Self::NumberList),
+            "String" => ::std::result::Result::Ok(Self::String),
+            "StringList" => ::std::result::Result::Ok(Self::StringList),
+            _ => ::std::result::Result::Err(()),
+        } } }

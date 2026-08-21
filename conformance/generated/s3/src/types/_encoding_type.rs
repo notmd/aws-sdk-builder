@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for EncodingType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "url" => ::std::result::Result::Ok(Self::Url),
+            _ => ::std::result::Result::Err(()),
+        } } }

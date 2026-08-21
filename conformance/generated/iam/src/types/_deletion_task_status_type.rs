@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for DeletionTaskStatusType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "FAILED" => ::std::result::Result::Ok(Self::Failed),
+            "IN_PROGRESS" => ::std::result::Result::Ok(Self::InProgress),
+            "NOT_STARTED" => ::std::result::Result::Ok(Self::NotStarted),
+            "SUCCEEDED" => ::std::result::Result::Ok(Self::Succeeded),
+            _ => ::std::result::Result::Err(()),
+        } } }

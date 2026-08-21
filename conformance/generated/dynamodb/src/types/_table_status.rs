@@ -28,3 +28,15 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for TableStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ACTIVE" => ::std::result::Result::Ok(Self::Active),
+            "ARCHIVED" => ::std::result::Result::Ok(Self::Archived),
+            "ARCHIVING" => ::std::result::Result::Ok(Self::Archiving),
+            "CREATING" => ::std::result::Result::Ok(Self::Creating),
+            "DELETING" => ::std::result::Result::Ok(Self::Deleting),
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS" => ::std::result::Result::Ok(Self::InaccessibleEncryptionCredentials),
+            "REPLICATION_NOT_AUTHORIZED" => ::std::result::Result::Ok(Self::ReplicationNotAuthorized),
+            "UPDATING" => ::std::result::Result::Ok(Self::Updating),
+            _ => ::std::result::Result::Err(()),
+        } } }

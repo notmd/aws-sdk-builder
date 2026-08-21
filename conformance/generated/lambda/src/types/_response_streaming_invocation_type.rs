@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ResponseStreamingInvocationType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "DryRun" => ::std::result::Result::Ok(Self::DryRun),
+            "RequestResponse" => ::std::result::Result::Ok(Self::RequestResponse),
+            _ => ::std::result::Result::Err(()),
+        } } }

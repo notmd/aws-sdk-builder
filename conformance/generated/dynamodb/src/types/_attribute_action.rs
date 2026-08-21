@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for AttributeAction { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ADD" => ::std::result::Result::Ok(Self::Add),
+            "DELETE" => ::std::result::Result::Ok(Self::Delete),
+            "PUT" => ::std::result::Result::Ok(Self::Put),
+            _ => ::std::result::Result::Err(()),
+        } } }

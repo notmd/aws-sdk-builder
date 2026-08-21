@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for CapacityProviderScalingMode { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Auto" => ::std::result::Result::Ok(Self::Auto),
+            "Manual" => ::std::result::Result::Ok(Self::Manual),
+            _ => ::std::result::Result::Err(()),
+        } } }

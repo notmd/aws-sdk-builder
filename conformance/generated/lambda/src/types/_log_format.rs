@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for LogFormat { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "JSON" => ::std::result::Result::Ok(Self::Json),
+            "Text" => ::std::result::Result::Ok(Self::Text),
+            _ => ::std::result::Result::Err(()),
+        } } }

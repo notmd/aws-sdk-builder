@@ -22,3 +22,12 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for OperationAction { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "CANCEL" => ::std::result::Result::Ok(Self::Cancel),
+            "FAIL" => ::std::result::Result::Ok(Self::Fail),
+            "RETRY" => ::std::result::Result::Ok(Self::Retry),
+            "START" => ::std::result::Result::Ok(Self::Start),
+            "SUCCEED" => ::std::result::Result::Ok(Self::Succeed),
+            _ => ::std::result::Result::Err(()),
+        } } }

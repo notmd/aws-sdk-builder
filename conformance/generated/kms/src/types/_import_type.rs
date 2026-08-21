@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ImportType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "EXISTING_KEY_MATERIAL" => ::std::result::Result::Ok(Self::ExistingKeyMaterial),
+            "NEW_KEY_MATERIAL" => ::std::result::Result::Ok(Self::NewKeyMaterial),
+            _ => ::std::result::Result::Err(()),
+        } } }

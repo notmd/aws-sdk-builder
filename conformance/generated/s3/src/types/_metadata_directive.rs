@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for MetadataDirective { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "COPY" => ::std::result::Result::Ok(Self::Copy),
+            "REPLACE" => ::std::result::Result::Ok(Self::Replace),
+            _ => ::std::result::Result::Err(()),
+        } } }

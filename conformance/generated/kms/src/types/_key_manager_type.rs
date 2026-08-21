@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for KeyManagerType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AWS" => ::std::result::Result::Ok(Self::Aws),
+            "CUSTOMER" => ::std::result::Result::Ok(Self::Customer),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for MessageType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "DIGEST" => ::std::result::Result::Ok(Self::Digest),
+            "EXTERNAL_MU" => ::std::result::Result::Ok(Self::ExternalMu),
+            "RAW" => ::std::result::Result::Ok(Self::Raw),
+            _ => ::std::result::Result::Err(()),
+        } } }

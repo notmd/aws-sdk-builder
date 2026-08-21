@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for PartitionDateSource { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "DeliveryTime" => ::std::result::Result::Ok(Self::DeliveryTime),
+            "EventTime" => ::std::result::Result::Ok(Self::EventTime),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for BillingMode { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "PAY_PER_REQUEST" => ::std::result::Result::Ok(Self::PayPerRequest),
+            "PROVISIONED" => ::std::result::Result::Ok(Self::Provisioned),
+            _ => ::std::result::Result::Err(()),
+        } } }

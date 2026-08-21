@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ExpressionType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "SQL" => ::std::result::Result::Ok(Self::Sql),
+            _ => ::std::result::Result::Err(()),
+        } } }

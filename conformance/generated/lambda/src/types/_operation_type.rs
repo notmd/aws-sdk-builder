@@ -24,3 +24,13 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for OperationType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "CALLBACK" => ::std::result::Result::Ok(Self::Callback),
+            "CHAINED_INVOKE" => ::std::result::Result::Ok(Self::ChainedInvoke),
+            "CONTEXT" => ::std::result::Result::Ok(Self::Context),
+            "EXECUTION" => ::std::result::Result::Ok(Self::Execution),
+            "STEP" => ::std::result::Result::Ok(Self::Step),
+            "WAIT" => ::std::result::Result::Ok(Self::Wait),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -36,3 +36,19 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ContextKeyTypeEnum { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "binary" => ::std::result::Result::Ok(Self::Binary),
+            "binaryList" => ::std::result::Result::Ok(Self::BinaryList),
+            "boolean" => ::std::result::Result::Ok(Self::Boolean),
+            "booleanList" => ::std::result::Result::Ok(Self::BooleanList),
+            "date" => ::std::result::Result::Ok(Self::Date),
+            "dateList" => ::std::result::Result::Ok(Self::DateList),
+            "ip" => ::std::result::Result::Ok(Self::Ip),
+            "ipList" => ::std::result::Result::Ok(Self::IpList),
+            "numeric" => ::std::result::Result::Ok(Self::Numeric),
+            "numericList" => ::std::result::Result::Ok(Self::NumericList),
+            "string" => ::std::result::Result::Ok(Self::String),
+            "stringList" => ::std::result::Result::Ok(Self::StringList),
+            _ => ::std::result::Result::Err(()),
+        } } }

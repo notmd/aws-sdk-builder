@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for PolicyOwnerEntityType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "GROUP" => ::std::result::Result::Ok(Self::Group),
+            "ROLE" => ::std::result::Result::Ok(Self::Role),
+            "USER" => ::std::result::Result::Ok(Self::User),
+            _ => ::std::result::Result::Err(()),
+        } } }

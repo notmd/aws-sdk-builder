@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for CodeSigningPolicy { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Enforce" => ::std::result::Result::Ok(Self::Enforce),
+            "Warn" => ::std::result::Result::Ok(Self::Warn),
+            _ => ::std::result::Result::Err(()),
+        } } }

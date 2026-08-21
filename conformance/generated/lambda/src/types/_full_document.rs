@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for FullDocument { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Default" => ::std::result::Result::Ok(Self::Default),
+            "UpdateLookup" => ::std::result::Result::Ok(Self::UpdateLookup),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for BackupType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AWS_BACKUP" => ::std::result::Result::Ok(Self::AwsBackup),
+            "SYSTEM" => ::std::result::Result::Ok(Self::System),
+            "USER" => ::std::result::Result::Ok(Self::User),
+            _ => ::std::result::Result::Err(()),
+        } } }

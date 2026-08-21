@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ReturnItemCollectionMetrics { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "NONE" => ::std::result::Result::Ok(Self::None),
+            "SIZE" => ::std::result::Result::Ok(Self::Size),
+            _ => ::std::result::Result::Err(()),
+        } } }

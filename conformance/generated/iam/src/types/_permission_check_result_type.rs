@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for PermissionCheckResultType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ALLOWED" => ::std::result::Result::Ok(Self::Allowed),
+            "DENIED" => ::std::result::Result::Ok(Self::Denied),
+            "UNSURE" => ::std::result::Result::Ok(Self::Unsure),
+            _ => ::std::result::Result::Err(()),
+        } } }

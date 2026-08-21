@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for Payer { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "BucketOwner" => ::std::result::Result::Ok(Self::BucketOwner),
+            "Requester" => ::std::result::Result::Ok(Self::Requester),
+            _ => ::std::result::Result::Err(()),
+        } } }

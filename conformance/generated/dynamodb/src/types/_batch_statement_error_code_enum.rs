@@ -34,3 +34,18 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for BatchStatementErrorCodeEnum { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AccessDenied" => ::std::result::Result::Ok(Self::AccessDenied),
+            "ConditionalCheckFailed" => ::std::result::Result::Ok(Self::ConditionalCheckFailed),
+            "DuplicateItem" => ::std::result::Result::Ok(Self::DuplicateItem),
+            "InternalServerError" => ::std::result::Result::Ok(Self::InternalServerError),
+            "ItemCollectionSizeLimitExceeded" => ::std::result::Result::Ok(Self::ItemCollectionSizeLimitExceeded),
+            "ProvisionedThroughputExceeded" => ::std::result::Result::Ok(Self::ProvisionedThroughputExceeded),
+            "RequestLimitExceeded" => ::std::result::Result::Ok(Self::RequestLimitExceeded),
+            "ResourceNotFound" => ::std::result::Result::Ok(Self::ResourceNotFound),
+            "ThrottlingError" => ::std::result::Result::Ok(Self::ThrottlingError),
+            "TransactionConflict" => ::std::result::Result::Ok(Self::TransactionConflict),
+            "ValidationError" => ::std::result::Result::Ok(Self::ValidationError),
+            _ => ::std::result::Result::Err(()),
+        } } }

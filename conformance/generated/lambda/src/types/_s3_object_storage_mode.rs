@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for S3ObjectStorageMode { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "COPY" => ::std::result::Result::Ok(Self::Copy),
+            "REFERENCE" => ::std::result::Result::Ok(Self::Reference),
+            _ => ::std::result::Result::Err(()),
+        } } }

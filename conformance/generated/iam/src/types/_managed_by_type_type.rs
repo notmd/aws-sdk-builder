@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ManagedByTypeType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Service" => ::std::result::Result::Ok(Self::Service),
+            _ => ::std::result::Result::Err(()),
+        } } }

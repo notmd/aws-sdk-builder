@@ -22,3 +22,12 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ImportStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "CANCELLED" => ::std::result::Result::Ok(Self::Cancelled),
+            "CANCELLING" => ::std::result::Result::Ok(Self::Cancelling),
+            "COMPLETED" => ::std::result::Result::Ok(Self::Completed),
+            "FAILED" => ::std::result::Result::Ok(Self::Failed),
+            "IN_PROGRESS" => ::std::result::Result::Ok(Self::InProgress),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for FunctionVersionLatestPublished { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "LATEST_PUBLISHED" => ::std::result::Result::Ok(Self::LatestPublished),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -44,3 +44,23 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for InventoryOptionalField { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "BucketKeyStatus" => ::std::result::Result::Ok(Self::BucketKeyStatus),
+            "ChecksumAlgorithm" => ::std::result::Result::Ok(Self::ChecksumAlgorithm),
+            "ETag" => ::std::result::Result::Ok(Self::ETag),
+            "EncryptionStatus" => ::std::result::Result::Ok(Self::EncryptionStatus),
+            "IntelligentTieringAccessTier" => ::std::result::Result::Ok(Self::IntelligentTieringAccessTier),
+            "IsMultipartUploaded" => ::std::result::Result::Ok(Self::IsMultipartUploaded),
+            "LastModifiedDate" => ::std::result::Result::Ok(Self::LastModifiedDate),
+            "LifecycleExpirationDate" => ::std::result::Result::Ok(Self::LifecycleExpirationDate),
+            "ObjectAccessControlList" => ::std::result::Result::Ok(Self::ObjectAccessControlList),
+            "ObjectLockLegalHoldStatus" => ::std::result::Result::Ok(Self::ObjectLockLegalHoldStatus),
+            "ObjectLockMode" => ::std::result::Result::Ok(Self::ObjectLockMode),
+            "ObjectLockRetainUntilDate" => ::std::result::Result::Ok(Self::ObjectLockRetainUntilDate),
+            "ObjectOwner" => ::std::result::Result::Ok(Self::ObjectOwner),
+            "ReplicationStatus" => ::std::result::Result::Ok(Self::ReplicationStatus),
+            "Size" => ::std::result::Result::Ok(Self::Size),
+            "StorageClass" => ::std::result::Result::Ok(Self::StorageClass),
+            _ => ::std::result::Result::Err(()),
+        } } }

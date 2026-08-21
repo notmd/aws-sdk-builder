@@ -26,3 +26,14 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ObjectCannedAcl { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "authenticated-read" => ::std::result::Result::Ok(Self::AuthenticatedRead),
+            "aws-exec-read" => ::std::result::Result::Ok(Self::AwsExecRead),
+            "bucket-owner-full-control" => ::std::result::Result::Ok(Self::BucketOwnerFullControl),
+            "bucket-owner-read" => ::std::result::Result::Ok(Self::BucketOwnerRead),
+            "private" => ::std::result::Result::Ok(Self::Private),
+            "public-read" => ::std::result::Result::Ok(Self::PublicRead),
+            "public-read-write" => ::std::result::Result::Ok(Self::PublicReadWrite),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for Architecture { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "arm64" => ::std::result::Result::Ok(Self::Arm64),
+            "x86_64" => ::std::result::Result::Ok(Self::X8664),
+            _ => ::std::result::Result::Err(()),
+        } } }

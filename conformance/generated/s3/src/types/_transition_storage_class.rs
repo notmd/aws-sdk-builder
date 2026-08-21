@@ -24,3 +24,13 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for TransitionStorageClass { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "DEEP_ARCHIVE" => ::std::result::Result::Ok(Self::DeepArchive),
+            "GLACIER" => ::std::result::Result::Ok(Self::Glacier),
+            "GLACIER_IR" => ::std::result::Result::Ok(Self::GlacierIr),
+            "INTELLIGENT_TIERING" => ::std::result::Result::Ok(Self::IntelligentTiering),
+            "ONEZONE_IA" => ::std::result::Result::Ok(Self::OnezoneIa),
+            "STANDARD_IA" => ::std::result::Result::Ok(Self::StandardIa),
+            _ => ::std::result::Result::Err(()),
+        } } }

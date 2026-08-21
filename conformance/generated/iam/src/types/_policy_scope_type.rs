@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for PolicyScopeType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AWS" => ::std::result::Result::Ok(Self::Aws),
+            "All" => ::std::result::Result::Ok(Self::All),
+            "Local" => ::std::result::Result::Ok(Self::Local),
+            _ => ::std::result::Result::Err(()),
+        } } }

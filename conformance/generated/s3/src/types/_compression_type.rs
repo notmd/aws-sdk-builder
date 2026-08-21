@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for CompressionType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "BZIP2" => ::std::result::Result::Ok(Self::Bzip2),
+            "GZIP" => ::std::result::Result::Ok(Self::Gzip),
+            "NONE" => ::std::result::Result::Ok(Self::None),
+            _ => ::std::result::Result::Err(()),
+        } } }

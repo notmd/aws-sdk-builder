@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for CustomKeyStoreType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AWS_CLOUDHSM" => ::std::result::Result::Ok(Self::AwsCloudhsm),
+            "EXTERNAL_KEY_STORE" => ::std::result::Result::Ok(Self::ExternalKeyStore),
+            _ => ::std::result::Result::Err(()),
+        } } }

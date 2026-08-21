@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for EncryptionAlgorithmSpec { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "RSAES_OAEP_SHA_1" => ::std::result::Result::Ok(Self::RsaesOaepSha1),
+            "RSAES_OAEP_SHA_256" => ::std::result::Result::Ok(Self::RsaesOaepSha256),
+            "SM2PKE" => ::std::result::Result::Ok(Self::Sm2Pke),
+            "SYMMETRIC_DEFAULT" => ::std::result::Result::Ok(Self::SymmetricDefault),
+            _ => ::std::result::Result::Err(()),
+        } } }

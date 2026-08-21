@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for SnapStartOptimizationStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Off" => ::std::result::Result::Ok(Self::Off),
+            "On" => ::std::result::Result::Ok(Self::On),
+            _ => ::std::result::Result::Err(()),
+        } } }

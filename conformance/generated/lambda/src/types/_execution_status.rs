@@ -22,3 +22,12 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ExecutionStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "FAILED" => ::std::result::Result::Ok(Self::Failed),
+            "RUNNING" => ::std::result::Result::Ok(Self::Running),
+            "STOPPED" => ::std::result::Result::Ok(Self::Stopped),
+            "SUCCEEDED" => ::std::result::Result::Ok(Self::Succeeded),
+            "TIMED_OUT" => ::std::result::Result::Ok(Self::TimedOut),
+            _ => ::std::result::Result::Err(()),
+        } } }

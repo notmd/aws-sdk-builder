@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for XksProxyConnectivityType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "PUBLIC_ENDPOINT" => ::std::result::Result::Ok(Self::PublicEndpoint),
+            "VPC_ENDPOINT_SERVICE" => ::std::result::Result::Ok(Self::VpcEndpointService),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for EndPointType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "KAFKA_BOOTSTRAP_SERVERS" => ::std::result::Result::Ok(Self::KafkaBootstrapServers),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for KafkaSchemaValidationAttribute { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "KEY" => ::std::result::Result::Ok(Self::Key),
+            "VALUE" => ::std::result::Result::Ok(Self::Value),
+            _ => ::std::result::Result::Err(()),
+        } } }

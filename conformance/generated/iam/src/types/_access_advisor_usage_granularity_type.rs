@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for AccessAdvisorUsageGranularityType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ACTION_LEVEL" => ::std::result::Result::Ok(Self::ActionLevel),
+            "SERVICE_LEVEL" => ::std::result::Result::Ok(Self::ServiceLevel),
+            _ => ::std::result::Result::Err(()),
+        } } }

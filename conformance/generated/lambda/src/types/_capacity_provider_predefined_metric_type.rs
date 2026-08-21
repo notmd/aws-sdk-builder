@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for CapacityProviderPredefinedMetricType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "LambdaCapacityProviderAverageCPUUtilization" => ::std::result::Result::Ok(Self::LambdaCapacityProviderAverageCpuUtilization),
+            _ => ::std::result::Result::Err(()),
+        } } }

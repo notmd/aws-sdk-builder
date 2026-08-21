@@ -24,3 +24,13 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ThrottleReason { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "CallerRateLimitExceeded" => ::std::result::Result::Ok(Self::CallerRateLimitExceeded),
+            "ConcurrentInvocationLimitExceeded" => ::std::result::Result::Ok(Self::ConcurrentInvocationLimitExceeded),
+            "ConcurrentSnapshotCreateLimitExceeded" => ::std::result::Result::Ok(Self::ConcurrentSnapshotCreateLimitExceeded),
+            "FunctionInvocationRateLimitExceeded" => ::std::result::Result::Ok(Self::FunctionInvocationRateLimitExceeded),
+            "ReservedFunctionConcurrentInvocationLimitExceeded" => ::std::result::Result::Ok(Self::ReservedFunctionConcurrentInvocationLimitExceeded),
+            "ReservedFunctionInvocationRateLimitExceeded" => ::std::result::Result::Ok(Self::ReservedFunctionInvocationRateLimitExceeded),
+            _ => ::std::result::Result::Err(()),
+        } } }

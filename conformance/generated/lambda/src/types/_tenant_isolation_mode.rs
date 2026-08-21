@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for TenantIsolationMode { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "PER_TENANT" => ::std::result::Result::Ok(Self::PerTenant),
+            _ => ::std::result::Result::Err(()),
+        } } }

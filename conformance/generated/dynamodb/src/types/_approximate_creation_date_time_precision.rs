@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ApproximateCreationDateTimePrecision { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "MICROSECOND" => ::std::result::Result::Ok(Self::Microsecond),
+            "MILLISECOND" => ::std::result::Result::Ok(Self::Millisecond),
+            _ => ::std::result::Result::Err(()),
+        } } }

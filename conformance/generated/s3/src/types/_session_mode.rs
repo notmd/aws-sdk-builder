@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for SessionMode { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ReadOnly" => ::std::result::Result::Ok(Self::ReadOnly),
+            "ReadWrite" => ::std::result::Result::Ok(Self::ReadWrite),
+            _ => ::std::result::Result::Err(()),
+        } } }

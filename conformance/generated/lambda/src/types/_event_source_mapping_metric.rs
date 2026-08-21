@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for EventSourceMappingMetric { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ErrorCount" => ::std::result::Result::Ok(Self::ErrorCount),
+            "EventCount" => ::std::result::Result::Ok(Self::EventCount),
+            "KafkaMetrics" => ::std::result::Result::Ok(Self::KafkaMetrics),
+            _ => ::std::result::Result::Err(()),
+        } } }

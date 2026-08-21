@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ProvisionedConcurrencyStatusEnum { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "FAILED" => ::std::result::Result::Ok(Self::Failed),
+            "IN_PROGRESS" => ::std::result::Result::Ok(Self::InProgress),
+            "READY" => ::std::result::Result::Ok(Self::Ready),
+            _ => ::std::result::Result::Err(()),
+        } } }

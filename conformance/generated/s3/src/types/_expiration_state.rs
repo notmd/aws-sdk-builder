@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ExpirationState { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "DISABLED" => ::std::result::Result::Ok(Self::Disabled),
+            "ENABLED" => ::std::result::Result::Ok(Self::Enabled),
+            _ => ::std::result::Result::Err(()),
+        } } }

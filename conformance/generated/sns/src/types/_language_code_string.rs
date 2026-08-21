@@ -38,3 +38,20 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for LanguageCodeString { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "de-DE" => ::std::result::Result::Ok(Self::DeDe),
+            "en-GB" => ::std::result::Result::Ok(Self::EnGb),
+            "en-US" => ::std::result::Result::Ok(Self::EnUs),
+            "es-419" => ::std::result::Result::Ok(Self::Es419),
+            "es-ES" => ::std::result::Result::Ok(Self::EsEs),
+            "fr-CA" => ::std::result::Result::Ok(Self::FrCa),
+            "fr-FR" => ::std::result::Result::Ok(Self::FrFr),
+            "it-IT" => ::std::result::Result::Ok(Self::ItIt),
+            "ja-JP" => ::std::result::Result::Ok(Self::JpJp),
+            "kr-KR" => ::std::result::Result::Ok(Self::KrKr),
+            "pt-BR" => ::std::result::Result::Ok(Self::PtBr),
+            "zh-CN" => ::std::result::Result::Ok(Self::ZhCn),
+            "zh-TW" => ::std::result::Result::Ok(Self::ZhTw),
+            _ => ::std::result::Result::Err(()),
+        } } }

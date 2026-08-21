@@ -30,3 +30,16 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for DataKeyPairSpec { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ECC_NIST_EDWARDS25519" => ::std::result::Result::Ok(Self::EccNistEdwards25519),
+            "ECC_NIST_P256" => ::std::result::Result::Ok(Self::EccNistP256),
+            "ECC_NIST_P384" => ::std::result::Result::Ok(Self::EccNistP384),
+            "ECC_NIST_P521" => ::std::result::Result::Ok(Self::EccNistP521),
+            "ECC_SECG_P256K1" => ::std::result::Result::Ok(Self::EccSecgP256K1),
+            "RSA_2048" => ::std::result::Result::Ok(Self::Rsa2048),
+            "RSA_3072" => ::std::result::Result::Ok(Self::Rsa3072),
+            "RSA_4096" => ::std::result::Result::Ok(Self::Rsa4096),
+            "SM2" => ::std::result::Result::Ok(Self::Sm2),
+            _ => ::std::result::Result::Err(()),
+        } } }

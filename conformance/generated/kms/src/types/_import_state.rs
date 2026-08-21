@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ImportState { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "IMPORTED" => ::std::result::Result::Ok(Self::Imported),
+            "PENDING_IMPORT" => ::std::result::Result::Ok(Self::PendingImport),
+            _ => ::std::result::Result::Err(()),
+        } } }

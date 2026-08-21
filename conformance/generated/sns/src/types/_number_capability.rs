@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for NumberCapability { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "MMS" => ::std::result::Result::Ok(Self::Mms),
+            "SMS" => ::std::result::Result::Ok(Self::Sms),
+            "VOICE" => ::std::result::Result::Ok(Self::Voice),
+            _ => ::std::result::Result::Err(()),
+        } } }

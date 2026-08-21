@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ContributorInsightsMode { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ACCESSED_AND_THROTTLED_KEYS" => ::std::result::Result::Ok(Self::AccessedAndThrottledKeys),
+            "THROTTLED_KEYS" => ::std::result::Result::Ok(Self::ThrottledKeys),
+            _ => ::std::result::Result::Err(()),
+        } } }

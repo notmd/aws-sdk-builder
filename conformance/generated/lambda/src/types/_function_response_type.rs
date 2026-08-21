@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for FunctionResponseType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ReportBatchItemFailures" => ::std::result::Result::Ok(Self::ReportBatchItemFailures),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for PermissionCheckStatusType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "COMPLETE" => ::std::result::Result::Ok(Self::Complete),
+            "FAILED" => ::std::result::Result::Ok(Self::Failed),
+            "IN_PROGRESS" => ::std::result::Result::Ok(Self::InProgress),
+            _ => ::std::result::Result::Err(()),
+        } } }

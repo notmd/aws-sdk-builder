@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ScalarAttributeType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "B" => ::std::result::Result::Ok(Self::B),
+            "N" => ::std::result::Result::Ok(Self::N),
+            "S" => ::std::result::Result::Ok(Self::S),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for RequestPayer { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "requester" => ::std::result::Result::Ok(Self::Requester),
+            _ => ::std::result::Result::Err(()),
+        } } }

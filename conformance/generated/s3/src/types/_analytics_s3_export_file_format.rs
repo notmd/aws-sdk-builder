@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for AnalyticsS3ExportFileFormat { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "CSV" => ::std::result::Result::Ok(Self::Csv),
+            _ => ::std::result::Result::Err(()),
+        } } }

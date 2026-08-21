@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ObjectOwnership { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "BucketOwnerEnforced" => ::std::result::Result::Ok(Self::BucketOwnerEnforced),
+            "BucketOwnerPreferred" => ::std::result::Result::Ok(Self::BucketOwnerPreferred),
+            "ObjectWriter" => ::std::result::Result::Ok(Self::ObjectWriter),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for SystemLogLevel { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "DEBUG" => ::std::result::Result::Ok(Self::Debug),
+            "INFO" => ::std::result::Result::Ok(Self::Info),
+            "WARN" => ::std::result::Result::Ok(Self::Warn),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for Protocol { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "http" => ::std::result::Result::Ok(Self::Http),
+            "https" => ::std::result::Result::Ok(Self::Https),
+            _ => ::std::result::Result::Err(()),
+        } } }

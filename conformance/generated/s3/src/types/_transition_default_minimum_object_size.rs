@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for TransitionDefaultMinimumObjectSize { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "all_storage_classes_128K" => ::std::result::Result::Ok(Self::AllStorageClasses128K),
+            "varies_by_storage_class" => ::std::result::Result::Ok(Self::VariesByStorageClass),
+            _ => ::std::result::Result::Err(()),
+        } } }

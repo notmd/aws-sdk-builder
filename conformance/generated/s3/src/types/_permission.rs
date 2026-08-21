@@ -22,3 +22,12 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for Permission { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "FULL_CONTROL" => ::std::result::Result::Ok(Self::FullControl),
+            "READ" => ::std::result::Result::Ok(Self::Read),
+            "READ_ACP" => ::std::result::Result::Ok(Self::ReadAcp),
+            "WRITE" => ::std::result::Result::Ok(Self::Write),
+            "WRITE_ACP" => ::std::result::Result::Ok(Self::WriteAcp),
+            _ => ::std::result::Result::Err(()),
+        } } }

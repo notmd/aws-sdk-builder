@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for DataRedundancy { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "SingleAvailabilityZone" => ::std::result::Result::Ok(Self::SingleAvailabilityZone),
+            "SingleLocalZone" => ::std::result::Result::Ok(Self::SingleLocalZone),
+            _ => ::std::result::Result::Err(()),
+        } } }

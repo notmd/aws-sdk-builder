@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for LastUpdateStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Failed" => ::std::result::Result::Ok(Self::Failed),
+            "InProgress" => ::std::result::Result::Ok(Self::InProgress),
+            "Successful" => ::std::result::Result::Ok(Self::Successful),
+            _ => ::std::result::Result::Err(()),
+        } } }

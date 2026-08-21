@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for KeyMaterialState { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "CURRENT" => ::std::result::Result::Ok(Self::Current),
+            "NON_CURRENT" => ::std::result::Result::Ok(Self::NonCurrent),
+            "PENDING_MULTI_REGION_IMPORT_AND_ROTATION" => ::std::result::Result::Ok(Self::PendingMultiRegionImportAndRotation),
+            "PENDING_ROTATION" => ::std::result::Result::Ok(Self::PendingRotation),
+            _ => ::std::result::Result::Err(()),
+        } } }

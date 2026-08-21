@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for AssignmentStatusType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Any" => ::std::result::Result::Ok(Self::Any),
+            "Assigned" => ::std::result::Result::Ok(Self::Assigned),
+            "Unassigned" => ::std::result::Result::Ok(Self::Unassigned),
+            _ => ::std::result::Result::Err(()),
+        } } }

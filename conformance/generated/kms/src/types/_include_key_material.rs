@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for IncludeKeyMaterial { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ALL_KEY_MATERIAL" => ::std::result::Result::Ok(Self::AllKeyMaterial),
+            "ROTATIONS_ONLY" => ::std::result::Result::Ok(Self::RotationsOnly),
+            _ => ::std::result::Result::Err(()),
+        } } }

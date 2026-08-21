@@ -24,3 +24,13 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for DestinationStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "ACTIVE" => ::std::result::Result::Ok(Self::Active),
+            "DISABLED" => ::std::result::Result::Ok(Self::Disabled),
+            "DISABLING" => ::std::result::Result::Ok(Self::Disabling),
+            "ENABLE_FAILED" => ::std::result::Result::Ok(Self::EnableFailed),
+            "ENABLING" => ::std::result::Result::Ok(Self::Enabling),
+            "UPDATING" => ::std::result::Result::Ok(Self::Updating),
+            _ => ::std::result::Result::Err(()),
+        } } }

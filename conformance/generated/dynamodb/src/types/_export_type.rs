@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ExportType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "FULL_EXPORT" => ::std::result::Result::Ok(Self::FullExport),
+            "INCREMENTAL_EXPORT" => ::std::result::Result::Ok(Self::IncrementalExport),
+            _ => ::std::result::Result::Err(()),
+        } } }

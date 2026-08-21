@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for SearchSchemaElementType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "HASH" => ::std::result::Result::Ok(Self::Hash),
+            "INLINE_FILTER" => ::std::result::Result::Ok(Self::InlineFilter),
+            _ => ::std::result::Result::Err(()),
+        } } }

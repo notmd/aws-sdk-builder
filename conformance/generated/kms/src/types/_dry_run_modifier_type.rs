@@ -14,3 +14,8 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for DryRunModifierType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "IGNORE_CIPHERTEXT" => ::std::result::Result::Ok(Self::IgnoreCiphertext),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -26,3 +26,14 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for PolicySourceType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "aws-managed" => ::std::result::Result::Ok(Self::AwsManaged),
+            "group" => ::std::result::Result::Ok(Self::Group),
+            "none" => ::std::result::Result::Ok(Self::None),
+            "resource" => ::std::result::Result::Ok(Self::Resource),
+            "role" => ::std::result::Result::Ok(Self::Role),
+            "user" => ::std::result::Result::Ok(Self::User),
+            "user-managed" => ::std::result::Result::Ok(Self::UserManaged),
+            _ => ::std::result::Result::Err(()),
+        } } }

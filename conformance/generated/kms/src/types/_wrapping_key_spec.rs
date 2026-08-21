@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for WrappingKeySpec { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "RSA_2048" => ::std::result::Result::Ok(Self::Rsa2048),
+            "RSA_3072" => ::std::result::Result::Ok(Self::Rsa3072),
+            "RSA_4096" => ::std::result::Result::Ok(Self::Rsa4096),
+            "SM2" => ::std::result::Result::Ok(Self::Sm2),
+            _ => ::std::result::Result::Err(()),
+        } } }

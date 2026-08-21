@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for DataKeySpec { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AES_128" => ::std::result::Result::Ok(Self::Aes128),
+            "AES_256" => ::std::result::Result::Ok(Self::Aes256),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for StreamViewType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "KEYS_ONLY" => ::std::result::Result::Ok(Self::KeysOnly),
+            "NEW_AND_OLD_IMAGES" => ::std::result::Result::Ok(Self::NewAndOldImages),
+            "NEW_IMAGE" => ::std::result::Result::Ok(Self::NewImage),
+            "OLD_IMAGE" => ::std::result::Result::Ok(Self::OldImage),
+            _ => ::std::result::Result::Err(()),
+        } } }

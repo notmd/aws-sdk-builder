@@ -20,3 +20,11 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for CapacityProviderState { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Active" => ::std::result::Result::Ok(Self::Active),
+            "Deleting" => ::std::result::Result::Ok(Self::Deleting),
+            "Failed" => ::std::result::Result::Ok(Self::Failed),
+            "Pending" => ::std::result::Result::Ok(Self::Pending),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ExportStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "COMPLETED" => ::std::result::Result::Ok(Self::Completed),
+            "FAILED" => ::std::result::Result::Ok(Self::Failed),
+            "IN_PROGRESS" => ::std::result::Result::Ok(Self::InProgress),
+            _ => ::std::result::Result::Err(()),
+        } } }

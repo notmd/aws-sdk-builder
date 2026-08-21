@@ -22,3 +22,12 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for ContributorInsightsStatus { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "DISABLED" => ::std::result::Result::Ok(Self::Disabled),
+            "DISABLING" => ::std::result::Result::Ok(Self::Disabling),
+            "ENABLED" => ::std::result::Result::Ok(Self::Enabled),
+            "ENABLING" => ::std::result::Result::Ok(Self::Enabling),
+            "FAILED" => ::std::result::Result::Ok(Self::Failed),
+            _ => ::std::result::Result::Err(()),
+        } } }

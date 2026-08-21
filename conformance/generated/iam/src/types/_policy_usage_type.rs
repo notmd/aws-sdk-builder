@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for PolicyUsageType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "PermissionsBoundary" => ::std::result::Result::Ok(Self::PermissionsBoundary),
+            "PermissionsPolicy" => ::std::result::Result::Ok(Self::PermissionsPolicy),
+            _ => ::std::result::Result::Err(()),
+        } } }

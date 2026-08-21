@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for InventoryFrequency { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "Daily" => ::std::result::Result::Ok(Self::Daily),
+            "Weekly" => ::std::result::Result::Ok(Self::Weekly),
+            _ => ::std::result::Result::Err(()),
+        } } }

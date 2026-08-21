@@ -18,3 +18,10 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for InputFormat { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "CSV" => ::std::result::Result::Ok(Self::Csv),
+            "DYNAMODB_JSON" => ::std::result::Result::Ok(Self::DynamodbJson),
+            "ION" => ::std::result::Result::Ok(Self::Ion),
+            _ => ::std::result::Result::Err(()),
+        } } }

@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for SseType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "AES256" => ::std::result::Result::Ok(Self::Aes256),
+            "KMS" => ::std::result::Result::Ok(Self::Kms),
+            _ => ::std::result::Result::Err(()),
+        } } }

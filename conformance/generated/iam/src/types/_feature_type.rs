@@ -16,3 +16,9 @@
             }
         }
     }
+
+    impl ::std::str::FromStr for FeatureType { type Err = (); fn from_str(value: &str) -> ::std::result::Result<Self, Self::Err> { match value {
+            "RootCredentialsManagement" => ::std::result::Result::Ok(Self::RootCredentialsManagement),
+            "RootSessions" => ::std::result::Result::Ok(Self::RootSessions),
+            _ => ::std::result::Result::Err(()),
+        } } }
