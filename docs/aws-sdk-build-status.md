@@ -29,8 +29,8 @@ Updated 2026-08-21. Prompt.md is the project specification.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The current report
-  compares 6,593 files and has 16 exact matches (0.43% arithmetic average),
-  with 3,557 mismatches, 2,888 missing files, and 132 extra files. Both comparison
+  compares 6,592 files and has 16 exact matches (0.43% arithmetic average),
+  with 3,558 mismatches, 2,887 missing files, and 131 extra files. Both comparison
   trees are checked in under `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. The live
   `my_aws_sdk::tests::creates_then_heads_a_bucket` test passes against the
@@ -58,18 +58,20 @@ updated when the port adopts a new reusable abstraction.
   key, and value targets against the complete selected model. Standalone list/map
   type files and their `types.rs` includes are no longer emitted. The repair also
   keeps per-type rendering filtered to the requested shape without narrowing the
-  model used for recursive type resolution, and removes two generated-code Clippy
-  warnings for XML-only headers and unit outputs.
+  model used for recursive type resolution, uses Smithy-compatible underscore
+  suffixes for reserved-word type module filenames, and removes two generated-code
+  Clippy warnings for XML-only headers and unit outputs.
 - Evidence: `cargo fmt --all`, `cargo test -p aws-sdk-build`,
   `cargo test --workspace`, and `cargo clippy --workspace --all-targets -- -D warnings`
   pass. `just conformance` completed and intentionally exits 1 because semantic
   parity remains incomplete.
-- Conformance: the current checkpoint compares `6593` files with `16` exact
-  matches, `3557` mismatches, `2888` missing, and `132` extra at `0.43%` average
+- Conformance: the current checkpoint compares `6592` files with `16` exact
+  matches, `3558` mismatches, `2887` missing, and `131` extra at `0.43%` average
   match. Compared with the preceding `6906`-file checkpoint, generated extras
-  fell from `445` to `132` overall and from `47` to `2` for S3; exact matches have
-  not increased yet. The S3 report is `1346` files with `2` exact, `825` mismatches,
-  `517` missing, and `2` extra.
+  fell from `445` to `131` overall and from `47` to `1` for S3; exact matches have
+  not increased yet. The S3 report is `1345` files with `2` exact, `826` mismatches,
+  `516` missing, and `1` extra. The additional mismatch reflects the reserved-word
+  `Type` file moving from an extra generated path to its reference path.
 - Next action: continue porting shared operation/protocol semantics against the
   Smithy reference while preserving the model-driven collection resolution.
 
@@ -78,7 +80,7 @@ updated when the port adopts a new reusable abstraction.
 - State: in progress
 - Changed: `crates/aws-sdk-build/src/codegen.rs` now classifies operation input/output and modeled error shapes from the selected model, emits per-operation input/output/builder files, places modeled errors under `types/error`, resolves XML-flattened lists from model traits, removes operation-name response branches, keeps primitive aliases inline in `types.rs`, and excludes `httpPrefixHeaders`/`httpResponseCode` members from REST-XML document-body reads. `crates/aws-sdk-build/src/model.rs` now also recognizes the packaged `aws.protocols#ec2Query` trait. The previous public aliases remain available.
 - Evidence: `cargo fmt --all`, `cargo test -p aws-sdk-build`, `cargo check --manifest-path examples/my_aws_sdk/Cargo.toml`, and `just conformance` completed; conformance intentionally exits 1 because parity is incomplete.
-- Conformance: the modeled-error checkpoint compared `6905` files with `16` exact matches; the current checkpoint compares `6906` files with `16` exact matches, `3557` mismatches, `2888` missing, and `445` extra. The XML body-binding fix removes invalid generated body reads but does not yet change byte-for-byte matches.
+- Conformance: the modeled-error checkpoint compared `6905` files with `16` exact matches; this preceding checkpoint compared `6906` files with `16` exact matches, `3557` mismatches, `2888` missing, and `445` extra. The XML body-binding fix removes invalid generated body reads but does not yet change byte-for-byte matches.
 - Blocker: operation source semantics, runtime/protocol behavior, endpoint/auth/retry/checksum support, documentation, and many AWS-specific decorators remain incomplete.
 - Next action: delete the obsolete inline-operation renderer and make the active generator warning-free before implementing the next model-driven protocol/runtime boundary.
 

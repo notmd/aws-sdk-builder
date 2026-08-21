@@ -28,12 +28,71 @@ pub fn snake_case(value: &str) -> String {
 
 pub fn rust_identifier(value: &str) -> String {
     let name = snake_case(value);
-    match name.as_str() {
-        "as" | "break" | "const" | "continue" | "crate" | "else" | "enum" | "extern" | "false"
-        | "fn" | "for" | "if" | "impl" | "in" | "let" | "loop" | "match" | "mod" | "move"
-        | "mut" | "pub" | "ref" | "return" | "self" | "Self" | "static" | "struct" | "super"
-        | "trait" | "true" | "type" | "unsafe" | "use" | "where" | "while" | "async" | "await"
-        | "dyn" => format!("r#{name}"),
-        _ => name,
+    if is_rust_keyword(&name) {
+        format!("r#{name}")
+    } else {
+        name
+    }
+}
+
+pub fn rust_module_name(value: &str) -> String {
+    let name = snake_case(value);
+    if is_rust_keyword(&name) {
+        format!("{name}_")
+    } else {
+        name
+    }
+}
+
+fn is_rust_keyword(value: &str) -> bool {
+    matches!(
+        value,
+        "as" | "break"
+            | "const"
+            | "continue"
+            | "crate"
+            | "else"
+            | "enum"
+            | "extern"
+            | "false"
+            | "fn"
+            | "for"
+            | "if"
+            | "impl"
+            | "in"
+            | "let"
+            | "loop"
+            | "match"
+            | "mod"
+            | "move"
+            | "mut"
+            | "pub"
+            | "ref"
+            | "return"
+            | "self"
+            | "static"
+            | "struct"
+            | "super"
+            | "trait"
+            | "true"
+            | "type"
+            | "unsafe"
+            | "use"
+            | "where"
+            | "while"
+            | "async"
+            | "await"
+            | "dyn"
+    )
+}
+
+#[cfg(test)]
+mod tests {
+    use super::{rust_identifier, rust_module_name};
+
+    #[test]
+    fn rust_keywords_use_context_appropriate_names() {
+        assert_eq!(rust_identifier("Type"), "r#type");
+        assert_eq!(rust_module_name("Type"), "type_");
     }
 }

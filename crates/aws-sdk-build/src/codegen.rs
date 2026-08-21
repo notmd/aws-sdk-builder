@@ -720,7 +720,7 @@ fn is_primitive_shape(shape: &Value) -> bool {
 }
 
 fn type_file_name(shape_id: &str) -> String {
-    format!("_{}.rs", names::snake_case(terminal(shape_id)))
+    format!("_{}.rs", names::rust_module_name(terminal(shape_id)))
 }
 
 fn render_types_with_context(

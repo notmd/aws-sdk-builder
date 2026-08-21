@@ -447,7 +447,7 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_transition.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_transition_default_minimum_object_size.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_transition_storage_class.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_type.rs"));
+    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_type_.rs"));
     pub type Uri = ::std::string::String;
     pub type UploadIdMarker = ::std::string::String;
     pub type Value = ::std::string::String;
