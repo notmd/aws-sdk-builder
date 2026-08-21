@@ -1,6 +1,9 @@
 use std::path::PathBuf;
 
-use crate::error::BuildError;
+use crate::{
+    error::BuildError,
+    model::{load, Selection},
+};
 
 pub(crate) const DEFAULT_RUST_CLIENT_CODEGEN: &str =
     "software.amazon.smithy.rust:codegen-aws-sdk:0.1.25";
@@ -13,6 +16,13 @@ pub struct Builder {
     pub(crate) out_dir: Option<PathBuf>,
     pub(crate) smithy: Option<PathBuf>,
     pub(crate) rust_client_codegen: String,
+}
+
+#[derive(Debug, Clone)]
+pub(crate) struct ValidatedConfig {
+    pub(crate) model_path: PathBuf,
+    pub(crate) service: String,
+    pub(crate) selection: Selection,
 }
 
 impl Default for Builder {
@@ -63,10 +73,8 @@ impl Builder {
         self
     }
 
-    pub(crate) fn validate(&self) -> Result<(), BuildError> {
-        if self.service.is_none() {
-            return Err(BuildError::MissingService);
-        }
+    pub(crate) fn validate(&self) -> Result<ValidatedConfig, BuildError> {
+        let service = self.service.clone().ok_or(BuildError::MissingService)?;
         if matches!(self.operations.as_deref(), Some([])) {
             return Err(BuildError::EmptyOperations);
         }
@@ -79,6 +87,12 @@ impl Builder {
                 path: path.to_path_buf(),
             });
         }
-        Ok(())
+        let model = load(path)?;
+        let selection = model.select(&service, self.operations.as_deref())?;
+        Ok(ValidatedConfig {
+            model_path: path.to_path_buf(),
+            service,
+            selection,
+        })
     }
 }

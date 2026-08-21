@@ -1,4 +1,4 @@
-use std::path::PathBuf;
+use std::{io, path::PathBuf};
 
 use thiserror::Error;
 
@@ -16,4 +16,35 @@ pub enum BuildError {
     MissingOutputDirectory,
     #[error("code generation is not available yet")]
     GenerationUnavailable,
+    #[error("failed to read Smithy model {path}: {source}")]
+    ModelRead {
+        path: PathBuf,
+        #[source]
+        source: io::Error,
+    },
+    #[error("failed to parse Smithy model {path}: {source}")]
+    ModelParse {
+        path: PathBuf,
+        #[source]
+        source: serde_json::Error,
+    },
+    #[error("invalid Smithy model {path}: {message}")]
+    InvalidModel { path: PathBuf, message: String },
+    #[error("shape {shape} is defined more than once while loading {path}")]
+    DuplicateShape { path: PathBuf, shape: String },
+    #[error("failed to write pruned Smithy model {path}: {source}")]
+    ModelWrite {
+        path: PathBuf,
+        #[source]
+        source: io::Error,
+    },
+    #[error("Smithy service was not found: {service}")]
+    ServiceNotFound { service: String },
+    #[error("operation {operation} was not found on service {service}")]
+    OperationNotFound { service: String, operation: String },
+    #[error("shape {shape} referenced from {referenced_from} was not found in the model")]
+    MissingShapeReference {
+        referenced_from: String,
+        shape: String,
+    },
 }

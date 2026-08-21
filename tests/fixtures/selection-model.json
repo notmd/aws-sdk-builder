@@ -1,0 +1,89 @@
+{
+  "smithy": "1.0",
+  "metadata": {
+    "serviceFullName": "Example Service"
+  },
+  "shapes": {
+    "example#Service": {
+      "type": "service",
+      "version": "2026-01-01",
+      "operations": [
+        "example#GetThing",
+        "example#DeleteThing"
+      ]
+    },
+    "example#GetThing": {
+      "type": "operation",
+      "input": {
+        "target": "example#GetThingInput"
+      },
+      "output": {
+        "target": "example#GetThingOutput"
+      },
+      "errors": [
+        "example#SharedError"
+      ]
+    },
+    "example#GetThingInput": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "smithy.api#String"
+        }
+      }
+    },
+    "example#GetThingOutput": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "smithy.api#String"
+        }
+      }
+    },
+    "example#DeleteThing": {
+      "type": "operation",
+      "input": {
+        "target": "example#DeleteThingInput"
+      },
+      "output": {
+        "target": "example#DeleteThingOutput"
+      },
+      "errors": [
+        "example#SharedError"
+      ]
+    },
+    "example#DeleteThingInput": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "smithy.api#String"
+        }
+      }
+    },
+    "example#DeleteThingOutput": {
+      "type": "structure",
+      "members": {
+        "deleted": {
+          "target": "smithy.api#Boolean"
+        }
+      }
+    },
+    "example#SharedError": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String"
+        }
+      }
+    },
+    "example#UnreachableShape": {
+      "type": "string"
+    },
+    "smithy.api#String": {
+      "type": "string"
+    },
+    "smithy.api#Boolean": {
+      "type": "boolean"
+    }
+  }
+}

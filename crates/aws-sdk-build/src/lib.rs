@@ -1,5 +1,7 @@
 mod config;
 mod error;
+pub mod model;
+pub(crate) mod prune;
 
 pub use config::Builder;
 pub use error::BuildError;
@@ -17,7 +19,12 @@ pub fn configure() -> Builder {
 
 impl Builder {
     pub fn compile(self) -> Result<CompileReport, BuildError> {
-        self.validate()?;
+        let config::ValidatedConfig {
+            model_path,
+            service,
+            selection,
+        } = self.validate()?;
+        let _ = (model_path, service, selection);
         Err(BuildError::GenerationUnavailable)
     }
 }
@@ -43,5 +50,19 @@ mod tests {
             .validate()
             .expect_err("empty operation selection must be rejected");
         assert!(matches!(empty, BuildError::EmptyOperations));
+    }
+
+    #[test]
+    fn builder_validation_resolves_the_selected_model_operations() {
+        let model = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .join("../../tests/fixtures/selection-model.json");
+        let validated = configure()
+            .model(model)
+            .service("example#Service")
+            .operations(["GetThing"])
+            .validate()
+            .unwrap();
+
+        assert_eq!(validated.selection.operations(), &["GetThing"]);
     }
 }
