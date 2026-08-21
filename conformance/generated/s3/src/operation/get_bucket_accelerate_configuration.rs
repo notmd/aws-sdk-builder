@@ -2,14 +2,21 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetBucketAccelerateConfiguration;
-impl GetBucketAccelerateConfiguration { pub fn new() -> Self { Self } }
+impl GetBucketAccelerateConfiguration {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
-impl Error {
-}
+impl Error {}
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
@@ -20,29 +27,67 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 impl crate::s3_request_id::RequestIdExt for Error {
-    fn extended_request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { extended_request_id, .. } => extended_request_id.as_deref(), _ => None } }
+    fn extended_request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { extended_request_id, .. } => extended_request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _get_bucket_accelerate_configuration_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/get_bucket_accelerate_configuration/_get_bucket_accelerate_configuration_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/operation/get_bucket_accelerate_configuration/_get_bucket_accelerate_configuration_input.rs"
+    ));
 }
 pub use _get_bucket_accelerate_configuration_input::GetBucketAccelerateConfigurationInput;
 pub type Input = GetBucketAccelerateConfigurationInput;
 pub mod _get_bucket_accelerate_configuration_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/get_bucket_accelerate_configuration/_get_bucket_accelerate_configuration_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/operation/get_bucket_accelerate_configuration/_get_bucket_accelerate_configuration_output.rs"
+    ));
 }
 pub use _get_bucket_accelerate_configuration_output::GetBucketAccelerateConfigurationOutput;
 pub type Output = GetBucketAccelerateConfigurationOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/get_bucket_accelerate_configuration/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/operation/get_bucket_accelerate_configuration/builders.rs"
+    ));
 }
 pub type GetBucketAccelerateConfigurationError = Error;
 pub type GetBucketAccelerateConfigurationFluentBuilder = builders::Builder;

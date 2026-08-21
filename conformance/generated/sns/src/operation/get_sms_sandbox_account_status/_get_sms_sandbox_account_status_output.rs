@@ -40,9 +40,14 @@ impl GetSmsSandboxAccountStatusOutputBuilder {
         self.is_in_sandbox = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_is_in_sandbox(mut self, input: ::std::option::Option<bool>) -> Self { self.is_in_sandbox = input; self }
+    pub fn set_is_in_sandbox(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.is_in_sandbox = input;
+        self
+    }
     /// <p>Indicates whether the calling Amazon Web Services account is in the SMS sandbox.</p>
-    pub fn get_is_in_sandbox(&self) -> &::std::option::Option<bool> { &self.is_in_sandbox }
+    pub fn get_is_in_sandbox(&self) -> &::std::option::Option<bool> {
+        &self.is_in_sandbox
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -55,9 +60,19 @@ impl GetSmsSandboxAccountStatusOutputBuilder {
     /// Consumes the builder and constructs a [`GetSmsSandboxAccountStatusOutput`](crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`is_in_sandbox`](Self::is_in_sandbox)
-    pub fn build(self) -> ::std::result::Result<crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput {
-            is_in_sandbox: self.is_in_sandbox.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("is_in_sandbox", "is_in_sandbox was not specified but it is required when building GetSmsSandboxAccountStatusOutput"))?,
+            is_in_sandbox: self.is_in_sandbox.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "is_in_sandbox",
+                    "is_in_sandbox was not specified but it is required when building GetSmsSandboxAccountStatusOutput",
+                )
+            })?,
             _request_id: self._request_id,
         })
     }

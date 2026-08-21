@@ -9,6 +9,8 @@ impl super::Client {
     pub fn enable_outbound_web_identity_federation(
         &self,
     ) -> crate::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationFluentBuilder {
-        crate::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationFluentBuilder::new(self.handle.clone())
+        crate::operation::enable_outbound_web_identity_federation::builders::EnableOutboundWebIdentityFederationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

@@ -87,7 +87,12 @@ impl SortKeyType {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["LAST_AUTHENTICATED_TIME_ASCENDING", "LAST_AUTHENTICATED_TIME_DESCENDING", "SERVICE_NAMESPACE_ASCENDING", "SERVICE_NAMESPACE_DESCENDING"]
+        &[
+            "LAST_AUTHENTICATED_TIME_ASCENDING",
+            "LAST_AUTHENTICATED_TIME_DESCENDING",
+            "SERVICE_NAMESPACE_ASCENDING",
+            "SERVICE_NAMESPACE_DESCENDING",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for SortKeyType {

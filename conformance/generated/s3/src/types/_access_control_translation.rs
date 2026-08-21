@@ -33,15 +33,25 @@ impl AccessControlTranslationBuilder {
         self.owner = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_owner(mut self, input: ::std::option::Option<crate::types::OwnerOverride>) -> Self { self.owner = input; self }
+    pub fn set_owner(mut self, input: ::std::option::Option<crate::types::OwnerOverride>) -> Self {
+        self.owner = input;
+        self
+    }
     /// <p>Specifies the replica ownership. For default and valid values, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html">PUT bucket replication</a> in the <i>Amazon S3 API Reference</i>.</p>
-    pub fn get_owner(&self) -> &::std::option::Option<crate::types::OwnerOverride> { &self.owner }
+    pub fn get_owner(&self) -> &::std::option::Option<crate::types::OwnerOverride> {
+        &self.owner
+    }
     /// Consumes the builder and constructs a [`AccessControlTranslation`](crate::types::AccessControlTranslation).
     /// This method will fail if any of the following fields are not set:
     /// - [`owner`](Self::owner)
     pub fn build(self) -> ::std::result::Result<crate::types::AccessControlTranslation, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AccessControlTranslation {
-            owner: self.owner.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("owner", "owner was not specified but it is required when building AccessControlTranslation"))?,
+            owner: self.owner.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "owner",
+                    "owner was not specified but it is required when building AccessControlTranslation",
+                )
+            })?,
         })
     }
 }

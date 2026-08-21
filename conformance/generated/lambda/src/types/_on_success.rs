@@ -41,11 +41,16 @@ impl OnSuccessBuilder {
         self.destination = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_destination(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.destination = input; self }
+    pub fn set_destination(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.destination = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the destination resource.</p><note>
     /// <p>Amazon SNS destinations have a message size limit of 256 KB. If the combined size of the function request and response payload exceeds the limit, Lambda will drop the payload when sending <code>OnFailure</code> event to the destination. For details on this behavior, refer to <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html">Retaining records of asynchronous invocations</a>.</p>
     /// </note>
-    pub fn get_destination(&self) -> &::std::option::Option<::std::string::String> { &self.destination }
+    pub fn get_destination(&self) -> &::std::option::Option<::std::string::String> {
+        &self.destination
+    }
     /// Consumes the builder and constructs a [`OnSuccess`](crate::types::OnSuccess).
     pub fn build(self) -> crate::types::OnSuccess {
         crate::types::OnSuccess {

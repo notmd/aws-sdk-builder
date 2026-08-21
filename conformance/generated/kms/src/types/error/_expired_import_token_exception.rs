@@ -4,38 +4,84 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct ExpiredImportTokenException {
+    #[allow(missing_docs)] // documentation missing in model
     pub message: ::std::option::Option<::std::string::String>,
+    pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
 }
 impl ExpiredImportTokenException {
+    /// Returns the error message.
     pub fn message(&self) -> ::std::option::Option<&str> {
         self.message.as_deref()
     }
 }
+impl ::std::fmt::Display for ExpiredImportTokenException {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        ::std::write!(f, "ExpiredImportTokenException")?;
+        if let ::std::option::Option::Some(inner_1) = &self.message {
+            {
+                ::std::write!(f, ": {inner_1}")?;
+            }
+        }
+        Ok(())
+    }
+}
+impl ::std::error::Error for ExpiredImportTokenException {}
+impl ::aws_types::request_id::RequestId for crate::types::error::ExpiredImportTokenException {
+    fn request_id(&self) -> Option<&str> {
+        use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+        self.meta().request_id()
+    }
+}
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ExpiredImportTokenException {
+    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+        &self.meta
+    }
+}
 impl ExpiredImportTokenException {
-    /// Creates a new builder-style object to manufacture [`ExpiredImportTokenException`](crate::types::ExpiredImportTokenException).
-    pub fn builder() -> crate::types::builders::ExpiredImportTokenExceptionBuilder {
-        crate::types::builders::ExpiredImportTokenExceptionBuilder::default()
+    /// Creates a new builder-style object to manufacture [`ExpiredImportTokenException`](crate::types::error::ExpiredImportTokenException).
+    pub fn builder() -> crate::types::error::builders::ExpiredImportTokenExceptionBuilder {
+        crate::types::error::builders::ExpiredImportTokenExceptionBuilder::default()
     }
 }
 
-/// A builder for [`ExpiredImportTokenException`](crate::types::ExpiredImportTokenException).
+/// A builder for [`ExpiredImportTokenException`](crate::types::error::ExpiredImportTokenException).
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ExpiredImportTokenExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
+    meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
 }
 impl ExpiredImportTokenExceptionBuilder {
+    #[allow(missing_docs)] // documentation missing in model
     pub fn message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.message = input; self }
-    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> { &self.message }
-    /// Consumes the builder and constructs a [`ExpiredImportTokenException`](crate::types::ExpiredImportTokenException).
-    pub fn build(self) -> crate::types::ExpiredImportTokenException {
-        crate::types::ExpiredImportTokenException {
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.message = input;
+        self
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.message
+    }
+    /// Sets error metadata
+    pub fn meta(mut self, meta: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+        self.meta = Some(meta);
+        self
+    }
+
+    /// Sets error metadata
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+        self.meta = meta;
+        self
+    }
+    /// Consumes the builder and constructs a [`ExpiredImportTokenException`](crate::types::error::ExpiredImportTokenException).
+    pub fn build(self) -> crate::types::error::ExpiredImportTokenException {
+        crate::types::error::ExpiredImportTokenException {
             message: self.message,
+            meta: self.meta.unwrap_or_default(),
         }
     }
 }
-impl ::std::fmt::Display for ExpiredImportTokenException { fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result { f.write_str("ExpiredImportTokenException") } }

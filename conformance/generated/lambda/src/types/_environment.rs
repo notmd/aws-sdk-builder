@@ -37,13 +37,16 @@ impl EnvironmentBuilder {
         self.variables = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_variables(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.variables = input; self }
+    pub fn set_variables(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.variables = input;
+        self
+    }
     /// <p>Environment variable key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using Lambda environment variables</a>.</p>
-    pub fn get_variables(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.variables }
+    pub fn get_variables(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.variables
+    }
     /// Consumes the builder and constructs a [`Environment`](crate::types::Environment).
     pub fn build(self) -> crate::types::Environment {
-        crate::types::Environment {
-            variables: self.variables,
-        }
+        crate::types::Environment { variables: self.variables }
     }
 }

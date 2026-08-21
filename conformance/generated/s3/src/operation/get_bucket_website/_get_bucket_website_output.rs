@@ -67,25 +67,40 @@ impl GetBucketWebsiteOutputBuilder {
         self.redirect_all_requests_to = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_redirect_all_requests_to(mut self, input: ::std::option::Option<crate::types::RedirectAllRequestsTo>) -> Self { self.redirect_all_requests_to = input; self }
+    pub fn set_redirect_all_requests_to(mut self, input: ::std::option::Option<crate::types::RedirectAllRequestsTo>) -> Self {
+        self.redirect_all_requests_to = input;
+        self
+    }
     /// <p>Specifies the redirect behavior of all requests to a website endpoint of an Amazon S3 bucket.</p>
-    pub fn get_redirect_all_requests_to(&self) -> &::std::option::Option<crate::types::RedirectAllRequestsTo> { &self.redirect_all_requests_to }
+    pub fn get_redirect_all_requests_to(&self) -> &::std::option::Option<crate::types::RedirectAllRequestsTo> {
+        &self.redirect_all_requests_to
+    }
     /// <p>The name of the index document for the website (for example <code>index.html</code>).</p>
     pub fn index_document(mut self, input: crate::types::IndexDocument) -> Self {
         self.index_document = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_index_document(mut self, input: ::std::option::Option<crate::types::IndexDocument>) -> Self { self.index_document = input; self }
+    pub fn set_index_document(mut self, input: ::std::option::Option<crate::types::IndexDocument>) -> Self {
+        self.index_document = input;
+        self
+    }
     /// <p>The name of the index document for the website (for example <code>index.html</code>).</p>
-    pub fn get_index_document(&self) -> &::std::option::Option<crate::types::IndexDocument> { &self.index_document }
+    pub fn get_index_document(&self) -> &::std::option::Option<crate::types::IndexDocument> {
+        &self.index_document
+    }
     /// <p>The object key name of the website error document to use for 4XX class errors.</p>
     pub fn error_document(mut self, input: crate::types::ErrorDocument) -> Self {
         self.error_document = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error_document(mut self, input: ::std::option::Option<crate::types::ErrorDocument>) -> Self { self.error_document = input; self }
+    pub fn set_error_document(mut self, input: ::std::option::Option<crate::types::ErrorDocument>) -> Self {
+        self.error_document = input;
+        self
+    }
     /// <p>The object key name of the website error document to use for 4XX class errors.</p>
-    pub fn get_error_document(&self) -> &::std::option::Option<crate::types::ErrorDocument> { &self.error_document }
+    pub fn get_error_document(&self) -> &::std::option::Option<crate::types::ErrorDocument> {
+        &self.error_document
+    }
     /// <p>Rules that define when a redirect is applied and the redirect behavior.</p>
     /// Appends an item to `routing_rules`.
     ///
@@ -96,9 +111,14 @@ impl GetBucketWebsiteOutputBuilder {
         self.routing_rules = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_routing_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RoutingRule>>) -> Self { self.routing_rules = input; self }
+    pub fn set_routing_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::RoutingRule>>) -> Self {
+        self.routing_rules = input;
+        self
+    }
     /// <p>Rules that define when a redirect is applied and the redirect behavior.</p>
-    pub fn get_routing_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RoutingRule>> { &self.routing_rules }
+    pub fn get_routing_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::RoutingRule>> {
+        &self.routing_rules
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

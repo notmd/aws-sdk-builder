@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct UpdateCustomKeyStore;
-impl UpdateCustomKeyStore { pub fn new() -> Self { Self } }
+impl UpdateCustomKeyStore {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     CloudHsmClusterInvalidConfigurationException(super::super::types::error::CloudHsmClusterInvalidConfigurationException),
@@ -23,26 +27,64 @@ pub enum Error {
     XksProxyVpcEndpointServiceInvalidConfigurationException(super::super::types::error::XksProxyVpcEndpointServiceInvalidConfigurationException),
     XksProxyVpcEndpointServiceNotFoundException(super::super::types::error::XksProxyVpcEndpointServiceNotFoundException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_cloud_hsm_cluster_invalid_configuration_exception(&self) -> bool { matches!(self, Self::CloudHsmClusterInvalidConfigurationException(_)) }
-    pub fn is_cloud_hsm_cluster_not_active_exception(&self) -> bool { matches!(self, Self::CloudHsmClusterNotActiveException(_)) }
-    pub fn is_cloud_hsm_cluster_not_found_exception(&self) -> bool { matches!(self, Self::CloudHsmClusterNotFoundException(_)) }
-    pub fn is_cloud_hsm_cluster_not_related_exception(&self) -> bool { matches!(self, Self::CloudHsmClusterNotRelatedException(_)) }
-    pub fn is_custom_key_store_invalid_state_exception(&self) -> bool { matches!(self, Self::CustomKeyStoreInvalidStateException(_)) }
-    pub fn is_custom_key_store_name_in_use_exception(&self) -> bool { matches!(self, Self::CustomKeyStoreNameInUseException(_)) }
-    pub fn is_custom_key_store_not_found_exception(&self) -> bool { matches!(self, Self::CustomKeyStoreNotFoundException(_)) }
-    pub fn is_kms_internal_exception(&self) -> bool { matches!(self, Self::KmsInternalException(_)) }
-    pub fn is_xks_proxy_incorrect_authentication_credential_exception(&self) -> bool { matches!(self, Self::XksProxyIncorrectAuthenticationCredentialException(_)) }
-    pub fn is_xks_proxy_invalid_configuration_exception(&self) -> bool { matches!(self, Self::XksProxyInvalidConfigurationException(_)) }
-    pub fn is_xks_proxy_invalid_response_exception(&self) -> bool { matches!(self, Self::XksProxyInvalidResponseException(_)) }
-    pub fn is_xks_proxy_uri_endpoint_in_use_exception(&self) -> bool { matches!(self, Self::XksProxyUriEndpointInUseException(_)) }
-    pub fn is_xks_proxy_uri_in_use_exception(&self) -> bool { matches!(self, Self::XksProxyUriInUseException(_)) }
-    pub fn is_xks_proxy_uri_unreachable_exception(&self) -> bool { matches!(self, Self::XksProxyUriUnreachableException(_)) }
-    pub fn is_xks_proxy_vpc_endpoint_service_in_use_exception(&self) -> bool { matches!(self, Self::XksProxyVpcEndpointServiceInUseException(_)) }
-    pub fn is_xks_proxy_vpc_endpoint_service_invalid_configuration_exception(&self) -> bool { matches!(self, Self::XksProxyVpcEndpointServiceInvalidConfigurationException(_)) }
-    pub fn is_xks_proxy_vpc_endpoint_service_not_found_exception(&self) -> bool { matches!(self, Self::XksProxyVpcEndpointServiceNotFoundException(_)) }
+    pub fn is_cloud_hsm_cluster_invalid_configuration_exception(&self) -> bool {
+        matches!(self, Self::CloudHsmClusterInvalidConfigurationException(_))
+    }
+    pub fn is_cloud_hsm_cluster_not_active_exception(&self) -> bool {
+        matches!(self, Self::CloudHsmClusterNotActiveException(_))
+    }
+    pub fn is_cloud_hsm_cluster_not_found_exception(&self) -> bool {
+        matches!(self, Self::CloudHsmClusterNotFoundException(_))
+    }
+    pub fn is_cloud_hsm_cluster_not_related_exception(&self) -> bool {
+        matches!(self, Self::CloudHsmClusterNotRelatedException(_))
+    }
+    pub fn is_custom_key_store_invalid_state_exception(&self) -> bool {
+        matches!(self, Self::CustomKeyStoreInvalidStateException(_))
+    }
+    pub fn is_custom_key_store_name_in_use_exception(&self) -> bool {
+        matches!(self, Self::CustomKeyStoreNameInUseException(_))
+    }
+    pub fn is_custom_key_store_not_found_exception(&self) -> bool {
+        matches!(self, Self::CustomKeyStoreNotFoundException(_))
+    }
+    pub fn is_kms_internal_exception(&self) -> bool {
+        matches!(self, Self::KmsInternalException(_))
+    }
+    pub fn is_xks_proxy_incorrect_authentication_credential_exception(&self) -> bool {
+        matches!(self, Self::XksProxyIncorrectAuthenticationCredentialException(_))
+    }
+    pub fn is_xks_proxy_invalid_configuration_exception(&self) -> bool {
+        matches!(self, Self::XksProxyInvalidConfigurationException(_))
+    }
+    pub fn is_xks_proxy_invalid_response_exception(&self) -> bool {
+        matches!(self, Self::XksProxyInvalidResponseException(_))
+    }
+    pub fn is_xks_proxy_uri_endpoint_in_use_exception(&self) -> bool {
+        matches!(self, Self::XksProxyUriEndpointInUseException(_))
+    }
+    pub fn is_xks_proxy_uri_in_use_exception(&self) -> bool {
+        matches!(self, Self::XksProxyUriInUseException(_))
+    }
+    pub fn is_xks_proxy_uri_unreachable_exception(&self) -> bool {
+        matches!(self, Self::XksProxyUriUnreachableException(_))
+    }
+    pub fn is_xks_proxy_vpc_endpoint_service_in_use_exception(&self) -> bool {
+        matches!(self, Self::XksProxyVpcEndpointServiceInUseException(_))
+    }
+    pub fn is_xks_proxy_vpc_endpoint_service_invalid_configuration_exception(&self) -> bool {
+        matches!(self, Self::XksProxyVpcEndpointServiceInvalidConfigurationException(_))
+    }
+    pub fn is_xks_proxy_vpc_endpoint_service_not_found_exception(&self) -> bool {
+        matches!(self, Self::XksProxyVpcEndpointServiceNotFoundException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -71,26 +113,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _update_custom_key_store_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/update_custom_key_store/_update_custom_key_store_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/kms/src/operation/update_custom_key_store/_update_custom_key_store_input.rs"
+    ));
 }
 pub use _update_custom_key_store_input::UpdateCustomKeyStoreInput;
 pub type Input = UpdateCustomKeyStoreInput;
 pub mod _update_custom_key_store_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/update_custom_key_store/_update_custom_key_store_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/kms/src/operation/update_custom_key_store/_update_custom_key_store_output.rs"
+    ));
 }
 pub use _update_custom_key_store_output::UpdateCustomKeyStoreOutput;
 pub type Output = UpdateCustomKeyStoreOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/update_custom_key_store/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/kms/src/operation/update_custom_key_store/builders.rs"
+    ));
 }
 pub type UpdateCustomKeyStoreError = Error;
 pub type UpdateCustomKeyStoreFluentBuilder = builders::Builder;

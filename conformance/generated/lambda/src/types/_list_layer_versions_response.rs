@@ -39,9 +39,14 @@ impl ListLayerVersionsResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>A pagination token returned when the response doesn't contain all versions.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// <p>A list of versions.</p>
     /// Appends an item to `layer_versions`.
     ///
@@ -52,9 +57,14 @@ impl ListLayerVersionsResponseBuilder {
         self.layer_versions = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_layer_versions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>>) -> Self { self.layer_versions = input; self }
+    pub fn set_layer_versions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>>) -> Self {
+        self.layer_versions = input;
+        self
+    }
     /// <p>A list of versions.</p>
-    pub fn get_layer_versions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>> { &self.layer_versions }
+    pub fn get_layer_versions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LayerVersionsListItem>> {
+        &self.layer_versions
+    }
     /// Consumes the builder and constructs a [`ListLayerVersionsResponse`](crate::types::ListLayerVersionsResponse).
     pub fn build(self) -> crate::types::ListLayerVersionsResponse {
         crate::types::ListLayerVersionsResponse {

@@ -43,10 +43,15 @@ impl ChangeMessageVisibilityBatchInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_url = input; self }
+    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.queue_url = input;
+        self
+    }
     /// <p>The URL of the Amazon SQS queue whose messages' visibility is changed.</p>
     /// <p>Queue URLs and names are case-sensitive.</p>
-    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> { &self.queue_url }
+    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.queue_url
+    }
     /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
     /// Appends an item to `entries`.
     ///
@@ -57,9 +62,14 @@ impl ChangeMessageVisibilityBatchInputBuilder {
         self.entries = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self { self.entries = input; self }
+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self {
+        self.entries = input;
+        self
+    }
     /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
-    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>> { &self.entries }
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>> {
+        &self.entries
+    }
     /// Consumes the builder and constructs a [`ChangeMessageVisibilityBatchInput`](crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput).
     pub fn build(self) -> crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput {
         crate::operation::change_message_visibility_batch::ChangeMessageVisibilityBatchInput {

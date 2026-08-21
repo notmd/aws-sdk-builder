@@ -287,6 +287,37 @@ impl Model {
 /// packaged Smithy model alone. The predicates intentionally inspect shape
 /// relationships and traits instead of service or operation names.
 fn apply_model_customizations(shapes: &mut Map<String, Value>) {
+    // The Smithy Rust client transform adds an optional `Message` member to
+    // every modeled error that does not already have a case-insensitive
+    // `message`/`Message` member. This keeps error accessors and protocol
+    // deserializers uniform even when the service model omits the field.
+    for shape in shapes.values_mut() {
+        let Some(shape_object) = shape.as_object_mut() else {
+            continue;
+        };
+        let is_error = shape_object
+            .get("traits")
+            .and_then(Value::as_object)
+            .is_some_and(|traits| traits.contains_key("smithy.api#error"));
+        if !is_error || shape_object.get("type").and_then(Value::as_str) != Some("structure") {
+            continue;
+        }
+        let members = shape_object
+            .entry("members".to_owned())
+            .or_insert_with(|| Value::Object(Map::new()))
+            .as_object_mut()
+            .expect("error structure members must be an object");
+        if !members
+            .keys()
+            .any(|name| name.eq_ignore_ascii_case("message"))
+        {
+            members.insert(
+                "Message".to_owned(),
+                serde_json::json!({"target": "smithy.api#String"}),
+            );
+        }
+    }
+
     let expires_targets = shapes
         .values()
         .filter_map(Value::as_object)

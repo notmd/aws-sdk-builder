@@ -36,14 +36,17 @@ impl GetRoleInputBuilder {
         self.role_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.role_name = input; self }
+    pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.role_name = input;
+        self
+    }
     /// <p>The name of the IAM role to get information about.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_role_name(&self) -> &::std::option::Option<::std::string::String> { &self.role_name }
+    pub fn get_role_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.role_name
+    }
     /// Consumes the builder and constructs a [`GetRoleInput`](crate::operation::get_role::GetRoleInput).
     pub fn build(self) -> crate::operation::get_role::GetRoleInput {
-        crate::operation::get_role::GetRoleInput {
-            role_name: self.role_name,
-        }
+        crate::operation::get_role::GetRoleInput { role_name: self.role_name }
     }
 }

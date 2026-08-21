@@ -72,9 +72,14 @@ impl SourceTableFeatureDetailsBuilder {
         self.local_secondary_indexes = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndexInfo>>) -> Self { self.local_secondary_indexes = input; self }
+    pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndexInfo>>) -> Self {
+        self.local_secondary_indexes = input;
+        self
+    }
     /// <p>Represents the LSI properties for the table when the backup was created. It includes the IndexName, KeySchema and Projection for the LSIs on the table at the time of backup.</p>
-    pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndexInfo>> { &self.local_secondary_indexes }
+    pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LocalSecondaryIndexInfo>> {
+        &self.local_secondary_indexes
+    }
     /// <p>Represents the GSI properties for the table when the backup was created. It includes the IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at the time of backup.</p>
     /// Appends an item to `global_secondary_indexes`.
     ///
@@ -85,33 +90,53 @@ impl SourceTableFeatureDetailsBuilder {
         self.global_secondary_indexes = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexInfo>>) -> Self { self.global_secondary_indexes = input; self }
+    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexInfo>>) -> Self {
+        self.global_secondary_indexes = input;
+        self
+    }
     /// <p>Represents the GSI properties for the table when the backup was created. It includes the IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at the time of backup.</p>
-    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexInfo>> { &self.global_secondary_indexes }
+    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexInfo>> {
+        &self.global_secondary_indexes
+    }
     /// <p>Stream settings on the table when the backup was created.</p>
     pub fn stream_description(mut self, input: crate::types::StreamSpecification) -> Self {
         self.stream_description = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_stream_description(mut self, input: ::std::option::Option<crate::types::StreamSpecification>) -> Self { self.stream_description = input; self }
+    pub fn set_stream_description(mut self, input: ::std::option::Option<crate::types::StreamSpecification>) -> Self {
+        self.stream_description = input;
+        self
+    }
     /// <p>Stream settings on the table when the backup was created.</p>
-    pub fn get_stream_description(&self) -> &::std::option::Option<crate::types::StreamSpecification> { &self.stream_description }
+    pub fn get_stream_description(&self) -> &::std::option::Option<crate::types::StreamSpecification> {
+        &self.stream_description
+    }
     /// <p>Time to Live settings on the table when the backup was created.</p>
     pub fn time_to_live_description(mut self, input: crate::types::TimeToLiveDescription) -> Self {
         self.time_to_live_description = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_time_to_live_description(mut self, input: ::std::option::Option<crate::types::TimeToLiveDescription>) -> Self { self.time_to_live_description = input; self }
+    pub fn set_time_to_live_description(mut self, input: ::std::option::Option<crate::types::TimeToLiveDescription>) -> Self {
+        self.time_to_live_description = input;
+        self
+    }
     /// <p>Time to Live settings on the table when the backup was created.</p>
-    pub fn get_time_to_live_description(&self) -> &::std::option::Option<crate::types::TimeToLiveDescription> { &self.time_to_live_description }
+    pub fn get_time_to_live_description(&self) -> &::std::option::Option<crate::types::TimeToLiveDescription> {
+        &self.time_to_live_description
+    }
     /// <p>The description of the server-side encryption status on the table when the backup was created.</p>
     pub fn sse_description(mut self, input: crate::types::SseDescription) -> Self {
         self.sse_description = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_sse_description(mut self, input: ::std::option::Option<crate::types::SseDescription>) -> Self { self.sse_description = input; self }
+    pub fn set_sse_description(mut self, input: ::std::option::Option<crate::types::SseDescription>) -> Self {
+        self.sse_description = input;
+        self
+    }
     /// <p>The description of the server-side encryption status on the table when the backup was created.</p>
-    pub fn get_sse_description(&self) -> &::std::option::Option<crate::types::SseDescription> { &self.sse_description }
+    pub fn get_sse_description(&self) -> &::std::option::Option<crate::types::SseDescription> {
+        &self.sse_description
+    }
     /// <p>The vector index properties for the table at the time the backup was created, including the index name, vector attribute, dimensions, distance function, search schema, and projection.</p>
     /// Appends an item to `vector_indexes`.
     ///
@@ -122,9 +147,14 @@ impl SourceTableFeatureDetailsBuilder {
         self.vector_indexes = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndexInfo>>) -> Self { self.vector_indexes = input; self }
+    pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndexInfo>>) -> Self {
+        self.vector_indexes = input;
+        self
+    }
     /// <p>The vector index properties for the table at the time the backup was created, including the index name, vector attribute, dimensions, distance function, search schema, and projection.</p>
-    pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndexInfo>> { &self.vector_indexes }
+    pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndexInfo>> {
+        &self.vector_indexes
+    }
     /// Consumes the builder and constructs a [`SourceTableFeatureDetails`](crate::types::SourceTableFeatureDetails).
     pub fn build(self) -> crate::types::SourceTableFeatureDetails {
         crate::types::SourceTableFeatureDetails {

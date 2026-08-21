@@ -41,26 +41,46 @@ impl EndpointBuilder {
         self.address = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.address = input; self }
+    pub fn set_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.address = input;
+        self
+    }
     /// <p>IP address of the endpoint.</p>
-    pub fn get_address(&self) -> &::std::option::Option<::std::string::String> { &self.address }
+    pub fn get_address(&self) -> &::std::option::Option<::std::string::String> {
+        &self.address
+    }
     /// <p>Endpoint cache time to live (TTL) value.</p>
     /// This field is required.
     pub fn cache_period_in_minutes(mut self, input: i64) -> Self {
         self.cache_period_in_minutes = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_cache_period_in_minutes(mut self, input: ::std::option::Option<i64>) -> Self { self.cache_period_in_minutes = input; self }
+    pub fn set_cache_period_in_minutes(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.cache_period_in_minutes = input;
+        self
+    }
     /// <p>Endpoint cache time to live (TTL) value.</p>
-    pub fn get_cache_period_in_minutes(&self) -> &::std::option::Option<i64> { &self.cache_period_in_minutes }
+    pub fn get_cache_period_in_minutes(&self) -> &::std::option::Option<i64> {
+        &self.cache_period_in_minutes
+    }
     /// Consumes the builder and constructs a [`Endpoint`](crate::types::Endpoint).
     /// This method will fail if any of the following fields are not set:
     /// - [`address`](Self::address)
     /// - [`cache_period_in_minutes`](Self::cache_period_in_minutes)
     pub fn build(self) -> ::std::result::Result<crate::types::Endpoint, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Endpoint {
-            address: self.address.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("address", "address was not specified but it is required when building Endpoint"))?,
-            cache_period_in_minutes: self.cache_period_in_minutes.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("cache_period_in_minutes", "cache_period_in_minutes was not specified but it is required when building Endpoint"))?,
+            address: self.address.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "address",
+                    "address was not specified but it is required when building Endpoint",
+                )
+            })?,
+            cache_period_in_minutes: self.cache_period_in_minutes.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "cache_period_in_minutes",
+                    "cache_period_in_minutes was not specified but it is required when building Endpoint",
+                )
+            })?,
         })
     }
 }

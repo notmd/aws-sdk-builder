@@ -6,30 +6,63 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn client_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.client_token = Some(value.into()); self }
-    pub fn s3_bucket_source(mut self, value: impl ::std::convert::Into<crate::types::S3BucketSource>) -> Self { self.input.s3_bucket_source = Some(value.into()); self }
-    pub fn input_format(mut self, value: impl ::std::convert::Into<crate::types::InputFormat>) -> Self { self.input.input_format = Some(value.into()); self }
-    pub fn input_format_options(mut self, value: impl ::std::convert::Into<crate::types::InputFormatOptions>) -> Self { self.input.input_format_options = Some(value.into()); self }
-    pub fn input_compression_type(mut self, value: impl ::std::convert::Into<crate::types::InputCompressionType>) -> Self { self.input.input_compression_type = Some(value.into()); self }
-    pub fn table_creation_parameters(mut self, value: impl ::std::convert::Into<crate::types::TableCreationParameters>) -> Self { self.input.table_creation_parameters = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::ImportTableOutput, super::ImportTableError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ImportTableError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::ImportTableError::unhandled_with_request_ids(format!("ImportTable returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_import_table_output::ImportTableOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn client_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.client_token = Some(value.into());
+        self
+    }
+    pub fn s3_bucket_source(mut self, value: impl ::std::convert::Into<crate::types::S3BucketSource>) -> Self {
+        self.input.s3_bucket_source = Some(value.into());
+        self
+    }
+    pub fn input_format(mut self, value: impl ::std::convert::Into<crate::types::InputFormat>) -> Self {
+        self.input.input_format = Some(value.into());
+        self
+    }
+    pub fn input_format_options(mut self, value: impl ::std::convert::Into<crate::types::InputFormatOptions>) -> Self {
+        self.input.input_format_options = Some(value.into());
+        self
+    }
+    pub fn input_compression_type(mut self, value: impl ::std::convert::Into<crate::types::InputCompressionType>) -> Self {
+        self.input.input_compression_type = Some(value.into());
+        self
+    }
+    pub fn table_creation_parameters(mut self, value: impl ::std::convert::Into<crate::types::TableCreationParameters>) -> Self {
+        self.input.table_creation_parameters = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::ImportTableOutput, super::ImportTableError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::ImportTableError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::ImportTableError::unhandled_with_request_ids(
+                format!("ImportTable returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_import_table_output::ImportTableOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as ImportTableFluentBuilder;

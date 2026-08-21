@@ -44,17 +44,27 @@ impl CheckpointUpdatedExecutionStateBuilder {
         self.operations = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>) -> Self { self.operations = input; self }
+    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>) -> Self {
+        self.operations = input;
+        self
+    }
     /// <p>A list of operations that have been updated since the last checkpoint.</p>
-    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Operation>> { &self.operations }
+    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Operation>> {
+        &self.operations
+    }
     /// <p>Indicates that more results are available. Use this value in a subsequent call to retrieve the next page of results.</p>
     pub fn next_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>Indicates that more results are available. Use this value in a subsequent call to retrieve the next page of results.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// Consumes the builder and constructs a [`CheckpointUpdatedExecutionState`](crate::types::CheckpointUpdatedExecutionState).
     pub fn build(self) -> crate::types::CheckpointUpdatedExecutionState {
         crate::types::CheckpointUpdatedExecutionState {

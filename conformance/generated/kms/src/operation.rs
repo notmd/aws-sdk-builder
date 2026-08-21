@@ -67,10 +67,16 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/generate_data_key_pair.rs"));
     }
     pub mod generate_data_key_pair_without_plaintext {
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/generate_data_key_pair_without_plaintext.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/operation/generate_data_key_pair_without_plaintext.rs"
+        ));
     }
     pub mod generate_data_key_without_plaintext {
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/generate_data_key_without_plaintext.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/operation/generate_data_key_without_plaintext.rs"
+        ));
     }
     pub mod generate_mac {
         include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/generate_mac.rs"));

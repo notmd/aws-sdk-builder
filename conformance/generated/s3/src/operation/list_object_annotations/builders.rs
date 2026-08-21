@@ -6,45 +6,128 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.version_id = Some(value.into()); self }
-    pub fn max_annotation_results(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_annotation_results = Some(value.into()); self }
-    pub fn annotation_prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.annotation_prefix = Some(value.into()); self }
-    pub fn continuation_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.continuation_token = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::ListObjectAnnotationsOutput, super::ListObjectAnnotationsError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::ListObjectAnnotationsError::Unhandled("ListObjectAnnotations requires bucket".to_owned()))?;
-                         let key = self.input.key.as_deref().ok_or_else(|| super::ListObjectAnnotationsError::Unhandled("ListObjectAnnotations requires key".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}/{Key+}?annotation&x-id=ListObjectAnnotations"); if let Some(value) = self.input.version_id.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("versionId"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } if let Some(value) = self.input.max_annotation_results.as_ref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("max-annotation-results"); path.push('='); path.push_str(&super::super::super::transport::encode_path(&value.to_string())); } if let Some(value) = self.input.annotation_prefix.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("annotation-prefix"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } if let Some(value) = self.input.continuation_token.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("continuation-token"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path = path.replace("{Key+}", &super::super::super::transport::encode_path(key)); path };
-                         let body = ::std::vec::Vec::new();
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers };
-                         let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::ListObjectAnnotationsError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::ListObjectAnnotationsError::unhandled_with_request_ids(format!("ListObjectAnnotations returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_list_object_annotations_output::ListObjectAnnotationsOutputBuilder::default();
-                         let body = response.text().await.map_err(super::ListObjectAnnotationsError::Unhandled)?;
-                         output.annotations = Some(::std::vec::Vec::new());
-                         output.bucket = super::super::super::transport::xml_first(&body, "Bucket").and_then(|value| value.parse().ok());
-                         output.key = super::super::super::transport::xml_first(&body, "Key").and_then(|value| value.parse().ok());
-                         output.object_version_id = response.header("x-amz-object-version-id").map(str::to_owned);
-                         output.annotation_prefix = super::super::super::transport::xml_first(&body, "AnnotationPrefix").and_then(|value| value.parse().ok());
-                         output.max_annotation_results = super::super::super::transport::xml_first(&body, "MaxAnnotationResults").and_then(|value| value.parse().ok());
-                         output.annotation_count = super::super::super::transport::xml_first(&body, "AnnotationCount").and_then(|value| value.parse().ok());
-                         output.continuation_token = super::super::super::transport::xml_first(&body, "ContinuationToken").and_then(|value| value.parse().ok());
-                         output.next_continuation_token = super::super::super::transport::xml_first(&body, "NextContinuationToken").and_then(|value| value.parse().ok());
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key = Some(value.into());
+        self
+    }
+    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.version_id = Some(value.into());
+        self
+    }
+    pub fn max_annotation_results(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.max_annotation_results = Some(value.into());
+        self
+    }
+    pub fn annotation_prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.annotation_prefix = Some(value.into());
+        self
+    }
+    pub fn continuation_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.continuation_token = Some(value.into());
+        self
+    }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
+        self.input.request_payer = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::ListObjectAnnotationsOutput, super::ListObjectAnnotationsError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::ListObjectAnnotationsError::Unhandled("ListObjectAnnotations requires bucket".to_owned()))?;
+        let key = self
+            .input
+            .key
+            .as_deref()
+            .ok_or_else(|| super::ListObjectAnnotationsError::Unhandled("ListObjectAnnotations requires key".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}/{Key+}?annotation&x-id=ListObjectAnnotations");
+            if let Some(value) = self.input.version_id.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("versionId");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            if let Some(value) = self.input.max_annotation_results.as_ref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("max-annotation-results");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(&value.to_string()));
+            }
+            if let Some(value) = self.input.annotation_prefix.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("annotation-prefix");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            if let Some(value) = self.input.continuation_token.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("continuation-token");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path = path.replace("{Key+}", &super::super::super::transport::encode_path(key));
+            path
+        };
+        let body = ::std::vec::Vec::new();
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Get, &path, &headers, &body)
+            .await
+            .map_err(super::ListObjectAnnotationsError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::ListObjectAnnotationsError::unhandled_with_request_ids(
+                format!("ListObjectAnnotations returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_list_object_annotations_output::ListObjectAnnotationsOutputBuilder::default();
+        let body = response.text().await.map_err(super::ListObjectAnnotationsError::Unhandled)?;
+        output.annotations = Some(::std::vec::Vec::new());
+        output.bucket = super::super::super::transport::xml_first(&body, "Bucket").and_then(|value| value.parse().ok());
+        output.key = super::super::super::transport::xml_first(&body, "Key").and_then(|value| value.parse().ok());
+        output.object_version_id = response.header("x-amz-object-version-id").map(str::to_owned);
+        output.annotation_prefix = super::super::super::transport::xml_first(&body, "AnnotationPrefix").and_then(|value| value.parse().ok());
+        output.max_annotation_results = super::super::super::transport::xml_first(&body, "MaxAnnotationResults").and_then(|value| value.parse().ok());
+        output.annotation_count = super::super::super::transport::xml_first(&body, "AnnotationCount").and_then(|value| value.parse().ok());
+        output.continuation_token = super::super::super::transport::xml_first(&body, "ContinuationToken").and_then(|value| value.parse().ok());
+        output.next_continuation_token =
+            super::super::super::transport::xml_first(&body, "NextContinuationToken").and_then(|value| value.parse().ok());
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as ListObjectAnnotationsFluentBuilder;

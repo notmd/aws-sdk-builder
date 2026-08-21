@@ -43,8 +43,13 @@ impl GetBucketLoggingOutputBuilder {
         self.logging_enabled = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_logging_enabled(mut self, input: ::std::option::Option<crate::types::LoggingEnabled>) -> Self { self.logging_enabled = input; self }
-    pub fn get_logging_enabled(&self) -> &::std::option::Option<crate::types::LoggingEnabled> { &self.logging_enabled }
+    pub fn set_logging_enabled(mut self, input: ::std::option::Option<crate::types::LoggingEnabled>) -> Self {
+        self.logging_enabled = input;
+        self
+    }
+    pub fn get_logging_enabled(&self) -> &::std::option::Option<crate::types::LoggingEnabled> {
+        &self.logging_enabled
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

@@ -10,7 +10,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/acquire_role.rs"));
     }
     pub mod add_client_id_to_open_id_connect_provider {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/add_client_id_to_open_id_connect_provider.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/add_client_id_to_open_id_connect_provider.rs"
+        ));
     }
     pub mod add_role_to_instance_profile {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/add_role_to_instance_profile.rs"));
@@ -52,7 +55,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/create_login_profile.rs"));
     }
     pub mod create_open_id_connect_provider {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/create_open_id_connect_provider.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/create_open_id_connect_provider.rs"
+        ));
     }
     pub mod create_policy {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/create_policy.rs"));
@@ -70,7 +76,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/create_service_linked_role.rs"));
     }
     pub mod create_service_specific_credential {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/create_service_specific_credential.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/create_service_specific_credential.rs"
+        ));
     }
     pub mod create_user {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/create_user.rs"));
@@ -103,7 +112,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/delete_login_profile.rs"));
     }
     pub mod delete_open_id_connect_provider {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/delete_open_id_connect_provider.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/delete_open_id_connect_provider.rs"
+        ));
     }
     pub mod delete_policy {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/delete_policy.rs"));
@@ -115,7 +127,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/delete_role.rs"));
     }
     pub mod delete_role_permissions_boundary {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/delete_role_permissions_boundary.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/delete_role_permissions_boundary.rs"
+        ));
     }
     pub mod delete_role_policy {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/delete_role_policy.rs"));
@@ -133,7 +148,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/delete_service_linked_role.rs"));
     }
     pub mod delete_service_specific_credential {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/delete_service_specific_credential.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/delete_service_specific_credential.rs"
+        ));
     }
     pub mod delete_signing_certificate {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/delete_signing_certificate.rs"));
@@ -142,7 +160,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/delete_user.rs"));
     }
     pub mod delete_user_permissions_boundary {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/delete_user_permissions_boundary.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/delete_user_permissions_boundary.rs"
+        ));
     }
     pub mod delete_user_policy {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/delete_user_policy.rs"));
@@ -160,40 +181,67 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/detach_user_policy.rs"));
     }
     pub mod disable_organizations_root_credentials_management {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/disable_organizations_root_credentials_management.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/disable_organizations_root_credentials_management.rs"
+        ));
     }
     pub mod disable_organizations_root_sessions {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/disable_organizations_root_sessions.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/disable_organizations_root_sessions.rs"
+        ));
     }
     pub mod disable_outbound_web_identity_federation {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/disable_outbound_web_identity_federation.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/disable_outbound_web_identity_federation.rs"
+        ));
     }
     pub mod enable_mfa_device {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/enable_mfa_device.rs"));
     }
     pub mod enable_organizations_root_credentials_management {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/enable_organizations_root_credentials_management.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/enable_organizations_root_credentials_management.rs"
+        ));
     }
     pub mod enable_organizations_root_sessions {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/enable_organizations_root_sessions.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/enable_organizations_root_sessions.rs"
+        ));
     }
     pub mod enable_outbound_web_identity_federation {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/enable_outbound_web_identity_federation.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/enable_outbound_web_identity_federation.rs"
+        ));
     }
     pub mod generate_credential_report {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/generate_credential_report.rs"));
     }
     pub mod generate_organizations_access_report {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/generate_organizations_access_report.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/generate_organizations_access_report.rs"
+        ));
     }
     pub mod generate_service_last_accessed_details {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/generate_service_last_accessed_details.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/generate_service_last_accessed_details.rs"
+        ));
     }
     pub mod get_access_key_last_used {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_access_key_last_used.rs"));
     }
     pub mod get_account_authorization_details {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_account_authorization_details.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/get_account_authorization_details.rs"
+        ));
     }
     pub mod get_account_password_policy {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_account_password_policy.rs"));
@@ -205,10 +253,16 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_account_summary.rs"));
     }
     pub mod get_context_keys_for_custom_policy {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_context_keys_for_custom_policy.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/get_context_keys_for_custom_policy.rs"
+        ));
     }
     pub mod get_context_keys_for_principal_policy {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_context_keys_for_principal_policy.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/get_context_keys_for_principal_policy.rs"
+        ));
     }
     pub mod get_credential_report {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_credential_report.rs"));
@@ -238,10 +292,16 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_open_id_connect_provider.rs"));
     }
     pub mod get_organizations_access_report {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_organizations_access_report.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/get_organizations_access_report.rs"
+        ));
     }
     pub mod get_outbound_web_identity_federation_info {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_outbound_web_identity_federation_info.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/get_outbound_web_identity_federation_info.rs"
+        ));
     }
     pub mod get_policy {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_policy.rs"));
@@ -268,13 +328,22 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_server_certificate.rs"));
     }
     pub mod get_service_last_accessed_details {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_service_last_accessed_details.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/get_service_last_accessed_details.rs"
+        ));
     }
     pub mod get_service_last_accessed_details_with_entities {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_service_last_accessed_details_with_entities.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/get_service_last_accessed_details_with_entities.rs"
+        ));
     }
     pub mod get_service_linked_role_deletion_status {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_service_linked_role_deletion_status.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/get_service_linked_role_deletion_status.rs"
+        ));
     }
     pub mod get_user {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_user.rs"));
@@ -319,7 +388,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_instance_profiles.rs"));
     }
     pub mod list_instance_profiles_for_role {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_instance_profiles_for_role.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/list_instance_profiles_for_role.rs"
+        ));
     }
     pub mod list_mfa_device_tags {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_mfa_device_tags.rs"));
@@ -328,7 +400,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_mfa_devices.rs"));
     }
     pub mod list_open_id_connect_provider_tags {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_open_id_connect_provider_tags.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/list_open_id_connect_provider_tags.rs"
+        ));
     }
     pub mod list_open_id_connect_providers {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_open_id_connect_providers.rs"));
@@ -340,7 +415,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_policies.rs"));
     }
     pub mod list_policies_granting_service_access {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_policies_granting_service_access.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/list_policies_granting_service_access.rs"
+        ));
     }
     pub mod list_policy_tags {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_policy_tags.rs"));
@@ -373,7 +451,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_server_certificates.rs"));
     }
     pub mod list_service_specific_credentials {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_service_specific_credentials.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/list_service_specific_credentials.rs"
+        ));
     }
     pub mod list_signing_certificates {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_signing_certificates.rs"));
@@ -412,16 +493,25 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/reject_delegation_request.rs"));
     }
     pub mod remove_client_id_from_open_id_connect_provider {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/remove_client_id_from_open_id_connect_provider.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/remove_client_id_from_open_id_connect_provider.rs"
+        ));
     }
     pub mod remove_role_from_instance_profile {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/remove_role_from_instance_profile.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/remove_role_from_instance_profile.rs"
+        ));
     }
     pub mod remove_user_from_group {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/remove_user_from_group.rs"));
     }
     pub mod reset_service_specific_credential {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/reset_service_specific_credential.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/reset_service_specific_credential.rs"
+        ));
     }
     pub mod resync_mfa_device {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/resync_mfa_device.rs"));
@@ -433,7 +523,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/set_default_policy_version.rs"));
     }
     pub mod set_security_token_service_preferences {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/set_security_token_service_preferences.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/set_security_token_service_preferences.rs"
+        ));
     }
     pub mod simulate_custom_policy {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/simulate_custom_policy.rs"));
@@ -508,7 +601,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/update_login_profile.rs"));
     }
     pub mod update_open_id_connect_provider_thumbprint {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/update_open_id_connect_provider_thumbprint.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/update_open_id_connect_provider_thumbprint.rs"
+        ));
     }
     pub mod update_role {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/update_role.rs"));
@@ -526,7 +622,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/update_server_certificate.rs"));
     }
     pub mod update_service_specific_credential {
-        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/update_service_specific_credential.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/iam/src/operation/update_service_specific_credential.rs"
+        ));
     }
     pub mod update_signing_certificate {
         include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/update_signing_certificate.rs"));

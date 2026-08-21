@@ -41,23 +41,38 @@ impl GetDurableExecutionRequestBuilder {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.durable_execution_arn = input; self }
+    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.durable_execution_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn get_durable_execution_arn(&self) -> &::std::option::Option<::std::string::String> { &self.durable_execution_arn }
+    pub fn get_durable_execution_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.durable_execution_arn
+    }
     /// <p>Specifies whether to include execution data such as input payload, result, and error information in the response. Set to <code>false</code> for a more compact response that includes only execution metadata. The default value is set to <code>true</code>.</p>
     pub fn include_execution_data(mut self, input: bool) -> Self {
         self.include_execution_data = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_include_execution_data(mut self, input: ::std::option::Option<bool>) -> Self { self.include_execution_data = input; self }
+    pub fn set_include_execution_data(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.include_execution_data = input;
+        self
+    }
     /// <p>Specifies whether to include execution data such as input payload, result, and error information in the response. Set to <code>false</code> for a more compact response that includes only execution metadata. The default value is set to <code>true</code>.</p>
-    pub fn get_include_execution_data(&self) -> &::std::option::Option<bool> { &self.include_execution_data }
+    pub fn get_include_execution_data(&self) -> &::std::option::Option<bool> {
+        &self.include_execution_data
+    }
     /// Consumes the builder and constructs a [`GetDurableExecutionRequest`](crate::types::GetDurableExecutionRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`durable_execution_arn`](Self::durable_execution_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::GetDurableExecutionRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetDurableExecutionRequest {
-            durable_execution_arn: self.durable_execution_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("durable_execution_arn", "durable_execution_arn was not specified but it is required when building GetDurableExecutionRequest"))?,
+            durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "durable_execution_arn",
+                    "durable_execution_arn was not specified but it is required when building GetDurableExecutionRequest",
+                )
+            })?,
             include_execution_data: self.include_execution_data,
         })
     }

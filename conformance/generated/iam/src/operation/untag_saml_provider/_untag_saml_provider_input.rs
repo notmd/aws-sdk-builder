@@ -43,10 +43,15 @@ impl UntagSamlProviderInputBuilder {
         self.saml_provider_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_saml_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.saml_provider_arn = input; self }
+    pub fn set_saml_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.saml_provider_arn = input;
+        self
+    }
     /// <p>The ARN of the SAML identity provider in IAM from which you want to remove tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_saml_provider_arn(&self) -> &::std::option::Option<::std::string::String> { &self.saml_provider_arn }
+    pub fn get_saml_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.saml_provider_arn
+    }
     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified SAML identity provider.</p>
     /// Appends an item to `tag_keys`.
     ///
@@ -57,9 +62,14 @@ impl UntagSamlProviderInputBuilder {
         self.tag_keys = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.tag_keys = input; self }
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.tag_keys = input;
+        self
+    }
     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified SAML identity provider.</p>
-    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.tag_keys }
+    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.tag_keys
+    }
     /// Consumes the builder and constructs a [`UntagSamlProviderInput`](crate::operation::untag_saml_provider::UntagSamlProviderInput).
     pub fn build(self) -> crate::operation::untag_saml_provider::UntagSamlProviderInput {
         crate::operation::untag_saml_provider::UntagSamlProviderInput {

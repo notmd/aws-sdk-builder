@@ -116,9 +116,14 @@ impl GlobalSecondaryIndexDescriptionBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.index_name = input; self }
+    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.index_name = input;
+        self
+    }
     /// <p>The name of the global secondary index.</p>
-    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> { &self.index_name }
+    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.index_name
+    }
     /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
@@ -132,28 +137,43 @@ impl GlobalSecondaryIndexDescriptionBuilder {
         self.key_schema = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self { self.key_schema = input; self }
+    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
+        self.key_schema = input;
+        self
+    }
     /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
-    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> { &self.key_schema }
+    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
+        &self.key_schema
+    }
     /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
     pub fn projection(mut self, input: crate::types::Projection) -> Self {
         self.projection = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self { self.projection = input; self }
+    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
+        self.projection = input;
+        self
+    }
     /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-    pub fn get_projection(&self) -> &::std::option::Option<crate::types::Projection> { &self.projection }
+    pub fn get_projection(&self) -> &::std::option::Option<crate::types::Projection> {
+        &self.projection
+    }
     /// <p>The current state of the global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The index is being updated.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul>
     pub fn index_status(mut self, input: crate::types::IndexStatus) -> Self {
         self.index_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self { self.index_status = input; self }
+    pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
+        self.index_status = input;
+        self
+    }
     /// <p>The current state of the global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The index is being updated.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul>
-    pub fn get_index_status(&self) -> &::std::option::Option<crate::types::IndexStatus> { &self.index_status }
+    pub fn get_index_status(&self) -> &::std::option::Option<crate::types::IndexStatus> {
+        &self.index_status
+    }
     /// <p>Indicates whether the index is currently backfilling. <i>Backfilling</i> is the process of reading items from the table and determining whether they can be added to the index. (Not all items will qualify: For example, a partition key cannot have any duplicate values.) If an item can be added to the index, DynamoDB will do so. After all items have been processed, the backfilling operation is complete and <code>Backfilling</code> is false.</p>
     /// <p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false.</p><note>
     /// <p>For indexes that were created during a <code>CreateTable</code> operation, the <code>Backfilling</code> attribute does not appear in the <code>DescribeTable</code> output.</p>
@@ -162,62 +182,97 @@ impl GlobalSecondaryIndexDescriptionBuilder {
         self.backfilling = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_backfilling(mut self, input: ::std::option::Option<bool>) -> Self { self.backfilling = input; self }
+    pub fn set_backfilling(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.backfilling = input;
+        self
+    }
     /// <p>Indicates whether the index is currently backfilling. <i>Backfilling</i> is the process of reading items from the table and determining whether they can be added to the index. (Not all items will qualify: For example, a partition key cannot have any duplicate values.) If an item can be added to the index, DynamoDB will do so. After all items have been processed, the backfilling operation is complete and <code>Backfilling</code> is false.</p>
     /// <p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false.</p><note>
     /// <p>For indexes that were created during a <code>CreateTable</code> operation, the <code>Backfilling</code> attribute does not appear in the <code>DescribeTable</code> output.</p>
     /// </note>
-    pub fn get_backfilling(&self) -> &::std::option::Option<bool> { &self.backfilling }
+    pub fn get_backfilling(&self) -> &::std::option::Option<bool> {
+        &self.backfilling
+    }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn provisioned_throughput(mut self, input: crate::types::ProvisionedThroughputDescription) -> Self {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputDescription>) -> Self { self.provisioned_throughput = input; self }
+    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputDescription>) -> Self {
+        self.provisioned_throughput = input;
+        self
+    }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughputDescription> { &self.provisioned_throughput }
+    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughputDescription> {
+        &self.provisioned_throughput
+    }
     /// <p>The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
     pub fn index_size_bytes(mut self, input: i64) -> Self {
         self.index_size_bytes = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_index_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self { self.index_size_bytes = input; self }
+    pub fn set_index_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.index_size_bytes = input;
+        self
+    }
     /// <p>The total size of the specified index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
-    pub fn get_index_size_bytes(&self) -> &::std::option::Option<i64> { &self.index_size_bytes }
+    pub fn get_index_size_bytes(&self) -> &::std::option::Option<i64> {
+        &self.index_size_bytes
+    }
     /// <p>The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
     pub fn item_count(mut self, input: i64) -> Self {
         self.item_count = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self { self.item_count = input; self }
+    pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.item_count = input;
+        self
+    }
     /// <p>The number of items in the specified index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
-    pub fn get_item_count(&self) -> &::std::option::Option<i64> { &self.item_count }
+    pub fn get_item_count(&self) -> &::std::option::Option<i64> {
+        &self.item_count
+    }
     /// <p>The Amazon Resource Name (ARN) that uniquely identifies the index.</p>
     pub fn index_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.index_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_index_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.index_arn = input; self }
+    pub fn set_index_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.index_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) that uniquely identifies the index.</p>
-    pub fn get_index_arn(&self) -> &::std::option::Option<::std::string::String> { &self.index_arn }
+    pub fn get_index_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.index_arn
+    }
     /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
     pub fn on_demand_throughput(mut self, input: crate::types::OnDemandThroughput) -> Self {
         self.on_demand_throughput = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
+    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
+        self.on_demand_throughput = input;
+        self
+    }
     /// <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
-    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> { &self.on_demand_throughput }
+    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+        &self.on_demand_throughput
+    }
     /// <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index.</p>
     pub fn warm_throughput(mut self, input: crate::types::GlobalSecondaryIndexWarmThroughputDescription) -> Self {
         self.warm_throughput = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription>) -> Self { self.warm_throughput = input; self }
+    pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription>) -> Self {
+        self.warm_throughput = input;
+        self
+    }
     /// <p>Represents the warm throughput value (in read units per second and write units per second) for the specified secondary index.</p>
-    pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription> { &self.warm_throughput }
+    pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::GlobalSecondaryIndexWarmThroughputDescription> {
+        &self.warm_throughput
+    }
     /// Consumes the builder and constructs a [`GlobalSecondaryIndexDescription`](crate::types::GlobalSecondaryIndexDescription).
     pub fn build(self) -> crate::types::GlobalSecondaryIndexDescription {
         crate::types::GlobalSecondaryIndexDescription {

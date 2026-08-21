@@ -51,15 +51,25 @@ impl GetObjectTorrentOutputBuilder {
         self.body = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_body(mut self, input: ::std::option::Option<crate::primitives::ByteStream>) -> Self { self.body = input; self }
+    pub fn set_body(mut self, input: ::std::option::Option<crate::primitives::ByteStream>) -> Self {
+        self.body = input;
+        self
+    }
     /// <p>A Bencoded dictionary as defined by the BitTorrent specification</p>
-    pub fn get_body(&self) -> &::std::option::Option<crate::primitives::ByteStream> { &self.body }
+    pub fn get_body(&self) -> &::std::option::Option<crate::primitives::ByteStream> {
+        &self.body
+    }
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+        self.request_charged = input;
+        self
+    }
+    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+        &self.request_charged
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

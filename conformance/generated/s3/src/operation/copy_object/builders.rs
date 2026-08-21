@@ -6,92 +6,267 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn acl(mut self, value: impl ::std::convert::Into<crate::types::ObjectCannedAcl>) -> Self { self.input.acl = Some(value.into()); self }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn cache_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.cache_control = Some(value.into()); self }
-    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
-    pub fn content_disposition(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_disposition = Some(value.into()); self }
-    pub fn content_encoding(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_encoding = Some(value.into()); self }
-    pub fn content_language(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_language = Some(value.into()); self }
-    pub fn content_type(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_type = Some(value.into()); self }
-    pub fn copy_source(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.copy_source = Some(value.into()); self }
-    pub fn copy_source_if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.copy_source_if_match = Some(value.into()); self }
-    pub fn copy_source_if_modified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.copy_source_if_modified_since = Some(value.into()); self }
-    pub fn copy_source_if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.copy_source_if_none_match = Some(value.into()); self }
-    pub fn copy_source_if_unmodified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.copy_source_if_unmodified_since = Some(value.into()); self }
-    pub fn expires(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.expires = Some(value.into()); self }
-    pub fn grant_full_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_full_control = Some(value.into()); self }
-    pub fn grant_read(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_read = Some(value.into()); self }
-    pub fn grant_read_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_read_acp = Some(value.into()); self }
-    pub fn grant_write_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_write_acp = Some(value.into()); self }
-    pub fn if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.if_match = Some(value.into()); self }
-    pub fn if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.if_none_match = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn metadata(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.input.metadata = Some(value.into()); self }
-    pub fn metadata_directive(mut self, value: impl ::std::convert::Into<crate::types::MetadataDirective>) -> Self { self.input.metadata_directive = Some(value.into()); self }
-    pub fn tagging_directive(mut self, value: impl ::std::convert::Into<crate::types::TaggingDirective>) -> Self { self.input.tagging_directive = Some(value.into()); self }
-    pub fn annotation_directive(mut self, value: impl ::std::convert::Into<crate::types::AnnotationDirective>) -> Self { self.input.annotation_directive = Some(value.into()); self }
-    pub fn server_side_encryption(mut self, value: impl ::std::convert::Into<crate::types::ServerSideEncryption>) -> Self { self.input.server_side_encryption = Some(value.into()); self }
-    pub fn storage_class(mut self, value: impl ::std::convert::Into<crate::types::StorageClass>) -> Self { self.input.storage_class = Some(value.into()); self }
-    pub fn website_redirect_location(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.website_redirect_location = Some(value.into()); self }
-    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }
-    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key = Some(value.into()); self }
-    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key_md5 = Some(value.into()); self }
-    pub fn ssekms_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.ssekms_key_id = Some(value.into()); self }
-    pub fn ssekms_encryption_context(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.ssekms_encryption_context = Some(value.into()); self }
-    pub fn bucket_key_enabled(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.bucket_key_enabled = Some(value.into()); self }
-    pub fn copy_source_sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.copy_source_sse_customer_algorithm = Some(value.into()); self }
-    pub fn copy_source_sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.copy_source_sse_customer_key = Some(value.into()); self }
-    pub fn copy_source_sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.copy_source_sse_customer_key_md5 = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn tagging(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.tagging = Some(value.into()); self }
-    pub fn object_lock_mode(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockMode>) -> Self { self.input.object_lock_mode = Some(value.into()); self }
-    pub fn object_lock_retain_until_date(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.object_lock_retain_until_date = Some(value.into()); self }
-    pub fn object_lock_legal_hold_status(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockLegalHoldStatus>) -> Self { self.input.object_lock_legal_hold_status = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn expected_source_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_source_bucket_owner = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::CopyObjectOutput, super::CopyObjectError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::CopyObjectError::Unhandled("CopyObject requires bucket".to_owned()))?;
-                         let key = self.input.key.as_deref().ok_or_else(|| super::CopyObjectError::Unhandled("CopyObject requires key".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}/{Key+}?x-id=CopyObject"); path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path = path.replace("{Key+}", &super::super::super::transport::encode_path(key)); path };
-                         let body = ::std::vec::Vec::new();
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } if let Some(value) = self.input.expected_source_bucket_owner.as_deref() { headers.push(("x-amz-source-expected-bucket-owner", value)); } headers };
-                         let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::CopyObjectError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::CopyObjectError::unhandled_with_request_ids(format!("CopyObject returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_copy_object_output::CopyObjectOutputBuilder::default();
-                         let body = response.text().await.map_err(super::CopyObjectError::Unhandled)?;
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "CopyObjectResult") { let mut item: crate::types::CopyObjectResultBuilder = ::std::default::Default::default(); item.e_tag = super::super::super::transport::xml_first(&value, "ETag").and_then(|value| value.parse().ok());
- item.checksum_crc32 = super::super::super::transport::xml_first(&value, "ChecksumCRC32").and_then(|value| value.parse().ok());
- item.checksum_crc32_c = super::super::super::transport::xml_first(&value, "ChecksumCRC32C").and_then(|value| value.parse().ok());
- item.checksum_crc64_nvme = super::super::super::transport::xml_first(&value, "ChecksumCRC64NVME").and_then(|value| value.parse().ok());
- item.checksum_sha1 = super::super::super::transport::xml_first(&value, "ChecksumSHA1").and_then(|value| value.parse().ok());
- item.checksum_sha256 = super::super::super::transport::xml_first(&value, "ChecksumSHA256").and_then(|value| value.parse().ok());
- item.checksum_sha512 = super::super::super::transport::xml_first(&value, "ChecksumSHA512").and_then(|value| value.parse().ok());
- item.checksum_md5 = super::super::super::transport::xml_first(&value, "ChecksumMD5").and_then(|value| value.parse().ok());
- item.checksum_xxhash64 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH64").and_then(|value| value.parse().ok());
- item.checksum_xxhash3 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH3").and_then(|value| value.parse().ok());
- item.checksum_xxhash128 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH128").and_then(|value| value.parse().ok());
- let item = item.build(); output.copy_object_result = Some(item); }
-                         output.expiration = response.header("x-amz-expiration").map(str::to_owned);
-                         output.copy_source_version_id = response.header("x-amz-copy-source-version-id").map(str::to_owned);
-                         output.version_id = response.header("x-amz-version-id").map(str::to_owned);
-                         output.sse_customer_algorithm = response.header("x-amz-server-side-encryption-customer-algorithm").map(str::to_owned);
-                         output.sse_customer_key_md5 = response.header("x-amz-server-side-encryption-customer-key-MD5").map(str::to_owned);
-                         output.ssekms_key_id = response.header("x-amz-server-side-encryption-aws-kms-key-id").map(str::to_owned);
-                         output.ssekms_encryption_context = response.header("x-amz-server-side-encryption-context").map(str::to_owned);
-                         output.bucket_key_enabled = response.header("x-amz-server-side-encryption-bucket-key-enabled").and_then(|value| value.parse().ok());
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn acl(mut self, value: impl ::std::convert::Into<crate::types::ObjectCannedAcl>) -> Self {
+        self.input.acl = Some(value.into());
+        self
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn cache_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.cache_control = Some(value.into());
+        self
+    }
+    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
+        self.input.checksum_algorithm = Some(value.into());
+        self
+    }
+    pub fn content_disposition(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.content_disposition = Some(value.into());
+        self
+    }
+    pub fn content_encoding(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.content_encoding = Some(value.into());
+        self
+    }
+    pub fn content_language(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.content_language = Some(value.into());
+        self
+    }
+    pub fn content_type(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.content_type = Some(value.into());
+        self
+    }
+    pub fn copy_source(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.copy_source = Some(value.into());
+        self
+    }
+    pub fn copy_source_if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.copy_source_if_match = Some(value.into());
+        self
+    }
+    pub fn copy_source_if_modified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
+        self.input.copy_source_if_modified_since = Some(value.into());
+        self
+    }
+    pub fn copy_source_if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.copy_source_if_none_match = Some(value.into());
+        self
+    }
+    pub fn copy_source_if_unmodified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
+        self.input.copy_source_if_unmodified_since = Some(value.into());
+        self
+    }
+    pub fn expires(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
+        self.input.expires = Some(value.into());
+        self
+    }
+    pub fn grant_full_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grant_full_control = Some(value.into());
+        self
+    }
+    pub fn grant_read(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grant_read = Some(value.into());
+        self
+    }
+    pub fn grant_read_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grant_read_acp = Some(value.into());
+        self
+    }
+    pub fn grant_write_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grant_write_acp = Some(value.into());
+        self
+    }
+    pub fn if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.if_match = Some(value.into());
+        self
+    }
+    pub fn if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.if_none_match = Some(value.into());
+        self
+    }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key = Some(value.into());
+        self
+    }
+    pub fn metadata(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.input.metadata = Some(value.into());
+        self
+    }
+    pub fn metadata_directive(mut self, value: impl ::std::convert::Into<crate::types::MetadataDirective>) -> Self {
+        self.input.metadata_directive = Some(value.into());
+        self
+    }
+    pub fn tagging_directive(mut self, value: impl ::std::convert::Into<crate::types::TaggingDirective>) -> Self {
+        self.input.tagging_directive = Some(value.into());
+        self
+    }
+    pub fn annotation_directive(mut self, value: impl ::std::convert::Into<crate::types::AnnotationDirective>) -> Self {
+        self.input.annotation_directive = Some(value.into());
+        self
+    }
+    pub fn server_side_encryption(mut self, value: impl ::std::convert::Into<crate::types::ServerSideEncryption>) -> Self {
+        self.input.server_side_encryption = Some(value.into());
+        self
+    }
+    pub fn storage_class(mut self, value: impl ::std::convert::Into<crate::types::StorageClass>) -> Self {
+        self.input.storage_class = Some(value.into());
+        self
+    }
+    pub fn website_redirect_location(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.website_redirect_location = Some(value.into());
+        self
+    }
+    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.sse_customer_algorithm = Some(value.into());
+        self
+    }
+    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.sse_customer_key = Some(value.into());
+        self
+    }
+    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.sse_customer_key_md5 = Some(value.into());
+        self
+    }
+    pub fn ssekms_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.ssekms_key_id = Some(value.into());
+        self
+    }
+    pub fn ssekms_encryption_context(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.ssekms_encryption_context = Some(value.into());
+        self
+    }
+    pub fn bucket_key_enabled(mut self, value: impl ::std::convert::Into<bool>) -> Self {
+        self.input.bucket_key_enabled = Some(value.into());
+        self
+    }
+    pub fn copy_source_sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.copy_source_sse_customer_algorithm = Some(value.into());
+        self
+    }
+    pub fn copy_source_sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.copy_source_sse_customer_key = Some(value.into());
+        self
+    }
+    pub fn copy_source_sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.copy_source_sse_customer_key_md5 = Some(value.into());
+        self
+    }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
+        self.input.request_payer = Some(value.into());
+        self
+    }
+    pub fn tagging(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.tagging = Some(value.into());
+        self
+    }
+    pub fn object_lock_mode(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockMode>) -> Self {
+        self.input.object_lock_mode = Some(value.into());
+        self
+    }
+    pub fn object_lock_retain_until_date(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
+        self.input.object_lock_retain_until_date = Some(value.into());
+        self
+    }
+    pub fn object_lock_legal_hold_status(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockLegalHoldStatus>) -> Self {
+        self.input.object_lock_legal_hold_status = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn expected_source_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_source_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::CopyObjectOutput, super::CopyObjectError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::CopyObjectError::Unhandled("CopyObject requires bucket".to_owned()))?;
+        let key = self
+            .input
+            .key
+            .as_deref()
+            .ok_or_else(|| super::CopyObjectError::Unhandled("CopyObject requires key".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}/{Key+}?x-id=CopyObject");
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path = path.replace("{Key+}", &super::super::super::transport::encode_path(key));
+            path
+        };
+        let body = ::std::vec::Vec::new();
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            if let Some(value) = self.input.expected_source_bucket_owner.as_deref() {
+                headers.push(("x-amz-source-expected-bucket-owner", value));
+            }
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Put, &path, &headers, &body)
+            .await
+            .map_err(super::CopyObjectError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::CopyObjectError::unhandled_with_request_ids(
+                format!("CopyObject returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_copy_object_output::CopyObjectOutputBuilder::default();
+        let body = response.text().await.map_err(super::CopyObjectError::Unhandled)?;
+        if let Some(value) = super::super::super::transport::xml_first(&body, "CopyObjectResult") {
+            let mut item: crate::types::CopyObjectResultBuilder = ::std::default::Default::default();
+            item.e_tag = super::super::super::transport::xml_first(&value, "ETag").and_then(|value| value.parse().ok());
+            item.checksum_crc32 = super::super::super::transport::xml_first(&value, "ChecksumCRC32").and_then(|value| value.parse().ok());
+            item.checksum_crc32_c = super::super::super::transport::xml_first(&value, "ChecksumCRC32C").and_then(|value| value.parse().ok());
+            item.checksum_crc64_nvme = super::super::super::transport::xml_first(&value, "ChecksumCRC64NVME").and_then(|value| value.parse().ok());
+            item.checksum_sha1 = super::super::super::transport::xml_first(&value, "ChecksumSHA1").and_then(|value| value.parse().ok());
+            item.checksum_sha256 = super::super::super::transport::xml_first(&value, "ChecksumSHA256").and_then(|value| value.parse().ok());
+            item.checksum_sha512 = super::super::super::transport::xml_first(&value, "ChecksumSHA512").and_then(|value| value.parse().ok());
+            item.checksum_md5 = super::super::super::transport::xml_first(&value, "ChecksumMD5").and_then(|value| value.parse().ok());
+            item.checksum_xxhash64 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH64").and_then(|value| value.parse().ok());
+            item.checksum_xxhash3 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH3").and_then(|value| value.parse().ok());
+            item.checksum_xxhash128 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH128").and_then(|value| value.parse().ok());
+            let item = item.build();
+            output.copy_object_result = Some(item);
+        }
+        output.expiration = response.header("x-amz-expiration").map(str::to_owned);
+        output.copy_source_version_id = response.header("x-amz-copy-source-version-id").map(str::to_owned);
+        output.version_id = response.header("x-amz-version-id").map(str::to_owned);
+        output.sse_customer_algorithm = response.header("x-amz-server-side-encryption-customer-algorithm").map(str::to_owned);
+        output.sse_customer_key_md5 = response.header("x-amz-server-side-encryption-customer-key-MD5").map(str::to_owned);
+        output.ssekms_key_id = response.header("x-amz-server-side-encryption-aws-kms-key-id").map(str::to_owned);
+        output.ssekms_encryption_context = response.header("x-amz-server-side-encryption-context").map(str::to_owned);
+        output.bucket_key_enabled = response
+            .header("x-amz-server-side-encryption-bucket-key-enabled")
+            .and_then(|value| value.parse().ok());
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as CopyObjectFluentBuilder;

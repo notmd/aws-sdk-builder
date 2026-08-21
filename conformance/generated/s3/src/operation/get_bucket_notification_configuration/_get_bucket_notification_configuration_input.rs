@@ -46,19 +46,29 @@ impl GetBucketNotificationConfigurationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The name of the bucket for which to get the notification configuration.</p>
     /// <p>When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.</p>
     /// <p>When you use this API operation with an Object Lambda access point, provide the alias of the Object Lambda access point in place of the bucket name. If the Object Lambda access point alias in a request is not valid, the error code <code>InvalidAccessPointAliasError</code> is returned. For more information about <code>InvalidAccessPointAliasError</code>, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/ErrorResponses.html#ErrorCodeList">List of Error Codes</a>.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// Consumes the builder and constructs a [`GetBucketNotificationConfigurationInput`](crate::operation::get_bucket_notification_configuration::GetBucketNotificationConfigurationInput).
     pub fn build(self) -> crate::operation::get_bucket_notification_configuration::GetBucketNotificationConfigurationInput {
         crate::operation::get_bucket_notification_configuration::GetBucketNotificationConfigurationInput {

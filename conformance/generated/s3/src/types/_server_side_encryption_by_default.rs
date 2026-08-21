@@ -46,25 +46,40 @@ impl ServerSideEncryptionByDefaultBuilder {
         self.sse_algorithm = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_sse_algorithm(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self { self.sse_algorithm = input; self }
+    pub fn set_sse_algorithm(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
+        self.sse_algorithm = input;
+        self
+    }
     /// <p>Server-side encryption algorithm to use for the default encryption.</p><note>
     /// <p>For directory buckets, there are only two supported values for server-side encryption: <code>AES256</code> and <code>aws:kms</code>.</p>
     /// </note>
-    pub fn get_sse_algorithm(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> { &self.sse_algorithm }
+    pub fn get_sse_algorithm(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+        &self.sse_algorithm
+    }
     /// <p>Amazon Web Services Key Management Service (KMS) customer managed key ID to use for the default encryption.</p><note><ul><li><p><b>General purpose buckets</b> - This parameter is allowed if and only if <code>SSEAlgorithm</code> is set to <code>aws:kms</code> or <code>aws:kms:dsse</code>.</p></li><li><p><b>Directory buckets</b> - This parameter is allowed if and only if <code>SSEAlgorithm</code> is set to <code>aws:kms</code>.</p></li></ul></note><p>You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key Alias: <code>alias/alias-name</code></p></li></ul><p>If you are using encryption with cross-account or Amazon Web Services service operations, you must use a fully qualified KMS key ARN. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy">Using encryption for cross-account operations</a>.</p><note><ul><li><p><b>General purpose buckets</b> - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log.</p></li><li><p><b>Directory buckets</b> - When you specify an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">KMS customer managed key</a> for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.</p></li></ul></note> <important><p>Amazon S3 only supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p></important>
     pub fn kms_master_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.kms_master_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.kms_master_key_id = input; self }
+    pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_master_key_id = input;
+        self
+    }
     /// <p>Amazon Web Services Key Management Service (KMS) customer managed key ID to use for the default encryption.</p><note><ul><li><p><b>General purpose buckets</b> - This parameter is allowed if and only if <code>SSEAlgorithm</code> is set to <code>aws:kms</code> or <code>aws:kms:dsse</code>.</p></li><li><p><b>Directory buckets</b> - This parameter is allowed if and only if <code>SSEAlgorithm</code> is set to <code>aws:kms</code>.</p></li></ul></note><p>You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS key.</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key Alias: <code>alias/alias-name</code></p></li></ul><p>If you are using encryption with cross-account or Amazon Web Services service operations, you must use a fully qualified KMS key ARN. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html#bucket-encryption-update-bucket-policy">Using encryption for cross-account operations</a>.</p><note><ul><li><p><b>General purpose buckets</b> - If you're specifying a customer managed KMS key, we recommend using a fully qualified KMS key ARN. If you use a KMS key alias instead, then KMS resolves the key within the requester’s account. This behavior can result in data that's encrypted with a KMS key that belongs to the requester, and not the bucket owner. Also, if you use a key ID, you can run into a LogDestination undeliverable error when creating a VPC flow log.</p></li><li><p><b>Directory buckets</b> - When you specify an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">KMS customer managed key</a> for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.</p></li></ul></note> <important><p>Amazon S3 only supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p></important>
-    pub fn get_kms_master_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.kms_master_key_id }
+    pub fn get_kms_master_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_master_key_id
+    }
     /// Consumes the builder and constructs a [`ServerSideEncryptionByDefault`](crate::types::ServerSideEncryptionByDefault).
     /// This method will fail if any of the following fields are not set:
     /// - [`sse_algorithm`](Self::sse_algorithm)
     pub fn build(self) -> ::std::result::Result<crate::types::ServerSideEncryptionByDefault, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ServerSideEncryptionByDefault {
-            sse_algorithm: self.sse_algorithm.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("sse_algorithm", "sse_algorithm was not specified but it is required when building ServerSideEncryptionByDefault"))?,
+            sse_algorithm: self.sse_algorithm.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "sse_algorithm",
+                    "sse_algorithm was not specified but it is required when building ServerSideEncryptionByDefault",
+                )
+            })?,
             kms_master_key_id: self.kms_master_key_id,
         })
     }

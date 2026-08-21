@@ -50,24 +50,39 @@ impl GetDelegatedAccessTokenOutputBuilder {
         self.credentials = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_credentials(mut self, input: ::std::option::Option<crate::types::Credentials>) -> Self { self.credentials = input; self }
-    pub fn get_credentials(&self) -> &::std::option::Option<crate::types::Credentials> { &self.credentials }
+    pub fn set_credentials(mut self, input: ::std::option::Option<crate::types::Credentials>) -> Self {
+        self.credentials = input;
+        self
+    }
+    pub fn get_credentials(&self) -> &::std::option::Option<crate::types::Credentials> {
+        &self.credentials
+    }
     /// <p>The percentage of the maximum policy size that is used by the session policy. The policy size is calculated as the sum of all the session policies and permission boundaries attached to the session. If the packed size exceeds 100%, the request fails.</p>
     pub fn packed_policy_size(mut self, input: i32) -> Self {
         self.packed_policy_size = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_packed_policy_size(mut self, input: ::std::option::Option<i32>) -> Self { self.packed_policy_size = input; self }
+    pub fn set_packed_policy_size(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.packed_policy_size = input;
+        self
+    }
     /// <p>The percentage of the maximum policy size that is used by the session policy. The policy size is calculated as the sum of all the session policies and permission boundaries attached to the session. If the packed size exceeds 100%, the request fails.</p>
-    pub fn get_packed_policy_size(&self) -> &::std::option::Option<i32> { &self.packed_policy_size }
+    pub fn get_packed_policy_size(&self) -> &::std::option::Option<i32> {
+        &self.packed_policy_size
+    }
     /// <p>The Amazon Resource Name (ARN) of the principal that was assumed when obtaining the delegated access token. This ARN identifies the IAM entity whose permissions are granted by the temporary credentials.</p>
     pub fn assumed_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.assumed_principal = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_assumed_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.assumed_principal = input; self }
+    pub fn set_assumed_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.assumed_principal = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the principal that was assumed when obtaining the delegated access token. This ARN identifies the IAM entity whose permissions are granted by the temporary credentials.</p>
-    pub fn get_assumed_principal(&self) -> &::std::option::Option<::std::string::String> { &self.assumed_principal }
+    pub fn get_assumed_principal(&self) -> &::std::option::Option<::std::string::String> {
+        &self.assumed_principal
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

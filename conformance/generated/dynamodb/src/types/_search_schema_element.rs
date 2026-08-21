@@ -41,26 +41,46 @@ impl SearchSchemaElementBuilder {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.attribute_name = input; self }
+    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.attribute_name = input;
+        self
+    }
     /// <p>The name of the attribute.</p>
-    pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> { &self.attribute_name }
+    pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.attribute_name
+    }
     /// <p>The role of the attribute in the search schema. Valid values:</p><ul><li><p><code>HASH</code> - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the <code>SearchConditionExpression</code>.</p></li><li><p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li></ul>
     /// This field is required.
     pub fn search_schema_element_type(mut self, input: crate::types::SearchSchemaElementType) -> Self {
         self.search_schema_element_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_search_schema_element_type(mut self, input: ::std::option::Option<crate::types::SearchSchemaElementType>) -> Self { self.search_schema_element_type = input; self }
+    pub fn set_search_schema_element_type(mut self, input: ::std::option::Option<crate::types::SearchSchemaElementType>) -> Self {
+        self.search_schema_element_type = input;
+        self
+    }
     /// <p>The role of the attribute in the search schema. Valid values:</p><ul><li><p><code>HASH</code> - A partition key that partitions the vector index for independent scaling. When specified, you must provide this attribute's value in the <code>SearchConditionExpression</code>.</p></li><li><p><code>INLINE_FILTER</code> - An attribute projected into the vector index for filtering at the storage layer during search. Inline filters are optional in the <code>SearchConditionExpression</code>.</p></li></ul>
-    pub fn get_search_schema_element_type(&self) -> &::std::option::Option<crate::types::SearchSchemaElementType> { &self.search_schema_element_type }
+    pub fn get_search_schema_element_type(&self) -> &::std::option::Option<crate::types::SearchSchemaElementType> {
+        &self.search_schema_element_type
+    }
     /// Consumes the builder and constructs a [`SearchSchemaElement`](crate::types::SearchSchemaElement).
     /// This method will fail if any of the following fields are not set:
     /// - [`attribute_name`](Self::attribute_name)
     /// - [`search_schema_element_type`](Self::search_schema_element_type)
     pub fn build(self) -> ::std::result::Result<crate::types::SearchSchemaElement, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SearchSchemaElement {
-            attribute_name: self.attribute_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("attribute_name", "attribute_name was not specified but it is required when building SearchSchemaElement"))?,
-            search_schema_element_type: self.search_schema_element_type.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("search_schema_element_type", "search_schema_element_type was not specified but it is required when building SearchSchemaElement"))?,
+            attribute_name: self.attribute_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "attribute_name",
+                    "attribute_name was not specified but it is required when building SearchSchemaElement",
+                )
+            })?,
+            search_schema_element_type: self.search_schema_element_type.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "search_schema_element_type",
+                    "search_schema_element_type was not specified but it is required when building SearchSchemaElement",
+                )
+            })?,
         })
     }
 }

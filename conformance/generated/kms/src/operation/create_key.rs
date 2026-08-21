@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct CreateKey;
-impl CreateKey { pub fn new() -> Self { Self } }
+impl CreateKey {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     CloudHsmClusterInvalidConfigurationException(super::super::types::error::CloudHsmClusterInvalidConfigurationException),
@@ -19,22 +23,52 @@ pub enum Error {
     XksKeyInvalidConfigurationException(super::super::types::error::XksKeyInvalidConfigurationException),
     XksKeyNotFoundException(super::super::types::error::XksKeyNotFoundException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_cloud_hsm_cluster_invalid_configuration_exception(&self) -> bool { matches!(self, Self::CloudHsmClusterInvalidConfigurationException(_)) }
-    pub fn is_custom_key_store_invalid_state_exception(&self) -> bool { matches!(self, Self::CustomKeyStoreInvalidStateException(_)) }
-    pub fn is_custom_key_store_not_found_exception(&self) -> bool { matches!(self, Self::CustomKeyStoreNotFoundException(_)) }
-    pub fn is_dependency_timeout_exception(&self) -> bool { matches!(self, Self::DependencyTimeoutException(_)) }
-    pub fn is_invalid_arn_exception(&self) -> bool { matches!(self, Self::InvalidArnException(_)) }
-    pub fn is_kms_internal_exception(&self) -> bool { matches!(self, Self::KmsInternalException(_)) }
-    pub fn is_limit_exceeded_exception(&self) -> bool { matches!(self, Self::LimitExceededException(_)) }
-    pub fn is_malformed_policy_document_exception(&self) -> bool { matches!(self, Self::MalformedPolicyDocumentException(_)) }
-    pub fn is_tag_exception(&self) -> bool { matches!(self, Self::TagException(_)) }
-    pub fn is_unsupported_operation_exception(&self) -> bool { matches!(self, Self::UnsupportedOperationException(_)) }
-    pub fn is_xks_key_already_in_use_exception(&self) -> bool { matches!(self, Self::XksKeyAlreadyInUseException(_)) }
-    pub fn is_xks_key_invalid_configuration_exception(&self) -> bool { matches!(self, Self::XksKeyInvalidConfigurationException(_)) }
-    pub fn is_xks_key_not_found_exception(&self) -> bool { matches!(self, Self::XksKeyNotFoundException(_)) }
+    pub fn is_cloud_hsm_cluster_invalid_configuration_exception(&self) -> bool {
+        matches!(self, Self::CloudHsmClusterInvalidConfigurationException(_))
+    }
+    pub fn is_custom_key_store_invalid_state_exception(&self) -> bool {
+        matches!(self, Self::CustomKeyStoreInvalidStateException(_))
+    }
+    pub fn is_custom_key_store_not_found_exception(&self) -> bool {
+        matches!(self, Self::CustomKeyStoreNotFoundException(_))
+    }
+    pub fn is_dependency_timeout_exception(&self) -> bool {
+        matches!(self, Self::DependencyTimeoutException(_))
+    }
+    pub fn is_invalid_arn_exception(&self) -> bool {
+        matches!(self, Self::InvalidArnException(_))
+    }
+    pub fn is_kms_internal_exception(&self) -> bool {
+        matches!(self, Self::KmsInternalException(_))
+    }
+    pub fn is_limit_exceeded_exception(&self) -> bool {
+        matches!(self, Self::LimitExceededException(_))
+    }
+    pub fn is_malformed_policy_document_exception(&self) -> bool {
+        matches!(self, Self::MalformedPolicyDocumentException(_))
+    }
+    pub fn is_tag_exception(&self) -> bool {
+        matches!(self, Self::TagException(_))
+    }
+    pub fn is_unsupported_operation_exception(&self) -> bool {
+        matches!(self, Self::UnsupportedOperationException(_))
+    }
+    pub fn is_xks_key_already_in_use_exception(&self) -> bool {
+        matches!(self, Self::XksKeyAlreadyInUseException(_))
+    }
+    pub fn is_xks_key_invalid_configuration_exception(&self) -> bool {
+        matches!(self, Self::XksKeyInvalidConfigurationException(_))
+    }
+    pub fn is_xks_key_not_found_exception(&self) -> bool {
+        matches!(self, Self::XksKeyNotFoundException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -59,11 +93,35 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _create_key_input {
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/create_key/_create_key_input.rs"));

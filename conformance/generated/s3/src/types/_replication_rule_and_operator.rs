@@ -40,9 +40,14 @@ impl ReplicationRuleAndOperatorBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.prefix = input; self }
+    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.prefix = input;
+        self
+    }
     /// <p>An object key name prefix that identifies the subset of objects to which the rule applies.</p>
-    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.prefix }
+    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.prefix
+    }
     /// <p>An array of tags containing key and value pairs.</p>
     /// Appends an item to `tags`.
     ///
@@ -53,9 +58,14 @@ impl ReplicationRuleAndOperatorBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.tags = input;
+        self
+    }
     /// <p>An array of tags containing key and value pairs.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.tags }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+        &self.tags
+    }
     /// Consumes the builder and constructs a [`ReplicationRuleAndOperator`](crate::types::ReplicationRuleAndOperator).
     pub fn build(self) -> crate::types::ReplicationRuleAndOperator {
         crate::types::ReplicationRuleAndOperator {

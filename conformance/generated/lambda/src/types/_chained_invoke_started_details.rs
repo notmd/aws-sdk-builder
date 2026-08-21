@@ -62,47 +62,77 @@ impl ChainedInvokeStartedDetailsBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.function_name = input; self }
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.function_name = input;
+        self
+    }
     /// <p>The name or ARN of the Lambda function being invoked.</p>
-    pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> { &self.function_name }
+    pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.function_name
+    }
     /// <p>The tenant identifier for the chained invocation.</p>
     pub fn tenant_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.tenant_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_tenant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.tenant_id = input; self }
+    pub fn set_tenant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.tenant_id = input;
+        self
+    }
     /// <p>The tenant identifier for the chained invocation.</p>
-    pub fn get_tenant_id(&self) -> &::std::option::Option<::std::string::String> { &self.tenant_id }
+    pub fn get_tenant_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.tenant_id
+    }
     /// <p>The JSON input payload provided to the chained invocation.</p>
     pub fn input(mut self, input: crate::types::EventInput) -> Self {
         self.input = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_input(mut self, input: ::std::option::Option<crate::types::EventInput>) -> Self { self.input = input; self }
+    pub fn set_input(mut self, input: ::std::option::Option<crate::types::EventInput>) -> Self {
+        self.input = input;
+        self
+    }
     /// <p>The JSON input payload provided to the chained invocation.</p>
-    pub fn get_input(&self) -> &::std::option::Option<crate::types::EventInput> { &self.input }
+    pub fn get_input(&self) -> &::std::option::Option<crate::types::EventInput> {
+        &self.input
+    }
     /// <p>The version of the function that was executed.</p>
     pub fn executed_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.executed_version = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_executed_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.executed_version = input; self }
+    pub fn set_executed_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.executed_version = input;
+        self
+    }
     /// <p>The version of the function that was executed.</p>
-    pub fn get_executed_version(&self) -> &::std::option::Option<::std::string::String> { &self.executed_version }
+    pub fn get_executed_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.executed_version
+    }
     /// <p>The Amazon Resource Name (ARN) that identifies the durable execution.</p>
     pub fn durable_execution_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.durable_execution_arn = input; self }
+    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.durable_execution_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) that identifies the durable execution.</p>
-    pub fn get_durable_execution_arn(&self) -> &::std::option::Option<::std::string::String> { &self.durable_execution_arn }
+    pub fn get_durable_execution_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.durable_execution_arn
+    }
     /// Consumes the builder and constructs a [`ChainedInvokeStartedDetails`](crate::types::ChainedInvokeStartedDetails).
     /// This method will fail if any of the following fields are not set:
     /// - [`function_name`](Self::function_name)
     pub fn build(self) -> ::std::result::Result<crate::types::ChainedInvokeStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ChainedInvokeStartedDetails {
-            function_name: self.function_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_name", "function_name was not specified but it is required when building ChainedInvokeStartedDetails"))?,
+            function_name: self.function_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "function_name",
+                    "function_name was not specified but it is required when building ChainedInvokeStartedDetails",
+                )
+            })?,
             tenant_id: self.tenant_id,
             input: self.input,
             executed_version: self.executed_version,

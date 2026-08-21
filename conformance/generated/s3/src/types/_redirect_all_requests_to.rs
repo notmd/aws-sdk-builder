@@ -41,23 +41,38 @@ impl RedirectAllRequestsToBuilder {
         self.host_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_host_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.host_name = input; self }
+    pub fn set_host_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.host_name = input;
+        self
+    }
     /// <p>Name of the host where requests are redirected.</p>
-    pub fn get_host_name(&self) -> &::std::option::Option<::std::string::String> { &self.host_name }
+    pub fn get_host_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.host_name
+    }
     /// <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
     pub fn protocol(mut self, input: crate::types::Protocol) -> Self {
         self.protocol = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_protocol(mut self, input: ::std::option::Option<crate::types::Protocol>) -> Self { self.protocol = input; self }
+    pub fn set_protocol(mut self, input: ::std::option::Option<crate::types::Protocol>) -> Self {
+        self.protocol = input;
+        self
+    }
     /// <p>Protocol to use when redirecting requests. The default is the protocol that is used in the original request.</p>
-    pub fn get_protocol(&self) -> &::std::option::Option<crate::types::Protocol> { &self.protocol }
+    pub fn get_protocol(&self) -> &::std::option::Option<crate::types::Protocol> {
+        &self.protocol
+    }
     /// Consumes the builder and constructs a [`RedirectAllRequestsTo`](crate::types::RedirectAllRequestsTo).
     /// This method will fail if any of the following fields are not set:
     /// - [`host_name`](Self::host_name)
     pub fn build(self) -> ::std::result::Result<crate::types::RedirectAllRequestsTo, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::RedirectAllRequestsTo {
-            host_name: self.host_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("host_name", "host_name was not specified but it is required when building RedirectAllRequestsTo"))?,
+            host_name: self.host_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "host_name",
+                    "host_name was not specified but it is required when building RedirectAllRequestsTo",
+                )
+            })?,
             protocol: self.protocol,
         })
     }

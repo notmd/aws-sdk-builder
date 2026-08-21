@@ -4,8 +4,14 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_account_limit.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_account_usage.rs"));
     pub type Action = ::std::string::String;
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_add_layer_version_permission_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_add_layer_version_permission_response.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_add_layer_version_permission_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_add_layer_version_permission_response.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_add_permission_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_add_permission_response.rs"));
     pub type AdditionalVersion = ::std::string::String;
@@ -14,7 +20,10 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_alias_routing_configuration.rs"));
     pub type AllowCredentials = bool;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_allowed_publishers.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_amazon_managed_kafka_event_source_config.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_amazon_managed_kafka_event_source_config.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_application_log_level.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_architecture.rs"));
     pub type Arn = ::std::string::String;
@@ -35,27 +44,57 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider.rs"));
     pub type CapacityProviderArn = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_config.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_logging_config.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_capacity_provider_logging_config.rs"
+    ));
     pub type CapacityProviderMaxVCpuCount = i32;
     pub type CapacityProviderName = ::std::string::String;
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_permissions_config.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_predefined_metric_type.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_scaling_config.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_capacity_provider_permissions_config.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_capacity_provider_predefined_metric_type.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_capacity_provider_scaling_config.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_scaling_mode.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_state.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_telemetry_config.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_capacity_provider_telemetry_config.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_vpc_config.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_chained_invoke_details.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_chained_invoke_failed_details.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_chained_invoke_options.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_chained_invoke_started_details.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_chained_invoke_stopped_details.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_chained_invoke_succeeded_details.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_chained_invoke_timed_out_details.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_checkpoint_durable_execution_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_checkpoint_durable_execution_response.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_chained_invoke_succeeded_details.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_chained_invoke_timed_out_details.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_checkpoint_durable_execution_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_checkpoint_durable_execution_response.rs"
+    ));
     pub type CheckpointToken = ::std::string::String;
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_checkpoint_updated_execution_state.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_checkpoint_updated_execution_state.rs"
+    ));
     pub type ClientToken = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_code_signing_config.rs"));
     pub type CodeSigningConfigArn = ::std::string::String;
@@ -71,32 +110,83 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_context_succeeded_details.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_cors.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_create_alias_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_create_capacity_provider_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_create_capacity_provider_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_create_code_signing_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_create_code_signing_config_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_create_event_source_mapping_request.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_create_capacity_provider_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_create_capacity_provider_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_create_code_signing_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_create_code_signing_config_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_create_event_source_mapping_request.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_create_function_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_create_function_url_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_create_function_url_config_response.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_create_function_url_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_create_function_url_config_response.rs"
+    ));
     pub type DatabaseName = ::std::string::String;
     pub type Date = ::aws_smithy_types::DateTime;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_dead_letter_config.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_delete_alias_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_delete_capacity_provider_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_delete_capacity_provider_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_delete_code_signing_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_delete_code_signing_config_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_delete_event_source_mapping_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_delete_function_code_signing_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_delete_function_concurrency_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_delete_function_url_config_request.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_delete_capacity_provider_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_delete_capacity_provider_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_delete_code_signing_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_delete_code_signing_config_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_delete_event_source_mapping_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_delete_function_code_signing_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_delete_function_concurrency_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_delete_function_url_config_request.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_delete_layer_version_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_delete_provisioned_concurrency_config_request.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_delete_provisioned_concurrency_config_request.rs"
+    ));
     pub type Description = ::std::string::String;
     pub type DestinationArn = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_destination_config.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_document_db_event_source_config.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_document_db_event_source_config.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_durable_config.rs"));
     pub type DurableExecutionArn = ::std::string::String;
     pub type DurableExecutionName = ::std::string::String;
@@ -121,11 +211,23 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_input.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_result.rs"));
     pub type EventSourceMappingArn = ::std::string::String;
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_source_mapping_configuration.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_source_mapping_logging_config.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_event_source_mapping_configuration.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_event_source_mapping_logging_config.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_source_mapping_metric.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_source_mapping_metrics_config.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_source_mapping_system_log_level.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_event_source_mapping_metrics_config.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_event_source_mapping_system_log_level.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_source_position.rs"));
     pub type EventSourceToken = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_type.rs"));
@@ -164,44 +266,125 @@ pub mod types {
     pub type FunctionUrlFunctionName = ::std::string::String;
     pub type FunctionUrlQualifier = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_version.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_version_latest_published.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_versions_by_capacity_provider_list_item.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_function_version_latest_published.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_function_versions_by_capacity_provider_list_item.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_alias_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_capacity_provider_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_capacity_provider_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_code_signing_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_code_signing_config_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_durable_execution_history_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_durable_execution_history_response.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_code_signing_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_code_signing_config_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_durable_execution_history_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_durable_execution_history_response.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_durable_execution_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_durable_execution_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_durable_execution_state_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_durable_execution_state_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_event_source_mapping_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_function_code_signing_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_function_code_signing_config_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_function_concurrency_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_function_concurrency_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_function_configuration_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_function_recursion_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_function_recursion_config_response.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_durable_execution_state_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_durable_execution_state_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_event_source_mapping_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_function_code_signing_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_function_code_signing_config_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_function_concurrency_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_function_concurrency_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_function_configuration_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_function_recursion_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_function_recursion_config_response.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_function_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_function_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_function_scaling_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_function_scaling_config_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_function_url_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_function_url_config_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_layer_version_by_arn_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_layer_version_policy_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_layer_version_policy_response.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_function_scaling_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_function_scaling_config_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_function_url_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_function_url_config_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_layer_version_by_arn_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_layer_version_policy_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_layer_version_policy_response.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_layer_version_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_layer_version_response.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_policy_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_policy_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_provisioned_concurrency_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_provisioned_concurrency_config_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_runtime_management_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_runtime_management_config_response.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_provisioned_concurrency_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_provisioned_concurrency_config_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_runtime_management_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_get_runtime_management_config_response.rs"
+    ));
     pub type Handler = ::std::string::String;
     pub type Header = ::std::string::String;
     pub type HttpStatus = i32;
@@ -221,20 +404,44 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_invoke_async_response.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_invoke_mode.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_invoke_response_stream_update.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_invoke_with_response_stream_complete_event.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_invoke_with_response_stream_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_invoke_with_response_stream_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_invoke_with_response_stream_response_event.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_invoke_with_response_stream_complete_event.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_invoke_with_response_stream_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_invoke_with_response_stream_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_invoke_with_response_stream_response_event.rs"
+    ));
     pub type InvokedViaFunctionUrl = bool;
     pub type ItemCount = i32;
     pub type KmsKeyArn = ::std::string::String;
     pub type KmsKeyArnNonEmpty = ::std::string::String;
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_kafka_schema_registry_access_config.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_kafka_schema_registry_auth_type.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_kafka_schema_registry_access_config.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_kafka_schema_registry_auth_type.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_kafka_schema_registry_config.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_kafka_schema_validation_attribute.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_kafka_schema_validation_attribute.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_kafka_schema_validation_config.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_lambda_managed_instances_capacity_provider_config.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_lambda_managed_instances_capacity_provider_config.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_last_update_status.rs"));
     pub type LastUpdateStatusReason = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_last_update_status_reason_code.rs"));
@@ -252,30 +459,84 @@ pub mod types {
     pub type LicenseInfo = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_aliases_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_aliases_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_capacity_providers_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_capacity_providers_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_code_signing_configs_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_code_signing_configs_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_durable_executions_by_function_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_durable_executions_by_function_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_event_source_mappings_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_event_source_mappings_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_function_url_configs_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_function_url_configs_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_function_versions_by_capacity_provider_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_function_versions_by_capacity_provider_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_functions_by_code_signing_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_functions_by_code_signing_config_response.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_capacity_providers_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_capacity_providers_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_code_signing_configs_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_code_signing_configs_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_durable_executions_by_function_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_durable_executions_by_function_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_event_source_mappings_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_event_source_mappings_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_function_url_configs_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_function_url_configs_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_function_versions_by_capacity_provider_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_function_versions_by_capacity_provider_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_functions_by_code_signing_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_functions_by_code_signing_config_response.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_functions_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_functions_response.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_layer_versions_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_layer_versions_response.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_layers_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_layers_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_provisioned_concurrency_configs_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_provisioned_concurrency_configs_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_versions_by_function_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_versions_by_function_response.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_provisioned_concurrency_configs_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_provisioned_concurrency_configs_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_versions_by_function_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_list_versions_by_function_response.rs"
+    ));
     pub type LocalMountPath = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_log_format.rs"));
     pub type LogGroup = ::std::string::String;
@@ -331,36 +592,81 @@ pub mod types {
     pub type PrincipalOrgId = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_propagate_tags.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_propagate_tags_mode.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_provisioned_concurrency_config_list_item.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_provisioned_concurrency_status_enum.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_provisioned_concurrency_config_list_item.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_provisioned_concurrency_status_enum.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_provisioned_poller_config.rs"));
     pub type ProvisionedPollerGroupName = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_publish_layer_version_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_publish_layer_version_response.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_publish_version_request.rs"));
     pub type PublishedFunctionQualifier = ::std::string::String;
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_put_function_code_signing_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_put_function_code_signing_config_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_put_function_concurrency_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_put_function_recursion_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_put_function_recursion_config_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_put_function_scaling_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_put_function_scaling_config_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_put_provisioned_concurrency_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_put_provisioned_concurrency_config_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_put_runtime_management_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_put_runtime_management_config_response.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_put_function_code_signing_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_put_function_code_signing_config_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_put_function_concurrency_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_put_function_recursion_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_put_function_recursion_config_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_put_function_scaling_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_put_function_scaling_config_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_put_provisioned_concurrency_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_put_provisioned_concurrency_config_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_put_runtime_management_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_put_runtime_management_config_response.rs"
+    ));
     pub type Qualifier = ::std::string::String;
     pub type Queue = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_recursive_loop.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_remove_layer_version_permission_request.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_remove_layer_version_permission_request.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_remove_permission_request.rs"));
     pub type ReplayChildren = bool;
     pub type ReservedConcurrentExecutions = i32;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_resolved_s3_object.rs"));
     pub type ResourceArn = ::std::string::String;
     pub type ResourcePolicy = ::std::string::String;
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_response_streaming_invocation_type.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_response_streaming_invocation_type.rs"
+    ));
     pub type RetentionPeriodInDays = i32;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_retry_details.rs"));
     pub type ReverseOrder = bool;
@@ -375,11 +681,17 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_s3_object_storage_mode.rs"));
     pub type S3ObjectVersion = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_scaling_config.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_schema_registry_event_record_format.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_schema_registry_event_record_format.rs"
+    ));
     pub type SchemaRegistryUri = ::std::string::String;
     pub type SecurityGroupId = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_self_managed_event_source.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_self_managed_kafka_event_source_config.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_self_managed_kafka_event_source_config.rs"
+    ));
     pub type SensitiveString = ::std::string::String;
     pub type SensitiveStringOnServerOnly = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_snap_start.rs"));
@@ -400,7 +712,10 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_step_started_details.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_step_succeeded_details.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_stop_durable_execution_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_stop_durable_execution_response.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_stop_durable_execution_response.rs"
+    ));
     pub type String = ::std::string::String;
     pub type SubnetId = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_system_log_level.rs"));
@@ -429,15 +744,39 @@ pub mod types {
     pub type UnqualifiedFunctionName = ::std::string::String;
     pub type UnreservedConcurrentExecutions = i32;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_update_alias_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_update_capacity_provider_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_update_capacity_provider_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_update_code_signing_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_update_code_signing_config_response.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_update_event_source_mapping_request.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_update_capacity_provider_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_update_capacity_provider_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_update_code_signing_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_update_code_signing_config_response.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_update_event_source_mapping_request.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_update_function_code_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_update_function_configuration_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_update_function_url_config_request.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_update_function_url_config_response.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_update_function_configuration_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_update_function_url_config_request.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/types/_update_function_url_config_response.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_update_runtime_on.rs"));
     pub type Version = ::std::string::String;
     pub type VersionWithLatestPublished = ::std::string::String;
@@ -453,61 +792,205 @@ pub mod types {
     pub type WorkingDirectory = ::std::string::String;
     pub type XAmznTraceId = ::std::string::String;
     pub mod error {
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_alias_limit_exceeded_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_callback_timeout_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_capacity_provider_limit_exceeded_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_code_artifact_user_deleted_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_code_artifact_user_failed_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_code_artifact_user_pending_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_code_signing_config_not_found_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_code_storage_exceeded_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_code_verification_failed_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_durable_execution_already_started_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_ec2_access_denied_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_invalid_parameter_value_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_resource_conflict_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_resource_not_found_exception.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_service_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_too_many_requests_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_precondition_failed_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_policy_length_exceeded_exception.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_public_policy_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_callback_timeout_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_kms_access_denied_exception.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_kms_disabled_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_kms_invalid_state_exception.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_kms_not_found_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_alias_limit_exceeded_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_capacity_provider_limit_exceeded_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_code_artifact_user_deleted_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_code_artifact_user_failed_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_code_artifact_user_pending_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_code_signing_config_not_found_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_code_storage_exceeded_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_code_verification_failed_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_durable_execution_already_started_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_ec2_access_denied_exception.rs"
+        ));
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_ec2_throttled_exception.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_ec2_unexpected_exception.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_efsio_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_efs_mount_connectivity_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_efs_mount_failure_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_efs_mount_timeout_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_eni_limit_reached_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_efs_mount_connectivity_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_efs_mount_failure_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_efs_mount_timeout_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_eni_limit_reached_exception.rs"
+        ));
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_eni_not_ready_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_function_versions_per_capacity_provider_limit_exceeded_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_invalid_code_signature_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_invalid_parameter_value_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_invalid_request_content_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_invalid_runtime_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_invalid_security_group_id_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_invalid_subnet_id_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_invalid_zip_file_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_kms_access_denied_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_kms_disabled_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_kms_invalid_state_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_kms_not_found_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_mode_not_supported_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_no_published_version_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_policy_length_exceeded_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_precondition_failed_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_provisioned_concurrency_config_not_found_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_public_policy_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_recursive_invocation_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_request_too_large_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_resource_conflict_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_resource_in_use_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_resource_not_found_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_resource_not_ready_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_s3_files_mount_connectivity_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_s3_files_mount_failure_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_s3_files_mount_timeout_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_serialized_request_entity_too_large_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_service_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_service_quota_exceeded_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_function_versions_per_capacity_provider_limit_exceeded_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_invalid_code_signature_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_invalid_request_content_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_invalid_runtime_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_invalid_security_group_id_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_invalid_subnet_id_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_invalid_zip_file_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_mode_not_supported_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_no_published_version_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_provisioned_concurrency_config_not_found_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_recursive_invocation_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_request_too_large_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_resource_in_use_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_resource_not_ready_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_s3_files_mount_connectivity_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_s3_files_mount_failure_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_s3_files_mount_timeout_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_serialized_request_entity_too_large_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_service_quota_exceeded_exception.rs"
+        ));
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_snap_start_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_snap_start_not_ready_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_snap_start_regeneration_failure_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_snap_start_timeout_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_subnet_ip_address_limit_reached_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_too_many_requests_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/_unsupported_media_type_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_snap_start_not_ready_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_snap_start_regeneration_failure_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_snap_start_timeout_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_subnet_ip_address_limit_reached_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/types/error/_unsupported_media_type_exception.rs"
+        ));
+        pub mod builders {
+            include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/error/builders.rs"));
+        }
     }
 }

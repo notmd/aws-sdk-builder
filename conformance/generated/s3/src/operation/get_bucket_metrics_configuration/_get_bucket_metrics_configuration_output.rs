@@ -46,9 +46,14 @@ impl GetBucketMetricsConfigurationOutputBuilder {
         self.metrics_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_metrics_configuration(mut self, input: ::std::option::Option<crate::types::MetricsConfiguration>) -> Self { self.metrics_configuration = input; self }
+    pub fn set_metrics_configuration(mut self, input: ::std::option::Option<crate::types::MetricsConfiguration>) -> Self {
+        self.metrics_configuration = input;
+        self
+    }
     /// <p>Specifies the metrics configuration.</p>
-    pub fn get_metrics_configuration(&self) -> &::std::option::Option<crate::types::MetricsConfiguration> { &self.metrics_configuration }
+    pub fn get_metrics_configuration(&self) -> &::std::option::Option<crate::types::MetricsConfiguration> {
+        &self.metrics_configuration
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

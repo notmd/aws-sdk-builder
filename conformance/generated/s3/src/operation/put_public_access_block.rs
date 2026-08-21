@@ -2,14 +2,21 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct PutPublicAccessBlock;
-impl PutPublicAccessBlock { pub fn new() -> Self { Self } }
+impl PutPublicAccessBlock {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
-impl Error {
-}
+impl Error {}
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
@@ -20,29 +27,67 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 impl crate::s3_request_id::RequestIdExt for Error {
-    fn extended_request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { extended_request_id, .. } => extended_request_id.as_deref(), _ => None } }
+    fn extended_request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { extended_request_id, .. } => extended_request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _put_public_access_block_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/put_public_access_block/_put_public_access_block_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/operation/put_public_access_block/_put_public_access_block_input.rs"
+    ));
 }
 pub use _put_public_access_block_input::PutPublicAccessBlockInput;
 pub type Input = PutPublicAccessBlockInput;
 pub mod _put_public_access_block_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/put_public_access_block/_put_public_access_block_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/operation/put_public_access_block/_put_public_access_block_output.rs"
+    ));
 }
 pub use _put_public_access_block_output::PutPublicAccessBlockOutput;
 pub type Output = PutPublicAccessBlockOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/put_public_access_block/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/operation/put_public_access_block/builders.rs"
+    ));
 }
 pub type PutPublicAccessBlockError = Error;
 pub type PutPublicAccessBlockFluentBuilder = builders::Builder;

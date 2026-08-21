@@ -34,15 +34,25 @@ impl SsekmsBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>Specifies the ID of the Key Management Service (KMS) symmetric encryption customer managed key to use for encrypting inventory reports.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// Consumes the builder and constructs a [`Ssekms`](crate::types::Ssekms).
     /// This method will fail if any of the following fields are not set:
     /// - [`key_id`](Self::key_id)
     pub fn build(self) -> ::std::result::Result<crate::types::Ssekms, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Ssekms {
-            key_id: self.key_id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("key_id", "key_id was not specified but it is required when building Ssekms"))?,
+            key_id: self.key_id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "key_id",
+                    "key_id was not specified but it is required when building Ssekms",
+                )
+            })?,
         })
     }
 }

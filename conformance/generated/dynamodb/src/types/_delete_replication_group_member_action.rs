@@ -34,15 +34,25 @@ impl DeleteReplicationGroupMemberActionBuilder {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.region_name = input; self }
+    pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.region_name = input;
+        self
+    }
     /// <p>The Region where the replica exists.</p>
-    pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> { &self.region_name }
+    pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.region_name
+    }
     /// Consumes the builder and constructs a [`DeleteReplicationGroupMemberAction`](crate::types::DeleteReplicationGroupMemberAction).
     /// This method will fail if any of the following fields are not set:
     /// - [`region_name`](Self::region_name)
     pub fn build(self) -> ::std::result::Result<crate::types::DeleteReplicationGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteReplicationGroupMemberAction {
-            region_name: self.region_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("region_name", "region_name was not specified but it is required when building DeleteReplicationGroupMemberAction"))?,
+            region_name: self.region_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "region_name",
+                    "region_name was not specified but it is required when building DeleteReplicationGroupMemberAction",
+                )
+            })?,
         })
     }
 }

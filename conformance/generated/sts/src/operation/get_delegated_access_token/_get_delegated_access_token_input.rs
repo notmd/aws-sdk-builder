@@ -33,9 +33,14 @@ impl GetDelegatedAccessTokenInputBuilder {
         self.trade_in_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_trade_in_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.trade_in_token = input; self }
+    pub fn set_trade_in_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.trade_in_token = input;
+        self
+    }
     /// <p>The token to exchange for temporary Amazon Web Services credentials. This token must be valid and unexpired at the time of the request.</p>
-    pub fn get_trade_in_token(&self) -> &::std::option::Option<::std::string::String> { &self.trade_in_token }
+    pub fn get_trade_in_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.trade_in_token
+    }
     /// Consumes the builder and constructs a [`GetDelegatedAccessTokenInput`](crate::operation::get_delegated_access_token::GetDelegatedAccessTokenInput).
     pub fn build(self) -> crate::operation::get_delegated_access_token::GetDelegatedAccessTokenInput {
         crate::operation::get_delegated_access_token::GetDelegatedAccessTokenInput {

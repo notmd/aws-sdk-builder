@@ -56,18 +56,28 @@ impl AddPermissionInputBuilder {
         self.topic_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.topic_arn = input; self }
+    pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.topic_arn = input;
+        self
+    }
     /// <p>The ARN of the topic whose access control policy you wish to modify.</p>
-    pub fn get_topic_arn(&self) -> &::std::option::Option<::std::string::String> { &self.topic_arn }
+    pub fn get_topic_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.topic_arn
+    }
     /// <p>A unique identifier for the new policy statement.</p>
     /// This field is required.
     pub fn label(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.label = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.label = input; self }
+    pub fn set_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.label = input;
+        self
+    }
     /// <p>A unique identifier for the new policy statement.</p>
-    pub fn get_label(&self) -> &::std::option::Option<::std::string::String> { &self.label }
+    pub fn get_label(&self) -> &::std::option::Option<::std::string::String> {
+        &self.label
+    }
     /// <p>The Amazon Web Services account IDs of the users (principals) who will be given access to the specified actions. The users must have Amazon Web Services account, but do not need to be signed up for this service.</p>
     /// Appends an item to `aws_account_id`.
     ///
@@ -78,9 +88,14 @@ impl AddPermissionInputBuilder {
         self.aws_account_id = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_aws_account_id(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.aws_account_id = input; self }
+    pub fn set_aws_account_id(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.aws_account_id = input;
+        self
+    }
     /// <p>The Amazon Web Services account IDs of the users (principals) who will be given access to the specified actions. The users must have Amazon Web Services account, but do not need to be signed up for this service.</p>
-    pub fn get_aws_account_id(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.aws_account_id }
+    pub fn get_aws_account_id(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.aws_account_id
+    }
     /// <p>The action you want to allow for the specified principal(s).</p>
     /// <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
     /// Appends an item to `action_name`.
@@ -92,10 +107,15 @@ impl AddPermissionInputBuilder {
         self.action_name = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_action_name(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.action_name = input; self }
+    pub fn set_action_name(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.action_name = input;
+        self
+    }
     /// <p>The action you want to allow for the specified principal(s).</p>
     /// <p>Valid values: Any Amazon SNS action name, for example <code>Publish</code>.</p>
-    pub fn get_action_name(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.action_name }
+    pub fn get_action_name(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.action_name
+    }
     /// Consumes the builder and constructs a [`AddPermissionInput`](crate::operation::add_permission::AddPermissionInput).
     pub fn build(self) -> crate::operation::add_permission::AddPermissionInput {
         crate::operation::add_permission::AddPermissionInput {

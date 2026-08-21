@@ -32,13 +32,16 @@ impl StatsEventBuilder {
         self.details = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_details(mut self, input: ::std::option::Option<crate::types::Stats>) -> Self { self.details = input; self }
+    pub fn set_details(mut self, input: ::std::option::Option<crate::types::Stats>) -> Self {
+        self.details = input;
+        self
+    }
     /// <p>The Stats event details.</p>
-    pub fn get_details(&self) -> &::std::option::Option<crate::types::Stats> { &self.details }
+    pub fn get_details(&self) -> &::std::option::Option<crate::types::Stats> {
+        &self.details
+    }
     /// Consumes the builder and constructs a [`StatsEvent`](crate::types::StatsEvent).
     pub fn build(self) -> crate::types::StatsEvent {
-        crate::types::StatsEvent {
-            details: self.details,
-        }
+        crate::types::StatsEvent { details: self.details }
     }
 }

@@ -39,17 +39,27 @@ impl AddLayerVersionPermissionResponseBuilder {
         self.statement = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_statement(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.statement = input; self }
+    pub fn set_statement(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.statement = input;
+        self
+    }
     /// <p>The permission statement.</p>
-    pub fn get_statement(&self) -> &::std::option::Option<::std::string::String> { &self.statement }
+    pub fn get_statement(&self) -> &::std::option::Option<::std::string::String> {
+        &self.statement
+    }
     /// <p>A unique identifier for the current revision of the policy.</p>
     pub fn revision_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.revision_id = input; self }
+    pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.revision_id = input;
+        self
+    }
     /// <p>A unique identifier for the current revision of the policy.</p>
-    pub fn get_revision_id(&self) -> &::std::option::Option<::std::string::String> { &self.revision_id }
+    pub fn get_revision_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.revision_id
+    }
     /// Consumes the builder and constructs a [`AddLayerVersionPermissionResponse`](crate::types::AddLayerVersionPermissionResponse).
     pub fn build(self) -> crate::types::AddLayerVersionPermissionResponse {
         crate::types::AddLayerVersionPermissionResponse {

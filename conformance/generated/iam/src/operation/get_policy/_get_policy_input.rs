@@ -36,14 +36,17 @@ impl GetPolicyInputBuilder {
         self.policy_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_arn = input; self }
+    pub fn set_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the managed policy that you want information about.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn get_policy_arn(&self) -> &::std::option::Option<::std::string::String> { &self.policy_arn }
+    pub fn get_policy_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_arn
+    }
     /// Consumes the builder and constructs a [`GetPolicyInput`](crate::operation::get_policy::GetPolicyInput).
     pub fn build(self) -> crate::operation::get_policy::GetPolicyInput {
-        crate::operation::get_policy::GetPolicyInput {
-            policy_arn: self.policy_arn,
-        }
+        crate::operation::get_policy::GetPolicyInput { policy_arn: self.policy_arn }
     }
 }

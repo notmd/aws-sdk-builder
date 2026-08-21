@@ -68,11 +68,16 @@ impl DeleteObjectOutputBuilder {
         self.delete_marker = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_delete_marker(mut self, input: ::std::option::Option<bool>) -> Self { self.delete_marker = input; self }
+    pub fn set_delete_marker(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.delete_marker = input;
+        self
+    }
     /// <p>Indicates whether the specified object version that was permanently deleted was (true) or was not (false) a delete marker before deletion. In a simple DELETE, this header indicates whether (true) or not (false) the current version of the object is a delete marker. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working with delete markers</a>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_delete_marker(&self) -> &::std::option::Option<bool> { &self.delete_marker }
+    pub fn get_delete_marker(&self) -> &::std::option::Option<bool> {
+        &self.delete_marker
+    }
     /// <p>Returns the version ID of the delete marker created as a result of the DELETE operation.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -80,17 +85,27 @@ impl DeleteObjectOutputBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.version_id = input; self }
+    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.version_id = input;
+        self
+    }
     /// <p>Returns the version ID of the delete marker created as a result of the DELETE operation.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.version_id }
+    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.version_id
+    }
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+        self.request_charged = input;
+        self
+    }
+    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+        &self.request_charged
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

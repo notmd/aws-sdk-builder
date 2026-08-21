@@ -46,9 +46,14 @@ impl SearchVectorsOutputBuilder {
         self.consumed_capacity = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::VectorCapacity>) -> Self { self.consumed_capacity = input; self }
+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::VectorCapacity>) -> Self {
+        self.consumed_capacity = input;
+        self
+    }
     /// <p>The capacity units consumed by the <code>SearchVectors</code> operation. Contains <code>VectorSearchRequestBytes</code>, which represents the vector search capacity consumed.</p>
-    pub fn get_consumed_capacity(&self) -> &::std::option::Option<crate::types::VectorCapacity> { &self.consumed_capacity }
+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<crate::types::VectorCapacity> {
+        &self.consumed_capacity
+    }
     /// <p>A list of items returned by the vector similarity search, sorted by similarity with the most similar item first. Each item contains the projected attributes and a similarity score.</p>
     /// Appends an item to `search_results`.
     ///
@@ -59,9 +64,14 @@ impl SearchVectorsOutputBuilder {
         self.search_results = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_search_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>>) -> Self { self.search_results = input; self }
+    pub fn set_search_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>>) -> Self {
+        self.search_results = input;
+        self
+    }
     /// <p>A list of items returned by the vector similarity search, sorted by similarity with the most similar item first. Each item contains the projected attributes and a similarity score.</p>
-    pub fn get_search_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>> { &self.search_results }
+    pub fn get_search_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>> {
+        &self.search_results
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

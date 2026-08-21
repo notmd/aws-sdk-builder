@@ -6,36 +6,94 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn max_buckets(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_buckets = Some(value.into()); self }
-    pub fn continuation_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.continuation_token = Some(value.into()); self }
-    pub fn prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.prefix = Some(value.into()); self }
-    pub fn bucket_region(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket_region = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::ListBucketsOutput, super::ListBucketsError> {
-                         let path = { let mut path = ::std::string::String::from("/?x-id=ListBuckets"); if let Some(value) = self.input.max_buckets.as_ref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("max-buckets"); path.push('='); path.push_str(&super::super::super::transport::encode_path(&value.to_string())); } if let Some(value) = self.input.continuation_token.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("continuation-token"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } if let Some(value) = self.input.prefix.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("prefix"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } if let Some(value) = self.input.bucket_region.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("bucket-region"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } path };
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::ListBucketsError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::ListBucketsError::unhandled_with_request_ids(format!("ListBuckets returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_list_buckets_output::ListBucketsOutputBuilder::default();
-                         let body = response.text().await.map_err(super::ListBucketsError::Unhandled)?;
-                         output.buckets = Some(::std::vec::Vec::new());
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "Owner") { let mut item: crate::types::OwnerBuilder = ::std::default::Default::default(); item.display_name = super::super::super::transport::xml_first(&value, "DisplayName").and_then(|value| value.parse().ok());
- item.id = super::super::super::transport::xml_first(&value, "ID").and_then(|value| value.parse().ok());
- let item = item.build(); output.owner = Some(item); }
-                         output.continuation_token = super::super::super::transport::xml_first(&body, "ContinuationToken").and_then(|value| value.parse().ok());
-                         output.prefix = super::super::super::transport::xml_first(&body, "Prefix").and_then(|value| value.parse().ok());
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn max_buckets(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.max_buckets = Some(value.into());
+        self
+    }
+    pub fn continuation_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.continuation_token = Some(value.into());
+        self
+    }
+    pub fn prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.prefix = Some(value.into());
+        self
+    }
+    pub fn bucket_region(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket_region = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::ListBucketsOutput, super::ListBucketsError> {
+        let path = {
+            let mut path = ::std::string::String::from("/?x-id=ListBuckets");
+            if let Some(value) = self.input.max_buckets.as_ref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("max-buckets");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(&value.to_string()));
+            }
+            if let Some(value) = self.input.continuation_token.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("continuation-token");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            if let Some(value) = self.input.prefix.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("prefix");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            if let Some(value) = self.input.bucket_region.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("bucket-region");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            path
+        };
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Get, &path, &headers, &body)
+            .await
+            .map_err(super::ListBucketsError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::ListBucketsError::unhandled_with_request_ids(
+                format!("ListBuckets returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_list_buckets_output::ListBucketsOutputBuilder::default();
+        let body = response.text().await.map_err(super::ListBucketsError::Unhandled)?;
+        output.buckets = Some(::std::vec::Vec::new());
+        if let Some(value) = super::super::super::transport::xml_first(&body, "Owner") {
+            let mut item: crate::types::OwnerBuilder = ::std::default::Default::default();
+            item.display_name = super::super::super::transport::xml_first(&value, "DisplayName").and_then(|value| value.parse().ok());
+            item.id = super::super::super::transport::xml_first(&value, "ID").and_then(|value| value.parse().ok());
+            let item = item.build();
+            output.owner = Some(item);
+        }
+        output.continuation_token = super::super::super::transport::xml_first(&body, "ContinuationToken").and_then(|value| value.parse().ok());
+        output.prefix = super::super::super::transport::xml_first(&body, "Prefix").and_then(|value| value.parse().ok());
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as ListBucketsFluentBuilder;

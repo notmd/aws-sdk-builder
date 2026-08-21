@@ -75,9 +75,14 @@ impl ExecuteStatementInputBuilder {
         self.statement = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_statement(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.statement = input; self }
+    pub fn set_statement(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.statement = input;
+        self
+    }
     /// <p>The PartiQL statement representing the operation to run.</p>
-    pub fn get_statement(&self) -> &::std::option::Option<::std::string::String> { &self.statement }
+    pub fn get_statement(&self) -> &::std::option::Option<::std::string::String> {
+        &self.statement
+    }
     /// <p>The parameters for the PartiQL statement, if any.</p>
     /// Appends an item to `parameters`.
     ///
@@ -88,49 +93,82 @@ impl ExecuteStatementInputBuilder {
         self.parameters = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self { self.parameters = input; self }
+    pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
+        self.parameters = input;
+        self
+    }
     /// <p>The parameters for the PartiQL statement, if any.</p>
-    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> { &self.parameters }
+    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> {
+        &self.parameters
+    }
     /// <p>The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p>
     pub fn consistent_read(mut self, input: bool) -> Self {
         self.consistent_read = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_consistent_read(mut self, input: ::std::option::Option<bool>) -> Self { self.consistent_read = input; self }
+    pub fn set_consistent_read(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.consistent_read = input;
+        self
+    }
     /// <p>The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p>
-    pub fn get_consistent_read(&self) -> &::std::option::Option<bool> { &self.consistent_read }
+    pub fn get_consistent_read(&self) -> &::std::option::Option<bool> {
+        &self.consistent_read
+    }
     /// <p>Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
+    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_token = input;
+        self
+    }
     /// <p>Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response.</p>
-    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_token
+    }
     pub fn return_consumed_capacity(mut self, input: crate::types::ReturnConsumedCapacity) -> Self {
         self.return_consumed_capacity = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
-    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
+    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
+        self.return_consumed_capacity = input;
+        self
+    }
+    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+        &self.return_consumed_capacity
+    }
     /// <p>The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, along with a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation so you can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation to continue the operation.</p>
     pub fn limit(mut self, input: i32) -> Self {
         self.limit = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self { self.limit = input; self }
+    pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.limit = input;
+        self
+    }
     /// <p>The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, along with a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation so you can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation to continue the operation.</p>
-    pub fn get_limit(&self) -> &::std::option::Option<i32> { &self.limit }
+    pub fn get_limit(&self) -> &::std::option::Option<i32> {
+        &self.limit
+    }
     /// <p>An optional parameter that returns the item attributes for an <code>ExecuteStatement</code> operation that failed a condition check.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
     pub fn return_values_on_condition_check_failure(mut self, input: crate::types::ReturnValuesOnConditionCheckFailure) -> Self {
         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_return_values_on_condition_check_failure(mut self, input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = input; self }
+    pub fn set_return_values_on_condition_check_failure(
+        mut self,
+        input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
+    ) -> Self {
+        self.return_values_on_condition_check_failure = input;
+        self
+    }
     /// <p>An optional parameter that returns the item attributes for an <code>ExecuteStatement</code> operation that failed a condition check.</p>
     /// <p>There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.</p>
-    pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
+    pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure> {
+        &self.return_values_on_condition_check_failure
+    }
     /// Consumes the builder and constructs a [`ExecuteStatementInput`](crate::operation::execute_statement::ExecuteStatementInput).
     pub fn build(self) -> crate::operation::execute_statement::ExecuteStatementInput {
         crate::operation::execute_statement::ExecuteStatementInput {

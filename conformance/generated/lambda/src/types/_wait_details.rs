@@ -32,9 +32,14 @@ impl WaitDetailsBuilder {
         self.scheduled_end_timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_scheduled_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.scheduled_end_timestamp = input; self }
+    pub fn set_scheduled_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.scheduled_end_timestamp = input;
+        self
+    }
     /// <p>The date and time when the wait operation is scheduled to complete, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn get_scheduled_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.scheduled_end_timestamp }
+    pub fn get_scheduled_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.scheduled_end_timestamp
+    }
     /// Consumes the builder and constructs a [`WaitDetails`](crate::types::WaitDetails).
     pub fn build(self) -> crate::types::WaitDetails {
         crate::types::WaitDetails {

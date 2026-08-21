@@ -41,23 +41,38 @@ impl StopDurableExecutionRequestBuilder {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.durable_execution_arn = input; self }
+    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.durable_execution_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn get_durable_execution_arn(&self) -> &::std::option::Option<::std::string::String> { &self.durable_execution_arn }
+    pub fn get_durable_execution_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.durable_execution_arn
+    }
     /// <p>Optional error details explaining why the execution is being stopped.</p>
     pub fn error(mut self, input: crate::types::ErrorObject) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>Optional error details explaining why the execution is being stopped.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> {
+        &self.error
+    }
     /// Consumes the builder and constructs a [`StopDurableExecutionRequest`](crate::types::StopDurableExecutionRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`durable_execution_arn`](Self::durable_execution_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::StopDurableExecutionRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::StopDurableExecutionRequest {
-            durable_execution_arn: self.durable_execution_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("durable_execution_arn", "durable_execution_arn was not specified but it is required when building StopDurableExecutionRequest"))?,
+            durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "durable_execution_arn",
+                    "durable_execution_arn was not specified but it is required when building StopDurableExecutionRequest",
+                )
+            })?,
             error: self.error,
         })
     }

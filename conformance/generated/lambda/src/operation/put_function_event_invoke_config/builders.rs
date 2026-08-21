@@ -6,30 +6,73 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn function_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.function_name = Some(value.into()); self }
-    pub fn qualifier(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.qualifier = Some(value.into()); self }
-    pub fn maximum_retry_attempts(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.maximum_retry_attempts = Some(value.into()); self }
-    pub fn maximum_event_age_in_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.maximum_event_age_in_seconds = Some(value.into()); self }
-    pub fn destination_config(mut self, value: impl ::std::convert::Into<crate::types::DestinationConfig>) -> Self { self.input.destination_config = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::PutFunctionEventInvokeConfigOutput, super::PutFunctionEventInvokeConfigError> {
-                         let function_name = self.input.function_name.as_deref().ok_or_else(|| super::PutFunctionEventInvokeConfigError::Unhandled("PutFunctionEventInvokeConfig requires function_name".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/2019-09-25/functions/{FunctionName}/event-invoke-config"); if let Some(value) = self.input.qualifier.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("Qualifier"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } path = path.replace("{FunctionName}", &super::super::super::transport::encode_path(function_name)); path };
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::PutFunctionEventInvokeConfigError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::PutFunctionEventInvokeConfigError::unhandled_with_request_ids(format!("PutFunctionEventInvokeConfig returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_put_function_event_invoke_config_output::PutFunctionEventInvokeConfigOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn function_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.function_name = Some(value.into());
+        self
+    }
+    pub fn qualifier(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.qualifier = Some(value.into());
+        self
+    }
+    pub fn maximum_retry_attempts(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.maximum_retry_attempts = Some(value.into());
+        self
+    }
+    pub fn maximum_event_age_in_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.maximum_event_age_in_seconds = Some(value.into());
+        self
+    }
+    pub fn destination_config(mut self, value: impl ::std::convert::Into<crate::types::DestinationConfig>) -> Self {
+        self.input.destination_config = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::PutFunctionEventInvokeConfigOutput, super::PutFunctionEventInvokeConfigError> {
+        let function_name =
+            self.input.function_name.as_deref().ok_or_else(|| {
+                super::PutFunctionEventInvokeConfigError::Unhandled("PutFunctionEventInvokeConfig requires function_name".to_owned())
+            })?;
+        let path = {
+            let mut path = ::std::string::String::from("/2019-09-25/functions/{FunctionName}/event-invoke-config");
+            if let Some(value) = self.input.qualifier.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("Qualifier");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            path = path.replace("{FunctionName}", &super::super::super::transport::encode_path(function_name));
+            path
+        };
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Put, &path, &headers, &body)
+            .await
+            .map_err(super::PutFunctionEventInvokeConfigError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::PutFunctionEventInvokeConfigError::unhandled_with_request_ids(
+                format!("PutFunctionEventInvokeConfig returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_put_function_event_invoke_config_output::PutFunctionEventInvokeConfigOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as PutFunctionEventInvokeConfigFluentBuilder;

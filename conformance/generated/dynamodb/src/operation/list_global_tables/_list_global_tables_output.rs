@@ -51,17 +51,27 @@ impl ListGlobalTablesOutputBuilder {
         self.global_tables = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_global_tables(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalTable>>) -> Self { self.global_tables = input; self }
+    pub fn set_global_tables(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalTable>>) -> Self {
+        self.global_tables = input;
+        self
+    }
     /// <p>List of global table names.</p>
-    pub fn get_global_tables(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalTable>> { &self.global_tables }
+    pub fn get_global_tables(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalTable>> {
+        &self.global_tables
+    }
     /// <p>Last evaluated global table name.</p>
     pub fn last_evaluated_global_table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.last_evaluated_global_table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_last_evaluated_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.last_evaluated_global_table_name = input; self }
+    pub fn set_last_evaluated_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.last_evaluated_global_table_name = input;
+        self
+    }
     /// <p>Last evaluated global table name.</p>
-    pub fn get_last_evaluated_global_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.last_evaluated_global_table_name }
+    pub fn get_last_evaluated_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.last_evaluated_global_table_name
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

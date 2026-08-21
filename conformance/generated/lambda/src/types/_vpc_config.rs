@@ -51,9 +51,14 @@ impl VpcConfigBuilder {
         self.subnet_ids = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.subnet_ids = input; self }
+    pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.subnet_ids = input;
+        self
+    }
     /// <p>A list of VPC subnet IDs.</p>
-    pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.subnet_ids }
+    pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.subnet_ids
+    }
     /// <p>A list of VPC security group IDs.</p>
     /// Appends an item to `security_group_ids`.
     ///
@@ -64,17 +69,27 @@ impl VpcConfigBuilder {
         self.security_group_ids = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.security_group_ids = input; self }
+    pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.security_group_ids = input;
+        self
+    }
     /// <p>A list of VPC security group IDs.</p>
-    pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.security_group_ids }
+    pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.security_group_ids
+    }
     /// <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
     pub fn ipv6_allowed_for_dual_stack(mut self, input: bool) -> Self {
         self.ipv6_allowed_for_dual_stack = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_ipv6_allowed_for_dual_stack(mut self, input: ::std::option::Option<bool>) -> Self { self.ipv6_allowed_for_dual_stack = input; self }
+    pub fn set_ipv6_allowed_for_dual_stack(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.ipv6_allowed_for_dual_stack = input;
+        self
+    }
     /// <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
-    pub fn get_ipv6_allowed_for_dual_stack(&self) -> &::std::option::Option<bool> { &self.ipv6_allowed_for_dual_stack }
+    pub fn get_ipv6_allowed_for_dual_stack(&self) -> &::std::option::Option<bool> {
+        &self.ipv6_allowed_for_dual_stack
+    }
     /// Consumes the builder and constructs a [`VpcConfig`](crate::types::VpcConfig).
     pub fn build(self) -> crate::types::VpcConfig {
         crate::types::VpcConfig {

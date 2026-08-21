@@ -32,13 +32,16 @@ impl WaitCancelledDetailsBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>Details about why the wait operation was cancelled.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> {
+        &self.error
+    }
     /// Consumes the builder and constructs a [`WaitCancelledDetails`](crate::types::WaitCancelledDetails).
     pub fn build(self) -> crate::types::WaitCancelledDetails {
-        crate::types::WaitCancelledDetails {
-            error: self.error,
-        }
+        crate::types::WaitCancelledDetails { error: self.error }
     }
 }

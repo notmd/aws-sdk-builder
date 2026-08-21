@@ -61,27 +61,42 @@ impl PutBucketMetricsConfigurationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The name of the bucket for which the metrics configuration is set.</p>
     /// <p><b>Directory buckets</b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i></code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i></p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>The ID used to identify the metrics configuration. The ID has a 64 character limit and can only contain letters, numbers, periods, dashes, and underscores.</p>
     /// This field is required.
     pub fn id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>The ID used to identify the metrics configuration. The ID has a 64 character limit and can only contain letters, numbers, periods, dashes, and underscores.</p>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>Specifies the metrics configuration.</p>
     pub fn metrics_configuration(mut self, input: crate::types::MetricsConfiguration) -> Self {
         self.metrics_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_metrics_configuration(mut self, input: ::std::option::Option<crate::types::MetricsConfiguration>) -> Self { self.metrics_configuration = input; self }
+    pub fn set_metrics_configuration(mut self, input: ::std::option::Option<crate::types::MetricsConfiguration>) -> Self {
+        self.metrics_configuration = input;
+        self
+    }
     /// <p>Specifies the metrics configuration.</p>
-    pub fn get_metrics_configuration(&self) -> &::std::option::Option<crate::types::MetricsConfiguration> { &self.metrics_configuration }
+    pub fn get_metrics_configuration(&self) -> &::std::option::Option<crate::types::MetricsConfiguration> {
+        &self.metrics_configuration
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
@@ -89,11 +104,16 @@ impl PutBucketMetricsConfigurationInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// Consumes the builder and constructs a [`PutBucketMetricsConfigurationInput`](crate::operation::put_bucket_metrics_configuration::PutBucketMetricsConfigurationInput).
     pub fn build(self) -> crate::operation::put_bucket_metrics_configuration::PutBucketMetricsConfigurationInput {
         crate::operation::put_bucket_metrics_configuration::PutBucketMetricsConfigurationInput {

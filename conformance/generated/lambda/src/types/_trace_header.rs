@@ -32,9 +32,14 @@ impl TraceHeaderBuilder {
         self.x_amzn_trace_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_x_amzn_trace_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.x_amzn_trace_id = input; self }
+    pub fn set_x_amzn_trace_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.x_amzn_trace_id = input;
+        self
+    }
     /// <p>The X-Ray trace header associated with the durable execution.</p>
-    pub fn get_x_amzn_trace_id(&self) -> &::std::option::Option<::std::string::String> { &self.x_amzn_trace_id }
+    pub fn get_x_amzn_trace_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.x_amzn_trace_id
+    }
     /// Consumes the builder and constructs a [`TraceHeader`](crate::types::TraceHeader).
     pub fn build(self) -> crate::types::TraceHeader {
         crate::types::TraceHeader {

@@ -2,19 +2,33 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetFederationToken;
-impl GetFederationToken { pub fn new() -> Self { Self } }
+impl GetFederationToken {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     MalformedPolicyDocumentException(super::super::types::error::MalformedPolicyDocumentException),
     PackedPolicyTooLargeException(super::super::types::error::PackedPolicyTooLargeException),
     RegionDisabledException(super::super::types::error::RegionDisabledException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_malformed_policy_document_exception(&self) -> bool { matches!(self, Self::MalformedPolicyDocumentException(_)) }
-    pub fn is_packed_policy_too_large_exception(&self) -> bool { matches!(self, Self::PackedPolicyTooLargeException(_)) }
-    pub fn is_region_disabled_exception(&self) -> bool { matches!(self, Self::RegionDisabledException(_)) }
+    pub fn is_malformed_policy_document_exception(&self) -> bool {
+        matches!(self, Self::MalformedPolicyDocumentException(_))
+    }
+    pub fn is_packed_policy_too_large_exception(&self) -> bool {
+        matches!(self, Self::PackedPolicyTooLargeException(_))
+    }
+    pub fn is_region_disabled_exception(&self) -> bool {
+        matches!(self, Self::RegionDisabledException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -29,19 +43,49 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _get_federation_token_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/operation/get_federation_token/_get_federation_token_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sts/src/operation/get_federation_token/_get_federation_token_input.rs"
+    ));
 }
 pub use _get_federation_token_input::GetFederationTokenInput;
 pub type Input = GetFederationTokenInput;
 pub mod _get_federation_token_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/operation/get_federation_token/_get_federation_token_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sts/src/operation/get_federation_token/_get_federation_token_output.rs"
+    ));
 }
 pub use _get_federation_token_output::GetFederationTokenOutput;
 pub type Output = GetFederationTokenOutput;

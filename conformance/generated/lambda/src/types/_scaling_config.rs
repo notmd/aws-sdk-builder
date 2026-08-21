@@ -32,9 +32,14 @@ impl ScalingConfigBuilder {
         self.maximum_concurrency = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_maximum_concurrency(mut self, input: ::std::option::Option<i32>) -> Self { self.maximum_concurrency = input; self }
+    pub fn set_maximum_concurrency(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.maximum_concurrency = input;
+        self
+    }
     /// <p>Limits the number of concurrent instances that the Amazon SQS event source can invoke.</p>
-    pub fn get_maximum_concurrency(&self) -> &::std::option::Option<i32> { &self.maximum_concurrency }
+    pub fn get_maximum_concurrency(&self) -> &::std::option::Option<i32> {
+        &self.maximum_concurrency
+    }
     /// Consumes the builder and constructs a [`ScalingConfig`](crate::types::ScalingConfig).
     pub fn build(self) -> crate::types::ScalingConfig {
         crate::types::ScalingConfig {

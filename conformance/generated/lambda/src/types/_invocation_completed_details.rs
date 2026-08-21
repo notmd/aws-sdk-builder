@@ -55,35 +55,55 @@ impl InvocationCompletedDetailsBuilder {
         self.start_timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.start_timestamp = input; self }
+    pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.start_timestamp = input;
+        self
+    }
     /// <p>The date and time when the invocation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn get_start_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.start_timestamp }
+    pub fn get_start_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.start_timestamp
+    }
     /// <p>The date and time when the invocation ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     /// This field is required.
     pub fn end_timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.end_timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.end_timestamp = input; self }
+    pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.end_timestamp = input;
+        self
+    }
     /// <p>The date and time when the invocation ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn get_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.end_timestamp }
+    pub fn get_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.end_timestamp
+    }
     /// <p>The request ID for the invocation.</p>
     /// This field is required.
     pub fn request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.request_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.request_id = input; self }
+    pub fn set_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.request_id = input;
+        self
+    }
     /// <p>The request ID for the invocation.</p>
-    pub fn get_request_id(&self) -> &::std::option::Option<::std::string::String> { &self.request_id }
+    pub fn get_request_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.request_id
+    }
     /// <p>Details about the invocation failure.</p>
     pub fn error(mut self, input: crate::types::EventError) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>Details about the invocation failure.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> {
+        &self.error
+    }
     /// Consumes the builder and constructs a [`InvocationCompletedDetails`](crate::types::InvocationCompletedDetails).
     /// This method will fail if any of the following fields are not set:
     /// - [`start_timestamp`](Self::start_timestamp)
@@ -91,9 +111,24 @@ impl InvocationCompletedDetailsBuilder {
     /// - [`request_id`](Self::request_id)
     pub fn build(self) -> ::std::result::Result<crate::types::InvocationCompletedDetails, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InvocationCompletedDetails {
-            start_timestamp: self.start_timestamp.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("start_timestamp", "start_timestamp was not specified but it is required when building InvocationCompletedDetails"))?,
-            end_timestamp: self.end_timestamp.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("end_timestamp", "end_timestamp was not specified but it is required when building InvocationCompletedDetails"))?,
-            request_id: self.request_id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("request_id", "request_id was not specified but it is required when building InvocationCompletedDetails"))?,
+            start_timestamp: self.start_timestamp.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "start_timestamp",
+                    "start_timestamp was not specified but it is required when building InvocationCompletedDetails",
+                )
+            })?,
+            end_timestamp: self.end_timestamp.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "end_timestamp",
+                    "end_timestamp was not specified but it is required when building InvocationCompletedDetails",
+                )
+            })?,
+            request_id: self.request_id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "request_id",
+                    "request_id was not specified but it is required when building InvocationCompletedDetails",
+                )
+            })?,
             error: self.error,
         })
     }

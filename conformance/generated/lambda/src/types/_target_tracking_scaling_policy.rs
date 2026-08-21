@@ -40,26 +40,46 @@ impl TargetTrackingScalingPolicyBuilder {
         self.predefined_metric_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_predefined_metric_type(mut self, input: ::std::option::Option<crate::types::CapacityProviderPredefinedMetricType>) -> Self { self.predefined_metric_type = input; self }
+    pub fn set_predefined_metric_type(mut self, input: ::std::option::Option<crate::types::CapacityProviderPredefinedMetricType>) -> Self {
+        self.predefined_metric_type = input;
+        self
+    }
     /// <p>The predefined metric type to track for scaling decisions.</p>
-    pub fn get_predefined_metric_type(&self) -> &::std::option::Option<crate::types::CapacityProviderPredefinedMetricType> { &self.predefined_metric_type }
+    pub fn get_predefined_metric_type(&self) -> &::std::option::Option<crate::types::CapacityProviderPredefinedMetricType> {
+        &self.predefined_metric_type
+    }
     /// <p>The target value for the metric that the scaling policy attempts to maintain through scaling actions.</p>
     /// This field is required.
     pub fn target_value(mut self, input: f64) -> Self {
         self.target_value = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_target_value(mut self, input: ::std::option::Option<f64>) -> Self { self.target_value = input; self }
+    pub fn set_target_value(mut self, input: ::std::option::Option<f64>) -> Self {
+        self.target_value = input;
+        self
+    }
     /// <p>The target value for the metric that the scaling policy attempts to maintain through scaling actions.</p>
-    pub fn get_target_value(&self) -> &::std::option::Option<f64> { &self.target_value }
+    pub fn get_target_value(&self) -> &::std::option::Option<f64> {
+        &self.target_value
+    }
     /// Consumes the builder and constructs a [`TargetTrackingScalingPolicy`](crate::types::TargetTrackingScalingPolicy).
     /// This method will fail if any of the following fields are not set:
     /// - [`predefined_metric_type`](Self::predefined_metric_type)
     /// - [`target_value`](Self::target_value)
     pub fn build(self) -> ::std::result::Result<crate::types::TargetTrackingScalingPolicy, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TargetTrackingScalingPolicy {
-            predefined_metric_type: self.predefined_metric_type.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("predefined_metric_type", "predefined_metric_type was not specified but it is required when building TargetTrackingScalingPolicy"))?,
-            target_value: self.target_value.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("target_value", "target_value was not specified but it is required when building TargetTrackingScalingPolicy"))?,
+            predefined_metric_type: self.predefined_metric_type.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "predefined_metric_type",
+                    "predefined_metric_type was not specified but it is required when building TargetTrackingScalingPolicy",
+                )
+            })?,
+            target_value: self.target_value.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "target_value",
+                    "target_value was not specified but it is required when building TargetTrackingScalingPolicy",
+                )
+            })?,
         })
     }
 }

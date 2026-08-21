@@ -41,23 +41,38 @@ impl ChainedInvokeOptionsBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.function_name = input; self }
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.function_name = input;
+        self
+    }
     /// <p>The name or ARN of the Lambda function to invoke.</p>
-    pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> { &self.function_name }
+    pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.function_name
+    }
     /// <p>The tenant identifier for the chained invocation.</p>
     pub fn tenant_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.tenant_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_tenant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.tenant_id = input; self }
+    pub fn set_tenant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.tenant_id = input;
+        self
+    }
     /// <p>The tenant identifier for the chained invocation.</p>
-    pub fn get_tenant_id(&self) -> &::std::option::Option<::std::string::String> { &self.tenant_id }
+    pub fn get_tenant_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.tenant_id
+    }
     /// Consumes the builder and constructs a [`ChainedInvokeOptions`](crate::types::ChainedInvokeOptions).
     /// This method will fail if any of the following fields are not set:
     /// - [`function_name`](Self::function_name)
     pub fn build(self) -> ::std::result::Result<crate::types::ChainedInvokeOptions, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ChainedInvokeOptions {
-            function_name: self.function_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_name", "function_name was not specified but it is required when building ChainedInvokeOptions"))?,
+            function_name: self.function_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "function_name",
+                    "function_name was not specified but it is required when building ChainedInvokeOptions",
+                )
+            })?,
             tenant_id: self.tenant_id,
         })
     }

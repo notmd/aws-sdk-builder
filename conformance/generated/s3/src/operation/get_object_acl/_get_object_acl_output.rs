@@ -58,9 +58,14 @@ impl GetObjectAclOutputBuilder {
         self.owner = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_owner(mut self, input: ::std::option::Option<crate::types::Owner>) -> Self { self.owner = input; self }
+    pub fn set_owner(mut self, input: ::std::option::Option<crate::types::Owner>) -> Self {
+        self.owner = input;
+        self
+    }
     /// <p>Container for the bucket owner's ID.</p>
-    pub fn get_owner(&self) -> &::std::option::Option<crate::types::Owner> { &self.owner }
+    pub fn get_owner(&self) -> &::std::option::Option<crate::types::Owner> {
+        &self.owner
+    }
     /// <p>A list of grants.</p>
     /// Appends an item to `grants`.
     ///
@@ -71,15 +76,25 @@ impl GetObjectAclOutputBuilder {
         self.grants = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_grants(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Grant>>) -> Self { self.grants = input; self }
+    pub fn set_grants(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Grant>>) -> Self {
+        self.grants = input;
+        self
+    }
     /// <p>A list of grants.</p>
-    pub fn get_grants(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Grant>> { &self.grants }
+    pub fn get_grants(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Grant>> {
+        &self.grants
+    }
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+        self.request_charged = input;
+        self
+    }
+    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+        &self.request_charged
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

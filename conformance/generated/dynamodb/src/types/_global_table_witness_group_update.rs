@@ -39,17 +39,27 @@ impl GlobalTableWitnessGroupUpdateBuilder {
         self.create = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_create(mut self, input: ::std::option::Option<crate::types::CreateGlobalTableWitnessGroupMemberAction>) -> Self { self.create = input; self }
+    pub fn set_create(mut self, input: ::std::option::Option<crate::types::CreateGlobalTableWitnessGroupMemberAction>) -> Self {
+        self.create = input;
+        self
+    }
     /// <p>Specifies a witness Region to be added to a new MRSC global table. The witness must be added when creating the MRSC global table.</p>
-    pub fn get_create(&self) -> &::std::option::Option<crate::types::CreateGlobalTableWitnessGroupMemberAction> { &self.create }
+    pub fn get_create(&self) -> &::std::option::Option<crate::types::CreateGlobalTableWitnessGroupMemberAction> {
+        &self.create
+    }
     /// <p>Specifies a witness Region to be removed from an existing global table. Must be done in conjunction with removing a replica. The deletion of both a witness and replica converts the remaining replica to a single-Region DynamoDB table.</p>
     pub fn delete(mut self, input: crate::types::DeleteGlobalTableWitnessGroupMemberAction) -> Self {
         self.delete = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_delete(mut self, input: ::std::option::Option<crate::types::DeleteGlobalTableWitnessGroupMemberAction>) -> Self { self.delete = input; self }
+    pub fn set_delete(mut self, input: ::std::option::Option<crate::types::DeleteGlobalTableWitnessGroupMemberAction>) -> Self {
+        self.delete = input;
+        self
+    }
     /// <p>Specifies a witness Region to be removed from an existing global table. Must be done in conjunction with removing a replica. The deletion of both a witness and replica converts the remaining replica to a single-Region DynamoDB table.</p>
-    pub fn get_delete(&self) -> &::std::option::Option<crate::types::DeleteGlobalTableWitnessGroupMemberAction> { &self.delete }
+    pub fn get_delete(&self) -> &::std::option::Option<crate::types::DeleteGlobalTableWitnessGroupMemberAction> {
+        &self.delete
+    }
     /// Consumes the builder and constructs a [`GlobalTableWitnessGroupUpdate`](crate::types::GlobalTableWitnessGroupUpdate).
     pub fn build(self) -> crate::types::GlobalTableWitnessGroupUpdate {
         crate::types::GlobalTableWitnessGroupUpdate {

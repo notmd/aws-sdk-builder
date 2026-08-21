@@ -47,26 +47,44 @@ impl UpdateKinesisStreamingDestinationInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The table name for the Kinesis streaming destination input. You can also provide the ARN of the table in this parameter.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>The Amazon Resource Name (ARN) for the Kinesis stream input.</p>
     /// This field is required.
     pub fn stream_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.stream_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.stream_arn = input; self }
+    pub fn set_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.stream_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) for the Kinesis stream input.</p>
-    pub fn get_stream_arn(&self) -> &::std::option::Option<::std::string::String> { &self.stream_arn }
+    pub fn get_stream_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.stream_arn
+    }
     /// <p>The command to update the Kinesis stream configuration.</p>
     pub fn update_kinesis_streaming_configuration(mut self, input: crate::types::UpdateKinesisStreamingConfiguration) -> Self {
         self.update_kinesis_streaming_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_update_kinesis_streaming_configuration(mut self, input: ::std::option::Option<crate::types::UpdateKinesisStreamingConfiguration>) -> Self { self.update_kinesis_streaming_configuration = input; self }
+    pub fn set_update_kinesis_streaming_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::UpdateKinesisStreamingConfiguration>,
+    ) -> Self {
+        self.update_kinesis_streaming_configuration = input;
+        self
+    }
     /// <p>The command to update the Kinesis stream configuration.</p>
-    pub fn get_update_kinesis_streaming_configuration(&self) -> &::std::option::Option<crate::types::UpdateKinesisStreamingConfiguration> { &self.update_kinesis_streaming_configuration }
+    pub fn get_update_kinesis_streaming_configuration(&self) -> &::std::option::Option<crate::types::UpdateKinesisStreamingConfiguration> {
+        &self.update_kinesis_streaming_configuration
+    }
     /// Consumes the builder and constructs a [`UpdateKinesisStreamingDestinationInput`](crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput).
     pub fn build(self) -> crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput {
         crate::operation::update_kinesis_streaming_destination::UpdateKinesisStreamingDestinationInput {

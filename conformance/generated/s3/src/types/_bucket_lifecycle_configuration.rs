@@ -38,15 +38,25 @@ impl BucketLifecycleConfigurationBuilder {
         self.rules = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>>) -> Self { self.rules = input; self }
+    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>>) -> Self {
+        self.rules = input;
+        self
+    }
     /// <p>A lifecycle rule for individual objects in an Amazon S3 bucket.</p>
-    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>> { &self.rules }
+    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LifecycleRule>> {
+        &self.rules
+    }
     /// Consumes the builder and constructs a [`BucketLifecycleConfiguration`](crate::types::BucketLifecycleConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`rules`](Self::rules)
     pub fn build(self) -> ::std::result::Result<crate::types::BucketLifecycleConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::BucketLifecycleConfiguration {
-            rules: self.rules.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("rules", "rules was not specified but it is required when building BucketLifecycleConfiguration"))?,
+            rules: self.rules.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "rules",
+                    "rules was not specified but it is required when building BucketLifecycleConfiguration",
+                )
+            })?,
         })
     }
 }

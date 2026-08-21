@@ -61,49 +61,84 @@ impl JournalTableConfigurationResultBuilder {
         self.table_status = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_status = input; self }
+    pub fn set_table_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_status = input;
+        self
+    }
     /// <p>The status of the journal table. The status values are:</p><ul><li><p><code>CREATING</code> - The journal table is in the process of being created in the specified table bucket.</p></li><li><p><code>ACTIVE</code> - The journal table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the journal table, or Amazon S3 is unable to deliver records.</p></li></ul>
-    pub fn get_table_status(&self) -> &::std::option::Option<::std::string::String> { &self.table_status }
+    pub fn get_table_status(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_status
+    }
     pub fn error(mut self, input: crate::types::ErrorDetails) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self { self.error = input; self }
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorDetails> { &self.error }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
+        self.error = input;
+        self
+    }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorDetails> {
+        &self.error
+    }
     /// <p>The name of the journal table.</p>
     /// This field is required.
     pub fn table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the journal table.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>The Amazon Resource Name (ARN) for the journal table.</p>
     pub fn table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_arn = input; self }
+    pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) for the journal table.</p>
-    pub fn get_table_arn(&self) -> &::std::option::Option<::std::string::String> { &self.table_arn }
+    pub fn get_table_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_arn
+    }
     /// <p>The journal table record expiration settings for the journal table.</p>
     pub fn record_expiration(mut self, input: crate::types::RecordExpiration) -> Self {
         self.record_expiration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_record_expiration(mut self, input: ::std::option::Option<crate::types::RecordExpiration>) -> Self { self.record_expiration = input; self }
+    pub fn set_record_expiration(mut self, input: ::std::option::Option<crate::types::RecordExpiration>) -> Self {
+        self.record_expiration = input;
+        self
+    }
     /// <p>The journal table record expiration settings for the journal table.</p>
-    pub fn get_record_expiration(&self) -> &::std::option::Option<crate::types::RecordExpiration> { &self.record_expiration }
+    pub fn get_record_expiration(&self) -> &::std::option::Option<crate::types::RecordExpiration> {
+        &self.record_expiration
+    }
     /// Consumes the builder and constructs a [`JournalTableConfigurationResult`](crate::types::JournalTableConfigurationResult).
     /// This method will fail if any of the following fields are not set:
     /// - [`table_status`](Self::table_status)
     /// - [`table_name`](Self::table_name)
     pub fn build(self) -> ::std::result::Result<crate::types::JournalTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::JournalTableConfigurationResult {
-            table_status: self.table_status.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("table_status", "table_status was not specified but it is required when building JournalTableConfigurationResult"))?,
+            table_status: self.table_status.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "table_status",
+                    "table_status was not specified but it is required when building JournalTableConfigurationResult",
+                )
+            })?,
             error: self.error,
-            table_name: self.table_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("table_name", "table_name was not specified but it is required when building JournalTableConfigurationResult"))?,
+            table_name: self.table_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "table_name",
+                    "table_name was not specified but it is required when building JournalTableConfigurationResult",
+                )
+            })?,
             table_arn: self.table_arn,
             record_expiration: self.record_expiration,
         })

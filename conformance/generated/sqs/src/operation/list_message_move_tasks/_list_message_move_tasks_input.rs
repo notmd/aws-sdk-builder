@@ -40,17 +40,27 @@ impl ListMessageMoveTasksInputBuilder {
         self.source_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.source_arn = input; self }
+    pub fn set_source_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.source_arn = input;
+        self
+    }
     /// <p>The ARN of the queue whose message movement tasks are to be listed.</p>
-    pub fn get_source_arn(&self) -> &::std::option::Option<::std::string::String> { &self.source_arn }
+    pub fn get_source_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.source_arn
+    }
     /// <p>The maximum number of results to include in the response. The default is 1, which provides the most recent message movement task. The upper limit is 10.</p>
     pub fn max_results(mut self, input: i32) -> Self {
         self.max_results = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self { self.max_results = input; self }
+    pub fn set_max_results(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.max_results = input;
+        self
+    }
     /// <p>The maximum number of results to include in the response. The default is 1, which provides the most recent message movement task. The upper limit is 10.</p>
-    pub fn get_max_results(&self) -> &::std::option::Option<i32> { &self.max_results }
+    pub fn get_max_results(&self) -> &::std::option::Option<i32> {
+        &self.max_results
+    }
     /// Consumes the builder and constructs a [`ListMessageMoveTasksInput`](crate::operation::list_message_move_tasks::ListMessageMoveTasksInput).
     pub fn build(self) -> crate::operation::list_message_move_tasks::ListMessageMoveTasksInput {
         crate::operation::list_message_move_tasks::ListMessageMoveTasksInput {

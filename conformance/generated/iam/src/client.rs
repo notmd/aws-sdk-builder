@@ -2,192 +2,242 @@
 
 #[allow(dead_code)]
 pub(crate) mod transport {
-use ::std::fmt;
-use ::std::io::{Read, Write};
-use ::std::net::TcpStream;
-use ::std::collections::BTreeMap;
+    use ::std::collections::BTreeMap;
+    use ::std::fmt;
+    use ::std::io::{Read, Write};
+    use ::std::net::TcpStream;
 
-#[derive(Clone, Copy, Debug)]
-pub(crate) enum Method { Get, Put, Post, Delete, Head, Patch }
+    #[derive(Clone, Copy, Debug)]
+    pub(crate) enum Method {
+        Get,
+        Put,
+        Post,
+        Delete,
+        Head,
+        Patch,
+    }
 
-impl Method {
-fn as_str(self) -> &'static str {
-match self {
-Self::Get => "GET",
-Self::Put => "PUT",
-Self::Post => "POST",
-Self::Delete => "DELETE",
-Self::Head => "HEAD",
-Self::Patch => "PATCH",
-}
-}
-}
+    impl Method {
+        fn as_str(self) -> &'static str {
+            match self {
+                Self::Get => "GET",
+                Self::Put => "PUT",
+                Self::Post => "POST",
+                Self::Delete => "DELETE",
+                Self::Head => "HEAD",
+                Self::Patch => "PATCH",
+            }
+        }
+    }
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub(crate) struct StatusCode(u16);
+    #[derive(Clone, Copy, Debug, PartialEq, Eq)]
+    pub(crate) struct StatusCode(u16);
 
-impl StatusCode {
-pub(crate) const CONFLICT: Self = Self(409);
-pub(crate) fn is_success(self) -> bool { (200..300).contains(&self.0) }
-}
+    impl StatusCode {
+        pub(crate) const CONFLICT: Self = Self(409);
+        pub(crate) fn is_success(self) -> bool {
+            (200..300).contains(&self.0)
+        }
+    }
 
-impl fmt::Display for StatusCode {
-fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
-self.0.fmt(formatter)
-}
-}
+    impl fmt::Display for StatusCode {
+        fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+            self.0.fmt(formatter)
+        }
+    }
 
-#[derive(Clone, Debug)]
-pub(crate) struct Response {
-status: StatusCode,
-headers: BTreeMap<String, String>,
-body: Vec<u8>,
-}
+    #[derive(Clone, Debug)]
+    pub(crate) struct Response {
+        status: StatusCode,
+        headers: BTreeMap<String, String>,
+        body: Vec<u8>,
+    }
 
-impl Response {
-pub(crate) fn status(&self) -> StatusCode { self.status }
-pub(crate) fn header(&self, name: &str) -> Option<&str> {
-self.headers.get(&name.to_ascii_lowercase()).map(String::as_str)
-}
-pub(crate) fn body(&self) -> &[u8] { &self.body }
-pub(crate) async fn text(&self) -> Result<String, String> {
-String::from_utf8(self.body.clone()).map_err(|error| error.to_string())
-}
-}
+    impl Response {
+        pub(crate) fn status(&self) -> StatusCode {
+            self.status
+        }
+        pub(crate) fn header(&self, name: &str) -> Option<&str> {
+            self.headers.get(&name.to_ascii_lowercase()).map(String::as_str)
+        }
+        pub(crate) fn body(&self) -> &[u8] {
+            &self.body
+        }
+        pub(crate) async fn text(&self) -> Result<String, String> {
+            String::from_utf8(self.body.clone()).map_err(|error| error.to_string())
+        }
+    }
 
-#[derive(Clone, Debug, Default)]
-pub(crate) struct HttpClient;
+    #[derive(Clone, Debug, Default)]
+    pub(crate) struct HttpClient;
 
-impl HttpClient {
-pub(crate) fn new() -> Self { Self }
-pub(crate) async fn request(
-&self,
-method: Method,
-url: &str,
-headers: &[(&str, &str)],
-body: &[u8],
-) -> Result<Response, String> {
-let (host, port, path) = parse_http_url(url)?;
-let mut stream = TcpStream::connect((host.as_str(), port))
-.map_err(|error| format!("failed to connect to {host}:{port}: {error}"))?;
-let mut request = format!("{} {} HTTP/1.1\r\nHost: {}\r\nConnection: close\r\nContent-Length: {}\r\n", method.as_str(), path, host, body.len());
-for (name, value) in headers {
-request.push_str(name);
-request.push_str(": " );
-request.push_str(value);
-request.push_str("\r\n");
-}
-request.push_str("\r\n");
-let mut request_bytes = request.into_bytes();
-request_bytes.extend_from_slice(body);
-stream.write_all(&request_bytes).map_err(|error| format!("failed to write HTTP request: {error}"))?;
-let mut bytes = Vec::new();
-stream.read_to_end(&mut bytes).map_err(|error| format!("failed to read HTTP response: {error}"))?;
-parse_response(&bytes)
-}
-}
+    impl HttpClient {
+        pub(crate) fn new() -> Self {
+            Self
+        }
+        pub(crate) async fn request(&self, method: Method, url: &str, headers: &[(&str, &str)], body: &[u8]) -> Result<Response, String> {
+            let (host, port, path) = parse_http_url(url)?;
+            let mut stream = TcpStream::connect((host.as_str(), port)).map_err(|error| format!("failed to connect to {host}:{port}: {error}"))?;
+            let mut request = format!(
+                "{} {} HTTP/1.1\r\nHost: {}\r\nConnection: close\r\nContent-Length: {}\r\n",
+                method.as_str(),
+                path,
+                host,
+                body.len()
+            );
+            for (name, value) in headers {
+                request.push_str(name);
+                request.push_str(": ");
+                request.push_str(value);
+                request.push_str("\r\n");
+            }
+            request.push_str("\r\n");
+            let mut request_bytes = request.into_bytes();
+            request_bytes.extend_from_slice(body);
+            stream
+                .write_all(&request_bytes)
+                .map_err(|error| format!("failed to write HTTP request: {error}"))?;
+            let mut bytes = Vec::new();
+            stream
+                .read_to_end(&mut bytes)
+                .map_err(|error| format!("failed to read HTTP response: {error}"))?;
+            parse_response(&bytes)
+        }
+    }
 
-fn parse_http_url(url: &str) -> Result<(String, u16, String), String> {
-let authority_and_path = url.strip_prefix("http://").ok_or_else(|| format!("only http:// endpoints are supported: {url}"))?;
-let (authority, path) = authority_and_path.split_once('/').map_or((authority_and_path, "/"), |(authority, _path)| (authority, &authority_and_path[authority.len()..]));
-if authority.is_empty() { return Err(format!("endpoint has no host: {url}")); }
-let (host, port) = if let Some((host, port)) = authority.rsplit_once(':') {
-let port = port.parse::<u16>().map_err(|error| format!("invalid endpoint port in {url}: {error}"))?;
-(host.to_owned(), port)
-} else {
-(authority.to_owned(), 80)
-};
-Ok((host, port, path.to_owned()))
-}
+    fn parse_http_url(url: &str) -> Result<(String, u16, String), String> {
+        let authority_and_path = url
+            .strip_prefix("http://")
+            .ok_or_else(|| format!("only http:// endpoints are supported: {url}"))?;
+        let (authority, path) = authority_and_path
+            .split_once('/')
+            .map_or((authority_and_path, "/"), |(authority, _path)| {
+                (authority, &authority_and_path[authority.len()..])
+            });
+        if authority.is_empty() {
+            return Err(format!("endpoint has no host: {url}"));
+        }
+        let (host, port) = if let Some((host, port)) = authority.rsplit_once(':') {
+            let port = port.parse::<u16>().map_err(|error| format!("invalid endpoint port in {url}: {error}"))?;
+            (host.to_owned(), port)
+        } else {
+            (authority.to_owned(), 80)
+        };
+        Ok((host, port, path.to_owned()))
+    }
 
-fn parse_response(bytes: &[u8]) -> Result<Response, String> {
-let header_end = bytes.windows(4).position(|window| window == b"\r\n\r\n").ok_or_else(|| "HTTP response did not contain a header terminator".to_owned())?;
-let header = ::std::str::from_utf8(&bytes[..header_end]).map_err(|error| format!("HTTP response headers were not UTF-8: {error}"))?;
-let status = header.lines().next().and_then(|line| line.split_whitespace().nth(1)).ok_or_else(|| "HTTP response did not contain a status code".to_owned())?.parse::<u16>().map_err(|error| format!("HTTP response status was invalid: {error}"))?;
-let mut headers = BTreeMap::new();
-for line in header.lines().skip(1) {
-if let Some((name, value)) = line.split_once(':') {
-headers.insert(name.trim().to_ascii_lowercase(), value.trim().to_owned());
-}
-}
-Ok(Response { status: StatusCode(status), headers, body: bytes[header_end + 4..].to_vec() })
-}
+    fn parse_response(bytes: &[u8]) -> Result<Response, String> {
+        let header_end = bytes
+            .windows(4)
+            .position(|window| window == b"\r\n\r\n")
+            .ok_or_else(|| "HTTP response did not contain a header terminator".to_owned())?;
+        let header = ::std::str::from_utf8(&bytes[..header_end]).map_err(|error| format!("HTTP response headers were not UTF-8: {error}"))?;
+        let status = header
+            .lines()
+            .next()
+            .and_then(|line| line.split_whitespace().nth(1))
+            .ok_or_else(|| "HTTP response did not contain a status code".to_owned())?
+            .parse::<u16>()
+            .map_err(|error| format!("HTTP response status was invalid: {error}"))?;
+        let mut headers = BTreeMap::new();
+        for line in header.lines().skip(1) {
+            if let Some((name, value)) = line.split_once(':') {
+                headers.insert(name.trim().to_ascii_lowercase(), value.trim().to_owned());
+            }
+        }
+        Ok(Response {
+            status: StatusCode(status),
+            headers,
+            body: bytes[header_end + 4..].to_vec(),
+        })
+    }
 
-pub(crate) fn encode_path(value: &str) -> String {
-value.bytes().fold(String::new(), |mut result, byte| {
-if byte.is_ascii_alphanumeric() || matches!(byte, b'-' | b'_' | b'.' | b'~' | b'/') {
-result.push(byte as char);
-} else {
-result.push('%');
-result.push(hex(byte >> 4));
-result.push(hex(byte & 0x0f));
-}
-result
-})
-}
-fn hex(value: u8) -> char {
-match value { 0..=9 => (b'0' + value) as char, _ => (b'A' + value - 10) as char }
-}
-pub(crate) fn xml_escape(value: &str) -> String {
-value
-.replace('&', "&amp;")
-.replace('<', "&lt;")
-.replace('>', "&gt;")
-.replace('\"', "&quot;")
-.replace('\'', "&apos;")
-}
-pub(crate) fn xml_unescape(value: &str) -> String {
-value
-.replace("&lt;", "<")
-.replace("&gt;", ">")
-.replace("&apos;", "'")
-.replace("&amp;", "&")
-}
-pub(crate) fn xml_first(xml: &str, tag: &str) -> Option<String> {
-xml_tags(xml, tag).into_iter().next().map(|value| xml_unescape(&value))
-}
-pub(crate) fn xml_tags(xml: &str, tag: &str) -> Vec<String> {
-let open = format!("<{tag}>");
-let close = format!("</{tag}>");
-let mut values = Vec::new();
-let mut remaining = xml;
-while let Some(start) = remaining.find(&open) {
-let value_start = start + open.len();
-let Some(end) = remaining[value_start..].find(&close) else { break };
-values.push(remaining[value_start..value_start + end].to_owned());
-remaining = &remaining[value_start + end + close.len()..];
-}
-values
-}
+    pub(crate) fn encode_path(value: &str) -> String {
+        value.bytes().fold(String::new(), |mut result, byte| {
+            if byte.is_ascii_alphanumeric() || matches!(byte, b'-' | b'_' | b'.' | b'~' | b'/') {
+                result.push(byte as char);
+            } else {
+                result.push('%');
+                result.push(hex(byte >> 4));
+                result.push(hex(byte & 0x0f));
+            }
+            result
+        })
+    }
+    fn hex(value: u8) -> char {
+        match value {
+            0..=9 => (b'0' + value) as char,
+            _ => (b'A' + value - 10) as char,
+        }
+    }
+    pub(crate) fn xml_escape(value: &str) -> String {
+        value
+            .replace('&', "&amp;")
+            .replace('<', "&lt;")
+            .replace('>', "&gt;")
+            .replace('\"', "&quot;")
+            .replace('\'', "&apos;")
+    }
+    pub(crate) fn xml_unescape(value: &str) -> String {
+        value
+            .replace("&lt;", "<")
+            .replace("&gt;", ">")
+            .replace("&apos;", "'")
+            .replace("&amp;", "&")
+    }
+    pub(crate) fn xml_first(xml: &str, tag: &str) -> Option<String> {
+        xml_tags(xml, tag).into_iter().next().map(|value| xml_unescape(&value))
+    }
+    pub(crate) fn xml_tags(xml: &str, tag: &str) -> Vec<String> {
+        let open = format!("<{tag}>");
+        let close = format!("</{tag}>");
+        let mut values = Vec::new();
+        let mut remaining = xml;
+        while let Some(start) = remaining.find(&open) {
+            let value_start = start + open.len();
+            let Some(end) = remaining[value_start..].find(&close) else { break };
+            values.push(remaining[value_start..value_start + end].to_owned());
+            remaining = &remaining[value_start + end + close.len()..];
+        }
+        values
+    }
 }
 
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 
 #[derive(Clone, Debug, Default)]
 pub struct Client {
-config: Config,
-http: transport::HttpClient,
+    config: Config,
+    http: transport::HttpClient,
 }
 impl Client {
-pub fn new(config: &Config) -> Self {
-Self { config: config.clone(), http: transport::HttpClient::new() }
-}
-pub fn config(&self) -> &Config { &self.config }
-pub(crate) async fn request(
-&self,
-method: transport::Method,
-path: &str,
-headers: &[(&str, &str)],
-body: &[u8],
-) -> ::std::result::Result<transport::Response, ::std::string::String> {
-let url = format!("{}{}", self.config.endpoint_url.trim_end_matches('/'), path);
-self.http.request(method, &url, headers, body).await
-}
+    pub fn new(config: &Config) -> Self {
+        Self {
+            config: config.clone(),
+            http: transport::HttpClient::new(),
+        }
+    }
+    pub fn config(&self) -> &Config {
+        &self.config
+    }
+    pub(crate) async fn request(
+        &self,
+        method: transport::Method,
+        path: &str,
+        headers: &[(&str, &str)],
+        body: &[u8],
+    ) -> ::std::result::Result<transport::Response, ::std::string::String> {
+        let url = format!("{}{}", self.config.endpoint_url.trim_end_matches('/'), path);
+        self.http.request(method, &url, headers, body).await
+    }
 }
 
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/accept_delegation_request.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/acquire_role.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/add_client_id_to_open_id_connect_provider.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/add_client_id_to_open_id_connect_provider.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/add_role_to_instance_profile.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/add_user_to_group.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/associate_delegation_request.rs"));
@@ -207,7 +257,10 @@ include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/create_policy_versi
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/create_role.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/create_saml_provider.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/create_service_linked_role.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/create_service_specific_credential.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/create_service_specific_credential.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/create_user.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/create_virtual_mfa_device.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/deactivate_mfa_device.rs"));
@@ -228,7 +281,10 @@ include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/delete_saml_provide
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/delete_ssh_public_key.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/delete_server_certificate.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/delete_service_linked_role.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/delete_service_specific_credential.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/delete_service_specific_credential.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/delete_signing_certificate.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/delete_user.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/delete_user_permissions_boundary.rs"));
@@ -237,23 +293,53 @@ include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/delete_virtual_mfa_
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/detach_group_policy.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/detach_role_policy.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/detach_user_policy.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/disable_organizations_root_credentials_management.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/disable_organizations_root_sessions.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/disable_outbound_web_identity_federation.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/disable_organizations_root_credentials_management.rs"
+));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/disable_organizations_root_sessions.rs"
+));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/disable_outbound_web_identity_federation.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/enable_mfa_device.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/enable_organizations_root_credentials_management.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/enable_organizations_root_sessions.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/enable_outbound_web_identity_federation.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/enable_organizations_root_credentials_management.rs"
+));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/enable_organizations_root_sessions.rs"
+));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/enable_outbound_web_identity_federation.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/generate_credential_report.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/generate_organizations_access_report.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/generate_service_last_accessed_details.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/generate_organizations_access_report.rs"
+));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/generate_service_last_accessed_details.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_access_key_last_used.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_account_authorization_details.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_account_password_policy.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_account_properties.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_account_summary.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_context_keys_for_custom_policy.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_context_keys_for_principal_policy.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/get_context_keys_for_custom_policy.rs"
+));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/get_context_keys_for_principal_policy.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_credential_report.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_delegation_request.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_group.rs"));
@@ -264,7 +350,10 @@ include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_login_profile.r
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_mfa_device.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_open_id_connect_provider.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_organizations_access_report.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_outbound_web_identity_federation_info.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/get_outbound_web_identity_federation_info.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_policy.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_policy_version.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_role.rs"));
@@ -274,8 +363,14 @@ include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_saml_provider.r
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_ssh_public_key.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_server_certificate.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_service_last_accessed_details.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_service_last_accessed_details_with_entities.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_service_linked_role_deletion_status.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/get_service_last_accessed_details_with_entities.rs"
+));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/get_service_linked_role_deletion_status.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_user.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/get_user_policy.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/list_access_keys.rs"));
@@ -293,11 +388,17 @@ include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/list_instance_profi
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/list_instance_profiles_for_role.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/list_mfa_device_tags.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/list_mfa_devices.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/list_open_id_connect_provider_tags.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/list_open_id_connect_provider_tags.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/list_open_id_connect_providers.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/list_organizations_features.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/list_policies.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/list_policies_granting_service_access.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/list_policies_granting_service_access.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/list_policy_tags.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/list_policy_versions.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/list_role_policies.rs"));
@@ -321,14 +422,20 @@ include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/put_role_policy.rs"
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/put_user_permissions_boundary.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/put_user_policy.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/reject_delegation_request.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/remove_client_id_from_open_id_connect_provider.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/remove_client_id_from_open_id_connect_provider.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/remove_role_from_instance_profile.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/remove_user_from_group.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/reset_service_specific_credential.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/resync_mfa_device.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/send_delegation_token.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/set_default_policy_version.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/set_security_token_service_preferences.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/set_security_token_service_preferences.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/simulate_custom_policy.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/simulate_principal_policy.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/tag_instance_profile.rs"));
@@ -353,13 +460,19 @@ include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/update_assume_role_
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/update_delegation_request.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/update_group.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/update_login_profile.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/update_open_id_connect_provider_thumbprint.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/update_open_id_connect_provider_thumbprint.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/update_role.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/update_role_description.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/update_saml_provider.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/update_ssh_public_key.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/update_server_certificate.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/update_service_specific_credential.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/iam/src/client/update_service_specific_credential.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/update_signing_certificate.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/update_user.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/iam/src/client/upload_ssh_public_key.rs"));

@@ -6,7 +6,9 @@ impl super::Client {
     /// - On success, responds with [`ListOpenIdConnectProvidersOutput`](crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput) with field(s):
     ///   - [`open_id_connect_provider_list(Option<Vec::<OpenIdConnectProviderListEntry>>)`](crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersOutput::open_id_connect_provider_list): <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
     /// - On failure, responds with [`SdkError<ListOpenIdConnectProvidersError>`](crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersError)
-    pub fn list_open_id_connect_providers(&self) -> crate::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersFluentBuilder {
+    pub fn list_open_id_connect_providers(
+        &self,
+    ) -> crate::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersFluentBuilder {
         crate::operation::list_open_id_connect_providers::builders::ListOpenIdConnectProvidersFluentBuilder::new(self.handle.clone())
     }
 }

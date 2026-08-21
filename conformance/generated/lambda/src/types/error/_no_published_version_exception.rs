@@ -6,30 +6,59 @@
 pub struct NoPublishedVersionException {
     /// <p>The exception type.</p>
     pub r#type: ::std::option::Option<::std::string::String>,
+    #[allow(missing_docs)] // documentation missing in model
     pub message: ::std::option::Option<::std::string::String>,
+    pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
 }
 impl NoPublishedVersionException {
     /// <p>The exception type.</p>
     pub fn r#type(&self) -> ::std::option::Option<&str> {
         self.r#type.as_deref()
     }
+}
+impl NoPublishedVersionException {
+    /// Returns the error message.
     pub fn message(&self) -> ::std::option::Option<&str> {
         self.message.as_deref()
     }
 }
+impl ::std::fmt::Display for NoPublishedVersionException {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        ::std::write!(f, "NoPublishedVersionException")?;
+        if let ::std::option::Option::Some(inner_1) = &self.message {
+            {
+                ::std::write!(f, ": {inner_1}")?;
+            }
+        }
+        Ok(())
+    }
+}
+impl ::std::error::Error for NoPublishedVersionException {}
+impl ::aws_types::request_id::RequestId for crate::types::error::NoPublishedVersionException {
+    fn request_id(&self) -> Option<&str> {
+        use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+        self.meta().request_id()
+    }
+}
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for NoPublishedVersionException {
+    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+        &self.meta
+    }
+}
 impl NoPublishedVersionException {
-    /// Creates a new builder-style object to manufacture [`NoPublishedVersionException`](crate::types::NoPublishedVersionException).
-    pub fn builder() -> crate::types::builders::NoPublishedVersionExceptionBuilder {
-        crate::types::builders::NoPublishedVersionExceptionBuilder::default()
+    /// Creates a new builder-style object to manufacture [`NoPublishedVersionException`](crate::types::error::NoPublishedVersionException).
+    pub fn builder() -> crate::types::error::builders::NoPublishedVersionExceptionBuilder {
+        crate::types::error::builders::NoPublishedVersionExceptionBuilder::default()
     }
 }
 
-/// A builder for [`NoPublishedVersionException`](crate::types::NoPublishedVersionException).
+/// A builder for [`NoPublishedVersionException`](crate::types::error::NoPublishedVersionException).
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct NoPublishedVersionExceptionBuilder {
     pub(crate) r#type: ::std::option::Option<::std::string::String>,
     pub(crate) message: ::std::option::Option<::std::string::String>,
+    meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
 }
 impl NoPublishedVersionExceptionBuilder {
     /// <p>The exception type.</p>
@@ -37,21 +66,45 @@ impl NoPublishedVersionExceptionBuilder {
         self.r#type = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.r#type = input; self }
+    pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.r#type = input;
+        self
+    }
     /// <p>The exception type.</p>
-    pub fn get_type(&self) -> &::std::option::Option<::std::string::String> { &self.r#type }
+    pub fn get_type(&self) -> &::std::option::Option<::std::string::String> {
+        &self.r#type
+    }
+    #[allow(missing_docs)] // documentation missing in model
     pub fn message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.message = input; self }
-    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> { &self.message }
-    /// Consumes the builder and constructs a [`NoPublishedVersionException`](crate::types::NoPublishedVersionException).
-    pub fn build(self) -> crate::types::NoPublishedVersionException {
-        crate::types::NoPublishedVersionException {
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.message = input;
+        self
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.message
+    }
+    /// Sets error metadata
+    pub fn meta(mut self, meta: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+        self.meta = Some(meta);
+        self
+    }
+
+    /// Sets error metadata
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+        self.meta = meta;
+        self
+    }
+    /// Consumes the builder and constructs a [`NoPublishedVersionException`](crate::types::error::NoPublishedVersionException).
+    pub fn build(self) -> crate::types::error::NoPublishedVersionException {
+        crate::types::error::NoPublishedVersionException {
             r#type: self.r#type,
             message: self.message,
+            meta: self.meta.unwrap_or_default(),
         }
     }
 }
-impl ::std::fmt::Display for NoPublishedVersionException { fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result { f.write_str("NoPublishedVersionException") } }

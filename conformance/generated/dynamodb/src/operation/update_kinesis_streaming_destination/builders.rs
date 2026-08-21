@@ -6,27 +6,54 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_name = Some(value.into()); self }
-    pub fn stream_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.stream_arn = Some(value.into()); self }
-    pub fn update_kinesis_streaming_configuration(mut self, value: impl ::std::convert::Into<crate::types::UpdateKinesisStreamingConfiguration>) -> Self { self.input.update_kinesis_streaming_configuration = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::UpdateKinesisStreamingDestinationOutput, super::UpdateKinesisStreamingDestinationError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UpdateKinesisStreamingDestinationError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::UpdateKinesisStreamingDestinationError::unhandled_with_request_ids(format!("UpdateKinesisStreamingDestination returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_update_kinesis_streaming_destination_output::UpdateKinesisStreamingDestinationOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.table_name = Some(value.into());
+        self
+    }
+    pub fn stream_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.stream_arn = Some(value.into());
+        self
+    }
+    pub fn update_kinesis_streaming_configuration(
+        mut self,
+        value: impl ::std::convert::Into<crate::types::UpdateKinesisStreamingConfiguration>,
+    ) -> Self {
+        self.input.update_kinesis_streaming_configuration = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::UpdateKinesisStreamingDestinationOutput, super::UpdateKinesisStreamingDestinationError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::UpdateKinesisStreamingDestinationError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::UpdateKinesisStreamingDestinationError::unhandled_with_request_ids(
+                format!("UpdateKinesisStreamingDestination returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_update_kinesis_streaming_destination_output::UpdateKinesisStreamingDestinationOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as UpdateKinesisStreamingDestinationFluentBuilder;

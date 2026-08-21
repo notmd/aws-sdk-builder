@@ -6,29 +6,77 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.id = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::DeleteBucketIntelligentTieringConfigurationOutput, super::DeleteBucketIntelligentTieringConfigurationError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::DeleteBucketIntelligentTieringConfigurationError::Unhandled("DeleteBucketIntelligentTieringConfiguration requires bucket".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}?intelligent-tiering"); if let Some(value) = self.input.id.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("id"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path };
-                         let body = ::std::vec::Vec::new();
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers };
-                         let response = self.client.request(super::super::super::transport::Method::Delete, &path, &headers, &body).await.map_err(super::DeleteBucketIntelligentTieringConfigurationError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::DeleteBucketIntelligentTieringConfigurationError::unhandled_with_request_ids(format!("DeleteBucketIntelligentTieringConfiguration returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_delete_bucket_intelligent_tiering_configuration_output::DeleteBucketIntelligentTieringConfigurationOutputBuilder::default();
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.id = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(
+        self,
+    ) -> ::std::result::Result<super::DeleteBucketIntelligentTieringConfigurationOutput, super::DeleteBucketIntelligentTieringConfigurationError>
+    {
+        let bucket = self.input.bucket.as_deref().ok_or_else(|| {
+            super::DeleteBucketIntelligentTieringConfigurationError::Unhandled(
+                "DeleteBucketIntelligentTieringConfiguration requires bucket".to_owned(),
+            )
+        })?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}?intelligent-tiering");
+            if let Some(value) = self.input.id.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("id");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path
+        };
+        let body = ::std::vec::Vec::new();
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Delete, &path, &headers, &body)
+            .await
+            .map_err(super::DeleteBucketIntelligentTieringConfigurationError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::DeleteBucketIntelligentTieringConfigurationError::unhandled_with_request_ids(
+                format!("DeleteBucketIntelligentTieringConfiguration returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output =
+            super::_delete_bucket_intelligent_tiering_configuration_output::DeleteBucketIntelligentTieringConfigurationOutputBuilder::default();
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as DeleteBucketIntelligentTieringConfigurationFluentBuilder;

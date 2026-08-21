@@ -40,17 +40,27 @@ impl GetBucketMetadataConfigurationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The general purpose bucket that corresponds to the metadata configuration that you want to retrieve.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration for.</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The expected owner of the general purpose bucket that you want to retrieve the metadata table configuration for.</p>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// Consumes the builder and constructs a [`GetBucketMetadataConfigurationInput`](crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationInput).
     pub fn build(self) -> crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationInput {
         crate::operation::get_bucket_metadata_configuration::GetBucketMetadataConfigurationInput {

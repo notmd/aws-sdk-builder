@@ -39,9 +39,14 @@ impl GetRoleTemplateVersionOutputBuilder {
         self.role_template_version = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_role_template_version(mut self, input: ::std::option::Option<crate::types::RoleTemplateVersion>) -> Self { self.role_template_version = input; self }
+    pub fn set_role_template_version(mut self, input: ::std::option::Option<crate::types::RoleTemplateVersion>) -> Self {
+        self.role_template_version = input;
+        self
+    }
     /// <p>A structure that contains details about the requested role template version.</p>
-    pub fn get_role_template_version(&self) -> &::std::option::Option<crate::types::RoleTemplateVersion> { &self.role_template_version }
+    pub fn get_role_template_version(&self) -> &::std::option::Option<crate::types::RoleTemplateVersion> {
+        &self.role_template_version
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

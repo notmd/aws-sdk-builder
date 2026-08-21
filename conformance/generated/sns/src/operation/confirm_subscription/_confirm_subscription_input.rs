@@ -47,26 +47,41 @@ impl ConfirmSubscriptionInputBuilder {
         self.topic_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.topic_arn = input; self }
+    pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.topic_arn = input;
+        self
+    }
     /// <p>The ARN of the topic for which you wish to confirm a subscription.</p>
-    pub fn get_topic_arn(&self) -> &::std::option::Option<::std::string::String> { &self.topic_arn }
+    pub fn get_topic_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.topic_arn
+    }
     /// <p>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</p>
     /// This field is required.
     pub fn token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.token = input; self }
+    pub fn set_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.token = input;
+        self
+    }
     /// <p>Short-lived token sent to an endpoint during the <code>Subscribe</code> action.</p>
-    pub fn get_token(&self) -> &::std::option::Option<::std::string::String> { &self.token }
+    pub fn get_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.token
+    }
     /// <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter is <code>true</code> and the request has an Amazon Web Services signature, then only the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires Amazon Web Services authentication.</p>
     pub fn authenticate_on_unsubscribe(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.authenticate_on_unsubscribe = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_authenticate_on_unsubscribe(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.authenticate_on_unsubscribe = input; self }
+    pub fn set_authenticate_on_unsubscribe(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.authenticate_on_unsubscribe = input;
+        self
+    }
     /// <p>Disallows unauthenticated unsubscribes of the subscription. If the value of this parameter is <code>true</code> and the request has an Amazon Web Services signature, then only the topic owner and the subscription owner can unsubscribe the endpoint. The unsubscribe action requires Amazon Web Services authentication.</p>
-    pub fn get_authenticate_on_unsubscribe(&self) -> &::std::option::Option<::std::string::String> { &self.authenticate_on_unsubscribe }
+    pub fn get_authenticate_on_unsubscribe(&self) -> &::std::option::Option<::std::string::String> {
+        &self.authenticate_on_unsubscribe
+    }
     /// Consumes the builder and constructs a [`ConfirmSubscriptionInput`](crate::operation::confirm_subscription::ConfirmSubscriptionInput).
     pub fn build(self) -> crate::operation::confirm_subscription::ConfirmSubscriptionInput {
         crate::operation::confirm_subscription::ConfirmSubscriptionInput {

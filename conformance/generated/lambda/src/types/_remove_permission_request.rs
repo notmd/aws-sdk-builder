@@ -56,42 +56,72 @@ impl RemovePermissionRequestBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.function_name = input; self }
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.function_name = input;
+        self
+    }
     /// <p>The name or ARN of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> { &self.function_name }
+    pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.function_name
+    }
     /// <p>Statement ID of the permission to remove.</p>
     /// This field is required.
     pub fn statement_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.statement_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_statement_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.statement_id = input; self }
+    pub fn set_statement_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.statement_id = input;
+        self
+    }
     /// <p>Statement ID of the permission to remove.</p>
-    pub fn get_statement_id(&self) -> &::std::option::Option<::std::string::String> { &self.statement_id }
+    pub fn get_statement_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.statement_id
+    }
     /// <p>Specify a version or alias to remove permissions from a published version of the function.</p>
     pub fn qualifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.qualifier = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.qualifier = input; self }
+    pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.qualifier = input;
+        self
+    }
     /// <p>Specify a version or alias to remove permissions from a published version of the function.</p>
-    pub fn get_qualifier(&self) -> &::std::option::Option<::std::string::String> { &self.qualifier }
+    pub fn get_qualifier(&self) -> &::std::option::Option<::std::string::String> {
+        &self.qualifier
+    }
     /// <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
     pub fn revision_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.revision_id = input; self }
+    pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.revision_id = input;
+        self
+    }
     /// <p>Update the policy only if the revision ID matches the ID that's specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
-    pub fn get_revision_id(&self) -> &::std::option::Option<::std::string::String> { &self.revision_id }
+    pub fn get_revision_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.revision_id
+    }
     /// Consumes the builder and constructs a [`RemovePermissionRequest`](crate::types::RemovePermissionRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`function_name`](Self::function_name)
     /// - [`statement_id`](Self::statement_id)
     pub fn build(self) -> ::std::result::Result<crate::types::RemovePermissionRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::RemovePermissionRequest {
-            function_name: self.function_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_name", "function_name was not specified but it is required when building RemovePermissionRequest"))?,
-            statement_id: self.statement_id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("statement_id", "statement_id was not specified but it is required when building RemovePermissionRequest"))?,
+            function_name: self.function_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "function_name",
+                    "function_name was not specified but it is required when building RemovePermissionRequest",
+                )
+            })?,
+            statement_id: self.statement_id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "statement_id",
+                    "statement_id was not specified but it is required when building RemovePermissionRequest",
+                )
+            })?,
             qualifier: self.qualifier,
             revision_id: self.revision_id,
         })

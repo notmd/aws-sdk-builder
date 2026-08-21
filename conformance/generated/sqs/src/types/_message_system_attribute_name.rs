@@ -117,7 +117,18 @@ impl MessageSystemAttributeName {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["AWSTraceHeader", "All", "ApproximateFirstReceiveTimestamp", "ApproximateReceiveCount", "DeadLetterQueueSourceArn", "MessageDeduplicationId", "MessageGroupId", "SenderId", "SentTimestamp", "SequenceNumber"]
+        &[
+            "AWSTraceHeader",
+            "All",
+            "ApproximateFirstReceiveTimestamp",
+            "ApproximateReceiveCount",
+            "DeadLetterQueueSourceArn",
+            "MessageDeduplicationId",
+            "MessageGroupId",
+            "SenderId",
+            "SentTimestamp",
+            "SequenceNumber",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for MessageSystemAttributeName {

@@ -46,9 +46,14 @@ impl GetBucketRequestPaymentOutputBuilder {
         self.payer = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_payer(mut self, input: ::std::option::Option<crate::types::Payer>) -> Self { self.payer = input; self }
+    pub fn set_payer(mut self, input: ::std::option::Option<crate::types::Payer>) -> Self {
+        self.payer = input;
+        self
+    }
     /// <p>Specifies who pays for the download and request fees.</p>
-    pub fn get_payer(&self) -> &::std::option::Option<crate::types::Payer> { &self.payer }
+    pub fn get_payer(&self) -> &::std::option::Option<crate::types::Payer> {
+        &self.payer
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

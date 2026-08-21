@@ -33,15 +33,25 @@ impl TenancyConfigBuilder {
         self.tenant_isolation_mode = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_tenant_isolation_mode(mut self, input: ::std::option::Option<crate::types::TenantIsolationMode>) -> Self { self.tenant_isolation_mode = input; self }
+    pub fn set_tenant_isolation_mode(mut self, input: ::std::option::Option<crate::types::TenantIsolationMode>) -> Self {
+        self.tenant_isolation_mode = input;
+        self
+    }
     /// <p>Tenant isolation mode allows for invocation to be sent to a corresponding execution environment dedicated to a specific tenant ID.</p>
-    pub fn get_tenant_isolation_mode(&self) -> &::std::option::Option<crate::types::TenantIsolationMode> { &self.tenant_isolation_mode }
+    pub fn get_tenant_isolation_mode(&self) -> &::std::option::Option<crate::types::TenantIsolationMode> {
+        &self.tenant_isolation_mode
+    }
     /// Consumes the builder and constructs a [`TenancyConfig`](crate::types::TenancyConfig).
     /// This method will fail if any of the following fields are not set:
     /// - [`tenant_isolation_mode`](Self::tenant_isolation_mode)
     pub fn build(self) -> ::std::result::Result<crate::types::TenancyConfig, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TenancyConfig {
-            tenant_isolation_mode: self.tenant_isolation_mode.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("tenant_isolation_mode", "tenant_isolation_mode was not specified but it is required when building TenancyConfig"))?,
+            tenant_isolation_mode: self.tenant_isolation_mode.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "tenant_isolation_mode",
+                    "tenant_isolation_mode was not specified but it is required when building TenancyConfig",
+                )
+            })?,
         })
     }
 }

@@ -36,10 +36,15 @@ impl GetAccessKeyLastUsedInputBuilder {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.access_key_id = input; self }
+    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.access_key_id = input;
+        self
+    }
     /// <p>The identifier of an access key.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn get_access_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.access_key_id }
+    pub fn get_access_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.access_key_id
+    }
     /// Consumes the builder and constructs a [`GetAccessKeyLastUsedInput`](crate::operation::get_access_key_last_used::GetAccessKeyLastUsedInput).
     pub fn build(self) -> crate::operation::get_access_key_last_used::GetAccessKeyLastUsedInput {
         crate::operation::get_access_key_last_used::GetAccessKeyLastUsedInput {

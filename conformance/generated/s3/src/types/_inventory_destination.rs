@@ -32,9 +32,14 @@ impl InventoryDestinationBuilder {
         self.s3_bucket_destination = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_s3_bucket_destination(mut self, input: ::std::option::Option<crate::types::InventoryS3BucketDestination>) -> Self { self.s3_bucket_destination = input; self }
+    pub fn set_s3_bucket_destination(mut self, input: ::std::option::Option<crate::types::InventoryS3BucketDestination>) -> Self {
+        self.s3_bucket_destination = input;
+        self
+    }
     /// <p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.</p>
-    pub fn get_s3_bucket_destination(&self) -> &::std::option::Option<crate::types::InventoryS3BucketDestination> { &self.s3_bucket_destination }
+    pub fn get_s3_bucket_destination(&self) -> &::std::option::Option<crate::types::InventoryS3BucketDestination> {
+        &self.s3_bucket_destination
+    }
     /// Consumes the builder and constructs a [`InventoryDestination`](crate::types::InventoryDestination).
     pub fn build(self) -> crate::types::InventoryDestination {
         crate::types::InventoryDestination {

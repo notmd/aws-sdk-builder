@@ -143,17 +143,27 @@ impl PutObjectAclInputBuilder {
         self.acl = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_acl(mut self, input: ::std::option::Option<crate::types::ObjectCannedAcl>) -> Self { self.acl = input; self }
+    pub fn set_acl(mut self, input: ::std::option::Option<crate::types::ObjectCannedAcl>) -> Self {
+        self.acl = input;
+        self
+    }
     /// <p>The canned ACL to apply to the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a>.</p>
-    pub fn get_acl(&self) -> &::std::option::Option<crate::types::ObjectCannedAcl> { &self.acl }
+    pub fn get_acl(&self) -> &::std::option::Option<crate::types::ObjectCannedAcl> {
+        &self.acl
+    }
     /// <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
     pub fn access_control_policy(mut self, input: crate::types::AccessControlPolicy) -> Self {
         self.access_control_policy = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_access_control_policy(mut self, input: ::std::option::Option<crate::types::AccessControlPolicy>) -> Self { self.access_control_policy = input; self }
+    pub fn set_access_control_policy(mut self, input: ::std::option::Option<crate::types::AccessControlPolicy>) -> Self {
+        self.access_control_policy = input;
+        self
+    }
     /// <p>Contains the elements that set the ACL permissions for an object per grantee.</p>
-    pub fn get_access_control_policy(&self) -> &::std::option::Option<crate::types::AccessControlPolicy> { &self.access_control_policy }
+    pub fn get_access_control_policy(&self) -> &::std::option::Option<crate::types::AccessControlPolicy> {
+        &self.access_control_policy
+    }
     /// <p>The bucket name that contains the object to which you want to attach the ACL.</p>
     /// <p><b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When you use this action with an access point for directory buckets, you must provide the access point name in place of the bucket name. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p><b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts, the destination bucket must be the Outposts access point ARN or the access point alias. For more information about S3 on Outposts, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -162,96 +172,146 @@ impl PutObjectAclInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The bucket name that contains the object to which you want to attach the ACL.</p>
     /// <p><b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When you use this action with an access point for directory buckets, you must provide the access point name in place of the bucket name. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p><b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts, the destination bucket must be the Outposts access point ARN or the access point alias. For more information about S3 on Outposts, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>The Base64 encoded 128-bit <code>MD5</code> digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864.></a></p>
     /// <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
     pub fn content_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.content_md5 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_content_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.content_md5 = input; self }
+    pub fn set_content_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.content_md5 = input;
+        self
+    }
     /// <p>The Base64 encoded 128-bit <code>MD5</code> digest of the data. This header must be used as a message integrity check to verify that the request body was not corrupted in transit. For more information, go to <a href="http://www.ietf.org/rfc/rfc1864.txt">RFC 1864.></a></p>
     /// <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p>
-    pub fn get_content_md5(&self) -> &::std::option::Option<::std::string::String> { &self.content_md5 }
+    pub fn get_content_md5(&self) -> &::std::option::Option<::std::string::String> {
+        &self.content_md5
+    }
     /// <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
     pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
         self.checksum_algorithm = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self { self.checksum_algorithm = input; self }
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+        self.checksum_algorithm = input;
+        self
+    }
     /// <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum</code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If you provide an individual checksum, Amazon S3 ignores any provided <code>ChecksumAlgorithm</code> parameter.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> { &self.checksum_algorithm }
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+        &self.checksum_algorithm
+    }
     /// <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>
     /// <p>This functionality is not supported for Amazon S3 on Outposts.</p>
     pub fn grant_full_control(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grant_full_control = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_grant_full_control(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.grant_full_control = input; self }
+    pub fn set_grant_full_control(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.grant_full_control = input;
+        self
+    }
     /// <p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>
     /// <p>This functionality is not supported for Amazon S3 on Outposts.</p>
-    pub fn get_grant_full_control(&self) -> &::std::option::Option<::std::string::String> { &self.grant_full_control }
+    pub fn get_grant_full_control(&self) -> &::std::option::Option<::std::string::String> {
+        &self.grant_full_control
+    }
     /// <p>Allows grantee to list the objects in the bucket.</p>
     /// <p>This functionality is not supported for Amazon S3 on Outposts.</p>
     pub fn grant_read(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grant_read = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_grant_read(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.grant_read = input; self }
+    pub fn set_grant_read(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.grant_read = input;
+        self
+    }
     /// <p>Allows grantee to list the objects in the bucket.</p>
     /// <p>This functionality is not supported for Amazon S3 on Outposts.</p>
-    pub fn get_grant_read(&self) -> &::std::option::Option<::std::string::String> { &self.grant_read }
+    pub fn get_grant_read(&self) -> &::std::option::Option<::std::string::String> {
+        &self.grant_read
+    }
     /// <p>Allows grantee to read the bucket ACL.</p>
     /// <p>This functionality is not supported for Amazon S3 on Outposts.</p>
     pub fn grant_read_acp(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grant_read_acp = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_grant_read_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.grant_read_acp = input; self }
+    pub fn set_grant_read_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.grant_read_acp = input;
+        self
+    }
     /// <p>Allows grantee to read the bucket ACL.</p>
     /// <p>This functionality is not supported for Amazon S3 on Outposts.</p>
-    pub fn get_grant_read_acp(&self) -> &::std::option::Option<::std::string::String> { &self.grant_read_acp }
+    pub fn get_grant_read_acp(&self) -> &::std::option::Option<::std::string::String> {
+        &self.grant_read_acp
+    }
     /// <p>Allows grantee to create new objects in the bucket.</p>
     /// <p>For the bucket and object owners of existing objects, also allows deletions and overwrites of those objects.</p>
     pub fn grant_write(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grant_write = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_grant_write(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.grant_write = input; self }
+    pub fn set_grant_write(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.grant_write = input;
+        self
+    }
     /// <p>Allows grantee to create new objects in the bucket.</p>
     /// <p>For the bucket and object owners of existing objects, also allows deletions and overwrites of those objects.</p>
-    pub fn get_grant_write(&self) -> &::std::option::Option<::std::string::String> { &self.grant_write }
+    pub fn get_grant_write(&self) -> &::std::option::Option<::std::string::String> {
+        &self.grant_write
+    }
     /// <p>Allows grantee to write the ACL for the applicable bucket.</p>
     /// <p>This functionality is not supported for Amazon S3 on Outposts.</p>
     pub fn grant_write_acp(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grant_write_acp = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_grant_write_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.grant_write_acp = input; self }
+    pub fn set_grant_write_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.grant_write_acp = input;
+        self
+    }
     /// <p>Allows grantee to write the ACL for the applicable bucket.</p>
     /// <p>This functionality is not supported for Amazon S3 on Outposts.</p>
-    pub fn get_grant_write_acp(&self) -> &::std::option::Option<::std::string::String> { &self.grant_write_acp }
+    pub fn get_grant_write_acp(&self) -> &::std::option::Option<::std::string::String> {
+        &self.grant_write_acp
+    }
     /// <p>Key for which the PUT action was initiated.</p>
     /// This field is required.
     pub fn key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>Key for which the PUT action was initiated.</p>
-    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key
+    }
     pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self { self.request_payer = input; self }
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> { &self.request_payer }
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+        self.request_payer = input;
+        self
+    }
+    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+        &self.request_payer
+    }
     /// <p>Version ID used to reference a specific version of the object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -259,19 +319,29 @@ impl PutObjectAclInputBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.version_id = input; self }
+    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.version_id = input;
+        self
+    }
     /// <p>Version ID used to reference a specific version of the object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.version_id }
+    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.version_id
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// Consumes the builder and constructs a [`PutObjectAclInput`](crate::operation::put_object_acl::PutObjectAclInput).
     pub fn build(self) -> crate::operation::put_object_acl::PutObjectAclInput {
         crate::operation::put_object_acl::PutObjectAclInput {

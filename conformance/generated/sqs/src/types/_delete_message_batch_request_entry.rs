@@ -51,29 +51,49 @@ impl DeleteMessageBatchRequestEntryBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>The identifier for this particular receipt handle. This is used to communicate the result.</p><note>
     /// <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
     /// <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
     /// </note>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>A receipt handle.</p>
     /// This field is required.
     pub fn receipt_handle(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.receipt_handle = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.receipt_handle = input; self }
+    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.receipt_handle = input;
+        self
+    }
     /// <p>A receipt handle.</p>
-    pub fn get_receipt_handle(&self) -> &::std::option::Option<::std::string::String> { &self.receipt_handle }
+    pub fn get_receipt_handle(&self) -> &::std::option::Option<::std::string::String> {
+        &self.receipt_handle
+    }
     /// Consumes the builder and constructs a [`DeleteMessageBatchRequestEntry`](crate::types::DeleteMessageBatchRequestEntry).
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](Self::id)
     /// - [`receipt_handle`](Self::receipt_handle)
     pub fn build(self) -> ::std::result::Result<crate::types::DeleteMessageBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteMessageBatchRequestEntry {
-            id: self.id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building DeleteMessageBatchRequestEntry"))?,
-            receipt_handle: self.receipt_handle.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("receipt_handle", "receipt_handle was not specified but it is required when building DeleteMessageBatchRequestEntry"))?,
+            id: self.id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "id",
+                    "id was not specified but it is required when building DeleteMessageBatchRequestEntry",
+                )
+            })?,
+            receipt_handle: self.receipt_handle.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "receipt_handle",
+                    "receipt_handle was not specified but it is required when building DeleteMessageBatchRequestEntry",
+                )
+            })?,
         })
     }
 }

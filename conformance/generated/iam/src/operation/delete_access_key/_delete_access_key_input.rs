@@ -44,10 +44,15 @@ impl DeleteAccessKeyInputBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.user_name = input; self }
+    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.user_name = input;
+        self
+    }
     /// <p>The name of the user whose access key pair you want to delete.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> { &self.user_name }
+    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.user_name
+    }
     /// <p>The access key ID for the access key ID and secret access key you want to delete.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
     /// This field is required.
@@ -55,10 +60,15 @@ impl DeleteAccessKeyInputBuilder {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.access_key_id = input; self }
+    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.access_key_id = input;
+        self
+    }
     /// <p>The access key ID for the access key ID and secret access key you want to delete.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn get_access_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.access_key_id }
+    pub fn get_access_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.access_key_id
+    }
     /// Consumes the builder and constructs a [`DeleteAccessKeyInput`](crate::operation::delete_access_key::DeleteAccessKeyInput).
     pub fn build(self) -> crate::operation::delete_access_key::DeleteAccessKeyInput {
         crate::operation::delete_access_key::DeleteAccessKeyInput {

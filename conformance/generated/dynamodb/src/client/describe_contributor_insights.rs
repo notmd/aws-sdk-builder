@@ -14,7 +14,9 @@ impl super::Client {
     ///   - [`failure_exception(Option<FailureException>)`](crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput::failure_exception): <p>Returns information about the last failure that was encountered.</p> <p>The most common exceptions for a FAILED status are:</p> <ul>  <li>   <p>LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.</p></li>  <li>   <p>AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.</p></li>  <li>   <p>AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.</p></li>  <li>   <p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li> </ul>
     ///   - [`contributor_insights_mode(Option<ContributorInsightsMode>)`](crate::operation::describe_contributor_insights::DescribeContributorInsightsOutput::contributor_insights_mode): <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
     /// - On failure, responds with [`SdkError<DescribeContributorInsightsError>`](crate::operation::describe_contributor_insights::DescribeContributorInsightsError)
-    pub fn describe_contributor_insights(&self) -> crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsFluentBuilder {
+    pub fn describe_contributor_insights(
+        &self,
+    ) -> crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsFluentBuilder {
         crate::operation::describe_contributor_insights::builders::DescribeContributorInsightsFluentBuilder::new(self.handle.clone())
     }
 }

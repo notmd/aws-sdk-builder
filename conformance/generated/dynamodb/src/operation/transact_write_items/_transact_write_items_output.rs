@@ -8,7 +8,8 @@ pub struct TransactWriteItemsOutput {
     /// <p>If the table has vector indexes, each element also includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
     pub consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
     /// <p>A list of tables that were processed by <code>TransactWriteItems</code> and, for each table, information about any item collections that were affected by individual <code>UpdateItem</code>, <code>PutItem</code>, or <code>DeleteItem</code> operations.</p>
-    pub item_collection_metrics: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>>,
+    pub item_collection_metrics:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>>,
     _request_id: Option<String>,
 }
 impl TransactWriteItemsOutput {
@@ -18,7 +19,9 @@ impl TransactWriteItemsOutput {
         self.consumed_capacity.as_deref().unwrap_or_default()
     }
     /// <p>A list of tables that were processed by <code>TransactWriteItems</code> and, for each table, information about any item collections that were affected by individual <code>UpdateItem</code>, <code>PutItem</code>, or <code>DeleteItem</code> operations.</p>
-    pub fn item_collection_metrics(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>> {
+    pub fn item_collection_metrics(
+        &self,
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>> {
         self.item_collection_metrics.as_ref()
     }
 }
@@ -39,7 +42,8 @@ impl TransactWriteItemsOutput {
 #[non_exhaustive]
 pub struct TransactWriteItemsOutputBuilder {
     pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
-    pub(crate) item_collection_metrics: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>>,
+    pub(crate) item_collection_metrics:
+        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>>,
     _request_id: Option<String>,
 }
 impl TransactWriteItemsOutputBuilder {
@@ -54,23 +58,42 @@ impl TransactWriteItemsOutputBuilder {
         self.consumed_capacity = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = input; self }
+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self {
+        self.consumed_capacity = input;
+        self
+    }
     /// <p>The capacity units consumed by the entire <code>TransactWriteItems</code> operation. The values of the list are ordered according to the ordering of the <code>TransactItems</code> request parameter.</p>
     /// <p>If the table has vector indexes, each element also includes a <code>VectorIndexes</code> field with <code>VectorWriteRequestBytes</code> consumed for each affected vector index.</p>
-    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>> { &self.consumed_capacity }
+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>> {
+        &self.consumed_capacity
+    }
     /// <p>A list of tables that were processed by <code>TransactWriteItems</code> and, for each table, information about any item collections that were affected by individual <code>UpdateItem</code>, <code>PutItem</code>, or <code>DeleteItem</code> operations.</p>
     /// Adds a key-value pair to `item_collection_metrics`.
     ///
     /// To override the contents of this collection use [`set_item_collection_metrics`](Self::set_item_collection_metrics).
-    pub fn item_collection_metrics(mut self, k: impl ::std::convert::Into<::std::string::String>, v: ::std::vec::Vec<crate::types::ItemCollectionMetrics>) -> Self {
+    pub fn item_collection_metrics(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: ::std::vec::Vec<crate::types::ItemCollectionMetrics>,
+    ) -> Self {
         let mut map = self.item_collection_metrics.unwrap_or_default();
         map.insert(k.into(), v);
         self.item_collection_metrics = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>>) -> Self { self.item_collection_metrics = input; self }
+    pub fn set_item_collection_metrics(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>>,
+    ) -> Self {
+        self.item_collection_metrics = input;
+        self
+    }
     /// <p>A list of tables that were processed by <code>TransactWriteItems</code> and, for each table, information about any item collections that were affected by individual <code>UpdateItem</code>, <code>PutItem</code>, or <code>DeleteItem</code> operations.</p>
-    pub fn get_item_collection_metrics(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>> { &self.item_collection_metrics }
+    pub fn get_item_collection_metrics(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>> {
+        &self.item_collection_metrics
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

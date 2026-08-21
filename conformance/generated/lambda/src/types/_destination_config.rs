@@ -39,17 +39,27 @@ impl DestinationConfigBuilder {
         self.on_success = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_on_success(mut self, input: ::std::option::Option<crate::types::OnSuccess>) -> Self { self.on_success = input; self }
+    pub fn set_on_success(mut self, input: ::std::option::Option<crate::types::OnSuccess>) -> Self {
+        self.on_success = input;
+        self
+    }
     /// <p>The destination configuration for successful invocations. Not supported in <code>CreateEventSourceMapping</code> or <code>UpdateEventSourceMapping</code>.</p>
-    pub fn get_on_success(&self) -> &::std::option::Option<crate::types::OnSuccess> { &self.on_success }
+    pub fn get_on_success(&self) -> &::std::option::Option<crate::types::OnSuccess> {
+        &self.on_success
+    }
     /// <p>The destination configuration for failed invocations.</p>
     pub fn on_failure(mut self, input: crate::types::OnFailure) -> Self {
         self.on_failure = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_on_failure(mut self, input: ::std::option::Option<crate::types::OnFailure>) -> Self { self.on_failure = input; self }
+    pub fn set_on_failure(mut self, input: ::std::option::Option<crate::types::OnFailure>) -> Self {
+        self.on_failure = input;
+        self
+    }
     /// <p>The destination configuration for failed invocations.</p>
-    pub fn get_on_failure(&self) -> &::std::option::Option<crate::types::OnFailure> { &self.on_failure }
+    pub fn get_on_failure(&self) -> &::std::option::Option<crate::types::OnFailure> {
+        &self.on_failure
+    }
     /// Consumes the builder and constructs a [`DestinationConfig`](crate::types::DestinationConfig).
     pub fn build(self) -> crate::types::DestinationConfig {
         crate::types::DestinationConfig {

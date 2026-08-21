@@ -39,17 +39,27 @@ impl VectorCapacityBuilder {
         self.vector_search_request_bytes = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_vector_search_request_bytes(mut self, input: ::std::option::Option<f64>) -> Self { self.vector_search_request_bytes = input; self }
+    pub fn set_vector_search_request_bytes(mut self, input: ::std::option::Option<f64>) -> Self {
+        self.vector_search_request_bytes = input;
+        self
+    }
     /// <p>The number of vector search request bytes consumed by a <code>SearchVectors</code> operation.</p>
-    pub fn get_vector_search_request_bytes(&self) -> &::std::option::Option<f64> { &self.vector_search_request_bytes }
+    pub fn get_vector_search_request_bytes(&self) -> &::std::option::Option<f64> {
+        &self.vector_search_request_bytes
+    }
     /// <p>The number of vector write request bytes consumed when writing to a vector index. Reported for write operations that modify attributes indexed by a vector index.</p>
     pub fn vector_write_request_bytes(mut self, input: f64) -> Self {
         self.vector_write_request_bytes = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_vector_write_request_bytes(mut self, input: ::std::option::Option<f64>) -> Self { self.vector_write_request_bytes = input; self }
+    pub fn set_vector_write_request_bytes(mut self, input: ::std::option::Option<f64>) -> Self {
+        self.vector_write_request_bytes = input;
+        self
+    }
     /// <p>The number of vector write request bytes consumed when writing to a vector index. Reported for write operations that modify attributes indexed by a vector index.</p>
-    pub fn get_vector_write_request_bytes(&self) -> &::std::option::Option<f64> { &self.vector_write_request_bytes }
+    pub fn get_vector_write_request_bytes(&self) -> &::std::option::Option<f64> {
+        &self.vector_write_request_bytes
+    }
     /// Consumes the builder and constructs a [`VectorCapacity`](crate::types::VectorCapacity).
     pub fn build(self) -> crate::types::VectorCapacity {
         crate::types::VectorCapacity {

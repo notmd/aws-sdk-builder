@@ -44,23 +44,38 @@ impl IntelligentTieringFilterBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.prefix = input; self }
+    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.prefix = input;
+        self
+    }
     /// <p>An object key name prefix that identifies the subset of objects to which the rule applies.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
-    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.prefix }
+    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.prefix
+    }
     pub fn tag(mut self, input: crate::types::Tag) -> Self {
         self.tag = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_tag(mut self, input: ::std::option::Option<crate::types::Tag>) -> Self { self.tag = input; self }
-    pub fn get_tag(&self) -> &::std::option::Option<crate::types::Tag> { &self.tag }
+    pub fn set_tag(mut self, input: ::std::option::Option<crate::types::Tag>) -> Self {
+        self.tag = input;
+        self
+    }
+    pub fn get_tag(&self) -> &::std::option::Option<crate::types::Tag> {
+        &self.tag
+    }
     /// <p>A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.</p>
     pub fn and(mut self, input: crate::types::IntelligentTieringAndOperator) -> Self {
         self.and = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_and(mut self, input: ::std::option::Option<crate::types::IntelligentTieringAndOperator>) -> Self { self.and = input; self }
+    pub fn set_and(mut self, input: ::std::option::Option<crate::types::IntelligentTieringAndOperator>) -> Self {
+        self.and = input;
+        self
+    }
     /// <p>A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.</p>
-    pub fn get_and(&self) -> &::std::option::Option<crate::types::IntelligentTieringAndOperator> { &self.and }
+    pub fn get_and(&self) -> &::std::option::Option<crate::types::IntelligentTieringAndOperator> {
+        &self.and
+    }
     /// Consumes the builder and constructs a [`IntelligentTieringFilter`](crate::types::IntelligentTieringFilter).
     pub fn build(self) -> crate::types::IntelligentTieringFilter {
         crate::types::IntelligentTieringFilter {

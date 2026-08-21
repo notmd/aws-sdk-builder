@@ -43,10 +43,15 @@ impl UntagPolicyInputBuilder {
         self.policy_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_arn = input; self }
+    pub fn set_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_arn = input;
+        self
+    }
     /// <p>The ARN of the IAM customer managed policy from which you want to remove tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_policy_arn(&self) -> &::std::option::Option<::std::string::String> { &self.policy_arn }
+    pub fn get_policy_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_arn
+    }
     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified policy.</p>
     /// Appends an item to `tag_keys`.
     ///
@@ -57,9 +62,14 @@ impl UntagPolicyInputBuilder {
         self.tag_keys = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.tag_keys = input; self }
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.tag_keys = input;
+        self
+    }
     /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified policy.</p>
-    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.tag_keys }
+    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.tag_keys
+    }
     /// Consumes the builder and constructs a [`UntagPolicyInput`](crate::operation::untag_policy::UntagPolicyInput).
     pub fn build(self) -> crate::operation::untag_policy::UntagPolicyInput {
         crate::operation::untag_policy::UntagPolicyInput {

@@ -6,26 +6,52 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn resource(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.resource = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::ListTagsOutput, super::ListTagsError> {
-                         let resource = self.input.resource.as_deref().ok_or_else(|| super::ListTagsError::Unhandled("ListTags requires resource".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/2017-03-31/tags/{Resource}"); path = path.replace("{Resource}", &super::super::super::transport::encode_path(resource)); path };
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::ListTagsError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::ListTagsError::unhandled_with_request_ids(format!("ListTags returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_list_tags_output::ListTagsOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn resource(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.resource = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::ListTagsOutput, super::ListTagsError> {
+        let resource = self
+            .input
+            .resource
+            .as_deref()
+            .ok_or_else(|| super::ListTagsError::Unhandled("ListTags requires resource".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/2017-03-31/tags/{Resource}");
+            path = path.replace("{Resource}", &super::super::super::transport::encode_path(resource));
+            path
+        };
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Get, &path, &headers, &body)
+            .await
+            .map_err(super::ListTagsError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::ListTagsError::unhandled_with_request_ids(
+                format!("ListTags returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_list_tags_output::ListTagsOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as ListTagsFluentBuilder;

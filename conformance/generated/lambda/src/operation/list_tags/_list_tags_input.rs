@@ -33,13 +33,16 @@ impl ListTagsInputBuilder {
         self.resource = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.resource = input; self }
+    pub fn set_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.resource = input;
+        self
+    }
     /// <p>The resource's Amazon Resource Name (ARN). Note: Lambda does not support adding tags to function aliases or versions.</p>
-    pub fn get_resource(&self) -> &::std::option::Option<::std::string::String> { &self.resource }
+    pub fn get_resource(&self) -> &::std::option::Option<::std::string::String> {
+        &self.resource
+    }
     /// Consumes the builder and constructs a [`ListTagsInput`](crate::operation::list_tags::ListTagsInput).
     pub fn build(self) -> crate::operation::list_tags::ListTagsInput {
-        crate::operation::list_tags::ListTagsInput {
-            resource: self.resource,
-        }
+        crate::operation::list_tags::ListTagsInput { resource: self.resource }
     }
 }

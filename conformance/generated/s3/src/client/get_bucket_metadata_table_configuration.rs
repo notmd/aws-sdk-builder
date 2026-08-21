@@ -11,6 +11,8 @@ impl super::Client {
     pub fn get_bucket_metadata_table_configuration(
         &self,
     ) -> crate::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationFluentBuilder {
-        crate::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationFluentBuilder::new(self.handle.clone())
+        crate::operation::get_bucket_metadata_table_configuration::builders::GetBucketMetadataTableConfigurationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

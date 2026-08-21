@@ -72,9 +72,14 @@ impl CreateGlobalSecondaryIndexActionBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.index_name = input; self }
+    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.index_name = input;
+        self
+    }
     /// <p>The name of the global secondary index to be created.</p>
-    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> { &self.index_name }
+    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.index_name
+    }
     /// <p>The key schema for the global secondary index. Global secondary index supports up to 4 partition and up to 4 sort keys.</p>
     /// Appends an item to `key_schema`.
     ///
@@ -85,51 +90,86 @@ impl CreateGlobalSecondaryIndexActionBuilder {
         self.key_schema = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self { self.key_schema = input; self }
+    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
+        self.key_schema = input;
+        self
+    }
     /// <p>The key schema for the global secondary index. Global secondary index supports up to 4 partition and up to 4 sort keys.</p>
-    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> { &self.key_schema }
+    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
+        &self.key_schema
+    }
     /// <p>Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
     pub fn projection(mut self, input: crate::types::Projection) -> Self {
         self.projection = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self { self.projection = input; self }
+    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
+        self.projection = input;
+        self
+    }
     /// <p>Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-    pub fn get_projection(&self) -> &::std::option::Option<crate::types::Projection> { &self.projection }
+    pub fn get_projection(&self) -> &::std::option::Option<crate::types::Projection> {
+        &self.projection
+    }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn provisioned_throughput(mut self, input: crate::types::ProvisionedThroughput) -> Self {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self { self.provisioned_throughput = input; self }
+    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
+        self.provisioned_throughput = input;
+        self
+    }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
     /// <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> { &self.provisioned_throughput }
+    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
+        &self.provisioned_throughput
+    }
     /// <p>The maximum number of read and write units for the global secondary index being created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemand Throughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
     pub fn on_demand_throughput(mut self, input: crate::types::OnDemandThroughput) -> Self {
         self.on_demand_throughput = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
+    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
+        self.on_demand_throughput = input;
+        self
+    }
     /// <p>The maximum number of read and write units for the global secondary index being created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both. You must use either <code>OnDemand Throughput</code> or <code>ProvisionedThroughput</code> based on your table's capacity mode.</p>
-    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> { &self.on_demand_throughput }
+    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+        &self.on_demand_throughput
+    }
     /// <p>Represents the warm throughput value (in read units per second and write units per second) when creating a secondary index.</p>
     pub fn warm_throughput(mut self, input: crate::types::WarmThroughput) -> Self {
         self.warm_throughput = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self { self.warm_throughput = input; self }
+    pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::WarmThroughput>) -> Self {
+        self.warm_throughput = input;
+        self
+    }
     /// <p>Represents the warm throughput value (in read units per second and write units per second) when creating a secondary index.</p>
-    pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::WarmThroughput> { &self.warm_throughput }
+    pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::WarmThroughput> {
+        &self.warm_throughput
+    }
     /// Consumes the builder and constructs a [`CreateGlobalSecondaryIndexAction`](crate::types::CreateGlobalSecondaryIndexAction).
     /// This method will fail if any of the following fields are not set:
     /// - [`index_name`](Self::index_name)
     /// - [`key_schema`](Self::key_schema)
     pub fn build(self) -> ::std::result::Result<crate::types::CreateGlobalSecondaryIndexAction, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CreateGlobalSecondaryIndexAction {
-            index_name: self.index_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("index_name", "index_name was not specified but it is required when building CreateGlobalSecondaryIndexAction"))?,
-            key_schema: self.key_schema.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("key_schema", "key_schema was not specified but it is required when building CreateGlobalSecondaryIndexAction"))?,
+            index_name: self.index_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "index_name",
+                    "index_name was not specified but it is required when building CreateGlobalSecondaryIndexAction",
+                )
+            })?,
+            key_schema: self.key_schema.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "key_schema",
+                    "key_schema was not specified but it is required when building CreateGlobalSecondaryIndexAction",
+                )
+            })?,
             projection: self.projection,
             provisioned_throughput: self.provisioned_throughput,
             on_demand_throughput: self.on_demand_throughput,

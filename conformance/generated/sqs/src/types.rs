@@ -5,18 +5,33 @@ pub mod types {
     pub type Binary = ::std::vec::Vec<u8>;
     pub type Boolean = bool;
     pub type BoxedInteger = i32;
-    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_change_message_visibility_batch_request_entry.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_change_message_visibility_batch_result_entry.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_delete_message_batch_request_entry.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sqs/src/types/_change_message_visibility_batch_request_entry.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sqs/src/types/_change_message_visibility_batch_result_entry.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sqs/src/types/_delete_message_batch_request_entry.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_delete_message_batch_result_entry.rs"));
     pub type ExceptionMessage = ::std::string::String;
-    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_list_message_move_tasks_result_entry.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sqs/src/types/_list_message_move_tasks_result_entry.rs"
+    ));
     pub type Long = i64;
     include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message.rs"));
     pub type MessageAttributeName = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message_attribute_value.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message_system_attribute_name.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message_system_attribute_name_for_sends.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sqs/src/types/_message_system_attribute_name_for_sends.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message_system_attribute_value.rs"));
     pub type NullableInteger = i32;
     pub type NullableLong = i64;
@@ -28,16 +43,34 @@ pub mod types {
     pub type TagValue = ::std::string::String;
     pub type Token = ::std::string::String;
     pub mod error {
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_batch_entry_ids_not_distinct.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_batch_request_too_long.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_empty_batch_request.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_invalid_address.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_invalid_security.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_over_limit.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_queue_does_not_exist.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_request_throttled.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_unsupported_operation.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sqs/src/types/error/_resource_not_found_exception.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_message_not_inflight.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_receipt_handle_is_invalid.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sqs/src/types/error/_batch_entry_ids_not_distinct.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_empty_batch_request.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_invalid_batch_entry_id.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sqs/src/types/error/_too_many_entries_in_batch_request.rs"
+        ));
         include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_invalid_attribute_name.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_invalid_attribute_value.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_invalid_batch_entry_id.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_queue_deleted_recently.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_queue_name_exists.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_invalid_id_format.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_invalid_message_contents.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_invalid_security.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_purge_queue_in_progress.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_kms_access_denied.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_kms_disabled.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_kms_invalid_key_usage.rs"));
@@ -45,16 +78,10 @@ pub mod types {
         include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_kms_not_found.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_kms_opt_in_required.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_kms_throttled.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_message_not_inflight.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_over_limit.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_purge_queue_in_progress.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_queue_deleted_recently.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_queue_does_not_exist.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_queue_name_exists.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_receipt_handle_is_invalid.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_request_throttled.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_resource_not_found_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_too_many_entries_in_batch_request.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_unsupported_operation.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_invalid_message_contents.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/_batch_request_too_long.rs"));
+        pub mod builders {
+            include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/error/builders.rs"));
+        }
     }
 }

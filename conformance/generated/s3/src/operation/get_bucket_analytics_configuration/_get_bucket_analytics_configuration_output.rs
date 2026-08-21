@@ -46,9 +46,14 @@ impl GetBucketAnalyticsConfigurationOutputBuilder {
         self.analytics_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_analytics_configuration(mut self, input: ::std::option::Option<crate::types::AnalyticsConfiguration>) -> Self { self.analytics_configuration = input; self }
+    pub fn set_analytics_configuration(mut self, input: ::std::option::Option<crate::types::AnalyticsConfiguration>) -> Self {
+        self.analytics_configuration = input;
+        self
+    }
     /// <p>The configuration and any analyses for the analytics filter.</p>
-    pub fn get_analytics_configuration(&self) -> &::std::option::Option<crate::types::AnalyticsConfiguration> { &self.analytics_configuration }
+    pub fn get_analytics_configuration(&self) -> &::std::option::Option<crate::types::AnalyticsConfiguration> {
+        &self.analytics_configuration
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

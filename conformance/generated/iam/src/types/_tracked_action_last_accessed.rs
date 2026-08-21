@@ -56,35 +56,55 @@ impl TrackedActionLastAccessedBuilder {
         self.action_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_action_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.action_name = input; self }
+    pub fn set_action_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.action_name = input;
+        self
+    }
     /// <p>The name of the tracked action to which access was attempted. Tracked actions are actions that report activity to IAM.</p>
-    pub fn get_action_name(&self) -> &::std::option::Option<::std::string::String> { &self.action_name }
+    pub fn get_action_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.action_name
+    }
     pub fn last_accessed_entity(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.last_accessed_entity = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_last_accessed_entity(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.last_accessed_entity = input; self }
-    pub fn get_last_accessed_entity(&self) -> &::std::option::Option<::std::string::String> { &self.last_accessed_entity }
+    pub fn set_last_accessed_entity(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.last_accessed_entity = input;
+        self
+    }
+    pub fn get_last_accessed_entity(&self) -> &::std::option::Option<::std::string::String> {
+        &self.last_accessed_entity
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when an authenticated entity most recently attempted to access the tracked service. Amazon Web Services does not report unauthenticated requests.</p>
     /// <p>This field is null if no IAM entities attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
     pub fn last_accessed_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.last_accessed_time = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_last_accessed_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.last_accessed_time = input; self }
+    pub fn set_last_accessed_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.last_accessed_time = input;
+        self
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when an authenticated entity most recently attempted to access the tracked service. Amazon Web Services does not report unauthenticated requests.</p>
     /// <p>This field is null if no IAM entities attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
-    pub fn get_last_accessed_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.last_accessed_time }
+    pub fn get_last_accessed_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.last_accessed_time
+    }
     /// <p>The Region from which the authenticated entity (user or role) last attempted to access the tracked action. Amazon Web Services does not report unauthenticated requests.</p>
     /// <p>This field is null if no IAM entities attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
     pub fn last_accessed_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.last_accessed_region = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_last_accessed_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.last_accessed_region = input; self }
+    pub fn set_last_accessed_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.last_accessed_region = input;
+        self
+    }
     /// <p>The Region from which the authenticated entity (user or role) last attempted to access the tracked action. Amazon Web Services does not report unauthenticated requests.</p>
     /// <p>This field is null if no IAM entities attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
-    pub fn get_last_accessed_region(&self) -> &::std::option::Option<::std::string::String> { &self.last_accessed_region }
+    pub fn get_last_accessed_region(&self) -> &::std::option::Option<::std::string::String> {
+        &self.last_accessed_region
+    }
     /// Consumes the builder and constructs a [`TrackedActionLastAccessed`](crate::types::TrackedActionLastAccessed).
     pub fn build(self) -> crate::types::TrackedActionLastAccessed {
         crate::types::TrackedActionLastAccessed {

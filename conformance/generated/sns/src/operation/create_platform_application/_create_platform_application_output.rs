@@ -39,9 +39,14 @@ impl CreatePlatformApplicationOutputBuilder {
         self.platform_application_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.platform_application_arn = input; self }
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.platform_application_arn = input;
+        self
+    }
     /// <p><code>PlatformApplicationArn</code> is returned.</p>
-    pub fn get_platform_application_arn(&self) -> &::std::option::Option<::std::string::String> { &self.platform_application_arn }
+    pub fn get_platform_application_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.platform_application_arn
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

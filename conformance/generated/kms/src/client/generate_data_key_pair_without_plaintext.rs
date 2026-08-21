@@ -18,6 +18,8 @@ impl super::Client {
     pub fn generate_data_key_pair_without_plaintext(
         &self,
     ) -> crate::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextFluentBuilder {
-        crate::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextFluentBuilder::new(self.handle.clone())
+        crate::operation::generate_data_key_pair_without_plaintext::builders::GenerateDataKeyPairWithoutPlaintextFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

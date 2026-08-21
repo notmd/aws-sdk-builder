@@ -7,7 +7,9 @@ impl super::Client {
     ///   - [`tag_keys(impl Into<String>)`](crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderFluentBuilder::tag_keys) / [`set_tag_keys(Option<Vec::<String>>)`](crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderFluentBuilder::set_tag_keys):<br>required: **true**<br><p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified OIDC provider.</p><br>
     /// - On success, responds with [`UntagOpenIdConnectProviderOutput`](crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderOutput)
     /// - On failure, responds with [`SdkError<UntagOpenIdConnectProviderError>`](crate::operation::untag_open_id_connect_provider::UntagOpenIdConnectProviderError)
-    pub fn untag_open_id_connect_provider(&self) -> crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderFluentBuilder {
+    pub fn untag_open_id_connect_provider(
+        &self,
+    ) -> crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderFluentBuilder {
         crate::operation::untag_open_id_connect_provider::builders::UntagOpenIdConnectProviderFluentBuilder::new(self.handle.clone())
     }
 }

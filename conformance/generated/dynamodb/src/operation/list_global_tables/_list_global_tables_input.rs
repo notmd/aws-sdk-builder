@@ -48,27 +48,42 @@ impl ListGlobalTablesInputBuilder {
         self.exclusive_start_global_table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_exclusive_start_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.exclusive_start_global_table_name = input; self }
+    pub fn set_exclusive_start_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.exclusive_start_global_table_name = input;
+        self
+    }
     /// <p>The first global table name that this operation will evaluate.</p>
-    pub fn get_exclusive_start_global_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.exclusive_start_global_table_name }
+    pub fn get_exclusive_start_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.exclusive_start_global_table_name
+    }
     /// <p>The maximum number of table names to return, if the parameter is not specified DynamoDB defaults to 100.</p>
     /// <p>If the number of global tables DynamoDB finds reaches this limit, it stops the operation and returns the table names collected up to that point, with a table name in the <code>LastEvaluatedGlobalTableName</code> to apply in a subsequent operation to the <code>ExclusiveStartGlobalTableName</code> parameter.</p>
     pub fn limit(mut self, input: i32) -> Self {
         self.limit = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self { self.limit = input; self }
+    pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.limit = input;
+        self
+    }
     /// <p>The maximum number of table names to return, if the parameter is not specified DynamoDB defaults to 100.</p>
     /// <p>If the number of global tables DynamoDB finds reaches this limit, it stops the operation and returns the table names collected up to that point, with a table name in the <code>LastEvaluatedGlobalTableName</code> to apply in a subsequent operation to the <code>ExclusiveStartGlobalTableName</code> parameter.</p>
-    pub fn get_limit(&self) -> &::std::option::Option<i32> { &self.limit }
+    pub fn get_limit(&self) -> &::std::option::Option<i32> {
+        &self.limit
+    }
     /// <p>Lists the global tables in a specific Region.</p>
     pub fn region_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.region_name = input; self }
+    pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.region_name = input;
+        self
+    }
     /// <p>Lists the global tables in a specific Region.</p>
-    pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> { &self.region_name }
+    pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.region_name
+    }
     /// Consumes the builder and constructs a [`ListGlobalTablesInput`](crate::operation::list_global_tables::ListGlobalTablesInput).
     pub fn build(self) -> crate::operation::list_global_tables::ListGlobalTablesInput {
         crate::operation::list_global_tables::ListGlobalTablesInput {

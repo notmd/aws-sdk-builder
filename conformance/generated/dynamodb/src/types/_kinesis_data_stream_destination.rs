@@ -53,33 +53,56 @@ impl KinesisDataStreamDestinationBuilder {
         self.stream_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.stream_arn = input; self }
+    pub fn set_stream_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.stream_arn = input;
+        self
+    }
     /// <p>The ARN for a specific Kinesis data stream.</p>
-    pub fn get_stream_arn(&self) -> &::std::option::Option<::std::string::String> { &self.stream_arn }
+    pub fn get_stream_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.stream_arn
+    }
     /// <p>The current status of replication.</p>
     pub fn destination_status(mut self, input: crate::types::DestinationStatus) -> Self {
         self.destination_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_destination_status(mut self, input: ::std::option::Option<crate::types::DestinationStatus>) -> Self { self.destination_status = input; self }
+    pub fn set_destination_status(mut self, input: ::std::option::Option<crate::types::DestinationStatus>) -> Self {
+        self.destination_status = input;
+        self
+    }
     /// <p>The current status of replication.</p>
-    pub fn get_destination_status(&self) -> &::std::option::Option<crate::types::DestinationStatus> { &self.destination_status }
+    pub fn get_destination_status(&self) -> &::std::option::Option<crate::types::DestinationStatus> {
+        &self.destination_status
+    }
     /// <p>The human-readable string that corresponds to the replica status.</p>
     pub fn destination_status_description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.destination_status_description = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_destination_status_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.destination_status_description = input; self }
+    pub fn set_destination_status_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.destination_status_description = input;
+        self
+    }
     /// <p>The human-readable string that corresponds to the replica status.</p>
-    pub fn get_destination_status_description(&self) -> &::std::option::Option<::std::string::String> { &self.destination_status_description }
+    pub fn get_destination_status_description(&self) -> &::std::option::Option<::std::string::String> {
+        &self.destination_status_description
+    }
     /// <p>The precision of the Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
     pub fn approximate_creation_date_time_precision(mut self, input: crate::types::ApproximateCreationDateTimePrecision) -> Self {
         self.approximate_creation_date_time_precision = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_approximate_creation_date_time_precision(mut self, input: ::std::option::Option<crate::types::ApproximateCreationDateTimePrecision>) -> Self { self.approximate_creation_date_time_precision = input; self }
+    pub fn set_approximate_creation_date_time_precision(
+        mut self,
+        input: ::std::option::Option<crate::types::ApproximateCreationDateTimePrecision>,
+    ) -> Self {
+        self.approximate_creation_date_time_precision = input;
+        self
+    }
     /// <p>The precision of the Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
-    pub fn get_approximate_creation_date_time_precision(&self) -> &::std::option::Option<crate::types::ApproximateCreationDateTimePrecision> { &self.approximate_creation_date_time_precision }
+    pub fn get_approximate_creation_date_time_precision(&self) -> &::std::option::Option<crate::types::ApproximateCreationDateTimePrecision> {
+        &self.approximate_creation_date_time_precision
+    }
     /// Consumes the builder and constructs a [`KinesisDataStreamDestination`](crate::types::KinesisDataStreamDestination).
     pub fn build(self) -> crate::types::KinesisDataStreamDestination {
         crate::types::KinesisDataStreamDestination {

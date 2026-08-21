@@ -2,17 +2,29 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetSshPublicKey;
-impl GetSshPublicKey { pub fn new() -> Self { Self } }
+impl GetSshPublicKey {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     NoSuchEntityException(super::super::types::error::NoSuchEntityException),
     UnrecognizedPublicKeyEncodingException(super::super::types::error::UnrecognizedPublicKeyEncodingException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_no_such_entity_exception(&self) -> bool { matches!(self, Self::NoSuchEntityException(_)) }
-    pub fn is_unrecognized_public_key_encoding_exception(&self) -> bool { matches!(self, Self::UnrecognizedPublicKeyEncodingException(_)) }
+    pub fn is_no_such_entity_exception(&self) -> bool {
+        matches!(self, Self::NoSuchEntityException(_))
+    }
+    pub fn is_unrecognized_public_key_encoding_exception(&self) -> bool {
+        matches!(self, Self::UnrecognizedPublicKeyEncodingException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -26,19 +38,49 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _get_ssh_public_key_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_ssh_public_key/_get_ssh_public_key_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/get_ssh_public_key/_get_ssh_public_key_input.rs"
+    ));
 }
 pub use _get_ssh_public_key_input::GetSshPublicKeyInput;
 pub type Input = GetSshPublicKeyInput;
 pub mod _get_ssh_public_key_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/get_ssh_public_key/_get_ssh_public_key_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/get_ssh_public_key/_get_ssh_public_key_output.rs"
+    ));
 }
 pub use _get_ssh_public_key_output::GetSshPublicKeyOutput;
 pub type Output = GetSshPublicKeyOutput;

@@ -6,27 +6,56 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn callback_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.callback_id = Some(value.into()); self }
-    pub fn result(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self { self.input.result = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::SendDurableExecutionCallbackSuccessOutput, super::SendDurableExecutionCallbackSuccessError> {
-                         let callback_id = self.input.callback_id.as_deref().ok_or_else(|| super::SendDurableExecutionCallbackSuccessError::Unhandled("SendDurableExecutionCallbackSuccess requires callback_id".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/2025-12-01/durable-execution-callbacks/{CallbackId}/succeed"); path = path.replace("{CallbackId}", &super::super::super::transport::encode_path(callback_id)); path };
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::SendDurableExecutionCallbackSuccessError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::SendDurableExecutionCallbackSuccessError::unhandled_with_request_ids(format!("SendDurableExecutionCallbackSuccess returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_send_durable_execution_callback_success_output::SendDurableExecutionCallbackSuccessOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn callback_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.callback_id = Some(value.into());
+        self
+    }
+    pub fn result(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self {
+        self.input.result = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(
+        self,
+    ) -> ::std::result::Result<super::SendDurableExecutionCallbackSuccessOutput, super::SendDurableExecutionCallbackSuccessError> {
+        let callback_id = self.input.callback_id.as_deref().ok_or_else(|| {
+            super::SendDurableExecutionCallbackSuccessError::Unhandled("SendDurableExecutionCallbackSuccess requires callback_id".to_owned())
+        })?;
+        let path = {
+            let mut path = ::std::string::String::from("/2025-12-01/durable-execution-callbacks/{CallbackId}/succeed");
+            path = path.replace("{CallbackId}", &super::super::super::transport::encode_path(callback_id));
+            path
+        };
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::SendDurableExecutionCallbackSuccessError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::SendDurableExecutionCallbackSuccessError::unhandled_with_request_ids(
+                format!("SendDurableExecutionCallbackSuccess returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_send_durable_execution_callback_success_output::SendDurableExecutionCallbackSuccessOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as SendDurableExecutionCallbackSuccessFluentBuilder;

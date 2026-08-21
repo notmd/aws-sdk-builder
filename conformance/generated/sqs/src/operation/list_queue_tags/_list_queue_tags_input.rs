@@ -33,13 +33,16 @@ impl ListQueueTagsInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_url = input; self }
+    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.queue_url = input;
+        self
+    }
     /// <p>The URL of the queue.</p>
-    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> { &self.queue_url }
+    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.queue_url
+    }
     /// Consumes the builder and constructs a [`ListQueueTagsInput`](crate::operation::list_queue_tags::ListQueueTagsInput).
     pub fn build(self) -> crate::operation::list_queue_tags::ListQueueTagsInput {
-        crate::operation::list_queue_tags::ListQueueTagsInput {
-            queue_url: self.queue_url,
-        }
+        crate::operation::list_queue_tags::ListQueueTagsInput { queue_url: self.queue_url }
     }
 }

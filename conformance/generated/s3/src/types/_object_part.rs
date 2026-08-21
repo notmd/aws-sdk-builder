@@ -109,97 +109,157 @@ impl ObjectPartBuilder {
         self.part_number = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_part_number(mut self, input: ::std::option::Option<i32>) -> Self { self.part_number = input; self }
+    pub fn set_part_number(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.part_number = input;
+        self
+    }
     /// <p>The part number identifying the part. This value is a positive integer between 1 and 10,000.</p>
-    pub fn get_part_number(&self) -> &::std::option::Option<i32> { &self.part_number }
+    pub fn get_part_number(&self) -> &::std::option::Option<i32> {
+        &self.part_number
+    }
     /// <p>The size of the uploaded part in bytes.</p>
     pub fn size(mut self, input: i64) -> Self {
         self.size = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_size(mut self, input: ::std::option::Option<i64>) -> Self { self.size = input; self }
+    pub fn set_size(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.size = input;
+        self
+    }
     /// <p>The size of the uploaded part in bytes.</p>
-    pub fn get_size(&self) -> &::std::option::Option<i64> { &self.size }
+    pub fn get_size(&self) -> &::std::option::Option<i64> {
+        &self.size
+    }
     /// <p>The Base64 encoded, 32-bit <code>CRC32</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>CRC32</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_crc32(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc32 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_crc32(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_crc32 = input; self }
+    pub fn set_checksum_crc32(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_crc32 = input;
+        self
+    }
     /// <p>The Base64 encoded, 32-bit <code>CRC32</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>CRC32</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_crc32(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_crc32 }
+    pub fn get_checksum_crc32(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_crc32
+    }
     /// <p>The Base64 encoded, 32-bit <code>CRC32C</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>CRC32C</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_crc32_c(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc32_c = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_crc32_c(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_crc32_c = input; self }
+    pub fn set_checksum_crc32_c(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_crc32_c = input;
+        self
+    }
     /// <p>The Base64 encoded, 32-bit <code>CRC32C</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>CRC32C</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_crc32_c(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_crc32_c }
+    pub fn get_checksum_crc32_c(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_crc32_c
+    }
     /// <p>The Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>CRC64NVME</code> checksum algorithm, or if the object was uploaded without a checksum (and Amazon S3 added the default checksum, <code>CRC64NVME</code>, to the uploaded object). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_crc64_nvme(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc64_nvme = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_crc64_nvme(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_crc64_nvme = input; self }
+    pub fn set_checksum_crc64_nvme(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_crc64_nvme = input;
+        self
+    }
     /// <p>The Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>CRC64NVME</code> checksum algorithm, or if the object was uploaded without a checksum (and Amazon S3 added the default checksum, <code>CRC64NVME</code>, to the uploaded object). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_crc64_nvme(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_crc64_nvme }
+    pub fn get_checksum_crc64_nvme(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_crc64_nvme
+    }
     /// <p>The Base64 encoded, 160-bit <code>SHA1</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>SHA1</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_sha1(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha1 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_sha1(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_sha1 = input; self }
+    pub fn set_checksum_sha1(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_sha1 = input;
+        self
+    }
     /// <p>The Base64 encoded, 160-bit <code>SHA1</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>SHA1</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_sha1(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_sha1 }
+    pub fn get_checksum_sha1(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_sha1
+    }
     /// <p>The Base64 encoded, 256-bit <code>SHA256</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>SHA256</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_sha256(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha256 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_sha256 = input; self }
+    pub fn set_checksum_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_sha256 = input;
+        self
+    }
     /// <p>The Base64 encoded, 256-bit <code>SHA256</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>SHA256</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_sha256(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_sha256 }
+    pub fn get_checksum_sha256(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_sha256
+    }
     /// <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the part. This checksum is present if the multipart upload request was created with the <code>SHA512</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_sha512(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha512 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_sha512(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_sha512 = input; self }
+    pub fn set_checksum_sha512(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_sha512 = input;
+        self
+    }
     /// <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the part. This checksum is present if the multipart upload request was created with the <code>SHA512</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_sha512(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_sha512 }
+    pub fn get_checksum_sha512(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_sha512
+    }
     /// <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the part. This checksum is present if the multipart upload request was created with the <code>MD5</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_md5 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_md5 = input; self }
+    pub fn set_checksum_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_md5 = input;
+        self
+    }
     /// <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the part. This checksum is present if the multipart upload request was created with the <code>MD5</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_md5(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_md5 }
+    pub fn get_checksum_md5(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_md5
+    }
     /// <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>XXHASH64</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_xxhash64(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash64 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_xxhash64(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_xxhash64 = input; self }
+    pub fn set_checksum_xxhash64(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_xxhash64 = input;
+        self
+    }
     /// <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>XXHASH64</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_xxhash64(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_xxhash64 }
+    pub fn get_checksum_xxhash64(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_xxhash64
+    }
     /// <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>XXHASH3</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_xxhash3(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash3 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_xxhash3(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_xxhash3 = input; self }
+    pub fn set_checksum_xxhash3(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_xxhash3 = input;
+        self
+    }
     /// <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>XXHASH3</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_xxhash3(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_xxhash3 }
+    pub fn get_checksum_xxhash3(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_xxhash3
+    }
     /// <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>XXHASH128</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_xxhash128(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash128 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_xxhash128(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_xxhash128 = input; self }
+    pub fn set_checksum_xxhash128(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_xxhash128 = input;
+        self
+    }
     /// <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the part. This checksum is present if the multipart upload request was created with the <code>XXHASH128</code> checksum algorithm. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_xxhash128(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_xxhash128 }
+    pub fn get_checksum_xxhash128(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_xxhash128
+    }
     /// Consumes the builder and constructs a [`ObjectPart`](crate::types::ObjectPart).
     pub fn build(self) -> crate::types::ObjectPart {
         crate::types::ObjectPart {

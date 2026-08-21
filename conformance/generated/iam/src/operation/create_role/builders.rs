@@ -6,31 +6,67 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.path = Some(value.into()); self }
-    pub fn role_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.role_name = Some(value.into()); self }
-    pub fn assume_role_policy_document(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.assume_role_policy_document = Some(value.into()); self }
-    pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.description = Some(value.into()); self }
-    pub fn max_session_duration(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_session_duration = Some(value.into()); self }
-    pub fn permissions_boundary(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.permissions_boundary = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::CreateRoleOutput, super::CreateRoleError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::CreateRoleError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::CreateRoleError::unhandled_with_request_ids(format!("CreateRole returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_create_role_output::CreateRoleOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.path = Some(value.into());
+        self
+    }
+    pub fn role_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.role_name = Some(value.into());
+        self
+    }
+    pub fn assume_role_policy_document(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.assume_role_policy_document = Some(value.into());
+        self
+    }
+    pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.description = Some(value.into());
+        self
+    }
+    pub fn max_session_duration(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.max_session_duration = Some(value.into());
+        self
+    }
+    pub fn permissions_boundary(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.permissions_boundary = Some(value.into());
+        self
+    }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.input.tags = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::CreateRoleOutput, super::CreateRoleError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::CreateRoleError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::CreateRoleError::unhandled_with_request_ids(
+                format!("CreateRole returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_create_role_output::CreateRoleOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as CreateRoleFluentBuilder;

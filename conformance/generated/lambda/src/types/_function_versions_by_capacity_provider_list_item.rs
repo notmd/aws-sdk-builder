@@ -41,26 +41,48 @@ impl FunctionVersionsByCapacityProviderListItemBuilder {
         self.function_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.function_arn = input; self }
+    pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.function_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the function version.</p>
-    pub fn get_function_arn(&self) -> &::std::option::Option<::std::string::String> { &self.function_arn }
+    pub fn get_function_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.function_arn
+    }
     /// <p>The current state of the function version.</p>
     /// This field is required.
     pub fn state(mut self, input: crate::types::State) -> Self {
         self.state = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_state(mut self, input: ::std::option::Option<crate::types::State>) -> Self { self.state = input; self }
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::State>) -> Self {
+        self.state = input;
+        self
+    }
     /// <p>The current state of the function version.</p>
-    pub fn get_state(&self) -> &::std::option::Option<crate::types::State> { &self.state }
+    pub fn get_state(&self) -> &::std::option::Option<crate::types::State> {
+        &self.state
+    }
     /// Consumes the builder and constructs a [`FunctionVersionsByCapacityProviderListItem`](crate::types::FunctionVersionsByCapacityProviderListItem).
     /// This method will fail if any of the following fields are not set:
     /// - [`function_arn`](Self::function_arn)
     /// - [`state`](Self::state)
-    pub fn build(self) -> ::std::result::Result<crate::types::FunctionVersionsByCapacityProviderListItem, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::types::FunctionVersionsByCapacityProviderListItem, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::FunctionVersionsByCapacityProviderListItem {
-            function_arn: self.function_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_arn", "function_arn was not specified but it is required when building FunctionVersionsByCapacityProviderListItem"))?,
-            state: self.state.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("state", "state was not specified but it is required when building FunctionVersionsByCapacityProviderListItem"))?,
+            function_arn: self.function_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "function_arn",
+                    "function_arn was not specified but it is required when building FunctionVersionsByCapacityProviderListItem",
+                )
+            })?,
+            state: self.state.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "state",
+                    "state was not specified but it is required when building FunctionVersionsByCapacityProviderListItem",
+                )
+            })?,
         })
     }
 }

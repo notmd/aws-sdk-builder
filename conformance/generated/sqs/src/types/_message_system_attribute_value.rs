@@ -64,17 +64,27 @@ impl MessageSystemAttributeValueBuilder {
         self.string_value = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_string_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.string_value = input; self }
+    pub fn set_string_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.string_value = input;
+        self
+    }
     /// <p>Strings are Unicode with UTF-8 binary encoding. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">ASCII Printable Characters</a>.</p>
-    pub fn get_string_value(&self) -> &::std::option::Option<::std::string::String> { &self.string_value }
+    pub fn get_string_value(&self) -> &::std::option::Option<::std::string::String> {
+        &self.string_value
+    }
     /// <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
     pub fn binary_value(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.binary_value = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_binary_value(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.binary_value = input; self }
+    pub fn set_binary_value(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.binary_value = input;
+        self
+    }
     /// <p>Binary type attributes can store any binary data, such as compressed data, encrypted data, or images.</p>
-    pub fn get_binary_value(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.binary_value }
+    pub fn get_binary_value(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.binary_value
+    }
     /// <p>Not implemented. Reserved for future use.</p>
     /// Appends an item to `string_list_values`.
     ///
@@ -85,9 +95,14 @@ impl MessageSystemAttributeValueBuilder {
         self.string_list_values = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_string_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.string_list_values = input; self }
+    pub fn set_string_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.string_list_values = input;
+        self
+    }
     /// <p>Not implemented. Reserved for future use.</p>
-    pub fn get_string_list_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.string_list_values }
+    pub fn get_string_list_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.string_list_values
+    }
     /// <p>Not implemented. Reserved for future use.</p>
     /// Appends an item to `binary_list_values`.
     ///
@@ -98,9 +113,14 @@ impl MessageSystemAttributeValueBuilder {
         self.binary_list_values = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_binary_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::vec::Vec<u8>>>) -> Self { self.binary_list_values = input; self }
+    pub fn set_binary_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::vec::Vec<u8>>>) -> Self {
+        self.binary_list_values = input;
+        self
+    }
     /// <p>Not implemented. Reserved for future use.</p>
-    pub fn get_binary_list_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::vec::Vec<u8>>> { &self.binary_list_values }
+    pub fn get_binary_list_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::vec::Vec<u8>>> {
+        &self.binary_list_values
+    }
     /// <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
     /// <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
     /// This field is required.
@@ -108,10 +128,15 @@ impl MessageSystemAttributeValueBuilder {
         self.data_type = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_data_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.data_type = input; self }
+    pub fn set_data_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.data_type = input;
+        self
+    }
     /// <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p>
     /// <p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn get_data_type(&self) -> &::std::option::Option<::std::string::String> { &self.data_type }
+    pub fn get_data_type(&self) -> &::std::option::Option<::std::string::String> {
+        &self.data_type
+    }
     /// Consumes the builder and constructs a [`MessageSystemAttributeValue`](crate::types::MessageSystemAttributeValue).
     /// This method will fail if any of the following fields are not set:
     /// - [`data_type`](Self::data_type)
@@ -121,7 +146,12 @@ impl MessageSystemAttributeValueBuilder {
             binary_value: self.binary_value,
             string_list_values: self.string_list_values,
             binary_list_values: self.binary_list_values,
-            data_type: self.data_type.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("data_type", "data_type was not specified but it is required when building MessageSystemAttributeValue"))?,
+            data_type: self.data_type.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "data_type",
+                    "data_type was not specified but it is required when building MessageSystemAttributeValue",
+                )
+            })?,
         })
     }
 }

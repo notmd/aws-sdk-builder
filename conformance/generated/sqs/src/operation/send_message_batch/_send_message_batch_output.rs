@@ -53,9 +53,14 @@ impl SendMessageBatchOutputBuilder {
         self.successful = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchResultEntry>>) -> Self { self.successful = input; self }
+    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchResultEntry>>) -> Self {
+        self.successful = input;
+        self
+    }
     /// <p>A list of <code><a>SendMessageBatchResultEntry</a></code> items.</p>
-    pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchResultEntry>> { &self.successful }
+    pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchResultEntry>> {
+        &self.successful
+    }
     /// <p>A list of <code><a>BatchResultErrorEntry</a></code> items with error details about each message that can't be enqueued.</p>
     /// Appends an item to `failed`.
     ///
@@ -66,9 +71,14 @@ impl SendMessageBatchOutputBuilder {
         self.failed = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self { self.failed = input; self }
+    pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self {
+        self.failed = input;
+        self
+    }
     /// <p>A list of <code><a>BatchResultErrorEntry</a></code> items with error details about each message that can't be enqueued.</p>
-    pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> { &self.failed }
+    pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> {
+        &self.failed
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -82,10 +92,22 @@ impl SendMessageBatchOutputBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`successful`](Self::successful)
     /// - [`failed`](Self::failed)
-    pub fn build(self) -> ::std::result::Result<crate::operation::send_message_batch::SendMessageBatchOutput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::operation::send_message_batch::SendMessageBatchOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::send_message_batch::SendMessageBatchOutput {
-            successful: self.successful.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("successful", "successful was not specified but it is required when building SendMessageBatchOutput"))?,
-            failed: self.failed.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("failed", "failed was not specified but it is required when building SendMessageBatchOutput"))?,
+            successful: self.successful.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "successful",
+                    "successful was not specified but it is required when building SendMessageBatchOutput",
+                )
+            })?,
+            failed: self.failed.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "failed",
+                    "failed was not specified but it is required when building SendMessageBatchOutput",
+                )
+            })?,
             _request_id: self._request_id,
         })
     }

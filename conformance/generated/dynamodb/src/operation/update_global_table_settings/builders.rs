@@ -6,30 +6,69 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn global_table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.global_table_name = Some(value.into()); self }
-    pub fn global_table_billing_mode(mut self, value: impl ::std::convert::Into<crate::types::BillingMode>) -> Self { self.input.global_table_billing_mode = Some(value.into()); self }
-    pub fn global_table_provisioned_write_capacity_units(mut self, value: impl ::std::convert::Into<i64>) -> Self { self.input.global_table_provisioned_write_capacity_units = Some(value.into()); self }
-    pub fn global_table_provisioned_write_capacity_auto_scaling_settings_update(mut self, value: impl ::std::convert::Into<crate::types::AutoScalingSettingsUpdate>) -> Self { self.input.global_table_provisioned_write_capacity_auto_scaling_settings_update = Some(value.into()); self }
-    pub fn global_table_global_secondary_index_settings_update(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>) -> Self { self.input.global_table_global_secondary_index_settings_update = Some(value.into()); self }
-    pub fn replica_settings_update(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ReplicaSettingsUpdate>>) -> Self { self.input.replica_settings_update = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::UpdateGlobalTableSettingsOutput, super::UpdateGlobalTableSettingsError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UpdateGlobalTableSettingsError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::UpdateGlobalTableSettingsError::unhandled_with_request_ids(format!("UpdateGlobalTableSettings returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_update_global_table_settings_output::UpdateGlobalTableSettingsOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn global_table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.global_table_name = Some(value.into());
+        self
+    }
+    pub fn global_table_billing_mode(mut self, value: impl ::std::convert::Into<crate::types::BillingMode>) -> Self {
+        self.input.global_table_billing_mode = Some(value.into());
+        self
+    }
+    pub fn global_table_provisioned_write_capacity_units(mut self, value: impl ::std::convert::Into<i64>) -> Self {
+        self.input.global_table_provisioned_write_capacity_units = Some(value.into());
+        self
+    }
+    pub fn global_table_provisioned_write_capacity_auto_scaling_settings_update(
+        mut self,
+        value: impl ::std::convert::Into<crate::types::AutoScalingSettingsUpdate>,
+    ) -> Self {
+        self.input.global_table_provisioned_write_capacity_auto_scaling_settings_update = Some(value.into());
+        self
+    }
+    pub fn global_table_global_secondary_index_settings_update(
+        mut self,
+        value: impl ::std::convert::Into<::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>,
+    ) -> Self {
+        self.input.global_table_global_secondary_index_settings_update = Some(value.into());
+        self
+    }
+    pub fn replica_settings_update(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ReplicaSettingsUpdate>>) -> Self {
+        self.input.replica_settings_update = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::UpdateGlobalTableSettingsOutput, super::UpdateGlobalTableSettingsError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::UpdateGlobalTableSettingsError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::UpdateGlobalTableSettingsError::unhandled_with_request_ids(
+                format!("UpdateGlobalTableSettings returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_update_global_table_settings_output::UpdateGlobalTableSettingsOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as UpdateGlobalTableSettingsFluentBuilder;

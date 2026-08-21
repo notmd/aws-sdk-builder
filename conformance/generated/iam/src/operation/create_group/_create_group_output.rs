@@ -39,9 +39,14 @@ impl CreateGroupOutputBuilder {
         self.group = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_group(mut self, input: ::std::option::Option<crate::types::Group>) -> Self { self.group = input; self }
+    pub fn set_group(mut self, input: ::std::option::Option<crate::types::Group>) -> Self {
+        self.group = input;
+        self
+    }
     /// <p>A structure containing details about the new group.</p>
-    pub fn get_group(&self) -> &::std::option::Option<crate::types::Group> { &self.group }
+    pub fn get_group(&self) -> &::std::option::Option<crate::types::Group> {
+        &self.group
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

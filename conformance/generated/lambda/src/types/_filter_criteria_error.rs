@@ -39,17 +39,27 @@ impl FilterCriteriaErrorBuilder {
         self.error_code = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.error_code = input; self }
+    pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.error_code = input;
+        self
+    }
     /// <p>The KMS exception that resulted from filter criteria encryption or decryption.</p>
-    pub fn get_error_code(&self) -> &::std::option::Option<::std::string::String> { &self.error_code }
+    pub fn get_error_code(&self) -> &::std::option::Option<::std::string::String> {
+        &self.error_code
+    }
     /// <p>The error message.</p>
     pub fn message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.message = input; self }
+    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.message = input;
+        self
+    }
     /// <p>The error message.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> { &self.message }
+    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.message
+    }
     /// Consumes the builder and constructs a [`FilterCriteriaError`](crate::types::FilterCriteriaError).
     pub fn build(self) -> crate::types::FilterCriteriaError {
         crate::types::FilterCriteriaError {

@@ -6,28 +6,55 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn resource_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.resource_arn = Some(value.into()); self }
-    pub fn policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy = Some(value.into()); self }
-    pub fn expected_revision_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_revision_id = Some(value.into()); self }
-    pub fn confirm_remove_self_resource_access(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.confirm_remove_self_resource_access = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::PutResourcePolicyOutput, super::PutResourcePolicyError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::PutResourcePolicyError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::PutResourcePolicyError::unhandled_with_request_ids(format!("PutResourcePolicy returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_put_resource_policy_output::PutResourcePolicyOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn resource_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.resource_arn = Some(value.into());
+        self
+    }
+    pub fn policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.policy = Some(value.into());
+        self
+    }
+    pub fn expected_revision_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_revision_id = Some(value.into());
+        self
+    }
+    pub fn confirm_remove_self_resource_access(mut self, value: impl ::std::convert::Into<bool>) -> Self {
+        self.input.confirm_remove_self_resource_access = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::PutResourcePolicyOutput, super::PutResourcePolicyError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::PutResourcePolicyError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::PutResourcePolicyError::unhandled_with_request_ids(
+                format!("PutResourcePolicy returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_put_resource_policy_output::PutResourcePolicyOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as PutResourcePolicyFluentBuilder;

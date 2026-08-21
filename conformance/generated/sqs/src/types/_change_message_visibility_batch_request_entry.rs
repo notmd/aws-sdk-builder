@@ -58,37 +58,64 @@ impl ChangeMessageVisibilityBatchRequestEntryBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>An identifier for this particular receipt handle used to communicate the result.</p><note>
     /// <p>The <code>Id</code>s of a batch request need to be unique within a request.</p>
     /// <p>This identifier can have up to 80 characters. The following characters are accepted: alphanumeric characters, hyphens(-), and underscores (_).</p>
     /// </note>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>A receipt handle.</p>
     /// This field is required.
     pub fn receipt_handle(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.receipt_handle = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.receipt_handle = input; self }
+    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.receipt_handle = input;
+        self
+    }
     /// <p>A receipt handle.</p>
-    pub fn get_receipt_handle(&self) -> &::std::option::Option<::std::string::String> { &self.receipt_handle }
+    pub fn get_receipt_handle(&self) -> &::std::option::Option<::std::string::String> {
+        &self.receipt_handle
+    }
     /// <p>The new value (in seconds) for the message's visibility timeout.</p>
     pub fn visibility_timeout(mut self, input: i32) -> Self {
         self.visibility_timeout = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_visibility_timeout(mut self, input: ::std::option::Option<i32>) -> Self { self.visibility_timeout = input; self }
+    pub fn set_visibility_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.visibility_timeout = input;
+        self
+    }
     /// <p>The new value (in seconds) for the message's visibility timeout.</p>
-    pub fn get_visibility_timeout(&self) -> &::std::option::Option<i32> { &self.visibility_timeout }
+    pub fn get_visibility_timeout(&self) -> &::std::option::Option<i32> {
+        &self.visibility_timeout
+    }
     /// Consumes the builder and constructs a [`ChangeMessageVisibilityBatchRequestEntry`](crate::types::ChangeMessageVisibilityBatchRequestEntry).
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](Self::id)
     /// - [`receipt_handle`](Self::receipt_handle)
-    pub fn build(self) -> ::std::result::Result<crate::types::ChangeMessageVisibilityBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::types::ChangeMessageVisibilityBatchRequestEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ChangeMessageVisibilityBatchRequestEntry {
-            id: self.id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building ChangeMessageVisibilityBatchRequestEntry"))?,
-            receipt_handle: self.receipt_handle.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("receipt_handle", "receipt_handle was not specified but it is required when building ChangeMessageVisibilityBatchRequestEntry"))?,
+            id: self.id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "id",
+                    "id was not specified but it is required when building ChangeMessageVisibilityBatchRequestEntry",
+                )
+            })?,
+            receipt_handle: self.receipt_handle.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "receipt_handle",
+                    "receipt_handle was not specified but it is required when building ChangeMessageVisibilityBatchRequestEntry",
+                )
+            })?,
             visibility_timeout: self.visibility_timeout,
         })
     }

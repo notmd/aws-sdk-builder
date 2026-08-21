@@ -37,13 +37,16 @@ impl FilterCriteriaBuilder {
         self.filters = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>) -> Self { self.filters = input; self }
+    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>) -> Self {
+        self.filters = input;
+        self
+    }
     /// <p>A list of filters.</p>
-    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Filter>> { &self.filters }
+    pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Filter>> {
+        &self.filters
+    }
     /// Consumes the builder and constructs a [`FilterCriteria`](crate::types::FilterCriteria).
     pub fn build(self) -> crate::types::FilterCriteria {
-        crate::types::FilterCriteria {
-            filters: self.filters,
-        }
+        crate::types::FilterCriteria { filters: self.filters }
     }
 }

@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct UpdateGlobalTableSettings;
-impl UpdateGlobalTableSettings { pub fn new() -> Self { Self } }
+impl UpdateGlobalTableSettings {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     GlobalTableNotFoundException(super::super::types::error::GlobalTableNotFoundException),
@@ -13,16 +17,34 @@ pub enum Error {
     ReplicaNotFoundException(super::super::types::error::ReplicaNotFoundException),
     ResourceInUseException(super::super::types::error::ResourceInUseException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_global_table_not_found_exception(&self) -> bool { matches!(self, Self::GlobalTableNotFoundException(_)) }
-    pub fn is_index_not_found_exception(&self) -> bool { matches!(self, Self::IndexNotFoundException(_)) }
-    pub fn is_internal_server_error(&self) -> bool { matches!(self, Self::InternalServerError(_)) }
-    pub fn is_invalid_endpoint_exception(&self) -> bool { matches!(self, Self::InvalidEndpointException(_)) }
-    pub fn is_limit_exceeded_exception(&self) -> bool { matches!(self, Self::LimitExceededException(_)) }
-    pub fn is_replica_not_found_exception(&self) -> bool { matches!(self, Self::ReplicaNotFoundException(_)) }
-    pub fn is_resource_in_use_exception(&self) -> bool { matches!(self, Self::ResourceInUseException(_)) }
+    pub fn is_global_table_not_found_exception(&self) -> bool {
+        matches!(self, Self::GlobalTableNotFoundException(_))
+    }
+    pub fn is_index_not_found_exception(&self) -> bool {
+        matches!(self, Self::IndexNotFoundException(_))
+    }
+    pub fn is_internal_server_error(&self) -> bool {
+        matches!(self, Self::InternalServerError(_))
+    }
+    pub fn is_invalid_endpoint_exception(&self) -> bool {
+        matches!(self, Self::InvalidEndpointException(_))
+    }
+    pub fn is_limit_exceeded_exception(&self) -> bool {
+        matches!(self, Self::LimitExceededException(_))
+    }
+    pub fn is_replica_not_found_exception(&self) -> bool {
+        matches!(self, Self::ReplicaNotFoundException(_))
+    }
+    pub fn is_resource_in_use_exception(&self) -> bool {
+        matches!(self, Self::ResourceInUseException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -41,26 +63,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _update_global_table_settings_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/update_global_table_settings/_update_global_table_settings_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/dynamodb/src/operation/update_global_table_settings/_update_global_table_settings_input.rs"
+    ));
 }
 pub use _update_global_table_settings_input::UpdateGlobalTableSettingsInput;
 pub type Input = UpdateGlobalTableSettingsInput;
 pub mod _update_global_table_settings_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/update_global_table_settings/_update_global_table_settings_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/dynamodb/src/operation/update_global_table_settings/_update_global_table_settings_output.rs"
+    ));
 }
 pub use _update_global_table_settings_output::UpdateGlobalTableSettingsOutput;
 pub type Output = UpdateGlobalTableSettingsOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/update_global_table_settings/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/dynamodb/src/operation/update_global_table_settings/builders.rs"
+    ));
 }
 pub type UpdateGlobalTableSettingsError = Error;
 pub type UpdateGlobalTableSettingsFluentBuilder = builders::Builder;

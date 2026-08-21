@@ -32,9 +32,17 @@ impl UpdateKinesisStreamingConfigurationBuilder {
         self.approximate_creation_date_time_precision = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_approximate_creation_date_time_precision(mut self, input: ::std::option::Option<crate::types::ApproximateCreationDateTimePrecision>) -> Self { self.approximate_creation_date_time_precision = input; self }
+    pub fn set_approximate_creation_date_time_precision(
+        mut self,
+        input: ::std::option::Option<crate::types::ApproximateCreationDateTimePrecision>,
+    ) -> Self {
+        self.approximate_creation_date_time_precision = input;
+        self
+    }
     /// <p>Enables updating the precision of Kinesis data stream timestamp.</p>
-    pub fn get_approximate_creation_date_time_precision(&self) -> &::std::option::Option<crate::types::ApproximateCreationDateTimePrecision> { &self.approximate_creation_date_time_precision }
+    pub fn get_approximate_creation_date_time_precision(&self) -> &::std::option::Option<crate::types::ApproximateCreationDateTimePrecision> {
+        &self.approximate_creation_date_time_precision
+    }
     /// Consumes the builder and constructs a [`UpdateKinesisStreamingConfiguration`](crate::types::UpdateKinesisStreamingConfiguration).
     pub fn build(self) -> crate::types::UpdateKinesisStreamingConfiguration {
         crate::types::UpdateKinesisStreamingConfiguration {

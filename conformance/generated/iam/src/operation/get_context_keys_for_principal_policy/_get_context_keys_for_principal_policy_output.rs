@@ -44,9 +44,14 @@ impl GetContextKeysForPrincipalPolicyOutputBuilder {
         self.context_key_names = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_context_key_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.context_key_names = input; self }
+    pub fn set_context_key_names(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.context_key_names = input;
+        self
+    }
     /// <p>The list of context keys that are referenced in the input policies.</p>
-    pub fn get_context_key_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.context_key_names }
+    pub fn get_context_key_names(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.context_key_names
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

@@ -43,8 +43,13 @@ impl GetBucketReplicationOutputBuilder {
         self.replication_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_replication_configuration(mut self, input: ::std::option::Option<crate::types::ReplicationConfiguration>) -> Self { self.replication_configuration = input; self }
-    pub fn get_replication_configuration(&self) -> &::std::option::Option<crate::types::ReplicationConfiguration> { &self.replication_configuration }
+    pub fn set_replication_configuration(mut self, input: ::std::option::Option<crate::types::ReplicationConfiguration>) -> Self {
+        self.replication_configuration = input;
+        self
+    }
+    pub fn get_replication_configuration(&self) -> &::std::option::Option<crate::types::ReplicationConfiguration> {
+        &self.replication_configuration
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

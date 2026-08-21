@@ -138,9 +138,14 @@ impl CopyObjectOutputBuilder {
         self.copy_object_result = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_copy_object_result(mut self, input: ::std::option::Option<crate::types::CopyObjectResult>) -> Self { self.copy_object_result = input; self }
+    pub fn set_copy_object_result(mut self, input: ::std::option::Option<crate::types::CopyObjectResult>) -> Self {
+        self.copy_object_result = input;
+        self
+    }
     /// <p>Container for all response elements.</p>
-    pub fn get_copy_object_result(&self) -> &::std::option::Option<crate::types::CopyObjectResult> { &self.copy_object_result }
+    pub fn get_copy_object_result(&self) -> &::std::option::Option<crate::types::CopyObjectResult> {
+        &self.copy_object_result
+    }
     /// <p>If the object expiration is configured, the response includes this header.</p><note>
     /// <p>Object expiration information is not returned in directory buckets and this header returns the value "<code>NotImplemented</code>" in all responses for directory buckets.</p>
     /// </note>
@@ -148,11 +153,16 @@ impl CopyObjectOutputBuilder {
         self.expiration = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expiration(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expiration = input; self }
+    pub fn set_expiration(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expiration = input;
+        self
+    }
     /// <p>If the object expiration is configured, the response includes this header.</p><note>
     /// <p>Object expiration information is not returned in directory buckets and this header returns the value "<code>NotImplemented</code>" in all responses for directory buckets.</p>
     /// </note>
-    pub fn get_expiration(&self) -> &::std::option::Option<::std::string::String> { &self.expiration }
+    pub fn get_expiration(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expiration
+    }
     /// <p>Version ID of the source object that was copied.</p><note>
     /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
     /// </note>
@@ -160,11 +170,16 @@ impl CopyObjectOutputBuilder {
         self.copy_source_version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_copy_source_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.copy_source_version_id = input; self }
+    pub fn set_copy_source_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.copy_source_version_id = input;
+        self
+    }
     /// <p>Version ID of the source object that was copied.</p><note>
     /// <p>This functionality is not supported when the source object is in a directory bucket.</p>
     /// </note>
-    pub fn get_copy_source_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.copy_source_version_id }
+    pub fn get_copy_source_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.copy_source_version_id
+    }
     /// <p>Version ID of the newly created copy.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -172,11 +187,16 @@ impl CopyObjectOutputBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.version_id = input; self }
+    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.version_id = input;
+        self
+    }
     /// <p>Version ID of the newly created copy.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.version_id }
+    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.version_id
+    }
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
@@ -184,11 +204,16 @@ impl CopyObjectOutputBuilder {
         self.server_side_encryption = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self { self.server_side_encryption = input; self }
+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
+        self.server_side_encryption = input;
+        self
+    }
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> { &self.server_side_encryption }
+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+        &self.server_side_encryption
+    }
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -196,11 +221,16 @@ impl CopyObjectOutputBuilder {
         self.sse_customer_algorithm = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.sse_customer_algorithm = input; self }
+    pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.sse_customer_algorithm = input;
+        self
+    }
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_sse_customer_algorithm(&self) -> &::std::option::Option<::std::string::String> { &self.sse_customer_algorithm }
+    pub fn get_sse_customer_algorithm(&self) -> &::std::option::Option<::std::string::String> {
+        &self.sse_customer_algorithm
+    }
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide the round-trip message integrity verification of the customer-provided encryption key.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -208,41 +238,66 @@ impl CopyObjectOutputBuilder {
         self.sse_customer_key_md5 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.sse_customer_key_md5 = input; self }
+    pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.sse_customer_key_md5 = input;
+        self
+    }
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide the round-trip message integrity verification of the customer-provided encryption key.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_sse_customer_key_md5(&self) -> &::std::option::Option<::std::string::String> { &self.sse_customer_key_md5 }
+    pub fn get_sse_customer_key_md5(&self) -> &::std::option::Option<::std::string::String> {
+        &self.sse_customer_key_md5
+    }
     /// <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
     pub fn ssekms_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.ssekms_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_ssekms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.ssekms_key_id = input; self }
+    pub fn set_ssekms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.ssekms_key_id = input;
+        self
+    }
     /// <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
-    pub fn get_ssekms_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.ssekms_key_id }
+    pub fn get_ssekms_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.ssekms_key_id
+    }
     /// <p>If present, indicates the Amazon Web Services KMS Encryption Context to use for object encryption. The value of this header is a Base64 encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
     pub fn ssekms_encryption_context(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.ssekms_encryption_context = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_ssekms_encryption_context(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.ssekms_encryption_context = input; self }
+    pub fn set_ssekms_encryption_context(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.ssekms_encryption_context = input;
+        self
+    }
     /// <p>If present, indicates the Amazon Web Services KMS Encryption Context to use for object encryption. The value of this header is a Base64 encoded UTF-8 string holding JSON with the encryption context key-value pairs.</p>
-    pub fn get_ssekms_encryption_context(&self) -> &::std::option::Option<::std::string::String> { &self.ssekms_encryption_context }
+    pub fn get_ssekms_encryption_context(&self) -> &::std::option::Option<::std::string::String> {
+        &self.ssekms_encryption_context
+    }
     /// <p>Indicates whether the copied object uses an S3 Bucket Key for server-side encryption with Key Management Service (KMS) keys (SSE-KMS).</p>
     pub fn bucket_key_enabled(mut self, input: bool) -> Self {
         self.bucket_key_enabled = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_bucket_key_enabled(mut self, input: ::std::option::Option<bool>) -> Self { self.bucket_key_enabled = input; self }
+    pub fn set_bucket_key_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.bucket_key_enabled = input;
+        self
+    }
     /// <p>Indicates whether the copied object uses an S3 Bucket Key for server-side encryption with Key Management Service (KMS) keys (SSE-KMS).</p>
-    pub fn get_bucket_key_enabled(&self) -> &::std::option::Option<bool> { &self.bucket_key_enabled }
+    pub fn get_bucket_key_enabled(&self) -> &::std::option::Option<bool> {
+        &self.bucket_key_enabled
+    }
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+        self.request_charged = input;
+        self
+    }
+    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+        &self.request_charged
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

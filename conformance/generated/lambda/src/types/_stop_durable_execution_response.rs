@@ -33,15 +33,25 @@ impl StopDurableExecutionResponseBuilder {
         self.stop_timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_stop_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.stop_timestamp = input; self }
+    pub fn set_stop_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.stop_timestamp = input;
+        self
+    }
     /// <p>The timestamp when the execution was stopped (ISO 8601 format).</p>
-    pub fn get_stop_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.stop_timestamp }
+    pub fn get_stop_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.stop_timestamp
+    }
     /// Consumes the builder and constructs a [`StopDurableExecutionResponse`](crate::types::StopDurableExecutionResponse).
     /// This method will fail if any of the following fields are not set:
     /// - [`stop_timestamp`](Self::stop_timestamp)
     pub fn build(self) -> ::std::result::Result<crate::types::StopDurableExecutionResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::StopDurableExecutionResponse {
-            stop_timestamp: self.stop_timestamp.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("stop_timestamp", "stop_timestamp was not specified but it is required when building StopDurableExecutionResponse"))?,
+            stop_timestamp: self.stop_timestamp.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "stop_timestamp",
+                    "stop_timestamp was not specified but it is required when building StopDurableExecutionResponse",
+                )
+            })?,
         })
     }
 }

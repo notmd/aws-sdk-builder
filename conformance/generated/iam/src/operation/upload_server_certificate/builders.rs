@@ -6,30 +6,63 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.path = Some(value.into()); self }
-    pub fn server_certificate_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.server_certificate_name = Some(value.into()); self }
-    pub fn certificate_body(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.certificate_body = Some(value.into()); self }
-    pub fn private_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.private_key = Some(value.into()); self }
-    pub fn certificate_chain(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.certificate_chain = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::UploadServerCertificateOutput, super::UploadServerCertificateError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UploadServerCertificateError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::UploadServerCertificateError::unhandled_with_request_ids(format!("UploadServerCertificate returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_upload_server_certificate_output::UploadServerCertificateOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.path = Some(value.into());
+        self
+    }
+    pub fn server_certificate_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.server_certificate_name = Some(value.into());
+        self
+    }
+    pub fn certificate_body(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.certificate_body = Some(value.into());
+        self
+    }
+    pub fn private_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.private_key = Some(value.into());
+        self
+    }
+    pub fn certificate_chain(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.certificate_chain = Some(value.into());
+        self
+    }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.input.tags = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::UploadServerCertificateOutput, super::UploadServerCertificateError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::UploadServerCertificateError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::UploadServerCertificateError::unhandled_with_request_ids(
+                format!("UploadServerCertificate returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_upload_server_certificate_output::UploadServerCertificateOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as UploadServerCertificateFluentBuilder;

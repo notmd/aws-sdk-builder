@@ -58,26 +58,41 @@ impl GetWebIdentityTokenInputBuilder {
         self.audience = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_audience(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.audience = input; self }
+    pub fn set_audience(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.audience = input;
+        self
+    }
     /// <p>The intended recipient of the web identity token. This value populates the <code>aud</code> claim in the JWT and should identify the service or application that will validate and use the token. The external service should verify this claim to ensure the token was intended for their use.</p>
-    pub fn get_audience(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.audience }
+    pub fn get_audience(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.audience
+    }
     /// <p>The duration, in seconds, for which the JSON Web Token (JWT) will remain valid. The value can range from 60 seconds (1 minute) to 3600 seconds (1 hour). If not specified, the default duration is 300 seconds (5 minutes). The token is designed to be short-lived and should be used for proof of identity, then exchanged for credentials or short-lived tokens in the external service.</p>
     pub fn duration_seconds(mut self, input: i32) -> Self {
         self.duration_seconds = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_duration_seconds(mut self, input: ::std::option::Option<i32>) -> Self { self.duration_seconds = input; self }
+    pub fn set_duration_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.duration_seconds = input;
+        self
+    }
     /// <p>The duration, in seconds, for which the JSON Web Token (JWT) will remain valid. The value can range from 60 seconds (1 minute) to 3600 seconds (1 hour). If not specified, the default duration is 300 seconds (5 minutes). The token is designed to be short-lived and should be used for proof of identity, then exchanged for credentials or short-lived tokens in the external service.</p>
-    pub fn get_duration_seconds(&self) -> &::std::option::Option<i32> { &self.duration_seconds }
+    pub fn get_duration_seconds(&self) -> &::std::option::Option<i32> {
+        &self.duration_seconds
+    }
     /// <p>The cryptographic algorithm to use for signing the JSON Web Token (JWT). Valid values are RS256 (RSA with SHA-256) and ES384 (ECDSA using P-384 curve with SHA-384).</p>
     /// This field is required.
     pub fn signing_algorithm(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.signing_algorithm = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_signing_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.signing_algorithm = input; self }
+    pub fn set_signing_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.signing_algorithm = input;
+        self
+    }
     /// <p>The cryptographic algorithm to use for signing the JSON Web Token (JWT). Valid values are RS256 (RSA with SHA-256) and ES384 (ECDSA using P-384 curve with SHA-384).</p>
-    pub fn get_signing_algorithm(&self) -> &::std::option::Option<::std::string::String> { &self.signing_algorithm }
+    pub fn get_signing_algorithm(&self) -> &::std::option::Option<::std::string::String> {
+        &self.signing_algorithm
+    }
     /// <p>An optional list of tags to include in the JSON Web Token (JWT). These tags are added as custom claims to the JWT and can be used by the downstream service for authorization decisions.</p>
     /// Appends an item to `tags`.
     ///
@@ -88,9 +103,14 @@ impl GetWebIdentityTokenInputBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.tags = input;
+        self
+    }
     /// <p>An optional list of tags to include in the JSON Web Token (JWT). These tags are added as custom claims to the JWT and can be used by the downstream service for authorization decisions.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.tags }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+        &self.tags
+    }
     /// Consumes the builder and constructs a [`GetWebIdentityTokenInput`](crate::operation::get_web_identity_token::GetWebIdentityTokenInput).
     pub fn build(self) -> crate::operation::get_web_identity_token::GetWebIdentityTokenInput {
         crate::operation::get_web_identity_token::GetWebIdentityTokenInput {

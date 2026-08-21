@@ -34,15 +34,25 @@ impl InventoryFilterBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.prefix = input; self }
+    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.prefix = input;
+        self
+    }
     /// <p>The prefix that an object must have to be included in the inventory results.</p>
-    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.prefix }
+    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.prefix
+    }
     /// Consumes the builder and constructs a [`InventoryFilter`](crate::types::InventoryFilter).
     /// This method will fail if any of the following fields are not set:
     /// - [`prefix`](Self::prefix)
     pub fn build(self) -> ::std::result::Result<crate::types::InventoryFilter, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InventoryFilter {
-            prefix: self.prefix.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("prefix", "prefix was not specified but it is required when building InventoryFilter"))?,
+            prefix: self.prefix.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "prefix",
+                    "prefix was not specified but it is required when building InventoryFilter",
+                )
+            })?,
         })
     }
 }

@@ -32,13 +32,16 @@ impl ExecutionStoppedDetailsBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>Details about why the execution stopped.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> {
+        &self.error
+    }
     /// Consumes the builder and constructs a [`ExecutionStoppedDetails`](crate::types::ExecutionStoppedDetails).
     pub fn build(self) -> crate::types::ExecutionStoppedDetails {
-        crate::types::ExecutionStoppedDetails {
-            error: self.error,
-        }
+        crate::types::ExecutionStoppedDetails { error: self.error }
     }
 }

@@ -177,7 +177,30 @@ impl QueueAttributeName {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["All", "ApproximateNumberOfMessages", "ApproximateNumberOfMessagesDelayed", "ApproximateNumberOfMessagesNotVisible", "ContentBasedDeduplication", "CreatedTimestamp", "DeduplicationScope", "DelaySeconds", "FifoQueue", "FifoThroughputLimit", "KmsDataKeyReusePeriodSeconds", "KmsMasterKeyId", "LastModifiedTimestamp", "MaximumMessageSize", "MessageRetentionPeriod", "Policy", "QueueArn", "ReceiveMessageWaitTimeSeconds", "RedriveAllowPolicy", "RedrivePolicy", "SqsManagedSseEnabled", "VisibilityTimeout"]
+        &[
+            "All",
+            "ApproximateNumberOfMessages",
+            "ApproximateNumberOfMessagesDelayed",
+            "ApproximateNumberOfMessagesNotVisible",
+            "ContentBasedDeduplication",
+            "CreatedTimestamp",
+            "DeduplicationScope",
+            "DelaySeconds",
+            "FifoQueue",
+            "FifoThroughputLimit",
+            "KmsDataKeyReusePeriodSeconds",
+            "KmsMasterKeyId",
+            "LastModifiedTimestamp",
+            "MaximumMessageSize",
+            "MessageRetentionPeriod",
+            "Policy",
+            "QueueArn",
+            "ReceiveMessageWaitTimeSeconds",
+            "RedriveAllowPolicy",
+            "RedrivePolicy",
+            "SqsManagedSseEnabled",
+            "VisibilityTimeout",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for QueueAttributeName {

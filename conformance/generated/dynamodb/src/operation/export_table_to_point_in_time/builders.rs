@@ -6,35 +6,83 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn table_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_arn = Some(value.into()); self }
-    pub fn export_time(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.export_time = Some(value.into()); self }
-    pub fn client_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.client_token = Some(value.into()); self }
-    pub fn s3_bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.s3_bucket = Some(value.into()); self }
-    pub fn s3_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.s3_bucket_owner = Some(value.into()); self }
-    pub fn s3_prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.s3_prefix = Some(value.into()); self }
-    pub fn s3_sse_algorithm(mut self, value: impl ::std::convert::Into<crate::types::S3SseAlgorithm>) -> Self { self.input.s3_sse_algorithm = Some(value.into()); self }
-    pub fn s3_sse_kms_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.s3_sse_kms_key_id = Some(value.into()); self }
-    pub fn export_format(mut self, value: impl ::std::convert::Into<crate::types::ExportFormat>) -> Self { self.input.export_format = Some(value.into()); self }
-    pub fn export_type(mut self, value: impl ::std::convert::Into<crate::types::ExportType>) -> Self { self.input.export_type = Some(value.into()); self }
-    pub fn incremental_export_specification(mut self, value: impl ::std::convert::Into<crate::types::IncrementalExportSpecification>) -> Self { self.input.incremental_export_specification = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::ExportTableToPointInTimeOutput, super::ExportTableToPointInTimeError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ExportTableToPointInTimeError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::ExportTableToPointInTimeError::unhandled_with_request_ids(format!("ExportTableToPointInTime returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_export_table_to_point_in_time_output::ExportTableToPointInTimeOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn table_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.table_arn = Some(value.into());
+        self
+    }
+    pub fn export_time(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
+        self.input.export_time = Some(value.into());
+        self
+    }
+    pub fn client_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.client_token = Some(value.into());
+        self
+    }
+    pub fn s3_bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.s3_bucket = Some(value.into());
+        self
+    }
+    pub fn s3_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.s3_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn s3_prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.s3_prefix = Some(value.into());
+        self
+    }
+    pub fn s3_sse_algorithm(mut self, value: impl ::std::convert::Into<crate::types::S3SseAlgorithm>) -> Self {
+        self.input.s3_sse_algorithm = Some(value.into());
+        self
+    }
+    pub fn s3_sse_kms_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.s3_sse_kms_key_id = Some(value.into());
+        self
+    }
+    pub fn export_format(mut self, value: impl ::std::convert::Into<crate::types::ExportFormat>) -> Self {
+        self.input.export_format = Some(value.into());
+        self
+    }
+    pub fn export_type(mut self, value: impl ::std::convert::Into<crate::types::ExportType>) -> Self {
+        self.input.export_type = Some(value.into());
+        self
+    }
+    pub fn incremental_export_specification(mut self, value: impl ::std::convert::Into<crate::types::IncrementalExportSpecification>) -> Self {
+        self.input.incremental_export_specification = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::ExportTableToPointInTimeOutput, super::ExportTableToPointInTimeError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::ExportTableToPointInTimeError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::ExportTableToPointInTimeError::unhandled_with_request_ids(
+                format!("ExportTableToPointInTime returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_export_table_to_point_in_time_output::ExportTableToPointInTimeOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as ExportTableToPointInTimeFluentBuilder;

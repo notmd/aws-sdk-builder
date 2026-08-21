@@ -6,40 +6,112 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn attribute_definitions(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::AttributeDefinition>>) -> Self { self.input.attribute_definitions = Some(value.into()); self }
-    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_name = Some(value.into()); self }
-    pub fn billing_mode(mut self, value: impl ::std::convert::Into<crate::types::BillingMode>) -> Self { self.input.billing_mode = Some(value.into()); self }
-    pub fn provisioned_throughput(mut self, value: impl ::std::convert::Into<crate::types::ProvisionedThroughput>) -> Self { self.input.provisioned_throughput = Some(value.into()); self }
-    pub fn global_secondary_index_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::GlobalSecondaryIndexUpdate>>) -> Self { self.input.global_secondary_index_updates = Some(value.into()); self }
-    pub fn stream_specification(mut self, value: impl ::std::convert::Into<crate::types::StreamSpecification>) -> Self { self.input.stream_specification = Some(value.into()); self }
-    pub fn sse_specification(mut self, value: impl ::std::convert::Into<crate::types::SseSpecification>) -> Self { self.input.sse_specification = Some(value.into()); self }
-    pub fn replica_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ReplicationGroupUpdate>>) -> Self { self.input.replica_updates = Some(value.into()); self }
-    pub fn table_class(mut self, value: impl ::std::convert::Into<crate::types::TableClass>) -> Self { self.input.table_class = Some(value.into()); self }
-    pub fn deletion_protection_enabled(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.deletion_protection_enabled = Some(value.into()); self }
-    pub fn multi_region_consistency(mut self, value: impl ::std::convert::Into<crate::types::MultiRegionConsistency>) -> Self { self.input.multi_region_consistency = Some(value.into()); self }
-    pub fn global_table_witness_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::GlobalTableWitnessGroupUpdate>>) -> Self { self.input.global_table_witness_updates = Some(value.into()); self }
-    pub fn on_demand_throughput(mut self, value: impl ::std::convert::Into<crate::types::OnDemandThroughput>) -> Self { self.input.on_demand_throughput = Some(value.into()); self }
-    pub fn warm_throughput(mut self, value: impl ::std::convert::Into<crate::types::WarmThroughput>) -> Self { self.input.warm_throughput = Some(value.into()); self }
-    pub fn global_table_settings_replication_mode(mut self, value: impl ::std::convert::Into<crate::types::GlobalTableSettingsReplicationMode>) -> Self { self.input.global_table_settings_replication_mode = Some(value.into()); self }
-    pub fn vector_index_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::VectorIndexUpdate>>) -> Self { self.input.vector_index_updates = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::UpdateTableOutput, super::UpdateTableError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UpdateTableError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::UpdateTableError::unhandled_with_request_ids(format!("UpdateTable returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_update_table_output::UpdateTableOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn attribute_definitions(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::AttributeDefinition>>) -> Self {
+        self.input.attribute_definitions = Some(value.into());
+        self
+    }
+    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.table_name = Some(value.into());
+        self
+    }
+    pub fn billing_mode(mut self, value: impl ::std::convert::Into<crate::types::BillingMode>) -> Self {
+        self.input.billing_mode = Some(value.into());
+        self
+    }
+    pub fn provisioned_throughput(mut self, value: impl ::std::convert::Into<crate::types::ProvisionedThroughput>) -> Self {
+        self.input.provisioned_throughput = Some(value.into());
+        self
+    }
+    pub fn global_secondary_index_updates(
+        mut self,
+        value: impl ::std::convert::Into<::std::vec::Vec<crate::types::GlobalSecondaryIndexUpdate>>,
+    ) -> Self {
+        self.input.global_secondary_index_updates = Some(value.into());
+        self
+    }
+    pub fn stream_specification(mut self, value: impl ::std::convert::Into<crate::types::StreamSpecification>) -> Self {
+        self.input.stream_specification = Some(value.into());
+        self
+    }
+    pub fn sse_specification(mut self, value: impl ::std::convert::Into<crate::types::SseSpecification>) -> Self {
+        self.input.sse_specification = Some(value.into());
+        self
+    }
+    pub fn replica_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ReplicationGroupUpdate>>) -> Self {
+        self.input.replica_updates = Some(value.into());
+        self
+    }
+    pub fn table_class(mut self, value: impl ::std::convert::Into<crate::types::TableClass>) -> Self {
+        self.input.table_class = Some(value.into());
+        self
+    }
+    pub fn deletion_protection_enabled(mut self, value: impl ::std::convert::Into<bool>) -> Self {
+        self.input.deletion_protection_enabled = Some(value.into());
+        self
+    }
+    pub fn multi_region_consistency(mut self, value: impl ::std::convert::Into<crate::types::MultiRegionConsistency>) -> Self {
+        self.input.multi_region_consistency = Some(value.into());
+        self
+    }
+    pub fn global_table_witness_updates(
+        mut self,
+        value: impl ::std::convert::Into<::std::vec::Vec<crate::types::GlobalTableWitnessGroupUpdate>>,
+    ) -> Self {
+        self.input.global_table_witness_updates = Some(value.into());
+        self
+    }
+    pub fn on_demand_throughput(mut self, value: impl ::std::convert::Into<crate::types::OnDemandThroughput>) -> Self {
+        self.input.on_demand_throughput = Some(value.into());
+        self
+    }
+    pub fn warm_throughput(mut self, value: impl ::std::convert::Into<crate::types::WarmThroughput>) -> Self {
+        self.input.warm_throughput = Some(value.into());
+        self
+    }
+    pub fn global_table_settings_replication_mode(
+        mut self,
+        value: impl ::std::convert::Into<crate::types::GlobalTableSettingsReplicationMode>,
+    ) -> Self {
+        self.input.global_table_settings_replication_mode = Some(value.into());
+        self
+    }
+    pub fn vector_index_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::VectorIndexUpdate>>) -> Self {
+        self.input.vector_index_updates = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::UpdateTableOutput, super::UpdateTableError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::UpdateTableError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::UpdateTableError::unhandled_with_request_ids(
+                format!("UpdateTable returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_update_table_output::UpdateTableOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as UpdateTableFluentBuilder;

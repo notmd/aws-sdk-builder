@@ -33,13 +33,16 @@ impl DeleteUserPermissionsBoundaryInputBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.user_name = input; self }
+    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.user_name = input;
+        self
+    }
     /// <p>The name (friendly name, not ARN) of the IAM user from which you want to remove the permissions boundary.</p>
-    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> { &self.user_name }
+    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.user_name
+    }
     /// Consumes the builder and constructs a [`DeleteUserPermissionsBoundaryInput`](crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput).
     pub fn build(self) -> crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput {
-        crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput {
-            user_name: self.user_name,
-        }
+        crate::operation::delete_user_permissions_boundary::DeleteUserPermissionsBoundaryInput { user_name: self.user_name }
     }
 }

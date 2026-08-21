@@ -51,17 +51,27 @@ impl ListTagsOfResourceOutputBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.tags = input;
+        self
+    }
     /// <p>The tags currently associated with the Amazon DynamoDB resource.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.tags }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+        &self.tags
+    }
     /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call ListTagsOfResource again, with NextToken set to this value.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
+    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_token = input;
+        self
+    }
     /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call ListTagsOfResource again, with NextToken set to this value.</p>
-    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_token
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

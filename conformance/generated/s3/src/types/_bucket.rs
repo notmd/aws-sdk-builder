@@ -57,25 +57,40 @@ impl BucketBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.name = input; self }
+    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.name = input;
+        self
+    }
     /// <p>The name of the bucket.</p>
-    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> { &self.name }
+    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.name
+    }
     /// <p>Date the bucket was created. This date can change when making changes to your bucket, such as editing its bucket policy.</p>
     pub fn creation_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.creation_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.creation_date = input; self }
+    pub fn set_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.creation_date = input;
+        self
+    }
     /// <p>Date the bucket was created. This date can change when making changes to your bucket, such as editing its bucket policy.</p>
-    pub fn get_creation_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.creation_date }
+    pub fn get_creation_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.creation_date
+    }
     /// <p><code>BucketRegion</code> indicates the Amazon Web Services region where the bucket is located. If the request contains at least one valid parameter, it is included in the response.</p>
     pub fn bucket_region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.bucket_region = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket_region = input; self }
+    pub fn set_bucket_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket_region = input;
+        self
+    }
     /// <p><code>BucketRegion</code> indicates the Amazon Web Services region where the bucket is located. If the request contains at least one valid parameter, it is included in the response.</p>
-    pub fn get_bucket_region(&self) -> &::std::option::Option<::std::string::String> { &self.bucket_region }
+    pub fn get_bucket_region(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket_region
+    }
     /// <p>The Amazon Resource Name (ARN) of the S3 bucket. ARNs uniquely identify Amazon Web Services resources across all of Amazon Web Services.</p><note>
     /// <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with directory buckets</a>.</p>
     /// </note>
@@ -83,11 +98,16 @@ impl BucketBuilder {
         self.bucket_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket_arn = input; self }
+    pub fn set_bucket_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the S3 bucket. ARNs uniquely identify Amazon Web Services resources across all of Amazon Web Services.</p><note>
     /// <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with directory buckets</a>.</p>
     /// </note>
-    pub fn get_bucket_arn(&self) -> &::std::option::Option<::std::string::String> { &self.bucket_arn }
+    pub fn get_bucket_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket_arn
+    }
     /// Consumes the builder and constructs a [`Bucket`](crate::types::Bucket).
     pub fn build(self) -> crate::types::Bucket {
         crate::types::Bucket {

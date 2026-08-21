@@ -58,17 +58,27 @@ impl ListDirectoryBucketsOutputBuilder {
         self.buckets = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_buckets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Bucket>>) -> Self { self.buckets = input; self }
+    pub fn set_buckets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Bucket>>) -> Self {
+        self.buckets = input;
+        self
+    }
     /// <p>The list of buckets owned by the requester.</p>
-    pub fn get_buckets(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Bucket>> { &self.buckets }
+    pub fn get_buckets(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Bucket>> {
+        &self.buckets
+    }
     /// <p>If <code>ContinuationToken</code> was sent with the request, it is included in the response. You can use the returned <code>ContinuationToken</code> for pagination of the list response.</p>
     pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.continuation_token = input; self }
+    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.continuation_token = input;
+        self
+    }
     /// <p>If <code>ContinuationToken</code> was sent with the request, it is included in the response. You can use the returned <code>ContinuationToken</code> for pagination of the list response.</p>
-    pub fn get_continuation_token(&self) -> &::std::option::Option<::std::string::String> { &self.continuation_token }
+    pub fn get_continuation_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.continuation_token
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

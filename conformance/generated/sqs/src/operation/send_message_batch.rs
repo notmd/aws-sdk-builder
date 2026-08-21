@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct SendMessageBatch;
-impl SendMessageBatch { pub fn new() -> Self { Self } }
+impl SendMessageBatch {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     BatchEntryIdsNotDistinct(super::super::types::error::BatchEntryIdsNotDistinct),
@@ -23,26 +27,64 @@ pub enum Error {
     TooManyEntriesInBatchRequest(super::super::types::error::TooManyEntriesInBatchRequest),
     UnsupportedOperation(super::super::types::error::UnsupportedOperation),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_batch_entry_ids_not_distinct(&self) -> bool { matches!(self, Self::BatchEntryIdsNotDistinct(_)) }
-    pub fn is_batch_request_too_long(&self) -> bool { matches!(self, Self::BatchRequestTooLong(_)) }
-    pub fn is_empty_batch_request(&self) -> bool { matches!(self, Self::EmptyBatchRequest(_)) }
-    pub fn is_invalid_address(&self) -> bool { matches!(self, Self::InvalidAddress(_)) }
-    pub fn is_invalid_batch_entry_id(&self) -> bool { matches!(self, Self::InvalidBatchEntryId(_)) }
-    pub fn is_invalid_security(&self) -> bool { matches!(self, Self::InvalidSecurity(_)) }
-    pub fn is_kms_access_denied(&self) -> bool { matches!(self, Self::KmsAccessDenied(_)) }
-    pub fn is_kms_disabled(&self) -> bool { matches!(self, Self::KmsDisabled(_)) }
-    pub fn is_kms_invalid_key_usage(&self) -> bool { matches!(self, Self::KmsInvalidKeyUsage(_)) }
-    pub fn is_kms_invalid_state(&self) -> bool { matches!(self, Self::KmsInvalidState(_)) }
-    pub fn is_kms_not_found(&self) -> bool { matches!(self, Self::KmsNotFound(_)) }
-    pub fn is_kms_opt_in_required(&self) -> bool { matches!(self, Self::KmsOptInRequired(_)) }
-    pub fn is_kms_throttled(&self) -> bool { matches!(self, Self::KmsThrottled(_)) }
-    pub fn is_queue_does_not_exist(&self) -> bool { matches!(self, Self::QueueDoesNotExist(_)) }
-    pub fn is_request_throttled(&self) -> bool { matches!(self, Self::RequestThrottled(_)) }
-    pub fn is_too_many_entries_in_batch_request(&self) -> bool { matches!(self, Self::TooManyEntriesInBatchRequest(_)) }
-    pub fn is_unsupported_operation(&self) -> bool { matches!(self, Self::UnsupportedOperation(_)) }
+    pub fn is_batch_entry_ids_not_distinct(&self) -> bool {
+        matches!(self, Self::BatchEntryIdsNotDistinct(_))
+    }
+    pub fn is_batch_request_too_long(&self) -> bool {
+        matches!(self, Self::BatchRequestTooLong(_))
+    }
+    pub fn is_empty_batch_request(&self) -> bool {
+        matches!(self, Self::EmptyBatchRequest(_))
+    }
+    pub fn is_invalid_address(&self) -> bool {
+        matches!(self, Self::InvalidAddress(_))
+    }
+    pub fn is_invalid_batch_entry_id(&self) -> bool {
+        matches!(self, Self::InvalidBatchEntryId(_))
+    }
+    pub fn is_invalid_security(&self) -> bool {
+        matches!(self, Self::InvalidSecurity(_))
+    }
+    pub fn is_kms_access_denied(&self) -> bool {
+        matches!(self, Self::KmsAccessDenied(_))
+    }
+    pub fn is_kms_disabled(&self) -> bool {
+        matches!(self, Self::KmsDisabled(_))
+    }
+    pub fn is_kms_invalid_key_usage(&self) -> bool {
+        matches!(self, Self::KmsInvalidKeyUsage(_))
+    }
+    pub fn is_kms_invalid_state(&self) -> bool {
+        matches!(self, Self::KmsInvalidState(_))
+    }
+    pub fn is_kms_not_found(&self) -> bool {
+        matches!(self, Self::KmsNotFound(_))
+    }
+    pub fn is_kms_opt_in_required(&self) -> bool {
+        matches!(self, Self::KmsOptInRequired(_))
+    }
+    pub fn is_kms_throttled(&self) -> bool {
+        matches!(self, Self::KmsThrottled(_))
+    }
+    pub fn is_queue_does_not_exist(&self) -> bool {
+        matches!(self, Self::QueueDoesNotExist(_))
+    }
+    pub fn is_request_throttled(&self) -> bool {
+        matches!(self, Self::RequestThrottled(_))
+    }
+    pub fn is_too_many_entries_in_batch_request(&self) -> bool {
+        matches!(self, Self::TooManyEntriesInBatchRequest(_))
+    }
+    pub fn is_unsupported_operation(&self) -> bool {
+        matches!(self, Self::UnsupportedOperation(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -71,19 +113,49 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _send_message_batch_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/operation/send_message_batch/_send_message_batch_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sqs/src/operation/send_message_batch/_send_message_batch_input.rs"
+    ));
 }
 pub use _send_message_batch_input::SendMessageBatchInput;
 pub type Input = SendMessageBatchInput;
 pub mod _send_message_batch_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/operation/send_message_batch/_send_message_batch_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sqs/src/operation/send_message_batch/_send_message_batch_output.rs"
+    ));
 }
 pub use _send_message_batch_output::SendMessageBatchOutput;
 pub type Output = SendMessageBatchOutput;

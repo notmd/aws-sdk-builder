@@ -127,7 +127,20 @@ impl ContextKeyTypeEnum {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["binary", "binaryList", "boolean", "booleanList", "date", "dateList", "ip", "ipList", "numeric", "numericList", "string", "stringList"]
+        &[
+            "binary",
+            "binaryList",
+            "boolean",
+            "booleanList",
+            "date",
+            "dateList",
+            "ip",
+            "ipList",
+            "numeric",
+            "numericList",
+            "string",
+            "stringList",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for ContextKeyTypeEnum {

@@ -39,15 +39,18 @@ impl GetKeyLastUsageInputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>Identifies the KMS key to get usage information for. To specify a KMS key, use its key ID or key ARN. Alias names are not supported.</p>
     /// <p>Specify the key ID or key ARN of the KMS key.</p>
     /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// Consumes the builder and constructs a [`GetKeyLastUsageInput`](crate::operation::get_key_last_usage::GetKeyLastUsageInput).
     pub fn build(self) -> crate::operation::get_key_last_usage::GetKeyLastUsageInput {
-        crate::operation::get_key_last_usage::GetKeyLastUsageInput {
-            key_id: self.key_id,
-        }
+        crate::operation::get_key_last_usage::GetKeyLastUsageInput { key_id: self.key_id }
     }
 }

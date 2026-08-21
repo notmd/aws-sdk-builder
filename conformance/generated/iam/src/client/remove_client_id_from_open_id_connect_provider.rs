@@ -10,6 +10,8 @@ impl super::Client {
     pub fn remove_client_id_from_open_id_connect_provider(
         &self,
     ) -> crate::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderFluentBuilder {
-        crate::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderFluentBuilder::new(self.handle.clone())
+        crate::operation::remove_client_id_from_open_id_connect_provider::builders::RemoveClientIdFromOpenIdConnectProviderFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

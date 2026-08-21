@@ -121,112 +121,182 @@ impl OperationBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>The unique identifier for this operation.</p>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
     pub fn parent_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.parent_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_parent_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.parent_id = input; self }
+    pub fn set_parent_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.parent_id = input;
+        self
+    }
     /// <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
-    pub fn get_parent_id(&self) -> &::std::option::Option<::std::string::String> { &self.parent_id }
+    pub fn get_parent_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.parent_id
+    }
     /// <p>The customer-provided name for this operation.</p>
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.name = input; self }
+    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.name = input;
+        self
+    }
     /// <p>The customer-provided name for this operation.</p>
-    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> { &self.name }
+    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.name
+    }
     /// <p>The type of operation.</p>
     /// This field is required.
     pub fn r#type(mut self, input: crate::types::OperationType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::OperationType>) -> Self { self.r#type = input; self }
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::OperationType>) -> Self {
+        self.r#type = input;
+        self
+    }
     /// <p>The type of operation.</p>
-    pub fn get_type(&self) -> &::std::option::Option<crate::types::OperationType> { &self.r#type }
+    pub fn get_type(&self) -> &::std::option::Option<crate::types::OperationType> {
+        &self.r#type
+    }
     /// <p>The subtype of the operation, providing additional categorization.</p>
     pub fn sub_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.sub_type = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.sub_type = input; self }
+    pub fn set_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.sub_type = input;
+        self
+    }
     /// <p>The subtype of the operation, providing additional categorization.</p>
-    pub fn get_sub_type(&self) -> &::std::option::Option<::std::string::String> { &self.sub_type }
+    pub fn get_sub_type(&self) -> &::std::option::Option<::std::string::String> {
+        &self.sub_type
+    }
     /// <p>The date and time when the operation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     /// This field is required.
     pub fn start_timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.start_timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.start_timestamp = input; self }
+    pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.start_timestamp = input;
+        self
+    }
     /// <p>The date and time when the operation started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn get_start_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.start_timestamp }
+    pub fn get_start_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.start_timestamp
+    }
     /// <p>The date and time when the operation ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub fn end_timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.end_timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.end_timestamp = input; self }
+    pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.end_timestamp = input;
+        self
+    }
     /// <p>The date and time when the operation ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn get_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.end_timestamp }
+    pub fn get_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.end_timestamp
+    }
     /// <p>The current status of the operation.</p>
     /// This field is required.
     pub fn status(mut self, input: crate::types::OperationStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OperationStatus>) -> Self { self.status = input; self }
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::OperationStatus>) -> Self {
+        self.status = input;
+        self
+    }
     /// <p>The current status of the operation.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::OperationStatus> { &self.status }
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::OperationStatus> {
+        &self.status
+    }
     /// <p>Details about the execution, if this operation represents an execution.</p>
     pub fn execution_details(mut self, input: crate::types::ExecutionDetails) -> Self {
         self.execution_details = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_execution_details(mut self, input: ::std::option::Option<crate::types::ExecutionDetails>) -> Self { self.execution_details = input; self }
+    pub fn set_execution_details(mut self, input: ::std::option::Option<crate::types::ExecutionDetails>) -> Self {
+        self.execution_details = input;
+        self
+    }
     /// <p>Details about the execution, if this operation represents an execution.</p>
-    pub fn get_execution_details(&self) -> &::std::option::Option<crate::types::ExecutionDetails> { &self.execution_details }
+    pub fn get_execution_details(&self) -> &::std::option::Option<crate::types::ExecutionDetails> {
+        &self.execution_details
+    }
     /// <p>Details about the context, if this operation represents a context.</p>
     pub fn context_details(mut self, input: crate::types::ContextDetails) -> Self {
         self.context_details = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_context_details(mut self, input: ::std::option::Option<crate::types::ContextDetails>) -> Self { self.context_details = input; self }
+    pub fn set_context_details(mut self, input: ::std::option::Option<crate::types::ContextDetails>) -> Self {
+        self.context_details = input;
+        self
+    }
     /// <p>Details about the context, if this operation represents a context.</p>
-    pub fn get_context_details(&self) -> &::std::option::Option<crate::types::ContextDetails> { &self.context_details }
+    pub fn get_context_details(&self) -> &::std::option::Option<crate::types::ContextDetails> {
+        &self.context_details
+    }
     /// <p>Details about the step, if this operation represents a step.</p>
     pub fn step_details(mut self, input: crate::types::StepDetails) -> Self {
         self.step_details = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_step_details(mut self, input: ::std::option::Option<crate::types::StepDetails>) -> Self { self.step_details = input; self }
+    pub fn set_step_details(mut self, input: ::std::option::Option<crate::types::StepDetails>) -> Self {
+        self.step_details = input;
+        self
+    }
     /// <p>Details about the step, if this operation represents a step.</p>
-    pub fn get_step_details(&self) -> &::std::option::Option<crate::types::StepDetails> { &self.step_details }
+    pub fn get_step_details(&self) -> &::std::option::Option<crate::types::StepDetails> {
+        &self.step_details
+    }
     /// <p>Details about the wait operation, if this operation represents a wait.</p>
     pub fn wait_details(mut self, input: crate::types::WaitDetails) -> Self {
         self.wait_details = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_wait_details(mut self, input: ::std::option::Option<crate::types::WaitDetails>) -> Self { self.wait_details = input; self }
+    pub fn set_wait_details(mut self, input: ::std::option::Option<crate::types::WaitDetails>) -> Self {
+        self.wait_details = input;
+        self
+    }
     /// <p>Details about the wait operation, if this operation represents a wait.</p>
-    pub fn get_wait_details(&self) -> &::std::option::Option<crate::types::WaitDetails> { &self.wait_details }
+    pub fn get_wait_details(&self) -> &::std::option::Option<crate::types::WaitDetails> {
+        &self.wait_details
+    }
     pub fn callback_details(mut self, input: crate::types::CallbackDetails) -> Self {
         self.callback_details = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_callback_details(mut self, input: ::std::option::Option<crate::types::CallbackDetails>) -> Self { self.callback_details = input; self }
-    pub fn get_callback_details(&self) -> &::std::option::Option<crate::types::CallbackDetails> { &self.callback_details }
+    pub fn set_callback_details(mut self, input: ::std::option::Option<crate::types::CallbackDetails>) -> Self {
+        self.callback_details = input;
+        self
+    }
+    pub fn get_callback_details(&self) -> &::std::option::Option<crate::types::CallbackDetails> {
+        &self.callback_details
+    }
     pub fn chained_invoke_details(mut self, input: crate::types::ChainedInvokeDetails) -> Self {
         self.chained_invoke_details = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_chained_invoke_details(mut self, input: ::std::option::Option<crate::types::ChainedInvokeDetails>) -> Self { self.chained_invoke_details = input; self }
-    pub fn get_chained_invoke_details(&self) -> &::std::option::Option<crate::types::ChainedInvokeDetails> { &self.chained_invoke_details }
+    pub fn set_chained_invoke_details(mut self, input: ::std::option::Option<crate::types::ChainedInvokeDetails>) -> Self {
+        self.chained_invoke_details = input;
+        self
+    }
+    pub fn get_chained_invoke_details(&self) -> &::std::option::Option<crate::types::ChainedInvokeDetails> {
+        &self.chained_invoke_details
+    }
     /// Consumes the builder and constructs a [`Operation`](crate::types::Operation).
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](Self::id)
@@ -235,14 +305,34 @@ impl OperationBuilder {
     /// - [`status`](Self::status)
     pub fn build(self) -> ::std::result::Result<crate::types::Operation, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Operation {
-            id: self.id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building Operation"))?,
+            id: self.id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "id",
+                    "id was not specified but it is required when building Operation",
+                )
+            })?,
             parent_id: self.parent_id,
             name: self.name,
-            r#type: self.r#type.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("r#type", "r#type was not specified but it is required when building Operation"))?,
+            r#type: self.r#type.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "r#type",
+                    "r#type was not specified but it is required when building Operation",
+                )
+            })?,
             sub_type: self.sub_type,
-            start_timestamp: self.start_timestamp.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("start_timestamp", "start_timestamp was not specified but it is required when building Operation"))?,
+            start_timestamp: self.start_timestamp.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "start_timestamp",
+                    "start_timestamp was not specified but it is required when building Operation",
+                )
+            })?,
             end_timestamp: self.end_timestamp,
-            status: self.status.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building Operation"))?,
+            status: self.status.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "status",
+                    "status was not specified but it is required when building Operation",
+                )
+            })?,
             execution_details: self.execution_details,
             context_details: self.context_details,
             step_details: self.step_details,

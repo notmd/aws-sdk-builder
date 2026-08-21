@@ -53,25 +53,40 @@ impl ErrorObjectBuilder {
         self.error_message = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.error_message = input; self }
+    pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.error_message = input;
+        self
+    }
     /// <p>A human-readable error message.</p>
-    pub fn get_error_message(&self) -> &::std::option::Option<::std::string::String> { &self.error_message }
+    pub fn get_error_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.error_message
+    }
     /// <p>The error type.</p>
     pub fn error_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.error_type = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_error_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.error_type = input; self }
+    pub fn set_error_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.error_type = input;
+        self
+    }
     /// <p>The error type.</p>
-    pub fn get_error_type(&self) -> &::std::option::Option<::std::string::String> { &self.error_type }
+    pub fn get_error_type(&self) -> &::std::option::Option<::std::string::String> {
+        &self.error_type
+    }
     /// <p>Machine-readable error data.</p>
     pub fn error_data(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.error_data = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_error_data(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.error_data = input; self }
+    pub fn set_error_data(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.error_data = input;
+        self
+    }
     /// <p>Machine-readable error data.</p>
-    pub fn get_error_data(&self) -> &::std::option::Option<::std::string::String> { &self.error_data }
+    pub fn get_error_data(&self) -> &::std::option::Option<::std::string::String> {
+        &self.error_data
+    }
     /// <p>Stack trace information for the error.</p>
     /// Appends an item to `stack_trace`.
     ///
@@ -82,9 +97,14 @@ impl ErrorObjectBuilder {
         self.stack_trace = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_stack_trace(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.stack_trace = input; self }
+    pub fn set_stack_trace(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.stack_trace = input;
+        self
+    }
     /// <p>Stack trace information for the error.</p>
-    pub fn get_stack_trace(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.stack_trace }
+    pub fn get_stack_trace(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.stack_trace
+    }
     /// Consumes the builder and constructs a [`ErrorObject`](crate::types::ErrorObject).
     pub fn build(self) -> crate::types::ErrorObject {
         crate::types::ErrorObject {

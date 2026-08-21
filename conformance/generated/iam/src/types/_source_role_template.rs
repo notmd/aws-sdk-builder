@@ -41,26 +41,46 @@ impl SourceRoleTemplateBuilder {
         self.template_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.template_arn = input; self }
+    pub fn set_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.template_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the role template that the role was created from.</p>
-    pub fn get_template_arn(&self) -> &::std::option::Option<::std::string::String> { &self.template_arn }
+    pub fn get_template_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.template_arn
+    }
     /// <p>The minor version of the role template that was used to create the role.</p>
     /// This field is required.
     pub fn template_minor_version(mut self, input: i32) -> Self {
         self.template_minor_version = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_template_minor_version(mut self, input: ::std::option::Option<i32>) -> Self { self.template_minor_version = input; self }
+    pub fn set_template_minor_version(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.template_minor_version = input;
+        self
+    }
     /// <p>The minor version of the role template that was used to create the role.</p>
-    pub fn get_template_minor_version(&self) -> &::std::option::Option<i32> { &self.template_minor_version }
+    pub fn get_template_minor_version(&self) -> &::std::option::Option<i32> {
+        &self.template_minor_version
+    }
     /// Consumes the builder and constructs a [`SourceRoleTemplate`](crate::types::SourceRoleTemplate).
     /// This method will fail if any of the following fields are not set:
     /// - [`template_arn`](Self::template_arn)
     /// - [`template_minor_version`](Self::template_minor_version)
     pub fn build(self) -> ::std::result::Result<crate::types::SourceRoleTemplate, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SourceRoleTemplate {
-            template_arn: self.template_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("template_arn", "template_arn was not specified but it is required when building SourceRoleTemplate"))?,
-            template_minor_version: self.template_minor_version.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("template_minor_version", "template_minor_version was not specified but it is required when building SourceRoleTemplate"))?,
+            template_arn: self.template_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "template_arn",
+                    "template_arn was not specified but it is required when building SourceRoleTemplate",
+                )
+            })?,
+            template_minor_version: self.template_minor_version.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "template_minor_version",
+                    "template_minor_version was not specified but it is required when building SourceRoleTemplate",
+                )
+            })?,
         })
     }
 }

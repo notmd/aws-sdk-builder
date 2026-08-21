@@ -48,11 +48,16 @@ impl UpdatePrimaryRegionInputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>Identifies the current primary key. When the operation completes, this KMS key will be a replica key.</p>
     /// <p>Specify the key ID or key ARN of a multi-Region primary key.</p>
     /// <p>For example:</p><ul><li><p>Key ID: <code>mrk-1234abcd12ab34cd56ef1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// <p>The Amazon Web Services Region of the new primary key. Enter the Region ID, such as <code>us-east-1</code> or <code>ap-southeast-2</code>. There must be an existing replica key in this Region.</p>
     /// <p>When the operation completes, the multi-Region key in this Region will be the primary key.</p>
     /// This field is required.
@@ -60,10 +65,15 @@ impl UpdatePrimaryRegionInputBuilder {
         self.primary_region = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_primary_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.primary_region = input; self }
+    pub fn set_primary_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.primary_region = input;
+        self
+    }
     /// <p>The Amazon Web Services Region of the new primary key. Enter the Region ID, such as <code>us-east-1</code> or <code>ap-southeast-2</code>. There must be an existing replica key in this Region.</p>
     /// <p>When the operation completes, the multi-Region key in this Region will be the primary key.</p>
-    pub fn get_primary_region(&self) -> &::std::option::Option<::std::string::String> { &self.primary_region }
+    pub fn get_primary_region(&self) -> &::std::option::Option<::std::string::String> {
+        &self.primary_region
+    }
     /// Consumes the builder and constructs a [`UpdatePrimaryRegionInput`](crate::operation::update_primary_region::UpdatePrimaryRegionInput).
     pub fn build(self) -> crate::operation::update_primary_region::UpdatePrimaryRegionInput {
         crate::operation::update_primary_region::UpdatePrimaryRegionInput {

@@ -6,37 +6,96 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.version_id = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::GetObjectAclOutput, super::GetObjectAclError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::GetObjectAclError::Unhandled("GetObjectAcl requires bucket".to_owned()))?;
-                         let key = self.input.key.as_deref().ok_or_else(|| super::GetObjectAclError::Unhandled("GetObjectAcl requires key".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}/{Key+}?acl"); if let Some(value) = self.input.version_id.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("versionId"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path = path.replace("{Key+}", &super::super::super::transport::encode_path(key)); path };
-                         let body = ::std::vec::Vec::new();
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers };
-                         let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetObjectAclError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::GetObjectAclError::unhandled_with_request_ids(format!("GetObjectAcl returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_get_object_acl_output::GetObjectAclOutputBuilder::default();
-                         let body = response.text().await.map_err(super::GetObjectAclError::Unhandled)?;
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "Owner") { let mut item: crate::types::OwnerBuilder = ::std::default::Default::default(); item.display_name = super::super::super::transport::xml_first(&value, "DisplayName").and_then(|value| value.parse().ok());
- item.id = super::super::super::transport::xml_first(&value, "ID").and_then(|value| value.parse().ok());
- let item = item.build(); output.owner = Some(item); }
-                         output.grants = Some(::std::vec::Vec::new());
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key = Some(value.into());
+        self
+    }
+    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.version_id = Some(value.into());
+        self
+    }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
+        self.input.request_payer = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::GetObjectAclOutput, super::GetObjectAclError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::GetObjectAclError::Unhandled("GetObjectAcl requires bucket".to_owned()))?;
+        let key = self
+            .input
+            .key
+            .as_deref()
+            .ok_or_else(|| super::GetObjectAclError::Unhandled("GetObjectAcl requires key".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}/{Key+}?acl");
+            if let Some(value) = self.input.version_id.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("versionId");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path = path.replace("{Key+}", &super::super::super::transport::encode_path(key));
+            path
+        };
+        let body = ::std::vec::Vec::new();
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Get, &path, &headers, &body)
+            .await
+            .map_err(super::GetObjectAclError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::GetObjectAclError::unhandled_with_request_ids(
+                format!("GetObjectAcl returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_get_object_acl_output::GetObjectAclOutputBuilder::default();
+        let body = response.text().await.map_err(super::GetObjectAclError::Unhandled)?;
+        if let Some(value) = super::super::super::transport::xml_first(&body, "Owner") {
+            let mut item: crate::types::OwnerBuilder = ::std::default::Default::default();
+            item.display_name = super::super::super::transport::xml_first(&value, "DisplayName").and_then(|value| value.parse().ok());
+            item.id = super::super::super::transport::xml_first(&value, "ID").and_then(|value| value.parse().ok());
+            let item = item.build();
+            output.owner = Some(item);
+        }
+        output.grants = Some(::std::vec::Vec::new());
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as GetObjectAclFluentBuilder;

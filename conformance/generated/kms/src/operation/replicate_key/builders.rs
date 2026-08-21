@@ -6,30 +6,63 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn replica_region(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.replica_region = Some(value.into()); self }
-    pub fn policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy = Some(value.into()); self }
-    pub fn bypass_policy_lockout_safety_check(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.bypass_policy_lockout_safety_check = Some(value.into()); self }
-    pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.description = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::ReplicateKeyOutput, super::ReplicateKeyError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ReplicateKeyError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::ReplicateKeyError::unhandled_with_request_ids(format!("ReplicateKey returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_replicate_key_output::ReplicateKeyOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key_id = Some(value.into());
+        self
+    }
+    pub fn replica_region(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.replica_region = Some(value.into());
+        self
+    }
+    pub fn policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.policy = Some(value.into());
+        self
+    }
+    pub fn bypass_policy_lockout_safety_check(mut self, value: impl ::std::convert::Into<bool>) -> Self {
+        self.input.bypass_policy_lockout_safety_check = Some(value.into());
+        self
+    }
+    pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.description = Some(value.into());
+        self
+    }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.input.tags = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::ReplicateKeyOutput, super::ReplicateKeyError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::ReplicateKeyError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::ReplicateKeyError::unhandled_with_request_ids(
+                format!("ReplicateKey returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_replicate_key_output::ReplicateKeyOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as ReplicateKeyFluentBuilder;

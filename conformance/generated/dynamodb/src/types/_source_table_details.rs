@@ -97,34 +97,54 @@ impl SourceTableDetailsBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the table for which the backup was created.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>Unique identifier for the table for which the backup was created.</p>
     /// This field is required.
     pub fn table_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_id = input; self }
+    pub fn set_table_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_id = input;
+        self
+    }
     /// <p>Unique identifier for the table for which the backup was created.</p>
-    pub fn get_table_id(&self) -> &::std::option::Option<::std::string::String> { &self.table_id }
+    pub fn get_table_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_id
+    }
     /// <p>ARN of the table for which backup was created.</p>
     pub fn table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_arn = input; self }
+    pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_arn = input;
+        self
+    }
     /// <p>ARN of the table for which backup was created.</p>
-    pub fn get_table_arn(&self) -> &::std::option::Option<::std::string::String> { &self.table_arn }
+    pub fn get_table_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_arn
+    }
     /// <p>Size of the table in bytes. Note that this is an approximate value.</p>
     pub fn table_size_bytes(mut self, input: i64) -> Self {
         self.table_size_bytes = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_table_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self { self.table_size_bytes = input; self }
+    pub fn set_table_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.table_size_bytes = input;
+        self
+    }
     /// <p>Size of the table in bytes. Note that this is an approximate value.</p>
-    pub fn get_table_size_bytes(&self) -> &::std::option::Option<i64> { &self.table_size_bytes }
+    pub fn get_table_size_bytes(&self) -> &::std::option::Option<i64> {
+        &self.table_size_bytes
+    }
     /// <p>Schema of the table.</p>
     /// Appends an item to `key_schema`.
     ///
@@ -135,48 +155,78 @@ impl SourceTableDetailsBuilder {
         self.key_schema = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self { self.key_schema = input; self }
+    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
+        self.key_schema = input;
+        self
+    }
     /// <p>Schema of the table.</p>
-    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> { &self.key_schema }
+    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
+        &self.key_schema
+    }
     /// <p>Time when the source table was created.</p>
     /// This field is required.
     pub fn table_creation_date_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.table_creation_date_time = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_table_creation_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.table_creation_date_time = input; self }
+    pub fn set_table_creation_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.table_creation_date_time = input;
+        self
+    }
     /// <p>Time when the source table was created.</p>
-    pub fn get_table_creation_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.table_creation_date_time }
+    pub fn get_table_creation_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.table_creation_date_time
+    }
     /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
     pub fn provisioned_throughput(mut self, input: crate::types::ProvisionedThroughput) -> Self {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self { self.provisioned_throughput = input; self }
+    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
+        self.provisioned_throughput = input;
+        self
+    }
     /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
-    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> { &self.provisioned_throughput }
+    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
+        &self.provisioned_throughput
+    }
     pub fn on_demand_throughput(mut self, input: crate::types::OnDemandThroughput) -> Self {
         self.on_demand_throughput = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
-    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> { &self.on_demand_throughput }
+    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
+        self.on_demand_throughput = input;
+        self
+    }
+    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+        &self.on_demand_throughput
+    }
     /// <p>Number of items in the table. Note that this is an approximate value.</p>
     pub fn item_count(mut self, input: i64) -> Self {
         self.item_count = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self { self.item_count = input; self }
+    pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.item_count = input;
+        self
+    }
     /// <p>Number of items in the table. Note that this is an approximate value.</p>
-    pub fn get_item_count(&self) -> &::std::option::Option<i64> { &self.item_count }
+    pub fn get_item_count(&self) -> &::std::option::Option<i64> {
+        &self.item_count
+    }
     /// <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p><ul><li><p><code>PROVISIONED</code> - Sets the read/write capacity mode to <code>PROVISIONED</code>. We recommend using <code>PROVISIONED</code> for predictable workloads.</p></li><li><p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li></ul>
     pub fn billing_mode(mut self, input: crate::types::BillingMode) -> Self {
         self.billing_mode = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self { self.billing_mode = input; self }
+    pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
+        self.billing_mode = input;
+        self
+    }
     /// <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p><ul><li><p><code>PROVISIONED</code> - Sets the read/write capacity mode to <code>PROVISIONED</code>. We recommend using <code>PROVISIONED</code> for predictable workloads.</p></li><li><p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads.</p></li></ul>
-    pub fn get_billing_mode(&self) -> &::std::option::Option<crate::types::BillingMode> { &self.billing_mode }
+    pub fn get_billing_mode(&self) -> &::std::option::Option<crate::types::BillingMode> {
+        &self.billing_mode
+    }
     /// Consumes the builder and constructs a [`SourceTableDetails`](crate::types::SourceTableDetails).
     /// This method will fail if any of the following fields are not set:
     /// - [`table_name`](Self::table_name)
@@ -185,12 +235,32 @@ impl SourceTableDetailsBuilder {
     /// - [`table_creation_date_time`](Self::table_creation_date_time)
     pub fn build(self) -> ::std::result::Result<crate::types::SourceTableDetails, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SourceTableDetails {
-            table_name: self.table_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("table_name", "table_name was not specified but it is required when building SourceTableDetails"))?,
-            table_id: self.table_id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("table_id", "table_id was not specified but it is required when building SourceTableDetails"))?,
+            table_name: self.table_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "table_name",
+                    "table_name was not specified but it is required when building SourceTableDetails",
+                )
+            })?,
+            table_id: self.table_id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "table_id",
+                    "table_id was not specified but it is required when building SourceTableDetails",
+                )
+            })?,
             table_arn: self.table_arn,
             table_size_bytes: self.table_size_bytes,
-            key_schema: self.key_schema.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("key_schema", "key_schema was not specified but it is required when building SourceTableDetails"))?,
-            table_creation_date_time: self.table_creation_date_time.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("table_creation_date_time", "table_creation_date_time was not specified but it is required when building SourceTableDetails"))?,
+            key_schema: self.key_schema.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "key_schema",
+                    "key_schema was not specified but it is required when building SourceTableDetails",
+                )
+            })?,
+            table_creation_date_time: self.table_creation_date_time.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "table_creation_date_time",
+                    "table_creation_date_time was not specified but it is required when building SourceTableDetails",
+                )
+            })?,
             provisioned_throughput: self.provisioned_throughput,
             on_demand_throughput: self.on_demand_throughput,
             item_count: self.item_count,

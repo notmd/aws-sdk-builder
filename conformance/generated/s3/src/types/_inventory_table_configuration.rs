@@ -40,23 +40,38 @@ impl InventoryTableConfigurationBuilder {
         self.configuration_state = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::InventoryConfigurationState>) -> Self { self.configuration_state = input; self }
+    pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::InventoryConfigurationState>) -> Self {
+        self.configuration_state = input;
+        self
+    }
     /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
-    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::InventoryConfigurationState> { &self.configuration_state }
+    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::InventoryConfigurationState> {
+        &self.configuration_state
+    }
     /// <p>The encryption configuration for the inventory table.</p>
     pub fn encryption_configuration(mut self, input: crate::types::MetadataTableEncryptionConfiguration) -> Self {
         self.encryption_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_encryption_configuration(mut self, input: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>) -> Self { self.encryption_configuration = input; self }
+    pub fn set_encryption_configuration(mut self, input: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>) -> Self {
+        self.encryption_configuration = input;
+        self
+    }
     /// <p>The encryption configuration for the inventory table.</p>
-    pub fn get_encryption_configuration(&self) -> &::std::option::Option<crate::types::MetadataTableEncryptionConfiguration> { &self.encryption_configuration }
+    pub fn get_encryption_configuration(&self) -> &::std::option::Option<crate::types::MetadataTableEncryptionConfiguration> {
+        &self.encryption_configuration
+    }
     /// Consumes the builder and constructs a [`InventoryTableConfiguration`](crate::types::InventoryTableConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`configuration_state`](Self::configuration_state)
     pub fn build(self) -> ::std::result::Result<crate::types::InventoryTableConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InventoryTableConfiguration {
-            configuration_state: self.configuration_state.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("configuration_state", "configuration_state was not specified but it is required when building InventoryTableConfiguration"))?,
+            configuration_state: self.configuration_state.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "configuration_state",
+                    "configuration_state was not specified but it is required when building InventoryTableConfiguration",
+                )
+            })?,
             encryption_configuration: self.encryption_configuration,
         })
     }

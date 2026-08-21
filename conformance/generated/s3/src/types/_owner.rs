@@ -39,17 +39,27 @@ impl OwnerBuilder {
         self.display_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_display_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.display_name = input; self }
+    pub fn set_display_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.display_name = input;
+        self
+    }
     /// <p></p>
-    pub fn get_display_name(&self) -> &::std::option::Option<::std::string::String> { &self.display_name }
+    pub fn get_display_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.display_name
+    }
     /// <p>Container for the ID of the owner.</p>
     pub fn id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>Container for the ID of the owner.</p>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// Consumes the builder and constructs a [`Owner`](crate::types::Owner).
     pub fn build(self) -> crate::types::Owner {
         crate::types::Owner {

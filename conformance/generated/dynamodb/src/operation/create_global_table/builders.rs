@@ -6,26 +6,47 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn global_table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.global_table_name = Some(value.into()); self }
-    pub fn replication_group(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Replica>>) -> Self { self.input.replication_group = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::CreateGlobalTableOutput, super::CreateGlobalTableError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::CreateGlobalTableError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::CreateGlobalTableError::unhandled_with_request_ids(format!("CreateGlobalTable returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_create_global_table_output::CreateGlobalTableOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn global_table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.global_table_name = Some(value.into());
+        self
+    }
+    pub fn replication_group(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Replica>>) -> Self {
+        self.input.replication_group = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::CreateGlobalTableOutput, super::CreateGlobalTableError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::CreateGlobalTableError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::CreateGlobalTableError::unhandled_with_request_ids(
+                format!("CreateGlobalTable returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_create_global_table_output::CreateGlobalTableOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as CreateGlobalTableFluentBuilder;

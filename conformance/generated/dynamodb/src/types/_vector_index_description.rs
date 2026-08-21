@@ -102,9 +102,14 @@ impl VectorIndexDescriptionBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.index_name = input; self }
+    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.index_name = input;
+        self
+    }
     /// <p>The name of the vector index.</p>
-    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> { &self.index_name }
+    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.index_name
+    }
     /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
     /// Appends an item to `search_schema`.
     ///
@@ -115,81 +120,131 @@ impl VectorIndexDescriptionBuilder {
         self.search_schema = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>) -> Self { self.search_schema = input; self }
+    pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>>) -> Self {
+        self.search_schema = input;
+        self
+    }
     /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
-    pub fn get_search_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>> { &self.search_schema }
+    pub fn get_search_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SearchSchemaElement>> {
+        &self.search_schema
+    }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
     pub fn projection(mut self, input: crate::types::Projection) -> Self {
         self.projection = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self { self.projection = input; self }
+    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
+        self.projection = input;
+        self
+    }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
-    pub fn get_projection(&self) -> &::std::option::Option<crate::types::Projection> { &self.projection }
+    pub fn get_projection(&self) -> &::std::option::Option<crate::types::Projection> {
+        &self.projection
+    }
     /// <p>The vector attribute configuration for the index.</p>
     pub fn vector_attribute(mut self, input: crate::types::VectorAttributeDefinition) -> Self {
         self.vector_attribute = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_vector_attribute(mut self, input: ::std::option::Option<crate::types::VectorAttributeDefinition>) -> Self { self.vector_attribute = input; self }
+    pub fn set_vector_attribute(mut self, input: ::std::option::Option<crate::types::VectorAttributeDefinition>) -> Self {
+        self.vector_attribute = input;
+        self
+    }
     /// <p>The vector attribute configuration for the index.</p>
-    pub fn get_vector_attribute(&self) -> &::std::option::Option<crate::types::VectorAttributeDefinition> { &self.vector_attribute }
+    pub fn get_vector_attribute(&self) -> &::std::option::Option<crate::types::VectorAttributeDefinition> {
+        &self.vector_attribute
+    }
     /// <p>The number of dimensions in each vector.</p>
     pub fn dimensions(mut self, input: i64) -> Self {
         self.dimensions = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_dimensions(mut self, input: ::std::option::Option<i64>) -> Self { self.dimensions = input; self }
+    pub fn set_dimensions(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.dimensions = input;
+        self
+    }
     /// <p>The number of dimensions in each vector.</p>
-    pub fn get_dimensions(&self) -> &::std::option::Option<i64> { &self.dimensions }
+    pub fn get_dimensions(&self) -> &::std::option::Option<i64> {
+        &self.dimensions
+    }
     /// <p>The distance function used to calculate similarity between vectors.</p>
     pub fn distance_function(mut self, input: crate::types::VectorDistanceFunction) -> Self {
         self.distance_function = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_distance_function(mut self, input: ::std::option::Option<crate::types::VectorDistanceFunction>) -> Self { self.distance_function = input; self }
+    pub fn set_distance_function(mut self, input: ::std::option::Option<crate::types::VectorDistanceFunction>) -> Self {
+        self.distance_function = input;
+        self
+    }
     /// <p>The distance function used to calculate similarity between vectors.</p>
-    pub fn get_distance_function(&self) -> &::std::option::Option<crate::types::VectorDistanceFunction> { &self.distance_function }
+    pub fn get_distance_function(&self) -> &::std::option::Option<crate::types::VectorDistanceFunction> {
+        &self.distance_function
+    }
     /// <p>The current state of the vector index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li></ul>
     pub fn index_status(mut self, input: crate::types::IndexStatus) -> Self {
         self.index_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self { self.index_status = input; self }
+    pub fn set_index_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
+        self.index_status = input;
+        self
+    }
     /// <p>The current state of the vector index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li></ul>
-    pub fn get_index_status(&self) -> &::std::option::Option<crate::types::IndexStatus> { &self.index_status }
+    pub fn get_index_status(&self) -> &::std::option::Option<crate::types::IndexStatus> {
+        &self.index_status
+    }
     /// <p>Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p>
     pub fn backfilling(mut self, input: bool) -> Self {
         self.backfilling = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_backfilling(mut self, input: ::std::option::Option<bool>) -> Self { self.backfilling = input; self }
+    pub fn set_backfilling(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.backfilling = input;
+        self
+    }
     /// <p>Specifies whether the index is currently backfilling. During backfill, <code>SearchVectors</code> operations might return incomplete results.</p>
-    pub fn get_backfilling(&self) -> &::std::option::Option<bool> { &self.backfilling }
+    pub fn get_backfilling(&self) -> &::std::option::Option<bool> {
+        &self.backfilling
+    }
     /// <p>The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
     pub fn index_size_bytes(mut self, input: i64) -> Self {
         self.index_size_bytes = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_index_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self { self.index_size_bytes = input; self }
+    pub fn set_index_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.index_size_bytes = input;
+        self
+    }
     /// <p>The total size of the vector index, in bytes. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
-    pub fn get_index_size_bytes(&self) -> &::std::option::Option<i64> { &self.index_size_bytes }
+    pub fn get_index_size_bytes(&self) -> &::std::option::Option<i64> {
+        &self.index_size_bytes
+    }
     /// <p>The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
     pub fn item_count(mut self, input: i64) -> Self {
         self.item_count = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self { self.item_count = input; self }
+    pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.item_count = input;
+        self
+    }
     /// <p>The number of items indexed in the vector index. Amazon DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
-    pub fn get_item_count(&self) -> &::std::option::Option<i64> { &self.item_count }
+    pub fn get_item_count(&self) -> &::std::option::Option<i64> {
+        &self.item_count
+    }
     /// <p>The Amazon Resource Name (ARN) that uniquely identifies the vector index.</p>
     pub fn index_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.index_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_index_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.index_arn = input; self }
+    pub fn set_index_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.index_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) that uniquely identifies the vector index.</p>
-    pub fn get_index_arn(&self) -> &::std::option::Option<::std::string::String> { &self.index_arn }
+    pub fn get_index_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.index_arn
+    }
     /// Consumes the builder and constructs a [`VectorIndexDescription`](crate::types::VectorIndexDescription).
     pub fn build(self) -> crate::types::VectorIndexDescription {
         crate::types::VectorIndexDescription {

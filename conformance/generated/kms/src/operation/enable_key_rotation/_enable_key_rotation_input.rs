@@ -52,11 +52,16 @@ impl EnableKeyRotationInputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>Identifies a symmetric encryption KMS key. You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key.</p>
     /// <p>Specify the key ID or key ARN of the KMS key.</p>
     /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// <p>Use this parameter to specify a custom period of time between each rotation date. If no value is specified, the default value is 365 days.</p>
     /// <p>The rotation period defines the number of days after you enable automatic key rotation that KMS will rotate your key material, and the number of days between each automatic rotation thereafter.</p>
     /// <p>You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days"><code>kms:RotationPeriodInDays</code></a> condition key to further constrain the values that principals can specify in the <code>RotationPeriodInDays</code> parameter.</p>
@@ -65,12 +70,17 @@ impl EnableKeyRotationInputBuilder {
         self.rotation_period_in_days = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_rotation_period_in_days(mut self, input: ::std::option::Option<i32>) -> Self { self.rotation_period_in_days = input; self }
+    pub fn set_rotation_period_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.rotation_period_in_days = input;
+        self
+    }
     /// <p>Use this parameter to specify a custom period of time between each rotation date. If no value is specified, the default value is 365 days.</p>
     /// <p>The rotation period defines the number of days after you enable automatic key rotation that KMS will rotate your key material, and the number of days between each automatic rotation thereafter.</p>
     /// <p>You can use the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/conditions-kms.html#conditions-kms-rotation-period-in-days"><code>kms:RotationPeriodInDays</code></a> condition key to further constrain the values that principals can specify in the <code>RotationPeriodInDays</code> parameter.</p>
     /// <p></p>
-    pub fn get_rotation_period_in_days(&self) -> &::std::option::Option<i32> { &self.rotation_period_in_days }
+    pub fn get_rotation_period_in_days(&self) -> &::std::option::Option<i32> {
+        &self.rotation_period_in_days
+    }
     /// Consumes the builder and constructs a [`EnableKeyRotationInput`](crate::operation::enable_key_rotation::EnableKeyRotationInput).
     pub fn build(self) -> crate::operation::enable_key_rotation::EnableKeyRotationInput {
         crate::operation::enable_key_rotation::EnableKeyRotationInput {

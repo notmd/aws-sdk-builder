@@ -40,18 +40,28 @@ impl CreateBackupInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>Specified name for the backup.</p>
     /// This field is required.
     pub fn backup_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.backup_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_backup_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.backup_name = input; self }
+    pub fn set_backup_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.backup_name = input;
+        self
+    }
     /// <p>Specified name for the backup.</p>
-    pub fn get_backup_name(&self) -> &::std::option::Option<::std::string::String> { &self.backup_name }
+    pub fn get_backup_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.backup_name
+    }
     /// Consumes the builder and constructs a [`CreateBackupInput`](crate::operation::create_backup::CreateBackupInput).
     pub fn build(self) -> crate::operation::create_backup::CreateBackupInput {
         crate::operation::create_backup::CreateBackupInput {

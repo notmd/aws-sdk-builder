@@ -35,15 +35,25 @@ impl ReplicaModificationsBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ReplicaModificationsStatus>) -> Self { self.status = input; self }
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ReplicaModificationsStatus>) -> Self {
+        self.status = input;
+        self
+    }
     /// <p>Specifies whether Amazon S3 replicates modifications on replicas.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::ReplicaModificationsStatus> { &self.status }
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::ReplicaModificationsStatus> {
+        &self.status
+    }
     /// Consumes the builder and constructs a [`ReplicaModifications`](crate::types::ReplicaModifications).
     /// This method will fail if any of the following fields are not set:
     /// - [`status`](Self::status)
     pub fn build(self) -> ::std::result::Result<crate::types::ReplicaModifications, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReplicaModifications {
-            status: self.status.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building ReplicaModifications"))?,
+            status: self.status.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "status",
+                    "status was not specified but it is required when building ReplicaModifications",
+                )
+            })?,
         })
     }
 }

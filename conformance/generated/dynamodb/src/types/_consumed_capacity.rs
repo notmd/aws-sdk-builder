@@ -81,41 +81,66 @@ impl ConsumedCapacityBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the table that was affected by the operation. If you had specified the Amazon Resource Name (ARN) of a table in the input, you'll see the table ARN in the response.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>The total number of capacity units consumed by the operation.</p>
     pub fn capacity_units(mut self, input: f64) -> Self {
         self.capacity_units = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self { self.capacity_units = input; self }
+    pub fn set_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
+        self.capacity_units = input;
+        self
+    }
     /// <p>The total number of capacity units consumed by the operation.</p>
-    pub fn get_capacity_units(&self) -> &::std::option::Option<f64> { &self.capacity_units }
+    pub fn get_capacity_units(&self) -> &::std::option::Option<f64> {
+        &self.capacity_units
+    }
     /// <p>The total number of read capacity units consumed by the operation.</p>
     pub fn read_capacity_units(mut self, input: f64) -> Self {
         self.read_capacity_units = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_read_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self { self.read_capacity_units = input; self }
+    pub fn set_read_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
+        self.read_capacity_units = input;
+        self
+    }
     /// <p>The total number of read capacity units consumed by the operation.</p>
-    pub fn get_read_capacity_units(&self) -> &::std::option::Option<f64> { &self.read_capacity_units }
+    pub fn get_read_capacity_units(&self) -> &::std::option::Option<f64> {
+        &self.read_capacity_units
+    }
     /// <p>The total number of write capacity units consumed by the operation.</p>
     pub fn write_capacity_units(mut self, input: f64) -> Self {
         self.write_capacity_units = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_write_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self { self.write_capacity_units = input; self }
+    pub fn set_write_capacity_units(mut self, input: ::std::option::Option<f64>) -> Self {
+        self.write_capacity_units = input;
+        self
+    }
     /// <p>The total number of write capacity units consumed by the operation.</p>
-    pub fn get_write_capacity_units(&self) -> &::std::option::Option<f64> { &self.write_capacity_units }
+    pub fn get_write_capacity_units(&self) -> &::std::option::Option<f64> {
+        &self.write_capacity_units
+    }
     /// <p>The amount of throughput consumed on the table affected by the operation.</p>
     pub fn table(mut self, input: crate::types::Capacity) -> Self {
         self.table = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_table(mut self, input: ::std::option::Option<crate::types::Capacity>) -> Self { self.table = input; self }
+    pub fn set_table(mut self, input: ::std::option::Option<crate::types::Capacity>) -> Self {
+        self.table = input;
+        self
+    }
     /// <p>The amount of throughput consumed on the table affected by the operation.</p>
-    pub fn get_table(&self) -> &::std::option::Option<crate::types::Capacity> { &self.table }
+    pub fn get_table(&self) -> &::std::option::Option<crate::types::Capacity> {
+        &self.table
+    }
     /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
     /// Adds a key-value pair to `local_secondary_indexes`.
     ///
@@ -126,9 +151,17 @@ impl ConsumedCapacityBuilder {
         self.local_secondary_indexes = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>) -> Self { self.local_secondary_indexes = input; self }
+    pub fn set_local_secondary_indexes(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>,
+    ) -> Self {
+        self.local_secondary_indexes = input;
+        self
+    }
     /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
-    pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>> { &self.local_secondary_indexes }
+    pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>> {
+        &self.local_secondary_indexes
+    }
     /// <p>The amount of throughput consumed on each global index affected by the operation.</p>
     /// Adds a key-value pair to `global_secondary_indexes`.
     ///
@@ -139,9 +172,17 @@ impl ConsumedCapacityBuilder {
         self.global_secondary_indexes = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>) -> Self { self.global_secondary_indexes = input; self }
+    pub fn set_global_secondary_indexes(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>>,
+    ) -> Self {
+        self.global_secondary_indexes = input;
+        self
+    }
     /// <p>The amount of throughput consumed on each global index affected by the operation.</p>
-    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>> { &self.global_secondary_indexes }
+    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::Capacity>> {
+        &self.global_secondary_indexes
+    }
     /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>
     /// Adds a key-value pair to `vector_indexes`.
     ///
@@ -152,9 +193,17 @@ impl ConsumedCapacityBuilder {
         self.vector_indexes = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::VectorCapacity>>) -> Self { self.vector_indexes = input; self }
+    pub fn set_vector_indexes(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::VectorCapacity>>,
+    ) -> Self {
+        self.vector_indexes = input;
+        self
+    }
     /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>
-    pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::VectorCapacity>> { &self.vector_indexes }
+    pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::VectorCapacity>> {
+        &self.vector_indexes
+    }
     /// Consumes the builder and constructs a [`ConsumedCapacity`](crate::types::ConsumedCapacity).
     pub fn build(self) -> crate::types::ConsumedCapacity {
         crate::types::ConsumedCapacity {

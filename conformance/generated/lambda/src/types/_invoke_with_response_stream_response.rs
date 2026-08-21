@@ -53,33 +53,53 @@ impl InvokeWithResponseStreamResponseBuilder {
         self.status_code = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status_code(mut self, input: ::std::option::Option<i32>) -> Self { self.status_code = input; self }
+    pub fn set_status_code(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.status_code = input;
+        self
+    }
     /// <p>For a successful request, the HTTP status code is in the 200 range. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>DryRun</code> invocation type, this status code is 204.</p>
-    pub fn get_status_code(&self) -> &::std::option::Option<i32> { &self.status_code }
+    pub fn get_status_code(&self) -> &::std::option::Option<i32> {
+        &self.status_code
+    }
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
     pub fn executed_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.executed_version = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_executed_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.executed_version = input; self }
+    pub fn set_executed_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.executed_version = input;
+        self
+    }
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
-    pub fn get_executed_version(&self) -> &::std::option::Option<::std::string::String> { &self.executed_version }
+    pub fn get_executed_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.executed_version
+    }
     /// <p>The stream of response payloads.</p>
     pub fn event_stream(mut self, input: crate::types::InvokeWithResponseStreamResponseEvent) -> Self {
         self.event_stream = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_event_stream(mut self, input: ::std::option::Option<crate::types::InvokeWithResponseStreamResponseEvent>) -> Self { self.event_stream = input; self }
+    pub fn set_event_stream(mut self, input: ::std::option::Option<crate::types::InvokeWithResponseStreamResponseEvent>) -> Self {
+        self.event_stream = input;
+        self
+    }
     /// <p>The stream of response payloads.</p>
-    pub fn get_event_stream(&self) -> &::std::option::Option<crate::types::InvokeWithResponseStreamResponseEvent> { &self.event_stream }
+    pub fn get_event_stream(&self) -> &::std::option::Option<crate::types::InvokeWithResponseStreamResponseEvent> {
+        &self.event_stream
+    }
     /// <p>The type of data the stream is returning.</p>
     pub fn response_stream_content_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.response_stream_content_type = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_response_stream_content_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.response_stream_content_type = input; self }
+    pub fn set_response_stream_content_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.response_stream_content_type = input;
+        self
+    }
     /// <p>The type of data the stream is returning.</p>
-    pub fn get_response_stream_content_type(&self) -> &::std::option::Option<::std::string::String> { &self.response_stream_content_type }
+    pub fn get_response_stream_content_type(&self) -> &::std::option::Option<::std::string::String> {
+        &self.response_stream_content_type
+    }
     /// Consumes the builder and constructs a [`InvokeWithResponseStreamResponse`](crate::types::InvokeWithResponseStreamResponse).
     pub fn build(self) -> crate::types::InvokeWithResponseStreamResponse {
         crate::types::InvokeWithResponseStreamResponse {

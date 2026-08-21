@@ -39,9 +39,14 @@ impl DescribeKeyOutputBuilder {
         self.key_metadata = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_key_metadata(mut self, input: ::std::option::Option<crate::types::KeyMetadata>) -> Self { self.key_metadata = input; self }
+    pub fn set_key_metadata(mut self, input: ::std::option::Option<crate::types::KeyMetadata>) -> Self {
+        self.key_metadata = input;
+        self
+    }
     /// <p>Metadata associated with the key.</p>
-    pub fn get_key_metadata(&self) -> &::std::option::Option<crate::types::KeyMetadata> { &self.key_metadata }
+    pub fn get_key_metadata(&self) -> &::std::option::Option<crate::types::KeyMetadata> {
+        &self.key_metadata
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

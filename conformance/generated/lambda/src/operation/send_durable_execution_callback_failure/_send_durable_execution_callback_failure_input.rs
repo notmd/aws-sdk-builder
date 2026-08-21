@@ -40,17 +40,27 @@ impl SendDurableExecutionCallbackFailureInputBuilder {
         self.callback_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_callback_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.callback_id = input; self }
+    pub fn set_callback_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.callback_id = input;
+        self
+    }
     /// <p>The unique identifier for the callback operation.</p>
-    pub fn get_callback_id(&self) -> &::std::option::Option<::std::string::String> { &self.callback_id }
+    pub fn get_callback_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.callback_id
+    }
     /// <p>Error details describing why the callback operation failed.</p>
     pub fn error(mut self, input: crate::types::ErrorObject) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>Error details describing why the callback operation failed.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> {
+        &self.error
+    }
     /// Consumes the builder and constructs a [`SendDurableExecutionCallbackFailureInput`](crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput).
     pub fn build(self) -> crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput {
         crate::operation::send_durable_execution_callback_failure::SendDurableExecutionCallbackFailureInput {

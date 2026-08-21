@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct VerifySmsSandboxPhoneNumber;
-impl VerifySmsSandboxPhoneNumber { pub fn new() -> Self { Self } }
+impl VerifySmsSandboxPhoneNumber {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     AuthorizationErrorException(super::super::types::error::AuthorizationErrorException),
@@ -12,15 +16,31 @@ pub enum Error {
     ThrottledException(super::super::types::error::ThrottledException),
     VerificationException(super::super::types::error::VerificationException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_authorization_error_exception(&self) -> bool { matches!(self, Self::AuthorizationErrorException(_)) }
-    pub fn is_internal_error_exception(&self) -> bool { matches!(self, Self::InternalErrorException(_)) }
-    pub fn is_invalid_parameter_exception(&self) -> bool { matches!(self, Self::InvalidParameterException(_)) }
-    pub fn is_resource_not_found_exception(&self) -> bool { matches!(self, Self::ResourceNotFoundException(_)) }
-    pub fn is_throttled_exception(&self) -> bool { matches!(self, Self::ThrottledException(_)) }
-    pub fn is_verification_exception(&self) -> bool { matches!(self, Self::VerificationException(_)) }
+    pub fn is_authorization_error_exception(&self) -> bool {
+        matches!(self, Self::AuthorizationErrorException(_))
+    }
+    pub fn is_internal_error_exception(&self) -> bool {
+        matches!(self, Self::InternalErrorException(_))
+    }
+    pub fn is_invalid_parameter_exception(&self) -> bool {
+        matches!(self, Self::InvalidParameterException(_))
+    }
+    pub fn is_resource_not_found_exception(&self) -> bool {
+        matches!(self, Self::ResourceNotFoundException(_))
+    }
+    pub fn is_throttled_exception(&self) -> bool {
+        matches!(self, Self::ThrottledException(_))
+    }
+    pub fn is_verification_exception(&self) -> bool {
+        matches!(self, Self::VerificationException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -38,26 +58,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _verify_sms_sandbox_phone_number_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/verify_sms_sandbox_phone_number/_verify_sms_sandbox_phone_number_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sns/src/operation/verify_sms_sandbox_phone_number/_verify_sms_sandbox_phone_number_input.rs"
+    ));
 }
 pub use _verify_sms_sandbox_phone_number_input::VerifySmsSandboxPhoneNumberInput;
 pub type Input = VerifySmsSandboxPhoneNumberInput;
 pub mod _verify_sms_sandbox_phone_number_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/verify_sms_sandbox_phone_number/_verify_sms_sandbox_phone_number_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sns/src/operation/verify_sms_sandbox_phone_number/_verify_sms_sandbox_phone_number_output.rs"
+    ));
 }
 pub use _verify_sms_sandbox_phone_number_output::VerifySmsSandboxPhoneNumberOutput;
 pub type Output = VerifySmsSandboxPhoneNumberOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/verify_sms_sandbox_phone_number/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sns/src/operation/verify_sms_sandbox_phone_number/builders.rs"
+    ));
 }
 pub type VerifySmsSandboxPhoneNumberError = Error;
 pub type VerifySmsSandboxPhoneNumberFluentBuilder = builders::Builder;

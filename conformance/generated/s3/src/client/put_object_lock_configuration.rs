@@ -13,7 +13,9 @@ impl super::Client {
     /// - On success, responds with [`PutObjectLockConfigurationOutput`](crate::operation::put_object_lock_configuration::PutObjectLockConfigurationOutput) with field(s):
     ///   - [`request_charged(Option<RequestCharged>)`](crate::operation::put_object_lock_configuration::PutObjectLockConfigurationOutput::request_charged): <p>If present, indicates that the requester was successfully charged for the request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/RequesterPaysBuckets.html">Using Requester Pays buckets for storage transfers and usage</a> in the <i>Amazon Simple Storage Service user guide</i>.</p><note>  <p>This functionality is not supported for directory buckets.</p> </note>
     /// - On failure, responds with [`SdkError<PutObjectLockConfigurationError>`](crate::operation::put_object_lock_configuration::PutObjectLockConfigurationError)
-    pub fn put_object_lock_configuration(&self) -> crate::operation::put_object_lock_configuration::builders::PutObjectLockConfigurationFluentBuilder {
+    pub fn put_object_lock_configuration(
+        &self,
+    ) -> crate::operation::put_object_lock_configuration::builders::PutObjectLockConfigurationFluentBuilder {
         crate::operation::put_object_lock_configuration::builders::PutObjectLockConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

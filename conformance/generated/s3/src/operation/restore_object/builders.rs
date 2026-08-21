@@ -6,35 +6,355 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.version_id = Some(value.into()); self }
-    pub fn restore_request(mut self, value: impl ::std::convert::Into<crate::types::RestoreRequest>) -> Self { self.input.restore_request = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::RestoreObjectOutput, super::RestoreObjectError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::RestoreObjectError::Unhandled("RestoreObject requires bucket".to_owned()))?;
-                         let key = self.input.key.as_deref().ok_or_else(|| super::RestoreObjectError::Unhandled("RestoreObject requires key".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}/{Key+}?restore"); if let Some(value) = self.input.version_id.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("versionId"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path = path.replace("{Key+}", &super::super::super::transport::encode_path(key)); path };
-                         let body = { let mut body = ::std::string::String::new(); if let Some(value) = self.input.restore_request.as_ref() { body.push_str("<RestoreRequest>"); if let Some(value) = value.days.as_ref() { body.push_str("<Days>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Days>"); } if let Some(value) = value.glacier_job_parameters.as_ref() { body.push_str("<GlacierJobParameters>"); body.push_str("<Tier>"); body.push_str(&super::super::super::transport::xml_escape(&value.tier.to_string())); body.push_str("</Tier>"); body.push_str("</GlacierJobParameters>"); } if let Some(value) = value.r#type.as_ref() { body.push_str("<Type>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Type>"); } if let Some(value) = value.tier.as_ref() { body.push_str("<Tier>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Tier>"); } if let Some(value) = value.description.as_ref() { body.push_str("<Description>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Description>"); } if let Some(value) = value.select_parameters.as_ref() { body.push_str("<SelectParameters>"); body.push_str("<InputSerialization>"); if let Some(value) = value.input_serialization.csv.as_ref() { body.push_str("<CSV>"); if let Some(value) = value.file_header_info.as_ref() { body.push_str("<FileHeaderInfo>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</FileHeaderInfo>"); } if let Some(value) = value.comments.as_ref() { body.push_str("<Comments>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Comments>"); } if let Some(value) = value.quote_escape_character.as_ref() { body.push_str("<QuoteEscapeCharacter>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</QuoteEscapeCharacter>"); } if let Some(value) = value.record_delimiter.as_ref() { body.push_str("<RecordDelimiter>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</RecordDelimiter>"); } if let Some(value) = value.field_delimiter.as_ref() { body.push_str("<FieldDelimiter>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</FieldDelimiter>"); } if let Some(value) = value.quote_character.as_ref() { body.push_str("<QuoteCharacter>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</QuoteCharacter>"); } if let Some(value) = value.allow_quoted_record_delimiter.as_ref() { body.push_str("<AllowQuotedRecordDelimiter>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</AllowQuotedRecordDelimiter>"); } body.push_str("</CSV>"); } if let Some(value) = value.input_serialization.compression_type.as_ref() { body.push_str("<CompressionType>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</CompressionType>"); } if let Some(value) = value.input_serialization.json.as_ref() { body.push_str("<JSON>"); if let Some(value) = value.r#type.as_ref() { body.push_str("<Type>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Type>"); } body.push_str("</JSON>"); } if let Some(value) = value.input_serialization.parquet.as_ref() { body.push_str("<Parquet>"); body.push_str("</Parquet>"); } body.push_str("</InputSerialization>"); body.push_str("<ExpressionType>"); body.push_str(&super::super::super::transport::xml_escape(&value.expression_type.to_string())); body.push_str("</ExpressionType>"); body.push_str("<Expression>"); body.push_str(&super::super::super::transport::xml_escape(&value.expression.to_string())); body.push_str("</Expression>"); body.push_str("<OutputSerialization>"); if let Some(value) = value.output_serialization.csv.as_ref() { body.push_str("<CSV>"); if let Some(value) = value.quote_fields.as_ref() { body.push_str("<QuoteFields>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</QuoteFields>"); } if let Some(value) = value.quote_escape_character.as_ref() { body.push_str("<QuoteEscapeCharacter>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</QuoteEscapeCharacter>"); } if let Some(value) = value.record_delimiter.as_ref() { body.push_str("<RecordDelimiter>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</RecordDelimiter>"); } if let Some(value) = value.field_delimiter.as_ref() { body.push_str("<FieldDelimiter>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</FieldDelimiter>"); } if let Some(value) = value.quote_character.as_ref() { body.push_str("<QuoteCharacter>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</QuoteCharacter>"); } body.push_str("</CSV>"); } if let Some(value) = value.output_serialization.json.as_ref() { body.push_str("<JSON>"); if let Some(value) = value.record_delimiter.as_ref() { body.push_str("<RecordDelimiter>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</RecordDelimiter>"); } body.push_str("</JSON>"); } body.push_str("</OutputSerialization>"); body.push_str("</SelectParameters>"); } if let Some(value) = value.output_location.as_ref() { body.push_str("<OutputLocation>"); if let Some(value) = value.s3.as_ref() { body.push_str("<S3>"); body.push_str("<BucketName>"); body.push_str(&super::super::super::transport::xml_escape(&value.bucket_name.to_string())); body.push_str("</BucketName>"); body.push_str("<Prefix>"); body.push_str(&super::super::super::transport::xml_escape(&value.prefix.to_string())); body.push_str("</Prefix>"); if let Some(value) = value.encryption.as_ref() { body.push_str("<Encryption>"); body.push_str("<EncryptionType>"); body.push_str(&super::super::super::transport::xml_escape(&value.encryption_type.to_string())); body.push_str("</EncryptionType>"); if let Some(value) = value.kms_key_id.as_ref() { body.push_str("<KMSKeyId>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</KMSKeyId>"); } if let Some(value) = value.kms_context.as_ref() { body.push_str("<KMSContext>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</KMSContext>"); } body.push_str("</Encryption>"); } if let Some(value) = value.canned_acl.as_ref() { body.push_str("<CannedACL>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</CannedACL>"); } if let Some(value) = value.access_control_list.as_ref() { body.push_str("<AccessControlList>"); for item in value { body.push_str("<Grant>"); if let Some(value) = item.grantee.as_ref() { body.push_str("<Grantee>"); if let Some(value) = value.display_name.as_ref() { body.push_str("<DisplayName>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</DisplayName>"); } if let Some(value) = value.email_address.as_ref() { body.push_str("<EmailAddress>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</EmailAddress>"); } if let Some(value) = value.id.as_ref() { body.push_str("<ID>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ID>"); } if let Some(value) = value.uri.as_ref() { body.push_str("<URI>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</URI>"); } body.push_str("<xsi:type>"); body.push_str(&super::super::super::transport::xml_escape(&value.r#type.to_string())); body.push_str("</xsi:type>"); body.push_str("</Grantee>"); } if let Some(value) = item.permission.as_ref() { body.push_str("<Permission>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Permission>"); } body.push_str("</Grant>"); } body.push_str("</AccessControlList>"); } if let Some(value) = value.tagging.as_ref() { body.push_str("<Tagging>"); body.push_str("<TagSet>"); for item in value.tag_set { body.push_str("<Tag>"); body.push_str("<Key>"); body.push_str(&super::super::super::transport::xml_escape(&item.key.to_string())); body.push_str("</Key>"); body.push_str("<Value>"); body.push_str(&super::super::super::transport::xml_escape(&item.value.to_string())); body.push_str("</Value>"); body.push_str("</Tag>"); } body.push_str("</TagSet>"); body.push_str("</Tagging>"); } if let Some(value) = value.user_metadata.as_ref() { body.push_str("<UserMetadata>"); for item in value { body.push_str("<MetadataEntry>"); if let Some(value) = item.name.as_ref() { body.push_str("<Name>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Name>"); } if let Some(value) = item.value.as_ref() { body.push_str("<Value>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Value>"); } body.push_str("</MetadataEntry>"); } body.push_str("</UserMetadata>"); } if let Some(value) = value.storage_class.as_ref() { body.push_str("<StorageClass>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</StorageClass>"); } body.push_str("</S3>"); } body.push_str("</OutputLocation>"); } body.push_str("</RestoreRequest>"); } body.into_bytes() };
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers.push(("content-type", "application/xml")); headers };
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::RestoreObjectError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::RestoreObjectError::unhandled_with_request_ids(format!("RestoreObject returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_restore_object_output::RestoreObjectOutputBuilder::default();
-                         output.restore_output_path = response.header("x-amz-restore-output-path").map(str::to_owned);
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key = Some(value.into());
+        self
+    }
+    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.version_id = Some(value.into());
+        self
+    }
+    pub fn restore_request(mut self, value: impl ::std::convert::Into<crate::types::RestoreRequest>) -> Self {
+        self.input.restore_request = Some(value.into());
+        self
+    }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
+        self.input.request_payer = Some(value.into());
+        self
+    }
+    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
+        self.input.checksum_algorithm = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::RestoreObjectOutput, super::RestoreObjectError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::RestoreObjectError::Unhandled("RestoreObject requires bucket".to_owned()))?;
+        let key = self
+            .input
+            .key
+            .as_deref()
+            .ok_or_else(|| super::RestoreObjectError::Unhandled("RestoreObject requires key".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}/{Key+}?restore");
+            if let Some(value) = self.input.version_id.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("versionId");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path = path.replace("{Key+}", &super::super::super::transport::encode_path(key));
+            path
+        };
+        let body = {
+            let mut body = ::std::string::String::new();
+            if let Some(value) = self.input.restore_request.as_ref() {
+                body.push_str("<RestoreRequest>");
+                if let Some(value) = value.days.as_ref() {
+                    body.push_str("<Days>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                    body.push_str("</Days>");
+                }
+                if let Some(value) = value.glacier_job_parameters.as_ref() {
+                    body.push_str("<GlacierJobParameters>");
+                    body.push_str("<Tier>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.tier.to_string()));
+                    body.push_str("</Tier>");
+                    body.push_str("</GlacierJobParameters>");
+                }
+                if let Some(value) = value.r#type.as_ref() {
+                    body.push_str("<Type>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                    body.push_str("</Type>");
+                }
+                if let Some(value) = value.tier.as_ref() {
+                    body.push_str("<Tier>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                    body.push_str("</Tier>");
+                }
+                if let Some(value) = value.description.as_ref() {
+                    body.push_str("<Description>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                    body.push_str("</Description>");
+                }
+                if let Some(value) = value.select_parameters.as_ref() {
+                    body.push_str("<SelectParameters>");
+                    body.push_str("<InputSerialization>");
+                    if let Some(value) = value.input_serialization.csv.as_ref() {
+                        body.push_str("<CSV>");
+                        if let Some(value) = value.file_header_info.as_ref() {
+                            body.push_str("<FileHeaderInfo>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</FileHeaderInfo>");
+                        }
+                        if let Some(value) = value.comments.as_ref() {
+                            body.push_str("<Comments>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</Comments>");
+                        }
+                        if let Some(value) = value.quote_escape_character.as_ref() {
+                            body.push_str("<QuoteEscapeCharacter>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</QuoteEscapeCharacter>");
+                        }
+                        if let Some(value) = value.record_delimiter.as_ref() {
+                            body.push_str("<RecordDelimiter>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</RecordDelimiter>");
+                        }
+                        if let Some(value) = value.field_delimiter.as_ref() {
+                            body.push_str("<FieldDelimiter>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</FieldDelimiter>");
+                        }
+                        if let Some(value) = value.quote_character.as_ref() {
+                            body.push_str("<QuoteCharacter>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</QuoteCharacter>");
+                        }
+                        if let Some(value) = value.allow_quoted_record_delimiter.as_ref() {
+                            body.push_str("<AllowQuotedRecordDelimiter>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</AllowQuotedRecordDelimiter>");
+                        }
+                        body.push_str("</CSV>");
+                    }
+                    if let Some(value) = value.input_serialization.compression_type.as_ref() {
+                        body.push_str("<CompressionType>");
+                        body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                        body.push_str("</CompressionType>");
+                    }
+                    if let Some(value) = value.input_serialization.json.as_ref() {
+                        body.push_str("<JSON>");
+                        if let Some(value) = value.r#type.as_ref() {
+                            body.push_str("<Type>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</Type>");
+                        }
+                        body.push_str("</JSON>");
+                    }
+                    if let Some(value) = value.input_serialization.parquet.as_ref() {
+                        body.push_str("<Parquet>");
+                        body.push_str("</Parquet>");
+                    }
+                    body.push_str("</InputSerialization>");
+                    body.push_str("<ExpressionType>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.expression_type.to_string()));
+                    body.push_str("</ExpressionType>");
+                    body.push_str("<Expression>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.expression.to_string()));
+                    body.push_str("</Expression>");
+                    body.push_str("<OutputSerialization>");
+                    if let Some(value) = value.output_serialization.csv.as_ref() {
+                        body.push_str("<CSV>");
+                        if let Some(value) = value.quote_fields.as_ref() {
+                            body.push_str("<QuoteFields>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</QuoteFields>");
+                        }
+                        if let Some(value) = value.quote_escape_character.as_ref() {
+                            body.push_str("<QuoteEscapeCharacter>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</QuoteEscapeCharacter>");
+                        }
+                        if let Some(value) = value.record_delimiter.as_ref() {
+                            body.push_str("<RecordDelimiter>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</RecordDelimiter>");
+                        }
+                        if let Some(value) = value.field_delimiter.as_ref() {
+                            body.push_str("<FieldDelimiter>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</FieldDelimiter>");
+                        }
+                        if let Some(value) = value.quote_character.as_ref() {
+                            body.push_str("<QuoteCharacter>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</QuoteCharacter>");
+                        }
+                        body.push_str("</CSV>");
+                    }
+                    if let Some(value) = value.output_serialization.json.as_ref() {
+                        body.push_str("<JSON>");
+                        if let Some(value) = value.record_delimiter.as_ref() {
+                            body.push_str("<RecordDelimiter>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</RecordDelimiter>");
+                        }
+                        body.push_str("</JSON>");
+                    }
+                    body.push_str("</OutputSerialization>");
+                    body.push_str("</SelectParameters>");
+                }
+                if let Some(value) = value.output_location.as_ref() {
+                    body.push_str("<OutputLocation>");
+                    if let Some(value) = value.s3.as_ref() {
+                        body.push_str("<S3>");
+                        body.push_str("<BucketName>");
+                        body.push_str(&super::super::super::transport::xml_escape(&value.bucket_name.to_string()));
+                        body.push_str("</BucketName>");
+                        body.push_str("<Prefix>");
+                        body.push_str(&super::super::super::transport::xml_escape(&value.prefix.to_string()));
+                        body.push_str("</Prefix>");
+                        if let Some(value) = value.encryption.as_ref() {
+                            body.push_str("<Encryption>");
+                            body.push_str("<EncryptionType>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.encryption_type.to_string()));
+                            body.push_str("</EncryptionType>");
+                            if let Some(value) = value.kms_key_id.as_ref() {
+                                body.push_str("<KMSKeyId>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                body.push_str("</KMSKeyId>");
+                            }
+                            if let Some(value) = value.kms_context.as_ref() {
+                                body.push_str("<KMSContext>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                body.push_str("</KMSContext>");
+                            }
+                            body.push_str("</Encryption>");
+                        }
+                        if let Some(value) = value.canned_acl.as_ref() {
+                            body.push_str("<CannedACL>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</CannedACL>");
+                        }
+                        if let Some(value) = value.access_control_list.as_ref() {
+                            body.push_str("<AccessControlList>");
+                            for item in value {
+                                body.push_str("<Grant>");
+                                if let Some(value) = item.grantee.as_ref() {
+                                    body.push_str("<Grantee>");
+                                    if let Some(value) = value.display_name.as_ref() {
+                                        body.push_str("<DisplayName>");
+                                        body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                        body.push_str("</DisplayName>");
+                                    }
+                                    if let Some(value) = value.email_address.as_ref() {
+                                        body.push_str("<EmailAddress>");
+                                        body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                        body.push_str("</EmailAddress>");
+                                    }
+                                    if let Some(value) = value.id.as_ref() {
+                                        body.push_str("<ID>");
+                                        body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                        body.push_str("</ID>");
+                                    }
+                                    if let Some(value) = value.uri.as_ref() {
+                                        body.push_str("<URI>");
+                                        body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                        body.push_str("</URI>");
+                                    }
+                                    body.push_str("<xsi:type>");
+                                    body.push_str(&super::super::super::transport::xml_escape(&value.r#type.to_string()));
+                                    body.push_str("</xsi:type>");
+                                    body.push_str("</Grantee>");
+                                }
+                                if let Some(value) = item.permission.as_ref() {
+                                    body.push_str("<Permission>");
+                                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                    body.push_str("</Permission>");
+                                }
+                                body.push_str("</Grant>");
+                            }
+                            body.push_str("</AccessControlList>");
+                        }
+                        if let Some(value) = value.tagging.as_ref() {
+                            body.push_str("<Tagging>");
+                            body.push_str("<TagSet>");
+                            for item in value.tag_set {
+                                body.push_str("<Tag>");
+                                body.push_str("<Key>");
+                                body.push_str(&super::super::super::transport::xml_escape(&item.key.to_string()));
+                                body.push_str("</Key>");
+                                body.push_str("<Value>");
+                                body.push_str(&super::super::super::transport::xml_escape(&item.value.to_string()));
+                                body.push_str("</Value>");
+                                body.push_str("</Tag>");
+                            }
+                            body.push_str("</TagSet>");
+                            body.push_str("</Tagging>");
+                        }
+                        if let Some(value) = value.user_metadata.as_ref() {
+                            body.push_str("<UserMetadata>");
+                            for item in value {
+                                body.push_str("<MetadataEntry>");
+                                if let Some(value) = item.name.as_ref() {
+                                    body.push_str("<Name>");
+                                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                    body.push_str("</Name>");
+                                }
+                                if let Some(value) = item.value.as_ref() {
+                                    body.push_str("<Value>");
+                                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                    body.push_str("</Value>");
+                                }
+                                body.push_str("</MetadataEntry>");
+                            }
+                            body.push_str("</UserMetadata>");
+                        }
+                        if let Some(value) = value.storage_class.as_ref() {
+                            body.push_str("<StorageClass>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</StorageClass>");
+                        }
+                        body.push_str("</S3>");
+                    }
+                    body.push_str("</OutputLocation>");
+                }
+                body.push_str("</RestoreRequest>");
+            }
+            body.into_bytes()
+        };
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers.push(("content-type", "application/xml"));
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::RestoreObjectError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::RestoreObjectError::unhandled_with_request_ids(
+                format!("RestoreObject returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_restore_object_output::RestoreObjectOutputBuilder::default();
+        output.restore_output_path = response.header("x-amz-restore-output-path").map(str::to_owned);
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as RestoreObjectFluentBuilder;

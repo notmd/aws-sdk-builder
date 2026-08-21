@@ -39,15 +39,25 @@ impl AttachedPolicyBuilder {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_name = input; self }
+    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_name = input;
+        self
+    }
     /// <p>The friendly name of the attached policy.</p>
-    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> { &self.policy_name }
+    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_name
+    }
     pub fn policy_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_arn = input; self }
-    pub fn get_policy_arn(&self) -> &::std::option::Option<::std::string::String> { &self.policy_arn }
+    pub fn set_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_arn = input;
+        self
+    }
+    pub fn get_policy_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_arn
+    }
     /// Consumes the builder and constructs a [`AttachedPolicy`](crate::types::AttachedPolicy).
     pub fn build(self) -> crate::types::AttachedPolicy {
         crate::types::AttachedPolicy {

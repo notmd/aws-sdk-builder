@@ -29,8 +29,13 @@ impl BucketLoggingStatusBuilder {
         self.logging_enabled = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_logging_enabled(mut self, input: ::std::option::Option<crate::types::LoggingEnabled>) -> Self { self.logging_enabled = input; self }
-    pub fn get_logging_enabled(&self) -> &::std::option::Option<crate::types::LoggingEnabled> { &self.logging_enabled }
+    pub fn set_logging_enabled(mut self, input: ::std::option::Option<crate::types::LoggingEnabled>) -> Self {
+        self.logging_enabled = input;
+        self
+    }
+    pub fn get_logging_enabled(&self) -> &::std::option::Option<crate::types::LoggingEnabled> {
+        &self.logging_enabled
+    }
     /// Consumes the builder and constructs a [`BucketLoggingStatus`](crate::types::BucketLoggingStatus).
     pub fn build(self) -> crate::types::BucketLoggingStatus {
         crate::types::BucketLoggingStatus {

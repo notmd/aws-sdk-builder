@@ -2,41 +2,44 @@
 
 #[derive(Clone, Debug)]
 pub struct Config {
-pub(crate) endpoint_url: ::std::string::String,
+    pub(crate) endpoint_url: ::std::string::String,
 }
 
 impl ::std::default::Default for Config {
-fn default() -> Self {
-Self {
-endpoint_url: ::std::env::var("AWS_ENDPOINT_URL")
-.unwrap_or_else(|_| "http://localhost:4566".to_owned()),
-}
-}
+    fn default() -> Self {
+        Self {
+            endpoint_url: ::std::env::var("AWS_ENDPOINT_URL").unwrap_or_else(|_| "http://localhost:4566".to_owned()),
+        }
+    }
 }
 
 pub mod config {
-#[derive(Clone, Debug, Default)]
-pub struct Builder {
-endpoint_url: ::std::option::Option<::std::string::String>,
-}
-impl Builder {
-pub fn endpoint_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-self.endpoint_url = Some(value.into());
-self
-}
-pub fn build(self) -> super::Config {
-super::Config {
-endpoint_url: self.endpoint_url.unwrap_or_else(|| super::Config::default().endpoint_url),
-}
-}
-}
-impl From<&super::Config> for Builder {
-fn from(config: &super::Config) -> Self {
-Self { endpoint_url: Some(config.endpoint_url.clone()) }
-}
-}
+    #[derive(Clone, Debug, Default)]
+    pub struct Builder {
+        endpoint_url: ::std::option::Option<::std::string::String>,
+    }
+    impl Builder {
+        pub fn endpoint_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+            self.endpoint_url = Some(value.into());
+            self
+        }
+        pub fn build(self) -> super::Config {
+            super::Config {
+                endpoint_url: self.endpoint_url.unwrap_or_else(|| super::Config::default().endpoint_url),
+            }
+        }
+    }
+    impl From<&super::Config> for Builder {
+        fn from(config: &super::Config) -> Self {
+            Self {
+                endpoint_url: Some(config.endpoint_url.clone()),
+            }
+        }
+    }
 }
 
 impl Config {
-pub fn builder() -> config::Builder { config::Builder::default() }
+    pub fn builder() -> config::Builder {
+        config::Builder::default()
+    }
 }

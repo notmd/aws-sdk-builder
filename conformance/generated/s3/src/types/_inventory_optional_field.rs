@@ -147,7 +147,24 @@ impl InventoryOptionalField {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["BucketKeyStatus", "ChecksumAlgorithm", "ETag", "EncryptionStatus", "IntelligentTieringAccessTier", "IsMultipartUploaded", "LastModifiedDate", "LifecycleExpirationDate", "ObjectAccessControlList", "ObjectLockLegalHoldStatus", "ObjectLockMode", "ObjectLockRetainUntilDate", "ObjectOwner", "ReplicationStatus", "Size", "StorageClass"]
+        &[
+            "BucketKeyStatus",
+            "ChecksumAlgorithm",
+            "ETag",
+            "EncryptionStatus",
+            "IntelligentTieringAccessTier",
+            "IsMultipartUploaded",
+            "LastModifiedDate",
+            "LifecycleExpirationDate",
+            "ObjectAccessControlList",
+            "ObjectLockLegalHoldStatus",
+            "ObjectLockMode",
+            "ObjectLockRetainUntilDate",
+            "ObjectOwner",
+            "ReplicationStatus",
+            "Size",
+            "StorageClass",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for InventoryOptionalField {

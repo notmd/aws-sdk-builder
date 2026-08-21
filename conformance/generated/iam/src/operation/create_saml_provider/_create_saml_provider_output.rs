@@ -46,9 +46,14 @@ impl CreateSamlProviderOutputBuilder {
         self.saml_provider_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_saml_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.saml_provider_arn = input; self }
+    pub fn set_saml_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.saml_provider_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the new SAML provider resource in IAM.</p>
-    pub fn get_saml_provider_arn(&self) -> &::std::option::Option<::std::string::String> { &self.saml_provider_arn }
+    pub fn get_saml_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.saml_provider_arn
+    }
     /// <p>A list of tags that are attached to the new IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     /// Appends an item to `tags`.
     ///
@@ -59,9 +64,14 @@ impl CreateSamlProviderOutputBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.tags = input;
+        self
+    }
     /// <p>A list of tags that are attached to the new IAM SAML provider. The returned list of tags is sorted by tag key. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.tags }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+        &self.tags
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

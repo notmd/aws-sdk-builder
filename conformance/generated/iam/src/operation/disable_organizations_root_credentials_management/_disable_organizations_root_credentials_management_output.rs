@@ -27,7 +27,9 @@ impl ::aws_types::request_id::RequestId for DisableOrganizationsRootCredentialsM
 }
 impl DisableOrganizationsRootCredentialsManagementOutput {
     /// Creates a new builder-style object to manufacture [`DisableOrganizationsRootCredentialsManagementOutput`](crate::operation::disable_organizations_root_credentials_management::DisableOrganizationsRootCredentialsManagementOutput).
-    pub fn builder() -> crate::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementOutputBuilder
+    {
         crate::operation::disable_organizations_root_credentials_management::builders::DisableOrganizationsRootCredentialsManagementOutputBuilder::default()
     }
 }
@@ -46,9 +48,14 @@ impl DisableOrganizationsRootCredentialsManagementOutputBuilder {
         self.organization_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.organization_id = input; self }
+    pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.organization_id = input;
+        self
+    }
     /// <p>The unique identifier (ID) of an organization.</p>
-    pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> { &self.organization_id }
+    pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.organization_id
+    }
     /// <p>The features enabled for centralized root access for member accounts in your organization.</p>
     /// Appends an item to `enabled_features`.
     ///
@@ -59,9 +66,14 @@ impl DisableOrganizationsRootCredentialsManagementOutputBuilder {
         self.enabled_features = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>) -> Self { self.enabled_features = input; self }
+    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>) -> Self {
+        self.enabled_features = input;
+        self
+    }
     /// <p>The features enabled for centralized root access for member accounts in your organization.</p>
-    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> { &self.enabled_features }
+    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> {
+        &self.enabled_features
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

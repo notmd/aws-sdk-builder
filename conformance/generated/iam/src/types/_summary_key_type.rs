@@ -237,7 +237,42 @@ impl SummaryKeyType {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["AccessKeysPerUserQuota", "AccountAccessKeysPresent", "AccountMFAEnabled", "AccountPasswordPresent", "AccountSigningCertificatesPresent", "AssumeRolePolicySizeQuota", "AttachedPoliciesPerGroupQuota", "AttachedPoliciesPerRoleQuota", "AttachedPoliciesPerUserQuota", "GlobalEndpointTokenVersion", "GroupPolicySizeQuota", "Groups", "GroupsPerUserQuota", "GroupsQuota", "InstanceProfiles", "InstanceProfilesQuota", "MFADevices", "MFADevicesInUse", "Policies", "PoliciesQuota", "PolicySizeQuota", "PolicyVersionsInUse", "PolicyVersionsInUseQuota", "Providers", "RolePolicySizeQuota", "Roles", "RolesQuota", "ServerCertificates", "ServerCertificatesQuota", "SigningCertificatesPerUserQuota", "UserPolicySizeQuota", "Users", "UsersQuota", "VersionsPerPolicyQuota"]
+        &[
+            "AccessKeysPerUserQuota",
+            "AccountAccessKeysPresent",
+            "AccountMFAEnabled",
+            "AccountPasswordPresent",
+            "AccountSigningCertificatesPresent",
+            "AssumeRolePolicySizeQuota",
+            "AttachedPoliciesPerGroupQuota",
+            "AttachedPoliciesPerRoleQuota",
+            "AttachedPoliciesPerUserQuota",
+            "GlobalEndpointTokenVersion",
+            "GroupPolicySizeQuota",
+            "Groups",
+            "GroupsPerUserQuota",
+            "GroupsQuota",
+            "InstanceProfiles",
+            "InstanceProfilesQuota",
+            "MFADevices",
+            "MFADevicesInUse",
+            "Policies",
+            "PoliciesQuota",
+            "PolicySizeQuota",
+            "PolicyVersionsInUse",
+            "PolicyVersionsInUseQuota",
+            "Providers",
+            "RolePolicySizeQuota",
+            "Roles",
+            "RolesQuota",
+            "ServerCertificates",
+            "ServerCertificatesQuota",
+            "SigningCertificatesPerUserQuota",
+            "UserPolicySizeQuota",
+            "Users",
+            "UsersQuota",
+            "VersionsPerPolicyQuota",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for SummaryKeyType {

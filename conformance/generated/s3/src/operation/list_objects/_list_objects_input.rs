@@ -101,69 +101,109 @@ impl ListObjectsInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The name of the bucket containing the objects.</p>
     /// <p><b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code><i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>. Path-style requests are not supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format <code><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p><b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When you use this action with an access point for directory buckets, you must provide the access point name in place of the bucket name. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>Object Lambda access points are not supported by directory buckets.</p>
     /// </note><p><b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts, the destination bucket must be the Outposts access point ARN or the access point alias. For more information about S3 on Outposts, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>A delimiter is a character that you use to group keys.</p>
     /// <p><code>CommonPrefixes</code> is filtered out from results if it is not lexicographically greater than the key-marker.</p>
     pub fn delimiter(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delimiter = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.delimiter = input; self }
+    pub fn set_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.delimiter = input;
+        self
+    }
     /// <p>A delimiter is a character that you use to group keys.</p>
     /// <p><code>CommonPrefixes</code> is filtered out from results if it is not lexicographically greater than the key-marker.</p>
-    pub fn get_delimiter(&self) -> &::std::option::Option<::std::string::String> { &self.delimiter }
+    pub fn get_delimiter(&self) -> &::std::option::Option<::std::string::String> {
+        &self.delimiter
+    }
     pub fn encoding_type(mut self, input: crate::types::EncodingType) -> Self {
         self.encoding_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_encoding_type(mut self, input: ::std::option::Option<crate::types::EncodingType>) -> Self { self.encoding_type = input; self }
-    pub fn get_encoding_type(&self) -> &::std::option::Option<crate::types::EncodingType> { &self.encoding_type }
+    pub fn set_encoding_type(mut self, input: ::std::option::Option<crate::types::EncodingType>) -> Self {
+        self.encoding_type = input;
+        self
+    }
+    pub fn get_encoding_type(&self) -> &::std::option::Option<crate::types::EncodingType> {
+        &self.encoding_type
+    }
     /// <p>Marker is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. Marker can be any key in the bucket.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>Marker is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. Marker can be any key in the bucket.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     /// <p>Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more.</p>
     pub fn max_keys(mut self, input: i32) -> Self {
         self.max_keys = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_keys(mut self, input: ::std::option::Option<i32>) -> Self { self.max_keys = input; self }
+    pub fn set_max_keys(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.max_keys = input;
+        self
+    }
     /// <p>Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more.</p>
-    pub fn get_max_keys(&self) -> &::std::option::Option<i32> { &self.max_keys }
+    pub fn get_max_keys(&self) -> &::std::option::Option<i32> {
+        &self.max_keys
+    }
     /// <p>Limits the response to keys that begin with the specified prefix.</p>
     pub fn prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.prefix = input; self }
+    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.prefix = input;
+        self
+    }
     /// <p>Limits the response to keys that begin with the specified prefix.</p>
-    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.prefix }
+    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.prefix
+    }
     /// <p>Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.</p>
     pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self { self.request_payer = input; self }
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+        self.request_payer = input;
+        self
+    }
     /// <p>Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.</p>
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> { &self.request_payer }
+    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+        &self.request_payer
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
     /// Appends an item to `optional_object_attributes`.
     ///
@@ -174,9 +214,14 @@ impl ListObjectsInputBuilder {
         self.optional_object_attributes = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_optional_object_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>>) -> Self { self.optional_object_attributes = input; self }
+    pub fn set_optional_object_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>>) -> Self {
+        self.optional_object_attributes = input;
+        self
+    }
     /// <p>Specifies the optional fields that you want returned in the response. Fields that you do not specify are not returned.</p>
-    pub fn get_optional_object_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>> { &self.optional_object_attributes }
+    pub fn get_optional_object_attributes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OptionalObjectAttributes>> {
+        &self.optional_object_attributes
+    }
     /// Consumes the builder and constructs a [`ListObjectsInput`](crate::operation::list_objects::ListObjectsInput).
     pub fn build(self) -> crate::operation::list_objects::ListObjectsInput {
         crate::operation::list_objects::ListObjectsInput {

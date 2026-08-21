@@ -11,7 +11,8 @@ pub struct ReplicaSettingsUpdate {
     /// <p>Auto scaling settings for managing a global table replica's read capacity units.</p>
     pub replica_provisioned_read_capacity_auto_scaling_settings_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
     /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
-    pub replica_global_secondary_index_settings_update: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate>>,
+    pub replica_global_secondary_index_settings_update:
+        ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate>>,
     /// <p>Replica-specific table class. If not specified, uses the source table's table class.</p>
     pub replica_table_class: ::std::option::Option<crate::types::TableClass>,
 }
@@ -52,7 +53,8 @@ pub struct ReplicaSettingsUpdateBuilder {
     pub(crate) region_name: ::std::option::Option<::std::string::String>,
     pub(crate) replica_provisioned_read_capacity_units: ::std::option::Option<i64>,
     pub(crate) replica_provisioned_read_capacity_auto_scaling_settings_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
-    pub(crate) replica_global_secondary_index_settings_update: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate>>,
+    pub(crate) replica_global_secondary_index_settings_update:
+        ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate>>,
     pub(crate) replica_table_class: ::std::option::Option<crate::types::TableClass>,
 }
 impl ReplicaSettingsUpdateBuilder {
@@ -62,25 +64,45 @@ impl ReplicaSettingsUpdateBuilder {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.region_name = input; self }
+    pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.region_name = input;
+        self
+    }
     /// <p>The Region of the replica to be added.</p>
-    pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> { &self.region_name }
+    pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.region_name
+    }
     /// <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn replica_provisioned_read_capacity_units(mut self, input: i64) -> Self {
         self.replica_provisioned_read_capacity_units = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_replica_provisioned_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self { self.replica_provisioned_read_capacity_units = input; self }
+    pub fn set_replica_provisioned_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.replica_provisioned_read_capacity_units = input;
+        self
+    }
     /// <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_replica_provisioned_read_capacity_units(&self) -> &::std::option::Option<i64> { &self.replica_provisioned_read_capacity_units }
+    pub fn get_replica_provisioned_read_capacity_units(&self) -> &::std::option::Option<i64> {
+        &self.replica_provisioned_read_capacity_units
+    }
     /// <p>Auto scaling settings for managing a global table replica's read capacity units.</p>
     pub fn replica_provisioned_read_capacity_auto_scaling_settings_update(mut self, input: crate::types::AutoScalingSettingsUpdate) -> Self {
         self.replica_provisioned_read_capacity_auto_scaling_settings_update = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_replica_provisioned_read_capacity_auto_scaling_settings_update(mut self, input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>) -> Self { self.replica_provisioned_read_capacity_auto_scaling_settings_update = input; self }
+    pub fn set_replica_provisioned_read_capacity_auto_scaling_settings_update(
+        mut self,
+        input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
+    ) -> Self {
+        self.replica_provisioned_read_capacity_auto_scaling_settings_update = input;
+        self
+    }
     /// <p>Auto scaling settings for managing a global table replica's read capacity units.</p>
-    pub fn get_replica_provisioned_read_capacity_auto_scaling_settings_update(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> { &self.replica_provisioned_read_capacity_auto_scaling_settings_update }
+    pub fn get_replica_provisioned_read_capacity_auto_scaling_settings_update(
+        &self,
+    ) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
+        &self.replica_provisioned_read_capacity_auto_scaling_settings_update
+    }
     /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
     /// Appends an item to `replica_global_secondary_index_settings_update`.
     ///
@@ -91,23 +113,43 @@ impl ReplicaSettingsUpdateBuilder {
         self.replica_global_secondary_index_settings_update = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_replica_global_secondary_index_settings_update(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate>>) -> Self { self.replica_global_secondary_index_settings_update = input; self }
+    pub fn set_replica_global_secondary_index_settings_update(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate>>,
+    ) -> Self {
+        self.replica_global_secondary_index_settings_update = input;
+        self
+    }
     /// <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
-    pub fn get_replica_global_secondary_index_settings_update(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate>> { &self.replica_global_secondary_index_settings_update }
+    pub fn get_replica_global_secondary_index_settings_update(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexSettingsUpdate>> {
+        &self.replica_global_secondary_index_settings_update
+    }
     /// <p>Replica-specific table class. If not specified, uses the source table's table class.</p>
     pub fn replica_table_class(mut self, input: crate::types::TableClass) -> Self {
         self.replica_table_class = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_replica_table_class(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self { self.replica_table_class = input; self }
+    pub fn set_replica_table_class(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self {
+        self.replica_table_class = input;
+        self
+    }
     /// <p>Replica-specific table class. If not specified, uses the source table's table class.</p>
-    pub fn get_replica_table_class(&self) -> &::std::option::Option<crate::types::TableClass> { &self.replica_table_class }
+    pub fn get_replica_table_class(&self) -> &::std::option::Option<crate::types::TableClass> {
+        &self.replica_table_class
+    }
     /// Consumes the builder and constructs a [`ReplicaSettingsUpdate`](crate::types::ReplicaSettingsUpdate).
     /// This method will fail if any of the following fields are not set:
     /// - [`region_name`](Self::region_name)
     pub fn build(self) -> ::std::result::Result<crate::types::ReplicaSettingsUpdate, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReplicaSettingsUpdate {
-            region_name: self.region_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("region_name", "region_name was not specified but it is required when building ReplicaSettingsUpdate"))?,
+            region_name: self.region_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "region_name",
+                    "region_name was not specified but it is required when building ReplicaSettingsUpdate",
+                )
+            })?,
             replica_provisioned_read_capacity_units: self.replica_provisioned_read_capacity_units,
             replica_provisioned_read_capacity_auto_scaling_settings_update: self.replica_provisioned_read_capacity_auto_scaling_settings_update,
             replica_global_secondary_index_settings_update: self.replica_global_secondary_index_settings_update,

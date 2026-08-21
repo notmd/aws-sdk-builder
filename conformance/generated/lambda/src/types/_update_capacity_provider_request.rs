@@ -53,37 +53,62 @@ impl UpdateCapacityProviderRequestBuilder {
         self.capacity_provider_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.capacity_provider_name = input; self }
+    pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.capacity_provider_name = input;
+        self
+    }
     /// <p>The name of the capacity provider to update.</p>
-    pub fn get_capacity_provider_name(&self) -> &::std::option::Option<::std::string::String> { &self.capacity_provider_name }
+    pub fn get_capacity_provider_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.capacity_provider_name
+    }
     /// <p>The updated scaling configuration for the capacity provider.</p>
     pub fn capacity_provider_scaling_config(mut self, input: crate::types::CapacityProviderScalingConfig) -> Self {
         self.capacity_provider_scaling_config = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_capacity_provider_scaling_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderScalingConfig>) -> Self { self.capacity_provider_scaling_config = input; self }
+    pub fn set_capacity_provider_scaling_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderScalingConfig>) -> Self {
+        self.capacity_provider_scaling_config = input;
+        self
+    }
     /// <p>The updated scaling configuration for the capacity provider.</p>
-    pub fn get_capacity_provider_scaling_config(&self) -> &::std::option::Option<crate::types::CapacityProviderScalingConfig> { &self.capacity_provider_scaling_config }
+    pub fn get_capacity_provider_scaling_config(&self) -> &::std::option::Option<crate::types::CapacityProviderScalingConfig> {
+        &self.capacity_provider_scaling_config
+    }
     pub fn propagate_tags(mut self, input: crate::types::PropagateTags) -> Self {
         self.propagate_tags = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_propagate_tags(mut self, input: ::std::option::Option<crate::types::PropagateTags>) -> Self { self.propagate_tags = input; self }
-    pub fn get_propagate_tags(&self) -> &::std::option::Option<crate::types::PropagateTags> { &self.propagate_tags }
+    pub fn set_propagate_tags(mut self, input: ::std::option::Option<crate::types::PropagateTags>) -> Self {
+        self.propagate_tags = input;
+        self
+    }
+    pub fn get_propagate_tags(&self) -> &::std::option::Option<crate::types::PropagateTags> {
+        &self.propagate_tags
+    }
     /// <p>The updated telemetry configuration for the capacity provider.</p>
     pub fn telemetry_config(mut self, input: crate::types::CapacityProviderTelemetryConfig) -> Self {
         self.telemetry_config = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_telemetry_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>) -> Self { self.telemetry_config = input; self }
+    pub fn set_telemetry_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderTelemetryConfig>) -> Self {
+        self.telemetry_config = input;
+        self
+    }
     /// <p>The updated telemetry configuration for the capacity provider.</p>
-    pub fn get_telemetry_config(&self) -> &::std::option::Option<crate::types::CapacityProviderTelemetryConfig> { &self.telemetry_config }
+    pub fn get_telemetry_config(&self) -> &::std::option::Option<crate::types::CapacityProviderTelemetryConfig> {
+        &self.telemetry_config
+    }
     /// Consumes the builder and constructs a [`UpdateCapacityProviderRequest`](crate::types::UpdateCapacityProviderRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`capacity_provider_name`](Self::capacity_provider_name)
     pub fn build(self) -> ::std::result::Result<crate::types::UpdateCapacityProviderRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::UpdateCapacityProviderRequest {
-            capacity_provider_name: self.capacity_provider_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("capacity_provider_name", "capacity_provider_name was not specified but it is required when building UpdateCapacityProviderRequest"))?,
+            capacity_provider_name: self.capacity_provider_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "capacity_provider_name",
+                    "capacity_provider_name was not specified but it is required when building UpdateCapacityProviderRequest",
+                )
+            })?,
             capacity_provider_scaling_config: self.capacity_provider_scaling_config,
             propagate_tags: self.propagate_tags,
             telemetry_config: self.telemetry_config,

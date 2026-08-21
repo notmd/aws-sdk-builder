@@ -41,26 +41,46 @@ impl TimeToLiveSpecificationBuilder {
         self.enabled = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_enabled(mut self, input: ::std::option::Option<bool>) -> Self { self.enabled = input; self }
+    pub fn set_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.enabled = input;
+        self
+    }
     /// <p>Indicates whether TTL is to be enabled (true) or disabled (false) on the table.</p>
-    pub fn get_enabled(&self) -> &::std::option::Option<bool> { &self.enabled }
+    pub fn get_enabled(&self) -> &::std::option::Option<bool> {
+        &self.enabled
+    }
     /// <p>The name of the TTL attribute used to store the expiration time for items in the table.</p>
     /// This field is required.
     pub fn attribute_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.attribute_name = input; self }
+    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.attribute_name = input;
+        self
+    }
     /// <p>The name of the TTL attribute used to store the expiration time for items in the table.</p>
-    pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> { &self.attribute_name }
+    pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.attribute_name
+    }
     /// Consumes the builder and constructs a [`TimeToLiveSpecification`](crate::types::TimeToLiveSpecification).
     /// This method will fail if any of the following fields are not set:
     /// - [`enabled`](Self::enabled)
     /// - [`attribute_name`](Self::attribute_name)
     pub fn build(self) -> ::std::result::Result<crate::types::TimeToLiveSpecification, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TimeToLiveSpecification {
-            enabled: self.enabled.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("enabled", "enabled was not specified but it is required when building TimeToLiveSpecification"))?,
-            attribute_name: self.attribute_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("attribute_name", "attribute_name was not specified but it is required when building TimeToLiveSpecification"))?,
+            enabled: self.enabled.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "enabled",
+                    "enabled was not specified but it is required when building TimeToLiveSpecification",
+                )
+            })?,
+            attribute_name: self.attribute_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "attribute_name",
+                    "attribute_name was not specified but it is required when building TimeToLiveSpecification",
+                )
+            })?,
         })
     }
 }

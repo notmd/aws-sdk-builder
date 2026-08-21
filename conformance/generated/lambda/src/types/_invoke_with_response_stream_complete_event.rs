@@ -46,25 +46,40 @@ impl InvokeWithResponseStreamCompleteEventBuilder {
         self.error_code = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.error_code = input; self }
+    pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.error_code = input;
+        self
+    }
     /// <p>An error code.</p>
-    pub fn get_error_code(&self) -> &::std::option::Option<::std::string::String> { &self.error_code }
+    pub fn get_error_code(&self) -> &::std::option::Option<::std::string::String> {
+        &self.error_code
+    }
     /// <p>The details of any returned error.</p>
     pub fn error_details(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.error_details = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_error_details(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.error_details = input; self }
+    pub fn set_error_details(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.error_details = input;
+        self
+    }
     /// <p>The details of any returned error.</p>
-    pub fn get_error_details(&self) -> &::std::option::Option<::std::string::String> { &self.error_details }
+    pub fn get_error_details(&self) -> &::std::option::Option<::std::string::String> {
+        &self.error_details
+    }
     /// <p>The last 4 KB of the execution log, which is base64-encoded.</p>
     pub fn log_result(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_result = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_log_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.log_result = input; self }
+    pub fn set_log_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.log_result = input;
+        self
+    }
     /// <p>The last 4 KB of the execution log, which is base64-encoded.</p>
-    pub fn get_log_result(&self) -> &::std::option::Option<::std::string::String> { &self.log_result }
+    pub fn get_log_result(&self) -> &::std::option::Option<::std::string::String> {
+        &self.log_result
+    }
     /// Consumes the builder and constructs a [`InvokeWithResponseStreamCompleteEvent`](crate::types::InvokeWithResponseStreamCompleteEvent).
     pub fn build(self) -> crate::types::InvokeWithResponseStreamCompleteEvent {
         crate::types::InvokeWithResponseStreamCompleteEvent {

@@ -43,19 +43,29 @@ impl DeleteMessageInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_url = input; self }
+    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.queue_url = input;
+        self
+    }
     /// <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
     /// <p>Queue URLs and names are case-sensitive.</p>
-    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> { &self.queue_url }
+    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.queue_url
+    }
     /// <p>The receipt handle associated with the message to delete.</p>
     /// This field is required.
     pub fn receipt_handle(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.receipt_handle = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.receipt_handle = input; self }
+    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.receipt_handle = input;
+        self
+    }
     /// <p>The receipt handle associated with the message to delete.</p>
-    pub fn get_receipt_handle(&self) -> &::std::option::Option<::std::string::String> { &self.receipt_handle }
+    pub fn get_receipt_handle(&self) -> &::std::option::Option<::std::string::String> {
+        &self.receipt_handle
+    }
     /// Consumes the builder and constructs a [`DeleteMessageInput`](crate::operation::delete_message::DeleteMessageInput).
     pub fn build(self) -> crate::operation::delete_message::DeleteMessageInput {
         crate::operation::delete_message::DeleteMessageInput {

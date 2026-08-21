@@ -6,70 +6,168 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn max_parts(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_parts = Some(value.into()); self }
-    pub fn part_number_marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.part_number_marker = Some(value.into()); self }
-    pub fn upload_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.upload_id = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }
-    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key = Some(value.into()); self }
-    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key_md5 = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::ListPartsOutput, super::ListPartsError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::ListPartsError::Unhandled("ListParts requires bucket".to_owned()))?;
-                         let key = self.input.key.as_deref().ok_or_else(|| super::ListPartsError::Unhandled("ListParts requires key".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}/{Key+}?x-id=ListParts"); if let Some(value) = self.input.max_parts.as_ref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("max-parts"); path.push('='); path.push_str(&super::super::super::transport::encode_path(&value.to_string())); } if let Some(value) = self.input.part_number_marker.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("part-number-marker"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } if let Some(value) = self.input.upload_id.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("uploadId"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path = path.replace("{Key+}", &super::super::super::transport::encode_path(key)); path };
-                         let body = ::std::vec::Vec::new();
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers };
-                         let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::ListPartsError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::ListPartsError::unhandled_with_request_ids(format!("ListParts returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_list_parts_output::ListPartsOutputBuilder::default();
-                         let body = response.text().await.map_err(super::ListPartsError::Unhandled)?;
-                         output.abort_rule_id = response.header("x-amz-abort-rule-id").map(str::to_owned);
-                         output.bucket = super::super::super::transport::xml_first(&body, "Bucket").and_then(|value| value.parse().ok());
-                         output.key = super::super::super::transport::xml_first(&body, "Key").and_then(|value| value.parse().ok());
-                         output.upload_id = super::super::super::transport::xml_first(&body, "UploadId").and_then(|value| value.parse().ok());
-                         output.part_number_marker = super::super::super::transport::xml_first(&body, "PartNumberMarker").and_then(|value| value.parse().ok());
-                         output.next_part_number_marker = super::super::super::transport::xml_first(&body, "NextPartNumberMarker").and_then(|value| value.parse().ok());
-                         output.max_parts = super::super::super::transport::xml_first(&body, "MaxParts").and_then(|value| value.parse().ok());
-                         output.is_truncated = super::super::super::transport::xml_first(&body, "IsTruncated").and_then(|value| value.parse().ok());
-                         let values = super::super::super::transport::xml_tags(&body, "Part").into_iter().map(|value| { let mut item: crate::types::PartBuilder = ::std::default::Default::default(); item.part_number = super::super::super::transport::xml_first(&value, "PartNumber").and_then(|value| value.parse().ok());
- item.e_tag = super::super::super::transport::xml_first(&value, "ETag").and_then(|value| value.parse().ok());
- item.size = super::super::super::transport::xml_first(&value, "Size").and_then(|value| value.parse().ok());
- item.checksum_crc32 = super::super::super::transport::xml_first(&value, "ChecksumCRC32").and_then(|value| value.parse().ok());
- item.checksum_crc32_c = super::super::super::transport::xml_first(&value, "ChecksumCRC32C").and_then(|value| value.parse().ok());
- item.checksum_crc64_nvme = super::super::super::transport::xml_first(&value, "ChecksumCRC64NVME").and_then(|value| value.parse().ok());
- item.checksum_sha1 = super::super::super::transport::xml_first(&value, "ChecksumSHA1").and_then(|value| value.parse().ok());
- item.checksum_sha256 = super::super::super::transport::xml_first(&value, "ChecksumSHA256").and_then(|value| value.parse().ok());
- item.checksum_sha512 = super::super::super::transport::xml_first(&value, "ChecksumSHA512").and_then(|value| value.parse().ok());
- item.checksum_md5 = super::super::super::transport::xml_first(&value, "ChecksumMD5").and_then(|value| value.parse().ok());
- item.checksum_xxhash64 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH64").and_then(|value| value.parse().ok());
- item.checksum_xxhash3 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH3").and_then(|value| value.parse().ok());
- item.checksum_xxhash128 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH128").and_then(|value| value.parse().ok());
- item.build() }).collect();
-                         output.parts = Some(values);
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "Initiator") { let mut item: crate::types::InitiatorBuilder = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "ID").and_then(|value| value.parse().ok());
- item.display_name = super::super::super::transport::xml_first(&value, "DisplayName").and_then(|value| value.parse().ok());
- let item = item.build(); output.initiator = Some(item); }
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "Owner") { let mut item: crate::types::OwnerBuilder = ::std::default::Default::default(); item.display_name = super::super::super::transport::xml_first(&value, "DisplayName").and_then(|value| value.parse().ok());
- item.id = super::super::super::transport::xml_first(&value, "ID").and_then(|value| value.parse().ok());
- let item = item.build(); output.owner = Some(item); }
-                         output.storage_class = super::super::super::transport::xml_first(&body, "StorageClass").and_then(|value| value.parse().ok());
-                         output.checksum_algorithm = super::super::super::transport::xml_first(&body, "ChecksumAlgorithm").and_then(|value| value.parse().ok());
-                         output.checksum_type = super::super::super::transport::xml_first(&body, "ChecksumType").and_then(|value| value.parse().ok());
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key = Some(value.into());
+        self
+    }
+    pub fn max_parts(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.max_parts = Some(value.into());
+        self
+    }
+    pub fn part_number_marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.part_number_marker = Some(value.into());
+        self
+    }
+    pub fn upload_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.upload_id = Some(value.into());
+        self
+    }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
+        self.input.request_payer = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.sse_customer_algorithm = Some(value.into());
+        self
+    }
+    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.sse_customer_key = Some(value.into());
+        self
+    }
+    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.sse_customer_key_md5 = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::ListPartsOutput, super::ListPartsError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::ListPartsError::Unhandled("ListParts requires bucket".to_owned()))?;
+        let key = self
+            .input
+            .key
+            .as_deref()
+            .ok_or_else(|| super::ListPartsError::Unhandled("ListParts requires key".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}/{Key+}?x-id=ListParts");
+            if let Some(value) = self.input.max_parts.as_ref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("max-parts");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(&value.to_string()));
+            }
+            if let Some(value) = self.input.part_number_marker.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("part-number-marker");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            if let Some(value) = self.input.upload_id.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("uploadId");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path = path.replace("{Key+}", &super::super::super::transport::encode_path(key));
+            path
+        };
+        let body = ::std::vec::Vec::new();
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Get, &path, &headers, &body)
+            .await
+            .map_err(super::ListPartsError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::ListPartsError::unhandled_with_request_ids(
+                format!("ListParts returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_list_parts_output::ListPartsOutputBuilder::default();
+        let body = response.text().await.map_err(super::ListPartsError::Unhandled)?;
+        output.abort_rule_id = response.header("x-amz-abort-rule-id").map(str::to_owned);
+        output.bucket = super::super::super::transport::xml_first(&body, "Bucket").and_then(|value| value.parse().ok());
+        output.key = super::super::super::transport::xml_first(&body, "Key").and_then(|value| value.parse().ok());
+        output.upload_id = super::super::super::transport::xml_first(&body, "UploadId").and_then(|value| value.parse().ok());
+        output.part_number_marker = super::super::super::transport::xml_first(&body, "PartNumberMarker").and_then(|value| value.parse().ok());
+        output.next_part_number_marker =
+            super::super::super::transport::xml_first(&body, "NextPartNumberMarker").and_then(|value| value.parse().ok());
+        output.max_parts = super::super::super::transport::xml_first(&body, "MaxParts").and_then(|value| value.parse().ok());
+        output.is_truncated = super::super::super::transport::xml_first(&body, "IsTruncated").and_then(|value| value.parse().ok());
+        let values = super::super::super::transport::xml_tags(&body, "Part")
+            .into_iter()
+            .map(|value| {
+                let mut item: crate::types::PartBuilder = ::std::default::Default::default();
+                item.part_number = super::super::super::transport::xml_first(&value, "PartNumber").and_then(|value| value.parse().ok());
+                item.e_tag = super::super::super::transport::xml_first(&value, "ETag").and_then(|value| value.parse().ok());
+                item.size = super::super::super::transport::xml_first(&value, "Size").and_then(|value| value.parse().ok());
+                item.checksum_crc32 = super::super::super::transport::xml_first(&value, "ChecksumCRC32").and_then(|value| value.parse().ok());
+                item.checksum_crc32_c = super::super::super::transport::xml_first(&value, "ChecksumCRC32C").and_then(|value| value.parse().ok());
+                item.checksum_crc64_nvme =
+                    super::super::super::transport::xml_first(&value, "ChecksumCRC64NVME").and_then(|value| value.parse().ok());
+                item.checksum_sha1 = super::super::super::transport::xml_first(&value, "ChecksumSHA1").and_then(|value| value.parse().ok());
+                item.checksum_sha256 = super::super::super::transport::xml_first(&value, "ChecksumSHA256").and_then(|value| value.parse().ok());
+                item.checksum_sha512 = super::super::super::transport::xml_first(&value, "ChecksumSHA512").and_then(|value| value.parse().ok());
+                item.checksum_md5 = super::super::super::transport::xml_first(&value, "ChecksumMD5").and_then(|value| value.parse().ok());
+                item.checksum_xxhash64 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH64").and_then(|value| value.parse().ok());
+                item.checksum_xxhash3 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH3").and_then(|value| value.parse().ok());
+                item.checksum_xxhash128 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH128").and_then(|value| value.parse().ok());
+                item.build()
+            })
+            .collect();
+        output.parts = Some(values);
+        if let Some(value) = super::super::super::transport::xml_first(&body, "Initiator") {
+            let mut item: crate::types::InitiatorBuilder = ::std::default::Default::default();
+            item.id = super::super::super::transport::xml_first(&value, "ID").and_then(|value| value.parse().ok());
+            item.display_name = super::super::super::transport::xml_first(&value, "DisplayName").and_then(|value| value.parse().ok());
+            let item = item.build();
+            output.initiator = Some(item);
+        }
+        if let Some(value) = super::super::super::transport::xml_first(&body, "Owner") {
+            let mut item: crate::types::OwnerBuilder = ::std::default::Default::default();
+            item.display_name = super::super::super::transport::xml_first(&value, "DisplayName").and_then(|value| value.parse().ok());
+            item.id = super::super::super::transport::xml_first(&value, "ID").and_then(|value| value.parse().ok());
+            let item = item.build();
+            output.owner = Some(item);
+        }
+        output.storage_class = super::super::super::transport::xml_first(&body, "StorageClass").and_then(|value| value.parse().ok());
+        output.checksum_algorithm = super::super::super::transport::xml_first(&body, "ChecksumAlgorithm").and_then(|value| value.parse().ok());
+        output.checksum_type = super::super::super::transport::xml_first(&body, "ChecksumType").and_then(|value| value.parse().ok());
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as ListPartsFluentBuilder;

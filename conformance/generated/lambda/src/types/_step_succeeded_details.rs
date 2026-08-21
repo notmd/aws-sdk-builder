@@ -39,17 +39,27 @@ impl StepSucceededDetailsBuilder {
         self.result = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_result(mut self, input: ::std::option::Option<crate::types::EventResult>) -> Self { self.result = input; self }
+    pub fn set_result(mut self, input: ::std::option::Option<crate::types::EventResult>) -> Self {
+        self.result = input;
+        self
+    }
     /// <p>The response payload from the successful operation.</p>
-    pub fn get_result(&self) -> &::std::option::Option<crate::types::EventResult> { &self.result }
+    pub fn get_result(&self) -> &::std::option::Option<crate::types::EventResult> {
+        &self.result
+    }
     /// <p>Information about retry attempts for this step operation.</p>
     pub fn retry_details(mut self, input: crate::types::RetryDetails) -> Self {
         self.retry_details = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_retry_details(mut self, input: ::std::option::Option<crate::types::RetryDetails>) -> Self { self.retry_details = input; self }
+    pub fn set_retry_details(mut self, input: ::std::option::Option<crate::types::RetryDetails>) -> Self {
+        self.retry_details = input;
+        self
+    }
     /// <p>Information about retry attempts for this step operation.</p>
-    pub fn get_retry_details(&self) -> &::std::option::Option<crate::types::RetryDetails> { &self.retry_details }
+    pub fn get_retry_details(&self) -> &::std::option::Option<crate::types::RetryDetails> {
+        &self.retry_details
+    }
     /// Consumes the builder and constructs a [`StepSucceededDetails`](crate::types::StepSucceededDetails).
     pub fn build(self) -> crate::types::StepSucceededDetails {
         crate::types::StepSucceededDetails {

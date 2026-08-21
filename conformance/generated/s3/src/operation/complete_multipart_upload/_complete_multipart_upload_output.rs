@@ -200,9 +200,14 @@ impl CompleteMultipartUploadOutputBuilder {
         self.location = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_location(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.location = input; self }
+    pub fn set_location(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.location = input;
+        self
+    }
     /// <p>The URI that identifies the newly created object.</p>
-    pub fn get_location(&self) -> &::std::option::Option<::std::string::String> { &self.location }
+    pub fn get_location(&self) -> &::std::option::Option<::std::string::String> {
+        &self.location
+    }
     /// <p>The name of the bucket that contains the newly created object. Does not return the access point ARN or access point alias if used.</p><note>
     /// <p>Access points are not supported by directory buckets.</p>
     /// </note>
@@ -210,19 +215,29 @@ impl CompleteMultipartUploadOutputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The name of the bucket that contains the newly created object. Does not return the access point ARN or access point alias if used.</p><note>
     /// <p>Access points are not supported by directory buckets.</p>
     /// </note>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>The object key of the newly created object.</p>
     pub fn key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>The object key of the newly created object.</p>
-    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key
+    }
     /// <p>If the object expiration is configured, this will contain the expiration date (<code>expiry-date</code>) and rule ID (<code>rule-id</code>). The value of <code>rule-id</code> is URL-encoded.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -230,107 +245,172 @@ impl CompleteMultipartUploadOutputBuilder {
         self.expiration = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expiration(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expiration = input; self }
+    pub fn set_expiration(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expiration = input;
+        self
+    }
     /// <p>If the object expiration is configured, this will contain the expiration date (<code>expiry-date</code>) and rule ID (<code>rule-id</code>). The value of <code>rule-id</code> is URL-encoded.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_expiration(&self) -> &::std::option::Option<::std::string::String> { &self.expiration }
+    pub fn get_expiration(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expiration
+    }
     /// <p>Entity tag that identifies the newly created object's data. Objects with different object data will have different entity tags. The entity tag is an opaque string. The entity tag may or may not be an MD5 digest of the object data. If the entity tag is not an MD5 digest of the object data, it will contain one or more nonhexadecimal characters and/or will consist of less than 32 or more than 32 hexadecimal digits. For more information about how the entity tag is calculated, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn e_tag(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.e_tag = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.e_tag = input; self }
+    pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.e_tag = input;
+        self
+    }
     /// <p>Entity tag that identifies the newly created object's data. Objects with different object data will have different entity tags. The entity tag is an opaque string. The entity tag may or may not be an MD5 digest of the object data. If the entity tag is not an MD5 digest of the object data, it will contain one or more nonhexadecimal characters and/or will consist of less than 32 or more than 32 hexadecimal digits. For more information about how the entity tag is calculated, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> { &self.e_tag }
+    pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> {
+        &self.e_tag
+    }
     /// <p>The Base64 encoded, 32-bit <code>CRC32 checksum</code> of the object. This checksum is only present if the checksum was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_crc32(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc32 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_crc32(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_crc32 = input; self }
+    pub fn set_checksum_crc32(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_crc32 = input;
+        self
+    }
     /// <p>The Base64 encoded, 32-bit <code>CRC32 checksum</code> of the object. This checksum is only present if the checksum was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_crc32(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_crc32 }
+    pub fn get_checksum_crc32(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_crc32
+    }
     /// <p>The Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. This checksum is only present if the checksum was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_crc32_c(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc32_c = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_crc32_c(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_crc32_c = input; self }
+    pub fn set_checksum_crc32_c(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_crc32_c = input;
+        self
+    }
     /// <p>The Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. This checksum is only present if the checksum was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_crc32_c(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_crc32_c }
+    pub fn get_checksum_crc32_c(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_crc32_c
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the object. The <code>CRC64NVME</code> checksum is always a full object checksum. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_crc64_nvme(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc64_nvme = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_crc64_nvme(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_crc64_nvme = input; self }
+    pub fn set_checksum_crc64_nvme(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_crc64_nvme = input;
+        self
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the object. The <code>CRC64NVME</code> checksum is always a full object checksum. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_crc64_nvme(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_crc64_nvme }
+    pub fn get_checksum_crc64_nvme(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_crc64_nvme
+    }
     /// <p>The Base64 encoded, 160-bit <code>SHA1</code> digest of the object. This checksum is only present if the checksum was uploaded with the object. When you use the API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_sha1(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha1 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_sha1(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_sha1 = input; self }
+    pub fn set_checksum_sha1(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_sha1 = input;
+        self
+    }
     /// <p>The Base64 encoded, 160-bit <code>SHA1</code> digest of the object. This checksum is only present if the checksum was uploaded with the object. When you use the API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_sha1(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_sha1 }
+    pub fn get_checksum_sha1(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_sha1
+    }
     /// <p>The Base64 encoded, 256-bit <code>SHA256</code> digest of the object. This checksum is only present if the checksum was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_sha256(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha256 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_sha256 = input; self }
+    pub fn set_checksum_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_sha256 = input;
+        self
+    }
     /// <p>The Base64 encoded, 256-bit <code>SHA256</code> digest of the object. This checksum is only present if the checksum was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_sha256(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_sha256 }
+    pub fn get_checksum_sha256(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_sha256
+    }
     /// <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_sha512(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha512 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_sha512(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_sha512 = input; self }
+    pub fn set_checksum_sha512(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_sha512 = input;
+        self
+    }
     /// <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_sha512(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_sha512 }
+    pub fn get_checksum_sha512(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_sha512
+    }
     /// <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_md5 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_md5 = input; self }
+    pub fn set_checksum_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_md5 = input;
+        self
+    }
     /// <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_md5(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_md5 }
+    pub fn get_checksum_md5(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_md5
+    }
     /// <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_xxhash64(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash64 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_xxhash64(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_xxhash64 = input; self }
+    pub fn set_checksum_xxhash64(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_xxhash64 = input;
+        self
+    }
     /// <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_xxhash64(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_xxhash64 }
+    pub fn get_checksum_xxhash64(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_xxhash64
+    }
     /// <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_xxhash3(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash3 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_xxhash3(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_xxhash3 = input; self }
+    pub fn set_checksum_xxhash3(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_xxhash3 = input;
+        self
+    }
     /// <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_xxhash3(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_xxhash3 }
+    pub fn get_checksum_xxhash3(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_xxhash3
+    }
     /// <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_xxhash128(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash128 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_xxhash128(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_xxhash128 = input; self }
+    pub fn set_checksum_xxhash128(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_xxhash128 = input;
+        self
+    }
     /// <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_xxhash128(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_xxhash128 }
+    pub fn get_checksum_xxhash128(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_xxhash128
+    }
     /// <p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum type that was specified during the <code>CreateMultipartUpload</code> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_type(mut self, input: crate::types::ChecksumType) -> Self {
         self.checksum_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self { self.checksum_type = input; self }
+    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
+        self.checksum_type = input;
+        self
+    }
     /// <p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header as a data integrity check to verify that the checksum type that is received is the same checksum type that was specified during the <code>CreateMultipartUpload</code> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_type(&self) -> &::std::option::Option<crate::types::ChecksumType> { &self.checksum_type }
+    pub fn get_checksum_type(&self) -> &::std::option::Option<crate::types::ChecksumType> {
+        &self.checksum_type
+    }
     /// <p>The server-side encryption algorithm used when storing this object in Amazon S3.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note><p></p>
@@ -338,11 +418,16 @@ impl CompleteMultipartUploadOutputBuilder {
         self.server_side_encryption = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self { self.server_side_encryption = input; self }
+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
+        self.server_side_encryption = input;
+        self
+    }
     /// <p>The server-side encryption algorithm used when storing this object in Amazon S3.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note><p></p>
-    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> { &self.server_side_encryption }
+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+        &self.server_side_encryption
+    }
     /// <p>Version ID of the newly created object, in case the bucket has versioning turned on.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -350,33 +435,53 @@ impl CompleteMultipartUploadOutputBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.version_id = input; self }
+    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.version_id = input;
+        self
+    }
     /// <p>Version ID of the newly created object, in case the bucket has versioning turned on.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.version_id }
+    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.version_id
+    }
     /// <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
     pub fn ssekms_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.ssekms_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_ssekms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.ssekms_key_id = input; self }
+    pub fn set_ssekms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.ssekms_key_id = input;
+        self
+    }
     /// <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
-    pub fn get_ssekms_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.ssekms_key_id }
+    pub fn get_ssekms_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.ssekms_key_id
+    }
     /// <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with Key Management Service (KMS) keys (SSE-KMS).</p>
     pub fn bucket_key_enabled(mut self, input: bool) -> Self {
         self.bucket_key_enabled = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_bucket_key_enabled(mut self, input: ::std::option::Option<bool>) -> Self { self.bucket_key_enabled = input; self }
+    pub fn set_bucket_key_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.bucket_key_enabled = input;
+        self
+    }
     /// <p>Indicates whether the multipart upload uses an S3 Bucket Key for server-side encryption with Key Management Service (KMS) keys (SSE-KMS).</p>
-    pub fn get_bucket_key_enabled(&self) -> &::std::option::Option<bool> { &self.bucket_key_enabled }
+    pub fn get_bucket_key_enabled(&self) -> &::std::option::Option<bool> {
+        &self.bucket_key_enabled
+    }
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+        self.request_charged = input;
+        self
+    }
+    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+        &self.request_charged
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

@@ -36,10 +36,15 @@ impl GetDataProtectionPolicyInputBuilder {
         self.resource_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.resource_arn = input; self }
+    pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.resource_arn = input;
+        self
+    }
     /// <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to get.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the Amazon Web Services General Reference.</p>
-    pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> { &self.resource_arn }
+    pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.resource_arn
+    }
     /// Consumes the builder and constructs a [`GetDataProtectionPolicyInput`](crate::operation::get_data_protection_policy::GetDataProtectionPolicyInput).
     pub fn build(self) -> crate::operation::get_data_protection_policy::GetDataProtectionPolicyInput {
         crate::operation::get_data_protection_policy::GetDataProtectionPolicyInput {

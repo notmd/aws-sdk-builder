@@ -32,13 +32,16 @@ impl AbacStatusBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::BucketAbacStatus>) -> Self { self.status = input; self }
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::BucketAbacStatus>) -> Self {
+        self.status = input;
+        self
+    }
     /// <p>The ABAC status of the general purpose bucket.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::BucketAbacStatus> { &self.status }
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::BucketAbacStatus> {
+        &self.status
+    }
     /// Consumes the builder and constructs a [`AbacStatus`](crate::types::AbacStatus).
     pub fn build(self) -> crate::types::AbacStatus {
-        crate::types::AbacStatus {
-            status: self.status,
-        }
+        crate::types::AbacStatus { status: self.status }
     }
 }

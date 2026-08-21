@@ -41,17 +41,27 @@ impl BucketInfoBuilder {
         self.data_redundancy = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_data_redundancy(mut self, input: ::std::option::Option<crate::types::DataRedundancy>) -> Self { self.data_redundancy = input; self }
+    pub fn set_data_redundancy(mut self, input: ::std::option::Option<crate::types::DataRedundancy>) -> Self {
+        self.data_redundancy = input;
+        self
+    }
     /// <p>The number of Zone (Availability Zone or Local Zone) that's used for redundancy for the bucket.</p>
-    pub fn get_data_redundancy(&self) -> &::std::option::Option<crate::types::DataRedundancy> { &self.data_redundancy }
+    pub fn get_data_redundancy(&self) -> &::std::option::Option<crate::types::DataRedundancy> {
+        &self.data_redundancy
+    }
     /// <p>The type of bucket.</p>
     pub fn r#type(mut self, input: crate::types::BucketType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::BucketType>) -> Self { self.r#type = input; self }
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::BucketType>) -> Self {
+        self.r#type = input;
+        self
+    }
     /// <p>The type of bucket.</p>
-    pub fn get_type(&self) -> &::std::option::Option<crate::types::BucketType> { &self.r#type }
+    pub fn get_type(&self) -> &::std::option::Option<crate::types::BucketType> {
+        &self.r#type
+    }
     /// Consumes the builder and constructs a [`BucketInfo`](crate::types::BucketInfo).
     pub fn build(self) -> crate::types::BucketInfo {
         crate::types::BucketInfo {

@@ -51,15 +51,25 @@ impl DeleteObjectAnnotationOutputBuilder {
         self.object_version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_object_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.object_version_id = input; self }
+    pub fn set_object_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.object_version_id = input;
+        self
+    }
     /// <p>The version ID of the object that the annotation was deleted from.</p>
-    pub fn get_object_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.object_version_id }
+    pub fn get_object_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.object_version_id
+    }
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+        self.request_charged = input;
+        self
+    }
+    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+        &self.request_charged
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

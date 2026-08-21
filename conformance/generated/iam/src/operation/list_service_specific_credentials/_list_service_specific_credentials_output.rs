@@ -58,25 +58,43 @@ impl ListServiceSpecificCredentialsOutputBuilder {
         self.service_specific_credentials = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_service_specific_credentials(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceSpecificCredentialMetadata>>) -> Self { self.service_specific_credentials = input; self }
+    pub fn set_service_specific_credentials(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ServiceSpecificCredentialMetadata>>,
+    ) -> Self {
+        self.service_specific_credentials = input;
+        self
+    }
     /// <p>A list of structures that each contain details about a service-specific credential.</p>
-    pub fn get_service_specific_credentials(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceSpecificCredentialMetadata>> { &self.service_specific_credentials }
+    pub fn get_service_specific_credentials(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServiceSpecificCredentialMetadata>> {
+        &self.service_specific_credentials
+    }
     /// <p>When IsTruncated is true, this element is present and contains the value to use for the Marker parameter in a subsequent pagination request.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>When IsTruncated is true, this element is present and contains the value to use for the Marker parameter in a subsequent pagination request.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the Marker request parameter to retrieve more items.</p>
     pub fn is_truncated(mut self, input: bool) -> Self {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self { self.is_truncated = input; self }
+    pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.is_truncated = input;
+        self
+    }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the Marker request parameter to retrieve more items.</p>
-    pub fn get_is_truncated(&self) -> &::std::option::Option<bool> { &self.is_truncated }
+    pub fn get_is_truncated(&self) -> &::std::option::Option<bool> {
+        &self.is_truncated
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

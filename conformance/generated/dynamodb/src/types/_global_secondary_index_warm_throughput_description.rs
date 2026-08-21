@@ -46,25 +46,40 @@ impl GlobalSecondaryIndexWarmThroughputDescriptionBuilder {
         self.read_units_per_second = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_read_units_per_second(mut self, input: ::std::option::Option<i64>) -> Self { self.read_units_per_second = input; self }
+    pub fn set_read_units_per_second(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.read_units_per_second = input;
+        self
+    }
     /// <p>Represents warm throughput read units per second value for a global secondary index.</p>
-    pub fn get_read_units_per_second(&self) -> &::std::option::Option<i64> { &self.read_units_per_second }
+    pub fn get_read_units_per_second(&self) -> &::std::option::Option<i64> {
+        &self.read_units_per_second
+    }
     /// <p>Represents warm throughput write units per second value for a global secondary index.</p>
     pub fn write_units_per_second(mut self, input: i64) -> Self {
         self.write_units_per_second = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_write_units_per_second(mut self, input: ::std::option::Option<i64>) -> Self { self.write_units_per_second = input; self }
+    pub fn set_write_units_per_second(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.write_units_per_second = input;
+        self
+    }
     /// <p>Represents warm throughput write units per second value for a global secondary index.</p>
-    pub fn get_write_units_per_second(&self) -> &::std::option::Option<i64> { &self.write_units_per_second }
+    pub fn get_write_units_per_second(&self) -> &::std::option::Option<i64> {
+        &self.write_units_per_second
+    }
     /// <p>Represents the warm throughput status being created or updated on a global secondary index. The status can only be <code>UPDATING</code> or <code>ACTIVE</code>.</p>
     pub fn status(mut self, input: crate::types::IndexStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self { self.status = input; self }
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::IndexStatus>) -> Self {
+        self.status = input;
+        self
+    }
     /// <p>Represents the warm throughput status being created or updated on a global secondary index. The status can only be <code>UPDATING</code> or <code>ACTIVE</code>.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::IndexStatus> { &self.status }
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::IndexStatus> {
+        &self.status
+    }
     /// Consumes the builder and constructs a [`GlobalSecondaryIndexWarmThroughputDescription`](crate::types::GlobalSecondaryIndexWarmThroughputDescription).
     pub fn build(self) -> crate::types::GlobalSecondaryIndexWarmThroughputDescription {
         crate::types::GlobalSecondaryIndexWarmThroughputDescription {

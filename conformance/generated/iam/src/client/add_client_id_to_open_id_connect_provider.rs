@@ -10,6 +10,8 @@ impl super::Client {
     pub fn add_client_id_to_open_id_connect_provider(
         &self,
     ) -> crate::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderFluentBuilder {
-        crate::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderFluentBuilder::new(self.handle.clone())
+        crate::operation::add_client_id_to_open_id_connect_provider::builders::AddClientIdToOpenIdConnectProviderFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

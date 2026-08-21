@@ -43,10 +43,15 @@ impl TagServerCertificateInputBuilder {
         self.server_certificate_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_server_certificate_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.server_certificate_name = input; self }
+    pub fn set_server_certificate_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.server_certificate_name = input;
+        self
+    }
     /// <p>The name of the IAM server certificate to which you want to add tags.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_server_certificate_name(&self) -> &::std::option::Option<::std::string::String> { &self.server_certificate_name }
+    pub fn get_server_certificate_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.server_certificate_name
+    }
     /// <p>The list of tags that you want to attach to the IAM server certificate. Each tag consists of a key name and an associated value.</p>
     /// Appends an item to `tags`.
     ///
@@ -57,9 +62,14 @@ impl TagServerCertificateInputBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.tags = input;
+        self
+    }
     /// <p>The list of tags that you want to attach to the IAM server certificate. Each tag consists of a key name and an associated value.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.tags }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+        &self.tags
+    }
     /// Consumes the builder and constructs a [`TagServerCertificateInput`](crate::operation::tag_server_certificate::TagServerCertificateInput).
     pub fn build(self) -> crate::operation::tag_server_certificate::TagServerCertificateInput {
         crate::operation::tag_server_certificate::TagServerCertificateInput {

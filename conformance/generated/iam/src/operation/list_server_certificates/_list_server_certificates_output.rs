@@ -59,25 +59,43 @@ impl ListServerCertificatesOutputBuilder {
         self.server_certificate_metadata_list = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_server_certificate_metadata_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServerCertificateMetadata>>) -> Self { self.server_certificate_metadata_list = input; self }
+    pub fn set_server_certificate_metadata_list(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ServerCertificateMetadata>>,
+    ) -> Self {
+        self.server_certificate_metadata_list = input;
+        self
+    }
     /// <p>A list of server certificates.</p>
-    pub fn get_server_certificate_metadata_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServerCertificateMetadata>> { &self.server_certificate_metadata_list }
+    pub fn get_server_certificate_metadata_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServerCertificateMetadata>> {
+        &self.server_certificate_metadata_list
+    }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub fn is_truncated(mut self, input: bool) -> Self {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self { self.is_truncated = input; self }
+    pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.is_truncated = input;
+        self
+    }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
-    pub fn get_is_truncated(&self) -> &::std::option::Option<bool> { &self.is_truncated }
+    pub fn get_is_truncated(&self) -> &::std::option::Option<bool> {
+        &self.is_truncated
+    }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -90,9 +108,19 @@ impl ListServerCertificatesOutputBuilder {
     /// Consumes the builder and constructs a [`ListServerCertificatesOutput`](crate::operation::list_server_certificates::ListServerCertificatesOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`server_certificate_metadata_list`](Self::server_certificate_metadata_list)
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_server_certificates::ListServerCertificatesOutput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::list_server_certificates::ListServerCertificatesOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_server_certificates::ListServerCertificatesOutput {
-            server_certificate_metadata_list: self.server_certificate_metadata_list.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("server_certificate_metadata_list", "server_certificate_metadata_list was not specified but it is required when building ListServerCertificatesOutput"))?,
+            server_certificate_metadata_list: self.server_certificate_metadata_list.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "server_certificate_metadata_list",
+                    "server_certificate_metadata_list was not specified but it is required when building ListServerCertificatesOutput",
+                )
+            })?,
             is_truncated: self.is_truncated,
             marker: self.marker,
             _request_id: self._request_id,

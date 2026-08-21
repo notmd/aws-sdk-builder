@@ -45,23 +45,38 @@ impl ListCapacityProvidersResponseBuilder {
         self.capacity_providers = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_capacity_providers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CapacityProvider>>) -> Self { self.capacity_providers = input; self }
+    pub fn set_capacity_providers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CapacityProvider>>) -> Self {
+        self.capacity_providers = input;
+        self
+    }
     /// <p>A list of capacity providers in your account.</p>
-    pub fn get_capacity_providers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CapacityProvider>> { &self.capacity_providers }
+    pub fn get_capacity_providers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CapacityProvider>> {
+        &self.capacity_providers
+    }
     /// <p>The pagination token that's included if more results are available.</p>
     pub fn next_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>The pagination token that's included if more results are available.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// Consumes the builder and constructs a [`ListCapacityProvidersResponse`](crate::types::ListCapacityProvidersResponse).
     /// This method will fail if any of the following fields are not set:
     /// - [`capacity_providers`](Self::capacity_providers)
     pub fn build(self) -> ::std::result::Result<crate::types::ListCapacityProvidersResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ListCapacityProvidersResponse {
-            capacity_providers: self.capacity_providers.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("capacity_providers", "capacity_providers was not specified but it is required when building ListCapacityProvidersResponse"))?,
+            capacity_providers: self.capacity_providers.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "capacity_providers",
+                    "capacity_providers was not specified but it is required when building ListCapacityProvidersResponse",
+                )
+            })?,
             next_marker: self.next_marker,
         })
     }

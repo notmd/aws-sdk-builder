@@ -33,13 +33,16 @@ impl DeleteBackupInputBuilder {
         self.backup_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.backup_arn = input; self }
+    pub fn set_backup_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.backup_arn = input;
+        self
+    }
     /// <p>The ARN associated with the backup.</p>
-    pub fn get_backup_arn(&self) -> &::std::option::Option<::std::string::String> { &self.backup_arn }
+    pub fn get_backup_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.backup_arn
+    }
     /// Consumes the builder and constructs a [`DeleteBackupInput`](crate::operation::delete_backup::DeleteBackupInput).
     pub fn build(self) -> crate::operation::delete_backup::DeleteBackupInput {
-        crate::operation::delete_backup::DeleteBackupInput {
-            backup_arn: self.backup_arn,
-        }
+        crate::operation::delete_backup::DeleteBackupInput { backup_arn: self.backup_arn }
     }
 }

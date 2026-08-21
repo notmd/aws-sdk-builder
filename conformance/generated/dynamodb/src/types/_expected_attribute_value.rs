@@ -123,21 +123,31 @@ impl ExpectedAttributeValueBuilder {
         self.value = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_value(mut self, input: ::std::option::Option<crate::types::AttributeValue>) -> Self { self.value = input; self }
+    pub fn set_value(mut self, input: ::std::option::Option<crate::types::AttributeValue>) -> Self {
+        self.value = input;
+        self
+    }
     /// <p>Represents the data for the expected attribute.</p>
     /// <p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_value(&self) -> &::std::option::Option<crate::types::AttributeValue> { &self.value }
+    pub fn get_value(&self) -> &::std::option::Option<crate::types::AttributeValue> {
+        &self.value
+    }
     /// <p>Causes DynamoDB to evaluate the value before attempting a conditional operation:</p><ul><li><p>If <code>Exists</code> is <code>true</code>, DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a <code>ConditionCheckFailedException</code>.</p></li><li><p>If <code>Exists</code> is <code>false</code>, DynamoDB assumes that the attribute value does not exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a <code>ConditionCheckFailedException</code>.</p></li></ul><p>The default setting for <code>Exists</code> is <code>true</code>. If you supply a <code>Value</code> all by itself, DynamoDB assumes the attribute exists: You don't have to set <code>Exists</code> to <code>true</code>, because it is implied.</p>
     /// <p>DynamoDB returns a <code>ValidationException</code> if:</p><ul><li><p><code>Exists</code> is <code>true</code> but there is no <code>Value</code> to check. (You expect a value to exist, but don't specify what that value is.)</p></li><li><p><code>Exists</code> is <code>false</code> but you also provide a <code>Value</code>. (You cannot expect an attribute to have a value, while also expecting it not to exist.)</p></li></ul>
     pub fn exists(mut self, input: bool) -> Self {
         self.exists = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_exists(mut self, input: ::std::option::Option<bool>) -> Self { self.exists = input; self }
+    pub fn set_exists(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.exists = input;
+        self
+    }
     /// <p>Causes DynamoDB to evaluate the value before attempting a conditional operation:</p><ul><li><p>If <code>Exists</code> is <code>true</code>, DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a <code>ConditionCheckFailedException</code>.</p></li><li><p>If <code>Exists</code> is <code>false</code>, DynamoDB assumes that the attribute value does not exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a <code>ConditionCheckFailedException</code>.</p></li></ul><p>The default setting for <code>Exists</code> is <code>true</code>. If you supply a <code>Value</code> all by itself, DynamoDB assumes the attribute exists: You don't have to set <code>Exists</code> to <code>true</code>, because it is implied.</p>
     /// <p>DynamoDB returns a <code>ValidationException</code> if:</p><ul><li><p><code>Exists</code> is <code>true</code> but there is no <code>Value</code> to check. (You expect a value to exist, but don't specify what that value is.)</p></li><li><p><code>Exists</code> is <code>false</code> but you also provide a <code>Value</code>. (You cannot expect an attribute to have a value, while also expecting it not to exist.)</p></li></ul>
-    pub fn get_exists(&self) -> &::std::option::Option<bool> { &self.exists }
+    pub fn get_exists(&self) -> &::std::option::Option<bool> {
+        &self.exists
+    }
     /// <p>A comparator for evaluating attributes in the <code>AttributeValueList</code>. For example, equals, greater than, less than, etc.</p>
     /// <p>The following comparison operators are available:</p>
     /// <p><code>EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN</code></p>
@@ -170,7 +180,10 @@ impl ExpectedAttributeValueBuilder {
         self.comparison_operator = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_comparison_operator(mut self, input: ::std::option::Option<crate::types::ComparisonOperator>) -> Self { self.comparison_operator = input; self }
+    pub fn set_comparison_operator(mut self, input: ::std::option::Option<crate::types::ComparisonOperator>) -> Self {
+        self.comparison_operator = input;
+        self
+    }
     /// <p>A comparator for evaluating attributes in the <code>AttributeValueList</code>. For example, equals, greater than, less than, etc.</p>
     /// <p>The following comparison operators are available:</p>
     /// <p><code>EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN</code></p>
@@ -199,7 +212,9 @@ impl ExpectedAttributeValueBuilder {
     /// <p></p></li><li><p><code>IN</code> : Checks for matching elements in a list.</p>
     /// <p><code>AttributeValueList</code> can contain one or more <code>AttributeValue</code> elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true.</p></li><li><p><code>BETWEEN</code> : Greater than or equal to the first value, and less than or equal to the second value.</p>
     /// <p><code>AttributeValueList</code> must contain two <code>AttributeValue</code> elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not compare to <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":\["6", "2", "1"\]}</code></p></li></ul>
-    pub fn get_comparison_operator(&self) -> &::std::option::Option<crate::types::ComparisonOperator> { &self.comparison_operator }
+    pub fn get_comparison_operator(&self) -> &::std::option::Option<crate::types::ComparisonOperator> {
+        &self.comparison_operator
+    }
     /// <p>One or more values to evaluate against the supplied attribute. The number of values in the list depends on the <code>ComparisonOperator</code> being used.</p>
     /// <p>For type Number, value comparisons are numeric.</p>
     /// <p>String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, <code>a</code> is greater than <code>A</code>, and <code>a</code> is greater than <code>B</code>. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.</p>
@@ -214,13 +229,18 @@ impl ExpectedAttributeValueBuilder {
         self.attribute_value_list = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_attribute_value_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self { self.attribute_value_list = input; self }
+    pub fn set_attribute_value_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
+        self.attribute_value_list = input;
+        self
+    }
     /// <p>One or more values to evaluate against the supplied attribute. The number of values in the list depends on the <code>ComparisonOperator</code> being used.</p>
     /// <p>For type Number, value comparisons are numeric.</p>
     /// <p>String value comparisons for greater than, equals, or less than are based on ASCII character code values. For example, <code>a</code> is greater than <code>A</code>, and <code>a</code> is greater than <code>B</code>. For a list of code values, see <a href="http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters">http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters</a>.</p>
     /// <p>For Binary, DynamoDB treats each byte of the binary data as unsigned when it compares binary values.</p>
     /// <p>For information on specifying data types in JSON, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataFormat.html">JSON Data Format</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_attribute_value_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> { &self.attribute_value_list }
+    pub fn get_attribute_value_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> {
+        &self.attribute_value_list
+    }
     /// Consumes the builder and constructs a [`ExpectedAttributeValue`](crate::types::ExpectedAttributeValue).
     pub fn build(self) -> crate::types::ExpectedAttributeValue {
         crate::types::ExpectedAttributeValue {

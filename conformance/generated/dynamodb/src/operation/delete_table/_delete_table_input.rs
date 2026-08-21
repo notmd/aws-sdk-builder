@@ -33,13 +33,16 @@ impl DeleteTableInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the table to delete. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// Consumes the builder and constructs a [`DeleteTableInput`](crate::operation::delete_table::DeleteTableInput).
     pub fn build(self) -> crate::operation::delete_table::DeleteTableInput {
-        crate::operation::delete_table::DeleteTableInput {
-            table_name: self.table_name,
-        }
+        crate::operation::delete_table::DeleteTableInput { table_name: self.table_name }
     }
 }

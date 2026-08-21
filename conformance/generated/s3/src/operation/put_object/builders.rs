@@ -6,92 +6,266 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn acl(mut self, value: impl ::std::convert::Into<crate::types::ObjectCannedAcl>) -> Self { self.input.acl = Some(value.into()); self }
-    pub fn body(mut self, value: impl ::std::convert::Into<crate::primitives::ByteStream>) -> Self { self.input.body = value.into(); self }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn cache_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.cache_control = Some(value.into()); self }
-    pub fn content_disposition(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_disposition = Some(value.into()); self }
-    pub fn content_encoding(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_encoding = Some(value.into()); self }
-    pub fn content_language(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_language = Some(value.into()); self }
-    pub fn content_length(mut self, value: impl ::std::convert::Into<i64>) -> Self { self.input.content_length = Some(value.into()); self }
-    pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_md5 = Some(value.into()); self }
-    pub fn content_type(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_type = Some(value.into()); self }
-    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
-    pub fn checksum_crc32(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_crc32 = Some(value.into()); self }
-    pub fn checksum_crc32_c(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_crc32_c = Some(value.into()); self }
-    pub fn checksum_crc64_nvme(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_crc64_nvme = Some(value.into()); self }
-    pub fn checksum_sha1(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_sha1 = Some(value.into()); self }
-    pub fn checksum_sha256(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_sha256 = Some(value.into()); self }
-    pub fn checksum_sha512(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_sha512 = Some(value.into()); self }
-    pub fn checksum_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_md5 = Some(value.into()); self }
-    pub fn checksum_xxhash64(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_xxhash64 = Some(value.into()); self }
-    pub fn checksum_xxhash3(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_xxhash3 = Some(value.into()); self }
-    pub fn checksum_xxhash128(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_xxhash128 = Some(value.into()); self }
-    pub fn expires(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.expires = Some(value.into()); self }
-    pub fn if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.if_match = Some(value.into()); self }
-    pub fn if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.if_none_match = Some(value.into()); self }
-    pub fn grant_full_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_full_control = Some(value.into()); self }
-    pub fn grant_read(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_read = Some(value.into()); self }
-    pub fn grant_read_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_read_acp = Some(value.into()); self }
-    pub fn grant_write_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_write_acp = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn write_offset_bytes(mut self, value: impl ::std::convert::Into<i64>) -> Self { self.input.write_offset_bytes = Some(value.into()); self }
-    pub fn metadata(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.input.metadata = Some(value.into()); self }
-    pub fn server_side_encryption(mut self, value: impl ::std::convert::Into<crate::types::ServerSideEncryption>) -> Self { self.input.server_side_encryption = Some(value.into()); self }
-    pub fn storage_class(mut self, value: impl ::std::convert::Into<crate::types::StorageClass>) -> Self { self.input.storage_class = Some(value.into()); self }
-    pub fn website_redirect_location(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.website_redirect_location = Some(value.into()); self }
-    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }
-    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key = Some(value.into()); self }
-    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key_md5 = Some(value.into()); self }
-    pub fn ssekms_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.ssekms_key_id = Some(value.into()); self }
-    pub fn ssekms_encryption_context(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.ssekms_encryption_context = Some(value.into()); self }
-    pub fn bucket_key_enabled(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.bucket_key_enabled = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn tagging(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.tagging = Some(value.into()); self }
-    pub fn object_lock_mode(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockMode>) -> Self { self.input.object_lock_mode = Some(value.into()); self }
-    pub fn object_lock_retain_until_date(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.object_lock_retain_until_date = Some(value.into()); self }
-    pub fn object_lock_legal_hold_status(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockLegalHoldStatus>) -> Self { self.input.object_lock_legal_hold_status = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::PutObjectOutput, super::PutObjectError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::PutObjectError::Unhandled("PutObject requires bucket".to_owned()))?;
-                         let key = self.input.key.as_deref().ok_or_else(|| super::PutObjectError::Unhandled("PutObject requires key".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}/{Key+}?x-id=PutObject"); path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path = path.replace("{Key+}", &super::super::super::transport::encode_path(key)); path };
-                         let body = self.input.body.clone().into_inner();
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers };
-                         let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::PutObjectError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::PutObjectError::unhandled_with_request_ids(format!("PutObject returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_put_object_output::PutObjectOutputBuilder::default();
-                         output.expiration = response.header("x-amz-expiration").map(str::to_owned);
-                         output.e_tag = response.header("ETag").map(str::to_owned);
-                         output.checksum_crc32 = response.header("x-amz-checksum-crc32").map(str::to_owned);
-                         output.checksum_crc32_c = response.header("x-amz-checksum-crc32c").map(str::to_owned);
-                         output.checksum_crc64_nvme = response.header("x-amz-checksum-crc64nvme").map(str::to_owned);
-                         output.checksum_sha1 = response.header("x-amz-checksum-sha1").map(str::to_owned);
-                         output.checksum_sha256 = response.header("x-amz-checksum-sha256").map(str::to_owned);
-                         output.checksum_sha512 = response.header("x-amz-checksum-sha512").map(str::to_owned);
-                         output.checksum_md5 = response.header("x-amz-checksum-md5").map(str::to_owned);
-                         output.checksum_xxhash64 = response.header("x-amz-checksum-xxhash64").map(str::to_owned);
-                         output.checksum_xxhash3 = response.header("x-amz-checksum-xxhash3").map(str::to_owned);
-                         output.checksum_xxhash128 = response.header("x-amz-checksum-xxhash128").map(str::to_owned);
-                         output.version_id = response.header("x-amz-version-id").map(str::to_owned);
-                         output.sse_customer_algorithm = response.header("x-amz-server-side-encryption-customer-algorithm").map(str::to_owned);
-                         output.sse_customer_key_md5 = response.header("x-amz-server-side-encryption-customer-key-MD5").map(str::to_owned);
-                         output.ssekms_key_id = response.header("x-amz-server-side-encryption-aws-kms-key-id").map(str::to_owned);
-                         output.ssekms_encryption_context = response.header("x-amz-server-side-encryption-context").map(str::to_owned);
-                         output.bucket_key_enabled = response.header("x-amz-server-side-encryption-bucket-key-enabled").and_then(|value| value.parse().ok());
-                         output.size = response.header("x-amz-object-size").and_then(|value| value.parse().ok());
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn acl(mut self, value: impl ::std::convert::Into<crate::types::ObjectCannedAcl>) -> Self {
+        self.input.acl = Some(value.into());
+        self
+    }
+    pub fn body(mut self, value: impl ::std::convert::Into<crate::primitives::ByteStream>) -> Self {
+        self.input.body = value.into();
+        self
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn cache_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.cache_control = Some(value.into());
+        self
+    }
+    pub fn content_disposition(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.content_disposition = Some(value.into());
+        self
+    }
+    pub fn content_encoding(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.content_encoding = Some(value.into());
+        self
+    }
+    pub fn content_language(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.content_language = Some(value.into());
+        self
+    }
+    pub fn content_length(mut self, value: impl ::std::convert::Into<i64>) -> Self {
+        self.input.content_length = Some(value.into());
+        self
+    }
+    pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.content_md5 = Some(value.into());
+        self
+    }
+    pub fn content_type(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.content_type = Some(value.into());
+        self
+    }
+    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
+        self.input.checksum_algorithm = Some(value.into());
+        self
+    }
+    pub fn checksum_crc32(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_crc32 = Some(value.into());
+        self
+    }
+    pub fn checksum_crc32_c(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_crc32_c = Some(value.into());
+        self
+    }
+    pub fn checksum_crc64_nvme(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_crc64_nvme = Some(value.into());
+        self
+    }
+    pub fn checksum_sha1(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_sha1 = Some(value.into());
+        self
+    }
+    pub fn checksum_sha256(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_sha256 = Some(value.into());
+        self
+    }
+    pub fn checksum_sha512(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_sha512 = Some(value.into());
+        self
+    }
+    pub fn checksum_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_md5 = Some(value.into());
+        self
+    }
+    pub fn checksum_xxhash64(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_xxhash64 = Some(value.into());
+        self
+    }
+    pub fn checksum_xxhash3(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_xxhash3 = Some(value.into());
+        self
+    }
+    pub fn checksum_xxhash128(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_xxhash128 = Some(value.into());
+        self
+    }
+    pub fn expires(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
+        self.input.expires = Some(value.into());
+        self
+    }
+    pub fn if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.if_match = Some(value.into());
+        self
+    }
+    pub fn if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.if_none_match = Some(value.into());
+        self
+    }
+    pub fn grant_full_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grant_full_control = Some(value.into());
+        self
+    }
+    pub fn grant_read(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grant_read = Some(value.into());
+        self
+    }
+    pub fn grant_read_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grant_read_acp = Some(value.into());
+        self
+    }
+    pub fn grant_write_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grant_write_acp = Some(value.into());
+        self
+    }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key = Some(value.into());
+        self
+    }
+    pub fn write_offset_bytes(mut self, value: impl ::std::convert::Into<i64>) -> Self {
+        self.input.write_offset_bytes = Some(value.into());
+        self
+    }
+    pub fn metadata(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.input.metadata = Some(value.into());
+        self
+    }
+    pub fn server_side_encryption(mut self, value: impl ::std::convert::Into<crate::types::ServerSideEncryption>) -> Self {
+        self.input.server_side_encryption = Some(value.into());
+        self
+    }
+    pub fn storage_class(mut self, value: impl ::std::convert::Into<crate::types::StorageClass>) -> Self {
+        self.input.storage_class = Some(value.into());
+        self
+    }
+    pub fn website_redirect_location(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.website_redirect_location = Some(value.into());
+        self
+    }
+    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.sse_customer_algorithm = Some(value.into());
+        self
+    }
+    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.sse_customer_key = Some(value.into());
+        self
+    }
+    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.sse_customer_key_md5 = Some(value.into());
+        self
+    }
+    pub fn ssekms_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.ssekms_key_id = Some(value.into());
+        self
+    }
+    pub fn ssekms_encryption_context(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.ssekms_encryption_context = Some(value.into());
+        self
+    }
+    pub fn bucket_key_enabled(mut self, value: impl ::std::convert::Into<bool>) -> Self {
+        self.input.bucket_key_enabled = Some(value.into());
+        self
+    }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
+        self.input.request_payer = Some(value.into());
+        self
+    }
+    pub fn tagging(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.tagging = Some(value.into());
+        self
+    }
+    pub fn object_lock_mode(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockMode>) -> Self {
+        self.input.object_lock_mode = Some(value.into());
+        self
+    }
+    pub fn object_lock_retain_until_date(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
+        self.input.object_lock_retain_until_date = Some(value.into());
+        self
+    }
+    pub fn object_lock_legal_hold_status(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockLegalHoldStatus>) -> Self {
+        self.input.object_lock_legal_hold_status = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::PutObjectOutput, super::PutObjectError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::PutObjectError::Unhandled("PutObject requires bucket".to_owned()))?;
+        let key = self
+            .input
+            .key
+            .as_deref()
+            .ok_or_else(|| super::PutObjectError::Unhandled("PutObject requires key".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}/{Key+}?x-id=PutObject");
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path = path.replace("{Key+}", &super::super::super::transport::encode_path(key));
+            path
+        };
+        let body = self.input.body.clone().into_inner();
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Put, &path, &headers, &body)
+            .await
+            .map_err(super::PutObjectError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::PutObjectError::unhandled_with_request_ids(
+                format!("PutObject returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_put_object_output::PutObjectOutputBuilder::default();
+        output.expiration = response.header("x-amz-expiration").map(str::to_owned);
+        output.e_tag = response.header("ETag").map(str::to_owned);
+        output.checksum_crc32 = response.header("x-amz-checksum-crc32").map(str::to_owned);
+        output.checksum_crc32_c = response.header("x-amz-checksum-crc32c").map(str::to_owned);
+        output.checksum_crc64_nvme = response.header("x-amz-checksum-crc64nvme").map(str::to_owned);
+        output.checksum_sha1 = response.header("x-amz-checksum-sha1").map(str::to_owned);
+        output.checksum_sha256 = response.header("x-amz-checksum-sha256").map(str::to_owned);
+        output.checksum_sha512 = response.header("x-amz-checksum-sha512").map(str::to_owned);
+        output.checksum_md5 = response.header("x-amz-checksum-md5").map(str::to_owned);
+        output.checksum_xxhash64 = response.header("x-amz-checksum-xxhash64").map(str::to_owned);
+        output.checksum_xxhash3 = response.header("x-amz-checksum-xxhash3").map(str::to_owned);
+        output.checksum_xxhash128 = response.header("x-amz-checksum-xxhash128").map(str::to_owned);
+        output.version_id = response.header("x-amz-version-id").map(str::to_owned);
+        output.sse_customer_algorithm = response.header("x-amz-server-side-encryption-customer-algorithm").map(str::to_owned);
+        output.sse_customer_key_md5 = response.header("x-amz-server-side-encryption-customer-key-MD5").map(str::to_owned);
+        output.ssekms_key_id = response.header("x-amz-server-side-encryption-aws-kms-key-id").map(str::to_owned);
+        output.ssekms_encryption_context = response.header("x-amz-server-side-encryption-context").map(str::to_owned);
+        output.bucket_key_enabled = response
+            .header("x-amz-server-side-encryption-bucket-key-enabled")
+            .and_then(|value| value.parse().ok());
+        output.size = response.header("x-amz-object-size").and_then(|value| value.parse().ok());
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as PutObjectFluentBuilder;

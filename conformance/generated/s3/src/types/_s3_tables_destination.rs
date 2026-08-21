@@ -44,26 +44,46 @@ impl S3TablesDestinationBuilder {
         self.table_bucket_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_bucket_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_bucket_arn = input; self }
+    pub fn set_table_bucket_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_bucket_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and Amazon Web Services account as the general purpose bucket.</p>
-    pub fn get_table_bucket_arn(&self) -> &::std::option::Option<::std::string::String> { &self.table_bucket_arn }
+    pub fn get_table_bucket_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_bucket_arn
+    }
     /// <p>The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.</p>
     /// This field is required.
     pub fn table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// Consumes the builder and constructs a [`S3TablesDestination`](crate::types::S3TablesDestination).
     /// This method will fail if any of the following fields are not set:
     /// - [`table_bucket_arn`](Self::table_bucket_arn)
     /// - [`table_name`](Self::table_name)
     pub fn build(self) -> ::std::result::Result<crate::types::S3TablesDestination, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::S3TablesDestination {
-            table_bucket_arn: self.table_bucket_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("table_bucket_arn", "table_bucket_arn was not specified but it is required when building S3TablesDestination"))?,
-            table_name: self.table_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("table_name", "table_name was not specified but it is required when building S3TablesDestination"))?,
+            table_bucket_arn: self.table_bucket_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "table_bucket_arn",
+                    "table_bucket_arn was not specified but it is required when building S3TablesDestination",
+                )
+            })?,
+            table_name: self.table_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "table_name",
+                    "table_name was not specified but it is required when building S3TablesDestination",
+                )
+            })?,
         })
     }
 }

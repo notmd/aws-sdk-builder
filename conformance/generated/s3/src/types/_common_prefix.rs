@@ -32,13 +32,16 @@ impl CommonPrefixBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.prefix = input; self }
+    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.prefix = input;
+        self
+    }
     /// <p>Container for the specified common prefix.</p>
-    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.prefix }
+    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.prefix
+    }
     /// Consumes the builder and constructs a [`CommonPrefix`](crate::types::CommonPrefix).
     pub fn build(self) -> crate::types::CommonPrefix {
-        crate::types::CommonPrefix {
-            prefix: self.prefix,
-        }
+        crate::types::CommonPrefix { prefix: self.prefix }
     }
 }

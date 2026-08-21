@@ -50,28 +50,43 @@ impl ChangeMessageVisibilityInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_url = input; self }
+    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.queue_url = input;
+        self
+    }
     /// <p>The URL of the Amazon SQS queue whose message's visibility is changed.</p>
     /// <p>Queue URLs and names are case-sensitive.</p>
-    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> { &self.queue_url }
+    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.queue_url
+    }
     /// <p>The receipt handle associated with the message, whose visibility timeout is changed. This parameter is returned by the <code><a>ReceiveMessage</a></code> action.</p>
     /// This field is required.
     pub fn receipt_handle(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.receipt_handle = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.receipt_handle = input; self }
+    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.receipt_handle = input;
+        self
+    }
     /// <p>The receipt handle associated with the message, whose visibility timeout is changed. This parameter is returned by the <code><a>ReceiveMessage</a></code> action.</p>
-    pub fn get_receipt_handle(&self) -> &::std::option::Option<::std::string::String> { &self.receipt_handle }
+    pub fn get_receipt_handle(&self) -> &::std::option::Option<::std::string::String> {
+        &self.receipt_handle
+    }
     /// <p>The new value for the message's visibility timeout (in seconds). Values range: <code>0</code> to <code>43200</code>. Maximum: 12 hours.</p>
     /// This field is required.
     pub fn visibility_timeout(mut self, input: i32) -> Self {
         self.visibility_timeout = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_visibility_timeout(mut self, input: ::std::option::Option<i32>) -> Self { self.visibility_timeout = input; self }
+    pub fn set_visibility_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.visibility_timeout = input;
+        self
+    }
     /// <p>The new value for the message's visibility timeout (in seconds). Values range: <code>0</code> to <code>43200</code>. Maximum: 12 hours.</p>
-    pub fn get_visibility_timeout(&self) -> &::std::option::Option<i32> { &self.visibility_timeout }
+    pub fn get_visibility_timeout(&self) -> &::std::option::Option<i32> {
+        &self.visibility_timeout
+    }
     /// Consumes the builder and constructs a [`ChangeMessageVisibilityInput`](crate::operation::change_message_visibility::ChangeMessageVisibilityInput).
     pub fn build(self) -> crate::operation::change_message_visibility::ChangeMessageVisibilityInput {
         crate::operation::change_message_visibility::ChangeMessageVisibilityInput {

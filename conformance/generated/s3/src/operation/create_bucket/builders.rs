@@ -6,39 +6,149 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn acl(mut self, value: impl ::std::convert::Into<crate::types::BucketCannedAcl>) -> Self { self.input.acl = Some(value.into()); self }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn create_bucket_configuration(mut self, value: impl ::std::convert::Into<crate::types::CreateBucketConfiguration>) -> Self { self.input.create_bucket_configuration = Some(value.into()); self }
-    pub fn grant_full_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_full_control = Some(value.into()); self }
-    pub fn grant_read(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_read = Some(value.into()); self }
-    pub fn grant_read_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_read_acp = Some(value.into()); self }
-    pub fn grant_write(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_write = Some(value.into()); self }
-    pub fn grant_write_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_write_acp = Some(value.into()); self }
-    pub fn object_lock_enabled_for_bucket(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.object_lock_enabled_for_bucket = Some(value.into()); self }
-    pub fn object_ownership(mut self, value: impl ::std::convert::Into<crate::types::ObjectOwnership>) -> Self { self.input.object_ownership = Some(value.into()); self }
-    pub fn bucket_namespace(mut self, value: impl ::std::convert::Into<crate::types::BucketNamespace>) -> Self { self.input.bucket_namespace = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::CreateBucketOutput, super::CreateBucketError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::CreateBucketError::Unhandled("CreateBucket requires bucket".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}"); path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path };
-                         let body = { let mut body = ::std::string::String::new(); if let Some(value) = self.input.create_bucket_configuration.as_ref() { body.push_str("<CreateBucketConfiguration>"); if let Some(value) = value.location_constraint.as_ref() { body.push_str("<LocationConstraint>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</LocationConstraint>"); } if let Some(value) = value.location.as_ref() { body.push_str("<Location>"); if let Some(value) = value.r#type.as_ref() { body.push_str("<Type>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Type>"); } if let Some(value) = value.name.as_ref() { body.push_str("<Name>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Name>"); } body.push_str("</Location>"); } if let Some(value) = value.bucket.as_ref() { body.push_str("<Bucket>"); if let Some(value) = value.data_redundancy.as_ref() { body.push_str("<DataRedundancy>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</DataRedundancy>"); } if let Some(value) = value.r#type.as_ref() { body.push_str("<Type>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Type>"); } body.push_str("</Bucket>"); } if let Some(value) = value.tags.as_ref() { body.push_str("<Tags>"); for item in value { body.push_str("<Tag>"); body.push_str("<Key>"); body.push_str(&super::super::super::transport::xml_escape(&item.key.to_string())); body.push_str("</Key>"); body.push_str("<Value>"); body.push_str(&super::super::super::transport::xml_escape(&item.value.to_string())); body.push_str("</Value>"); body.push_str("</Tag>"); } body.push_str("</Tags>"); } body.push_str("</CreateBucketConfiguration>"); } body.into_bytes() };
-                         let headers = ::std::vec![("content-type", "application/xml")];
-                         let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::CreateBucketError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::CreateBucketError::unhandled_with_request_ids(format!("CreateBucket returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_create_bucket_output::CreateBucketOutputBuilder::default();
-                         output.location = response.header("Location").map(str::to_owned);
-                         output.bucket_arn = response.header("x-amz-bucket-arn").map(str::to_owned);
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn acl(mut self, value: impl ::std::convert::Into<crate::types::BucketCannedAcl>) -> Self {
+        self.input.acl = Some(value.into());
+        self
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn create_bucket_configuration(mut self, value: impl ::std::convert::Into<crate::types::CreateBucketConfiguration>) -> Self {
+        self.input.create_bucket_configuration = Some(value.into());
+        self
+    }
+    pub fn grant_full_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grant_full_control = Some(value.into());
+        self
+    }
+    pub fn grant_read(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grant_read = Some(value.into());
+        self
+    }
+    pub fn grant_read_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grant_read_acp = Some(value.into());
+        self
+    }
+    pub fn grant_write(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grant_write = Some(value.into());
+        self
+    }
+    pub fn grant_write_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grant_write_acp = Some(value.into());
+        self
+    }
+    pub fn object_lock_enabled_for_bucket(mut self, value: impl ::std::convert::Into<bool>) -> Self {
+        self.input.object_lock_enabled_for_bucket = Some(value.into());
+        self
+    }
+    pub fn object_ownership(mut self, value: impl ::std::convert::Into<crate::types::ObjectOwnership>) -> Self {
+        self.input.object_ownership = Some(value.into());
+        self
+    }
+    pub fn bucket_namespace(mut self, value: impl ::std::convert::Into<crate::types::BucketNamespace>) -> Self {
+        self.input.bucket_namespace = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::CreateBucketOutput, super::CreateBucketError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::CreateBucketError::Unhandled("CreateBucket requires bucket".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}");
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path
+        };
+        let body = {
+            let mut body = ::std::string::String::new();
+            if let Some(value) = self.input.create_bucket_configuration.as_ref() {
+                body.push_str("<CreateBucketConfiguration>");
+                if let Some(value) = value.location_constraint.as_ref() {
+                    body.push_str("<LocationConstraint>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                    body.push_str("</LocationConstraint>");
+                }
+                if let Some(value) = value.location.as_ref() {
+                    body.push_str("<Location>");
+                    if let Some(value) = value.r#type.as_ref() {
+                        body.push_str("<Type>");
+                        body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                        body.push_str("</Type>");
+                    }
+                    if let Some(value) = value.name.as_ref() {
+                        body.push_str("<Name>");
+                        body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                        body.push_str("</Name>");
+                    }
+                    body.push_str("</Location>");
+                }
+                if let Some(value) = value.bucket.as_ref() {
+                    body.push_str("<Bucket>");
+                    if let Some(value) = value.data_redundancy.as_ref() {
+                        body.push_str("<DataRedundancy>");
+                        body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                        body.push_str("</DataRedundancy>");
+                    }
+                    if let Some(value) = value.r#type.as_ref() {
+                        body.push_str("<Type>");
+                        body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                        body.push_str("</Type>");
+                    }
+                    body.push_str("</Bucket>");
+                }
+                if let Some(value) = value.tags.as_ref() {
+                    body.push_str("<Tags>");
+                    for item in value {
+                        body.push_str("<Tag>");
+                        body.push_str("<Key>");
+                        body.push_str(&super::super::super::transport::xml_escape(&item.key.to_string()));
+                        body.push_str("</Key>");
+                        body.push_str("<Value>");
+                        body.push_str(&super::super::super::transport::xml_escape(&item.value.to_string()));
+                        body.push_str("</Value>");
+                        body.push_str("</Tag>");
+                    }
+                    body.push_str("</Tags>");
+                }
+                body.push_str("</CreateBucketConfiguration>");
+            }
+            body.into_bytes()
+        };
+        let headers = ::std::vec![("content-type", "application/xml")];
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Put, &path, &headers, &body)
+            .await
+            .map_err(super::CreateBucketError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::CreateBucketError::unhandled_with_request_ids(
+                format!("CreateBucket returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_create_bucket_output::CreateBucketOutputBuilder::default();
+        output.location = response.header("Location").map(str::to_owned);
+        output.bucket_arn = response.header("x-amz-bucket-arn").map(str::to_owned);
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as CreateBucketFluentBuilder;

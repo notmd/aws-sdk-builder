@@ -48,27 +48,42 @@ impl ReplicationRuleFilterBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.prefix = input; self }
+    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.prefix = input;
+        self
+    }
     /// <p>An object key name prefix that identifies the subset of objects to which the rule applies.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
-    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.prefix }
+    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.prefix
+    }
     /// <p>A container for specifying a tag key and value.</p>
     /// <p>The rule applies only to objects that have the tag in their tag set.</p>
     pub fn tag(mut self, input: crate::types::Tag) -> Self {
         self.tag = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_tag(mut self, input: ::std::option::Option<crate::types::Tag>) -> Self { self.tag = input; self }
+    pub fn set_tag(mut self, input: ::std::option::Option<crate::types::Tag>) -> Self {
+        self.tag = input;
+        self
+    }
     /// <p>A container for specifying a tag key and value.</p>
     /// <p>The rule applies only to objects that have the tag in their tag set.</p>
-    pub fn get_tag(&self) -> &::std::option::Option<crate::types::Tag> { &self.tag }
+    pub fn get_tag(&self) -> &::std::option::Option<crate::types::Tag> {
+        &self.tag
+    }
     /// <p>A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:</p><ul><li><p>If you specify both a <code>Prefix</code> and a <code>Tag</code> filter, wrap these filters in an <code>And</code> tag.</p></li><li><p>If you specify a filter based on multiple tags, wrap the <code>Tag</code> elements in an <code>And</code> tag.</p></li></ul>
     pub fn and(mut self, input: crate::types::ReplicationRuleAndOperator) -> Self {
         self.and = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_and(mut self, input: ::std::option::Option<crate::types::ReplicationRuleAndOperator>) -> Self { self.and = input; self }
+    pub fn set_and(mut self, input: ::std::option::Option<crate::types::ReplicationRuleAndOperator>) -> Self {
+        self.and = input;
+        self
+    }
     /// <p>A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example:</p><ul><li><p>If you specify both a <code>Prefix</code> and a <code>Tag</code> filter, wrap these filters in an <code>And</code> tag.</p></li><li><p>If you specify a filter based on multiple tags, wrap the <code>Tag</code> elements in an <code>And</code> tag.</p></li></ul>
-    pub fn get_and(&self) -> &::std::option::Option<crate::types::ReplicationRuleAndOperator> { &self.and }
+    pub fn get_and(&self) -> &::std::option::Option<crate::types::ReplicationRuleAndOperator> {
+        &self.and
+    }
     /// Consumes the builder and constructs a [`ReplicationRuleFilter`](crate::types::ReplicationRuleFilter).
     pub fn build(self) -> crate::types::ReplicationRuleFilter {
         crate::types::ReplicationRuleFilter {

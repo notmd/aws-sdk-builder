@@ -63,15 +63,25 @@ impl DeleteObjectsOutputBuilder {
         self.deleted = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_deleted(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>>) -> Self { self.deleted = input; self }
+    pub fn set_deleted(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>>) -> Self {
+        self.deleted = input;
+        self
+    }
     /// <p>Container element for a successful delete. It identifies the object that was successfully deleted.</p>
-    pub fn get_deleted(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>> { &self.deleted }
+    pub fn get_deleted(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeletedObject>> {
+        &self.deleted
+    }
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+        self.request_charged = input;
+        self
+    }
+    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+        &self.request_charged
+    }
     /// <p>Container for a failed delete action that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
     /// Appends an item to `errors`.
     ///
@@ -82,9 +92,14 @@ impl DeleteObjectsOutputBuilder {
         self.errors = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_errors(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Error>>) -> Self { self.errors = input; self }
+    pub fn set_errors(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Error>>) -> Self {
+        self.errors = input;
+        self
+    }
     /// <p>Container for a failed delete action that describes the object that Amazon S3 attempted to delete and the error it encountered.</p>
-    pub fn get_errors(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Error>> { &self.errors }
+    pub fn get_errors(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Error>> {
+        &self.errors
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

@@ -50,17 +50,27 @@ impl TopicConfigurationBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.</p>
     /// This field is required.
     pub fn topic_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.topic_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.topic_arn = input; self }
+    pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.topic_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 publishes a message when it detects events of the specified type.</p>
-    pub fn get_topic_arn(&self) -> &::std::option::Option<::std::string::String> { &self.topic_arn }
+    pub fn get_topic_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.topic_arn
+    }
     /// <p>The Amazon S3 bucket event about which to send notifications. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// Appends an item to `events`.
     ///
@@ -71,15 +81,25 @@ impl TopicConfigurationBuilder {
         self.events = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Event>>) -> Self { self.events = input; self }
+    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Event>>) -> Self {
+        self.events = input;
+        self
+    }
     /// <p>The Amazon S3 bucket event about which to send notifications. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Event>> { &self.events }
+    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Event>> {
+        &self.events
+    }
     pub fn filter(mut self, input: crate::types::NotificationConfigurationFilter) -> Self {
         self.filter = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::NotificationConfigurationFilter>) -> Self { self.filter = input; self }
-    pub fn get_filter(&self) -> &::std::option::Option<crate::types::NotificationConfigurationFilter> { &self.filter }
+    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::NotificationConfigurationFilter>) -> Self {
+        self.filter = input;
+        self
+    }
+    pub fn get_filter(&self) -> &::std::option::Option<crate::types::NotificationConfigurationFilter> {
+        &self.filter
+    }
     /// Consumes the builder and constructs a [`TopicConfiguration`](crate::types::TopicConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`topic_arn`](Self::topic_arn)
@@ -87,8 +107,18 @@ impl TopicConfigurationBuilder {
     pub fn build(self) -> ::std::result::Result<crate::types::TopicConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TopicConfiguration {
             id: self.id,
-            topic_arn: self.topic_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("topic_arn", "topic_arn was not specified but it is required when building TopicConfiguration"))?,
-            events: self.events.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("events", "events was not specified but it is required when building TopicConfiguration"))?,
+            topic_arn: self.topic_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "topic_arn",
+                    "topic_arn was not specified but it is required when building TopicConfiguration",
+                )
+            })?,
+            events: self.events.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "events",
+                    "events was not specified but it is required when building TopicConfiguration",
+                )
+            })?,
             filter: self.filter,
         })
     }

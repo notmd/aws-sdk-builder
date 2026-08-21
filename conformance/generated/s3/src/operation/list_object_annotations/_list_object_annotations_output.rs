@@ -112,79 +112,129 @@ impl ListObjectAnnotationsOutputBuilder {
         self.annotations = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_annotations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AnnotationEntry>>) -> Self { self.annotations = input; self }
+    pub fn set_annotations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AnnotationEntry>>) -> Self {
+        self.annotations = input;
+        self
+    }
     /// <p>The list of annotations attached to the object.</p>
-    pub fn get_annotations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AnnotationEntry>> { &self.annotations }
+    pub fn get_annotations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AnnotationEntry>> {
+        &self.annotations
+    }
     /// <p>The bucket name.</p>
     pub fn bucket(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The bucket name.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>The object key.</p>
     pub fn key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>The object key.</p>
-    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key
+    }
     /// <p>The version ID of the object.</p>
     pub fn object_version_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.object_version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_object_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.object_version_id = input; self }
+    pub fn set_object_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.object_version_id = input;
+        self
+    }
     /// <p>The version ID of the object.</p>
-    pub fn get_object_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.object_version_id }
+    pub fn get_object_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.object_version_id
+    }
     /// <p>The prefix used to filter the response.</p>
     pub fn annotation_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.annotation_prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_annotation_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.annotation_prefix = input; self }
+    pub fn set_annotation_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.annotation_prefix = input;
+        self
+    }
     /// <p>The prefix used to filter the response.</p>
-    pub fn get_annotation_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.annotation_prefix }
+    pub fn get_annotation_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.annotation_prefix
+    }
     /// <p>The maximum number of annotations returned in the response.</p>
     pub fn max_annotation_results(mut self, input: i32) -> Self {
         self.max_annotation_results = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_annotation_results(mut self, input: ::std::option::Option<i32>) -> Self { self.max_annotation_results = input; self }
+    pub fn set_max_annotation_results(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.max_annotation_results = input;
+        self
+    }
     /// <p>The maximum number of annotations returned in the response.</p>
-    pub fn get_max_annotation_results(&self) -> &::std::option::Option<i32> { &self.max_annotation_results }
+    pub fn get_max_annotation_results(&self) -> &::std::option::Option<i32> {
+        &self.max_annotation_results
+    }
     /// <p>The number of annotations returned.</p>
     pub fn annotation_count(mut self, input: i32) -> Self {
         self.annotation_count = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_annotation_count(mut self, input: ::std::option::Option<i32>) -> Self { self.annotation_count = input; self }
+    pub fn set_annotation_count(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.annotation_count = input;
+        self
+    }
     /// <p>The number of annotations returned.</p>
-    pub fn get_annotation_count(&self) -> &::std::option::Option<i32> { &self.annotation_count }
+    pub fn get_annotation_count(&self) -> &::std::option::Option<i32> {
+        &self.annotation_count
+    }
     /// <p>The continuation token used in this request.</p>
     pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.continuation_token = input; self }
+    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.continuation_token = input;
+        self
+    }
     /// <p>The continuation token used in this request.</p>
-    pub fn get_continuation_token(&self) -> &::std::option::Option<::std::string::String> { &self.continuation_token }
+    pub fn get_continuation_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.continuation_token
+    }
     /// <p>The continuation token to use to retrieve the next page of results.</p>
     pub fn next_continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_continuation_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_continuation_token = input; self }
+    pub fn set_next_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_continuation_token = input;
+        self
+    }
     /// <p>The continuation token to use to retrieve the next page of results.</p>
-    pub fn get_next_continuation_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_continuation_token }
+    pub fn get_next_continuation_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_continuation_token
+    }
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+        self.request_charged = input;
+        self
+    }
+    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+        &self.request_charged
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

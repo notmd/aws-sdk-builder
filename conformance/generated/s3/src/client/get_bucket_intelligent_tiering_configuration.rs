@@ -12,6 +12,8 @@ impl super::Client {
     pub fn get_bucket_intelligent_tiering_configuration(
         &self,
     ) -> crate::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationFluentBuilder {
-        crate::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationFluentBuilder::new(self.handle.clone())
+        crate::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

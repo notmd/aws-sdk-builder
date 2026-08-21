@@ -27,8 +27,10 @@ impl DeleteBucketIntelligentTieringConfigurationInput {
 }
 impl DeleteBucketIntelligentTieringConfigurationInput {
     /// Creates a new builder-style object to manufacture [`DeleteBucketIntelligentTieringConfigurationInput`](crate::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationInput).
-    pub fn builder() -> crate::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationInputBuilder {
-        crate::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationInputBuilder::default()
+    pub fn builder(
+    ) -> crate::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationInputBuilder {
+        crate::operation::delete_bucket_intelligent_tiering_configuration::builders::DeleteBucketIntelligentTieringConfigurationInputBuilder::default(
+        )
     }
 }
 
@@ -47,26 +49,41 @@ impl DeleteBucketIntelligentTieringConfigurationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The name of the Amazon S3 bucket whose configuration you want to modify or retrieve.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>The ID used to identify the S3 Intelligent-Tiering configuration.</p>
     /// This field is required.
     pub fn id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>The ID used to identify the S3 Intelligent-Tiering configuration.</p>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// Consumes the builder and constructs a [`DeleteBucketIntelligentTieringConfigurationInput`](crate::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationInput).
     pub fn build(self) -> crate::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationInput {
         crate::operation::delete_bucket_intelligent_tiering_configuration::DeleteBucketIntelligentTieringConfigurationInput {

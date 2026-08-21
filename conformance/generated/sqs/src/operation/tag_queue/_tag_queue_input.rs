@@ -40,9 +40,14 @@ impl TagQueueInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_url = input; self }
+    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.queue_url = input;
+        self
+    }
     /// <p>The URL of the queue.</p>
-    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> { &self.queue_url }
+    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.queue_url
+    }
     /// <p>The list of tags to be added to the specified queue.</p>
     /// Adds a key-value pair to `tags`.
     ///
@@ -53,9 +58,14 @@ impl TagQueueInputBuilder {
         self.tags = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.tags = input; self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.tags = input;
+        self
+    }
     /// <p>The list of tags to be added to the specified queue.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.tags }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.tags
+    }
     /// Consumes the builder and constructs a [`TagQueueInput`](crate::operation::tag_queue::TagQueueInput).
     pub fn build(self) -> crate::operation::tag_queue::TagQueueInput {
         crate::operation::tag_queue::TagQueueInput {

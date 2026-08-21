@@ -172,169 +172,274 @@ impl ExportDescriptionBuilder {
         self.export_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_export_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.export_arn = input; self }
+    pub fn set_export_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.export_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the table export.</p>
-    pub fn get_export_arn(&self) -> &::std::option::Option<::std::string::String> { &self.export_arn }
+    pub fn get_export_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.export_arn
+    }
     /// <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
     pub fn export_status(mut self, input: crate::types::ExportStatus) -> Self {
         self.export_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_export_status(mut self, input: ::std::option::Option<crate::types::ExportStatus>) -> Self { self.export_status = input; self }
+    pub fn set_export_status(mut self, input: ::std::option::Option<crate::types::ExportStatus>) -> Self {
+        self.export_status = input;
+        self
+    }
     /// <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
-    pub fn get_export_status(&self) -> &::std::option::Option<crate::types::ExportStatus> { &self.export_status }
+    pub fn get_export_status(&self) -> &::std::option::Option<crate::types::ExportStatus> {
+        &self.export_status
+    }
     /// <p>The time at which the export task began.</p>
     pub fn start_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.start_time = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.start_time = input; self }
+    pub fn set_start_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.start_time = input;
+        self
+    }
     /// <p>The time at which the export task began.</p>
-    pub fn get_start_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.start_time }
+    pub fn get_start_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.start_time
+    }
     /// <p>The time at which the export task completed.</p>
     pub fn end_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.end_time = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.end_time = input; self }
+    pub fn set_end_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.end_time = input;
+        self
+    }
     /// <p>The time at which the export task completed.</p>
-    pub fn get_end_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.end_time }
+    pub fn get_end_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.end_time
+    }
     /// <p>The name of the manifest file for the export task.</p>
     pub fn export_manifest(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.export_manifest = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_export_manifest(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.export_manifest = input; self }
+    pub fn set_export_manifest(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.export_manifest = input;
+        self
+    }
     /// <p>The name of the manifest file for the export task.</p>
-    pub fn get_export_manifest(&self) -> &::std::option::Option<::std::string::String> { &self.export_manifest }
+    pub fn get_export_manifest(&self) -> &::std::option::Option<::std::string::String> {
+        &self.export_manifest
+    }
     /// <p>The Amazon Resource Name (ARN) of the table that was exported.</p>
     pub fn table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_arn = input; self }
+    pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the table that was exported.</p>
-    pub fn get_table_arn(&self) -> &::std::option::Option<::std::string::String> { &self.table_arn }
+    pub fn get_table_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_arn
+    }
     /// <p>Unique ID of the table that was exported.</p>
     pub fn table_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_id = input; self }
+    pub fn set_table_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_id = input;
+        self
+    }
     /// <p>Unique ID of the table that was exported.</p>
-    pub fn get_table_id(&self) -> &::std::option::Option<::std::string::String> { &self.table_id }
+    pub fn get_table_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_id
+    }
     /// <p>Point in time from which table data was exported.</p>
     pub fn export_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.export_time = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_export_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.export_time = input; self }
+    pub fn set_export_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.export_time = input;
+        self
+    }
     /// <p>Point in time from which table data was exported.</p>
-    pub fn get_export_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.export_time }
+    pub fn get_export_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.export_time
+    }
     /// <p>The client token that was provided for the export task. A client token makes calls to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p>
     pub fn client_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.client_token = input; self }
+    pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.client_token = input;
+        self
+    }
     /// <p>The client token that was provided for the export task. A client token makes calls to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p>
-    pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> { &self.client_token }
+    pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.client_token
+    }
     /// <p>The name of the Amazon S3 bucket containing the export.</p>
     pub fn s3_bucket(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.s3_bucket = input; self }
+    pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.s3_bucket = input;
+        self
+    }
     /// <p>The name of the Amazon S3 bucket containing the export.</p>
-    pub fn get_s3_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.s3_bucket }
+    pub fn get_s3_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.s3_bucket
+    }
     /// <p>The ID of the Amazon Web Services account that owns the bucket containing the export.</p>
     pub fn s3_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_s3_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.s3_bucket_owner = input; self }
+    pub fn set_s3_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.s3_bucket_owner = input;
+        self
+    }
     /// <p>The ID of the Amazon Web Services account that owns the bucket containing the export.</p>
-    pub fn get_s3_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.s3_bucket_owner }
+    pub fn get_s3_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.s3_bucket_owner
+    }
     /// <p>The Amazon S3 bucket prefix used as the file name and path of the exported snapshot.</p>
     pub fn s3_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_s3_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.s3_prefix = input; self }
+    pub fn set_s3_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.s3_prefix = input;
+        self
+    }
     /// <p>The Amazon S3 bucket prefix used as the file name and path of the exported snapshot.</p>
-    pub fn get_s3_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.s3_prefix }
+    pub fn get_s3_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.s3_prefix
+    }
     /// <p>Type of encryption used on the bucket where export data is stored. Valid values for <code>S3SseAlgorithm</code> are:</p><ul><li><p><code>AES256</code> - server-side encryption with Amazon S3 managed keys</p></li><li><p><code>KMS</code> - server-side encryption with KMS managed keys</p></li></ul>
     pub fn s3_sse_algorithm(mut self, input: crate::types::S3SseAlgorithm) -> Self {
         self.s3_sse_algorithm = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_s3_sse_algorithm(mut self, input: ::std::option::Option<crate::types::S3SseAlgorithm>) -> Self { self.s3_sse_algorithm = input; self }
+    pub fn set_s3_sse_algorithm(mut self, input: ::std::option::Option<crate::types::S3SseAlgorithm>) -> Self {
+        self.s3_sse_algorithm = input;
+        self
+    }
     /// <p>Type of encryption used on the bucket where export data is stored. Valid values for <code>S3SseAlgorithm</code> are:</p><ul><li><p><code>AES256</code> - server-side encryption with Amazon S3 managed keys</p></li><li><p><code>KMS</code> - server-side encryption with KMS managed keys</p></li></ul>
-    pub fn get_s3_sse_algorithm(&self) -> &::std::option::Option<crate::types::S3SseAlgorithm> { &self.s3_sse_algorithm }
+    pub fn get_s3_sse_algorithm(&self) -> &::std::option::Option<crate::types::S3SseAlgorithm> {
+        &self.s3_sse_algorithm
+    }
     /// <p>The ID of the KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).</p>
     pub fn s3_sse_kms_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_sse_kms_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_s3_sse_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.s3_sse_kms_key_id = input; self }
+    pub fn set_s3_sse_kms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.s3_sse_kms_key_id = input;
+        self
+    }
     /// <p>The ID of the KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).</p>
-    pub fn get_s3_sse_kms_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.s3_sse_kms_key_id }
+    pub fn get_s3_sse_kms_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.s3_sse_kms_key_id
+    }
     /// <p>Status code for the result of the failed export.</p>
     pub fn failure_code(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.failure_code = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_failure_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.failure_code = input; self }
+    pub fn set_failure_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.failure_code = input;
+        self
+    }
     /// <p>Status code for the result of the failed export.</p>
-    pub fn get_failure_code(&self) -> &::std::option::Option<::std::string::String> { &self.failure_code }
+    pub fn get_failure_code(&self) -> &::std::option::Option<::std::string::String> {
+        &self.failure_code
+    }
     /// <p>Export failure reason description.</p>
     pub fn failure_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.failure_message = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_failure_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.failure_message = input; self }
+    pub fn set_failure_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.failure_message = input;
+        self
+    }
     /// <p>Export failure reason description.</p>
-    pub fn get_failure_message(&self) -> &::std::option::Option<::std::string::String> { &self.failure_message }
+    pub fn get_failure_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.failure_message
+    }
     /// <p>The format of the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
     pub fn export_format(mut self, input: crate::types::ExportFormat) -> Self {
         self.export_format = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_export_format(mut self, input: ::std::option::Option<crate::types::ExportFormat>) -> Self { self.export_format = input; self }
+    pub fn set_export_format(mut self, input: ::std::option::Option<crate::types::ExportFormat>) -> Self {
+        self.export_format = input;
+        self
+    }
     /// <p>The format of the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
-    pub fn get_export_format(&self) -> &::std::option::Option<crate::types::ExportFormat> { &self.export_format }
+    pub fn get_export_format(&self) -> &::std::option::Option<crate::types::ExportFormat> {
+        &self.export_format
+    }
     /// <p>The billable size of the table export.</p>
     pub fn billed_size_bytes(mut self, input: i64) -> Self {
         self.billed_size_bytes = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_billed_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self { self.billed_size_bytes = input; self }
+    pub fn set_billed_size_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.billed_size_bytes = input;
+        self
+    }
     /// <p>The billable size of the table export.</p>
-    pub fn get_billed_size_bytes(&self) -> &::std::option::Option<i64> { &self.billed_size_bytes }
+    pub fn get_billed_size_bytes(&self) -> &::std::option::Option<i64> {
+        &self.billed_size_bytes
+    }
     /// <p>The number of items exported.</p>
     pub fn item_count(mut self, input: i64) -> Self {
         self.item_count = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self { self.item_count = input; self }
+    pub fn set_item_count(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.item_count = input;
+        self
+    }
     /// <p>The number of items exported.</p>
-    pub fn get_item_count(&self) -> &::std::option::Option<i64> { &self.item_count }
+    pub fn get_item_count(&self) -> &::std::option::Option<i64> {
+        &self.item_count
+    }
     /// <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
     pub fn export_type(mut self, input: crate::types::ExportType) -> Self {
         self.export_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_export_type(mut self, input: ::std::option::Option<crate::types::ExportType>) -> Self { self.export_type = input; self }
+    pub fn set_export_type(mut self, input: ::std::option::Option<crate::types::ExportType>) -> Self {
+        self.export_type = input;
+        self
+    }
     /// <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
-    pub fn get_export_type(&self) -> &::std::option::Option<crate::types::ExportType> { &self.export_type }
+    pub fn get_export_type(&self) -> &::std::option::Option<crate::types::ExportType> {
+        &self.export_type
+    }
     /// <p>Optional object containing the parameters specific to an incremental export.</p>
     pub fn incremental_export_specification(mut self, input: crate::types::IncrementalExportSpecification) -> Self {
         self.incremental_export_specification = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_incremental_export_specification(mut self, input: ::std::option::Option<crate::types::IncrementalExportSpecification>) -> Self { self.incremental_export_specification = input; self }
+    pub fn set_incremental_export_specification(mut self, input: ::std::option::Option<crate::types::IncrementalExportSpecification>) -> Self {
+        self.incremental_export_specification = input;
+        self
+    }
     /// <p>Optional object containing the parameters specific to an incremental export.</p>
-    pub fn get_incremental_export_specification(&self) -> &::std::option::Option<crate::types::IncrementalExportSpecification> { &self.incremental_export_specification }
+    pub fn get_incremental_export_specification(&self) -> &::std::option::Option<crate::types::IncrementalExportSpecification> {
+        &self.incremental_export_specification
+    }
     /// Consumes the builder and constructs a [`ExportDescription`](crate::types::ExportDescription).
     pub fn build(self) -> crate::types::ExportDescription {
         crate::types::ExportDescription {

@@ -39,17 +39,27 @@ impl GetLayerVersionPolicyResponseBuilder {
         self.policy = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy = input; self }
+    pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy = input;
+        self
+    }
     /// <p>The policy document.</p>
-    pub fn get_policy(&self) -> &::std::option::Option<::std::string::String> { &self.policy }
+    pub fn get_policy(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy
+    }
     /// <p>A unique identifier for the current revision of the policy.</p>
     pub fn revision_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.revision_id = input; self }
+    pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.revision_id = input;
+        self
+    }
     /// <p>A unique identifier for the current revision of the policy.</p>
-    pub fn get_revision_id(&self) -> &::std::option::Option<::std::string::String> { &self.revision_id }
+    pub fn get_revision_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.revision_id
+    }
     /// Consumes the builder and constructs a [`GetLayerVersionPolicyResponse`](crate::types::GetLayerVersionPolicyResponse).
     pub fn build(self) -> crate::types::GetLayerVersionPolicyResponse {
         crate::types::GetLayerVersionPolicyResponse {

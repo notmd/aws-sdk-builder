@@ -37,15 +37,28 @@ impl PutRequestBuilder {
         self.item = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_item(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.item = input; self }
+    pub fn set_item(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    ) -> Self {
+        self.item = input;
+        self
+    }
     /// <p>A map of attribute name to attribute values, representing the primary key of an item to be processed by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.</p>
-    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> { &self.item }
+    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+        &self.item
+    }
     /// Consumes the builder and constructs a [`PutRequest`](crate::types::PutRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`item`](Self::item)
     pub fn build(self) -> ::std::result::Result<crate::types::PutRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::PutRequest {
-            item: self.item.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("item", "item was not specified but it is required when building PutRequest"))?,
+            item: self.item.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "item",
+                    "item was not specified but it is required when building PutRequest",
+                )
+            })?,
         })
     }
 }

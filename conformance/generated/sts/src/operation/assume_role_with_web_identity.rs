@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct AssumeRoleWithWebIdentity;
-impl AssumeRoleWithWebIdentity { pub fn new() -> Self { Self } }
+impl AssumeRoleWithWebIdentity {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     ExpiredTokenException(super::super::types::error::ExpiredTokenException),
@@ -13,16 +17,34 @@ pub enum Error {
     PackedPolicyTooLargeException(super::super::types::error::PackedPolicyTooLargeException),
     RegionDisabledException(super::super::types::error::RegionDisabledException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_expired_token_exception(&self) -> bool { matches!(self, Self::ExpiredTokenException(_)) }
-    pub fn is_idp_communication_error_exception(&self) -> bool { matches!(self, Self::IdpCommunicationErrorException(_)) }
-    pub fn is_idp_rejected_claim_exception(&self) -> bool { matches!(self, Self::IdpRejectedClaimException(_)) }
-    pub fn is_invalid_identity_token_exception(&self) -> bool { matches!(self, Self::InvalidIdentityTokenException(_)) }
-    pub fn is_malformed_policy_document_exception(&self) -> bool { matches!(self, Self::MalformedPolicyDocumentException(_)) }
-    pub fn is_packed_policy_too_large_exception(&self) -> bool { matches!(self, Self::PackedPolicyTooLargeException(_)) }
-    pub fn is_region_disabled_exception(&self) -> bool { matches!(self, Self::RegionDisabledException(_)) }
+    pub fn is_expired_token_exception(&self) -> bool {
+        matches!(self, Self::ExpiredTokenException(_))
+    }
+    pub fn is_idp_communication_error_exception(&self) -> bool {
+        matches!(self, Self::IdpCommunicationErrorException(_))
+    }
+    pub fn is_idp_rejected_claim_exception(&self) -> bool {
+        matches!(self, Self::IdpRejectedClaimException(_))
+    }
+    pub fn is_invalid_identity_token_exception(&self) -> bool {
+        matches!(self, Self::InvalidIdentityTokenException(_))
+    }
+    pub fn is_malformed_policy_document_exception(&self) -> bool {
+        matches!(self, Self::MalformedPolicyDocumentException(_))
+    }
+    pub fn is_packed_policy_too_large_exception(&self) -> bool {
+        matches!(self, Self::PackedPolicyTooLargeException(_))
+    }
+    pub fn is_region_disabled_exception(&self) -> bool {
+        matches!(self, Self::RegionDisabledException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -41,26 +63,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _assume_role_with_web_identity_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/operation/assume_role_with_web_identity/_assume_role_with_web_identity_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sts/src/operation/assume_role_with_web_identity/_assume_role_with_web_identity_input.rs"
+    ));
 }
 pub use _assume_role_with_web_identity_input::AssumeRoleWithWebIdentityInput;
 pub type Input = AssumeRoleWithWebIdentityInput;
 pub mod _assume_role_with_web_identity_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/operation/assume_role_with_web_identity/_assume_role_with_web_identity_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sts/src/operation/assume_role_with_web_identity/_assume_role_with_web_identity_output.rs"
+    ));
 }
 pub use _assume_role_with_web_identity_output::AssumeRoleWithWebIdentityOutput;
 pub type Output = AssumeRoleWithWebIdentityOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/operation/assume_role_with_web_identity/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sts/src/operation/assume_role_with_web_identity/builders.rs"
+    ));
 }
 pub type AssumeRoleWithWebIdentityError = Error;
 pub type AssumeRoleWithWebIdentityFluentBuilder = builders::Builder;

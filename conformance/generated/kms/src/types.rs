@@ -87,7 +87,10 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_xks_key_configuration_type.rs"));
     pub type XksKeyIdType = ::std::string::String;
     pub type XksProxyAuthenticationAccessKeyIdType = ::std::string::String;
-    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_xks_proxy_authentication_credential_type.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/kms/src/types/_xks_proxy_authentication_credential_type.rs"
+    ));
     pub type XksProxyAuthenticationRawSecretAccessKeyType = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_xks_proxy_configuration_type.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_xks_proxy_connectivity_type.rs"));
@@ -95,53 +98,149 @@ pub mod types {
     pub type XksProxyUriPathType = ::std::string::String;
     pub type XksProxyVpcEndpointServiceNameType = ::std::string::String;
     pub mod error {
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_dependency_timeout_exception.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_invalid_arn_exception.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_kms_internal_exception.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_kms_invalid_state_exception.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_not_found_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_cloud_hsm_cluster_invalid_configuration_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_cloud_hsm_cluster_not_active_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_custom_key_store_invalid_state_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_custom_key_store_not_found_exception.rs"
+        ));
         include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_already_exists_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_cloud_hsm_cluster_in_use_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_cloud_hsm_cluster_invalid_configuration_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_cloud_hsm_cluster_not_active_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_cloud_hsm_cluster_not_found_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_cloud_hsm_cluster_not_related_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_conflict_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_custom_key_store_has_cm_ks_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_custom_key_store_invalid_state_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_custom_key_store_name_in_use_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_custom_key_store_not_found_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_dependency_timeout_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_invalid_alias_name_exception.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_limit_exceeded_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_cloud_hsm_cluster_in_use_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_cloud_hsm_cluster_not_found_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_custom_key_store_name_in_use_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_incorrect_trust_anchor_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_xks_proxy_incorrect_authentication_credential_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_xks_proxy_invalid_configuration_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_xks_proxy_invalid_response_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_xks_proxy_uri_endpoint_in_use_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_xks_proxy_uri_in_use_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_xks_proxy_uri_unreachable_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_xks_proxy_vpc_endpoint_service_in_use_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_xks_proxy_vpc_endpoint_service_invalid_configuration_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_xks_proxy_vpc_endpoint_service_not_found_exception.rs"
+        ));
         include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_disabled_exception.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_dry_run_operation_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_expired_import_token_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_incorrect_key_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_incorrect_key_material_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_incorrect_trust_anchor_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_invalid_alias_name_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_invalid_arn_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_invalid_ciphertext_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_invalid_grant_id_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_invalid_grant_token_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_invalid_import_token_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_invalid_key_usage_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_invalid_marker_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_kms_internal_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_kms_invalid_mac_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_kms_invalid_signature_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_kms_invalid_state_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_key_unavailable_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_limit_exceeded_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_malformed_policy_document_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_not_found_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_invalid_grant_token_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_malformed_policy_document_exception.rs"
+        ));
         include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_tag_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_unsupported_operation_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_xks_key_already_in_use_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_xks_key_invalid_configuration_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_unsupported_operation_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_xks_key_already_in_use_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_xks_key_invalid_configuration_exception.rs"
+        ));
         include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_xks_key_not_found_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_xks_proxy_incorrect_authentication_credential_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_xks_proxy_invalid_configuration_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_xks_proxy_invalid_response_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_xks_proxy_uri_endpoint_in_use_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_xks_proxy_uri_in_use_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_xks_proxy_uri_unreachable_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_xks_proxy_vpc_endpoint_service_in_use_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_xks_proxy_vpc_endpoint_service_invalid_configuration_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_xks_proxy_vpc_endpoint_service_not_found_exception.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_incorrect_key_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_invalid_ciphertext_exception.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_invalid_key_usage_exception.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_key_unavailable_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_custom_key_store_has_cm_ks_exception.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_invalid_marker_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_expired_import_token_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_incorrect_key_material_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_invalid_import_token_exception.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_invalid_grant_id_exception.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_conflict_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_cloud_hsm_cluster_not_related_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/kms/src/types/error/_kms_invalid_signature_exception.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/_kms_invalid_mac_exception.rs"));
+        pub mod builders {
+            include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/error/builders.rs"));
+        }
     }
 }

@@ -39,7 +39,9 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInput {
 }
 impl UpdateBucketMetadataAnnotationTableConfigurationInput {
     /// Creates a new builder-style object to manufacture [`UpdateBucketMetadataAnnotationTableConfigurationInput`](crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput).
-    pub fn builder() -> crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationInputBuilder
+    {
         crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationInputBuilder::default()
     }
 }
@@ -61,43 +63,70 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The name of the bucket whose annotation table configuration to update.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>Base64-encoded MD5 digest of the message body.</p>
     pub fn content_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.content_md5 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_content_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.content_md5 = input; self }
+    pub fn set_content_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.content_md5 = input;
+        self
+    }
     /// <p>Base64-encoded MD5 digest of the message body.</p>
-    pub fn get_content_md5(&self) -> &::std::option::Option<::std::string::String> { &self.content_md5 }
+    pub fn get_content_md5(&self) -> &::std::option::Option<::std::string::String> {
+        &self.content_md5
+    }
     /// <p>Checksum algorithm for the request payload.</p>
     pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
         self.checksum_algorithm = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self { self.checksum_algorithm = input; self }
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+        self.checksum_algorithm = input;
+        self
+    }
     /// <p>Checksum algorithm for the request payload.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> { &self.checksum_algorithm }
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+        &self.checksum_algorithm
+    }
     /// <p>The annotation table configuration updates to apply.</p>
     pub fn annotation_table_configuration(mut self, input: crate::types::AnnotationTableConfigurationUpdates) -> Self {
         self.annotation_table_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_annotation_table_configuration(mut self, input: ::std::option::Option<crate::types::AnnotationTableConfigurationUpdates>) -> Self { self.annotation_table_configuration = input; self }
+    pub fn set_annotation_table_configuration(mut self, input: ::std::option::Option<crate::types::AnnotationTableConfigurationUpdates>) -> Self {
+        self.annotation_table_configuration = input;
+        self
+    }
     /// <p>The annotation table configuration updates to apply.</p>
-    pub fn get_annotation_table_configuration(&self) -> &::std::option::Option<crate::types::AnnotationTableConfigurationUpdates> { &self.annotation_table_configuration }
+    pub fn get_annotation_table_configuration(&self) -> &::std::option::Option<crate::types::AnnotationTableConfigurationUpdates> {
+        &self.annotation_table_configuration
+    }
     /// <p>The account ID of the expected bucket owner.</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner.</p>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// Consumes the builder and constructs a [`UpdateBucketMetadataAnnotationTableConfigurationInput`](crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput).
-    pub fn build(self) -> crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput {
+    pub fn build(
+        self,
+    ) -> crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput {
         crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationInput {
             bucket: self.bucket,
             content_md5: self.content_md5,

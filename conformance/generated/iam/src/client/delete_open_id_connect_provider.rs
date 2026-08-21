@@ -6,7 +6,9 @@ impl super::Client {
     ///   - [`open_id_connect_provider_arn(impl Into<String>)`](crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderFluentBuilder::open_id_connect_provider_arn) / [`set_open_id_connect_provider_arn(Option<String>)`](crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderFluentBuilder::set_open_id_connect_provider_arn):<br>required: **true**<br><p>The Amazon Resource Name (ARN) of the IAM OpenID Connect provider resource object to delete. You can get a list of OpenID Connect provider resource ARNs by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> operation.</p><br>
     /// - On success, responds with [`DeleteOpenIdConnectProviderOutput`](crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput)
     /// - On failure, responds with [`SdkError<DeleteOpenIdConnectProviderError>`](crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError)
-    pub fn delete_open_id_connect_provider(&self) -> crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderFluentBuilder {
+    pub fn delete_open_id_connect_provider(
+        &self,
+    ) -> crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderFluentBuilder {
         crate::operation::delete_open_id_connect_provider::builders::DeleteOpenIdConnectProviderFluentBuilder::new(self.handle.clone())
     }
 }

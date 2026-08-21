@@ -39,9 +39,14 @@ impl ListAliasesResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>The pagination token that's included if more results are available.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// <p>A list of aliases.</p>
     /// Appends an item to `aliases`.
     ///
@@ -52,9 +57,14 @@ impl ListAliasesResponseBuilder {
         self.aliases = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_aliases(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AliasConfiguration>>) -> Self { self.aliases = input; self }
+    pub fn set_aliases(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AliasConfiguration>>) -> Self {
+        self.aliases = input;
+        self
+    }
     /// <p>A list of aliases.</p>
-    pub fn get_aliases(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AliasConfiguration>> { &self.aliases }
+    pub fn get_aliases(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AliasConfiguration>> {
+        &self.aliases
+    }
     /// Consumes the builder and constructs a [`ListAliasesResponse`](crate::types::ListAliasesResponse).
     pub fn build(self) -> crate::types::ListAliasesResponse {
         crate::types::ListAliasesResponse {

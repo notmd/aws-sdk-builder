@@ -34,15 +34,25 @@ impl DeleteCodeSigningConfigRequestBuilder {
         self.code_signing_config_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.code_signing_config_arn = input; self }
+    pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.code_signing_config_arn = input;
+        self
+    }
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    pub fn get_code_signing_config_arn(&self) -> &::std::option::Option<::std::string::String> { &self.code_signing_config_arn }
+    pub fn get_code_signing_config_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.code_signing_config_arn
+    }
     /// Consumes the builder and constructs a [`DeleteCodeSigningConfigRequest`](crate::types::DeleteCodeSigningConfigRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`code_signing_config_arn`](Self::code_signing_config_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::DeleteCodeSigningConfigRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteCodeSigningConfigRequest {
-            code_signing_config_arn: self.code_signing_config_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("code_signing_config_arn", "code_signing_config_arn was not specified but it is required when building DeleteCodeSigningConfigRequest"))?,
+            code_signing_config_arn: self.code_signing_config_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "code_signing_config_arn",
+                    "code_signing_config_arn was not specified but it is required when building DeleteCodeSigningConfigRequest",
+                )
+            })?,
         })
     }
 }

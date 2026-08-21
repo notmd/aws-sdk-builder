@@ -32,13 +32,16 @@ impl ListSubscriptionsInputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
+    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_token = input;
+        self
+    }
     /// <p>Token returned by the previous <code>ListSubscriptions</code> request.</p>
-    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_token
+    }
     /// Consumes the builder and constructs a [`ListSubscriptionsInput`](crate::operation::list_subscriptions::ListSubscriptionsInput).
     pub fn build(self) -> crate::operation::list_subscriptions::ListSubscriptionsInput {
-        crate::operation::list_subscriptions::ListSubscriptionsInput {
-            next_token: self.next_token,
-        }
+        crate::operation::list_subscriptions::ListSubscriptionsInput { next_token: self.next_token }
     }
 }

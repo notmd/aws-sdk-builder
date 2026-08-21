@@ -40,17 +40,27 @@ impl GetHumanReadableSummaryInputBuilder {
         self.entity_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_entity_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.entity_arn = input; self }
+    pub fn set_entity_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.entity_arn = input;
+        self
+    }
     /// <p>Arn of the entity to be summarized. At this time, the only supported entity type is <code>delegation-request</code></p>
-    pub fn get_entity_arn(&self) -> &::std::option::Option<::std::string::String> { &self.entity_arn }
+    pub fn get_entity_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.entity_arn
+    }
     /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages">Supported languages of the Amazon Web Services Management Console</a>.</p>
     pub fn locale(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.locale = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_locale(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.locale = input; self }
+    pub fn set_locale(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.locale = input;
+        self
+    }
     /// <p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages">Supported languages of the Amazon Web Services Management Console</a>.</p>
-    pub fn get_locale(&self) -> &::std::option::Option<::std::string::String> { &self.locale }
+    pub fn get_locale(&self) -> &::std::option::Option<::std::string::String> {
+        &self.locale
+    }
     /// Consumes the builder and constructs a [`GetHumanReadableSummaryInput`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryInput).
     pub fn build(self) -> crate::operation::get_human_readable_summary::GetHumanReadableSummaryInput {
         crate::operation::get_human_readable_summary::GetHumanReadableSummaryInput {

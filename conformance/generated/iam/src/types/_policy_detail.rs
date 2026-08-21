@@ -40,17 +40,27 @@ impl PolicyDetailBuilder {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_name = input; self }
+    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_name = input;
+        self
+    }
     /// <p>The name of the policy.</p>
-    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> { &self.policy_name }
+    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_name
+    }
     /// <p>The policy document.</p>
     pub fn policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_document = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_document = input; self }
+    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_document = input;
+        self
+    }
     /// <p>The policy document.</p>
-    pub fn get_policy_document(&self) -> &::std::option::Option<::std::string::String> { &self.policy_document }
+    pub fn get_policy_document(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_document
+    }
     /// Consumes the builder and constructs a [`PolicyDetail`](crate::types::PolicyDetail).
     pub fn build(self) -> crate::types::PolicyDetail {
         crate::types::PolicyDetail {

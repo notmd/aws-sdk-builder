@@ -39,17 +39,27 @@ impl FunctionScalingConfigBuilder {
         self.min_execution_environments = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_min_execution_environments(mut self, input: ::std::option::Option<i32>) -> Self { self.min_execution_environments = input; self }
+    pub fn set_min_execution_environments(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.min_execution_environments = input;
+        self
+    }
     /// <p>The minimum number of execution environments to maintain for the function.</p>
-    pub fn get_min_execution_environments(&self) -> &::std::option::Option<i32> { &self.min_execution_environments }
+    pub fn get_min_execution_environments(&self) -> &::std::option::Option<i32> {
+        &self.min_execution_environments
+    }
     /// <p>The maximum number of execution environments that can be provisioned for the function.</p>
     pub fn max_execution_environments(mut self, input: i32) -> Self {
         self.max_execution_environments = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_execution_environments(mut self, input: ::std::option::Option<i32>) -> Self { self.max_execution_environments = input; self }
+    pub fn set_max_execution_environments(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.max_execution_environments = input;
+        self
+    }
     /// <p>The maximum number of execution environments that can be provisioned for the function.</p>
-    pub fn get_max_execution_environments(&self) -> &::std::option::Option<i32> { &self.max_execution_environments }
+    pub fn get_max_execution_environments(&self) -> &::std::option::Option<i32> {
+        &self.max_execution_environments
+    }
     /// Consumes the builder and constructs a [`FunctionScalingConfig`](crate::types::FunctionScalingConfig).
     pub fn build(self) -> crate::types::FunctionScalingConfig {
         crate::types::FunctionScalingConfig {

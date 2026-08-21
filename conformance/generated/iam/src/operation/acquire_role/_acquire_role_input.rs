@@ -23,7 +23,9 @@ impl AcquireRoleInput {
         self.template_minor_version
     }
     /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
-    pub fn replacement_values(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>> {
+    pub fn replacement_values(
+        &self,
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>> {
         self.replacement_values.as_ref()
     }
 }
@@ -50,18 +52,28 @@ impl AcquireRoleInputBuilder {
         self.template_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.template_arn = input; self }
+    pub fn set_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.template_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the role template to create the role from.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn get_template_arn(&self) -> &::std::option::Option<::std::string::String> { &self.template_arn }
+    pub fn get_template_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.template_arn
+    }
     /// <p>The minor version of the role template to use. If you do not specify a minor version, the service uses the template's default minor version.</p>
     pub fn template_minor_version(mut self, input: i32) -> Self {
         self.template_minor_version = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_template_minor_version(mut self, input: ::std::option::Option<i32>) -> Self { self.template_minor_version = input; self }
+    pub fn set_template_minor_version(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.template_minor_version = input;
+        self
+    }
     /// <p>The minor version of the role template to use. If you do not specify a minor version, the service uses the template's default minor version.</p>
-    pub fn get_template_minor_version(&self) -> &::std::option::Option<i32> { &self.template_minor_version }
+    pub fn get_template_minor_version(&self) -> &::std::option::Option<i32> {
+        &self.template_minor_version
+    }
     /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
     /// Adds a key-value pair to `replacement_values`.
     ///
@@ -72,9 +84,19 @@ impl AcquireRoleInputBuilder {
         self.replacement_values = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_replacement_values(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>>) -> Self { self.replacement_values = input; self }
+    pub fn set_replacement_values(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>>,
+    ) -> Self {
+        self.replacement_values = input;
+        self
+    }
     /// <p>A map of values to substitute for the parameters that are defined in the role template version. Each key is a parameter name from the template, and each value is a structure that contains the replacement values for that parameter.</p>
-    pub fn get_replacement_values(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>> { &self.replacement_values }
+    pub fn get_replacement_values(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>> {
+        &self.replacement_values
+    }
     /// Consumes the builder and constructs a [`AcquireRoleInput`](crate::operation::acquire_role::AcquireRoleInput).
     pub fn build(self) -> crate::operation::acquire_role::AcquireRoleInput {
         crate::operation::acquire_role::AcquireRoleInput {

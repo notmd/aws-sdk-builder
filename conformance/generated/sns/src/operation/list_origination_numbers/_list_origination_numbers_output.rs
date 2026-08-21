@@ -46,9 +46,14 @@ impl ListOriginationNumbersOutputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
+    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_token = input;
+        self
+    }
     /// <p>A <code>NextToken</code> string is returned when you call the <code>ListOriginationNumbers</code> operation if additional pages of records are available.</p>
-    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_token
+    }
     /// <p>A list of the calling account's verified and pending origination numbers.</p>
     /// Appends an item to `phone_numbers`.
     ///
@@ -59,9 +64,14 @@ impl ListOriginationNumbersOutputBuilder {
         self.phone_numbers = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_phone_numbers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>>) -> Self { self.phone_numbers = input; self }
+    pub fn set_phone_numbers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>>) -> Self {
+        self.phone_numbers = input;
+        self
+    }
     /// <p>A list of the calling account's verified and pending origination numbers.</p>
-    pub fn get_phone_numbers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>> { &self.phone_numbers }
+    pub fn get_phone_numbers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>> {
+        &self.phone_numbers
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

@@ -51,25 +51,43 @@ impl CancellationReasonBuilder {
         self.item = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_item(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.item = input; self }
+    pub fn set_item(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    ) -> Self {
+        self.item = input;
+        self
+    }
     /// <p>Item in the request which caused the transaction to get cancelled.</p>
-    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> { &self.item }
+    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+        &self.item
+    }
     /// <p>Status code for the result of the cancelled transaction.</p>
     pub fn code(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.code = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.code = input; self }
+    pub fn set_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.code = input;
+        self
+    }
     /// <p>Status code for the result of the cancelled transaction.</p>
-    pub fn get_code(&self) -> &::std::option::Option<::std::string::String> { &self.code }
+    pub fn get_code(&self) -> &::std::option::Option<::std::string::String> {
+        &self.code
+    }
     /// <p>Cancellation reason message description.</p>
     pub fn message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.message = input; self }
+    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.message = input;
+        self
+    }
     /// <p>Cancellation reason message description.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> { &self.message }
+    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.message
+    }
     /// Consumes the builder and constructs a [`CancellationReason`](crate::types::CancellationReason).
     pub fn build(self) -> crate::types::CancellationReason {
         crate::types::CancellationReason {

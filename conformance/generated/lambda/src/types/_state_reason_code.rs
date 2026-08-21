@@ -267,7 +267,48 @@ impl StateReasonCode {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["CapacityProviderScalingLimitExceeded", "Creating", "DependencyError", "DisabledKMSKey", "DisallowedByVpcEncryptionControl", "DrainingDurableExecutions", "EC2RequestLimitExceeded", "EFSIOError", "EFSMountConnectivityError", "EFSMountFailure", "EFSMountTimeout", "EniLimitExceeded", "FunctionError", "FunctionError.ExtensionInitError", "FunctionError.InitResourceExhausted", "FunctionError.InitTimeout", "FunctionError.InvalidEntryPoint", "FunctionError.InvalidWorkingDirectory", "FunctionError.PermissionDenied", "FunctionError.RuntimeInitError", "FunctionError.TooManyExtensions", "Idle", "ImageAccessDenied", "ImageDeleted", "InsufficientCapacity", "InsufficientRolePermissions", "InternalError", "InvalidConfiguration", "InvalidImage", "InvalidRuntime", "InvalidSecurityGroup", "InvalidStateKMSKey", "InvalidSubnet", "InvalidZipFileException", "KMSKeyAccessDenied", "KMSKeyNotFound", "Restoring", "ServiceQuotaExceededException", "SubnetOutOfIPAddresses", "VcpuLimitExceeded"]
+        &[
+            "CapacityProviderScalingLimitExceeded",
+            "Creating",
+            "DependencyError",
+            "DisabledKMSKey",
+            "DisallowedByVpcEncryptionControl",
+            "DrainingDurableExecutions",
+            "EC2RequestLimitExceeded",
+            "EFSIOError",
+            "EFSMountConnectivityError",
+            "EFSMountFailure",
+            "EFSMountTimeout",
+            "EniLimitExceeded",
+            "FunctionError",
+            "FunctionError.ExtensionInitError",
+            "FunctionError.InitResourceExhausted",
+            "FunctionError.InitTimeout",
+            "FunctionError.InvalidEntryPoint",
+            "FunctionError.InvalidWorkingDirectory",
+            "FunctionError.PermissionDenied",
+            "FunctionError.RuntimeInitError",
+            "FunctionError.TooManyExtensions",
+            "Idle",
+            "ImageAccessDenied",
+            "ImageDeleted",
+            "InsufficientCapacity",
+            "InsufficientRolePermissions",
+            "InternalError",
+            "InvalidConfiguration",
+            "InvalidImage",
+            "InvalidRuntime",
+            "InvalidSecurityGroup",
+            "InvalidStateKMSKey",
+            "InvalidSubnet",
+            "InvalidZipFileException",
+            "KMSKeyAccessDenied",
+            "KMSKeyNotFound",
+            "Restoring",
+            "ServiceQuotaExceededException",
+            "SubnetOutOfIPAddresses",
+            "VcpuLimitExceeded",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for StateReasonCode {

@@ -32,13 +32,16 @@ impl InputFormatOptionsBuilder {
         self.csv = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_csv(mut self, input: ::std::option::Option<crate::types::CsvOptions>) -> Self { self.csv = input; self }
+    pub fn set_csv(mut self, input: ::std::option::Option<crate::types::CsvOptions>) -> Self {
+        self.csv = input;
+        self
+    }
     /// <p>The options for imported source files in CSV format. The values are Delimiter and HeaderList.</p>
-    pub fn get_csv(&self) -> &::std::option::Option<crate::types::CsvOptions> { &self.csv }
+    pub fn get_csv(&self) -> &::std::option::Option<crate::types::CsvOptions> {
+        &self.csv
+    }
     /// Consumes the builder and constructs a [`InputFormatOptions`](crate::types::InputFormatOptions).
     pub fn build(self) -> crate::types::InputFormatOptions {
-        crate::types::InputFormatOptions {
-            csv: self.csv,
-        }
+        crate::types::InputFormatOptions { csv: self.csv }
     }
 }

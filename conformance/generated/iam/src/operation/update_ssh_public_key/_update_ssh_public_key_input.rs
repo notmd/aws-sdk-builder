@@ -52,10 +52,15 @@ impl UpdateSshPublicKeyInputBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.user_name = input; self }
+    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.user_name = input;
+        self
+    }
     /// <p>The name of the IAM user associated with the SSH public key.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> { &self.user_name }
+    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.user_name
+    }
     /// <p>The unique identifier for the SSH public key.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
     /// This field is required.
@@ -63,19 +68,29 @@ impl UpdateSshPublicKeyInputBuilder {
         self.ssh_public_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_ssh_public_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.ssh_public_key_id = input; self }
+    pub fn set_ssh_public_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.ssh_public_key_id = input;
+        self
+    }
     /// <p>The unique identifier for the SSH public key.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters that can consist of any upper or lowercased letter or digit.</p>
-    pub fn get_ssh_public_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.ssh_public_key_id }
+    pub fn get_ssh_public_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.ssh_public_key_id
+    }
     /// <p>The status to assign to the SSH public key. <code>Active</code> means that the key can be used for authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be used.</p>
     /// This field is required.
     pub fn status(mut self, input: crate::types::StatusType) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self { self.status = input; self }
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
+        self.status = input;
+        self
+    }
     /// <p>The status to assign to the SSH public key. <code>Active</code> means that the key can be used for authentication with an CodeCommit repository. <code>Inactive</code> means that the key cannot be used.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::StatusType> { &self.status }
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::StatusType> {
+        &self.status
+    }
     /// Consumes the builder and constructs a [`UpdateSshPublicKeyInput`](crate::operation::update_ssh_public_key::UpdateSshPublicKeyInput).
     pub fn build(self) -> crate::operation::update_ssh_public_key::UpdateSshPublicKeyInput {
         crate::operation::update_ssh_public_key::UpdateSshPublicKeyInput {

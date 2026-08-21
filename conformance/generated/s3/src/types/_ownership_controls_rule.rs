@@ -30,14 +30,24 @@ impl OwnershipControlsRuleBuilder {
         self.object_ownership = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_object_ownership(mut self, input: ::std::option::Option<crate::types::ObjectOwnership>) -> Self { self.object_ownership = input; self }
-    pub fn get_object_ownership(&self) -> &::std::option::Option<crate::types::ObjectOwnership> { &self.object_ownership }
+    pub fn set_object_ownership(mut self, input: ::std::option::Option<crate::types::ObjectOwnership>) -> Self {
+        self.object_ownership = input;
+        self
+    }
+    pub fn get_object_ownership(&self) -> &::std::option::Option<crate::types::ObjectOwnership> {
+        &self.object_ownership
+    }
     /// Consumes the builder and constructs a [`OwnershipControlsRule`](crate::types::OwnershipControlsRule).
     /// This method will fail if any of the following fields are not set:
     /// - [`object_ownership`](Self::object_ownership)
     pub fn build(self) -> ::std::result::Result<crate::types::OwnershipControlsRule, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::OwnershipControlsRule {
-            object_ownership: self.object_ownership.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("object_ownership", "object_ownership was not specified but it is required when building OwnershipControlsRule"))?,
+            object_ownership: self.object_ownership.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "object_ownership",
+                    "object_ownership was not specified but it is required when building OwnershipControlsRule",
+                )
+            })?,
         })
     }
 }

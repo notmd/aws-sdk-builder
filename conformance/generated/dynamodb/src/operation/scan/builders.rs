@@ -6,40 +6,115 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_name = Some(value.into()); self }
-    pub fn index_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.index_name = Some(value.into()); self }
-    pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.attributes_to_get = Some(value.into()); self }
-    pub fn limit(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.limit = Some(value.into()); self }
-    pub fn select(mut self, value: impl ::std::convert::Into<crate::types::Select>) -> Self { self.input.select = Some(value.into()); self }
-    pub fn scan_filter(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::Condition>>) -> Self { self.input.scan_filter = Some(value.into()); self }
-    pub fn conditional_operator(mut self, value: impl ::std::convert::Into<crate::types::ConditionalOperator>) -> Self { self.input.conditional_operator = Some(value.into()); self }
-    pub fn exclusive_start_key(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.input.exclusive_start_key = Some(value.into()); self }
-    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
-    pub fn total_segments(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.total_segments = Some(value.into()); self }
-    pub fn segment(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.segment = Some(value.into()); self }
-    pub fn projection_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.projection_expression = Some(value.into()); self }
-    pub fn filter_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.filter_expression = Some(value.into()); self }
-    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
-    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
-    pub fn consistent_read(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.consistent_read = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::ScanOutput, super::ScanError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ScanError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::ScanError::unhandled_with_request_ids(format!("Scan returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_scan_output::ScanOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.table_name = Some(value.into());
+        self
+    }
+    pub fn index_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.index_name = Some(value.into());
+        self
+    }
+    pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.input.attributes_to_get = Some(value.into());
+        self
+    }
+    pub fn limit(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.limit = Some(value.into());
+        self
+    }
+    pub fn select(mut self, value: impl ::std::convert::Into<crate::types::Select>) -> Self {
+        self.input.select = Some(value.into());
+        self
+    }
+    pub fn scan_filter(
+        mut self,
+        value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::Condition>>,
+    ) -> Self {
+        self.input.scan_filter = Some(value.into());
+        self
+    }
+    pub fn conditional_operator(mut self, value: impl ::std::convert::Into<crate::types::ConditionalOperator>) -> Self {
+        self.input.conditional_operator = Some(value.into());
+        self
+    }
+    pub fn exclusive_start_key(
+        mut self,
+        value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    ) -> Self {
+        self.input.exclusive_start_key = Some(value.into());
+        self
+    }
+    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self {
+        self.input.return_consumed_capacity = Some(value.into());
+        self
+    }
+    pub fn total_segments(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.total_segments = Some(value.into());
+        self
+    }
+    pub fn segment(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.segment = Some(value.into());
+        self
+    }
+    pub fn projection_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.projection_expression = Some(value.into());
+        self
+    }
+    pub fn filter_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.filter_expression = Some(value.into());
+        self
+    }
+    pub fn expression_attribute_names(
+        mut self,
+        value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    ) -> Self {
+        self.input.expression_attribute_names = Some(value.into());
+        self
+    }
+    pub fn expression_attribute_values(
+        mut self,
+        value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    ) -> Self {
+        self.input.expression_attribute_values = Some(value.into());
+        self
+    }
+    pub fn consistent_read(mut self, value: impl ::std::convert::Into<bool>) -> Self {
+        self.input.consistent_read = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::ScanOutput, super::ScanError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::ScanError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::ScanError::unhandled_with_request_ids(
+                format!("Scan returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_scan_output::ScanOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as ScanFluentBuilder;

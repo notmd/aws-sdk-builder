@@ -104,17 +104,27 @@ impl ObjectBuilder {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>The name that you assign to an object. You use the object key to retrieve the object.</p>
-    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key
+    }
     /// <p>Creation date of the object.</p>
     pub fn last_modified(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.last_modified = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.last_modified = input; self }
+    pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.last_modified = input;
+        self
+    }
     /// <p>Creation date of the object.</p>
-    pub fn get_last_modified(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.last_modified }
+    pub fn get_last_modified(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.last_modified
+    }
     /// <p>The entity tag is a hash of the object. The ETag reflects changes only to the contents of an object, not its metadata. The ETag may or may not be an MD5 digest of the object data. Whether or not it is depends on how the object was created and how it is encrypted as described below:</p><ul><li><p>Objects created by the PUT Object, POST Object, or Copy operation, or through the Amazon Web Services Management Console, and are encrypted by SSE-S3 or plaintext, have ETags that are an MD5 digest of their object data.</p></li><li><p>Objects created by the PUT Object, POST Object, or Copy operation, or through the Amazon Web Services Management Console, and are encrypted by SSE-C or SSE-KMS, have ETags that are not an MD5 digest of their object data.</p></li><li><p>If an object is created by either the Multipart Upload or Part Copy operation, the ETag is not an MD5 digest, regardless of the method of encryption. If an object is larger than 16 MB, the Amazon Web Services Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest.</p></li></ul><note>
     /// <p><b>Directory buckets</b> - MD5 is not supported by directory buckets.</p>
     /// </note>
@@ -122,11 +132,16 @@ impl ObjectBuilder {
         self.e_tag = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.e_tag = input; self }
+    pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.e_tag = input;
+        self
+    }
     /// <p>The entity tag is a hash of the object. The ETag reflects changes only to the contents of an object, not its metadata. The ETag may or may not be an MD5 digest of the object data. Whether or not it is depends on how the object was created and how it is encrypted as described below:</p><ul><li><p>Objects created by the PUT Object, POST Object, or Copy operation, or through the Amazon Web Services Management Console, and are encrypted by SSE-S3 or plaintext, have ETags that are an MD5 digest of their object data.</p></li><li><p>Objects created by the PUT Object, POST Object, or Copy operation, or through the Amazon Web Services Management Console, and are encrypted by SSE-C or SSE-KMS, have ETags that are not an MD5 digest of their object data.</p></li><li><p>If an object is created by either the Multipart Upload or Part Copy operation, the ETag is not an MD5 digest, regardless of the method of encryption. If an object is larger than 16 MB, the Amazon Web Services Management Console will upload or copy that object as a Multipart Upload, and therefore the ETag will not be an MD5 digest.</p></li></ul><note>
     /// <p><b>Directory buckets</b> - MD5 is not supported by directory buckets.</p>
     /// </note>
-    pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> { &self.e_tag }
+    pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> {
+        &self.e_tag
+    }
     /// <p>The algorithm that was used to create a checksum of the object.</p>
     /// Appends an item to `checksum_algorithm`.
     ///
@@ -137,25 +152,40 @@ impl ObjectBuilder {
         self.checksum_algorithm = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>>) -> Self { self.checksum_algorithm = input; self }
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>>) -> Self {
+        self.checksum_algorithm = input;
+        self
+    }
     /// <p>The algorithm that was used to create a checksum of the object.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>> { &self.checksum_algorithm }
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>> {
+        &self.checksum_algorithm
+    }
     /// <p>The checksum type that is used to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_type(mut self, input: crate::types::ChecksumType) -> Self {
         self.checksum_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self { self.checksum_type = input; self }
+    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
+        self.checksum_type = input;
+        self
+    }
     /// <p>The checksum type that is used to calculate the object’s checksum value. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_type(&self) -> &::std::option::Option<crate::types::ChecksumType> { &self.checksum_type }
+    pub fn get_checksum_type(&self) -> &::std::option::Option<crate::types::ChecksumType> {
+        &self.checksum_type
+    }
     /// <p>Size in bytes of the object</p>
     pub fn size(mut self, input: i64) -> Self {
         self.size = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_size(mut self, input: ::std::option::Option<i64>) -> Self { self.size = input; self }
+    pub fn set_size(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.size = input;
+        self
+    }
     /// <p>Size in bytes of the object</p>
-    pub fn get_size(&self) -> &::std::option::Option<i64> { &self.size }
+    pub fn get_size(&self) -> &::std::option::Option<i64> {
+        &self.size
+    }
     /// <p>The class of storage used to store the object.</p><note>
     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
@@ -163,11 +193,16 @@ impl ObjectBuilder {
         self.storage_class = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::ObjectStorageClass>) -> Self { self.storage_class = input; self }
+    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::ObjectStorageClass>) -> Self {
+        self.storage_class = input;
+        self
+    }
     /// <p>The class of storage used to store the object.</p><note>
     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::ObjectStorageClass> { &self.storage_class }
+    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::ObjectStorageClass> {
+        &self.storage_class
+    }
     /// <p>The owner of the object</p><note>
     /// <p><b>Directory buckets</b> - The bucket owner is returned as the object owner.</p>
     /// </note>
@@ -175,11 +210,16 @@ impl ObjectBuilder {
         self.owner = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_owner(mut self, input: ::std::option::Option<crate::types::Owner>) -> Self { self.owner = input; self }
+    pub fn set_owner(mut self, input: ::std::option::Option<crate::types::Owner>) -> Self {
+        self.owner = input;
+        self
+    }
     /// <p>The owner of the object</p><note>
     /// <p><b>Directory buckets</b> - The bucket owner is returned as the object owner.</p>
     /// </note>
-    pub fn get_owner(&self) -> &::std::option::Option<crate::types::Owner> { &self.owner }
+    pub fn get_owner(&self) -> &::std::option::Option<crate::types::Owner> {
+        &self.owner
+    }
     /// <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored before they can be retrieved. For more information about these storage classes and how to work with archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html">Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets. Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
@@ -187,11 +227,16 @@ impl ObjectBuilder {
         self.restore_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_restore_status(mut self, input: ::std::option::Option<crate::types::RestoreStatus>) -> Self { self.restore_status = input; self }
+    pub fn set_restore_status(mut self, input: ::std::option::Option<crate::types::RestoreStatus>) -> Self {
+        self.restore_status = input;
+        self
+    }
     /// <p>Specifies the restoration status of an object. Objects in certain storage classes must be restored before they can be retrieved. For more information about these storage classes and how to work with archived objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/archived-objects.html">Working with archived objects</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets. Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn get_restore_status(&self) -> &::std::option::Option<crate::types::RestoreStatus> { &self.restore_status }
+    pub fn get_restore_status(&self) -> &::std::option::Option<crate::types::RestoreStatus> {
+        &self.restore_status
+    }
     /// Consumes the builder and constructs a [`Object`](crate::types::Object).
     pub fn build(self) -> crate::types::Object {
         crate::types::Object {

@@ -2,17 +2,29 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetAccountSettings;
-impl GetAccountSettings { pub fn new() -> Self { Self } }
+impl GetAccountSettings {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     ServiceException(super::super::types::error::ServiceException),
     TooManyRequestsException(super::super::types::error::TooManyRequestsException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_service_exception(&self) -> bool { matches!(self, Self::ServiceException(_)) }
-    pub fn is_too_many_requests_exception(&self) -> bool { matches!(self, Self::TooManyRequestsException(_)) }
+    pub fn is_service_exception(&self) -> bool {
+        matches!(self, Self::ServiceException(_))
+    }
+    pub fn is_too_many_requests_exception(&self) -> bool {
+        matches!(self, Self::TooManyRequestsException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -26,26 +38,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _get_account_settings_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_account_settings/_get_account_settings_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/operation/get_account_settings/_get_account_settings_input.rs"
+    ));
 }
 pub use _get_account_settings_input::GetAccountSettingsInput;
 pub type Input = GetAccountSettingsInput;
 pub mod _get_account_settings_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_account_settings/_get_account_settings_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/operation/get_account_settings/_get_account_settings_output.rs"
+    ));
 }
 pub use _get_account_settings_output::GetAccountSettingsOutput;
 pub type Output = GetAccountSettingsOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_account_settings/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/operation/get_account_settings/builders.rs"
+    ));
 }
 pub type GetAccountSettingsError = Error;
 pub type GetAccountSettingsFluentBuilder = builders::Builder;

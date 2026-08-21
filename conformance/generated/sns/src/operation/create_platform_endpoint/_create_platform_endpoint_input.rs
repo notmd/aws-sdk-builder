@@ -54,26 +54,41 @@ impl CreatePlatformEndpointInputBuilder {
         self.platform_application_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.platform_application_arn = input; self }
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.platform_application_arn = input;
+        self
+    }
     /// <p><code>PlatformApplicationArn</code> returned from CreatePlatformApplication is used to create a an endpoint.</p>
-    pub fn get_platform_application_arn(&self) -> &::std::option::Option<::std::string::String> { &self.platform_application_arn }
+    pub fn get_platform_application_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.platform_application_arn
+    }
     /// <p>Unique identifier created by the notification service for an app on a device. The specific name for Token will vary, depending on which notification service is being used. For example, when using APNS as the notification service, you need the device token. Alternatively, when using GCM (Firebase Cloud Messaging) or ADM, the device token equivalent is called the registration ID.</p>
     /// This field is required.
     pub fn token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.token = input; self }
+    pub fn set_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.token = input;
+        self
+    }
     /// <p>Unique identifier created by the notification service for an app on a device. The specific name for Token will vary, depending on which notification service is being used. For example, when using APNS as the notification service, you need the device token. Alternatively, when using GCM (Firebase Cloud Messaging) or ADM, the device token equivalent is called the registration ID.</p>
-    pub fn get_token(&self) -> &::std::option::Option<::std::string::String> { &self.token }
+    pub fn get_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.token
+    }
     /// <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p>
     pub fn custom_user_data(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.custom_user_data = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_custom_user_data(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.custom_user_data = input; self }
+    pub fn set_custom_user_data(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.custom_user_data = input;
+        self
+    }
     /// <p>Arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p>
-    pub fn get_custom_user_data(&self) -> &::std::option::Option<::std::string::String> { &self.custom_user_data }
+    pub fn get_custom_user_data(&self) -> &::std::option::Option<::std::string::String> {
+        &self.custom_user_data
+    }
     /// <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html"><code>SetEndpointAttributes</code></a>.</p>
     /// Adds a key-value pair to `attributes`.
     ///
@@ -84,9 +99,14 @@ impl CreatePlatformEndpointInputBuilder {
         self.attributes = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.attributes = input; self }
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.attributes = input;
+        self
+    }
     /// <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html"><code>SetEndpointAttributes</code></a>.</p>
-    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.attributes }
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.attributes
+    }
     /// Consumes the builder and constructs a [`CreatePlatformEndpointInput`](crate::operation::create_platform_endpoint::CreatePlatformEndpointInput).
     pub fn build(self) -> crate::operation::create_platform_endpoint::CreatePlatformEndpointInput {
         crate::operation::create_platform_endpoint::CreatePlatformEndpointInput {

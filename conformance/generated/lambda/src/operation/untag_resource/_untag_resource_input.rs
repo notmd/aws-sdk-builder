@@ -40,9 +40,14 @@ impl UntagResourceInputBuilder {
         self.resource = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.resource = input; self }
+    pub fn set_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.resource = input;
+        self
+    }
     /// <p>The resource's Amazon Resource Name (ARN).</p>
-    pub fn get_resource(&self) -> &::std::option::Option<::std::string::String> { &self.resource }
+    pub fn get_resource(&self) -> &::std::option::Option<::std::string::String> {
+        &self.resource
+    }
     /// <p>A list of tag keys to remove from the resource.</p>
     /// Appends an item to `tag_keys`.
     ///
@@ -53,9 +58,14 @@ impl UntagResourceInputBuilder {
         self.tag_keys = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.tag_keys = input; self }
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.tag_keys = input;
+        self
+    }
     /// <p>A list of tag keys to remove from the resource.</p>
-    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.tag_keys }
+    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.tag_keys
+    }
     /// Consumes the builder and constructs a [`UntagResourceInput`](crate::operation::untag_resource::UntagResourceInput).
     pub fn build(self) -> crate::operation::untag_resource::UntagResourceInput {
         crate::operation::untag_resource::UntagResourceInput {

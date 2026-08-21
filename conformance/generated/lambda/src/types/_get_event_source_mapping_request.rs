@@ -34,15 +34,25 @@ impl GetEventSourceMappingRequestBuilder {
         self.uuid = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_uuid(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.uuid = input; self }
+    pub fn set_uuid(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.uuid = input;
+        self
+    }
     /// <p>The identifier of the event source mapping.</p>
-    pub fn get_uuid(&self) -> &::std::option::Option<::std::string::String> { &self.uuid }
+    pub fn get_uuid(&self) -> &::std::option::Option<::std::string::String> {
+        &self.uuid
+    }
     /// Consumes the builder and constructs a [`GetEventSourceMappingRequest`](crate::types::GetEventSourceMappingRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`uuid`](Self::uuid)
     pub fn build(self) -> ::std::result::Result<crate::types::GetEventSourceMappingRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetEventSourceMappingRequest {
-            uuid: self.uuid.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("uuid", "uuid was not specified but it is required when building GetEventSourceMappingRequest"))?,
+            uuid: self.uuid.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "uuid",
+                    "uuid was not specified but it is required when building GetEventSourceMappingRequest",
+                )
+            })?,
         })
     }
 }

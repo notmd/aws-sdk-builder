@@ -32,9 +32,14 @@ impl CreateCodeSigningConfigResponseBuilder {
         self.code_signing_config = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_code_signing_config(mut self, input: ::std::option::Option<crate::types::CodeSigningConfig>) -> Self { self.code_signing_config = input; self }
+    pub fn set_code_signing_config(mut self, input: ::std::option::Option<crate::types::CodeSigningConfig>) -> Self {
+        self.code_signing_config = input;
+        self
+    }
     /// <p>The code signing configuration.</p>
-    pub fn get_code_signing_config(&self) -> &::std::option::Option<crate::types::CodeSigningConfig> { &self.code_signing_config }
+    pub fn get_code_signing_config(&self) -> &::std::option::Option<crate::types::CodeSigningConfig> {
+        &self.code_signing_config
+    }
     /// Consumes the builder and constructs a [`CreateCodeSigningConfigResponse`](crate::types::CreateCodeSigningConfigResponse).
     pub fn build(self) -> crate::types::CreateCodeSigningConfigResponse {
         crate::types::CreateCodeSigningConfigResponse {

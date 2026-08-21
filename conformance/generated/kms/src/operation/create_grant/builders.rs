@@ -6,34 +6,79 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn grantee_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grantee_principal = Some(value.into()); self }
-    pub fn retiring_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.retiring_principal = Some(value.into()); self }
-    pub fn operations(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::GrantOperation>>) -> Self { self.input.operations = Some(value.into()); self }
-    pub fn constraints(mut self, value: impl ::std::convert::Into<crate::types::GrantConstraints>) -> Self { self.input.constraints = Some(value.into()); self }
-    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
-    pub fn name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.name = Some(value.into()); self }
-    pub fn dry_run(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.dry_run = Some(value.into()); self }
-    pub fn grantee_service_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grantee_service_principal = Some(value.into()); self }
-    pub fn retiring_service_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.retiring_service_principal = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::CreateGrantOutput, super::CreateGrantError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::CreateGrantError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::CreateGrantError::unhandled_with_request_ids(format!("CreateGrant returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_create_grant_output::CreateGrantOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key_id = Some(value.into());
+        self
+    }
+    pub fn grantee_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grantee_principal = Some(value.into());
+        self
+    }
+    pub fn retiring_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.retiring_principal = Some(value.into());
+        self
+    }
+    pub fn operations(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::GrantOperation>>) -> Self {
+        self.input.operations = Some(value.into());
+        self
+    }
+    pub fn constraints(mut self, value: impl ::std::convert::Into<crate::types::GrantConstraints>) -> Self {
+        self.input.constraints = Some(value.into());
+        self
+    }
+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.input.grant_tokens = Some(value.into());
+        self
+    }
+    pub fn name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.name = Some(value.into());
+        self
+    }
+    pub fn dry_run(mut self, value: impl ::std::convert::Into<bool>) -> Self {
+        self.input.dry_run = Some(value.into());
+        self
+    }
+    pub fn grantee_service_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.grantee_service_principal = Some(value.into());
+        self
+    }
+    pub fn retiring_service_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.retiring_service_principal = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::CreateGrantOutput, super::CreateGrantError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::CreateGrantError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::CreateGrantError::unhandled_with_request_ids(
+                format!("CreateGrant returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_create_grant_output::CreateGrantOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as CreateGrantFluentBuilder;

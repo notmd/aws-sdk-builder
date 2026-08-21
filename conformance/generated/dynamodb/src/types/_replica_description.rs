@@ -122,9 +122,14 @@ impl ReplicaDescriptionBuilder {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.region_name = input; self }
+    pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.region_name = input;
+        self
+    }
     /// <p>The name of the Region.</p>
-    pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> { &self.region_name }
+    pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.region_name
+    }
     /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li><li><p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note>
     /// <p>If the Amazon Web Services Region remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
     /// </note></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table is inaccessible.</p><note>
@@ -134,69 +139,109 @@ impl ReplicaDescriptionBuilder {
         self.replica_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_replica_status(mut self, input: ::std::option::Option<crate::types::ReplicaStatus>) -> Self { self.replica_status = input; self }
+    pub fn set_replica_status(mut self, input: ::std::option::Option<crate::types::ReplicaStatus>) -> Self {
+        self.replica_status = input;
+        self
+    }
     /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li><li><p><code>REGION_DISABLED</code> - The replica is inaccessible because the Amazon Web Services Region has been disabled.</p><note>
     /// <p>If the Amazon Web Services Region remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
     /// </note></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The KMS key used to encrypt the table is inaccessible.</p><note>
     /// <p>If the KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p>
     /// </note></li></ul>
-    pub fn get_replica_status(&self) -> &::std::option::Option<crate::types::ReplicaStatus> { &self.replica_status }
+    pub fn get_replica_status(&self) -> &::std::option::Option<crate::types::ReplicaStatus> {
+        &self.replica_status
+    }
     /// <p>The Amazon Resource Name (ARN) of the global table replica.</p>
     pub fn replica_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.replica_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_replica_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.replica_arn = input; self }
+    pub fn set_replica_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.replica_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the global table replica.</p>
-    pub fn get_replica_arn(&self) -> &::std::option::Option<::std::string::String> { &self.replica_arn }
+    pub fn get_replica_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.replica_arn
+    }
     /// <p>Detailed information about the replica status.</p>
     pub fn replica_status_description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.replica_status_description = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_replica_status_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.replica_status_description = input; self }
+    pub fn set_replica_status_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.replica_status_description = input;
+        self
+    }
     /// <p>Detailed information about the replica status.</p>
-    pub fn get_replica_status_description(&self) -> &::std::option::Option<::std::string::String> { &self.replica_status_description }
+    pub fn get_replica_status_description(&self) -> &::std::option::Option<::std::string::String> {
+        &self.replica_status_description
+    }
     /// <p>Specifies the progress of a Create, Update, or Delete action on the replica as a percentage.</p>
     pub fn replica_status_percent_progress(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.replica_status_percent_progress = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_replica_status_percent_progress(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.replica_status_percent_progress = input; self }
+    pub fn set_replica_status_percent_progress(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.replica_status_percent_progress = input;
+        self
+    }
     /// <p>Specifies the progress of a Create, Update, or Delete action on the replica as a percentage.</p>
-    pub fn get_replica_status_percent_progress(&self) -> &::std::option::Option<::std::string::String> { &self.replica_status_percent_progress }
+    pub fn get_replica_status_percent_progress(&self) -> &::std::option::Option<::std::string::String> {
+        &self.replica_status_percent_progress
+    }
     /// <p>The KMS key of the replica that will be used for KMS encryption.</p>
     pub fn kms_master_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.kms_master_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.kms_master_key_id = input; self }
+    pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_master_key_id = input;
+        self
+    }
     /// <p>The KMS key of the replica that will be used for KMS encryption.</p>
-    pub fn get_kms_master_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.kms_master_key_id }
+    pub fn get_kms_master_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_master_key_id
+    }
     /// <p>Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.</p>
     pub fn provisioned_throughput_override(mut self, input: crate::types::ProvisionedThroughputOverride) -> Self {
         self.provisioned_throughput_override = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self { self.provisioned_throughput_override = input; self }
+    pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self {
+        self.provisioned_throughput_override = input;
+        self
+    }
     /// <p>Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.</p>
-    pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<crate::types::ProvisionedThroughputOverride> { &self.provisioned_throughput_override }
+    pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<crate::types::ProvisionedThroughputOverride> {
+        &self.provisioned_throughput_override
+    }
     /// <p>Overrides the maximum on-demand throughput settings for the specified replica table.</p>
     pub fn on_demand_throughput_override(mut self, input: crate::types::OnDemandThroughputOverride) -> Self {
         self.on_demand_throughput_override = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self { self.on_demand_throughput_override = input; self }
+    pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self {
+        self.on_demand_throughput_override = input;
+        self
+    }
     /// <p>Overrides the maximum on-demand throughput settings for the specified replica table.</p>
-    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughputOverride> { &self.on_demand_throughput_override }
+    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughputOverride> {
+        &self.on_demand_throughput_override
+    }
     /// <p>Represents the warm throughput value for this replica.</p>
     pub fn warm_throughput(mut self, input: crate::types::TableWarmThroughputDescription) -> Self {
         self.warm_throughput = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::TableWarmThroughputDescription>) -> Self { self.warm_throughput = input; self }
+    pub fn set_warm_throughput(mut self, input: ::std::option::Option<crate::types::TableWarmThroughputDescription>) -> Self {
+        self.warm_throughput = input;
+        self
+    }
     /// <p>Represents the warm throughput value for this replica.</p>
-    pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::TableWarmThroughputDescription> { &self.warm_throughput }
+    pub fn get_warm_throughput(&self) -> &::std::option::Option<crate::types::TableWarmThroughputDescription> {
+        &self.warm_throughput
+    }
     /// <p>Replica-specific global secondary index settings.</p>
     /// Appends an item to `global_secondary_indexes`.
     ///
@@ -207,31 +252,57 @@ impl ReplicaDescriptionBuilder {
         self.global_secondary_indexes = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexDescription>>) -> Self { self.global_secondary_indexes = input; self }
+    pub fn set_global_secondary_indexes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexDescription>>,
+    ) -> Self {
+        self.global_secondary_indexes = input;
+        self
+    }
     /// <p>Replica-specific global secondary index settings.</p>
-    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexDescription>> { &self.global_secondary_indexes }
+    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexDescription>> {
+        &self.global_secondary_indexes
+    }
     /// <p>The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the <code>ReplicaStatus</code> property.</p>
     pub fn replica_inaccessible_date_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.replica_inaccessible_date_time = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_replica_inaccessible_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.replica_inaccessible_date_time = input; self }
+    pub fn set_replica_inaccessible_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.replica_inaccessible_date_time = input;
+        self
+    }
     /// <p>The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the <code>ReplicaStatus</code> property.</p>
-    pub fn get_replica_inaccessible_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.replica_inaccessible_date_time }
+    pub fn get_replica_inaccessible_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.replica_inaccessible_date_time
+    }
     pub fn replica_table_class_summary(mut self, input: crate::types::TableClassSummary) -> Self {
         self.replica_table_class_summary = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_replica_table_class_summary(mut self, input: ::std::option::Option<crate::types::TableClassSummary>) -> Self { self.replica_table_class_summary = input; self }
-    pub fn get_replica_table_class_summary(&self) -> &::std::option::Option<crate::types::TableClassSummary> { &self.replica_table_class_summary }
+    pub fn set_replica_table_class_summary(mut self, input: ::std::option::Option<crate::types::TableClassSummary>) -> Self {
+        self.replica_table_class_summary = input;
+        self
+    }
+    pub fn get_replica_table_class_summary(&self) -> &::std::option::Option<crate::types::TableClassSummary> {
+        &self.replica_table_class_summary
+    }
     /// <p>Indicates one of the settings synchronization modes for the global table replica:</p><ul><li><p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table replica is enabled.</p></li><li><p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table replica is disabled.</p></li><li><p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li></ul>
     pub fn global_table_settings_replication_mode(mut self, input: crate::types::GlobalTableSettingsReplicationMode) -> Self {
         self.global_table_settings_replication_mode = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_global_table_settings_replication_mode(mut self, input: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = input; self }
+    pub fn set_global_table_settings_replication_mode(
+        mut self,
+        input: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
+    ) -> Self {
+        self.global_table_settings_replication_mode = input;
+        self
+    }
     /// <p>Indicates one of the settings synchronization modes for the global table replica:</p><ul><li><p><code>ENABLED</code>: Indicates that the settings synchronization mode for the global table replica is enabled.</p></li><li><p><code>DISABLED</code>: Indicates that the settings synchronization mode for the global table replica is disabled.</p></li><li><p><code>ENABLED_WITH_OVERRIDES</code>: This mode is set by default for a same account global table. Indicates that certain global table settings can be overridden.</p></li></ul>
-    pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<crate::types::GlobalTableSettingsReplicationMode> { &self.global_table_settings_replication_mode }
+    pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<crate::types::GlobalTableSettingsReplicationMode> {
+        &self.global_table_settings_replication_mode
+    }
     /// Consumes the builder and constructs a [`ReplicaDescription`](crate::types::ReplicaDescription).
     pub fn build(self) -> crate::types::ReplicaDescription {
         crate::types::ReplicaDescription {

@@ -46,9 +46,19 @@ impl ItemCollectionMetricsBuilder {
         self.item_collection_key = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_item_collection_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.item_collection_key = input; self }
+    pub fn set_item_collection_key(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    ) -> Self {
+        self.item_collection_key = input;
+        self
+    }
     /// <p>The partition key value of the item collection. This value is the same as the partition key value of the item.</p>
-    pub fn get_item_collection_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> { &self.item_collection_key }
+    pub fn get_item_collection_key(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+        &self.item_collection_key
+    }
     /// <p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
     /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
     /// Appends an item to `size_estimate_range_gb`.
@@ -60,10 +70,15 @@ impl ItemCollectionMetricsBuilder {
         self.size_estimate_range_gb = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_size_estimate_range_gb(mut self, input: ::std::option::Option<::std::vec::Vec<f64>>) -> Self { self.size_estimate_range_gb = input; self }
+    pub fn set_size_estimate_range_gb(mut self, input: ::std::option::Option<::std::vec::Vec<f64>>) -> Self {
+        self.size_estimate_range_gb = input;
+        self
+    }
     /// <p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
     /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
-    pub fn get_size_estimate_range_gb(&self) -> &::std::option::Option<::std::vec::Vec<f64>> { &self.size_estimate_range_gb }
+    pub fn get_size_estimate_range_gb(&self) -> &::std::option::Option<::std::vec::Vec<f64>> {
+        &self.size_estimate_range_gb
+    }
     /// Consumes the builder and constructs a [`ItemCollectionMetrics`](crate::types::ItemCollectionMetrics).
     pub fn build(self) -> crate::types::ItemCollectionMetrics {
         crate::types::ItemCollectionMetrics {

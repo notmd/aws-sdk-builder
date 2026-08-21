@@ -52,17 +52,27 @@ impl ListDeadLetterSourceQueuesOutputBuilder {
         self.queue_urls = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_queue_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.queue_urls = input; self }
+    pub fn set_queue_urls(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.queue_urls = input;
+        self
+    }
     /// <p>A list of source queue URLs that have the <code>RedrivePolicy</code> queue attribute configured with a dead-letter queue.</p>
-    pub fn get_queue_urls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.queue_urls }
+    pub fn get_queue_urls(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.queue_urls
+    }
     /// <p>Pagination token to include in the next request. Token value is <code>null</code> if there are no additional results to request, or if you did not set <code>MaxResults</code> in the request.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
+    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_token = input;
+        self
+    }
     /// <p>Pagination token to include in the next request. Token value is <code>null</code> if there are no additional results to request, or if you did not set <code>MaxResults</code> in the request.</p>
-    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_token
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -75,9 +85,19 @@ impl ListDeadLetterSourceQueuesOutputBuilder {
     /// Consumes the builder and constructs a [`ListDeadLetterSourceQueuesOutput`](crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`queue_urls`](Self::queue_urls)
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::list_dead_letter_source_queues::ListDeadLetterSourceQueuesOutput {
-            queue_urls: self.queue_urls.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("queue_urls", "queue_urls was not specified but it is required when building ListDeadLetterSourceQueuesOutput"))?,
+            queue_urls: self.queue_urls.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "queue_urls",
+                    "queue_urls was not specified but it is required when building ListDeadLetterSourceQueuesOutput",
+                )
+            })?,
             next_token: self.next_token,
             _request_id: self._request_id,
         })

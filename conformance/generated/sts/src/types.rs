@@ -62,16 +62,49 @@ pub mod types {
     pub type WebIdentityTokenType = ::std::string::String;
     pub mod error {
         include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/error/_expired_token_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/error/_expired_trade_in_token_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/error/_idp_communication_error_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/error/_idp_rejected_claim_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/error/_invalid_authorization_message_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/error/_invalid_identity_token_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/error/_jwt_payload_size_exceeded_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/error/_malformed_policy_document_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/error/_outbound_web_identity_federation_disabled_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/error/_packed_policy_too_large_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sts/src/types/error/_malformed_policy_document_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sts/src/types/error/_packed_policy_too_large_exception.rs"
+        ));
         include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/error/_region_disabled_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/error/_session_duration_escalation_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sts/src/types/error/_idp_rejected_claim_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sts/src/types/error/_invalid_identity_token_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sts/src/types/error/_idp_communication_error_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sts/src/types/error/_invalid_authorization_message_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sts/src/types/error/_expired_trade_in_token_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sts/src/types/error/_jwt_payload_size_exceeded_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sts/src/types/error/_outbound_web_identity_federation_disabled_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sts/src/types/error/_session_duration_escalation_exception.rs"
+        ));
+        pub mod builders {
+            include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/error/builders.rs"));
+        }
     }
 }

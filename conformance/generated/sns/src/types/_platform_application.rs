@@ -39,9 +39,14 @@ impl PlatformApplicationBuilder {
         self.platform_application_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.platform_application_arn = input; self }
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.platform_application_arn = input;
+        self
+    }
     /// <p>PlatformApplicationArn for platform application object.</p>
-    pub fn get_platform_application_arn(&self) -> &::std::option::Option<::std::string::String> { &self.platform_application_arn }
+    pub fn get_platform_application_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.platform_application_arn
+    }
     /// <p>Attributes for platform application object.</p>
     /// Adds a key-value pair to `attributes`.
     ///
@@ -52,9 +57,14 @@ impl PlatformApplicationBuilder {
         self.attributes = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.attributes = input; self }
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.attributes = input;
+        self
+    }
     /// <p>Attributes for platform application object.</p>
-    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.attributes }
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.attributes
+    }
     /// Consumes the builder and constructs a [`PlatformApplication`](crate::types::PlatformApplication).
     pub fn build(self) -> crate::types::PlatformApplication {
         crate::types::PlatformApplication {

@@ -18,7 +18,9 @@ impl ::aws_types::request_id::RequestId for UpdateBucketMetadataInventoryTableCo
 }
 impl UpdateBucketMetadataInventoryTableConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`UpdateBucketMetadataInventoryTableConfigurationOutput`](crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput).
-    pub fn builder() -> crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationOutputBuilder
+    {
         crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationOutputBuilder::default()
     }
 }
@@ -50,7 +52,9 @@ impl UpdateBucketMetadataInventoryTableConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateBucketMetadataInventoryTableConfigurationOutput`](crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput).
-    pub fn build(self) -> crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput {
         crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

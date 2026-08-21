@@ -187,7 +187,32 @@ impl EventType {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["CallbackFailed", "CallbackStarted", "CallbackSucceeded", "CallbackTimedOut", "ChainedInvokeFailed", "ChainedInvokeStarted", "ChainedInvokeStopped", "ChainedInvokeSucceeded", "ChainedInvokeTimedOut", "ContextFailed", "ContextStarted", "ContextSucceeded", "ExecutionFailed", "ExecutionStarted", "ExecutionStopped", "ExecutionSucceeded", "ExecutionTimedOut", "InvocationCompleted", "StepFailed", "StepStarted", "StepSucceeded", "WaitCancelled", "WaitStarted", "WaitSucceeded"]
+        &[
+            "CallbackFailed",
+            "CallbackStarted",
+            "CallbackSucceeded",
+            "CallbackTimedOut",
+            "ChainedInvokeFailed",
+            "ChainedInvokeStarted",
+            "ChainedInvokeStopped",
+            "ChainedInvokeSucceeded",
+            "ChainedInvokeTimedOut",
+            "ContextFailed",
+            "ContextStarted",
+            "ContextSucceeded",
+            "ExecutionFailed",
+            "ExecutionStarted",
+            "ExecutionStopped",
+            "ExecutionSucceeded",
+            "ExecutionTimedOut",
+            "InvocationCompleted",
+            "StepFailed",
+            "StepStarted",
+            "StepSucceeded",
+            "WaitCancelled",
+            "WaitStarted",
+            "WaitSucceeded",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for EventType {

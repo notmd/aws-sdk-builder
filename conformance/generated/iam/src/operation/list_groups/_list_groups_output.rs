@@ -59,25 +59,40 @@ impl ListGroupsOutputBuilder {
         self.groups = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_groups(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Group>>) -> Self { self.groups = input; self }
+    pub fn set_groups(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Group>>) -> Self {
+        self.groups = input;
+        self
+    }
     /// <p>A list of groups.</p>
-    pub fn get_groups(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Group>> { &self.groups }
+    pub fn get_groups(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Group>> {
+        &self.groups
+    }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub fn is_truncated(mut self, input: bool) -> Self {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self { self.is_truncated = input; self }
+    pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.is_truncated = input;
+        self
+    }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
-    pub fn get_is_truncated(&self) -> &::std::option::Option<bool> { &self.is_truncated }
+    pub fn get_is_truncated(&self) -> &::std::option::Option<bool> {
+        &self.is_truncated
+    }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -92,7 +107,12 @@ impl ListGroupsOutputBuilder {
     /// - [`groups`](Self::groups)
     pub fn build(self) -> ::std::result::Result<crate::operation::list_groups::ListGroupsOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::list_groups::ListGroupsOutput {
-            groups: self.groups.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("groups", "groups was not specified but it is required when building ListGroupsOutput"))?,
+            groups: self.groups.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "groups",
+                    "groups was not specified but it is required when building ListGroupsOutput",
+                )
+            })?,
             is_truncated: self.is_truncated,
             marker: self.marker,
             _request_id: self._request_id,

@@ -32,13 +32,16 @@ impl TopicBuilder {
         self.topic_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.topic_arn = input; self }
+    pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.topic_arn = input;
+        self
+    }
     /// <p>The topic's ARN.</p>
-    pub fn get_topic_arn(&self) -> &::std::option::Option<::std::string::String> { &self.topic_arn }
+    pub fn get_topic_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.topic_arn
+    }
     /// Consumes the builder and constructs a [`Topic`](crate::types::Topic).
     pub fn build(self) -> crate::types::Topic {
-        crate::types::Topic {
-            topic_arn: self.topic_arn,
-        }
+        crate::types::Topic { topic_arn: self.topic_arn }
     }
 }

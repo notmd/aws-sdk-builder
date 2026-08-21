@@ -33,15 +33,25 @@ impl SseKmsEncryptedObjectsBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::SseKmsEncryptedObjectsStatus>) -> Self { self.status = input; self }
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::SseKmsEncryptedObjectsStatus>) -> Self {
+        self.status = input;
+        self
+    }
     /// <p>Specifies whether Amazon S3 replicates objects created with server-side encryption using an Amazon Web Services KMS key stored in Amazon Web Services Key Management Service.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::SseKmsEncryptedObjectsStatus> { &self.status }
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::SseKmsEncryptedObjectsStatus> {
+        &self.status
+    }
     /// Consumes the builder and constructs a [`SseKmsEncryptedObjects`](crate::types::SseKmsEncryptedObjects).
     /// This method will fail if any of the following fields are not set:
     /// - [`status`](Self::status)
     pub fn build(self) -> ::std::result::Result<crate::types::SseKmsEncryptedObjects, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SseKmsEncryptedObjects {
-            status: self.status.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building SseKmsEncryptedObjects"))?,
+            status: self.status.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "status",
+                    "status was not specified but it is required when building SseKmsEncryptedObjects",
+                )
+            })?,
         })
     }
 }

@@ -37,15 +37,28 @@ impl GlobalSecondaryIndexAutoScalingUpdateBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.index_name = input; self }
+    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.index_name = input;
+        self
+    }
     /// <p>The name of the global secondary index.</p>
-    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> { &self.index_name }
+    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.index_name
+    }
     pub fn provisioned_write_capacity_auto_scaling_update(mut self, input: crate::types::AutoScalingSettingsUpdate) -> Self {
         self.provisioned_write_capacity_auto_scaling_update = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_provisioned_write_capacity_auto_scaling_update(mut self, input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>) -> Self { self.provisioned_write_capacity_auto_scaling_update = input; self }
-    pub fn get_provisioned_write_capacity_auto_scaling_update(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> { &self.provisioned_write_capacity_auto_scaling_update }
+    pub fn set_provisioned_write_capacity_auto_scaling_update(
+        mut self,
+        input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
+    ) -> Self {
+        self.provisioned_write_capacity_auto_scaling_update = input;
+        self
+    }
+    pub fn get_provisioned_write_capacity_auto_scaling_update(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
+        &self.provisioned_write_capacity_auto_scaling_update
+    }
     /// Consumes the builder and constructs a [`GlobalSecondaryIndexAutoScalingUpdate`](crate::types::GlobalSecondaryIndexAutoScalingUpdate).
     pub fn build(self) -> crate::types::GlobalSecondaryIndexAutoScalingUpdate {
         crate::types::GlobalSecondaryIndexAutoScalingUpdate {

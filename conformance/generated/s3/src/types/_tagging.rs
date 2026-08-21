@@ -38,15 +38,25 @@ impl TaggingBuilder {
         self.tag_set = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.tag_set = input; self }
+    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.tag_set = input;
+        self
+    }
     /// <p>A collection for a set of tags</p>
-    pub fn get_tag_set(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.tag_set }
+    pub fn get_tag_set(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+        &self.tag_set
+    }
     /// Consumes the builder and constructs a [`Tagging`](crate::types::Tagging).
     /// This method will fail if any of the following fields are not set:
     /// - [`tag_set`](Self::tag_set)
     pub fn build(self) -> ::std::result::Result<crate::types::Tagging, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Tagging {
-            tag_set: self.tag_set.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("tag_set", "tag_set was not specified but it is required when building Tagging"))?,
+            tag_set: self.tag_set.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "tag_set",
+                    "tag_set was not specified but it is required when building Tagging",
+                )
+            })?,
         })
     }
 }

@@ -9,7 +9,9 @@ pub struct SelfManagedEventSource {
 }
 impl SelfManagedEventSource {
     /// <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS": \["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"\]</code>.</p>
-    pub fn endpoints(&self) -> ::std::option::Option<&::std::collections::HashMap<crate::types::EndPointType, ::std::vec::Vec<::std::string::String>>> {
+    pub fn endpoints(
+        &self,
+    ) -> ::std::option::Option<&::std::collections::HashMap<crate::types::EndPointType, ::std::vec::Vec<::std::string::String>>> {
         self.endpoints.as_ref()
     }
 }
@@ -37,13 +39,21 @@ impl SelfManagedEventSourceBuilder {
         self.endpoints = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_endpoints(mut self, input: ::std::option::Option<::std::collections::HashMap<crate::types::EndPointType, ::std::vec::Vec<::std::string::String>>>) -> Self { self.endpoints = input; self }
+    pub fn set_endpoints(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<crate::types::EndPointType, ::std::vec::Vec<::std::string::String>>>,
+    ) -> Self {
+        self.endpoints = input;
+        self
+    }
     /// <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS": \["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"\]</code>.</p>
-    pub fn get_endpoints(&self) -> &::std::option::Option<::std::collections::HashMap<crate::types::EndPointType, ::std::vec::Vec<::std::string::String>>> { &self.endpoints }
+    pub fn get_endpoints(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<crate::types::EndPointType, ::std::vec::Vec<::std::string::String>>> {
+        &self.endpoints
+    }
     /// Consumes the builder and constructs a [`SelfManagedEventSource`](crate::types::SelfManagedEventSource).
     pub fn build(self) -> crate::types::SelfManagedEventSource {
-        crate::types::SelfManagedEventSource {
-            endpoints: self.endpoints,
-        }
+        crate::types::SelfManagedEventSource { endpoints: self.endpoints }
     }
 }

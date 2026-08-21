@@ -53,25 +53,40 @@ impl CreateCodeSigningConfigRequestBuilder {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.description = input; self }
+    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.description = input;
+        self
+    }
     /// <p>Descriptive name for this code signing configuration.</p>
-    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> { &self.description }
+    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
+        &self.description
+    }
     /// <p>Signing profiles for this code signing configuration.</p>
     pub fn allowed_publishers(mut self, input: crate::types::AllowedPublishers) -> Self {
         self.allowed_publishers = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_allowed_publishers(mut self, input: ::std::option::Option<crate::types::AllowedPublishers>) -> Self { self.allowed_publishers = input; self }
+    pub fn set_allowed_publishers(mut self, input: ::std::option::Option<crate::types::AllowedPublishers>) -> Self {
+        self.allowed_publishers = input;
+        self
+    }
     /// <p>Signing profiles for this code signing configuration.</p>
-    pub fn get_allowed_publishers(&self) -> &::std::option::Option<crate::types::AllowedPublishers> { &self.allowed_publishers }
+    pub fn get_allowed_publishers(&self) -> &::std::option::Option<crate::types::AllowedPublishers> {
+        &self.allowed_publishers
+    }
     /// <p>The code signing policies define the actions to take if the validation checks fail.</p>
     pub fn code_signing_policies(mut self, input: crate::types::CodeSigningPolicies) -> Self {
         self.code_signing_policies = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_code_signing_policies(mut self, input: ::std::option::Option<crate::types::CodeSigningPolicies>) -> Self { self.code_signing_policies = input; self }
+    pub fn set_code_signing_policies(mut self, input: ::std::option::Option<crate::types::CodeSigningPolicies>) -> Self {
+        self.code_signing_policies = input;
+        self
+    }
     /// <p>The code signing policies define the actions to take if the validation checks fail.</p>
-    pub fn get_code_signing_policies(&self) -> &::std::option::Option<crate::types::CodeSigningPolicies> { &self.code_signing_policies }
+    pub fn get_code_signing_policies(&self) -> &::std::option::Option<crate::types::CodeSigningPolicies> {
+        &self.code_signing_policies
+    }
     /// <p>A list of tags to add to the code signing configuration.</p>
     /// Adds a key-value pair to `tags`.
     ///
@@ -82,9 +97,14 @@ impl CreateCodeSigningConfigRequestBuilder {
         self.tags = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.tags = input; self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.tags = input;
+        self
+    }
     /// <p>A list of tags to add to the code signing configuration.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.tags }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.tags
+    }
     /// Consumes the builder and constructs a [`CreateCodeSigningConfigRequest`](crate::types::CreateCodeSigningConfigRequest).
     pub fn build(self) -> crate::types::CreateCodeSigningConfigRequest {
         crate::types::CreateCodeSigningConfigRequest {

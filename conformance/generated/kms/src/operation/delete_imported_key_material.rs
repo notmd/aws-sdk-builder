@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct DeleteImportedKeyMaterial;
-impl DeleteImportedKeyMaterial { pub fn new() -> Self { Self } }
+impl DeleteImportedKeyMaterial {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     DependencyTimeoutException(super::super::types::error::DependencyTimeoutException),
@@ -12,15 +16,31 @@ pub enum Error {
     NotFoundException(super::super::types::error::NotFoundException),
     UnsupportedOperationException(super::super::types::error::UnsupportedOperationException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_dependency_timeout_exception(&self) -> bool { matches!(self, Self::DependencyTimeoutException(_)) }
-    pub fn is_invalid_arn_exception(&self) -> bool { matches!(self, Self::InvalidArnException(_)) }
-    pub fn is_kms_internal_exception(&self) -> bool { matches!(self, Self::KmsInternalException(_)) }
-    pub fn is_kms_invalid_state_exception(&self) -> bool { matches!(self, Self::KmsInvalidStateException(_)) }
-    pub fn is_not_found_exception(&self) -> bool { matches!(self, Self::NotFoundException(_)) }
-    pub fn is_unsupported_operation_exception(&self) -> bool { matches!(self, Self::UnsupportedOperationException(_)) }
+    pub fn is_dependency_timeout_exception(&self) -> bool {
+        matches!(self, Self::DependencyTimeoutException(_))
+    }
+    pub fn is_invalid_arn_exception(&self) -> bool {
+        matches!(self, Self::InvalidArnException(_))
+    }
+    pub fn is_kms_internal_exception(&self) -> bool {
+        matches!(self, Self::KmsInternalException(_))
+    }
+    pub fn is_kms_invalid_state_exception(&self) -> bool {
+        matches!(self, Self::KmsInvalidStateException(_))
+    }
+    pub fn is_not_found_exception(&self) -> bool {
+        matches!(self, Self::NotFoundException(_))
+    }
+    pub fn is_unsupported_operation_exception(&self) -> bool {
+        matches!(self, Self::UnsupportedOperationException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -38,26 +58,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _delete_imported_key_material_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/delete_imported_key_material/_delete_imported_key_material_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/kms/src/operation/delete_imported_key_material/_delete_imported_key_material_input.rs"
+    ));
 }
 pub use _delete_imported_key_material_input::DeleteImportedKeyMaterialInput;
 pub type Input = DeleteImportedKeyMaterialInput;
 pub mod _delete_imported_key_material_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/delete_imported_key_material/_delete_imported_key_material_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/kms/src/operation/delete_imported_key_material/_delete_imported_key_material_output.rs"
+    ));
 }
 pub use _delete_imported_key_material_output::DeleteImportedKeyMaterialOutput;
 pub type Output = DeleteImportedKeyMaterialOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/delete_imported_key_material/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/kms/src/operation/delete_imported_key_material/builders.rs"
+    ));
 }
 pub type DeleteImportedKeyMaterialError = Error;
 pub type DeleteImportedKeyMaterialFluentBuilder = builders::Builder;

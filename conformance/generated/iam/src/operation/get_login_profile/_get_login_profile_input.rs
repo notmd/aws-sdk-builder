@@ -38,15 +38,18 @@ impl GetLoginProfileInputBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.user_name = input; self }
+    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.user_name = input;
+        self
+    }
     /// <p>The name of the user whose login profile you want to retrieve.</p>
     /// <p>This parameter is optional. If no user name is included, it defaults to the principal making the request. When you make this request with root user credentials, you must use an <a href="https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html">AssumeRoot</a> session to omit the user name.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> { &self.user_name }
+    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.user_name
+    }
     /// Consumes the builder and constructs a [`GetLoginProfileInput`](crate::operation::get_login_profile::GetLoginProfileInput).
     pub fn build(self) -> crate::operation::get_login_profile::GetLoginProfileInput {
-        crate::operation::get_login_profile::GetLoginProfileInput {
-            user_name: self.user_name,
-        }
+        crate::operation::get_login_profile::GetLoginProfileInput { user_name: self.user_name }
     }
 }

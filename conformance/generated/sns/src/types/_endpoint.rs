@@ -39,9 +39,14 @@ impl EndpointBuilder {
         self.endpoint_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_endpoint_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.endpoint_arn = input; self }
+    pub fn set_endpoint_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.endpoint_arn = input;
+        self
+    }
     /// <p>The <code>EndpointArn</code> for mobile app and device.</p>
-    pub fn get_endpoint_arn(&self) -> &::std::option::Option<::std::string::String> { &self.endpoint_arn }
+    pub fn get_endpoint_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.endpoint_arn
+    }
     /// <p>Attributes for endpoint.</p>
     /// Adds a key-value pair to `attributes`.
     ///
@@ -52,9 +57,14 @@ impl EndpointBuilder {
         self.attributes = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.attributes = input; self }
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.attributes = input;
+        self
+    }
     /// <p>Attributes for endpoint.</p>
-    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.attributes }
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.attributes
+    }
     /// Consumes the builder and constructs a [`Endpoint`](crate::types::Endpoint).
     pub fn build(self) -> crate::types::Endpoint {
         crate::types::Endpoint {

@@ -122,7 +122,19 @@ impl BatchStatementErrorCodeEnum {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["AccessDenied", "ConditionalCheckFailed", "DuplicateItem", "InternalServerError", "ItemCollectionSizeLimitExceeded", "ProvisionedThroughputExceeded", "RequestLimitExceeded", "ResourceNotFound", "ThrottlingError", "TransactionConflict", "ValidationError"]
+        &[
+            "AccessDenied",
+            "ConditionalCheckFailed",
+            "DuplicateItem",
+            "InternalServerError",
+            "ItemCollectionSizeLimitExceeded",
+            "ProvisionedThroughputExceeded",
+            "RequestLimitExceeded",
+            "ResourceNotFound",
+            "ThrottlingError",
+            "TransactionConflict",
+            "ValidationError",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for BatchStatementErrorCodeEnum {

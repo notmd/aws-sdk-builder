@@ -75,9 +75,19 @@ impl KeysAndAttributesBuilder {
         self.keys = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>>) -> Self { self.keys = input; self }
+    pub fn set_keys(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>>,
+    ) -> Self {
+        self.keys = input;
+        self
+    }
     /// <p>The primary key attribute values that define the items and the attributes associated with the items.</p>
-    pub fn get_keys(&self) -> &::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>> { &self.keys }
+    pub fn get_keys(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>> {
+        &self.keys
+    }
     /// <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html">Legacy Conditional Parameters</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// Appends an item to `attributes_to_get`.
     ///
@@ -88,17 +98,27 @@ impl KeysAndAttributesBuilder {
         self.attributes_to_get = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_attributes_to_get(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.attributes_to_get = input; self }
+    pub fn set_attributes_to_get(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.attributes_to_get = input;
+        self
+    }
     /// <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html">Legacy Conditional Parameters</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_attributes_to_get(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.attributes_to_get }
+    pub fn get_attributes_to_get(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.attributes_to_get
+    }
     /// <p>The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p>
     pub fn consistent_read(mut self, input: bool) -> Self {
         self.consistent_read = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_consistent_read(mut self, input: ::std::option::Option<bool>) -> Self { self.consistent_read = input; self }
+    pub fn set_consistent_read(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.consistent_read = input;
+        self
+    }
     /// <p>The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p>
-    pub fn get_consistent_read(&self) -> &::std::option::Option<bool> { &self.consistent_read }
+    pub fn get_consistent_read(&self) -> &::std::option::Option<bool> {
+        &self.consistent_read
+    }
     /// <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the <code>ProjectionExpression</code> must be separated by commas.</p>
     /// <p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -106,34 +126,58 @@ impl KeysAndAttributesBuilder {
         self.projection_expression = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_projection_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.projection_expression = input; self }
+    pub fn set_projection_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.projection_expression = input;
+        self
+    }
     /// <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the <code>ProjectionExpression</code> must be separated by commas.</p>
     /// <p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_projection_expression(&self) -> &::std::option::Option<::std::string::String> { &self.projection_expression }
+    pub fn get_projection_expression(&self) -> &::std::option::Option<::std::string::String> {
+        &self.projection_expression
+    }
     /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
     /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
     /// </note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// Adds a key-value pair to `expression_attribute_names`.
     ///
     /// To override the contents of this collection use [`set_expression_attribute_names`](Self::set_expression_attribute_names).
-    pub fn expression_attribute_names(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expression_attribute_names(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut map = self.expression_attribute_names.unwrap_or_default();
         map.insert(k.into(), v.into());
         self.expression_attribute_names = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.expression_attribute_names = input; self }
+    pub fn set_expression_attribute_names(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    ) -> Self {
+        self.expression_attribute_names = input;
+        self
+    }
     /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note>
     /// <p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p>
     /// </note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.expression_attribute_names }
+    pub fn get_expression_attribute_names(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.expression_attribute_names
+    }
     /// Consumes the builder and constructs a [`KeysAndAttributes`](crate::types::KeysAndAttributes).
     /// This method will fail if any of the following fields are not set:
     /// - [`keys`](Self::keys)
     pub fn build(self) -> ::std::result::Result<crate::types::KeysAndAttributes, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::KeysAndAttributes {
-            keys: self.keys.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("keys", "keys was not specified but it is required when building KeysAndAttributes"))?,
+            keys: self.keys.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "keys",
+                    "keys was not specified but it is required when building KeysAndAttributes",
+                )
+            })?,
             attributes_to_get: self.attributes_to_get,
             consistent_read: self.consistent_read,
             projection_expression: self.projection_expression,

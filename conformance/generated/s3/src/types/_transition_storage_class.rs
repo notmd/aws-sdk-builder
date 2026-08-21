@@ -97,7 +97,14 @@ impl TransitionStorageClass {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["DEEP_ARCHIVE", "GLACIER", "GLACIER_IR", "INTELLIGENT_TIERING", "ONEZONE_IA", "STANDARD_IA"]
+        &[
+            "DEEP_ARCHIVE",
+            "GLACIER",
+            "GLACIER_IR",
+            "INTELLIGENT_TIERING",
+            "ONEZONE_IA",
+            "STANDARD_IA",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for TransitionStorageClass {

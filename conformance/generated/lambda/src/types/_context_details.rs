@@ -46,25 +46,40 @@ impl ContextDetailsBuilder {
         self.replay_children = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_replay_children(mut self, input: ::std::option::Option<bool>) -> Self { self.replay_children = input; self }
+    pub fn set_replay_children(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.replay_children = input;
+        self
+    }
     /// <p>Whether the state data of child operations of this completed context should be included in the invoke payload and <code>GetDurableExecutionState</code> response.</p>
-    pub fn get_replay_children(&self) -> &::std::option::Option<bool> { &self.replay_children }
+    pub fn get_replay_children(&self) -> &::std::option::Option<bool> {
+        &self.replay_children
+    }
     /// <p>The response payload from the context.</p>
     pub fn result(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.result = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.result = input; self }
+    pub fn set_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.result = input;
+        self
+    }
     /// <p>The response payload from the context.</p>
-    pub fn get_result(&self) -> &::std::option::Option<::std::string::String> { &self.result }
+    pub fn get_result(&self) -> &::std::option::Option<::std::string::String> {
+        &self.result
+    }
     /// <p>Details about the context failure.</p>
     pub fn error(mut self, input: crate::types::ErrorObject) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>Details about the context failure.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> {
+        &self.error
+    }
     /// Consumes the builder and constructs a [`ContextDetails`](crate::types::ContextDetails).
     pub fn build(self) -> crate::types::ContextDetails {
         crate::types::ContextDetails {

@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct UpdateGroup;
-impl UpdateGroup { pub fn new() -> Self { Self } }
+impl UpdateGroup {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     EntityAlreadyExistsException(super::super::types::error::EntityAlreadyExistsException),
@@ -10,13 +14,25 @@ pub enum Error {
     NoSuchEntityException(super::super::types::error::NoSuchEntityException),
     ServiceFailureException(super::super::types::error::ServiceFailureException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_entity_already_exists_exception(&self) -> bool { matches!(self, Self::EntityAlreadyExistsException(_)) }
-    pub fn is_limit_exceeded_exception(&self) -> bool { matches!(self, Self::LimitExceededException(_)) }
-    pub fn is_no_such_entity_exception(&self) -> bool { matches!(self, Self::NoSuchEntityException(_)) }
-    pub fn is_service_failure_exception(&self) -> bool { matches!(self, Self::ServiceFailureException(_)) }
+    pub fn is_entity_already_exists_exception(&self) -> bool {
+        matches!(self, Self::EntityAlreadyExistsException(_))
+    }
+    pub fn is_limit_exceeded_exception(&self) -> bool {
+        matches!(self, Self::LimitExceededException(_))
+    }
+    pub fn is_no_such_entity_exception(&self) -> bool {
+        matches!(self, Self::NoSuchEntityException(_))
+    }
+    pub fn is_service_failure_exception(&self) -> bool {
+        matches!(self, Self::ServiceFailureException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -32,19 +48,49 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _update_group_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/update_group/_update_group_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/update_group/_update_group_input.rs"
+    ));
 }
 pub use _update_group_input::UpdateGroupInput;
 pub type Input = UpdateGroupInput;
 pub mod _update_group_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/update_group/_update_group_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/update_group/_update_group_output.rs"
+    ));
 }
 pub use _update_group_output::UpdateGroupOutput;
 pub type Output = UpdateGroupOutput;

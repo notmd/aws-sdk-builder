@@ -52,29 +52,44 @@ impl CreateServiceSpecificCredentialInputBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.user_name = input; self }
+    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.user_name = input;
+        self
+    }
     /// <p>The name of the IAM user that is to be associated with the credentials. The new service-specific credentials have the same permissions as the associated user except that they can be used only to access the specified service.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> { &self.user_name }
+    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.user_name
+    }
     /// <p>The name of the Amazon Web Services service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.</p>
     /// This field is required.
     pub fn service_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.service_name = input; self }
+    pub fn set_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.service_name = input;
+        self
+    }
     /// <p>The name of the Amazon Web Services service that is to be associated with the credentials. The service you specify here is the only service that can be accessed using these credentials.</p>
-    pub fn get_service_name(&self) -> &::std::option::Option<::std::string::String> { &self.service_name }
+    pub fn get_service_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.service_name
+    }
     /// <p>The number of days until the service specific credential expires. This field is only valid for services that support long-term API keys and must be a positive integer. When not specified, the credential will not expire.</p>
     /// <p>To see which services support long-term API keys, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html">API keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>.</p>
     pub fn credential_age_days(mut self, input: i32) -> Self {
         self.credential_age_days = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_credential_age_days(mut self, input: ::std::option::Option<i32>) -> Self { self.credential_age_days = input; self }
+    pub fn set_credential_age_days(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.credential_age_days = input;
+        self
+    }
     /// <p>The number of days until the service specific credential expires. This field is only valid for services that support long-term API keys and must be a positive integer. When not specified, the credential will not expire.</p>
     /// <p>To see which services support long-term API keys, refer to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_api_keys_for_aws_services.html">API keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_credential_age_days(&self) -> &::std::option::Option<i32> { &self.credential_age_days }
+    pub fn get_credential_age_days(&self) -> &::std::option::Option<i32> {
+        &self.credential_age_days
+    }
     /// Consumes the builder and constructs a [`CreateServiceSpecificCredentialInput`](crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialInput).
     pub fn build(self) -> crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialInput {
         crate::operation::create_service_specific_credential::CreateServiceSpecificCredentialInput {

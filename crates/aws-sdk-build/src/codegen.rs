@@ -1,5 +1,5 @@
 use serde_json::Value;
-use std::{collections::BTreeMap, fmt::Write, fs, path::Path};
+use std::{collections::BTreeMap, fmt::Write, fs, path::Path, process::Command};
 
 use crate::{
     config::ServiceSelection,
@@ -60,6 +60,10 @@ pub(crate) fn generate(
             (
                 "src/types.rs".to_owned(),
                 render_types_file(entry.key, &selected, consumer_namespace),
+            ),
+            (
+                "src/types/error/builders.rs".to_owned(),
+                render_error_builders_file(&selected, consumer_namespace),
             ),
             (
                 "src/operation.rs".to_owned(),
@@ -144,6 +148,7 @@ pub(crate) fn generate(
                     source,
                 }
             })?;
+            format_rust_file(&source_path)?;
             files.push(format!("generated/{}/{}", entry.key, relative_path));
         }
         if consumer_namespace {
@@ -177,6 +182,7 @@ pub(crate) fn generate(
             source,
         }
     })?;
+    format_rust_file(&include_path)?;
     files.push("aws_sdk.rs".to_owned());
     files.sort();
     all_operations.sort();
@@ -224,6 +230,32 @@ fn client_operation_header(output: &mut String) {
 
 fn normalize_source(source: &str) -> String {
     format!("{}\n", source.trim_end_matches('\n'))
+}
+
+/// Smithy Rust's client generator runs `cargo fmt -- --config max_width=150`
+/// after writing a crate. Snapshot generation does not create a Cargo
+/// manifest, so format each generated Rust file directly with the same
+/// rustfmt configuration.
+fn format_rust_file(path: &Path) -> Result<(), BuildError> {
+    let output = Command::new("rustfmt")
+        .args(["--edition", "2021", "--config", "max_width=150"])
+        .arg(path)
+        .output()
+        .map_err(|error| BuildError::Rustfmt {
+            path: path.to_owned(),
+            message: error.to_string(),
+        })?;
+    if output.status.success() {
+        return Ok(());
+    }
+    let mut message = String::from_utf8_lossy(&output.stderr).into_owned();
+    if message.trim().is_empty() {
+        message = format!("rustfmt exited with {}", output.status);
+    }
+    Err(BuildError::Rustfmt {
+        path: path.to_owned(),
+        message,
+    })
 }
 
 #[derive(Clone, Copy, Debug, Default)]
@@ -875,14 +907,7 @@ fn render_types_file(
         .unwrap();
     }
     output.push_str("    pub mod error {\n");
-    let mut error_ids = selected
-        .model
-        .shapes
-        .iter()
-        .filter_map(|(id, shape)| is_error_shape(shape).then_some(id.clone()))
-        .collect::<Vec<_>>();
-    error_ids.sort();
-    for id in error_ids {
+    for id in error_shape_ids(selected) {
         let filename = type_file_name(&id);
         writeln!(
             output,
@@ -890,9 +915,72 @@ fn render_types_file(
         )
         .unwrap();
     }
+    output.push_str("    pub mod builders {\n");
+    writeln!(
+        output,
+        "        include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/error/builders.rs\"));"
+    )
+    .unwrap();
+    output.push_str("    }\n");
     output.push_str("    }\n");
     output.push_str("}\n\n");
     output
+}
+
+fn render_error_builders_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    for id in error_shape_ids(selected) {
+        let name = rust_type_name(terminal(&id));
+        let module = type_file_name(&id).trim_end_matches(".rs").to_owned();
+        let path = if consumer_namespace {
+            format!("super::{name}Builder")
+        } else {
+            format!("crate::types::error::{module}::{name}Builder")
+        };
+        writeln!(output, "pub use {path};\n").unwrap();
+    }
+    output
+}
+
+/// Smithy visits modeled errors in the order they first occur in operation
+/// `errors` lists. Preserve that model-derived order for the public error
+/// module and its builder reexports.
+fn error_shape_ids(selected: &SelectedModel) -> Vec<String> {
+    let namespace = selected
+        .model
+        .entry
+        .service_shape_id
+        .split('#')
+        .next()
+        .unwrap_or_default();
+    let mut seen = std::collections::BTreeSet::new();
+    let mut error_ids = Vec::new();
+    for operation_name in &selected.operations {
+        let operation_id = format!("{namespace}#{operation_name}");
+        let Some(operation) = selected.model.shapes.get(&operation_id) else {
+            continue;
+        };
+        let Some(errors) = operation.get("errors").and_then(Value::as_array) else {
+            continue;
+        };
+        for error in errors {
+            let Some(id) = target_value(error) else {
+                continue;
+            };
+            if selected.model.shapes.get(id).is_some_and(is_error_shape)
+                && seen.insert(id.to_owned())
+            {
+                error_ids.push(id.to_owned());
+            }
+        }
+    }
+    for (id, shape) in &selected.model.shapes {
+        if is_error_shape(shape) && seen.insert(id.clone()) {
+            error_ids.push(id.clone());
+        }
+    }
+    error_ids
 }
 
 fn operation_shape_ids(selected: &SelectedModel) -> std::collections::BTreeSet<String> {
@@ -933,13 +1021,22 @@ fn is_error_shape(shape: &Value) -> bool {
         .is_some_and(|traits| traits.contains_key("smithy.api#error"))
 }
 
+fn error_message_member(shape: &Value) -> Option<(String, &Value)> {
+    members(shape)
+        .into_iter()
+        .find(|(name, _)| name.eq_ignore_ascii_case("message"))
+}
+
+fn is_error_context(context: &Context) -> bool {
+    matches!(context, Context::Error { .. })
+}
+
 fn render_type_file(
     selected: &SelectedModel,
     shape_id: &str,
     context: Context,
     consumer_namespace: bool,
 ) -> String {
-    let is_error = matches!(context, Context::Error { .. });
     let mut rendered = String::new();
     render_types_with_context(
         &mut rendered,
@@ -958,15 +1055,6 @@ fn render_type_file(
     for line in rendered[start..end].trim_end().lines() {
         output.push_str(line.strip_prefix("    ").unwrap_or(line));
         output.push('\n');
-    }
-    if is_error {
-        writeln!(
-            output,
-            "impl ::std::fmt::Display for {} {{ fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {{ f.write_str({:?}) }} }}",
-            rust_type_name(terminal(shape_id)),
-            terminal(shape_id)
-        )
-        .unwrap();
     }
     output
 }
@@ -1473,10 +1561,15 @@ fn render_operation_send(
     let path_expression = render_request_path(uri, input_shape, selected);
     let body_expression = render_request_body(selected, input_shape, protocol);
     let headers_expression = render_request_headers(input_shape, protocol);
+    let send_allow = if consumer_namespace {
+        "#[allow(clippy::possible_missing_else, clippy::field_reassign_with_default, clippy::result_large_err)]"
+    } else {
+        "#[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]"
+    };
 
     writeln!(
         output,
-        "                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]\n                     pub async fn send(self) -> ::std::result::Result<super::{rust_operation}Output, super::{rust_operation}Error> {{"
+        "                     {send_allow}\n                     pub async fn send(self) -> ::std::result::Result<super::{rust_operation}Output, super::{rust_operation}Error> {{"
     )
     .unwrap();
     if let Some(shape) = input_shape {
@@ -2481,12 +2574,16 @@ fn builder_argument_value(argument_type: &str, value: &str) -> String {
 
 fn builder_type_path(context: &Context, name: &str) -> String {
     if context.consumer_namespace() {
+        if matches!(context, Context::Error { .. }) {
+            return format!("builders::{name}Builder");
+        }
         return format!("{name}Builder");
     }
     match context {
-        Context::Types { .. } | Context::Error { .. } => {
+        Context::Types { .. } => {
             format!("crate::types::builders::{name}Builder")
         }
+        Context::Error { .. } => format!("crate::types::error::builders::{name}Builder"),
         Context::Operation { module, .. } | Context::Builder { module, .. } => {
             format!("crate::operation::{module}::builders::{name}Builder")
         }
@@ -2498,7 +2595,8 @@ fn value_type_path(context: &Context, name: &str) -> String {
         return name.to_owned();
     }
     match context {
-        Context::Types { .. } | Context::Error { .. } => format!("crate::types::{name}"),
+        Context::Types { .. } => format!("crate::types::{name}"),
+        Context::Error { .. } => format!("crate::types::error::{name}"),
         Context::Operation { module, .. } | Context::Builder { module, .. } => {
             format!("crate::operation::{module}::{name}")
         }
@@ -2528,6 +2626,9 @@ fn render_structure(
 ) {
     render_structure_at_indent(output, selected, shape, name, context.clone(), 4);
     render_structure_accessors(output, selected, shape, name, context.clone(), 4);
+    if is_error_context(&context) {
+        render_error_impls(output, selected, shape, name, &context);
+    }
     render_type_builder(output, selected, shape, name, context, 4);
 }
 
@@ -2540,6 +2641,7 @@ fn render_structure_at_indent(
     indent: usize,
 ) {
     let padding = " ".repeat(indent);
+    let is_error = is_error_context(&context);
     let request_id_plan = output_request_id_plan(selected, &context);
     if let Some(documentation) = documentation(shape) {
         render_doc_lines(output, &documentation, indent);
@@ -2556,7 +2658,11 @@ fn render_structure_at_indent(
     } else {
         "::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug"
     };
-    if members(shape).is_empty() && !request_id_plan.standard && !request_id_plan.extended {
+    if members(shape).is_empty()
+        && !is_error
+        && !request_id_plan.standard
+        && !request_id_plan.extended
+    {
         writeln!(output, "{padding}#[derive({derives})]").unwrap();
         writeln!(output, "{padding}pub struct {} {{}}", rust_type_name(name)).unwrap();
         return;
@@ -2573,6 +2679,12 @@ fn render_structure_at_indent(
         let field = names::rust_identifier(&member_name);
         if let Some(member_doc) = documentation(member) {
             render_doc_lines(output, &member_doc, indent + 4);
+        } else if is_error {
+            writeln!(
+                output,
+                "{padding}    #[allow(missing_docs)] // documentation missing in model"
+            )
+            .unwrap();
         }
         render_deprecated_attribute(output, member, indent + 4);
         let target = member_target(member).unwrap_or("smithy.api#String");
@@ -2584,6 +2696,13 @@ fn render_structure_at_indent(
     }
     if request_id_plan.standard {
         writeln!(output, "{padding}    _request_id: Option<String>,").unwrap();
+    }
+    if is_error {
+        writeln!(
+            output,
+            "{padding}    pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,"
+        )
+        .unwrap();
     }
     writeln!(output, "{}}}", padding).unwrap();
 }
@@ -2597,15 +2716,26 @@ fn render_structure_accessors(
     indent: usize,
 ) {
     let padding = " ".repeat(indent);
+    let is_error = is_error_context(&context);
     let request_id_plan = output_request_id_plan(selected, &context);
-    if !members(shape).is_empty() {
+    let structure_members = members(shape)
+        .into_iter()
+        .filter(|(member_name, _)| !is_error || !member_name.eq_ignore_ascii_case("message"))
+        .collect::<Vec<_>>();
+    if !structure_members.is_empty() {
         writeln!(output, "{padding}impl {} {{", rust_type_name(name)).unwrap();
-        for (member_name, member) in members(shape) {
+        for (member_name, member) in structure_members {
             let field = names::rust_identifier(&member_name);
             let target = member_target(member).unwrap_or("smithy.api#String");
             let target_type = type_expr(selected, target, context.clone());
             if let Some(member_doc) = documentation(member) {
                 render_doc_lines(output, &member_doc, indent + 4);
+            } else if is_error {
+                writeln!(
+                    output,
+                    "{padding}    #[allow(missing_docs)] // documentation missing in model"
+                )
+                .unwrap();
             }
             render_deprecated_attribute(output, member, indent + 4);
             let required = is_streaming_target(target)
@@ -2688,7 +2818,19 @@ fn render_structure_accessors(
         }
         writeln!(output, "{padding}}}").unwrap();
     }
-    if request_id_plan.extended {
+    if is_error {
+        writeln!(output, "{padding}impl {} {{", rust_type_name(name)).unwrap();
+        writeln!(output, "{padding}    /// Returns the error message.").unwrap();
+        writeln!(
+            output,
+            "{padding}    pub fn message(&self) -> ::std::option::Option<&str> {{"
+        )
+        .unwrap();
+        writeln!(output, "{padding}        self.message.as_deref()").unwrap();
+        writeln!(output, "{padding}    }}").unwrap();
+        writeln!(output, "{padding}}}").unwrap();
+    }
+    if request_id_plan.extended && !is_error {
         let trait_path = if context.consumer_namespace() {
             "super::super::super::s3_request_id::RequestIdExt"
         } else {
@@ -2701,7 +2843,7 @@ fn render_structure_accessors(
         )
         .unwrap();
     }
-    if request_id_plan.standard {
+    if request_id_plan.standard && !is_error {
         writeln!(
             output,
             "{padding}impl ::aws_types::request_id::RequestId for {} {{\n{padding}    fn request_id(&self) -> Option<&str> {{\n{padding}        self._request_id.as_deref()\n{padding}    }}\n{padding}}}",
@@ -2709,6 +2851,76 @@ fn render_structure_accessors(
         )
         .unwrap();
     }
+}
+
+fn render_error_impls(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: &Value,
+    name: &str,
+    context: &Context,
+) {
+    let rust_name = rust_type_name(name);
+    let consumer_namespace = context.consumer_namespace();
+    let request_id_plan = request_id_plan(selected);
+    let error_type_path = if consumer_namespace {
+        rust_name.clone()
+    } else {
+        format!("crate::types::error::{rust_name}")
+    };
+    let message_name = error_message_member(shape)
+        .map(|(name, _)| names::rust_identifier(&name))
+        .unwrap_or_else(|| "message".to_owned());
+
+    writeln!(output, "impl ::std::fmt::Display for {rust_name} {{").unwrap();
+    writeln!(
+        output,
+        "    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {{"
+    )
+    .unwrap();
+    writeln!(output, "        ::std::write!(f, {rust_name:?})?;").unwrap();
+    writeln!(
+        output,
+        "        if let ::std::option::Option::Some(inner_1) = &self.{message_name} {{"
+    )
+    .unwrap();
+    writeln!(output, "            {{").unwrap();
+    writeln!(
+        output,
+        "                ::std::write!(f, \": {{inner_1}}\")?;"
+    )
+    .unwrap();
+    writeln!(output, "            }}").unwrap();
+    writeln!(output, "        }}").unwrap();
+    writeln!(output, "        Ok(())").unwrap();
+    writeln!(output, "    }}").unwrap();
+    writeln!(output, "}}").unwrap();
+    writeln!(output, "impl ::std::error::Error for {rust_name} {{}}").unwrap();
+
+    if request_id_plan.extended {
+        let trait_path = if consumer_namespace {
+            "super::super::s3_request_id::RequestIdExt"
+        } else {
+            "crate::s3_request_id::RequestIdExt"
+        };
+        writeln!(
+            output,
+            "impl {trait_path} for {error_type_path} {{\n    fn extended_request_id(&self) -> Option<&str> {{\n        use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;\n        self.meta().extended_request_id()\n    }}\n}}"
+        )
+        .unwrap();
+    }
+    if request_id_plan.standard {
+        writeln!(
+            output,
+            "impl ::aws_types::request_id::RequestId for {error_type_path} {{\n    fn request_id(&self) -> Option<&str> {{\n        use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;\n        self.meta().request_id()\n    }}\n}}"
+        )
+        .unwrap();
+    }
+    writeln!(
+        output,
+        "impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for {rust_name} {{\n    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {{\n        &self.meta\n    }}\n}}"
+    )
+    .unwrap();
 }
 
 fn render_type_builder(
@@ -2724,6 +2936,7 @@ fn render_type_builder(
     let inner = " ".repeat(indent + 4);
     let builder_path = builder_type_path(&context, &rust_name);
     let value_path = value_type_path(&context, &rust_name);
+    let is_error = is_error_context(&context);
     let request_id_plan = output_request_id_plan(selected, &context);
     writeln!(output, "{padding}impl {rust_name} {{").unwrap();
     writeln!(
@@ -2749,7 +2962,11 @@ fn render_type_builder(
     )
     .unwrap();
     writeln!(output, "{padding}#[non_exhaustive]").unwrap();
-    if members(shape).is_empty() && !request_id_plan.standard && !request_id_plan.extended {
+    if members(shape).is_empty()
+        && !is_error
+        && !request_id_plan.standard
+        && !request_id_plan.extended
+    {
         writeln!(output, "{padding}pub struct {rust_name}Builder {{}}").unwrap();
         writeln!(output, "{padding}impl {rust_name}Builder {{").unwrap();
         writeln!(
@@ -2775,6 +2992,13 @@ fn render_type_builder(
         )
         .unwrap();
     }
+    if is_error {
+        writeln!(
+            output,
+            "{inner}meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,"
+        )
+        .unwrap();
+    }
     if request_id_plan.extended {
         writeln!(output, "{inner}_extended_request_id: Option<String>,").unwrap();
     }
@@ -2790,6 +3014,13 @@ fn render_type_builder(
             .map(|target| type_expr(selected, target, context.clone()))
             .unwrap_or_else(|| "::std::string::String".to_owned());
         let target_id = member_target(member).unwrap_or("smithy.api#String");
+        if is_error && documentation(member).is_none() {
+            writeln!(
+                output,
+                "{inner}#[allow(missing_docs)] // documentation missing in model"
+            )
+            .unwrap();
+        }
         if let Some(list_shape) = selected.model.shapes.get(target_id)
             && list_shape.get("type").and_then(Value::as_str) == Some("list")
         {
@@ -2857,12 +3088,26 @@ fn render_type_builder(
             )
             .unwrap();
         }
+        if is_error && documentation(member).is_none() {
+            writeln!(
+                output,
+                "{inner}#[allow(missing_docs)] // documentation missing in model"
+            )
+            .unwrap();
+        }
         render_deprecated_attribute(output, member, indent + 4);
         writeln!(
             output,
             "{inner}pub fn set_{field_method}(mut self, input: ::std::option::Option<{target}>) -> Self {{ self.{field} = input; self }}"
         )
         .unwrap();
+        if is_error && documentation(member).is_none() {
+            writeln!(
+                output,
+                "{inner}#[allow(missing_docs)] // documentation missing in model"
+            )
+            .unwrap();
+        }
         render_builder_docs(output, member, &inner, false);
         render_deprecated_attribute(output, member, indent + 4);
         writeln!(
@@ -2894,6 +3139,11 @@ fn render_type_builder(
             "{inner}pub(crate) fn _set_request_id(&mut self, request_id: Option<String>) -> &mut Self {{\n{inner}    self._request_id = request_id;\n{inner}    self\n{inner}}}"
         )
         .unwrap();
+    }
+    if is_error {
+        output.push_str(&format!(
+            "{inner}/// Sets error metadata\n{inner}pub fn meta(mut self, meta: ::aws_smithy_types::error::ErrorMetadata) -> Self {{\n{inner}    self.meta = Some(meta);\n{inner}    self\n{inner}}}\n\n{inner}/// Sets error metadata\n{inner}pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {{\n{inner}    self.meta = meta;\n{inner}    self\n{inner}}}\n"
+        ));
     }
     let required_members = members(shape)
         .into_iter()
@@ -2979,6 +3229,13 @@ fn render_type_builder(
     }
     if request_id_plan.standard {
         writeln!(output, "{inner}        _request_id: self._request_id,").unwrap();
+    }
+    if is_error {
+        writeln!(
+            output,
+            "{inner}        meta: self.meta.unwrap_or_default(),"
+        )
+        .unwrap();
     }
     if required_members.is_empty() {
         writeln!(output, "{inner}    }}").unwrap();

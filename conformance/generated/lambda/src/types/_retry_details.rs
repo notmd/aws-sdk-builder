@@ -39,17 +39,27 @@ impl RetryDetailsBuilder {
         self.current_attempt = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_current_attempt(mut self, input: ::std::option::Option<i32>) -> Self { self.current_attempt = input; self }
+    pub fn set_current_attempt(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.current_attempt = input;
+        self
+    }
     /// <p>The current attempt number for this operation.</p>
-    pub fn get_current_attempt(&self) -> &::std::option::Option<i32> { &self.current_attempt }
+    pub fn get_current_attempt(&self) -> &::std::option::Option<i32> {
+        &self.current_attempt
+    }
     /// <p>The delay before the next retry attempt, in seconds.</p>
     pub fn next_attempt_delay_seconds(mut self, input: i32) -> Self {
         self.next_attempt_delay_seconds = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_next_attempt_delay_seconds(mut self, input: ::std::option::Option<i32>) -> Self { self.next_attempt_delay_seconds = input; self }
+    pub fn set_next_attempt_delay_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.next_attempt_delay_seconds = input;
+        self
+    }
     /// <p>The delay before the next retry attempt, in seconds.</p>
-    pub fn get_next_attempt_delay_seconds(&self) -> &::std::option::Option<i32> { &self.next_attempt_delay_seconds }
+    pub fn get_next_attempt_delay_seconds(&self) -> &::std::option::Option<i32> {
+        &self.next_attempt_delay_seconds
+    }
     /// Consumes the builder and constructs a [`RetryDetails`](crate::types::RetryDetails).
     pub fn build(self) -> crate::types::RetryDetails {
         crate::types::RetryDetails {

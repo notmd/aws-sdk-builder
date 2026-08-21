@@ -40,23 +40,38 @@ impl PointInTimeRecoverySpecificationBuilder {
         self.point_in_time_recovery_enabled = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_point_in_time_recovery_enabled(mut self, input: ::std::option::Option<bool>) -> Self { self.point_in_time_recovery_enabled = input; self }
+    pub fn set_point_in_time_recovery_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.point_in_time_recovery_enabled = input;
+        self
+    }
     /// <p>Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.</p>
-    pub fn get_point_in_time_recovery_enabled(&self) -> &::std::option::Option<bool> { &self.point_in_time_recovery_enabled }
+    pub fn get_point_in_time_recovery_enabled(&self) -> &::std::option::Option<bool> {
+        &self.point_in_time_recovery_enabled
+    }
     /// <p>The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.</p>
     pub fn recovery_period_in_days(mut self, input: i32) -> Self {
         self.recovery_period_in_days = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_recovery_period_in_days(mut self, input: ::std::option::Option<i32>) -> Self { self.recovery_period_in_days = input; self }
+    pub fn set_recovery_period_in_days(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.recovery_period_in_days = input;
+        self
+    }
     /// <p>The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.</p>
-    pub fn get_recovery_period_in_days(&self) -> &::std::option::Option<i32> { &self.recovery_period_in_days }
+    pub fn get_recovery_period_in_days(&self) -> &::std::option::Option<i32> {
+        &self.recovery_period_in_days
+    }
     /// Consumes the builder and constructs a [`PointInTimeRecoverySpecification`](crate::types::PointInTimeRecoverySpecification).
     /// This method will fail if any of the following fields are not set:
     /// - [`point_in_time_recovery_enabled`](Self::point_in_time_recovery_enabled)
     pub fn build(self) -> ::std::result::Result<crate::types::PointInTimeRecoverySpecification, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::PointInTimeRecoverySpecification {
-            point_in_time_recovery_enabled: self.point_in_time_recovery_enabled.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("point_in_time_recovery_enabled", "point_in_time_recovery_enabled was not specified but it is required when building PointInTimeRecoverySpecification"))?,
+            point_in_time_recovery_enabled: self.point_in_time_recovery_enabled.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "point_in_time_recovery_enabled",
+                    "point_in_time_recovery_enabled was not specified but it is required when building PointInTimeRecoverySpecification",
+                )
+            })?,
             recovery_period_in_days: self.recovery_period_in_days,
         })
     }

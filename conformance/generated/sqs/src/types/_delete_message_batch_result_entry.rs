@@ -34,15 +34,25 @@ impl DeleteMessageBatchResultEntryBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>Represents a successfully deleted message.</p>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// Consumes the builder and constructs a [`DeleteMessageBatchResultEntry`](crate::types::DeleteMessageBatchResultEntry).
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](Self::id)
     pub fn build(self) -> ::std::result::Result<crate::types::DeleteMessageBatchResultEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteMessageBatchResultEntry {
-            id: self.id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building DeleteMessageBatchResultEntry"))?,
+            id: self.id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "id",
+                    "id was not specified but it is required when building DeleteMessageBatchResultEntry",
+                )
+            })?,
         })
     }
 }

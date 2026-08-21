@@ -18,7 +18,9 @@ impl ::aws_types::request_id::RequestId for UpdateBucketMetadataJournalTableConf
 }
 impl UpdateBucketMetadataJournalTableConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`UpdateBucketMetadataJournalTableConfigurationOutput`](crate::operation::update_bucket_metadata_journal_table_configuration::UpdateBucketMetadataJournalTableConfigurationOutput).
-    pub fn builder() -> crate::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationOutputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationOutputBuilder
+    {
         crate::operation::update_bucket_metadata_journal_table_configuration::builders::UpdateBucketMetadataJournalTableConfigurationOutputBuilder::default()
     }
 }

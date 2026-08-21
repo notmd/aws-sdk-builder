@@ -44,9 +44,14 @@ impl GetAccountSummaryOutputBuilder {
         self.summary_map = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_summary_map(mut self, input: ::std::option::Option<::std::collections::HashMap<crate::types::SummaryKeyType, i32>>) -> Self { self.summary_map = input; self }
+    pub fn set_summary_map(mut self, input: ::std::option::Option<::std::collections::HashMap<crate::types::SummaryKeyType, i32>>) -> Self {
+        self.summary_map = input;
+        self
+    }
     /// <p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>
-    pub fn get_summary_map(&self) -> &::std::option::Option<::std::collections::HashMap<crate::types::SummaryKeyType, i32>> { &self.summary_map }
+    pub fn get_summary_map(&self) -> &::std::option::Option<::std::collections::HashMap<crate::types::SummaryKeyType, i32>> {
+        &self.summary_map
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

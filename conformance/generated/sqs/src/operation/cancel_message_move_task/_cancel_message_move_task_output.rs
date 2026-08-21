@@ -39,9 +39,14 @@ impl CancelMessageMoveTaskOutputBuilder {
         self.approximate_number_of_messages_moved = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_approximate_number_of_messages_moved(mut self, input: ::std::option::Option<i64>) -> Self { self.approximate_number_of_messages_moved = input; self }
+    pub fn set_approximate_number_of_messages_moved(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.approximate_number_of_messages_moved = input;
+        self
+    }
     /// <p>The approximate number of messages already moved to the destination queue.</p>
-    pub fn get_approximate_number_of_messages_moved(&self) -> &::std::option::Option<i64> { &self.approximate_number_of_messages_moved }
+    pub fn get_approximate_number_of_messages_moved(&self) -> &::std::option::Option<i64> {
+        &self.approximate_number_of_messages_moved
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

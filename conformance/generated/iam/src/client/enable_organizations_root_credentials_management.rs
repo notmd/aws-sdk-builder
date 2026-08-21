@@ -10,6 +10,8 @@ impl super::Client {
     pub fn enable_organizations_root_credentials_management(
         &self,
     ) -> crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementFluentBuilder {
-        crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementFluentBuilder::new(self.handle.clone())
+        crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

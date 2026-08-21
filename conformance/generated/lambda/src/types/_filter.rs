@@ -32,13 +32,16 @@ impl FilterBuilder {
         self.pattern = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.pattern = input; self }
+    pub fn set_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.pattern = input;
+        self
+    }
     /// <p>A filter pattern. For more information on the syntax of a filter pattern, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax">Filter rule syntax</a>.</p>
-    pub fn get_pattern(&self) -> &::std::option::Option<::std::string::String> { &self.pattern }
+    pub fn get_pattern(&self) -> &::std::option::Option<::std::string::String> {
+        &self.pattern
+    }
     /// Consumes the builder and constructs a [`Filter`](crate::types::Filter).
     pub fn build(self) -> crate::types::Filter {
-        crate::types::Filter {
-            pattern: self.pattern,
-        }
+        crate::types::Filter { pattern: self.pattern }
     }
 }

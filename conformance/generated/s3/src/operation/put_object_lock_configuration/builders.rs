@@ -6,33 +6,119 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn object_lock_configuration(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockConfiguration>) -> Self { self.input.object_lock_configuration = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.token = Some(value.into()); self }
-    pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_md5 = Some(value.into()); self }
-    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::PutObjectLockConfigurationOutput, super::PutObjectLockConfigurationError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::PutObjectLockConfigurationError::Unhandled("PutObjectLockConfiguration requires bucket".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}?object-lock"); path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path };
-                         let body = { let mut body = ::std::string::String::new(); if let Some(value) = self.input.object_lock_configuration.as_ref() { body.push_str("<ObjectLockConfiguration>"); if let Some(value) = value.object_lock_enabled.as_ref() { body.push_str("<ObjectLockEnabled>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ObjectLockEnabled>"); } if let Some(value) = value.rule.as_ref() { body.push_str("<Rule>"); if let Some(value) = value.default_retention.as_ref() { body.push_str("<DefaultRetention>"); if let Some(value) = value.mode.as_ref() { body.push_str("<Mode>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Mode>"); } if let Some(value) = value.days.as_ref() { body.push_str("<Days>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Days>"); } if let Some(value) = value.years.as_ref() { body.push_str("<Years>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Years>"); } body.push_str("</DefaultRetention>"); } body.push_str("</Rule>"); } body.push_str("</ObjectLockConfiguration>"); } body.into_bytes() };
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers.push(("content-type", "application/xml")); headers };
-                         let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::PutObjectLockConfigurationError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::PutObjectLockConfigurationError::unhandled_with_request_ids(format!("PutObjectLockConfiguration returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_put_object_lock_configuration_output::PutObjectLockConfigurationOutputBuilder::default();
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn object_lock_configuration(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockConfiguration>) -> Self {
+        self.input.object_lock_configuration = Some(value.into());
+        self
+    }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
+        self.input.request_payer = Some(value.into());
+        self
+    }
+    pub fn token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.token = Some(value.into());
+        self
+    }
+    pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.content_md5 = Some(value.into());
+        self
+    }
+    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
+        self.input.checksum_algorithm = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::PutObjectLockConfigurationOutput, super::PutObjectLockConfigurationError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::PutObjectLockConfigurationError::Unhandled("PutObjectLockConfiguration requires bucket".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}?object-lock");
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path
+        };
+        let body = {
+            let mut body = ::std::string::String::new();
+            if let Some(value) = self.input.object_lock_configuration.as_ref() {
+                body.push_str("<ObjectLockConfiguration>");
+                if let Some(value) = value.object_lock_enabled.as_ref() {
+                    body.push_str("<ObjectLockEnabled>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                    body.push_str("</ObjectLockEnabled>");
+                }
+                if let Some(value) = value.rule.as_ref() {
+                    body.push_str("<Rule>");
+                    if let Some(value) = value.default_retention.as_ref() {
+                        body.push_str("<DefaultRetention>");
+                        if let Some(value) = value.mode.as_ref() {
+                            body.push_str("<Mode>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</Mode>");
+                        }
+                        if let Some(value) = value.days.as_ref() {
+                            body.push_str("<Days>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</Days>");
+                        }
+                        if let Some(value) = value.years.as_ref() {
+                            body.push_str("<Years>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</Years>");
+                        }
+                        body.push_str("</DefaultRetention>");
+                    }
+                    body.push_str("</Rule>");
+                }
+                body.push_str("</ObjectLockConfiguration>");
+            }
+            body.into_bytes()
+        };
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers.push(("content-type", "application/xml"));
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Put, &path, &headers, &body)
+            .await
+            .map_err(super::PutObjectLockConfigurationError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::PutObjectLockConfigurationError::unhandled_with_request_ids(
+                format!("PutObjectLockConfiguration returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_put_object_lock_configuration_output::PutObjectLockConfigurationOutputBuilder::default();
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as PutObjectLockConfigurationFluentBuilder;

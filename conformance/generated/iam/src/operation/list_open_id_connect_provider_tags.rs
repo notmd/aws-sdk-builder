@@ -2,19 +2,33 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListOpenIdConnectProviderTags;
-impl ListOpenIdConnectProviderTags { pub fn new() -> Self { Self } }
+impl ListOpenIdConnectProviderTags {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     InvalidInputException(super::super::types::error::InvalidInputException),
     NoSuchEntityException(super::super::types::error::NoSuchEntityException),
     ServiceFailureException(super::super::types::error::ServiceFailureException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_invalid_input_exception(&self) -> bool { matches!(self, Self::InvalidInputException(_)) }
-    pub fn is_no_such_entity_exception(&self) -> bool { matches!(self, Self::NoSuchEntityException(_)) }
-    pub fn is_service_failure_exception(&self) -> bool { matches!(self, Self::ServiceFailureException(_)) }
+    pub fn is_invalid_input_exception(&self) -> bool {
+        matches!(self, Self::InvalidInputException(_))
+    }
+    pub fn is_no_such_entity_exception(&self) -> bool {
+        matches!(self, Self::NoSuchEntityException(_))
+    }
+    pub fn is_service_failure_exception(&self) -> bool {
+        matches!(self, Self::ServiceFailureException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -29,26 +43,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _list_open_id_connect_provider_tags_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_open_id_connect_provider_tags/_list_open_id_connect_provider_tags_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/list_open_id_connect_provider_tags/_list_open_id_connect_provider_tags_input.rs"
+    ));
 }
 pub use _list_open_id_connect_provider_tags_input::ListOpenIdConnectProviderTagsInput;
 pub type Input = ListOpenIdConnectProviderTagsInput;
 pub mod _list_open_id_connect_provider_tags_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_open_id_connect_provider_tags/_list_open_id_connect_provider_tags_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/list_open_id_connect_provider_tags/_list_open_id_connect_provider_tags_output.rs"
+    ));
 }
 pub use _list_open_id_connect_provider_tags_output::ListOpenIdConnectProviderTagsOutput;
 pub type Output = ListOpenIdConnectProviderTagsOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/list_open_id_connect_provider_tags/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/list_open_id_connect_provider_tags/builders.rs"
+    ));
 }
 pub type ListOpenIdConnectProviderTagsError = Error;
 pub type ListOpenIdConnectProviderTagsFluentBuilder = builders::Builder;

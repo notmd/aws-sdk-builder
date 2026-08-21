@@ -39,9 +39,14 @@ impl DelegationPermissionBuilder {
         self.policy_template_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_template_arn = input; self }
+    pub fn set_policy_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_template_arn = input;
+        self
+    }
     /// <p>This ARN maps to a pre-registered policy content for this partner. See the <a href="">partner onboarding documentation</a> to understand how to create a delegation template.</p>
-    pub fn get_policy_template_arn(&self) -> &::std::option::Option<::std::string::String> { &self.policy_template_arn }
+    pub fn get_policy_template_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_template_arn
+    }
     /// <p>A list of policy parameters that define the scope and constraints of the delegated permissions.</p>
     /// Appends an item to `parameters`.
     ///
@@ -52,9 +57,14 @@ impl DelegationPermissionBuilder {
         self.parameters = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyParameter>>) -> Self { self.parameters = input; self }
+    pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyParameter>>) -> Self {
+        self.parameters = input;
+        self
+    }
     /// <p>A list of policy parameters that define the scope and constraints of the delegated permissions.</p>
-    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyParameter>> { &self.parameters }
+    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyParameter>> {
+        &self.parameters
+    }
     /// Consumes the builder and constructs a [`DelegationPermission`](crate::types::DelegationPermission).
     pub fn build(self) -> crate::types::DelegationPermission {
         crate::types::DelegationPermission {

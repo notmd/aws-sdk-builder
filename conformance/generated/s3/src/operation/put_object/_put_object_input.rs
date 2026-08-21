@@ -451,19 +451,29 @@ impl PutObjectInputBuilder {
         self.acl = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_acl(mut self, input: ::std::option::Option<crate::types::ObjectCannedAcl>) -> Self { self.acl = input; self }
+    pub fn set_acl(mut self, input: ::std::option::Option<crate::types::ObjectCannedAcl>) -> Self {
+        self.acl = input;
+        self
+    }
     /// <p>The canned ACL to apply to the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#CannedACL">Canned ACL</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>When adding a new object, you can use headers to grant ACL-based permissions to individual Amazon Web Services accounts or to predefined groups defined by Amazon S3. These permissions are then added to the ACL on the object. By default, all objects are private. Only the owner has full access control. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-using-rest-api.html">Managing ACLs Using the REST API</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If the bucket that you're uploading objects to uses the bucket owner enforced setting for S3 Object Ownership, ACLs are disabled and no longer affect permissions. Buckets that use this setting only accept PUT requests that don't specify an ACL or PUT requests that specify bucket owner full control ACLs, such as the <code>bucket-owner-full-control</code> canned ACL or an equivalent form of this ACL expressed in the XML format. PUT requests that contain other ACLs (for example, custom grants to certain Amazon Web Services accounts) fail and return a <code>400</code> error with the error code <code>AccessControlListNotSupported</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of objects and disabling ACLs</a> in the <i>Amazon S3 User Guide</i>.</p><note><ul><li><p>This functionality is not supported for directory buckets.</p></li><li><p>This functionality is not supported for Amazon S3 on Outposts.</p></li></ul></note>
-    pub fn get_acl(&self) -> &::std::option::Option<crate::types::ObjectCannedAcl> { &self.acl }
+    pub fn get_acl(&self) -> &::std::option::Option<crate::types::ObjectCannedAcl> {
+        &self.acl
+    }
     /// <p>Object data.</p>
     pub fn body(mut self, input: crate::primitives::ByteStream) -> Self {
         self.body = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_body(mut self, input: ::std::option::Option<crate::primitives::ByteStream>) -> Self { self.body = input; self }
+    pub fn set_body(mut self, input: ::std::option::Option<crate::primitives::ByteStream>) -> Self {
+        self.body = input;
+        self
+    }
     /// <p>Object data.</p>
-    pub fn get_body(&self) -> &::std::option::Option<crate::primitives::ByteStream> { &self.body }
+    pub fn get_body(&self) -> &::std::option::Option<crate::primitives::ByteStream> {
+        &self.body
+    }
     /// <p>The bucket name to which the PUT action was initiated.</p>
     /// <p><b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code><i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>. Path-style requests are not supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format <code><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p><b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When you use this action with an access point for directory buckets, you must provide the access point name in place of the bucket name. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p><note>
@@ -474,53 +484,83 @@ impl PutObjectInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The bucket name to which the PUT action was initiated.</p>
     /// <p><b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code><i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>. Path-style requests are not supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format <code><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p><b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When you use this action with an access point for directory buckets, you must provide the access point name in place of the bucket name. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>Object Lambda access points are not supported by directory buckets.</p>
     /// </note><p><b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts, the destination bucket must be the Outposts access point ARN or the access point alias. For more information about S3 on Outposts, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>Can be used to specify caching behavior along the request/reply chain. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
     pub fn cache_control(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.cache_control = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_cache_control(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.cache_control = input; self }
+    pub fn set_cache_control(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.cache_control = input;
+        self
+    }
     /// <p>Can be used to specify caching behavior along the request/reply chain. For more information, see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9">http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9</a>.</p>
-    pub fn get_cache_control(&self) -> &::std::option::Option<::std::string::String> { &self.cache_control }
+    pub fn get_cache_control(&self) -> &::std::option::Option<::std::string::String> {
+        &self.cache_control
+    }
     /// <p>Specifies presentational information for the object. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc6266#section-4">https://www.rfc-editor.org/rfc/rfc6266#section-4</a>.</p>
     pub fn content_disposition(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.content_disposition = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_content_disposition(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.content_disposition = input; self }
+    pub fn set_content_disposition(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.content_disposition = input;
+        self
+    }
     /// <p>Specifies presentational information for the object. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc6266#section-4">https://www.rfc-editor.org/rfc/rfc6266#section-4</a>.</p>
-    pub fn get_content_disposition(&self) -> &::std::option::Option<::std::string::String> { &self.content_disposition }
+    pub fn get_content_disposition(&self) -> &::std::option::Option<::std::string::String> {
+        &self.content_disposition
+    }
     /// <p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding">https://www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding</a>.</p>
     pub fn content_encoding(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.content_encoding = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_content_encoding(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.content_encoding = input; self }
+    pub fn set_content_encoding(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.content_encoding = input;
+        self
+    }
     /// <p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding">https://www.rfc-editor.org/rfc/rfc9110.html#field.content-encoding</a>.</p>
-    pub fn get_content_encoding(&self) -> &::std::option::Option<::std::string::String> { &self.content_encoding }
+    pub fn get_content_encoding(&self) -> &::std::option::Option<::std::string::String> {
+        &self.content_encoding
+    }
     /// <p>The language the content is in.</p>
     pub fn content_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.content_language = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_content_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.content_language = input; self }
+    pub fn set_content_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.content_language = input;
+        self
+    }
     /// <p>The language the content is in.</p>
-    pub fn get_content_language(&self) -> &::std::option::Option<::std::string::String> { &self.content_language }
+    pub fn get_content_language(&self) -> &::std::option::Option<::std::string::String> {
+        &self.content_language
+    }
     /// <p>Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-content-length">https://www.rfc-editor.org/rfc/rfc9110.html#name-content-length</a>.</p>
     pub fn content_length(mut self, input: i64) -> Self {
         self.content_length = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_content_length(mut self, input: ::std::option::Option<i64>) -> Self { self.content_length = input; self }
+    pub fn set_content_length(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.content_length = input;
+        self
+    }
     /// <p>Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-content-length">https://www.rfc-editor.org/rfc/rfc9110.html#name-content-length</a>.</p>
-    pub fn get_content_length(&self) -> &::std::option::Option<i64> { &self.content_length }
+    pub fn get_content_length(&self) -> &::std::option::Option<i64> {
+        &self.content_length
+    }
     /// <p>The Base64 encoded 128-bit <code>MD5</code> digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p><note>
     /// <p>The <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is required for any request to upload an object with a retention period configured using Amazon S3 Object Lock. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// </note><note>
@@ -530,21 +570,31 @@ impl PutObjectInputBuilder {
         self.content_md5 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_content_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.content_md5 = input; self }
+    pub fn set_content_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.content_md5 = input;
+        self
+    }
     /// <p>The Base64 encoded 128-bit <code>MD5</code> digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p><note>
     /// <p>The <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is required for any request to upload an object with a retention period configured using Amazon S3 Object Lock. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// </note><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_content_md5(&self) -> &::std::option::Option<::std::string::String> { &self.content_md5 }
+    pub fn get_content_md5(&self) -> &::std::option::Option<::std::string::String> {
+        &self.content_md5
+    }
     /// <p>A standard MIME type describing the format of the contents. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-content-type">https://www.rfc-editor.org/rfc/rfc9110.html#name-content-type</a>.</p>
     pub fn content_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.content_type = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_content_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.content_type = input; self }
+    pub fn set_content_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.content_type = input;
+        self
+    }
     /// <p>A standard MIME type describing the format of the contents. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc9110.html#name-content-type">https://www.rfc-editor.org/rfc/rfc9110.html#name-content-type</a>.</p>
-    pub fn get_content_type(&self) -> &::std::option::Option<::std::string::String> { &self.content_type }
+    pub fn get_content_type(&self) -> &::std::option::Option<::std::string::String> {
+        &self.content_type
+    }
     /// <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum-<i>algorithm</i></code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>.</p>
     /// <p>For the <code>x-amz-checksum-<i>algorithm</i></code> header, replace <code><i>algorithm</i></code> with the supported algorithm from the following list:</p><ul><li><p><code>CRC32</code></p></li><li><p><code>CRC32C</code></p></li><li><p><code>CRC64NVME</code></p></li><li><p><code>MD5</code></p></li><li><p><code>SHA1</code></p></li><li><p><code>SHA256</code></p></li><li><p><code>SHA512</code></p></li><li><p><code>XXHASH3</code></p></li><li><p><code>XXHASH64</code></p></li><li><p><code>XXHASH128</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i></code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>, Amazon S3 fails the request with a <code>BadDigest</code> error.</p><note>
@@ -554,101 +604,161 @@ impl PutObjectInputBuilder {
         self.checksum_algorithm = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self { self.checksum_algorithm = input; self }
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+        self.checksum_algorithm = input;
+        self
+    }
     /// <p>Indicates the algorithm used to create the checksum for the object when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum-<i>algorithm</i></code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>.</p>
     /// <p>For the <code>x-amz-checksum-<i>algorithm</i></code> header, replace <code><i>algorithm</i></code> with the supported algorithm from the following list:</p><ul><li><p><code>CRC32</code></p></li><li><p><code>CRC32C</code></p></li><li><p><code>CRC64NVME</code></p></li><li><p><code>MD5</code></p></li><li><p><code>SHA1</code></p></li><li><p><code>SHA256</code></p></li><li><p><code>SHA512</code></p></li><li><p><code>XXHASH3</code></p></li><li><p><code>XXHASH64</code></p></li><li><p><code>XXHASH128</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i></code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>, Amazon S3 fails the request with a <code>BadDigest</code> error.</p><note>
     /// <p>The <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is required for any request to upload an object with a retention period configured using Amazon S3 Object Lock. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// </note><p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> { &self.checksum_algorithm }
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+        &self.checksum_algorithm
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_crc32(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc32 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_crc32(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_crc32 = input; self }
+    pub fn set_checksum_crc32(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_crc32 = input;
+        self
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code>CRC32</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_crc32(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_crc32 }
+    pub fn get_checksum_crc32(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_crc32
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_crc32_c(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc32_c = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_crc32_c(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_crc32_c = input; self }
+    pub fn set_checksum_crc32_c(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_crc32_c = input;
+        self
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_crc32_c(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_crc32_c }
+    pub fn get_checksum_crc32_c(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_crc32_c
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the object. The <code>CRC64NVME</code> checksum is always a full object checksum. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_crc64_nvme(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc64_nvme = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_crc64_nvme(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_crc64_nvme = input; self }
+    pub fn set_checksum_crc64_nvme(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_crc64_nvme = input;
+        self
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the object. The <code>CRC64NVME</code> checksum is always a full object checksum. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_crc64_nvme(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_crc64_nvme }
+    pub fn get_checksum_crc64_nvme(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_crc64_nvme
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 160-bit <code>SHA1</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_sha1(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha1 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_sha1(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_sha1 = input; self }
+    pub fn set_checksum_sha1(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_sha1 = input;
+        self
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 160-bit <code>SHA1</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_sha1(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_sha1 }
+    pub fn get_checksum_sha1(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_sha1
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 256-bit <code>SHA256</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_sha256(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha256 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_sha256 = input; self }
+    pub fn set_checksum_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_sha256 = input;
+        self
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 256-bit <code>SHA256</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_sha256(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_sha256 }
+    pub fn get_checksum_sha256(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_sha256
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 512-bit <code>SHA512</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_sha512(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha512 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_sha512(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_sha512 = input; self }
+    pub fn set_checksum_sha512(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_sha512 = input;
+        self
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 512-bit <code>SHA512</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_sha512(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_sha512 }
+    pub fn get_checksum_sha512(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_sha512
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 128-bit <code>MD5</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_md5 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_md5 = input; self }
+    pub fn set_checksum_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_md5 = input;
+        self
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 128-bit <code>MD5</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_md5(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_md5 }
+    pub fn get_checksum_md5(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_md5
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_xxhash64(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash64 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_xxhash64(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_xxhash64 = input; self }
+    pub fn set_checksum_xxhash64(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_xxhash64 = input;
+        self
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_xxhash64(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_xxhash64 }
+    pub fn get_checksum_xxhash64(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_xxhash64
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_xxhash3(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash3 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_xxhash3(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_xxhash3 = input; self }
+    pub fn set_checksum_xxhash3(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_xxhash3 = input;
+        self
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_xxhash3(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_xxhash3 }
+    pub fn get_checksum_xxhash3(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_xxhash3
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_xxhash128(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash128 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_xxhash128(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_xxhash128 = input; self }
+    pub fn set_checksum_xxhash128(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_xxhash128 = input;
+        self
+    }
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_xxhash128(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_xxhash128 }
+    pub fn get_checksum_xxhash128(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_xxhash128
+    }
     /// <p>The date and time at which the object is no longer cacheable. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc7234#section-5.3">https://www.rfc-editor.org/rfc/rfc7234#section-5.3</a>.</p>
     pub fn expires(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.expires = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_expires(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.expires = input; self }
+    pub fn set_expires(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.expires = input;
+        self
+    }
     /// <p>The date and time at which the object is no longer cacheable. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc7234#section-5.3">https://www.rfc-editor.org/rfc/rfc7234#section-5.3</a>.</p>
-    pub fn get_expires(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.expires }
+    pub fn get_expires(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.expires
+    }
     /// <p>Uploads the object only if the ETag (entity tag) value provided during the WRITE operation matches the ETag of the object in S3. If the ETag values do not match, the operation returns a <code>412 Precondition Failed</code> error.</p>
     /// <p>If a conflicting operation occurs during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure you should fetch the object's ETag and retry the upload.</p>
     /// <p>Expects the ETag value as a string.</p>
@@ -657,12 +767,17 @@ impl PutObjectInputBuilder {
         self.if_match = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_if_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.if_match = input; self }
+    pub fn set_if_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.if_match = input;
+        self
+    }
     /// <p>Uploads the object only if the ETag (entity tag) value provided during the WRITE operation matches the ETag of the object in S3. If the ETag values do not match, the operation returns a <code>412 Precondition Failed</code> error.</p>
     /// <p>If a conflicting operation occurs during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure you should fetch the object's ETag and retry the upload.</p>
     /// <p>Expects the ETag value as a string.</p>
     /// <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>, or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-requests.html">Conditional requests</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_if_match(&self) -> &::std::option::Option<::std::string::String> { &self.if_match }
+    pub fn get_if_match(&self) -> &::std::option::Option<::std::string::String> {
+        &self.if_match
+    }
     /// <p>Uploads the object only if the object key name does not already exist in the bucket specified. Otherwise, Amazon S3 returns a <code>412 Precondition Failed</code> error.</p>
     /// <p>If a conflicting operation occurs during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure you should retry the upload.</p>
     /// <p>Expects the '*' (asterisk) character.</p>
@@ -671,53 +786,83 @@ impl PutObjectInputBuilder {
         self.if_none_match = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_if_none_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.if_none_match = input; self }
+    pub fn set_if_none_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.if_none_match = input;
+        self
+    }
     /// <p>Uploads the object only if the object key name does not already exist in the bucket specified. Otherwise, Amazon S3 returns a <code>412 Precondition Failed</code> error.</p>
     /// <p>If a conflicting operation occurs during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure you should retry the upload.</p>
     /// <p>Expects the '*' (asterisk) character.</p>
     /// <p>For more information about conditional requests, see <a href="https://tools.ietf.org/html/rfc7232">RFC 7232</a>, or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/conditional-requests.html">Conditional requests</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_if_none_match(&self) -> &::std::option::Option<::std::string::String> { &self.if_none_match }
+    pub fn get_if_none_match(&self) -> &::std::option::Option<::std::string::String> {
+        &self.if_none_match
+    }
     /// <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p><note><ul><li><p>This functionality is not supported for directory buckets.</p></li><li><p>This functionality is not supported for Amazon S3 on Outposts.</p></li></ul></note>
     pub fn grant_full_control(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grant_full_control = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_grant_full_control(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.grant_full_control = input; self }
+    pub fn set_grant_full_control(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.grant_full_control = input;
+        self
+    }
     /// <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p><note><ul><li><p>This functionality is not supported for directory buckets.</p></li><li><p>This functionality is not supported for Amazon S3 on Outposts.</p></li></ul></note>
-    pub fn get_grant_full_control(&self) -> &::std::option::Option<::std::string::String> { &self.grant_full_control }
+    pub fn get_grant_full_control(&self) -> &::std::option::Option<::std::string::String> {
+        &self.grant_full_control
+    }
     /// <p>Allows grantee to read the object data and its metadata.</p><note><ul><li><p>This functionality is not supported for directory buckets.</p></li><li><p>This functionality is not supported for Amazon S3 on Outposts.</p></li></ul></note>
     pub fn grant_read(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grant_read = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_grant_read(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.grant_read = input; self }
+    pub fn set_grant_read(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.grant_read = input;
+        self
+    }
     /// <p>Allows grantee to read the object data and its metadata.</p><note><ul><li><p>This functionality is not supported for directory buckets.</p></li><li><p>This functionality is not supported for Amazon S3 on Outposts.</p></li></ul></note>
-    pub fn get_grant_read(&self) -> &::std::option::Option<::std::string::String> { &self.grant_read }
+    pub fn get_grant_read(&self) -> &::std::option::Option<::std::string::String> {
+        &self.grant_read
+    }
     /// <p>Allows grantee to read the object ACL.</p><note><ul><li><p>This functionality is not supported for directory buckets.</p></li><li><p>This functionality is not supported for Amazon S3 on Outposts.</p></li></ul></note>
     pub fn grant_read_acp(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grant_read_acp = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_grant_read_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.grant_read_acp = input; self }
+    pub fn set_grant_read_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.grant_read_acp = input;
+        self
+    }
     /// <p>Allows grantee to read the object ACL.</p><note><ul><li><p>This functionality is not supported for directory buckets.</p></li><li><p>This functionality is not supported for Amazon S3 on Outposts.</p></li></ul></note>
-    pub fn get_grant_read_acp(&self) -> &::std::option::Option<::std::string::String> { &self.grant_read_acp }
+    pub fn get_grant_read_acp(&self) -> &::std::option::Option<::std::string::String> {
+        &self.grant_read_acp
+    }
     /// <p>Allows grantee to write the ACL for the applicable object.</p><note><ul><li><p>This functionality is not supported for directory buckets.</p></li><li><p>This functionality is not supported for Amazon S3 on Outposts.</p></li></ul></note>
     pub fn grant_write_acp(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grant_write_acp = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_grant_write_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.grant_write_acp = input; self }
+    pub fn set_grant_write_acp(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.grant_write_acp = input;
+        self
+    }
     /// <p>Allows grantee to write the ACL for the applicable object.</p><note><ul><li><p>This functionality is not supported for directory buckets.</p></li><li><p>This functionality is not supported for Amazon S3 on Outposts.</p></li></ul></note>
-    pub fn get_grant_write_acp(&self) -> &::std::option::Option<::std::string::String> { &self.grant_write_acp }
+    pub fn get_grant_write_acp(&self) -> &::std::option::Option<::std::string::String> {
+        &self.grant_write_acp
+    }
     /// <p>Object key for which the PUT action was initiated.</p>
     /// This field is required.
     pub fn key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>Object key for which the PUT action was initiated.</p>
-    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key
+    }
     /// <p>Specifies the offset for appending data to existing objects in bytes. The offset must be equal to the size of the existing object being appended to. If no object exists, setting this header to 0 will create a new object.</p><note>
     /// <p>This functionality is only supported for objects in the Amazon S3 Express One Zone storage class in directory buckets.</p>
     /// </note>
@@ -725,11 +870,16 @@ impl PutObjectInputBuilder {
         self.write_offset_bytes = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_write_offset_bytes(mut self, input: ::std::option::Option<i64>) -> Self { self.write_offset_bytes = input; self }
+    pub fn set_write_offset_bytes(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.write_offset_bytes = input;
+        self
+    }
     /// <p>Specifies the offset for appending data to existing objects in bytes. The offset must be equal to the size of the existing object being appended to. If no object exists, setting this header to 0 will create a new object.</p><note>
     /// <p>This functionality is only supported for objects in the Amazon S3 Express One Zone storage class in directory buckets.</p>
     /// </note>
-    pub fn get_write_offset_bytes(&self) -> &::std::option::Option<i64> { &self.write_offset_bytes }
+    pub fn get_write_offset_bytes(&self) -> &::std::option::Option<i64> {
+        &self.write_offset_bytes
+    }
     /// <p>A map of metadata to store with the object in S3.</p>
     /// Adds a key-value pair to `metadata`.
     ///
@@ -740,9 +890,14 @@ impl PutObjectInputBuilder {
         self.metadata = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_metadata(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.metadata = input; self }
+    pub fn set_metadata(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.metadata = input;
+        self
+    }
     /// <p>A map of metadata to store with the object in S3.</p>
-    pub fn get_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.metadata }
+    pub fn get_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.metadata
+    }
     /// <p>The server-side encryption algorithm that was used when you store this object in Amazon S3 or Amazon FSx.</p><ul><li><p><b>General purpose buckets</b> - You have four mutually exclusive options to protect data using server-side encryption in Amazon S3, depending on how you choose to manage the encryption keys. Specifically, the encryption key options are Amazon S3 managed keys (SSE-S3), Amazon Web Services KMS keys (SSE-KMS or DSSE-KMS), and customer-provided keys (SSE-C). Amazon S3 encrypts data with server-side encryption by using Amazon S3 managed keys (SSE-S3) by default. You can optionally tell Amazon S3 to encrypt data at rest by using server-side encryption with other key options. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side Encryption</a> in the <i>Amazon S3 User Guide</i>.</p></li><li><p><b>Directory buckets</b> - For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). We recommend that the bucket's default encryption uses the desired encryption configuration and you don't override the bucket default encryption in your <code>CreateSession</code> requests or <code>PUT</code> object requests. Then, new objects are automatically encrypted with the desired encryption settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>. For more information about the encryption overriding behaviors in directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.html">Specifying server-side encryption with KMS for new object uploads</a>.</p>
     /// <p>In the Zonal endpoint API calls (except <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>) using the REST API, the encryption request headers must match the encryption settings that are specified in the <code>CreateSession</code> request. You can't override the values of the encryption settings (<code>x-amz-server-side-encryption</code>, <code>x-amz-server-side-encryption-aws-kms-key-id</code>, <code>x-amz-server-side-encryption-context</code>, and <code>x-amz-server-side-encryption-bucket-key-enabled</code>) that are specified in the <code>CreateSession</code> request. You don't need to explicitly specify these encryption settings values in Zonal endpoint API calls, and Amazon S3 will use the encryption settings values from the <code>CreateSession</code> request to protect new objects in the directory bucket.</p><note>
     /// <p>When you use the CLI or the Amazon Web Services SDKs, for <code>CreateSession</code>, the session token refreshes automatically to avoid service interruptions when a session expires. The CLI or the Amazon Web Services SDKs use the bucket's default encryption configuration for the <code>CreateSession</code> request. It's not supported to override the encryption settings values in the <code>CreateSession</code> request. So in the Zonal endpoint API calls (except <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>), the encryption request headers must match the default encryption configuration of the directory bucket.</p>
@@ -751,20 +906,30 @@ impl PutObjectInputBuilder {
         self.server_side_encryption = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self { self.server_side_encryption = input; self }
+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
+        self.server_side_encryption = input;
+        self
+    }
     /// <p>The server-side encryption algorithm that was used when you store this object in Amazon S3 or Amazon FSx.</p><ul><li><p><b>General purpose buckets</b> - You have four mutually exclusive options to protect data using server-side encryption in Amazon S3, depending on how you choose to manage the encryption keys. Specifically, the encryption key options are Amazon S3 managed keys (SSE-S3), Amazon Web Services KMS keys (SSE-KMS or DSSE-KMS), and customer-provided keys (SSE-C). Amazon S3 encrypts data with server-side encryption by using Amazon S3 managed keys (SSE-S3) by default. You can optionally tell Amazon S3 to encrypt data at rest by using server-side encryption with other key options. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingServerSideEncryption.html">Using Server-Side Encryption</a> in the <i>Amazon S3 User Guide</i>.</p></li><li><p><b>Directory buckets</b> - For directory buckets, there are only two supported options for server-side encryption: server-side encryption with Amazon S3 managed keys (SSE-S3) (<code>AES256</code>) and server-side encryption with KMS keys (SSE-KMS) (<code>aws:kms</code>). We recommend that the bucket's default encryption uses the desired encryption configuration and you don't override the bucket default encryption in your <code>CreateSession</code> requests or <code>PUT</code> object requests. Then, new objects are automatically encrypted with the desired encryption settings. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-serv-side-encryption.html">Protecting data with server-side encryption</a> in the <i>Amazon S3 User Guide</i>. For more information about the encryption overriding behaviors in directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.html">Specifying server-side encryption with KMS for new object uploads</a>.</p>
     /// <p>In the Zonal endpoint API calls (except <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>) using the REST API, the encryption request headers must match the encryption settings that are specified in the <code>CreateSession</code> request. You can't override the values of the encryption settings (<code>x-amz-server-side-encryption</code>, <code>x-amz-server-side-encryption-aws-kms-key-id</code>, <code>x-amz-server-side-encryption-context</code>, and <code>x-amz-server-side-encryption-bucket-key-enabled</code>) that are specified in the <code>CreateSession</code> request. You don't need to explicitly specify these encryption settings values in Zonal endpoint API calls, and Amazon S3 will use the encryption settings values from the <code>CreateSession</code> request to protect new objects in the directory bucket.</p><note>
     /// <p>When you use the CLI or the Amazon Web Services SDKs, for <code>CreateSession</code>, the session token refreshes automatically to avoid service interruptions when a session expires. The CLI or the Amazon Web Services SDKs use the bucket's default encryption configuration for the <code>CreateSession</code> request. It's not supported to override the encryption settings values in the <code>CreateSession</code> request. So in the Zonal endpoint API calls (except <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>), the encryption request headers must match the default encryption configuration of the directory bucket.</p>
     /// </note></li><li><p><b>S3 access points for Amazon FSx</b> - When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>. All Amazon FSx file systems have encryption configured by default and are encrypted at rest. Data is automatically encrypted before being written to the file system, and automatically decrypted as it is read. These processes are handled transparently by Amazon FSx.</p></li></ul>
-    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> { &self.server_side_encryption }
+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+        &self.server_side_encryption
+    }
     /// <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the <i>Amazon S3 User Guide</i>.</p><note><ul><li><p>Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p></li><li><p>Amazon S3 on Outposts only uses the OUTPOSTS Storage Class.</p></li></ul></note>
     pub fn storage_class(mut self, input: crate::types::StorageClass) -> Self {
         self.storage_class = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self { self.storage_class = input; self }
+    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
+        self.storage_class = input;
+        self
+    }
     /// <p>By default, Amazon S3 uses the STANDARD Storage Class to store newly created objects. The STANDARD storage class provides high durability and high availability. Depending on performance needs, you can specify a different Storage Class. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> in the <i>Amazon S3 User Guide</i>.</p><note><ul><li><p>Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p></li><li><p>Amazon S3 on Outposts only uses the OUTPOSTS Storage Class.</p></li></ul></note>
-    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> { &self.storage_class }
+    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> {
+        &self.storage_class
+    }
     /// <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. For information about object metadata, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html">Object Key and Metadata</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>In the following example, the request header sets the redirect to an object (anotherPage.html) in the same bucket:</p>
     /// <p><code>x-amz-website-redirect-location: /anotherPage.html</code></p>
@@ -777,7 +942,10 @@ impl PutObjectInputBuilder {
         self.website_redirect_location = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_website_redirect_location(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.website_redirect_location = input; self }
+    pub fn set_website_redirect_location(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.website_redirect_location = input;
+        self
+    }
     /// <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata. For information about object metadata, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html">Object Key and Metadata</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>In the following example, the request header sets the redirect to an object (anotherPage.html) in the same bucket:</p>
     /// <p><code>x-amz-website-redirect-location: /anotherPage.html</code></p>
@@ -786,7 +954,9 @@ impl PutObjectInputBuilder {
     /// <p>For more information about website hosting in Amazon S3, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html">Hosting Websites on Amazon S3</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html">How to Configure Website Page Redirects</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_website_redirect_location(&self) -> &::std::option::Option<::std::string::String> { &self.website_redirect_location }
+    pub fn get_website_redirect_location(&self) -> &::std::option::Option<::std::string::String> {
+        &self.website_redirect_location
+    }
     /// <p>Specifies the algorithm to use when encrypting the object (for example, <code>AES256</code>).</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -794,11 +964,16 @@ impl PutObjectInputBuilder {
         self.sse_customer_algorithm = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.sse_customer_algorithm = input; self }
+    pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.sse_customer_algorithm = input;
+        self
+    }
     /// <p>Specifies the algorithm to use when encrypting the object (for example, <code>AES256</code>).</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_sse_customer_algorithm(&self) -> &::std::option::Option<::std::string::String> { &self.sse_customer_algorithm }
+    pub fn get_sse_customer_algorithm(&self) -> &::std::option::Option<::std::string::String> {
+        &self.sse_customer_algorithm
+    }
     /// <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the <code>x-amz-server-side-encryption-customer-algorithm</code> header.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -806,11 +981,16 @@ impl PutObjectInputBuilder {
         self.sse_customer_key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_sse_customer_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.sse_customer_key = input; self }
+    pub fn set_sse_customer_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.sse_customer_key = input;
+        self
+    }
     /// <p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon S3 does not store the encryption key. The key must be appropriate for use with the algorithm specified in the <code>x-amz-server-side-encryption-customer-algorithm</code> header.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_sse_customer_key(&self) -> &::std::option::Option<::std::string::String> { &self.sse_customer_key }
+    pub fn get_sse_customer_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.sse_customer_key
+    }
     /// <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -818,11 +998,16 @@ impl PutObjectInputBuilder {
         self.sse_customer_key_md5 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.sse_customer_key_md5 = input; self }
+    pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.sse_customer_key_md5 = input;
+        self
+    }
     /// <p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_sse_customer_key_md5(&self) -> &::std::option::Option<::std::string::String> { &self.sse_customer_key_md5 }
+    pub fn get_sse_customer_key_md5(&self) -> &::std::option::Option<::std::string::String> {
+        &self.sse_customer_key_md5
+    }
     /// <p>Specifies the KMS key ID (Key ID, Key ARN, or Key Alias) to use for object encryption. If the KMS key doesn't exist in the same account that's issuing the command, you must use the full Key ARN not the Key ID.</p>
     /// <p><b>General purpose buckets</b> - If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code> or <code>aws:kms:dsse</code>, this header specifies the ID (Key ID, Key ARN, or Key Alias) of the KMS key to use. If you specify <code>x-amz-server-side-encryption:aws:kms</code> or <code>x-amz-server-side-encryption:aws:kms:dsse</code>, but do not provide <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the Amazon Web Services managed key (<code>aws/s3</code>) to protect the data.</p>
     /// <p><b>Directory buckets</b> - To encrypt data using SSE-KMS, it's recommended to specify the <code>x-amz-server-side-encryption</code> header to <code>aws:kms</code>. Then, the <code>x-amz-server-side-encryption-aws-kms-key-id</code> header implicitly uses the bucket's default KMS customer managed key ID. If you want to explicitly set the <code>x-amz-server-side-encryption-aws-kms-key-id</code> header, it must match the bucket's default customer managed key (using key ID or ARN, not alias). Your SSE-KMS configuration can only support 1 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a> per directory bucket's lifetime. The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a> (<code>aws/s3</code>) isn't supported. Incorrect key specification results in an HTTP <code>400 Bad Request</code> error.</p>
@@ -830,11 +1015,16 @@ impl PutObjectInputBuilder {
         self.ssekms_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_ssekms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.ssekms_key_id = input; self }
+    pub fn set_ssekms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.ssekms_key_id = input;
+        self
+    }
     /// <p>Specifies the KMS key ID (Key ID, Key ARN, or Key Alias) to use for object encryption. If the KMS key doesn't exist in the same account that's issuing the command, you must use the full Key ARN not the Key ID.</p>
     /// <p><b>General purpose buckets</b> - If you specify <code>x-amz-server-side-encryption</code> with <code>aws:kms</code> or <code>aws:kms:dsse</code>, this header specifies the ID (Key ID, Key ARN, or Key Alias) of the KMS key to use. If you specify <code>x-amz-server-side-encryption:aws:kms</code> or <code>x-amz-server-side-encryption:aws:kms:dsse</code>, but do not provide <code>x-amz-server-side-encryption-aws-kms-key-id</code>, Amazon S3 uses the Amazon Web Services managed key (<code>aws/s3</code>) to protect the data.</p>
     /// <p><b>Directory buckets</b> - To encrypt data using SSE-KMS, it's recommended to specify the <code>x-amz-server-side-encryption</code> header to <code>aws:kms</code>. Then, the <code>x-amz-server-side-encryption-aws-kms-key-id</code> header implicitly uses the bucket's default KMS customer managed key ID. If you want to explicitly set the <code>x-amz-server-side-encryption-aws-kms-key-id</code> header, it must match the bucket's default customer managed key (using key ID or ARN, not alias). Your SSE-KMS configuration can only support 1 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a> per directory bucket's lifetime. The <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a> (<code>aws/s3</code>) isn't supported. Incorrect key specification results in an HTTP <code>400 Bad Request</code> error.</p>
-    pub fn get_ssekms_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.ssekms_key_id }
+    pub fn get_ssekms_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.ssekms_key_id
+    }
     /// <p>Specifies the Amazon Web Services KMS Encryption Context as an additional encryption context to use for object encryption. The value of this header is a Base64 encoded string of a UTF-8 encoded JSON, which contains the encryption context as key-value pairs. This value is stored as object metadata and automatically gets passed on to Amazon Web Services KMS for future <code>GetObject</code> operations on this object.</p>
     /// <p><b>General purpose buckets</b> - This value must be explicitly added during <code>CopyObject</code> operations if you want an additional encryption context for your object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html#encryption-context">Encryption context</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p><b>Directory buckets</b> - You can optionally provide an explicit encryption context value. The value must match the default encryption context - the bucket Amazon Resource Name (ARN). An additional encryption context value is not supported.</p>
@@ -842,11 +1032,16 @@ impl PutObjectInputBuilder {
         self.ssekms_encryption_context = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_ssekms_encryption_context(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.ssekms_encryption_context = input; self }
+    pub fn set_ssekms_encryption_context(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.ssekms_encryption_context = input;
+        self
+    }
     /// <p>Specifies the Amazon Web Services KMS Encryption Context as an additional encryption context to use for object encryption. The value of this header is a Base64 encoded string of a UTF-8 encoded JSON, which contains the encryption context as key-value pairs. This value is stored as object metadata and automatically gets passed on to Amazon Web Services KMS for future <code>GetObject</code> operations on this object.</p>
     /// <p><b>General purpose buckets</b> - This value must be explicitly added during <code>CopyObject</code> operations if you want an additional encryption context for your object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html#encryption-context">Encryption context</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p><b>Directory buckets</b> - You can optionally provide an explicit encryption context value. The value must match the default encryption context - the bucket Amazon Resource Name (ARN). An additional encryption context value is not supported.</p>
-    pub fn get_ssekms_encryption_context(&self) -> &::std::option::Option<::std::string::String> { &self.ssekms_encryption_context }
+    pub fn get_ssekms_encryption_context(&self) -> &::std::option::Option<::std::string::String> {
+        &self.ssekms_encryption_context
+    }
     /// <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using Key Management Service (KMS) keys (SSE-KMS).</p>
     /// <p><b>General purpose buckets</b> - Setting this header to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS. Also, specifying this header with a PUT action doesn't affect bucket-level settings for S3 Bucket Key.</p>
     /// <p><b>Directory buckets</b> - S3 Bucket Keys are always enabled for <code>GET</code> and <code>PUT</code> operations in a directory bucket and can’t be disabled. S3 Bucket Keys aren't supported, when you copy SSE-KMS encrypted objects from general purpose buckets to directory buckets, from directory buckets to general purpose buckets, or between directory buckets, through <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>, <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-objects-Batch-Ops">the Copy operation in Batch Operations</a>, or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-import-job">the import jobs</a>. In this case, Amazon S3 makes a call to KMS every time a copy request is made for a KMS-encrypted object.</p>
@@ -854,17 +1049,27 @@ impl PutObjectInputBuilder {
         self.bucket_key_enabled = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_bucket_key_enabled(mut self, input: ::std::option::Option<bool>) -> Self { self.bucket_key_enabled = input; self }
+    pub fn set_bucket_key_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.bucket_key_enabled = input;
+        self
+    }
     /// <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using Key Management Service (KMS) keys (SSE-KMS).</p>
     /// <p><b>General purpose buckets</b> - Setting this header to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS. Also, specifying this header with a PUT action doesn't affect bucket-level settings for S3 Bucket Key.</p>
     /// <p><b>Directory buckets</b> - S3 Bucket Keys are always enabled for <code>GET</code> and <code>PUT</code> operations in a directory bucket and can’t be disabled. S3 Bucket Keys aren't supported, when you copy SSE-KMS encrypted objects from general purpose buckets to directory buckets, from directory buckets to general purpose buckets, or between directory buckets, through <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html">CopyObject</a>, <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>, <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-objects-Batch-Ops">the Copy operation in Batch Operations</a>, or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-import-job">the import jobs</a>. In this case, Amazon S3 makes a call to KMS every time a copy request is made for a KMS-encrypted object.</p>
-    pub fn get_bucket_key_enabled(&self) -> &::std::option::Option<bool> { &self.bucket_key_enabled }
+    pub fn get_bucket_key_enabled(&self) -> &::std::option::Option<bool> {
+        &self.bucket_key_enabled
+    }
     pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self { self.request_payer = input; self }
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> { &self.request_payer }
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+        self.request_payer = input;
+        self
+    }
+    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+        &self.request_payer
+    }
     /// <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -872,11 +1077,16 @@ impl PutObjectInputBuilder {
         self.tagging = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_tagging(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.tagging = input; self }
+    pub fn set_tagging(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.tagging = input;
+        self
+    }
     /// <p>The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, "Key1=Value1")</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_tagging(&self) -> &::std::option::Option<::std::string::String> { &self.tagging }
+    pub fn get_tagging(&self) -> &::std::option::Option<::std::string::String> {
+        &self.tagging
+    }
     /// <p>The Object Lock mode that you want to apply to this object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -884,11 +1094,16 @@ impl PutObjectInputBuilder {
         self.object_lock_mode = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_object_lock_mode(mut self, input: ::std::option::Option<crate::types::ObjectLockMode>) -> Self { self.object_lock_mode = input; self }
+    pub fn set_object_lock_mode(mut self, input: ::std::option::Option<crate::types::ObjectLockMode>) -> Self {
+        self.object_lock_mode = input;
+        self
+    }
     /// <p>The Object Lock mode that you want to apply to this object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_object_lock_mode(&self) -> &::std::option::Option<crate::types::ObjectLockMode> { &self.object_lock_mode }
+    pub fn get_object_lock_mode(&self) -> &::std::option::Option<crate::types::ObjectLockMode> {
+        &self.object_lock_mode
+    }
     /// <p>The date and time when you want this object's Object Lock to expire. Must be formatted as a timestamp parameter.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -896,11 +1111,16 @@ impl PutObjectInputBuilder {
         self.object_lock_retain_until_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_object_lock_retain_until_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.object_lock_retain_until_date = input; self }
+    pub fn set_object_lock_retain_until_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.object_lock_retain_until_date = input;
+        self
+    }
     /// <p>The date and time when you want this object's Object Lock to expire. Must be formatted as a timestamp parameter.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_object_lock_retain_until_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.object_lock_retain_until_date }
+    pub fn get_object_lock_retain_until_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.object_lock_retain_until_date
+    }
     /// <p>Specifies whether a legal hold will be applied to this object. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -908,19 +1128,29 @@ impl PutObjectInputBuilder {
         self.object_lock_legal_hold_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>) -> Self { self.object_lock_legal_hold_status = input; self }
+    pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>) -> Self {
+        self.object_lock_legal_hold_status = input;
+        self
+    }
     /// <p>Specifies whether a legal hold will be applied to this object. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<crate::types::ObjectLockLegalHoldStatus> { &self.object_lock_legal_hold_status }
+    pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<crate::types::ObjectLockLegalHoldStatus> {
+        &self.object_lock_legal_hold_status
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// Consumes the builder and constructs a [`PutObjectInput`](crate::operation::put_object::PutObjectInput).
     pub fn build(self) -> crate::operation::put_object::PutObjectInput {
         crate::operation::put_object::PutObjectInput {

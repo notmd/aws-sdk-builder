@@ -63,37 +63,57 @@ impl PolicyVersionBuilder {
         self.document = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.document = input; self }
+    pub fn set_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.document = input;
+        self
+    }
     /// <p>The policy document.</p>
     /// <p>The policy document is returned in the response to the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetPolicyVersion.html">GetPolicyVersion</a> and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetAccountAuthorizationDetails.html">GetAccountAuthorizationDetails</a> operations. It is not returned in the response to the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreatePolicyVersion.html">CreatePolicyVersion</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListPolicyVersions.html">ListPolicyVersions</a> operations.</p>
     /// <p>The policy document returned in this structure is URL-encoded compliant with <a href="https://tools.ietf.org/html/rfc3986">RFC 3986</a>. You can use a URL decoding method to convert the policy back to plain JSON text. For example, if you use Java, you can use the <code>decode</code> method of the <code>java.net.URLDecoder</code> utility class in the Java SDK. Other languages and SDKs provide similar functionality.</p>
-    pub fn get_document(&self) -> &::std::option::Option<::std::string::String> { &self.document }
+    pub fn get_document(&self) -> &::std::option::Option<::std::string::String> {
+        &self.document
+    }
     /// <p>The identifier for the policy version.</p>
     /// <p>Policy version identifiers always begin with <code>v</code> (always lowercase). When a policy is created, the first policy version is <code>v1</code>.</p>
     pub fn version_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.version_id = input; self }
+    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.version_id = input;
+        self
+    }
     /// <p>The identifier for the policy version.</p>
     /// <p>Policy version identifiers always begin with <code>v</code> (always lowercase). When a policy is created, the first policy version is <code>v1</code>.</p>
-    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.version_id }
+    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.version_id
+    }
     /// <p>Specifies whether the policy version is set as the policy's default version.</p>
     pub fn is_default_version(mut self, input: bool) -> Self {
         self.is_default_version = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_is_default_version(mut self, input: ::std::option::Option<bool>) -> Self { self.is_default_version = input; self }
+    pub fn set_is_default_version(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.is_default_version = input;
+        self
+    }
     /// <p>Specifies whether the policy version is set as the policy's default version.</p>
-    pub fn get_is_default_version(&self) -> &::std::option::Option<bool> { &self.is_default_version }
+    pub fn get_is_default_version(&self) -> &::std::option::Option<bool> {
+        &self.is_default_version
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the policy version was created.</p>
     pub fn create_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.create_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.create_date = input; self }
+    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.create_date = input;
+        self
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the policy version was created.</p>
-    pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.create_date }
+    pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.create_date
+    }
     /// Consumes the builder and constructs a [`PolicyVersion`](crate::types::PolicyVersion).
     pub fn build(self) -> crate::types::PolicyVersion {
         crate::types::PolicyVersion {

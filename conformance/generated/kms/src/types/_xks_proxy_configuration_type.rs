@@ -71,17 +71,27 @@ impl XksProxyConfigurationTypeBuilder {
         self.connectivity = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_connectivity(mut self, input: ::std::option::Option<crate::types::XksProxyConnectivityType>) -> Self { self.connectivity = input; self }
+    pub fn set_connectivity(mut self, input: ::std::option::Option<crate::types::XksProxyConnectivityType>) -> Self {
+        self.connectivity = input;
+        self
+    }
     /// <p>Indicates whether the external key store proxy uses a public endpoint or an Amazon VPC endpoint service to communicate with KMS.</p>
-    pub fn get_connectivity(&self) -> &::std::option::Option<crate::types::XksProxyConnectivityType> { &self.connectivity }
+    pub fn get_connectivity(&self) -> &::std::option::Option<crate::types::XksProxyConnectivityType> {
+        &self.connectivity
+    }
     /// <p>The part of the external key store <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateCustomKeyStore.html#KMS-CreateCustomKeyStore-request-XksProxyAuthenticationCredential">proxy authentication credential</a> that uniquely identifies the secret access key.</p>
     pub fn access_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.access_key_id = input; self }
+    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.access_key_id = input;
+        self
+    }
     /// <p>The part of the external key store <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateCustomKeyStore.html#KMS-CreateCustomKeyStore-request-XksProxyAuthenticationCredential">proxy authentication credential</a> that uniquely identifies the secret access key.</p>
-    pub fn get_access_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.access_key_id }
+    pub fn get_access_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.access_key_id
+    }
     /// <p>The URI endpoint for the external key store proxy.</p>
     /// <p>If the external key store proxy has a public endpoint, it is displayed here.</p>
     /// <p>If the external key store proxy uses an Amazon VPC endpoint service name, this field displays the private DNS name associated with the VPC endpoint service.</p>
@@ -89,35 +99,55 @@ impl XksProxyConfigurationTypeBuilder {
         self.uri_endpoint = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_uri_endpoint(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.uri_endpoint = input; self }
+    pub fn set_uri_endpoint(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.uri_endpoint = input;
+        self
+    }
     /// <p>The URI endpoint for the external key store proxy.</p>
     /// <p>If the external key store proxy has a public endpoint, it is displayed here.</p>
     /// <p>If the external key store proxy uses an Amazon VPC endpoint service name, this field displays the private DNS name associated with the VPC endpoint service.</p>
-    pub fn get_uri_endpoint(&self) -> &::std::option::Option<::std::string::String> { &self.uri_endpoint }
+    pub fn get_uri_endpoint(&self) -> &::std::option::Option<::std::string::String> {
+        &self.uri_endpoint
+    }
     /// <p>The path to the external key store proxy APIs.</p>
     pub fn uri_path(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.uri_path = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_uri_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.uri_path = input; self }
+    pub fn set_uri_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.uri_path = input;
+        self
+    }
     /// <p>The path to the external key store proxy APIs.</p>
-    pub fn get_uri_path(&self) -> &::std::option::Option<::std::string::String> { &self.uri_path }
+    pub fn get_uri_path(&self) -> &::std::option::Option<::std::string::String> {
+        &self.uri_path
+    }
     /// <p>The Amazon VPC endpoint service used to communicate with the external key store proxy. This field appears only when the external key store proxy uses an Amazon VPC endpoint service to communicate with KMS.</p>
     pub fn vpc_endpoint_service_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.vpc_endpoint_service_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_vpc_endpoint_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.vpc_endpoint_service_name = input; self }
+    pub fn set_vpc_endpoint_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.vpc_endpoint_service_name = input;
+        self
+    }
     /// <p>The Amazon VPC endpoint service used to communicate with the external key store proxy. This field appears only when the external key store proxy uses an Amazon VPC endpoint service to communicate with KMS.</p>
-    pub fn get_vpc_endpoint_service_name(&self) -> &::std::option::Option<::std::string::String> { &self.vpc_endpoint_service_name }
+    pub fn get_vpc_endpoint_service_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.vpc_endpoint_service_name
+    }
     /// <p>The Amazon Web Services account ID that owns the Amazon VPC endpoint service used to communicate with the external key store proxy (XKS). This field appears only when the XKS uses an VPC endpoint service to communicate with KMS.</p>
     pub fn vpc_endpoint_service_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.vpc_endpoint_service_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_vpc_endpoint_service_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.vpc_endpoint_service_owner = input; self }
+    pub fn set_vpc_endpoint_service_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.vpc_endpoint_service_owner = input;
+        self
+    }
     /// <p>The Amazon Web Services account ID that owns the Amazon VPC endpoint service used to communicate with the external key store proxy (XKS). This field appears only when the XKS uses an VPC endpoint service to communicate with KMS.</p>
-    pub fn get_vpc_endpoint_service_owner(&self) -> &::std::option::Option<::std::string::String> { &self.vpc_endpoint_service_owner }
+    pub fn get_vpc_endpoint_service_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.vpc_endpoint_service_owner
+    }
     /// Consumes the builder and constructs a [`XksProxyConfigurationType`](crate::types::XksProxyConfigurationType).
     pub fn build(self) -> crate::types::XksProxyConfigurationType {
         crate::types::XksProxyConfigurationType {

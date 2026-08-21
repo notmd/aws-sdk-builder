@@ -6,27 +6,53 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn serial_number(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.serial_number = Some(value.into()); self }
-    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
-    pub fn max_items(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_items = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::ListMfaDeviceTagsOutput, super::ListMfaDeviceTagsError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListMfaDeviceTagsError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::ListMfaDeviceTagsError::unhandled_with_request_ids(format!("ListMfaDeviceTags returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_list_mfa_device_tags_output::ListMfaDeviceTagsOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         output.build().map_err(|error| super::ListMfaDeviceTagsError::Unhandled(error.to_string()))
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn serial_number(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.serial_number = Some(value.into());
+        self
+    }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.marker = Some(value.into());
+        self
+    }
+    pub fn max_items(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.max_items = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::ListMfaDeviceTagsOutput, super::ListMfaDeviceTagsError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::ListMfaDeviceTagsError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::ListMfaDeviceTagsError::unhandled_with_request_ids(
+                format!("ListMfaDeviceTags returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_list_mfa_device_tags_output::ListMfaDeviceTagsOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        output
+            .build()
+            .map_err(|error| super::ListMfaDeviceTagsError::Unhandled(error.to_string()))
+    }
 }
 pub use Builder as ListMfaDeviceTagsFluentBuilder;

@@ -35,14 +35,17 @@ impl ReplicationTimeValueBuilder {
         self.minutes = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_minutes(mut self, input: ::std::option::Option<i32>) -> Self { self.minutes = input; self }
+    pub fn set_minutes(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.minutes = input;
+        self
+    }
     /// <p>Contains an integer specifying time in minutes.</p>
     /// <p>Valid value: 15</p>
-    pub fn get_minutes(&self) -> &::std::option::Option<i32> { &self.minutes }
+    pub fn get_minutes(&self) -> &::std::option::Option<i32> {
+        &self.minutes
+    }
     /// Consumes the builder and constructs a [`ReplicationTimeValue`](crate::types::ReplicationTimeValue).
     pub fn build(self) -> crate::types::ReplicationTimeValue {
-        crate::types::ReplicationTimeValue {
-            minutes: self.minutes,
-        }
+        crate::types::ReplicationTimeValue { minutes: self.minutes }
     }
 }

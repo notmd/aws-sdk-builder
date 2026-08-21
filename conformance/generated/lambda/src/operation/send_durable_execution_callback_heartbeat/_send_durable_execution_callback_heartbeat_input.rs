@@ -33,9 +33,14 @@ impl SendDurableExecutionCallbackHeartbeatInputBuilder {
         self.callback_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_callback_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.callback_id = input; self }
+    pub fn set_callback_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.callback_id = input;
+        self
+    }
     /// <p>The unique identifier for the callback operation.</p>
-    pub fn get_callback_id(&self) -> &::std::option::Option<::std::string::String> { &self.callback_id }
+    pub fn get_callback_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.callback_id
+    }
     /// Consumes the builder and constructs a [`SendDurableExecutionCallbackHeartbeatInput`](crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput).
     pub fn build(self) -> crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput {
         crate::operation::send_durable_execution_callback_heartbeat::SendDurableExecutionCallbackHeartbeatInput {

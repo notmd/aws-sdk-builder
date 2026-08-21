@@ -49,27 +49,42 @@ impl InlinePolicyIdentifierTypeBuilder {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_name = input; self }
+    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_name = input;
+        self
+    }
     /// <p>The name of the inline policy.</p>
-    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> { &self.policy_name }
+    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_name
+    }
     /// <p>The type of IAM entity that the inline policy is attached to.</p>
     /// This field is required.
     pub fn attachment_type(mut self, input: crate::types::AttachmentType) -> Self {
         self.attachment_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_attachment_type(mut self, input: ::std::option::Option<crate::types::AttachmentType>) -> Self { self.attachment_type = input; self }
+    pub fn set_attachment_type(mut self, input: ::std::option::Option<crate::types::AttachmentType>) -> Self {
+        self.attachment_type = input;
+        self
+    }
     /// <p>The type of IAM entity that the inline policy is attached to.</p>
-    pub fn get_attachment_type(&self) -> &::std::option::Option<crate::types::AttachmentType> { &self.attachment_type }
+    pub fn get_attachment_type(&self) -> &::std::option::Option<crate::types::AttachmentType> {
+        &self.attachment_type
+    }
     /// <p>The name of the IAM user, group, or role that the inline policy is attached to. Wildcard characters are supported to match multiple entities: use at most one <code>*</code> (matches any sequence of characters, including none), and any number of <code>?</code> (each matches exactly one character).</p>
     /// This field is required.
     pub fn attachment_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.attachment_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_attachment_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.attachment_name = input; self }
+    pub fn set_attachment_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.attachment_name = input;
+        self
+    }
     /// <p>The name of the IAM user, group, or role that the inline policy is attached to. Wildcard characters are supported to match multiple entities: use at most one <code>*</code> (matches any sequence of characters, including none), and any number of <code>?</code> (each matches exactly one character).</p>
-    pub fn get_attachment_name(&self) -> &::std::option::Option<::std::string::String> { &self.attachment_name }
+    pub fn get_attachment_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.attachment_name
+    }
     /// Consumes the builder and constructs a [`InlinePolicyIdentifierType`](crate::types::InlinePolicyIdentifierType).
     /// This method will fail if any of the following fields are not set:
     /// - [`policy_name`](Self::policy_name)
@@ -77,9 +92,24 @@ impl InlinePolicyIdentifierTypeBuilder {
     /// - [`attachment_name`](Self::attachment_name)
     pub fn build(self) -> ::std::result::Result<crate::types::InlinePolicyIdentifierType, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InlinePolicyIdentifierType {
-            policy_name: self.policy_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("policy_name", "policy_name was not specified but it is required when building InlinePolicyIdentifierType"))?,
-            attachment_type: self.attachment_type.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("attachment_type", "attachment_type was not specified but it is required when building InlinePolicyIdentifierType"))?,
-            attachment_name: self.attachment_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("attachment_name", "attachment_name was not specified but it is required when building InlinePolicyIdentifierType"))?,
+            policy_name: self.policy_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "policy_name",
+                    "policy_name was not specified but it is required when building InlinePolicyIdentifierType",
+                )
+            })?,
+            attachment_type: self.attachment_type.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "attachment_type",
+                    "attachment_type was not specified but it is required when building InlinePolicyIdentifierType",
+                )
+            })?,
+            attachment_name: self.attachment_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "attachment_name",
+                    "attachment_name was not specified but it is required when building InlinePolicyIdentifierType",
+                )
+            })?,
         })
     }
 }

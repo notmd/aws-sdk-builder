@@ -39,9 +39,14 @@ impl ListEventSourceMappingsResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>A pagination token that's returned when the response doesn't contain all event source mappings.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// <p>A list of event source mappings.</p>
     /// Appends an item to `event_source_mappings`.
     ///
@@ -52,9 +57,14 @@ impl ListEventSourceMappingsResponseBuilder {
         self.event_source_mappings = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_event_source_mappings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingConfiguration>>) -> Self { self.event_source_mappings = input; self }
+    pub fn set_event_source_mappings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingConfiguration>>) -> Self {
+        self.event_source_mappings = input;
+        self
+    }
     /// <p>A list of event source mappings.</p>
-    pub fn get_event_source_mappings(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingConfiguration>> { &self.event_source_mappings }
+    pub fn get_event_source_mappings(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::EventSourceMappingConfiguration>> {
+        &self.event_source_mappings
+    }
     /// Consumes the builder and constructs a [`ListEventSourceMappingsResponse`](crate::types::ListEventSourceMappingsResponse).
     pub fn build(self) -> crate::types::ListEventSourceMappingsResponse {
         crate::types::ListEventSourceMappingsResponse {

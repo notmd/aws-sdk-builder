@@ -40,23 +40,38 @@ impl RecordExpirationBuilder {
         self.expiration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_expiration(mut self, input: ::std::option::Option<crate::types::ExpirationState>) -> Self { self.expiration = input; self }
+    pub fn set_expiration(mut self, input: ::std::option::Option<crate::types::ExpirationState>) -> Self {
+        self.expiration = input;
+        self
+    }
     /// <p>Specifies whether journal table record expiration is enabled or disabled.</p>
-    pub fn get_expiration(&self) -> &::std::option::Option<crate::types::ExpirationState> { &self.expiration }
+    pub fn get_expiration(&self) -> &::std::option::Option<crate::types::ExpirationState> {
+        &self.expiration
+    }
     /// <p>If you enable journal table record expiration, you can set the number of days to retain your journal table records. Journal table records must be retained for a minimum of 7 days. To set this value, specify any whole number from <code>7</code> to <code>2147483647</code>. For example, to retain your journal table records for one year, set this value to <code>365</code>.</p>
     pub fn days(mut self, input: i32) -> Self {
         self.days = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_days(mut self, input: ::std::option::Option<i32>) -> Self { self.days = input; self }
+    pub fn set_days(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.days = input;
+        self
+    }
     /// <p>If you enable journal table record expiration, you can set the number of days to retain your journal table records. Journal table records must be retained for a minimum of 7 days. To set this value, specify any whole number from <code>7</code> to <code>2147483647</code>. For example, to retain your journal table records for one year, set this value to <code>365</code>.</p>
-    pub fn get_days(&self) -> &::std::option::Option<i32> { &self.days }
+    pub fn get_days(&self) -> &::std::option::Option<i32> {
+        &self.days
+    }
     /// Consumes the builder and constructs a [`RecordExpiration`](crate::types::RecordExpiration).
     /// This method will fail if any of the following fields are not set:
     /// - [`expiration`](Self::expiration)
     pub fn build(self) -> ::std::result::Result<crate::types::RecordExpiration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::RecordExpiration {
-            expiration: self.expiration.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("expiration", "expiration was not specified but it is required when building RecordExpiration"))?,
+            expiration: self.expiration.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "expiration",
+                    "expiration was not specified but it is required when building RecordExpiration",
+                )
+            })?,
             days: self.days,
         })
     }

@@ -60,33 +60,53 @@ impl UpdateContributorInsightsOutputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the table.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>The name of the global secondary index, if applicable.</p>
     pub fn index_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.index_name = input; self }
+    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.index_name = input;
+        self
+    }
     /// <p>The name of the global secondary index, if applicable.</p>
-    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> { &self.index_name }
+    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.index_name
+    }
     /// <p>The status of contributor insights</p>
     pub fn contributor_insights_status(mut self, input: crate::types::ContributorInsightsStatus) -> Self {
         self.contributor_insights_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self { self.contributor_insights_status = input; self }
+    pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self {
+        self.contributor_insights_status = input;
+        self
+    }
     /// <p>The status of contributor insights</p>
-    pub fn get_contributor_insights_status(&self) -> &::std::option::Option<crate::types::ContributorInsightsStatus> { &self.contributor_insights_status }
+    pub fn get_contributor_insights_status(&self) -> &::std::option::Option<crate::types::ContributorInsightsStatus> {
+        &self.contributor_insights_status
+    }
     /// <p>The updated mode of CloudWatch Contributor Insights that determines whether to monitor all access and throttled events or to track throttled events exclusively.</p>
     pub fn contributor_insights_mode(mut self, input: crate::types::ContributorInsightsMode) -> Self {
         self.contributor_insights_mode = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self { self.contributor_insights_mode = input; self }
+    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
+        self.contributor_insights_mode = input;
+        self
+    }
     /// <p>The updated mode of CloudWatch Contributor Insights that determines whether to monitor all access and throttled events or to track throttled events exclusively.</p>
-    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<crate::types::ContributorInsightsMode> { &self.contributor_insights_mode }
+    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<crate::types::ContributorInsightsMode> {
+        &self.contributor_insights_mode
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

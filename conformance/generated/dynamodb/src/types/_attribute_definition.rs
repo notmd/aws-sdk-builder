@@ -41,26 +41,46 @@ impl AttributeDefinitionBuilder {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.attribute_name = input; self }
+    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.attribute_name = input;
+        self
+    }
     /// <p>A name for the attribute.</p>
-    pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> { &self.attribute_name }
+    pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.attribute_name
+    }
     /// <p>The data type for the attribute, where:</p><ul><li><p><code>S</code> - the attribute is of type String</p></li><li><p><code>N</code> - the attribute is of type Number</p></li><li><p><code>B</code> - the attribute is of type Binary</p></li></ul>
     /// This field is required.
     pub fn attribute_type(mut self, input: crate::types::ScalarAttributeType) -> Self {
         self.attribute_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_attribute_type(mut self, input: ::std::option::Option<crate::types::ScalarAttributeType>) -> Self { self.attribute_type = input; self }
+    pub fn set_attribute_type(mut self, input: ::std::option::Option<crate::types::ScalarAttributeType>) -> Self {
+        self.attribute_type = input;
+        self
+    }
     /// <p>The data type for the attribute, where:</p><ul><li><p><code>S</code> - the attribute is of type String</p></li><li><p><code>N</code> - the attribute is of type Number</p></li><li><p><code>B</code> - the attribute is of type Binary</p></li></ul>
-    pub fn get_attribute_type(&self) -> &::std::option::Option<crate::types::ScalarAttributeType> { &self.attribute_type }
+    pub fn get_attribute_type(&self) -> &::std::option::Option<crate::types::ScalarAttributeType> {
+        &self.attribute_type
+    }
     /// Consumes the builder and constructs a [`AttributeDefinition`](crate::types::AttributeDefinition).
     /// This method will fail if any of the following fields are not set:
     /// - [`attribute_name`](Self::attribute_name)
     /// - [`attribute_type`](Self::attribute_type)
     pub fn build(self) -> ::std::result::Result<crate::types::AttributeDefinition, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AttributeDefinition {
-            attribute_name: self.attribute_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("attribute_name", "attribute_name was not specified but it is required when building AttributeDefinition"))?,
-            attribute_type: self.attribute_type.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("attribute_type", "attribute_type was not specified but it is required when building AttributeDefinition"))?,
+            attribute_name: self.attribute_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "attribute_name",
+                    "attribute_name was not specified but it is required when building AttributeDefinition",
+                )
+            })?,
+            attribute_type: self.attribute_type.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "attribute_type",
+                    "attribute_type was not specified but it is required when building AttributeDefinition",
+                )
+            })?,
         })
     }
 }

@@ -33,13 +33,16 @@ impl DescribeExportInputBuilder {
         self.export_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_export_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.export_arn = input; self }
+    pub fn set_export_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.export_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) associated with the export.</p>
-    pub fn get_export_arn(&self) -> &::std::option::Option<::std::string::String> { &self.export_arn }
+    pub fn get_export_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.export_arn
+    }
     /// Consumes the builder and constructs a [`DescribeExportInput`](crate::operation::describe_export::DescribeExportInput).
     pub fn build(self) -> crate::operation::describe_export::DescribeExportInput {
-        crate::operation::describe_export::DescribeExportInput {
-            export_arn: self.export_arn,
-        }
+        crate::operation::describe_export::DescribeExportInput { export_arn: self.export_arn }
     }
 }

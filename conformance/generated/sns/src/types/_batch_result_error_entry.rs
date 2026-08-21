@@ -56,35 +56,55 @@ impl BatchResultErrorEntryBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>The <code>Id</code> of an entry in a batch request</p>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>An error code representing why the action failed on this entry.</p>
     /// This field is required.
     pub fn code(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.code = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.code = input; self }
+    pub fn set_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.code = input;
+        self
+    }
     /// <p>An error code representing why the action failed on this entry.</p>
-    pub fn get_code(&self) -> &::std::option::Option<::std::string::String> { &self.code }
+    pub fn get_code(&self) -> &::std::option::Option<::std::string::String> {
+        &self.code
+    }
     /// <p>A message explaining why the action failed on this entry.</p>
     pub fn message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.message = input; self }
+    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.message = input;
+        self
+    }
     /// <p>A message explaining why the action failed on this entry.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> { &self.message }
+    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.message
+    }
     /// <p>Specifies whether the error happened due to the caller of the batch API action.</p>
     /// This field is required.
     pub fn sender_fault(mut self, input: bool) -> Self {
         self.sender_fault = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_sender_fault(mut self, input: ::std::option::Option<bool>) -> Self { self.sender_fault = input; self }
+    pub fn set_sender_fault(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.sender_fault = input;
+        self
+    }
     /// <p>Specifies whether the error happened due to the caller of the batch API action.</p>
-    pub fn get_sender_fault(&self) -> &::std::option::Option<bool> { &self.sender_fault }
+    pub fn get_sender_fault(&self) -> &::std::option::Option<bool> {
+        &self.sender_fault
+    }
     /// Consumes the builder and constructs a [`BatchResultErrorEntry`](crate::types::BatchResultErrorEntry).
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](Self::id)
@@ -92,10 +112,25 @@ impl BatchResultErrorEntryBuilder {
     /// - [`sender_fault`](Self::sender_fault)
     pub fn build(self) -> ::std::result::Result<crate::types::BatchResultErrorEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::BatchResultErrorEntry {
-            id: self.id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building BatchResultErrorEntry"))?,
-            code: self.code.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("code", "code was not specified but it is required when building BatchResultErrorEntry"))?,
+            id: self.id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "id",
+                    "id was not specified but it is required when building BatchResultErrorEntry",
+                )
+            })?,
+            code: self.code.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "code",
+                    "code was not specified but it is required when building BatchResultErrorEntry",
+                )
+            })?,
             message: self.message,
-            sender_fault: self.sender_fault.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("sender_fault", "sender_fault was not specified but it is required when building BatchResultErrorEntry"))?,
+            sender_fault: self.sender_fault.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "sender_fault",
+                    "sender_fault was not specified but it is required when building BatchResultErrorEntry",
+                )
+            })?,
         })
     }
 }

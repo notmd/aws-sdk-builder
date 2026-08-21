@@ -42,26 +42,43 @@ impl TagBuilder {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>The key name that can be used to look up or retrieve the associated value. For example, <code>Department</code> or <code>Cost Center</code> are common choices.</p>
-    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key
+    }
     /// <p>The value associated with this tag. For example, tags with a key name of <code>Department</code> could have values such as <code>Human Resources</code>, <code>Accounting</code>, and <code>Support</code>. Tags with a key name of <code>Cost Center</code> might have values that consist of the number associated with the different cost centers in your company. Typically, many resources have tags with the same key name but with different values.</p>
     /// This field is required.
     pub fn value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.value = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.value = input; self }
+    pub fn set_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.value = input;
+        self
+    }
     /// <p>The value associated with this tag. For example, tags with a key name of <code>Department</code> could have values such as <code>Human Resources</code>, <code>Accounting</code>, and <code>Support</code>. Tags with a key name of <code>Cost Center</code> might have values that consist of the number associated with the different cost centers in your company. Typically, many resources have tags with the same key name but with different values.</p>
-    pub fn get_value(&self) -> &::std::option::Option<::std::string::String> { &self.value }
+    pub fn get_value(&self) -> &::std::option::Option<::std::string::String> {
+        &self.value
+    }
     /// Consumes the builder and constructs a [`Tag`](crate::types::Tag).
     /// This method will fail if any of the following fields are not set:
     /// - [`key`](Self::key)
     /// - [`value`](Self::value)
     pub fn build(self) -> ::std::result::Result<crate::types::Tag, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Tag {
-            key: self.key.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("key", "key was not specified but it is required when building Tag"))?,
-            value: self.value.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("value", "value was not specified but it is required when building Tag"))?,
+            key: self.key.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field("key", "key was not specified but it is required when building Tag")
+            })?,
+            value: self.value.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "value",
+                    "value was not specified but it is required when building Tag",
+                )
+            })?,
         })
     }
 }

@@ -103,30 +103,45 @@ impl ImportKeyMaterialInputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>The identifier of the KMS key that will be associated with the imported key material. This must be the same KMS key specified in the <code>KeyID</code> parameter of the corresponding <a>GetParametersForImport</a> request. The <code>Origin</code> of the KMS key must be <code>EXTERNAL</code> and its <code>KeyState</code> must be <code>PendingImport</code>.</p>
     /// <p>The KMS key can be a symmetric encryption KMS key, HMAC KMS key, asymmetric encryption KMS key, or asymmetric signing KMS key, including a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">multi-Region key</a> of any supported type. You cannot perform this operation on a KMS key in a custom key store, or on a KMS key in a different Amazon Web Services account.</p>
     /// <p>Specify the key ID or key ARN of the KMS key.</p>
     /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// <p>The import token that you received in the response to a previous <a>GetParametersForImport</a> request. It must be from the same response that contained the public key that you used to encrypt the key material.</p>
     /// This field is required.
     pub fn import_token(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.import_token = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_import_token(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.import_token = input; self }
+    pub fn set_import_token(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.import_token = input;
+        self
+    }
     /// <p>The import token that you received in the response to a previous <a>GetParametersForImport</a> request. It must be from the same response that contained the public key that you used to encrypt the key material.</p>
-    pub fn get_import_token(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.import_token }
+    pub fn get_import_token(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.import_token
+    }
     /// <p>The encrypted key material to import. The key material must be encrypted under the public wrapping key that <a>GetParametersForImport</a> returned, using the wrapping algorithm that you specified in the same <code>GetParametersForImport</code> request.</p>
     /// This field is required.
     pub fn encrypted_key_material(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.encrypted_key_material = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_encrypted_key_material(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.encrypted_key_material = input; self }
+    pub fn set_encrypted_key_material(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.encrypted_key_material = input;
+        self
+    }
     /// <p>The encrypted key material to import. The key material must be encrypted under the public wrapping key that <a>GetParametersForImport</a> returned, using the wrapping algorithm that you specified in the same <code>GetParametersForImport</code> request.</p>
-    pub fn get_encrypted_key_material(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.encrypted_key_material }
+    pub fn get_encrypted_key_material(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.encrypted_key_material
+    }
     /// <p>The date and time when the imported key material expires. This parameter is required when the value of the <code>ExpirationModel</code> parameter is <code>KEY_MATERIAL_EXPIRES</code>. Otherwise it is not valid.</p>
     /// <p>The value of this parameter must be a future date and time. The maximum value is 365 days from the request date.</p>
     /// <p>When the key material expires, KMS deletes the key material from the KMS key. Without its key material, the KMS key is unusable. To use the KMS key in cryptographic operations, you must reimport the same key material.</p>
@@ -135,12 +150,17 @@ impl ImportKeyMaterialInputBuilder {
         self.valid_to = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_valid_to(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.valid_to = input; self }
+    pub fn set_valid_to(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.valid_to = input;
+        self
+    }
     /// <p>The date and time when the imported key material expires. This parameter is required when the value of the <code>ExpirationModel</code> parameter is <code>KEY_MATERIAL_EXPIRES</code>. Otherwise it is not valid.</p>
     /// <p>The value of this parameter must be a future date and time. The maximum value is 365 days from the request date.</p>
     /// <p>When the key material expires, KMS deletes the key material from the KMS key. Without its key material, the KMS key is unusable. To use the KMS key in cryptographic operations, you must reimport the same key material.</p>
     /// <p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the current import after the request completes. To change either value, you must delete (<a>DeleteImportedKeyMaterial</a>) and reimport the key material.</p>
-    pub fn get_valid_to(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.valid_to }
+    pub fn get_valid_to(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.valid_to
+    }
     /// <p>Specifies whether the key material expires. The default is <code>KEY_MATERIAL_EXPIRES</code>. For help with this choice, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#importing-keys-expiration">Setting an expiration time</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// <p>When the value of <code>ExpirationModel</code> is <code>KEY_MATERIAL_EXPIRES</code>, you must specify a value for the <code>ValidTo</code> parameter. When value is <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>, you must omit the <code>ValidTo</code> parameter.</p>
     /// <p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the current import after the request completes. To change either value, you must reimport the key material.</p>
@@ -148,37 +168,57 @@ impl ImportKeyMaterialInputBuilder {
         self.expiration_model = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_expiration_model(mut self, input: ::std::option::Option<crate::types::ExpirationModelType>) -> Self { self.expiration_model = input; self }
+    pub fn set_expiration_model(mut self, input: ::std::option::Option<crate::types::ExpirationModelType>) -> Self {
+        self.expiration_model = input;
+        self
+    }
     /// <p>Specifies whether the key material expires. The default is <code>KEY_MATERIAL_EXPIRES</code>. For help with this choice, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-import-key-material.html#importing-keys-expiration">Setting an expiration time</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// <p>When the value of <code>ExpirationModel</code> is <code>KEY_MATERIAL_EXPIRES</code>, you must specify a value for the <code>ValidTo</code> parameter. When value is <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>, you must omit the <code>ValidTo</code> parameter.</p>
     /// <p>You cannot change the <code>ExpirationModel</code> or <code>ValidTo</code> values for the current import after the request completes. To change either value, you must reimport the key material.</p>
-    pub fn get_expiration_model(&self) -> &::std::option::Option<crate::types::ExpirationModelType> { &self.expiration_model }
+    pub fn get_expiration_model(&self) -> &::std::option::Option<crate::types::ExpirationModelType> {
+        &self.expiration_model
+    }
     /// <p>Indicates whether the key material being imported is previously associated with this KMS key or not. This parameter is optional and only usable with symmetric encryption keys. If no key material has ever been imported into the KMS key, and this parameter is omitted, the parameter defaults to <code>NEW_KEY_MATERIAL</code>. After the first key material is imported, if this parameter is omitted then the parameter defaults to <code>EXISTING_KEY_MATERIAL</code>.</p>
     /// <p>For multi-Region keys, you must first import new key material into the primary Region key. You should use the <code>NEW_KEY_MATERIAL</code> import type when importing key material into the primary Region key. Then, you can import the same key material into the replica Region key. The import type for the replica Region key should be <code>EXISTING_KEY_MATERIAL</code>.</p>
     pub fn import_type(mut self, input: crate::types::ImportType) -> Self {
         self.import_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_import_type(mut self, input: ::std::option::Option<crate::types::ImportType>) -> Self { self.import_type = input; self }
+    pub fn set_import_type(mut self, input: ::std::option::Option<crate::types::ImportType>) -> Self {
+        self.import_type = input;
+        self
+    }
     /// <p>Indicates whether the key material being imported is previously associated with this KMS key or not. This parameter is optional and only usable with symmetric encryption keys. If no key material has ever been imported into the KMS key, and this parameter is omitted, the parameter defaults to <code>NEW_KEY_MATERIAL</code>. After the first key material is imported, if this parameter is omitted then the parameter defaults to <code>EXISTING_KEY_MATERIAL</code>.</p>
     /// <p>For multi-Region keys, you must first import new key material into the primary Region key. You should use the <code>NEW_KEY_MATERIAL</code> import type when importing key material into the primary Region key. Then, you can import the same key material into the replica Region key. The import type for the replica Region key should be <code>EXISTING_KEY_MATERIAL</code>.</p>
-    pub fn get_import_type(&self) -> &::std::option::Option<crate::types::ImportType> { &self.import_type }
+    pub fn get_import_type(&self) -> &::std::option::Option<crate::types::ImportType> {
+        &self.import_type
+    }
     /// <p>Description for the key material being imported. This parameter is optional and only usable with symmetric encryption keys. If you do not specify a key material description, KMS retains the value you specified when you last imported the same key material into this KMS key.</p>
     pub fn key_material_description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_material_description = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_material_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_material_description = input; self }
+    pub fn set_key_material_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_material_description = input;
+        self
+    }
     /// <p>Description for the key material being imported. This parameter is optional and only usable with symmetric encryption keys. If you do not specify a key material description, KMS retains the value you specified when you last imported the same key material into this KMS key.</p>
-    pub fn get_key_material_description(&self) -> &::std::option::Option<::std::string::String> { &self.key_material_description }
+    pub fn get_key_material_description(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_material_description
+    }
     /// <p>Identifies the key material being imported. This parameter is optional and only usable with symmetric encryption keys. You cannot specify a key material ID with <code>ImportType</code> set to <code>NEW_KEY_MATERIAL</code>. Whenever you import key material into a symmetric encryption key, KMS assigns a unique identifier to the key material based on the KMS key ID and the imported key material. When you re-import key material with a specified key material ID, KMS:</p><ul><li><p>Computes the identifier for the key material</p></li><li><p>Matches the computed identifier against the specified key material ID</p></li><li><p>Verifies that the key material ID is already associated with the KMS key</p></li></ul><p>To get the list of key material IDs associated with a KMS key, use <a>ListKeyRotations</a>.</p>
     pub fn key_material_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_material_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_material_id = input; self }
+    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_material_id = input;
+        self
+    }
     /// <p>Identifies the key material being imported. This parameter is optional and only usable with symmetric encryption keys. You cannot specify a key material ID with <code>ImportType</code> set to <code>NEW_KEY_MATERIAL</code>. Whenever you import key material into a symmetric encryption key, KMS assigns a unique identifier to the key material based on the KMS key ID and the imported key material. When you re-import key material with a specified key material ID, KMS:</p><ul><li><p>Computes the identifier for the key material</p></li><li><p>Matches the computed identifier against the specified key material ID</p></li><li><p>Verifies that the key material ID is already associated with the KMS key</p></li></ul><p>To get the list of key material IDs associated with a KMS key, use <a>ListKeyRotations</a>.</p>
-    pub fn get_key_material_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_material_id }
+    pub fn get_key_material_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_material_id
+    }
     /// Consumes the builder and constructs a [`ImportKeyMaterialInput`](crate::operation::import_key_material::ImportKeyMaterialInput).
     pub fn build(self) -> crate::operation::import_key_material::ImportKeyMaterialInput {
         crate::operation::import_key_material::ImportKeyMaterialInput {

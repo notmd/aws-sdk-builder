@@ -47,33 +47,53 @@ impl S3BucketSourceBuilder {
         self.s3_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_s3_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.s3_bucket_owner = input; self }
+    pub fn set_s3_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.s3_bucket_owner = input;
+        self
+    }
     /// <p>The account number of the S3 bucket that is being imported from. If the bucket is owned by the requester this is optional.</p>
-    pub fn get_s3_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.s3_bucket_owner }
+    pub fn get_s3_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.s3_bucket_owner
+    }
     /// <p>The S3 bucket that is being imported from.</p>
     /// This field is required.
     pub fn s3_bucket(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.s3_bucket = input; self }
+    pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.s3_bucket = input;
+        self
+    }
     /// <p>The S3 bucket that is being imported from.</p>
-    pub fn get_s3_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.s3_bucket }
+    pub fn get_s3_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.s3_bucket
+    }
     /// <p>The key prefix shared by all S3 Objects that are being imported.</p>
     pub fn s3_key_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_key_prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_s3_key_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.s3_key_prefix = input; self }
+    pub fn set_s3_key_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.s3_key_prefix = input;
+        self
+    }
     /// <p>The key prefix shared by all S3 Objects that are being imported.</p>
-    pub fn get_s3_key_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.s3_key_prefix }
+    pub fn get_s3_key_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.s3_key_prefix
+    }
     /// Consumes the builder and constructs a [`S3BucketSource`](crate::types::S3BucketSource).
     /// This method will fail if any of the following fields are not set:
     /// - [`s3_bucket`](Self::s3_bucket)
     pub fn build(self) -> ::std::result::Result<crate::types::S3BucketSource, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::S3BucketSource {
             s3_bucket_owner: self.s3_bucket_owner,
-            s3_bucket: self.s3_bucket.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("s3_bucket", "s3_bucket was not specified but it is required when building S3BucketSource"))?,
+            s3_bucket: self.s3_bucket.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "s3_bucket",
+                    "s3_bucket was not specified but it is required when building S3BucketSource",
+                )
+            })?,
             s3_key_prefix: self.s3_key_prefix,
         })
     }

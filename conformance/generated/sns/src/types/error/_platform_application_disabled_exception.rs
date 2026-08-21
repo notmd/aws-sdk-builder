@@ -6,25 +6,50 @@
 pub struct PlatformApplicationDisabledException {
     /// <p>Message for platform application disabled.</p>
     pub message: ::std::option::Option<::std::string::String>,
+    pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
 }
 impl PlatformApplicationDisabledException {
-    /// <p>Message for platform application disabled.</p>
+    /// Returns the error message.
     pub fn message(&self) -> ::std::option::Option<&str> {
         self.message.as_deref()
     }
 }
+impl ::std::fmt::Display for PlatformApplicationDisabledException {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        ::std::write!(f, "PlatformApplicationDisabledException")?;
+        if let ::std::option::Option::Some(inner_1) = &self.message {
+            {
+                ::std::write!(f, ": {inner_1}")?;
+            }
+        }
+        Ok(())
+    }
+}
+impl ::std::error::Error for PlatformApplicationDisabledException {}
+impl ::aws_types::request_id::RequestId for crate::types::error::PlatformApplicationDisabledException {
+    fn request_id(&self) -> Option<&str> {
+        use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+        self.meta().request_id()
+    }
+}
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for PlatformApplicationDisabledException {
+    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+        &self.meta
+    }
+}
 impl PlatformApplicationDisabledException {
-    /// Creates a new builder-style object to manufacture [`PlatformApplicationDisabledException`](crate::types::PlatformApplicationDisabledException).
-    pub fn builder() -> crate::types::builders::PlatformApplicationDisabledExceptionBuilder {
-        crate::types::builders::PlatformApplicationDisabledExceptionBuilder::default()
+    /// Creates a new builder-style object to manufacture [`PlatformApplicationDisabledException`](crate::types::error::PlatformApplicationDisabledException).
+    pub fn builder() -> crate::types::error::builders::PlatformApplicationDisabledExceptionBuilder {
+        crate::types::error::builders::PlatformApplicationDisabledExceptionBuilder::default()
     }
 }
 
-/// A builder for [`PlatformApplicationDisabledException`](crate::types::PlatformApplicationDisabledException).
+/// A builder for [`PlatformApplicationDisabledException`](crate::types::error::PlatformApplicationDisabledException).
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct PlatformApplicationDisabledExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
+    meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
 }
 impl PlatformApplicationDisabledExceptionBuilder {
     /// <p>Message for platform application disabled.</p>
@@ -32,14 +57,30 @@ impl PlatformApplicationDisabledExceptionBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.message = input; self }
+    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.message = input;
+        self
+    }
     /// <p>Message for platform application disabled.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> { &self.message }
-    /// Consumes the builder and constructs a [`PlatformApplicationDisabledException`](crate::types::PlatformApplicationDisabledException).
-    pub fn build(self) -> crate::types::PlatformApplicationDisabledException {
-        crate::types::PlatformApplicationDisabledException {
+    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.message
+    }
+    /// Sets error metadata
+    pub fn meta(mut self, meta: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+        self.meta = Some(meta);
+        self
+    }
+
+    /// Sets error metadata
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+        self.meta = meta;
+        self
+    }
+    /// Consumes the builder and constructs a [`PlatformApplicationDisabledException`](crate::types::error::PlatformApplicationDisabledException).
+    pub fn build(self) -> crate::types::error::PlatformApplicationDisabledException {
+        crate::types::error::PlatformApplicationDisabledException {
             message: self.message,
+            meta: self.meta.unwrap_or_default(),
         }
     }
 }
-impl ::std::fmt::Display for PlatformApplicationDisabledException { fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result { f.write_str("PlatformApplicationDisabledException") } }

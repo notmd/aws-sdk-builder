@@ -40,17 +40,27 @@ impl DeleteResourcePolicyInputBuilder {
         self.resource_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.resource_arn = input; self }
+    pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.resource_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the DynamoDB resource from which the policy will be removed. The resources you can specify include tables and streams. If you remove the policy of a table, it will also remove the permissions for the table's indexes defined in that policy document. This is because index permissions are defined in the table's policy.</p>
-    pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> { &self.resource_arn }
+    pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.resource_arn
+    }
     /// <p>A string value that you can use to conditionally delete your policy. When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, the request will fail and return a <code>PolicyNotFoundException</code>.</p>
     pub fn expected_revision_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_revision_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_revision_id = input; self }
+    pub fn set_expected_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_revision_id = input;
+        self
+    }
     /// <p>A string value that you can use to conditionally delete your policy. When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, the request will fail and return a <code>PolicyNotFoundException</code>.</p>
-    pub fn get_expected_revision_id(&self) -> &::std::option::Option<::std::string::String> { &self.expected_revision_id }
+    pub fn get_expected_revision_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_revision_id
+    }
     /// Consumes the builder and constructs a [`DeleteResourcePolicyInput`](crate::operation::delete_resource_policy::DeleteResourcePolicyInput).
     pub fn build(self) -> crate::operation::delete_resource_policy::DeleteResourcePolicyInput {
         crate::operation::delete_resource_policy::DeleteResourcePolicyInput {

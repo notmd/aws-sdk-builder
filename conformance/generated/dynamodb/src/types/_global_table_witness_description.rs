@@ -39,17 +39,27 @@ impl GlobalTableWitnessDescriptionBuilder {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.region_name = input; self }
+    pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.region_name = input;
+        self
+    }
     /// <p>The name of the Amazon Web Services Region that serves as a witness for the MRSC global table.</p>
-    pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> { &self.region_name }
+    pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.region_name
+    }
     /// <p>The current status of the witness Region in the MRSC global table.</p>
     pub fn witness_status(mut self, input: crate::types::WitnessStatus) -> Self {
         self.witness_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_witness_status(mut self, input: ::std::option::Option<crate::types::WitnessStatus>) -> Self { self.witness_status = input; self }
+    pub fn set_witness_status(mut self, input: ::std::option::Option<crate::types::WitnessStatus>) -> Self {
+        self.witness_status = input;
+        self
+    }
     /// <p>The current status of the witness Region in the MRSC global table.</p>
-    pub fn get_witness_status(&self) -> &::std::option::Option<crate::types::WitnessStatus> { &self.witness_status }
+    pub fn get_witness_status(&self) -> &::std::option::Option<crate::types::WitnessStatus> {
+        &self.witness_status
+    }
     /// Consumes the builder and constructs a [`GlobalTableWitnessDescription`](crate::types::GlobalTableWitnessDescription).
     pub fn build(self) -> crate::types::GlobalTableWitnessDescription {
         crate::types::GlobalTableWitnessDescription {

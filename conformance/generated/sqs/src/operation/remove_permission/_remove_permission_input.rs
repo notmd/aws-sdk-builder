@@ -43,19 +43,29 @@ impl RemovePermissionInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_url = input; self }
+    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.queue_url = input;
+        self
+    }
     /// <p>The URL of the Amazon SQS queue from which permissions are removed.</p>
     /// <p>Queue URLs and names are case-sensitive.</p>
-    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> { &self.queue_url }
+    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.queue_url
+    }
     /// <p>The identification of the permission to remove. This is the label added using the <code><a>AddPermission</a></code> action.</p>
     /// This field is required.
     pub fn label(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.label = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.label = input; self }
+    pub fn set_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.label = input;
+        self
+    }
     /// <p>The identification of the permission to remove. This is the label added using the <code><a>AddPermission</a></code> action.</p>
-    pub fn get_label(&self) -> &::std::option::Option<::std::string::String> { &self.label }
+    pub fn get_label(&self) -> &::std::option::Option<::std::string::String> {
+        &self.label
+    }
     /// Consumes the builder and constructs a [`RemovePermissionInput`](crate::operation::remove_permission::RemovePermissionInput).
     pub fn build(self) -> crate::operation::remove_permission::RemovePermissionInput {
         crate::operation::remove_permission::RemovePermissionInput {

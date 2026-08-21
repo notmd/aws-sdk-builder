@@ -33,9 +33,14 @@ impl GetSubscriptionAttributesInputBuilder {
         self.subscription_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_subscription_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.subscription_arn = input; self }
+    pub fn set_subscription_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.subscription_arn = input;
+        self
+    }
     /// <p>The ARN of the subscription whose properties you want to get.</p>
-    pub fn get_subscription_arn(&self) -> &::std::option::Option<::std::string::String> { &self.subscription_arn }
+    pub fn get_subscription_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.subscription_arn
+    }
     /// Consumes the builder and constructs a [`GetSubscriptionAttributesInput`](crate::operation::get_subscription_attributes::GetSubscriptionAttributesInput).
     pub fn build(self) -> crate::operation::get_subscription_attributes::GetSubscriptionAttributesInput {
         crate::operation::get_subscription_attributes::GetSubscriptionAttributesInput {

@@ -6,31 +6,97 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_md5 = Some(value.into()); self }
-    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
-    pub fn tagging(mut self, value: impl ::std::convert::Into<crate::types::Tagging>) -> Self { self.input.tagging = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::PutBucketTaggingOutput, super::PutBucketTaggingError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::PutBucketTaggingError::Unhandled("PutBucketTagging requires bucket".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}?tagging"); path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path };
-                         let body = { let mut body = ::std::string::String::new(); if let Some(value) = self.input.tagging.as_ref() { body.push_str("<Tagging>"); if let Some(value) = value.tag_set.as_ref() { body.push_str("<TagSet>"); for item in value { body.push_str("<Tag>"); body.push_str("<Key>"); body.push_str(&super::super::super::transport::xml_escape(&item.key.to_string())); body.push_str("</Key>"); body.push_str("<Value>"); body.push_str(&super::super::super::transport::xml_escape(&item.value.to_string())); body.push_str("</Value>"); body.push_str("</Tag>"); } body.push_str("</TagSet>"); } body.push_str("</Tagging>"); } body.into_bytes() };
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers.push(("content-type", "application/xml")); headers };
-                         let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::PutBucketTaggingError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::PutBucketTaggingError::unhandled_with_request_ids(format!("PutBucketTagging returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_put_bucket_tagging_output::PutBucketTaggingOutputBuilder::default();
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.content_md5 = Some(value.into());
+        self
+    }
+    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
+        self.input.checksum_algorithm = Some(value.into());
+        self
+    }
+    pub fn tagging(mut self, value: impl ::std::convert::Into<crate::types::Tagging>) -> Self {
+        self.input.tagging = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::PutBucketTaggingOutput, super::PutBucketTaggingError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::PutBucketTaggingError::Unhandled("PutBucketTagging requires bucket".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}?tagging");
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path
+        };
+        let body = {
+            let mut body = ::std::string::String::new();
+            if let Some(value) = self.input.tagging.as_ref() {
+                body.push_str("<Tagging>");
+                if let Some(value) = value.tag_set.as_ref() {
+                    body.push_str("<TagSet>");
+                    for item in value {
+                        body.push_str("<Tag>");
+                        body.push_str("<Key>");
+                        body.push_str(&super::super::super::transport::xml_escape(&item.key.to_string()));
+                        body.push_str("</Key>");
+                        body.push_str("<Value>");
+                        body.push_str(&super::super::super::transport::xml_escape(&item.value.to_string()));
+                        body.push_str("</Value>");
+                        body.push_str("</Tag>");
+                    }
+                    body.push_str("</TagSet>");
+                }
+                body.push_str("</Tagging>");
+            }
+            body.into_bytes()
+        };
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers.push(("content-type", "application/xml"));
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Put, &path, &headers, &body)
+            .await
+            .map_err(super::PutBucketTaggingError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::PutBucketTaggingError::unhandled_with_request_ids(
+                format!("PutBucketTagging returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_put_bucket_tagging_output::PutBucketTaggingOutputBuilder::default();
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as PutBucketTaggingFluentBuilder;

@@ -32,9 +32,14 @@ impl CapacityProviderTelemetryConfigBuilder {
         self.logging_config = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_logging_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderLoggingConfig>) -> Self { self.logging_config = input; self }
+    pub fn set_logging_config(mut self, input: ::std::option::Option<crate::types::CapacityProviderLoggingConfig>) -> Self {
+        self.logging_config = input;
+        self
+    }
     /// <p>The capacity provider's Amazon CloudWatch Logs configuration settings.</p>
-    pub fn get_logging_config(&self) -> &::std::option::Option<crate::types::CapacityProviderLoggingConfig> { &self.logging_config }
+    pub fn get_logging_config(&self) -> &::std::option::Option<crate::types::CapacityProviderLoggingConfig> {
+        &self.logging_config
+    }
     /// Consumes the builder and constructs a [`CapacityProviderTelemetryConfig`](crate::types::CapacityProviderTelemetryConfig).
     pub fn build(self) -> crate::types::CapacityProviderTelemetryConfig {
         crate::types::CapacityProviderTelemetryConfig {

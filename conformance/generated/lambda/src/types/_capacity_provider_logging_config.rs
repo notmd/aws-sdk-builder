@@ -39,17 +39,27 @@ impl CapacityProviderLoggingConfigBuilder {
         self.system_log_level = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_system_log_level(mut self, input: ::std::option::Option<crate::types::SystemLogLevel>) -> Self { self.system_log_level = input; self }
+    pub fn set_system_log_level(mut self, input: ::std::option::Option<crate::types::SystemLogLevel>) -> Self {
+        self.system_log_level = input;
+        self
+    }
     /// <p>Set this property to filter the system logs for your capacity provider that Lambda sends to CloudWatch. Lambda only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
-    pub fn get_system_log_level(&self) -> &::std::option::Option<crate::types::SystemLogLevel> { &self.system_log_level }
+    pub fn get_system_log_level(&self) -> &::std::option::Option<crate::types::SystemLogLevel> {
+        &self.system_log_level
+    }
     /// <p>The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named <code>/aws/lambda/capacity-provider/&lt;capacity provider name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
     pub fn log_group(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_group = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_log_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.log_group = input; self }
+    pub fn set_log_group(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.log_group = input;
+        self
+    }
     /// <p>The name of the Amazon CloudWatch log group the capacity provider sends logs to. By default, Lambda capacity providers send logs to a default log group named <code>/aws/lambda/capacity-provider/&lt;capacity provider name&gt;</code>. To use a different log group, enter an existing log group or enter a new log group name.</p>
-    pub fn get_log_group(&self) -> &::std::option::Option<::std::string::String> { &self.log_group }
+    pub fn get_log_group(&self) -> &::std::option::Option<::std::string::String> {
+        &self.log_group
+    }
     /// Consumes the builder and constructs a [`CapacityProviderLoggingConfig`](crate::types::CapacityProviderLoggingConfig).
     pub fn build(self) -> crate::types::CapacityProviderLoggingConfig {
         crate::types::CapacityProviderLoggingConfig {

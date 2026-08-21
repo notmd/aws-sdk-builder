@@ -38,15 +38,25 @@ impl OwnershipControlsBuilder {
         self.rules = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OwnershipControlsRule>>) -> Self { self.rules = input; self }
+    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OwnershipControlsRule>>) -> Self {
+        self.rules = input;
+        self
+    }
     /// <p>The container element for an ownership control rule.</p>
-    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OwnershipControlsRule>> { &self.rules }
+    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OwnershipControlsRule>> {
+        &self.rules
+    }
     /// Consumes the builder and constructs a [`OwnershipControls`](crate::types::OwnershipControls).
     /// This method will fail if any of the following fields are not set:
     /// - [`rules`](Self::rules)
     pub fn build(self) -> ::std::result::Result<crate::types::OwnershipControls, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::OwnershipControls {
-            rules: self.rules.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("rules", "rules was not specified but it is required when building OwnershipControls"))?,
+            rules: self.rules.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "rules",
+                    "rules was not specified but it is required when building OwnershipControls",
+                )
+            })?,
         })
     }
 }

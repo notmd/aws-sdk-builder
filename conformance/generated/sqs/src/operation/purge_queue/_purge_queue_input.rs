@@ -36,14 +36,17 @@ impl PurgeQueueInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_url = input; self }
+    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.queue_url = input;
+        self
+    }
     /// <p>The URL of the queue from which the <code>PurgeQueue</code> action deletes messages.</p>
     /// <p>Queue URLs and names are case-sensitive.</p>
-    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> { &self.queue_url }
+    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.queue_url
+    }
     /// Consumes the builder and constructs a [`PurgeQueueInput`](crate::operation::purge_queue::PurgeQueueInput).
     pub fn build(self) -> crate::operation::purge_queue::PurgeQueueInput {
-        crate::operation::purge_queue::PurgeQueueInput {
-            queue_url: self.queue_url,
-        }
+        crate::operation::purge_queue::PurgeQueueInput { queue_url: self.queue_url }
     }
 }

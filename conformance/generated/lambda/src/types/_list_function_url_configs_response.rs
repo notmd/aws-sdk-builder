@@ -45,23 +45,38 @@ impl ListFunctionUrlConfigsResponseBuilder {
         self.function_url_configs = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_function_url_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionUrlConfig>>) -> Self { self.function_url_configs = input; self }
+    pub fn set_function_url_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionUrlConfig>>) -> Self {
+        self.function_url_configs = input;
+        self
+    }
     /// <p>A list of function URL configurations.</p>
-    pub fn get_function_url_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionUrlConfig>> { &self.function_url_configs }
+    pub fn get_function_url_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionUrlConfig>> {
+        &self.function_url_configs
+    }
     /// <p>The pagination token that's included if more results are available.</p>
     pub fn next_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>The pagination token that's included if more results are available.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// Consumes the builder and constructs a [`ListFunctionUrlConfigsResponse`](crate::types::ListFunctionUrlConfigsResponse).
     /// This method will fail if any of the following fields are not set:
     /// - [`function_url_configs`](Self::function_url_configs)
     pub fn build(self) -> ::std::result::Result<crate::types::ListFunctionUrlConfigsResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ListFunctionUrlConfigsResponse {
-            function_url_configs: self.function_url_configs.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_url_configs", "function_url_configs was not specified but it is required when building ListFunctionUrlConfigsResponse"))?,
+            function_url_configs: self.function_url_configs.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "function_url_configs",
+                    "function_url_configs was not specified but it is required when building ListFunctionUrlConfigsResponse",
+                )
+            })?,
             next_marker: self.next_marker,
         })
     }

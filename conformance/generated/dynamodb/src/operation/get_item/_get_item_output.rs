@@ -51,17 +51,30 @@ impl GetItemOutputBuilder {
         self.item = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_item(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.item = input; self }
+    pub fn set_item(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    ) -> Self {
+        self.item = input;
+        self
+    }
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, as specified by <code>ProjectionExpression</code>.</p>
-    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> { &self.item }
+    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+        &self.item
+    }
     /// <p>The capacity units consumed by the <code>GetItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     pub fn consumed_capacity(mut self, input: crate::types::ConsumedCapacity) -> Self {
         self.consumed_capacity = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ConsumedCapacity>) -> Self { self.consumed_capacity = input; self }
+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ConsumedCapacity>) -> Self {
+        self.consumed_capacity = input;
+        self
+    }
     /// <p>The capacity units consumed by the <code>GetItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
-    pub fn get_consumed_capacity(&self) -> &::std::option::Option<crate::types::ConsumedCapacity> { &self.consumed_capacity }
+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<crate::types::ConsumedCapacity> {
+        &self.consumed_capacity
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

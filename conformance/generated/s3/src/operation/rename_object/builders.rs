@@ -6,39 +6,103 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn rename_source(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.rename_source = Some(value.into()); self }
-    pub fn destination_if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.destination_if_match = Some(value.into()); self }
-    pub fn destination_if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.destination_if_none_match = Some(value.into()); self }
-    pub fn destination_if_modified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.destination_if_modified_since = Some(value.into()); self }
-    pub fn destination_if_unmodified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.destination_if_unmodified_since = Some(value.into()); self }
-    pub fn source_if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.source_if_match = Some(value.into()); self }
-    pub fn source_if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.source_if_none_match = Some(value.into()); self }
-    pub fn source_if_modified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.source_if_modified_since = Some(value.into()); self }
-    pub fn source_if_unmodified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.source_if_unmodified_since = Some(value.into()); self }
-    pub fn client_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.client_token = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::RenameObjectOutput, super::RenameObjectError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::RenameObjectError::Unhandled("RenameObject requires bucket".to_owned()))?;
-                         let key = self.input.key.as_deref().ok_or_else(|| super::RenameObjectError::Unhandled("RenameObject requires key".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}/{Key+}?renameObject"); path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path = path.replace("{Key+}", &super::super::super::transport::encode_path(key)); path };
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::RenameObjectError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::RenameObjectError::unhandled_with_request_ids(format!("RenameObject returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_rename_object_output::RenameObjectOutputBuilder::default();
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key = Some(value.into());
+        self
+    }
+    pub fn rename_source(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.rename_source = Some(value.into());
+        self
+    }
+    pub fn destination_if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.destination_if_match = Some(value.into());
+        self
+    }
+    pub fn destination_if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.destination_if_none_match = Some(value.into());
+        self
+    }
+    pub fn destination_if_modified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
+        self.input.destination_if_modified_since = Some(value.into());
+        self
+    }
+    pub fn destination_if_unmodified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
+        self.input.destination_if_unmodified_since = Some(value.into());
+        self
+    }
+    pub fn source_if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.source_if_match = Some(value.into());
+        self
+    }
+    pub fn source_if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.source_if_none_match = Some(value.into());
+        self
+    }
+    pub fn source_if_modified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
+        self.input.source_if_modified_since = Some(value.into());
+        self
+    }
+    pub fn source_if_unmodified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
+        self.input.source_if_unmodified_since = Some(value.into());
+        self
+    }
+    pub fn client_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.client_token = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::RenameObjectOutput, super::RenameObjectError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::RenameObjectError::Unhandled("RenameObject requires bucket".to_owned()))?;
+        let key = self
+            .input
+            .key
+            .as_deref()
+            .ok_or_else(|| super::RenameObjectError::Unhandled("RenameObject requires key".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}/{Key+}?renameObject");
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path = path.replace("{Key+}", &super::super::super::transport::encode_path(key));
+            path
+        };
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Put, &path, &headers, &body)
+            .await
+            .map_err(super::RenameObjectError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::RenameObjectError::unhandled_with_request_ids(
+                format!("RenameObject returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_rename_object_output::RenameObjectOutputBuilder::default();
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as RenameObjectFluentBuilder;

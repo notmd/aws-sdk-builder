@@ -39,17 +39,27 @@ impl GrantBuilder {
         self.grantee = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_grantee(mut self, input: ::std::option::Option<crate::types::Grantee>) -> Self { self.grantee = input; self }
+    pub fn set_grantee(mut self, input: ::std::option::Option<crate::types::Grantee>) -> Self {
+        self.grantee = input;
+        self
+    }
     /// <p>The person being granted permissions.</p>
-    pub fn get_grantee(&self) -> &::std::option::Option<crate::types::Grantee> { &self.grantee }
+    pub fn get_grantee(&self) -> &::std::option::Option<crate::types::Grantee> {
+        &self.grantee
+    }
     /// <p>Specifies the permission given to the grantee.</p>
     pub fn permission(mut self, input: crate::types::Permission) -> Self {
         self.permission = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_permission(mut self, input: ::std::option::Option<crate::types::Permission>) -> Self { self.permission = input; self }
+    pub fn set_permission(mut self, input: ::std::option::Option<crate::types::Permission>) -> Self {
+        self.permission = input;
+        self
+    }
     /// <p>Specifies the permission given to the grantee.</p>
-    pub fn get_permission(&self) -> &::std::option::Option<crate::types::Permission> { &self.permission }
+    pub fn get_permission(&self) -> &::std::option::Option<crate::types::Permission> {
+        &self.permission
+    }
     /// Consumes the builder and constructs a [`Grant`](crate::types::Grant).
     pub fn build(self) -> crate::types::Grant {
         crate::types::Grant {

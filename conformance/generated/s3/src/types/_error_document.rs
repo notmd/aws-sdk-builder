@@ -34,15 +34,25 @@ impl ErrorDocumentBuilder {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>The object key name to use when a 4XX class error occurs.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
-    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key
+    }
     /// Consumes the builder and constructs a [`ErrorDocument`](crate::types::ErrorDocument).
     /// This method will fail if any of the following fields are not set:
     /// - [`key`](Self::key)
     pub fn build(self) -> ::std::result::Result<crate::types::ErrorDocument, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ErrorDocument {
-            key: self.key.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("key", "key was not specified but it is required when building ErrorDocument"))?,
+            key: self.key.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "key",
+                    "key was not specified but it is required when building ErrorDocument",
+                )
+            })?,
         })
     }
 }

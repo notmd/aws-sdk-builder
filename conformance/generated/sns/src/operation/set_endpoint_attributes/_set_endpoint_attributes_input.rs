@@ -40,9 +40,14 @@ impl SetEndpointAttributesInputBuilder {
         self.endpoint_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_endpoint_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.endpoint_arn = input; self }
+    pub fn set_endpoint_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.endpoint_arn = input;
+        self
+    }
     /// <p>EndpointArn used for <code>SetEndpointAttributes</code> action.</p>
-    pub fn get_endpoint_arn(&self) -> &::std::option::Option<::std::string::String> { &self.endpoint_arn }
+    pub fn get_endpoint_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.endpoint_arn
+    }
     /// <p>A map of the endpoint attributes. Attributes in this map include the following:</p><ul><li><p><code>CustomUserData</code> – arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p></li><li><p><code>Enabled</code> – flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.</p></li><li><p><code>Token</code> – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li></ul>
     /// Adds a key-value pair to `attributes`.
     ///
@@ -53,9 +58,14 @@ impl SetEndpointAttributesInputBuilder {
         self.attributes = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.attributes = input; self }
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.attributes = input;
+        self
+    }
     /// <p>A map of the endpoint attributes. Attributes in this map include the following:</p><ul><li><p><code>CustomUserData</code> – arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p></li><li><p><code>Enabled</code> – flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.</p></li><li><p><code>Token</code> – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li></ul>
-    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.attributes }
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.attributes
+    }
     /// Consumes the builder and constructs a [`SetEndpointAttributesInput`](crate::operation::set_endpoint_attributes::SetEndpointAttributesInput).
     pub fn build(self) -> crate::operation::set_endpoint_attributes::SetEndpointAttributesInput {
         crate::operation::set_endpoint_attributes::SetEndpointAttributesInput {

@@ -38,15 +38,25 @@ impl ServerSideEncryptionConfigurationBuilder {
         self.rules = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>>) -> Self { self.rules = input; self }
+    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>>) -> Self {
+        self.rules = input;
+        self
+    }
     /// <p>Container for information about a particular server-side encryption configuration rule.</p>
-    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>> { &self.rules }
+    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ServerSideEncryptionRule>> {
+        &self.rules
+    }
     /// Consumes the builder and constructs a [`ServerSideEncryptionConfiguration`](crate::types::ServerSideEncryptionConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`rules`](Self::rules)
     pub fn build(self) -> ::std::result::Result<crate::types::ServerSideEncryptionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ServerSideEncryptionConfiguration {
-            rules: self.rules.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("rules", "rules was not specified but it is required when building ServerSideEncryptionConfiguration"))?,
+            rules: self.rules.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "rules",
+                    "rules was not specified but it is required when building ServerSideEncryptionConfiguration",
+                )
+            })?,
         })
     }
 }

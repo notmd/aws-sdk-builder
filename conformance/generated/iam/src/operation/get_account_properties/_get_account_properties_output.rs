@@ -44,9 +44,14 @@ impl GetAccountPropertiesOutputBuilder {
         self.properties = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_properties(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.properties = input; self }
+    pub fn set_properties(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.properties = input;
+        self
+    }
     /// <p>A map of account property key-value pairs. Keys are in the format <code>Namespace/PropertyName</code>.</p>
-    pub fn get_properties(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.properties }
+    pub fn get_properties(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.properties
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

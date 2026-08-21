@@ -43,10 +43,15 @@ impl SendMessageBatchInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_url = input; self }
+    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.queue_url = input;
+        self
+    }
     /// <p>The URL of the Amazon SQS queue to which batched messages are sent.</p>
     /// <p>Queue URLs and names are case-sensitive.</p>
-    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> { &self.queue_url }
+    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.queue_url
+    }
     /// <p>A list of <code><a>SendMessageBatchRequestEntry</a></code> items.</p>
     /// Appends an item to `entries`.
     ///
@@ -57,9 +62,14 @@ impl SendMessageBatchInputBuilder {
         self.entries = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>>) -> Self { self.entries = input; self }
+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>>) -> Self {
+        self.entries = input;
+        self
+    }
     /// <p>A list of <code><a>SendMessageBatchRequestEntry</a></code> items.</p>
-    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>> { &self.entries }
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>> {
+        &self.entries
+    }
     /// Consumes the builder and constructs a [`SendMessageBatchInput`](crate::operation::send_message_batch::SendMessageBatchInput).
     pub fn build(self) -> crate::operation::send_message_batch::SendMessageBatchInput {
         crate::operation::send_message_batch::SendMessageBatchInput {

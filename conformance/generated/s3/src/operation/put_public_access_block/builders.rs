@@ -6,31 +6,103 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_md5 = Some(value.into()); self }
-    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
-    pub fn public_access_block_configuration(mut self, value: impl ::std::convert::Into<crate::types::PublicAccessBlockConfiguration>) -> Self { self.input.public_access_block_configuration = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::PutPublicAccessBlockOutput, super::PutPublicAccessBlockError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::PutPublicAccessBlockError::Unhandled("PutPublicAccessBlock requires bucket".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}?publicAccessBlock"); path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path };
-                         let body = { let mut body = ::std::string::String::new(); if let Some(value) = self.input.public_access_block_configuration.as_ref() { body.push_str("<PublicAccessBlockConfiguration>"); if let Some(value) = value.block_public_acls.as_ref() { body.push_str("<BlockPublicAcls>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</BlockPublicAcls>"); } if let Some(value) = value.ignore_public_acls.as_ref() { body.push_str("<IgnorePublicAcls>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</IgnorePublicAcls>"); } if let Some(value) = value.block_public_policy.as_ref() { body.push_str("<BlockPublicPolicy>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</BlockPublicPolicy>"); } if let Some(value) = value.restrict_public_buckets.as_ref() { body.push_str("<RestrictPublicBuckets>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</RestrictPublicBuckets>"); } body.push_str("</PublicAccessBlockConfiguration>"); } body.into_bytes() };
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers.push(("content-type", "application/xml")); headers };
-                         let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::PutPublicAccessBlockError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::PutPublicAccessBlockError::unhandled_with_request_ids(format!("PutPublicAccessBlock returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_put_public_access_block_output::PutPublicAccessBlockOutputBuilder::default();
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.content_md5 = Some(value.into());
+        self
+    }
+    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
+        self.input.checksum_algorithm = Some(value.into());
+        self
+    }
+    pub fn public_access_block_configuration(mut self, value: impl ::std::convert::Into<crate::types::PublicAccessBlockConfiguration>) -> Self {
+        self.input.public_access_block_configuration = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::PutPublicAccessBlockOutput, super::PutPublicAccessBlockError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::PutPublicAccessBlockError::Unhandled("PutPublicAccessBlock requires bucket".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}?publicAccessBlock");
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path
+        };
+        let body = {
+            let mut body = ::std::string::String::new();
+            if let Some(value) = self.input.public_access_block_configuration.as_ref() {
+                body.push_str("<PublicAccessBlockConfiguration>");
+                if let Some(value) = value.block_public_acls.as_ref() {
+                    body.push_str("<BlockPublicAcls>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                    body.push_str("</BlockPublicAcls>");
+                }
+                if let Some(value) = value.ignore_public_acls.as_ref() {
+                    body.push_str("<IgnorePublicAcls>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                    body.push_str("</IgnorePublicAcls>");
+                }
+                if let Some(value) = value.block_public_policy.as_ref() {
+                    body.push_str("<BlockPublicPolicy>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                    body.push_str("</BlockPublicPolicy>");
+                }
+                if let Some(value) = value.restrict_public_buckets.as_ref() {
+                    body.push_str("<RestrictPublicBuckets>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                    body.push_str("</RestrictPublicBuckets>");
+                }
+                body.push_str("</PublicAccessBlockConfiguration>");
+            }
+            body.into_bytes()
+        };
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers.push(("content-type", "application/xml"));
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Put, &path, &headers, &body)
+            .await
+            .map_err(super::PutPublicAccessBlockError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::PutPublicAccessBlockError::unhandled_with_request_ids(
+                format!("PutPublicAccessBlock returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_put_public_access_block_output::PutPublicAccessBlockOutputBuilder::default();
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as PutPublicAccessBlockFluentBuilder;

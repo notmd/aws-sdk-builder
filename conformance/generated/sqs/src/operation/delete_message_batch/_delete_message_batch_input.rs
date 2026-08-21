@@ -43,10 +43,15 @@ impl DeleteMessageBatchInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_url = input; self }
+    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.queue_url = input;
+        self
+    }
     /// <p>The URL of the Amazon SQS queue from which messages are deleted.</p>
     /// <p>Queue URLs and names are case-sensitive.</p>
-    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> { &self.queue_url }
+    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.queue_url
+    }
     /// <p>Lists the receipt handles for the messages to be deleted.</p>
     /// Appends an item to `entries`.
     ///
@@ -57,9 +62,14 @@ impl DeleteMessageBatchInputBuilder {
         self.entries = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>>) -> Self { self.entries = input; self }
+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>>) -> Self {
+        self.entries = input;
+        self
+    }
     /// <p>Lists the receipt handles for the messages to be deleted.</p>
-    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>> { &self.entries }
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>> {
+        &self.entries
+    }
     /// Consumes the builder and constructs a [`DeleteMessageBatchInput`](crate::operation::delete_message_batch::DeleteMessageBatchInput).
     pub fn build(self) -> crate::operation::delete_message_batch::DeleteMessageBatchInput {
         crate::operation::delete_message_batch::DeleteMessageBatchInput {

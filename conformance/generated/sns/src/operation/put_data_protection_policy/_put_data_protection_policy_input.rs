@@ -47,10 +47,15 @@ impl PutDataProtectionPolicyInputBuilder {
         self.resource_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.resource_arn = input; self }
+    pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.resource_arn = input;
+        self
+    }
     /// <p>The ARN of the topic whose <code>DataProtectionPolicy</code> you want to add or update.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the Amazon Web Services General Reference.</p>
-    pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> { &self.resource_arn }
+    pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.resource_arn
+    }
     /// <p>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</p>
     /// <p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p>
     /// <p>Length Constraints: Maximum length of 30,720.</p>
@@ -59,11 +64,16 @@ impl PutDataProtectionPolicyInputBuilder {
         self.data_protection_policy = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_data_protection_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.data_protection_policy = input; self }
+    pub fn set_data_protection_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.data_protection_policy = input;
+        self
+    }
     /// <p>The JSON serialization of the topic's <code>DataProtectionPolicy</code>.</p>
     /// <p>The <code>DataProtectionPolicy</code> must be in JSON string format.</p>
     /// <p>Length Constraints: Maximum length of 30,720.</p>
-    pub fn get_data_protection_policy(&self) -> &::std::option::Option<::std::string::String> { &self.data_protection_policy }
+    pub fn get_data_protection_policy(&self) -> &::std::option::Option<::std::string::String> {
+        &self.data_protection_policy
+    }
     /// Consumes the builder and constructs a [`PutDataProtectionPolicyInput`](crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput).
     pub fn build(self) -> crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput {
         crate::operation::put_data_protection_policy::PutDataProtectionPolicyInput {

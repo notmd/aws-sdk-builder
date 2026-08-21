@@ -33,9 +33,14 @@ impl GetResourcePolicyInputBuilder {
         self.resource_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.resource_arn = input; self }
+    pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.resource_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the Lambda resource you want to retrieve the policy for. You can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.</p>
-    pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> { &self.resource_arn }
+    pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.resource_arn
+    }
     /// Consumes the builder and constructs a [`GetResourcePolicyInput`](crate::operation::get_resource_policy::GetResourcePolicyInput).
     pub fn build(self) -> crate::operation::get_resource_policy::GetResourcePolicyInput {
         crate::operation::get_resource_policy::GetResourcePolicyInput {

@@ -40,26 +40,46 @@ impl WaitStartedDetailsBuilder {
         self.duration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_duration(mut self, input: ::std::option::Option<i32>) -> Self { self.duration = input; self }
+    pub fn set_duration(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.duration = input;
+        self
+    }
     /// <p>The duration to wait, in seconds.</p>
-    pub fn get_duration(&self) -> &::std::option::Option<i32> { &self.duration }
+    pub fn get_duration(&self) -> &::std::option::Option<i32> {
+        &self.duration
+    }
     /// <p>The date and time when the wait operation is scheduled to complete, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     /// This field is required.
     pub fn scheduled_end_timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.scheduled_end_timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_scheduled_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.scheduled_end_timestamp = input; self }
+    pub fn set_scheduled_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.scheduled_end_timestamp = input;
+        self
+    }
     /// <p>The date and time when the wait operation is scheduled to complete, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn get_scheduled_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.scheduled_end_timestamp }
+    pub fn get_scheduled_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.scheduled_end_timestamp
+    }
     /// Consumes the builder and constructs a [`WaitStartedDetails`](crate::types::WaitStartedDetails).
     /// This method will fail if any of the following fields are not set:
     /// - [`duration`](Self::duration)
     /// - [`scheduled_end_timestamp`](Self::scheduled_end_timestamp)
     pub fn build(self) -> ::std::result::Result<crate::types::WaitStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::WaitStartedDetails {
-            duration: self.duration.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("duration", "duration was not specified but it is required when building WaitStartedDetails"))?,
-            scheduled_end_timestamp: self.scheduled_end_timestamp.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("scheduled_end_timestamp", "scheduled_end_timestamp was not specified but it is required when building WaitStartedDetails"))?,
+            duration: self.duration.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "duration",
+                    "duration was not specified but it is required when building WaitStartedDetails",
+                )
+            })?,
+            scheduled_end_timestamp: self.scheduled_end_timestamp.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "scheduled_end_timestamp",
+                    "scheduled_end_timestamp was not specified but it is required when building WaitStartedDetails",
+                )
+            })?,
         })
     }
 }

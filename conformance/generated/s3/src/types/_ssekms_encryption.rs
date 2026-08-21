@@ -49,27 +49,42 @@ impl SsekmsEncryptionBuilder {
         self.kms_key_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.kms_key_arn = input; self }
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
     /// <p>Specifies the Amazon Web Services KMS key Amazon Resource Name (ARN) to use for the updated server-side encryption type. Required if <code>ObjectEncryption</code> specifies <code>SSEKMS</code>.</p><note>
     /// <p>You must specify the full Amazon Web Services KMS key ARN. The KMS key ID and KMS key alias aren't supported.</p>
     /// </note><p>Pattern: (<code>arn:aws\[-a-z0-9\]*:kms:\[-a-z0-9\]*:\[0-9\]{12}:key/.+</code>)</p>
-    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> { &self.kms_key_arn }
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
+    }
     /// <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using Key Management Service (KMS) keys (SSE-KMS). If this value isn't specified, it defaults to <code>false</code>. Setting this value to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html">Using Amazon S3 Bucket Keys</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>Valid Values: <code>true</code> | <code>false</code></p>
     pub fn bucket_key_enabled(mut self, input: bool) -> Self {
         self.bucket_key_enabled = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_bucket_key_enabled(mut self, input: ::std::option::Option<bool>) -> Self { self.bucket_key_enabled = input; self }
+    pub fn set_bucket_key_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.bucket_key_enabled = input;
+        self
+    }
     /// <p>Specifies whether Amazon S3 should use an S3 Bucket Key for object encryption with server-side encryption using Key Management Service (KMS) keys (SSE-KMS). If this value isn't specified, it defaults to <code>false</code>. Setting this value to <code>true</code> causes Amazon S3 to use an S3 Bucket Key for object encryption with SSE-KMS. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html">Using Amazon S3 Bucket Keys</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>Valid Values: <code>true</code> | <code>false</code></p>
-    pub fn get_bucket_key_enabled(&self) -> &::std::option::Option<bool> { &self.bucket_key_enabled }
+    pub fn get_bucket_key_enabled(&self) -> &::std::option::Option<bool> {
+        &self.bucket_key_enabled
+    }
     /// Consumes the builder and constructs a [`SsekmsEncryption`](crate::types::SsekmsEncryption).
     /// This method will fail if any of the following fields are not set:
     /// - [`kms_key_arn`](Self::kms_key_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::SsekmsEncryption, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::SsekmsEncryption {
-            kms_key_arn: self.kms_key_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("kms_key_arn", "kms_key_arn was not specified but it is required when building SsekmsEncryption"))?,
+            kms_key_arn: self.kms_key_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "kms_key_arn",
+                    "kms_key_arn was not specified but it is required when building SsekmsEncryption",
+                )
+            })?,
             bucket_key_enabled: self.bucket_key_enabled,
         })
     }

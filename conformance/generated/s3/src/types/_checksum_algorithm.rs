@@ -117,7 +117,18 @@ impl ChecksumAlgorithm {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["CRC32", "CRC32C", "CRC64NVME", "MD5", "SHA1", "SHA256", "SHA512", "XXHASH128", "XXHASH3", "XXHASH64"]
+        &[
+            "CRC32",
+            "CRC32C",
+            "CRC64NVME",
+            "MD5",
+            "SHA1",
+            "SHA256",
+            "SHA512",
+            "XXHASH128",
+            "XXHASH3",
+            "XXHASH64",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for ChecksumAlgorithm {

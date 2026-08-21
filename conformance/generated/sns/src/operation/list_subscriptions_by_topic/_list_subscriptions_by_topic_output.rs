@@ -51,17 +51,27 @@ impl ListSubscriptionsByTopicOutputBuilder {
         self.subscriptions = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_subscriptions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Subscription>>) -> Self { self.subscriptions = input; self }
+    pub fn set_subscriptions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Subscription>>) -> Self {
+        self.subscriptions = input;
+        self
+    }
     /// <p>A list of subscriptions.</p>
-    pub fn get_subscriptions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Subscription>> { &self.subscriptions }
+    pub fn get_subscriptions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Subscription>> {
+        &self.subscriptions
+    }
     /// <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This element is returned if there are more subscriptions to retrieve.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
+    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_token = input;
+        self
+    }
     /// <p>Token to pass along to the next <code>ListSubscriptionsByTopic</code> request. This element is returned if there are more subscriptions to retrieve.</p>
-    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_token
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

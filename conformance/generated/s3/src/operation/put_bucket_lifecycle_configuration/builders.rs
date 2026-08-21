@@ -6,31 +6,248 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
-    pub fn lifecycle_configuration(mut self, value: impl ::std::convert::Into<crate::types::BucketLifecycleConfiguration>) -> Self { self.input.lifecycle_configuration = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn transition_default_minimum_object_size(mut self, value: impl ::std::convert::Into<crate::types::TransitionDefaultMinimumObjectSize>) -> Self { self.input.transition_default_minimum_object_size = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::PutBucketLifecycleConfigurationOutput, super::PutBucketLifecycleConfigurationError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::PutBucketLifecycleConfigurationError::Unhandled("PutBucketLifecycleConfiguration requires bucket".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}?lifecycle"); path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path };
-                         let body = { let mut body = ::std::string::String::new(); if let Some(value) = self.input.lifecycle_configuration.as_ref() { body.push_str("<LifecycleConfiguration>"); if let Some(value) = value.rules.as_ref() { for item in value { body.push_str("<Rule>"); if let Some(value) = item.expiration.as_ref() { body.push_str("<Expiration>"); if let Some(value) = value.date.as_ref() { body.push_str("<Date>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Date>"); } if let Some(value) = value.days.as_ref() { body.push_str("<Days>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Days>"); } if let Some(value) = value.expired_object_delete_marker.as_ref() { body.push_str("<ExpiredObjectDeleteMarker>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ExpiredObjectDeleteMarker>"); } body.push_str("</Expiration>"); } if let Some(value) = item.id.as_ref() { body.push_str("<ID>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ID>"); } if let Some(value) = item.prefix.as_ref() { body.push_str("<Prefix>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Prefix>"); } if let Some(value) = item.filter.as_ref() { body.push_str("<Filter>"); if let Some(value) = value.prefix.as_ref() { body.push_str("<Prefix>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Prefix>"); } if let Some(value) = value.tag.as_ref() { body.push_str("<Tag>"); body.push_str("<Key>"); body.push_str(&super::super::super::transport::xml_escape(&value.key.to_string())); body.push_str("</Key>"); body.push_str("<Value>"); body.push_str(&super::super::super::transport::xml_escape(&value.value.to_string())); body.push_str("</Value>"); body.push_str("</Tag>"); } if let Some(value) = value.object_size_greater_than.as_ref() { body.push_str("<ObjectSizeGreaterThan>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ObjectSizeGreaterThan>"); } if let Some(value) = value.object_size_less_than.as_ref() { body.push_str("<ObjectSizeLessThan>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ObjectSizeLessThan>"); } if let Some(value) = value.and.as_ref() { body.push_str("<And>"); if let Some(value) = value.prefix.as_ref() { body.push_str("<Prefix>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Prefix>"); } if let Some(value) = value.tags.as_ref() { for item in value { body.push_str("<Tag>"); body.push_str("<Key>"); body.push_str(&super::super::super::transport::xml_escape(&item.key.to_string())); body.push_str("</Key>"); body.push_str("<Value>"); body.push_str(&super::super::super::transport::xml_escape(&item.value.to_string())); body.push_str("</Value>"); body.push_str("</Tag>"); } } if let Some(value) = value.object_size_greater_than.as_ref() { body.push_str("<ObjectSizeGreaterThan>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ObjectSizeGreaterThan>"); } if let Some(value) = value.object_size_less_than.as_ref() { body.push_str("<ObjectSizeLessThan>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ObjectSizeLessThan>"); } body.push_str("</And>"); } body.push_str("</Filter>"); } body.push_str("<Status>"); body.push_str(&super::super::super::transport::xml_escape(&item.status.to_string())); body.push_str("</Status>"); if let Some(value) = item.transitions.as_ref() { for item in value { body.push_str("<Transition>"); if let Some(value) = item.date.as_ref() { body.push_str("<Date>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Date>"); } if let Some(value) = item.days.as_ref() { body.push_str("<Days>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Days>"); } if let Some(value) = item.storage_class.as_ref() { body.push_str("<StorageClass>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</StorageClass>"); } body.push_str("</Transition>"); } } if let Some(value) = item.noncurrent_version_transitions.as_ref() { for item in value { body.push_str("<NoncurrentVersionTransition>"); if let Some(value) = item.noncurrent_days.as_ref() { body.push_str("<NoncurrentDays>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</NoncurrentDays>"); } if let Some(value) = item.storage_class.as_ref() { body.push_str("<StorageClass>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</StorageClass>"); } if let Some(value) = item.newer_noncurrent_versions.as_ref() { body.push_str("<NewerNoncurrentVersions>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</NewerNoncurrentVersions>"); } body.push_str("</NoncurrentVersionTransition>"); } } if let Some(value) = item.noncurrent_version_expiration.as_ref() { body.push_str("<NoncurrentVersionExpiration>"); if let Some(value) = value.noncurrent_days.as_ref() { body.push_str("<NoncurrentDays>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</NoncurrentDays>"); } if let Some(value) = value.newer_noncurrent_versions.as_ref() { body.push_str("<NewerNoncurrentVersions>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</NewerNoncurrentVersions>"); } body.push_str("</NoncurrentVersionExpiration>"); } if let Some(value) = item.abort_incomplete_multipart_upload.as_ref() { body.push_str("<AbortIncompleteMultipartUpload>"); if let Some(value) = value.days_after_initiation.as_ref() { body.push_str("<DaysAfterInitiation>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</DaysAfterInitiation>"); } body.push_str("</AbortIncompleteMultipartUpload>"); } body.push_str("</Rule>"); } } body.push_str("</LifecycleConfiguration>"); } body.into_bytes() };
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers.push(("content-type", "application/xml")); headers };
-                         let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::PutBucketLifecycleConfigurationError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::PutBucketLifecycleConfigurationError::unhandled_with_request_ids(format!("PutBucketLifecycleConfiguration returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_put_bucket_lifecycle_configuration_output::PutBucketLifecycleConfigurationOutputBuilder::default();
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
+        self.input.checksum_algorithm = Some(value.into());
+        self
+    }
+    pub fn lifecycle_configuration(mut self, value: impl ::std::convert::Into<crate::types::BucketLifecycleConfiguration>) -> Self {
+        self.input.lifecycle_configuration = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn transition_default_minimum_object_size(
+        mut self,
+        value: impl ::std::convert::Into<crate::types::TransitionDefaultMinimumObjectSize>,
+    ) -> Self {
+        self.input.transition_default_minimum_object_size = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::PutBucketLifecycleConfigurationOutput, super::PutBucketLifecycleConfigurationError> {
+        let bucket =
+            self.input.bucket.as_deref().ok_or_else(|| {
+                super::PutBucketLifecycleConfigurationError::Unhandled("PutBucketLifecycleConfiguration requires bucket".to_owned())
+            })?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}?lifecycle");
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path
+        };
+        let body = {
+            let mut body = ::std::string::String::new();
+            if let Some(value) = self.input.lifecycle_configuration.as_ref() {
+                body.push_str("<LifecycleConfiguration>");
+                if let Some(value) = value.rules.as_ref() {
+                    for item in value {
+                        body.push_str("<Rule>");
+                        if let Some(value) = item.expiration.as_ref() {
+                            body.push_str("<Expiration>");
+                            if let Some(value) = value.date.as_ref() {
+                                body.push_str("<Date>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                body.push_str("</Date>");
+                            }
+                            if let Some(value) = value.days.as_ref() {
+                                body.push_str("<Days>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                body.push_str("</Days>");
+                            }
+                            if let Some(value) = value.expired_object_delete_marker.as_ref() {
+                                body.push_str("<ExpiredObjectDeleteMarker>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                body.push_str("</ExpiredObjectDeleteMarker>");
+                            }
+                            body.push_str("</Expiration>");
+                        }
+                        if let Some(value) = item.id.as_ref() {
+                            body.push_str("<ID>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ID>");
+                        }
+                        if let Some(value) = item.prefix.as_ref() {
+                            body.push_str("<Prefix>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</Prefix>");
+                        }
+                        if let Some(value) = item.filter.as_ref() {
+                            body.push_str("<Filter>");
+                            if let Some(value) = value.prefix.as_ref() {
+                                body.push_str("<Prefix>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                body.push_str("</Prefix>");
+                            }
+                            if let Some(value) = value.tag.as_ref() {
+                                body.push_str("<Tag>");
+                                body.push_str("<Key>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.key.to_string()));
+                                body.push_str("</Key>");
+                                body.push_str("<Value>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.value.to_string()));
+                                body.push_str("</Value>");
+                                body.push_str("</Tag>");
+                            }
+                            if let Some(value) = value.object_size_greater_than.as_ref() {
+                                body.push_str("<ObjectSizeGreaterThan>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                body.push_str("</ObjectSizeGreaterThan>");
+                            }
+                            if let Some(value) = value.object_size_less_than.as_ref() {
+                                body.push_str("<ObjectSizeLessThan>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                body.push_str("</ObjectSizeLessThan>");
+                            }
+                            if let Some(value) = value.and.as_ref() {
+                                body.push_str("<And>");
+                                if let Some(value) = value.prefix.as_ref() {
+                                    body.push_str("<Prefix>");
+                                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                    body.push_str("</Prefix>");
+                                }
+                                if let Some(value) = value.tags.as_ref() {
+                                    for item in value {
+                                        body.push_str("<Tag>");
+                                        body.push_str("<Key>");
+                                        body.push_str(&super::super::super::transport::xml_escape(&item.key.to_string()));
+                                        body.push_str("</Key>");
+                                        body.push_str("<Value>");
+                                        body.push_str(&super::super::super::transport::xml_escape(&item.value.to_string()));
+                                        body.push_str("</Value>");
+                                        body.push_str("</Tag>");
+                                    }
+                                }
+                                if let Some(value) = value.object_size_greater_than.as_ref() {
+                                    body.push_str("<ObjectSizeGreaterThan>");
+                                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                    body.push_str("</ObjectSizeGreaterThan>");
+                                }
+                                if let Some(value) = value.object_size_less_than.as_ref() {
+                                    body.push_str("<ObjectSizeLessThan>");
+                                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                    body.push_str("</ObjectSizeLessThan>");
+                                }
+                                body.push_str("</And>");
+                            }
+                            body.push_str("</Filter>");
+                        }
+                        body.push_str("<Status>");
+                        body.push_str(&super::super::super::transport::xml_escape(&item.status.to_string()));
+                        body.push_str("</Status>");
+                        if let Some(value) = item.transitions.as_ref() {
+                            for item in value {
+                                body.push_str("<Transition>");
+                                if let Some(value) = item.date.as_ref() {
+                                    body.push_str("<Date>");
+                                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                    body.push_str("</Date>");
+                                }
+                                if let Some(value) = item.days.as_ref() {
+                                    body.push_str("<Days>");
+                                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                    body.push_str("</Days>");
+                                }
+                                if let Some(value) = item.storage_class.as_ref() {
+                                    body.push_str("<StorageClass>");
+                                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                    body.push_str("</StorageClass>");
+                                }
+                                body.push_str("</Transition>");
+                            }
+                        }
+                        if let Some(value) = item.noncurrent_version_transitions.as_ref() {
+                            for item in value {
+                                body.push_str("<NoncurrentVersionTransition>");
+                                if let Some(value) = item.noncurrent_days.as_ref() {
+                                    body.push_str("<NoncurrentDays>");
+                                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                    body.push_str("</NoncurrentDays>");
+                                }
+                                if let Some(value) = item.storage_class.as_ref() {
+                                    body.push_str("<StorageClass>");
+                                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                    body.push_str("</StorageClass>");
+                                }
+                                if let Some(value) = item.newer_noncurrent_versions.as_ref() {
+                                    body.push_str("<NewerNoncurrentVersions>");
+                                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                    body.push_str("</NewerNoncurrentVersions>");
+                                }
+                                body.push_str("</NoncurrentVersionTransition>");
+                            }
+                        }
+                        if let Some(value) = item.noncurrent_version_expiration.as_ref() {
+                            body.push_str("<NoncurrentVersionExpiration>");
+                            if let Some(value) = value.noncurrent_days.as_ref() {
+                                body.push_str("<NoncurrentDays>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                body.push_str("</NoncurrentDays>");
+                            }
+                            if let Some(value) = value.newer_noncurrent_versions.as_ref() {
+                                body.push_str("<NewerNoncurrentVersions>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                body.push_str("</NewerNoncurrentVersions>");
+                            }
+                            body.push_str("</NoncurrentVersionExpiration>");
+                        }
+                        if let Some(value) = item.abort_incomplete_multipart_upload.as_ref() {
+                            body.push_str("<AbortIncompleteMultipartUpload>");
+                            if let Some(value) = value.days_after_initiation.as_ref() {
+                                body.push_str("<DaysAfterInitiation>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                body.push_str("</DaysAfterInitiation>");
+                            }
+                            body.push_str("</AbortIncompleteMultipartUpload>");
+                        }
+                        body.push_str("</Rule>");
+                    }
+                }
+                body.push_str("</LifecycleConfiguration>");
+            }
+            body.into_bytes()
+        };
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers.push(("content-type", "application/xml"));
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Put, &path, &headers, &body)
+            .await
+            .map_err(super::PutBucketLifecycleConfigurationError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::PutBucketLifecycleConfigurationError::unhandled_with_request_ids(
+                format!("PutBucketLifecycleConfiguration returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_put_bucket_lifecycle_configuration_output::PutBucketLifecycleConfigurationOutputBuilder::default();
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as PutBucketLifecycleConfigurationFluentBuilder;

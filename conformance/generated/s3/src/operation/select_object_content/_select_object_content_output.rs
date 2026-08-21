@@ -46,9 +46,14 @@ impl SelectObjectContentOutputBuilder {
         self.payload = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_payload(mut self, input: ::std::option::Option<crate::types::SelectObjectContentEventStream>) -> Self { self.payload = input; self }
+    pub fn set_payload(mut self, input: ::std::option::Option<crate::types::SelectObjectContentEventStream>) -> Self {
+        self.payload = input;
+        self
+    }
     /// <p>The array of results.</p>
-    pub fn get_payload(&self) -> &::std::option::Option<crate::types::SelectObjectContentEventStream> { &self.payload }
+    pub fn get_payload(&self) -> &::std::option::Option<crate::types::SelectObjectContentEventStream> {
+        &self.payload
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

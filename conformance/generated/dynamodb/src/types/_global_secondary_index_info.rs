@@ -64,9 +64,14 @@ impl GlobalSecondaryIndexInfoBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.index_name = input; self }
+    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.index_name = input;
+        self
+    }
     /// <p>The name of the global secondary index.</p>
-    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> { &self.index_name }
+    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.index_name
+    }
     /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
@@ -80,34 +85,54 @@ impl GlobalSecondaryIndexInfoBuilder {
         self.key_schema = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self { self.key_schema = input; self }
+    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
+        self.key_schema = input;
+        self
+    }
     /// <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note>
     /// <p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p>
     /// <p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p>
     /// </note>
-    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> { &self.key_schema }
+    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
+        &self.key_schema
+    }
     /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
     pub fn projection(mut self, input: crate::types::Projection) -> Self {
         self.projection = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self { self.projection = input; self }
+    pub fn set_projection(mut self, input: ::std::option::Option<crate::types::Projection>) -> Self {
+        self.projection = input;
+        self
+    }
     /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
-    pub fn get_projection(&self) -> &::std::option::Option<crate::types::Projection> { &self.projection }
+    pub fn get_projection(&self) -> &::std::option::Option<crate::types::Projection> {
+        &self.projection
+    }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
     pub fn provisioned_throughput(mut self, input: crate::types::ProvisionedThroughput) -> Self {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self { self.provisioned_throughput = input; self }
+    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
+        self.provisioned_throughput = input;
+        self
+    }
     /// <p>Represents the provisioned throughput settings for the specified global secondary index.</p>
-    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> { &self.provisioned_throughput }
+    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
+        &self.provisioned_throughput
+    }
     pub fn on_demand_throughput(mut self, input: crate::types::OnDemandThroughput) -> Self {
         self.on_demand_throughput = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
-    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> { &self.on_demand_throughput }
+    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
+        self.on_demand_throughput = input;
+        self
+    }
+    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+        &self.on_demand_throughput
+    }
     /// Consumes the builder and constructs a [`GlobalSecondaryIndexInfo`](crate::types::GlobalSecondaryIndexInfo).
     pub fn build(self) -> crate::types::GlobalSecondaryIndexInfo {
         crate::types::GlobalSecondaryIndexInfo {

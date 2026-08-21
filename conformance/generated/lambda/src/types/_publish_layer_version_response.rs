@@ -92,49 +92,79 @@ impl PublishLayerVersionResponseBuilder {
         self.content = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_content(mut self, input: ::std::option::Option<crate::types::LayerVersionContentOutput>) -> Self { self.content = input; self }
+    pub fn set_content(mut self, input: ::std::option::Option<crate::types::LayerVersionContentOutput>) -> Self {
+        self.content = input;
+        self
+    }
     /// <p>Details about the layer version.</p>
-    pub fn get_content(&self) -> &::std::option::Option<crate::types::LayerVersionContentOutput> { &self.content }
+    pub fn get_content(&self) -> &::std::option::Option<crate::types::LayerVersionContentOutput> {
+        &self.content
+    }
     /// <p>The ARN of the layer.</p>
     pub fn layer_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.layer_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_layer_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.layer_arn = input; self }
+    pub fn set_layer_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.layer_arn = input;
+        self
+    }
     /// <p>The ARN of the layer.</p>
-    pub fn get_layer_arn(&self) -> &::std::option::Option<::std::string::String> { &self.layer_arn }
+    pub fn get_layer_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.layer_arn
+    }
     /// <p>The ARN of the layer version.</p>
     pub fn layer_version_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.layer_version_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_layer_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.layer_version_arn = input; self }
+    pub fn set_layer_version_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.layer_version_arn = input;
+        self
+    }
     /// <p>The ARN of the layer version.</p>
-    pub fn get_layer_version_arn(&self) -> &::std::option::Option<::std::string::String> { &self.layer_version_arn }
+    pub fn get_layer_version_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.layer_version_arn
+    }
     /// <p>The description of the version.</p>
     pub fn description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.description = input; self }
+    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.description = input;
+        self
+    }
     /// <p>The description of the version.</p>
-    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> { &self.description }
+    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
+        &self.description
+    }
     /// <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub fn created_date(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.created_date = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_created_date(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.created_date = input; self }
+    pub fn set_created_date(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.created_date = input;
+        self
+    }
     /// <p>The date that the layer version was created, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn get_created_date(&self) -> &::std::option::Option<::std::string::String> { &self.created_date }
+    pub fn get_created_date(&self) -> &::std::option::Option<::std::string::String> {
+        &self.created_date
+    }
     /// <p>The version number.</p>
     pub fn version(mut self, input: i64) -> Self {
         self.version = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_version(mut self, input: ::std::option::Option<i64>) -> Self { self.version = input; self }
+    pub fn set_version(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.version = input;
+        self
+    }
     /// <p>The version number.</p>
-    pub fn get_version(&self) -> &::std::option::Option<i64> { &self.version }
+    pub fn get_version(&self) -> &::std::option::Option<i64> {
+        &self.version
+    }
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
     /// Appends an item to `compatible_architectures`.
     ///
@@ -145,9 +175,14 @@ impl PublishLayerVersionResponseBuilder {
         self.compatible_architectures = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_compatible_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>) -> Self { self.compatible_architectures = input; self }
+    pub fn set_compatible_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Architecture>>) -> Self {
+        self.compatible_architectures = input;
+        self
+    }
     /// <p>A list of compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architectures</a>.</p>
-    pub fn get_compatible_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> { &self.compatible_architectures }
+    pub fn get_compatible_architectures(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Architecture>> {
+        &self.compatible_architectures
+    }
     /// <p>The layer's compatible runtimes.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
@@ -160,19 +195,29 @@ impl PublishLayerVersionResponseBuilder {
         self.compatible_runtimes = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_compatible_runtimes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Runtime>>) -> Self { self.compatible_runtimes = input; self }
+    pub fn set_compatible_runtimes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Runtime>>) -> Self {
+        self.compatible_runtimes = input;
+        self
+    }
     /// <p>The layer's compatible runtimes.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-    pub fn get_compatible_runtimes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Runtime>> { &self.compatible_runtimes }
+    pub fn get_compatible_runtimes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Runtime>> {
+        &self.compatible_runtimes
+    }
     /// <p>The layer's software license.</p>
     pub fn license_info(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.license_info = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_license_info(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.license_info = input; self }
+    pub fn set_license_info(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.license_info = input;
+        self
+    }
     /// <p>The layer's software license.</p>
-    pub fn get_license_info(&self) -> &::std::option::Option<::std::string::String> { &self.license_info }
+    pub fn get_license_info(&self) -> &::std::option::Option<::std::string::String> {
+        &self.license_info
+    }
     /// Consumes the builder and constructs a [`PublishLayerVersionResponse`](crate::types::PublishLayerVersionResponse).
     pub fn build(self) -> crate::types::PublishLayerVersionResponse {
         crate::types::PublishLayerVersionResponse {

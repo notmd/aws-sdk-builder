@@ -6,30 +6,66 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn continuation_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.continuation_token = Some(value.into()); self }
-    pub fn max_directory_buckets(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_directory_buckets = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::ListDirectoryBucketsOutput, super::ListDirectoryBucketsError> {
-                         let path = { let mut path = ::std::string::String::from("/?x-id=ListDirectoryBuckets"); if let Some(value) = self.input.continuation_token.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("continuation-token"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } if let Some(value) = self.input.max_directory_buckets.as_ref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("max-directory-buckets"); path.push('='); path.push_str(&super::super::super::transport::encode_path(&value.to_string())); } path };
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::ListDirectoryBucketsError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::ListDirectoryBucketsError::unhandled_with_request_ids(format!("ListDirectoryBuckets returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_list_directory_buckets_output::ListDirectoryBucketsOutputBuilder::default();
-                         let body = response.text().await.map_err(super::ListDirectoryBucketsError::Unhandled)?;
-                         output.buckets = Some(::std::vec::Vec::new());
-                         output.continuation_token = super::super::super::transport::xml_first(&body, "ContinuationToken").and_then(|value| value.parse().ok());
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn continuation_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.continuation_token = Some(value.into());
+        self
+    }
+    pub fn max_directory_buckets(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.max_directory_buckets = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::ListDirectoryBucketsOutput, super::ListDirectoryBucketsError> {
+        let path = {
+            let mut path = ::std::string::String::from("/?x-id=ListDirectoryBuckets");
+            if let Some(value) = self.input.continuation_token.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("continuation-token");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            if let Some(value) = self.input.max_directory_buckets.as_ref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("max-directory-buckets");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(&value.to_string()));
+            }
+            path
+        };
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Get, &path, &headers, &body)
+            .await
+            .map_err(super::ListDirectoryBucketsError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::ListDirectoryBucketsError::unhandled_with_request_ids(
+                format!("ListDirectoryBuckets returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_list_directory_buckets_output::ListDirectoryBucketsOutputBuilder::default();
+        let body = response.text().await.map_err(super::ListDirectoryBucketsError::Unhandled)?;
+        output.buckets = Some(::std::vec::Vec::new());
+        output.continuation_token = super::super::super::transport::xml_first(&body, "ContinuationToken").and_then(|value| value.parse().ok());
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as ListDirectoryBucketsFluentBuilder;

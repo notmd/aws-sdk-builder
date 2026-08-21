@@ -40,17 +40,27 @@ impl UpdateTimeToLiveInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the table to be configured. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>Represents the settings used to enable or disable Time to Live for the specified table.</p>
     pub fn time_to_live_specification(mut self, input: crate::types::TimeToLiveSpecification) -> Self {
         self.time_to_live_specification = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_time_to_live_specification(mut self, input: ::std::option::Option<crate::types::TimeToLiveSpecification>) -> Self { self.time_to_live_specification = input; self }
+    pub fn set_time_to_live_specification(mut self, input: ::std::option::Option<crate::types::TimeToLiveSpecification>) -> Self {
+        self.time_to_live_specification = input;
+        self
+    }
     /// <p>Represents the settings used to enable or disable Time to Live for the specified table.</p>
-    pub fn get_time_to_live_specification(&self) -> &::std::option::Option<crate::types::TimeToLiveSpecification> { &self.time_to_live_specification }
+    pub fn get_time_to_live_specification(&self) -> &::std::option::Option<crate::types::TimeToLiveSpecification> {
+        &self.time_to_live_specification
+    }
     /// Consumes the builder and constructs a [`UpdateTimeToLiveInput`](crate::operation::update_time_to_live::UpdateTimeToLiveInput).
     pub fn build(self) -> crate::operation::update_time_to_live::UpdateTimeToLiveInput {
         crate::operation::update_time_to_live::UpdateTimeToLiveInput {

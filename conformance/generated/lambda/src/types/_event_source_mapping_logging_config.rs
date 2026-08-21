@@ -32,9 +32,14 @@ impl EventSourceMappingLoggingConfigBuilder {
         self.system_log_level = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_system_log_level(mut self, input: ::std::option::Option<crate::types::EventSourceMappingSystemLogLevel>) -> Self { self.system_log_level = input; self }
+    pub fn set_system_log_level(mut self, input: ::std::option::Option<crate::types::EventSourceMappingSystemLogLevel>) -> Self {
+        self.system_log_level = input;
+        self
+    }
     /// <p>The log level you want your event source mapping to use. Lambda event poller only sends system logs at the selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest. For more information about these metrics, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/esm-logging.html">Event source mapping logging</a>.</p>
-    pub fn get_system_log_level(&self) -> &::std::option::Option<crate::types::EventSourceMappingSystemLogLevel> { &self.system_log_level }
+    pub fn get_system_log_level(&self) -> &::std::option::Option<crate::types::EventSourceMappingSystemLogLevel> {
+        &self.system_log_level
+    }
     /// Consumes the builder and constructs a [`EventSourceMappingLoggingConfig`](crate::types::EventSourceMappingLoggingConfig).
     pub fn build(self) -> crate::types::EventSourceMappingLoggingConfig {
         crate::types::EventSourceMappingLoggingConfig {

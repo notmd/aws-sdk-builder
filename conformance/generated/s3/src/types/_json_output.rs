@@ -32,9 +32,14 @@ impl JsonOutputBuilder {
         self.record_delimiter = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_record_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.record_delimiter = input; self }
+    pub fn set_record_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.record_delimiter = input;
+        self
+    }
     /// <p>The value used to separate individual records in the output. If no value is specified, Amazon S3 uses a newline character ('\n').</p>
-    pub fn get_record_delimiter(&self) -> &::std::option::Option<::std::string::String> { &self.record_delimiter }
+    pub fn get_record_delimiter(&self) -> &::std::option::Option<::std::string::String> {
+        &self.record_delimiter
+    }
     /// Consumes the builder and constructs a [`JsonOutput`](crate::types::JsonOutput).
     pub fn build(self) -> crate::types::JsonOutput {
         crate::types::JsonOutput {

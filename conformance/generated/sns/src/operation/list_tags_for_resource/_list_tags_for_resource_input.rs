@@ -33,9 +33,14 @@ impl ListTagsForResourceInputBuilder {
         self.resource_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.resource_arn = input; self }
+    pub fn set_resource_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.resource_arn = input;
+        self
+    }
     /// <p>The ARN of the topic for which to list tags.</p>
-    pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> { &self.resource_arn }
+    pub fn get_resource_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.resource_arn
+    }
     /// Consumes the builder and constructs a [`ListTagsForResourceInput`](crate::operation::list_tags_for_resource::ListTagsForResourceInput).
     pub fn build(self) -> crate::operation::list_tags_for_resource::ListTagsForResourceInput {
         crate::operation::list_tags_for_resource::ListTagsForResourceInput {

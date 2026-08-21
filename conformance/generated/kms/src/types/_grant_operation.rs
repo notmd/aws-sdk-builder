@@ -152,7 +152,25 @@ impl GrantOperation {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["CreateGrant", "Decrypt", "DeriveSharedSecret", "DescribeKey", "Encrypt", "GenerateDataKey", "GenerateDataKeyPair", "GenerateDataKeyPairWithoutPlaintext", "GenerateDataKeyWithoutPlaintext", "GenerateMac", "GetPublicKey", "ReEncryptFrom", "ReEncryptTo", "RetireGrant", "Sign", "Verify", "VerifyMac"]
+        &[
+            "CreateGrant",
+            "Decrypt",
+            "DeriveSharedSecret",
+            "DescribeKey",
+            "Encrypt",
+            "GenerateDataKey",
+            "GenerateDataKeyPair",
+            "GenerateDataKeyPairWithoutPlaintext",
+            "GenerateDataKeyWithoutPlaintext",
+            "GenerateMac",
+            "GetPublicKey",
+            "ReEncryptFrom",
+            "ReEncryptTo",
+            "RetireGrant",
+            "Sign",
+            "Verify",
+            "VerifyMac",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for GrantOperation {

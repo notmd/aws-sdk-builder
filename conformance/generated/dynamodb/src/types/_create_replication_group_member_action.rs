@@ -69,33 +69,53 @@ impl CreateReplicationGroupMemberActionBuilder {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.region_name = input; self }
+    pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.region_name = input;
+        self
+    }
     /// <p>The Region where the new replica will be created.</p>
-    pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> { &self.region_name }
+    pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.region_name
+    }
     /// <p>The KMS key that should be used for KMS encryption in the new replica. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
     pub fn kms_master_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.kms_master_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.kms_master_key_id = input; self }
+    pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_master_key_id = input;
+        self
+    }
     /// <p>The KMS key that should be used for KMS encryption in the new replica. To specify a key, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
-    pub fn get_kms_master_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.kms_master_key_id }
+    pub fn get_kms_master_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_master_key_id
+    }
     /// <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
     pub fn provisioned_throughput_override(mut self, input: crate::types::ProvisionedThroughputOverride) -> Self {
         self.provisioned_throughput_override = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self { self.provisioned_throughput_override = input; self }
+    pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self {
+        self.provisioned_throughput_override = input;
+        self
+    }
     /// <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
-    pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<crate::types::ProvisionedThroughputOverride> { &self.provisioned_throughput_override }
+    pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<crate::types::ProvisionedThroughputOverride> {
+        &self.provisioned_throughput_override
+    }
     /// <p>The maximum on-demand throughput settings for the specified replica table being created. You can only modify <code>MaxReadRequestUnits</code>, because you can't modify <code>MaxWriteRequestUnits</code> for individual replica tables.</p>
     pub fn on_demand_throughput_override(mut self, input: crate::types::OnDemandThroughputOverride) -> Self {
         self.on_demand_throughput_override = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self { self.on_demand_throughput_override = input; self }
+    pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self {
+        self.on_demand_throughput_override = input;
+        self
+    }
     /// <p>The maximum on-demand throughput settings for the specified replica table being created. You can only modify <code>MaxReadRequestUnits</code>, because you can't modify <code>MaxWriteRequestUnits</code> for individual replica tables.</p>
-    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughputOverride> { &self.on_demand_throughput_override }
+    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughputOverride> {
+        &self.on_demand_throughput_override
+    }
     /// <p>Replica-specific global secondary index settings.</p>
     /// Appends an item to `global_secondary_indexes`.
     ///
@@ -106,23 +126,38 @@ impl CreateReplicationGroupMemberActionBuilder {
         self.global_secondary_indexes = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>>) -> Self { self.global_secondary_indexes = input; self }
+    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>>) -> Self {
+        self.global_secondary_indexes = input;
+        self
+    }
     /// <p>Replica-specific global secondary index settings.</p>
-    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>> { &self.global_secondary_indexes }
+    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndex>> {
+        &self.global_secondary_indexes
+    }
     /// <p>Replica-specific table class. If not specified, uses the source table's table class.</p>
     pub fn table_class_override(mut self, input: crate::types::TableClass) -> Self {
         self.table_class_override = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_table_class_override(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self { self.table_class_override = input; self }
+    pub fn set_table_class_override(mut self, input: ::std::option::Option<crate::types::TableClass>) -> Self {
+        self.table_class_override = input;
+        self
+    }
     /// <p>Replica-specific table class. If not specified, uses the source table's table class.</p>
-    pub fn get_table_class_override(&self) -> &::std::option::Option<crate::types::TableClass> { &self.table_class_override }
+    pub fn get_table_class_override(&self) -> &::std::option::Option<crate::types::TableClass> {
+        &self.table_class_override
+    }
     /// Consumes the builder and constructs a [`CreateReplicationGroupMemberAction`](crate::types::CreateReplicationGroupMemberAction).
     /// This method will fail if any of the following fields are not set:
     /// - [`region_name`](Self::region_name)
     pub fn build(self) -> ::std::result::Result<crate::types::CreateReplicationGroupMemberAction, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CreateReplicationGroupMemberAction {
-            region_name: self.region_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("region_name", "region_name was not specified but it is required when building CreateReplicationGroupMemberAction"))?,
+            region_name: self.region_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "region_name",
+                    "region_name was not specified but it is required when building CreateReplicationGroupMemberAction",
+                )
+            })?,
             kms_master_key_id: self.kms_master_key_id,
             provisioned_throughput_override: self.provisioned_throughput_override,
             on_demand_throughput_override: self.on_demand_throughput_override,

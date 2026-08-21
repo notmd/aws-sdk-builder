@@ -34,15 +34,25 @@ impl IndexDocumentBuilder {
         self.suffix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_suffix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.suffix = input; self }
+    pub fn set_suffix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.suffix = input;
+        self
+    }
     /// <p>A suffix that is appended to a request that is for a directory on the website endpoint. (For example, if the suffix is <code>index.html</code> and you make a request to <code>samplebucket/images/</code>, the data that is returned will be for the object with the key name <code>images/index.html</code>.) The suffix must not be empty and must not include a slash character.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
-    pub fn get_suffix(&self) -> &::std::option::Option<::std::string::String> { &self.suffix }
+    pub fn get_suffix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.suffix
+    }
     /// Consumes the builder and constructs a [`IndexDocument`](crate::types::IndexDocument).
     /// This method will fail if any of the following fields are not set:
     /// - [`suffix`](Self::suffix)
     pub fn build(self) -> ::std::result::Result<crate::types::IndexDocument, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::IndexDocument {
-            suffix: self.suffix.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("suffix", "suffix was not specified but it is required when building IndexDocument"))?,
+            suffix: self.suffix.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "suffix",
+                    "suffix was not specified but it is required when building IndexDocument",
+                )
+            })?,
         })
     }
 }

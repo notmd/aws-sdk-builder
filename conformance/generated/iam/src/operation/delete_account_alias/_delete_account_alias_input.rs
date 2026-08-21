@@ -36,10 +36,15 @@ impl DeleteAccountAliasInputBuilder {
         self.account_alias = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_account_alias(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.account_alias = input; self }
+    pub fn set_account_alias(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.account_alias = input;
+        self
+    }
     /// <p>The name of the account alias to delete.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of lowercase letters, digits, and dashes. You cannot start or finish with a dash, nor can you have two dashes in a row.</p>
-    pub fn get_account_alias(&self) -> &::std::option::Option<::std::string::String> { &self.account_alias }
+    pub fn get_account_alias(&self) -> &::std::option::Option<::std::string::String> {
+        &self.account_alias
+    }
     /// Consumes the builder and constructs a [`DeleteAccountAliasInput`](crate::operation::delete_account_alias::DeleteAccountAliasInput).
     pub fn build(self) -> crate::operation::delete_account_alias::DeleteAccountAliasInput {
         crate::operation::delete_account_alias::DeleteAccountAliasInput {

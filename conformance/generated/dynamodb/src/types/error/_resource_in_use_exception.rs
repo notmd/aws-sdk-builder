@@ -6,25 +6,50 @@
 pub struct ResourceInUseException {
     /// <p>The resource which is being attempted to be changed is in use.</p>
     pub message: ::std::option::Option<::std::string::String>,
+    pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
 }
 impl ResourceInUseException {
-    /// <p>The resource which is being attempted to be changed is in use.</p>
+    /// Returns the error message.
     pub fn message(&self) -> ::std::option::Option<&str> {
         self.message.as_deref()
     }
 }
+impl ::std::fmt::Display for ResourceInUseException {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        ::std::write!(f, "ResourceInUseException")?;
+        if let ::std::option::Option::Some(inner_1) = &self.message {
+            {
+                ::std::write!(f, ": {inner_1}")?;
+            }
+        }
+        Ok(())
+    }
+}
+impl ::std::error::Error for ResourceInUseException {}
+impl ::aws_types::request_id::RequestId for crate::types::error::ResourceInUseException {
+    fn request_id(&self) -> Option<&str> {
+        use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+        self.meta().request_id()
+    }
+}
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ResourceInUseException {
+    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+        &self.meta
+    }
+}
 impl ResourceInUseException {
-    /// Creates a new builder-style object to manufacture [`ResourceInUseException`](crate::types::ResourceInUseException).
-    pub fn builder() -> crate::types::builders::ResourceInUseExceptionBuilder {
-        crate::types::builders::ResourceInUseExceptionBuilder::default()
+    /// Creates a new builder-style object to manufacture [`ResourceInUseException`](crate::types::error::ResourceInUseException).
+    pub fn builder() -> crate::types::error::builders::ResourceInUseExceptionBuilder {
+        crate::types::error::builders::ResourceInUseExceptionBuilder::default()
     }
 }
 
-/// A builder for [`ResourceInUseException`](crate::types::ResourceInUseException).
+/// A builder for [`ResourceInUseException`](crate::types::error::ResourceInUseException).
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct ResourceInUseExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
+    meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
 }
 impl ResourceInUseExceptionBuilder {
     /// <p>The resource which is being attempted to be changed is in use.</p>
@@ -32,14 +57,30 @@ impl ResourceInUseExceptionBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.message = input; self }
+    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.message = input;
+        self
+    }
     /// <p>The resource which is being attempted to be changed is in use.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> { &self.message }
-    /// Consumes the builder and constructs a [`ResourceInUseException`](crate::types::ResourceInUseException).
-    pub fn build(self) -> crate::types::ResourceInUseException {
-        crate::types::ResourceInUseException {
+    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.message
+    }
+    /// Sets error metadata
+    pub fn meta(mut self, meta: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+        self.meta = Some(meta);
+        self
+    }
+
+    /// Sets error metadata
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+        self.meta = meta;
+        self
+    }
+    /// Consumes the builder and constructs a [`ResourceInUseException`](crate::types::error::ResourceInUseException).
+    pub fn build(self) -> crate::types::error::ResourceInUseException {
+        crate::types::error::ResourceInUseException {
             message: self.message,
+            meta: self.meta.unwrap_or_default(),
         }
     }
 }
-impl ::std::fmt::Display for ResourceInUseException { fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result { f.write_str("ResourceInUseException") } }

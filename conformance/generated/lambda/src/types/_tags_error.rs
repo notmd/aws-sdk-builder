@@ -42,26 +42,46 @@ impl TagsErrorBuilder {
         self.error_code = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.error_code = input; self }
+    pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.error_code = input;
+        self
+    }
     /// <p>The error code.</p>
-    pub fn get_error_code(&self) -> &::std::option::Option<::std::string::String> { &self.error_code }
+    pub fn get_error_code(&self) -> &::std::option::Option<::std::string::String> {
+        &self.error_code
+    }
     /// <p>The error message.</p>
     /// This field is required.
     pub fn message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.message = input; self }
+    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.message = input;
+        self
+    }
     /// <p>The error message.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> { &self.message }
+    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.message
+    }
     /// Consumes the builder and constructs a [`TagsError`](crate::types::TagsError).
     /// This method will fail if any of the following fields are not set:
     /// - [`error_code`](Self::error_code)
     /// - [`message`](Self::message)
     pub fn build(self) -> ::std::result::Result<crate::types::TagsError, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TagsError {
-            error_code: self.error_code.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("error_code", "error_code was not specified but it is required when building TagsError"))?,
-            message: self.message.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("message", "message was not specified but it is required when building TagsError"))?,
+            error_code: self.error_code.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "error_code",
+                    "error_code was not specified but it is required when building TagsError",
+                )
+            })?,
+            message: self.message.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "message",
+                    "message was not specified but it is required when building TagsError",
+                )
+            })?,
         })
     }
 }

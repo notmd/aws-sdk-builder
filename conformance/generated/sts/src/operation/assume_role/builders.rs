@@ -6,36 +6,87 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn role_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.role_arn = Some(value.into()); self }
-    pub fn role_session_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.role_session_name = Some(value.into()); self }
-    pub fn policy_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::PolicyDescriptorType>>) -> Self { self.input.policy_arns = Some(value.into()); self }
-    pub fn policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy = Some(value.into()); self }
-    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.duration_seconds = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
-    pub fn transitive_tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.transitive_tag_keys = Some(value.into()); self }
-    pub fn external_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.external_id = Some(value.into()); self }
-    pub fn serial_number(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.serial_number = Some(value.into()); self }
-    pub fn token_code(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.token_code = Some(value.into()); self }
-    pub fn source_identity(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.source_identity = Some(value.into()); self }
-    pub fn provided_contexts(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ProvidedContext>>) -> Self { self.input.provided_contexts = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::AssumeRoleOutput, super::AssumeRoleError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::AssumeRoleError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::AssumeRoleError::unhandled_with_request_ids(format!("AssumeRole returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_assume_role_output::AssumeRoleOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn role_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.role_arn = Some(value.into());
+        self
+    }
+    pub fn role_session_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.role_session_name = Some(value.into());
+        self
+    }
+    pub fn policy_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::PolicyDescriptorType>>) -> Self {
+        self.input.policy_arns = Some(value.into());
+        self
+    }
+    pub fn policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.policy = Some(value.into());
+        self
+    }
+    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.duration_seconds = Some(value.into());
+        self
+    }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.input.tags = Some(value.into());
+        self
+    }
+    pub fn transitive_tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.input.transitive_tag_keys = Some(value.into());
+        self
+    }
+    pub fn external_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.external_id = Some(value.into());
+        self
+    }
+    pub fn serial_number(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.serial_number = Some(value.into());
+        self
+    }
+    pub fn token_code(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.token_code = Some(value.into());
+        self
+    }
+    pub fn source_identity(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.source_identity = Some(value.into());
+        self
+    }
+    pub fn provided_contexts(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ProvidedContext>>) -> Self {
+        self.input.provided_contexts = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::AssumeRoleOutput, super::AssumeRoleError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::AssumeRoleError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::AssumeRoleError::unhandled_with_request_ids(
+                format!("AssumeRole returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_assume_role_output::AssumeRoleOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as AssumeRoleFluentBuilder;

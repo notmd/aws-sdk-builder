@@ -39,17 +39,27 @@ impl CheckpointDurableExecutionResponseBuilder {
         self.checkpoint_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checkpoint_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checkpoint_token = input; self }
+    pub fn set_checkpoint_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checkpoint_token = input;
+        self
+    }
     /// <p>A new checkpoint token to use for the next checkpoint operation. This token replaces the one provided in the request and must be used for subsequent checkpoints to maintain proper ordering.</p>
-    pub fn get_checkpoint_token(&self) -> &::std::option::Option<::std::string::String> { &self.checkpoint_token }
+    pub fn get_checkpoint_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checkpoint_token
+    }
     /// <p>Updated execution state information that includes any changes that occurred since the last checkpoint, such as completed callbacks or expired timers. This allows the SDK to update its internal state during replay.</p>
     pub fn new_execution_state(mut self, input: crate::types::CheckpointUpdatedExecutionState) -> Self {
         self.new_execution_state = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_new_execution_state(mut self, input: ::std::option::Option<crate::types::CheckpointUpdatedExecutionState>) -> Self { self.new_execution_state = input; self }
+    pub fn set_new_execution_state(mut self, input: ::std::option::Option<crate::types::CheckpointUpdatedExecutionState>) -> Self {
+        self.new_execution_state = input;
+        self
+    }
     /// <p>Updated execution state information that includes any changes that occurred since the last checkpoint, such as completed callbacks or expired timers. This allows the SDK to update its internal state during replay.</p>
-    pub fn get_new_execution_state(&self) -> &::std::option::Option<crate::types::CheckpointUpdatedExecutionState> { &self.new_execution_state }
+    pub fn get_new_execution_state(&self) -> &::std::option::Option<crate::types::CheckpointUpdatedExecutionState> {
+        &self.new_execution_state
+    }
     /// Consumes the builder and constructs a [`CheckpointDurableExecutionResponse`](crate::types::CheckpointDurableExecutionResponse).
     pub fn build(self) -> crate::types::CheckpointDurableExecutionResponse {
         crate::types::CheckpointDurableExecutionResponse {

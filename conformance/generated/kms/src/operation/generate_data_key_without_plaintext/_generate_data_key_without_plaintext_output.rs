@@ -53,25 +53,40 @@ impl GenerateDataKeyWithoutPlaintextOutputBuilder {
         self.ciphertext_blob = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.ciphertext_blob = input; self }
+    pub fn set_ciphertext_blob(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.ciphertext_blob = input;
+        self
+    }
     /// <p>The encrypted data key. When you use the HTTP API or the Amazon Web Services CLI, the value is Base64-encoded. Otherwise, it is not Base64-encoded.</p>
-    pub fn get_ciphertext_blob(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.ciphertext_blob }
+    pub fn get_ciphertext_blob(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.ciphertext_blob
+    }
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>
     pub fn key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key that encrypted the data key.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// <p>The identifier of the key material used to encrypt the data key.</p>
     pub fn key_material_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_material_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_material_id = input; self }
+    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_material_id = input;
+        self
+    }
     /// <p>The identifier of the key material used to encrypt the data key.</p>
-    pub fn get_key_material_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_material_id }
+    pub fn get_key_material_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_material_id
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

@@ -34,15 +34,25 @@ impl GetLayerVersionByArnRequestBuilder {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.arn = input; self }
+    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.arn = input;
+        self
+    }
     /// <p>The ARN of the layer version.</p>
-    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> { &self.arn }
+    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.arn
+    }
     /// Consumes the builder and constructs a [`GetLayerVersionByArnRequest`](crate::types::GetLayerVersionByArnRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`arn`](Self::arn)
     pub fn build(self) -> ::std::result::Result<crate::types::GetLayerVersionByArnRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetLayerVersionByArnRequest {
-            arn: self.arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("arn", "arn was not specified but it is required when building GetLayerVersionByArnRequest"))?,
+            arn: self.arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "arn",
+                    "arn was not specified but it is required when building GetLayerVersionByArnRequest",
+                )
+            })?,
         })
     }
 }

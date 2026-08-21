@@ -30,8 +30,8 @@ Updated 2026-08-21. Prompt.md is the project specification.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The current report
-  compares 6,584 files and has 661 exact matches (9.07% arithmetic average),
-  with 2,914 mismatches, 2,886 missing files, and 123 extra files. Both comparison
+  compares 6,584 files and has 929 exact matches (14.27% arithmetic average),
+  with 2,654 mismatches, 2,878 missing files, and 123 extra files. Both comparison
   trees are checked in under `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. The live
   `my_aws_sdk::tests::creates_then_heads_a_bucket` test passes against the
@@ -50,6 +50,34 @@ pinned `smithy-rs` commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d` and should 
 updated when the port adopts a new reusable abstraction.
 
 ## Evidence
+
+### Checkpoint: 2026-08-21 — Smithy rustfmt parity and modeled-error ordering
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now formats every generated Rust
+  file with `rustfmt --edition 2021 --config max_width=150`, matching the pinned
+  Smithy `ClientCodegenVisitor` finalization step (`cargo fmt -- --config
+  max_width=150`). Modeled error and builder reexports now follow first appearance
+  in operation `errors` lists, and formatter failures are reported through
+  `BuildError`. Consumer-only generated send methods allow the modeled-error
+  `clippy::result_large_err` lint. The generated snapshots and deterministic reports
+  were regenerated.
+- Evidence: `/tmp/smithy-rs` is at pinned commit
+  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`; `cargo fmt --all`,
+  `cargo check -p aws-sdk-build`, `cargo fmt --all -- --check`, and
+  `git diff --check` pass. `just conformance` completed and intentionally exits 1
+  because parity remains incomplete.
+- Conformance: the immediately preceding regenerated output had `661` exact,
+  `2,922` mismatches, `2,878` missing, and `123` extra files overall; this
+  checkpoint has `929` exact, `2,654` mismatches, `2,878` missing, and `123` extra.
+  S3 increased from `193` exact / `637` mismatches / `514` missing to `244` exact /
+  `586` mismatches / `514` missing. Exact coverage increased by `268` files overall
+  and `51` files for S3.
+- Blocker: modeled error behavior beyond the current metadata surface, full
+  protocol/runtime behavior, endpoint/auth/retry/checksum support, and the remaining
+  missing source tree are still incomplete.
+- Next action: port the next shared modeled-error/protocol source boundary while
+  preserving the formatter-backed snapshot generation.
 
 ### Checkpoint: 2026-08-21 — Generic request-ID decorator parity
 

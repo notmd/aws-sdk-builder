@@ -44,9 +44,14 @@ impl GetDelegationRequestInputBuilder {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.delegation_request_id = input; self }
+    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.delegation_request_id = input;
+        self
+    }
     /// <p>The unique identifier of the delegation request to retrieve.</p>
-    pub fn get_delegation_request_id(&self) -> &::std::option::Option<::std::string::String> { &self.delegation_request_id }
+    pub fn get_delegation_request_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.delegation_request_id
+    }
     /// <p>Specifies whether to perform a permission check for the delegation request.</p>
     /// <p>If set to true, the <code>GetDelegationRequest</code> API call will start a permission check process. This process calculates whether the caller has sufficient permissions to cover the asks from this delegation request.</p>
     /// <p>Setting this parameter to true does not guarantee an answer in the response. See the <code>PermissionCheckStatus</code> and the <code>PermissionCheckResult</code> response attributes for further details.</p>
@@ -54,11 +59,16 @@ impl GetDelegationRequestInputBuilder {
         self.delegation_permission_check = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_delegation_permission_check(mut self, input: ::std::option::Option<bool>) -> Self { self.delegation_permission_check = input; self }
+    pub fn set_delegation_permission_check(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.delegation_permission_check = input;
+        self
+    }
     /// <p>Specifies whether to perform a permission check for the delegation request.</p>
     /// <p>If set to true, the <code>GetDelegationRequest</code> API call will start a permission check process. This process calculates whether the caller has sufficient permissions to cover the asks from this delegation request.</p>
     /// <p>Setting this parameter to true does not guarantee an answer in the response. See the <code>PermissionCheckStatus</code> and the <code>PermissionCheckResult</code> response attributes for further details.</p>
-    pub fn get_delegation_permission_check(&self) -> &::std::option::Option<bool> { &self.delegation_permission_check }
+    pub fn get_delegation_permission_check(&self) -> &::std::option::Option<bool> {
+        &self.delegation_permission_check
+    }
     /// Consumes the builder and constructs a [`GetDelegationRequestInput`](crate::operation::get_delegation_request::GetDelegationRequestInput).
     pub fn build(self) -> crate::operation::get_delegation_request::GetDelegationRequestInput {
         crate::operation::get_delegation_request::GetDelegationRequestInput {

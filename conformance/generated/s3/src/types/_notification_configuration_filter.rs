@@ -29,12 +29,15 @@ impl NotificationConfigurationFilterBuilder {
         self.key = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<crate::types::S3KeyFilter>) -> Self { self.key = input; self }
-    pub fn get_key(&self) -> &::std::option::Option<crate::types::S3KeyFilter> { &self.key }
+    pub fn set_key(mut self, input: ::std::option::Option<crate::types::S3KeyFilter>) -> Self {
+        self.key = input;
+        self
+    }
+    pub fn get_key(&self) -> &::std::option::Option<crate::types::S3KeyFilter> {
+        &self.key
+    }
     /// Consumes the builder and constructs a [`NotificationConfigurationFilter`](crate::types::NotificationConfigurationFilter).
     pub fn build(self) -> crate::types::NotificationConfigurationFilter {
-        crate::types::NotificationConfigurationFilter {
-            key: self.key,
-        }
+        crate::types::NotificationConfigurationFilter { key: self.key }
     }
 }

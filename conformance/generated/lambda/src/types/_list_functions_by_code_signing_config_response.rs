@@ -39,9 +39,14 @@ impl ListFunctionsByCodeSigningConfigResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>The pagination token that's included if more results are available.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// <p>The function ARNs.</p>
     /// Appends an item to `function_arns`.
     ///
@@ -52,9 +57,14 @@ impl ListFunctionsByCodeSigningConfigResponseBuilder {
         self.function_arns = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_function_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.function_arns = input; self }
+    pub fn set_function_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.function_arns = input;
+        self
+    }
     /// <p>The function ARNs.</p>
-    pub fn get_function_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.function_arns }
+    pub fn get_function_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.function_arns
+    }
     /// Consumes the builder and constructs a [`ListFunctionsByCodeSigningConfigResponse`](crate::types::ListFunctionsByCodeSigningConfigResponse).
     pub fn build(self) -> crate::types::ListFunctionsByCodeSigningConfigResponse {
         crate::types::ListFunctionsByCodeSigningConfigResponse {

@@ -2,202 +2,273 @@
 
 #[allow(dead_code)]
 pub(crate) mod transport {
-use ::std::fmt;
-use ::std::io::{Read, Write};
-use ::std::net::TcpStream;
-use ::std::collections::BTreeMap;
+    use ::std::collections::BTreeMap;
+    use ::std::fmt;
+    use ::std::io::{Read, Write};
+    use ::std::net::TcpStream;
 
-#[derive(Clone, Copy, Debug)]
-pub(crate) enum Method { Get, Put, Post, Delete, Head, Patch }
+    #[derive(Clone, Copy, Debug)]
+    pub(crate) enum Method {
+        Get,
+        Put,
+        Post,
+        Delete,
+        Head,
+        Patch,
+    }
 
-impl Method {
-fn as_str(self) -> &'static str {
-match self {
-Self::Get => "GET",
-Self::Put => "PUT",
-Self::Post => "POST",
-Self::Delete => "DELETE",
-Self::Head => "HEAD",
-Self::Patch => "PATCH",
-}
-}
-}
+    impl Method {
+        fn as_str(self) -> &'static str {
+            match self {
+                Self::Get => "GET",
+                Self::Put => "PUT",
+                Self::Post => "POST",
+                Self::Delete => "DELETE",
+                Self::Head => "HEAD",
+                Self::Patch => "PATCH",
+            }
+        }
+    }
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub(crate) struct StatusCode(u16);
+    #[derive(Clone, Copy, Debug, PartialEq, Eq)]
+    pub(crate) struct StatusCode(u16);
 
-impl StatusCode {
-pub(crate) const CONFLICT: Self = Self(409);
-pub(crate) fn is_success(self) -> bool { (200..300).contains(&self.0) }
-}
+    impl StatusCode {
+        pub(crate) const CONFLICT: Self = Self(409);
+        pub(crate) fn is_success(self) -> bool {
+            (200..300).contains(&self.0)
+        }
+    }
 
-impl fmt::Display for StatusCode {
-fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
-self.0.fmt(formatter)
-}
-}
+    impl fmt::Display for StatusCode {
+        fn fmt(&self, formatter: &mut fmt::Formatter<'_>) -> fmt::Result {
+            self.0.fmt(formatter)
+        }
+    }
 
-#[derive(Clone, Debug)]
-pub(crate) struct Response {
-status: StatusCode,
-headers: BTreeMap<String, String>,
-body: Vec<u8>,
-}
+    #[derive(Clone, Debug)]
+    pub(crate) struct Response {
+        status: StatusCode,
+        headers: BTreeMap<String, String>,
+        body: Vec<u8>,
+    }
 
-impl Response {
-pub(crate) fn status(&self) -> StatusCode { self.status }
-pub(crate) fn header(&self, name: &str) -> Option<&str> {
-self.headers.get(&name.to_ascii_lowercase()).map(String::as_str)
-}
-pub(crate) fn body(&self) -> &[u8] { &self.body }
-pub(crate) async fn text(&self) -> Result<String, String> {
-String::from_utf8(self.body.clone()).map_err(|error| error.to_string())
-}
-}
+    impl Response {
+        pub(crate) fn status(&self) -> StatusCode {
+            self.status
+        }
+        pub(crate) fn header(&self, name: &str) -> Option<&str> {
+            self.headers.get(&name.to_ascii_lowercase()).map(String::as_str)
+        }
+        pub(crate) fn body(&self) -> &[u8] {
+            &self.body
+        }
+        pub(crate) async fn text(&self) -> Result<String, String> {
+            String::from_utf8(self.body.clone()).map_err(|error| error.to_string())
+        }
+    }
 
-#[derive(Clone, Debug, Default)]
-pub(crate) struct HttpClient;
+    #[derive(Clone, Debug, Default)]
+    pub(crate) struct HttpClient;
 
-impl HttpClient {
-pub(crate) fn new() -> Self { Self }
-pub(crate) async fn request(
-&self,
-method: Method,
-url: &str,
-headers: &[(&str, &str)],
-body: &[u8],
-) -> Result<Response, String> {
-let (host, port, path) = parse_http_url(url)?;
-let mut stream = TcpStream::connect((host.as_str(), port))
-.map_err(|error| format!("failed to connect to {host}:{port}: {error}"))?;
-let mut request = format!("{} {} HTTP/1.1\r\nHost: {}\r\nConnection: close\r\nContent-Length: {}\r\n", method.as_str(), path, host, body.len());
-for (name, value) in headers {
-request.push_str(name);
-request.push_str(": " );
-request.push_str(value);
-request.push_str("\r\n");
-}
-request.push_str("\r\n");
-let mut request_bytes = request.into_bytes();
-request_bytes.extend_from_slice(body);
-stream.write_all(&request_bytes).map_err(|error| format!("failed to write HTTP request: {error}"))?;
-let mut bytes = Vec::new();
-stream.read_to_end(&mut bytes).map_err(|error| format!("failed to read HTTP response: {error}"))?;
-parse_response(&bytes)
-}
-}
+    impl HttpClient {
+        pub(crate) fn new() -> Self {
+            Self
+        }
+        pub(crate) async fn request(&self, method: Method, url: &str, headers: &[(&str, &str)], body: &[u8]) -> Result<Response, String> {
+            let (host, port, path) = parse_http_url(url)?;
+            let mut stream = TcpStream::connect((host.as_str(), port)).map_err(|error| format!("failed to connect to {host}:{port}: {error}"))?;
+            let mut request = format!(
+                "{} {} HTTP/1.1\r\nHost: {}\r\nConnection: close\r\nContent-Length: {}\r\n",
+                method.as_str(),
+                path,
+                host,
+                body.len()
+            );
+            for (name, value) in headers {
+                request.push_str(name);
+                request.push_str(": ");
+                request.push_str(value);
+                request.push_str("\r\n");
+            }
+            request.push_str("\r\n");
+            let mut request_bytes = request.into_bytes();
+            request_bytes.extend_from_slice(body);
+            stream
+                .write_all(&request_bytes)
+                .map_err(|error| format!("failed to write HTTP request: {error}"))?;
+            let mut bytes = Vec::new();
+            stream
+                .read_to_end(&mut bytes)
+                .map_err(|error| format!("failed to read HTTP response: {error}"))?;
+            parse_response(&bytes)
+        }
+    }
 
-fn parse_http_url(url: &str) -> Result<(String, u16, String), String> {
-let authority_and_path = url.strip_prefix("http://").ok_or_else(|| format!("only http:// endpoints are supported: {url}"))?;
-let (authority, path) = authority_and_path.split_once('/').map_or((authority_and_path, "/"), |(authority, _path)| (authority, &authority_and_path[authority.len()..]));
-if authority.is_empty() { return Err(format!("endpoint has no host: {url}")); }
-let (host, port) = if let Some((host, port)) = authority.rsplit_once(':') {
-let port = port.parse::<u16>().map_err(|error| format!("invalid endpoint port in {url}: {error}"))?;
-(host.to_owned(), port)
-} else {
-(authority.to_owned(), 80)
-};
-Ok((host, port, path.to_owned()))
-}
+    fn parse_http_url(url: &str) -> Result<(String, u16, String), String> {
+        let authority_and_path = url
+            .strip_prefix("http://")
+            .ok_or_else(|| format!("only http:// endpoints are supported: {url}"))?;
+        let (authority, path) = authority_and_path
+            .split_once('/')
+            .map_or((authority_and_path, "/"), |(authority, _path)| {
+                (authority, &authority_and_path[authority.len()..])
+            });
+        if authority.is_empty() {
+            return Err(format!("endpoint has no host: {url}"));
+        }
+        let (host, port) = if let Some((host, port)) = authority.rsplit_once(':') {
+            let port = port.parse::<u16>().map_err(|error| format!("invalid endpoint port in {url}: {error}"))?;
+            (host.to_owned(), port)
+        } else {
+            (authority.to_owned(), 80)
+        };
+        Ok((host, port, path.to_owned()))
+    }
 
-fn parse_response(bytes: &[u8]) -> Result<Response, String> {
-let header_end = bytes.windows(4).position(|window| window == b"\r\n\r\n").ok_or_else(|| "HTTP response did not contain a header terminator".to_owned())?;
-let header = ::std::str::from_utf8(&bytes[..header_end]).map_err(|error| format!("HTTP response headers were not UTF-8: {error}"))?;
-let status = header.lines().next().and_then(|line| line.split_whitespace().nth(1)).ok_or_else(|| "HTTP response did not contain a status code".to_owned())?.parse::<u16>().map_err(|error| format!("HTTP response status was invalid: {error}"))?;
-let mut headers = BTreeMap::new();
-for line in header.lines().skip(1) {
-if let Some((name, value)) = line.split_once(':') {
-headers.insert(name.trim().to_ascii_lowercase(), value.trim().to_owned());
-}
-}
-Ok(Response { status: StatusCode(status), headers, body: bytes[header_end + 4..].to_vec() })
-}
+    fn parse_response(bytes: &[u8]) -> Result<Response, String> {
+        let header_end = bytes
+            .windows(4)
+            .position(|window| window == b"\r\n\r\n")
+            .ok_or_else(|| "HTTP response did not contain a header terminator".to_owned())?;
+        let header = ::std::str::from_utf8(&bytes[..header_end]).map_err(|error| format!("HTTP response headers were not UTF-8: {error}"))?;
+        let status = header
+            .lines()
+            .next()
+            .and_then(|line| line.split_whitespace().nth(1))
+            .ok_or_else(|| "HTTP response did not contain a status code".to_owned())?
+            .parse::<u16>()
+            .map_err(|error| format!("HTTP response status was invalid: {error}"))?;
+        let mut headers = BTreeMap::new();
+        for line in header.lines().skip(1) {
+            if let Some((name, value)) = line.split_once(':') {
+                headers.insert(name.trim().to_ascii_lowercase(), value.trim().to_owned());
+            }
+        }
+        Ok(Response {
+            status: StatusCode(status),
+            headers,
+            body: bytes[header_end + 4..].to_vec(),
+        })
+    }
 
-pub(crate) fn encode_path(value: &str) -> String {
-value.bytes().fold(String::new(), |mut result, byte| {
-if byte.is_ascii_alphanumeric() || matches!(byte, b'-' | b'_' | b'.' | b'~' | b'/') {
-result.push(byte as char);
-} else {
-result.push('%');
-result.push(hex(byte >> 4));
-result.push(hex(byte & 0x0f));
-}
-result
-})
-}
-fn hex(value: u8) -> char {
-match value { 0..=9 => (b'0' + value) as char, _ => (b'A' + value - 10) as char }
-}
-pub(crate) fn xml_escape(value: &str) -> String {
-value
-.replace('&', "&amp;")
-.replace('<', "&lt;")
-.replace('>', "&gt;")
-.replace('\"', "&quot;")
-.replace('\'', "&apos;")
-}
-pub(crate) fn xml_unescape(value: &str) -> String {
-value
-.replace("&lt;", "<")
-.replace("&gt;", ">")
-.replace("&apos;", "'")
-.replace("&amp;", "&")
-}
-pub(crate) fn xml_first(xml: &str, tag: &str) -> Option<String> {
-xml_tags(xml, tag).into_iter().next().map(|value| xml_unescape(&value))
-}
-pub(crate) fn xml_tags(xml: &str, tag: &str) -> Vec<String> {
-let open = format!("<{tag}>");
-let close = format!("</{tag}>");
-let mut values = Vec::new();
-let mut remaining = xml;
-while let Some(start) = remaining.find(&open) {
-let value_start = start + open.len();
-let Some(end) = remaining[value_start..].find(&close) else { break };
-values.push(remaining[value_start..value_start + end].to_owned());
-remaining = &remaining[value_start + end + close.len()..];
-}
-values
-}
+    pub(crate) fn encode_path(value: &str) -> String {
+        value.bytes().fold(String::new(), |mut result, byte| {
+            if byte.is_ascii_alphanumeric() || matches!(byte, b'-' | b'_' | b'.' | b'~' | b'/') {
+                result.push(byte as char);
+            } else {
+                result.push('%');
+                result.push(hex(byte >> 4));
+                result.push(hex(byte & 0x0f));
+            }
+            result
+        })
+    }
+    fn hex(value: u8) -> char {
+        match value {
+            0..=9 => (b'0' + value) as char,
+            _ => (b'A' + value - 10) as char,
+        }
+    }
+    pub(crate) fn xml_escape(value: &str) -> String {
+        value
+            .replace('&', "&amp;")
+            .replace('<', "&lt;")
+            .replace('>', "&gt;")
+            .replace('\"', "&quot;")
+            .replace('\'', "&apos;")
+    }
+    pub(crate) fn xml_unescape(value: &str) -> String {
+        value
+            .replace("&lt;", "<")
+            .replace("&gt;", ">")
+            .replace("&apos;", "'")
+            .replace("&amp;", "&")
+    }
+    pub(crate) fn xml_first(xml: &str, tag: &str) -> Option<String> {
+        xml_tags(xml, tag).into_iter().next().map(|value| xml_unescape(&value))
+    }
+    pub(crate) fn xml_tags(xml: &str, tag: &str) -> Vec<String> {
+        let open = format!("<{tag}>");
+        let close = format!("</{tag}>");
+        let mut values = Vec::new();
+        let mut remaining = xml;
+        while let Some(start) = remaining.find(&open) {
+            let value_start = start + open.len();
+            let Some(end) = remaining[value_start..].find(&close) else { break };
+            values.push(remaining[value_start..value_start + end].to_owned());
+            remaining = &remaining[value_start + end + close.len()..];
+        }
+        values
+    }
 }
 
 // Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 
 #[derive(Clone, Debug, Default)]
 pub struct Client {
-config: Config,
-http: transport::HttpClient,
+    config: Config,
+    http: transport::HttpClient,
 }
 impl Client {
-pub fn new(config: &Config) -> Self {
-Self { config: config.clone(), http: transport::HttpClient::new() }
-}
-pub fn config(&self) -> &Config { &self.config }
-pub(crate) async fn request(
-&self,
-method: transport::Method,
-path: &str,
-headers: &[(&str, &str)],
-body: &[u8],
-) -> ::std::result::Result<transport::Response, ::std::string::String> {
-let url = format!("{}{}", self.config.endpoint_url.trim_end_matches('/'), path);
-self.http.request(method, &url, headers, body).await
-}
+    pub fn new(config: &Config) -> Self {
+        Self {
+            config: config.clone(),
+            http: transport::HttpClient::new(),
+        }
+    }
+    pub fn config(&self) -> &Config {
+        &self.config
+    }
+    pub(crate) async fn request(
+        &self,
+        method: transport::Method,
+        path: &str,
+        headers: &[(&str, &str)],
+        body: &[u8],
+    ) -> ::std::result::Result<transport::Response, ::std::string::String> {
+        let url = format!("{}{}", self.config.endpoint_url.trim_end_matches('/'), path);
+        self.http.request(method, &url, headers, body).await
+    }
 }
 
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_function.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_function_event_invoke_config.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/delete_function_event_invoke_config.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/delete_resource_policy.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_account_settings.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_function_event_invoke_config.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/get_function_event_invoke_config.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/get_resource_policy.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_function_event_invoke_configs.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/list_function_event_invoke_configs.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/list_tags.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/put_function_event_invoke_config.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/put_function_event_invoke_config.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/put_resource_policy.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/send_durable_execution_callback_failure.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/send_durable_execution_callback_heartbeat.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/send_durable_execution_callback_success.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/send_durable_execution_callback_failure.rs"
+));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/send_durable_execution_callback_heartbeat.rs"
+));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/send_durable_execution_callback_success.rs"
+));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/tag_resource.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/untag_resource.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client/update_function_event_invoke_config.rs"));
+include!(concat!(
+    env!("OUT_DIR"),
+    "/generated/lambda/src/client/update_function_event_invoke_config.rs"
+));

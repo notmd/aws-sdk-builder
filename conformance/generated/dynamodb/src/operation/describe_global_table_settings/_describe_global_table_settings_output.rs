@@ -46,9 +46,14 @@ impl DescribeGlobalTableSettingsOutputBuilder {
         self.global_table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.global_table_name = input; self }
+    pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.global_table_name = input;
+        self
+    }
     /// <p>The name of the global table.</p>
-    pub fn get_global_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.global_table_name }
+    pub fn get_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.global_table_name
+    }
     /// <p>The Region-specific settings for the global table.</p>
     /// Appends an item to `replica_settings`.
     ///
@@ -59,9 +64,14 @@ impl DescribeGlobalTableSettingsOutputBuilder {
         self.replica_settings = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_replica_settings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>) -> Self { self.replica_settings = input; self }
+    pub fn set_replica_settings(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>) -> Self {
+        self.replica_settings = input;
+        self
+    }
     /// <p>The Region-specific settings for the global table.</p>
-    pub fn get_replica_settings(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>> { &self.replica_settings }
+    pub fn get_replica_settings(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>> {
+        &self.replica_settings
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

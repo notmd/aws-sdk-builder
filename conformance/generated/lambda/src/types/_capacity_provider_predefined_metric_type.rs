@@ -95,7 +95,9 @@ impl CapacityProviderPredefinedMetricType {
 impl ::std::fmt::Display for CapacityProviderPredefinedMetricType {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         match self {
-            CapacityProviderPredefinedMetricType::LambdaCapacityProviderAverageCpuUtilization => write!(f, "LambdaCapacityProviderAverageCPUUtilization"),
+            CapacityProviderPredefinedMetricType::LambdaCapacityProviderAverageCpuUtilization => {
+                write!(f, "LambdaCapacityProviderAverageCPUUtilization")
+            }
             CapacityProviderPredefinedMetricType::Unknown(value) => write!(f, "{value}"),
         }
     }

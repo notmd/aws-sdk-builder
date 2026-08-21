@@ -33,9 +33,14 @@ impl GetServiceLinkedRoleDeletionStatusInputBuilder {
         self.deletion_task_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_deletion_task_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.deletion_task_id = input; self }
+    pub fn set_deletion_task_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.deletion_task_id = input;
+        self
+    }
     /// <p>The deletion task identifier. This identifier is returned by the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteServiceLinkedRole.html">DeleteServiceLinkedRole</a> operation in the format <code>task/aws-service-role/<service-principal-name>/<role-name>/<task-uuid></code>.</p>
-    pub fn get_deletion_task_id(&self) -> &::std::option::Option<::std::string::String> { &self.deletion_task_id }
+    pub fn get_deletion_task_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.deletion_task_id
+    }
     /// Consumes the builder and constructs a [`GetServiceLinkedRoleDeletionStatusInput`](crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusInput).
     pub fn build(self) -> crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusInput {
         crate::operation::get_service_linked_role_deletion_status::GetServiceLinkedRoleDeletionStatusInput {

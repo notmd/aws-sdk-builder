@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListPhoneNumbersOptedOut;
-impl ListPhoneNumbersOptedOut { pub fn new() -> Self { Self } }
+impl ListPhoneNumbersOptedOut {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     AuthorizationErrorException(super::super::types::error::AuthorizationErrorException),
@@ -10,13 +14,25 @@ pub enum Error {
     InvalidParameterException(super::super::types::error::InvalidParameterException),
     ThrottledException(super::super::types::error::ThrottledException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_authorization_error_exception(&self) -> bool { matches!(self, Self::AuthorizationErrorException(_)) }
-    pub fn is_internal_error_exception(&self) -> bool { matches!(self, Self::InternalErrorException(_)) }
-    pub fn is_invalid_parameter_exception(&self) -> bool { matches!(self, Self::InvalidParameterException(_)) }
-    pub fn is_throttled_exception(&self) -> bool { matches!(self, Self::ThrottledException(_)) }
+    pub fn is_authorization_error_exception(&self) -> bool {
+        matches!(self, Self::AuthorizationErrorException(_))
+    }
+    pub fn is_internal_error_exception(&self) -> bool {
+        matches!(self, Self::InternalErrorException(_))
+    }
+    pub fn is_invalid_parameter_exception(&self) -> bool {
+        matches!(self, Self::InvalidParameterException(_))
+    }
+    pub fn is_throttled_exception(&self) -> bool {
+        matches!(self, Self::ThrottledException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -32,26 +48,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _list_phone_numbers_opted_out_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sns/src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_input.rs"
+    ));
 }
 pub use _list_phone_numbers_opted_out_input::ListPhoneNumbersOptedOutInput;
 pub type Input = ListPhoneNumbersOptedOutInput;
 pub mod _list_phone_numbers_opted_out_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sns/src/operation/list_phone_numbers_opted_out/_list_phone_numbers_opted_out_output.rs"
+    ));
 }
 pub use _list_phone_numbers_opted_out_output::ListPhoneNumbersOptedOutOutput;
 pub type Output = ListPhoneNumbersOptedOutOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/list_phone_numbers_opted_out/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sns/src/operation/list_phone_numbers_opted_out/builders.rs"
+    ));
 }
 pub type ListPhoneNumbersOptedOutError = Error;
 pub type ListPhoneNumbersOptedOutFluentBuilder = builders::Builder;

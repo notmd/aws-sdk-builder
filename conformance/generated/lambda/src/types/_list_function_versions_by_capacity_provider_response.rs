@@ -49,9 +49,14 @@ impl ListFunctionVersionsByCapacityProviderResponseBuilder {
         self.capacity_provider_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_capacity_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.capacity_provider_arn = input; self }
+    pub fn set_capacity_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.capacity_provider_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
-    pub fn get_capacity_provider_arn(&self) -> &::std::option::Option<::std::string::String> { &self.capacity_provider_arn }
+    pub fn get_capacity_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.capacity_provider_arn
+    }
     /// <p>A list of function versions that use the specified capacity provider.</p>
     /// Appends an item to `function_versions`.
     ///
@@ -62,25 +67,50 @@ impl ListFunctionVersionsByCapacityProviderResponseBuilder {
         self.function_versions = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_function_versions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>>) -> Self { self.function_versions = input; self }
+    pub fn set_function_versions(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>>,
+    ) -> Self {
+        self.function_versions = input;
+        self
+    }
     /// <p>A list of function versions that use the specified capacity provider.</p>
-    pub fn get_function_versions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>> { &self.function_versions }
+    pub fn get_function_versions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionVersionsByCapacityProviderListItem>> {
+        &self.function_versions
+    }
     /// <p>The pagination token that's included if more results are available.</p>
     pub fn next_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>The pagination token that's included if more results are available.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// Consumes the builder and constructs a [`ListFunctionVersionsByCapacityProviderResponse`](crate::types::ListFunctionVersionsByCapacityProviderResponse).
     /// This method will fail if any of the following fields are not set:
     /// - [`capacity_provider_arn`](Self::capacity_provider_arn)
     /// - [`function_versions`](Self::function_versions)
-    pub fn build(self) -> ::std::result::Result<crate::types::ListFunctionVersionsByCapacityProviderResponse, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::types::ListFunctionVersionsByCapacityProviderResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ListFunctionVersionsByCapacityProviderResponse {
-            capacity_provider_arn: self.capacity_provider_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("capacity_provider_arn", "capacity_provider_arn was not specified but it is required when building ListFunctionVersionsByCapacityProviderResponse"))?,
-            function_versions: self.function_versions.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_versions", "function_versions was not specified but it is required when building ListFunctionVersionsByCapacityProviderResponse"))?,
+            capacity_provider_arn: self.capacity_provider_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "capacity_provider_arn",
+                    "capacity_provider_arn was not specified but it is required when building ListFunctionVersionsByCapacityProviderResponse",
+                )
+            })?,
+            function_versions: self.function_versions.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "function_versions",
+                    "function_versions was not specified but it is required when building ListFunctionVersionsByCapacityProviderResponse",
+                )
+            })?,
             next_marker: self.next_marker,
         })
     }

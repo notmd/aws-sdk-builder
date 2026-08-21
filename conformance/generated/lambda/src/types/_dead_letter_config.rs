@@ -32,13 +32,16 @@ impl DeadLetterConfigBuilder {
         self.target_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_target_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.target_arn = input; self }
+    pub fn set_target_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.target_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic.</p>
-    pub fn get_target_arn(&self) -> &::std::option::Option<::std::string::String> { &self.target_arn }
+    pub fn get_target_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.target_arn
+    }
     /// Consumes the builder and constructs a [`DeadLetterConfig`](crate::types::DeadLetterConfig).
     pub fn build(self) -> crate::types::DeadLetterConfig {
-        crate::types::DeadLetterConfig {
-            target_arn: self.target_arn,
-        }
+        crate::types::DeadLetterConfig { target_arn: self.target_arn }
     }
 }

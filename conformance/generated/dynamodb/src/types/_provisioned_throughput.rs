@@ -46,10 +46,15 @@ impl ProvisionedThroughputBuilder {
         self.read_capacity_units = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self { self.read_capacity_units = input; self }
+    pub fn set_read_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.read_capacity_units = input;
+        self
+    }
     /// <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// <p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</p>
-    pub fn get_read_capacity_units(&self) -> &::std::option::Option<i64> { &self.read_capacity_units }
+    pub fn get_read_capacity_units(&self) -> &::std::option::Option<i64> {
+        &self.read_capacity_units
+    }
     /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// <p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</p>
     /// This field is required.
@@ -57,18 +62,33 @@ impl ProvisionedThroughputBuilder {
         self.write_capacity_units = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self { self.write_capacity_units = input; self }
+    pub fn set_write_capacity_units(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.write_capacity_units = input;
+        self
+    }
     /// <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
     /// <p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</p>
-    pub fn get_write_capacity_units(&self) -> &::std::option::Option<i64> { &self.write_capacity_units }
+    pub fn get_write_capacity_units(&self) -> &::std::option::Option<i64> {
+        &self.write_capacity_units
+    }
     /// Consumes the builder and constructs a [`ProvisionedThroughput`](crate::types::ProvisionedThroughput).
     /// This method will fail if any of the following fields are not set:
     /// - [`read_capacity_units`](Self::read_capacity_units)
     /// - [`write_capacity_units`](Self::write_capacity_units)
     pub fn build(self) -> ::std::result::Result<crate::types::ProvisionedThroughput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ProvisionedThroughput {
-            read_capacity_units: self.read_capacity_units.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("read_capacity_units", "read_capacity_units was not specified but it is required when building ProvisionedThroughput"))?,
-            write_capacity_units: self.write_capacity_units.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("write_capacity_units", "write_capacity_units was not specified but it is required when building ProvisionedThroughput"))?,
+            read_capacity_units: self.read_capacity_units.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "read_capacity_units",
+                    "read_capacity_units was not specified but it is required when building ProvisionedThroughput",
+                )
+            })?,
+            write_capacity_units: self.write_capacity_units.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "write_capacity_units",
+                    "write_capacity_units was not specified but it is required when building ProvisionedThroughput",
+                )
+            })?,
         })
     }
 }

@@ -42,15 +42,25 @@ impl BatchExecuteStatementInputBuilder {
         self.statements = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_statements(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>>) -> Self { self.statements = input; self }
+    pub fn set_statements(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>>) -> Self {
+        self.statements = input;
+        self
+    }
     /// <p>The list of PartiQL statements representing the batch to run.</p>
-    pub fn get_statements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>> { &self.statements }
+    pub fn get_statements(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>> {
+        &self.statements
+    }
     pub fn return_consumed_capacity(mut self, input: crate::types::ReturnConsumedCapacity) -> Self {
         self.return_consumed_capacity = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
-    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
+    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
+        self.return_consumed_capacity = input;
+        self
+    }
+    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+        &self.return_consumed_capacity
+    }
     /// Consumes the builder and constructs a [`BatchExecuteStatementInput`](crate::operation::batch_execute_statement::BatchExecuteStatementInput).
     pub fn build(self) -> crate::operation::batch_execute_statement::BatchExecuteStatementInput {
         crate::operation::batch_execute_statement::BatchExecuteStatementInput {

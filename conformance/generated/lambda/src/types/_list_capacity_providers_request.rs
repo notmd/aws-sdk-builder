@@ -46,25 +46,40 @@ impl ListCapacityProvidersRequestBuilder {
         self.state = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_state(mut self, input: ::std::option::Option<crate::types::CapacityProviderState>) -> Self { self.state = input; self }
+    pub fn set_state(mut self, input: ::std::option::Option<crate::types::CapacityProviderState>) -> Self {
+        self.state = input;
+        self
+    }
     /// <p>Filter capacity providers by their current state.</p>
-    pub fn get_state(&self) -> &::std::option::Option<crate::types::CapacityProviderState> { &self.state }
+    pub fn get_state(&self) -> &::std::option::Option<crate::types::CapacityProviderState> {
+        &self.state
+    }
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     /// <p>The maximum number of capacity providers to return.</p>
     pub fn max_items(mut self, input: i32) -> Self {
         self.max_items = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self { self.max_items = input; self }
+    pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.max_items = input;
+        self
+    }
     /// <p>The maximum number of capacity providers to return.</p>
-    pub fn get_max_items(&self) -> &::std::option::Option<i32> { &self.max_items }
+    pub fn get_max_items(&self) -> &::std::option::Option<i32> {
+        &self.max_items
+    }
     /// Consumes the builder and constructs a [`ListCapacityProvidersRequest`](crate::types::ListCapacityProvidersRequest).
     pub fn build(self) -> crate::types::ListCapacityProvidersRequest {
         crate::types::ListCapacityProvidersRequest {

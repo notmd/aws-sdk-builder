@@ -90,50 +90,80 @@ impl ReplicationRuleBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>A unique identifier for the rule. The maximum value is 255 characters.</p>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>The priority indicates which rule has precedence whenever two or more replication rules conflict. Amazon S3 will attempt to replicate objects according to all replication rules. However, if there are two or more rules with the same destination bucket, then objects will be replicated according to the rule with the highest priority. The higher the number, the higher the priority.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn priority(mut self, input: i32) -> Self {
         self.priority = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_priority(mut self, input: ::std::option::Option<i32>) -> Self { self.priority = input; self }
+    pub fn set_priority(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.priority = input;
+        self
+    }
     /// <p>The priority indicates which rule has precedence whenever two or more replication rules conflict. Amazon S3 will attempt to replicate objects according to all replication rules. However, if there are two or more rules with the same destination bucket, then objects will be replicated according to the rule with the highest priority. The higher the number, the higher the priority.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_priority(&self) -> &::std::option::Option<i32> { &self.priority }
+    pub fn get_priority(&self) -> &::std::option::Option<i32> {
+        &self.priority
+    }
     /// <p>An object key name prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
     pub fn prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.prefix = input; self }
+    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.prefix = input;
+        self
+    }
     /// <p>An object key name prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. To include all objects in a bucket, specify an empty string.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
-    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.prefix }
+    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.prefix
+    }
     pub fn filter(mut self, input: crate::types::ReplicationRuleFilter) -> Self {
         self.filter = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::ReplicationRuleFilter>) -> Self { self.filter = input; self }
-    pub fn get_filter(&self) -> &::std::option::Option<crate::types::ReplicationRuleFilter> { &self.filter }
+    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::ReplicationRuleFilter>) -> Self {
+        self.filter = input;
+        self
+    }
+    pub fn get_filter(&self) -> &::std::option::Option<crate::types::ReplicationRuleFilter> {
+        &self.filter
+    }
     /// <p>Specifies whether the rule is enabled.</p>
     /// This field is required.
     pub fn status(mut self, input: crate::types::ReplicationRuleStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ReplicationRuleStatus>) -> Self { self.status = input; self }
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ReplicationRuleStatus>) -> Self {
+        self.status = input;
+        self
+    }
     /// <p>Specifies whether the rule is enabled.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::ReplicationRuleStatus> { &self.status }
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::ReplicationRuleStatus> {
+        &self.status
+    }
     /// <p>A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using a customer managed key stored in Amazon Web Services Key Management Service (SSE-KMS).</p>
     pub fn source_selection_criteria(mut self, input: crate::types::SourceSelectionCriteria) -> Self {
         self.source_selection_criteria = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_source_selection_criteria(mut self, input: ::std::option::Option<crate::types::SourceSelectionCriteria>) -> Self { self.source_selection_criteria = input; self }
+    pub fn set_source_selection_criteria(mut self, input: ::std::option::Option<crate::types::SourceSelectionCriteria>) -> Self {
+        self.source_selection_criteria = input;
+        self
+    }
     /// <p>A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using a customer managed key stored in Amazon Web Services Key Management Service (SSE-KMS).</p>
-    pub fn get_source_selection_criteria(&self) -> &::std::option::Option<crate::types::SourceSelectionCriteria> { &self.source_selection_criteria }
+    pub fn get_source_selection_criteria(&self) -> &::std::option::Option<crate::types::SourceSelectionCriteria> {
+        &self.source_selection_criteria
+    }
     /// <p>Optional configuration to replicate existing source bucket objects.</p><note>
     /// <p>This parameter is no longer supported. To replicate existing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html">Replicating existing objects with S3 Batch Replication</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// </note>
@@ -141,25 +171,40 @@ impl ReplicationRuleBuilder {
         self.existing_object_replication = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_existing_object_replication(mut self, input: ::std::option::Option<crate::types::ExistingObjectReplication>) -> Self { self.existing_object_replication = input; self }
+    pub fn set_existing_object_replication(mut self, input: ::std::option::Option<crate::types::ExistingObjectReplication>) -> Self {
+        self.existing_object_replication = input;
+        self
+    }
     /// <p>Optional configuration to replicate existing source bucket objects.</p><note>
     /// <p>This parameter is no longer supported. To replicate existing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html">Replicating existing objects with S3 Batch Replication</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// </note>
-    pub fn get_existing_object_replication(&self) -> &::std::option::Option<crate::types::ExistingObjectReplication> { &self.existing_object_replication }
+    pub fn get_existing_object_replication(&self) -> &::std::option::Option<crate::types::ExistingObjectReplication> {
+        &self.existing_object_replication
+    }
     /// <p>A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).</p>
     pub fn destination(mut self, input: crate::types::Destination) -> Self {
         self.destination = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_destination(mut self, input: ::std::option::Option<crate::types::Destination>) -> Self { self.destination = input; self }
+    pub fn set_destination(mut self, input: ::std::option::Option<crate::types::Destination>) -> Self {
+        self.destination = input;
+        self
+    }
     /// <p>A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).</p>
-    pub fn get_destination(&self) -> &::std::option::Option<crate::types::Destination> { &self.destination }
+    pub fn get_destination(&self) -> &::std::option::Option<crate::types::Destination> {
+        &self.destination
+    }
     pub fn delete_marker_replication(mut self, input: crate::types::DeleteMarkerReplication) -> Self {
         self.delete_marker_replication = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_delete_marker_replication(mut self, input: ::std::option::Option<crate::types::DeleteMarkerReplication>) -> Self { self.delete_marker_replication = input; self }
-    pub fn get_delete_marker_replication(&self) -> &::std::option::Option<crate::types::DeleteMarkerReplication> { &self.delete_marker_replication }
+    pub fn set_delete_marker_replication(mut self, input: ::std::option::Option<crate::types::DeleteMarkerReplication>) -> Self {
+        self.delete_marker_replication = input;
+        self
+    }
+    pub fn get_delete_marker_replication(&self) -> &::std::option::Option<crate::types::DeleteMarkerReplication> {
+        &self.delete_marker_replication
+    }
     /// Consumes the builder and constructs a [`ReplicationRule`](crate::types::ReplicationRule).
     /// This method will fail if any of the following fields are not set:
     /// - [`status`](Self::status)
@@ -169,7 +214,12 @@ impl ReplicationRuleBuilder {
             priority: self.priority,
             prefix: self.prefix,
             filter: self.filter,
-            status: self.status.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building ReplicationRule"))?,
+            status: self.status.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "status",
+                    "status was not specified but it is required when building ReplicationRule",
+                )
+            })?,
             source_selection_criteria: self.source_selection_criteria,
             existing_object_replication: self.existing_object_replication,
             destination: self.destination,

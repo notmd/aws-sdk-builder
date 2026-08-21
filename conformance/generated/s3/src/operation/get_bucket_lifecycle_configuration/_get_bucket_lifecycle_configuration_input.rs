@@ -44,9 +44,14 @@ impl GetBucketLifecycleConfigurationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The name of the bucket for which to get the lifecycle information.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
@@ -54,11 +59,16 @@ impl GetBucketLifecycleConfigurationInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// Consumes the builder and constructs a [`GetBucketLifecycleConfigurationInput`](crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationInput).
     pub fn build(self) -> crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationInput {
         crate::operation::get_bucket_lifecycle_configuration::GetBucketLifecycleConfigurationInput {

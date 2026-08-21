@@ -97,7 +97,14 @@ impl ThrottleReason {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["CallerRateLimitExceeded", "ConcurrentInvocationLimitExceeded", "ConcurrentSnapshotCreateLimitExceeded", "FunctionInvocationRateLimitExceeded", "ReservedFunctionConcurrentInvocationLimitExceeded", "ReservedFunctionInvocationRateLimitExceeded"]
+        &[
+            "CallerRateLimitExceeded",
+            "ConcurrentInvocationLimitExceeded",
+            "ConcurrentSnapshotCreateLimitExceeded",
+            "FunctionInvocationRateLimitExceeded",
+            "ReservedFunctionConcurrentInvocationLimitExceeded",
+            "ReservedFunctionInvocationRateLimitExceeded",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for ThrottleReason {

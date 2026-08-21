@@ -46,17 +46,27 @@ impl BatchStatementResponseBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::BatchStatementError>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::BatchStatementError>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>The error associated with a failed PartiQL batch statement.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::BatchStatementError> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::BatchStatementError> {
+        &self.error
+    }
     /// <p>The table name associated with a failed PartiQL batch statement.</p>
     pub fn table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The table name associated with a failed PartiQL batch statement.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>A DynamoDB item associated with a BatchStatementResponse</p>
     /// Adds a key-value pair to `item`.
     ///
@@ -67,9 +77,17 @@ impl BatchStatementResponseBuilder {
         self.item = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_item(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.item = input; self }
+    pub fn set_item(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    ) -> Self {
+        self.item = input;
+        self
+    }
     /// <p>A DynamoDB item associated with a BatchStatementResponse</p>
-    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> { &self.item }
+    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+        &self.item
+    }
     /// Consumes the builder and constructs a [`BatchStatementResponse`](crate::types::BatchStatementResponse).
     pub fn build(self) -> crate::types::BatchStatementResponse {
         crate::types::BatchStatementResponse {

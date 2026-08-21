@@ -97,7 +97,14 @@ impl AlgorithmSpec {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256", "RSAES_PKCS1_V1_5", "RSA_AES_KEY_WRAP_SHA_1", "RSA_AES_KEY_WRAP_SHA_256", "SM2PKE"]
+        &[
+            "RSAES_OAEP_SHA_1",
+            "RSAES_OAEP_SHA_256",
+            "RSAES_PKCS1_V1_5",
+            "RSA_AES_KEY_WRAP_SHA_1",
+            "RSA_AES_KEY_WRAP_SHA_256",
+            "SM2PKE",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for AlgorithmSpec {

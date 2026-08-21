@@ -4,38 +4,84 @@
 #[non_exhaustive]
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
 pub struct KmsInvalidSignatureException {
+    #[allow(missing_docs)] // documentation missing in model
     pub message: ::std::option::Option<::std::string::String>,
+    pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
 }
 impl KmsInvalidSignatureException {
+    /// Returns the error message.
     pub fn message(&self) -> ::std::option::Option<&str> {
         self.message.as_deref()
     }
 }
+impl ::std::fmt::Display for KmsInvalidSignatureException {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        ::std::write!(f, "KmsInvalidSignatureException")?;
+        if let ::std::option::Option::Some(inner_1) = &self.message {
+            {
+                ::std::write!(f, ": {inner_1}")?;
+            }
+        }
+        Ok(())
+    }
+}
+impl ::std::error::Error for KmsInvalidSignatureException {}
+impl ::aws_types::request_id::RequestId for crate::types::error::KmsInvalidSignatureException {
+    fn request_id(&self) -> Option<&str> {
+        use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+        self.meta().request_id()
+    }
+}
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for KmsInvalidSignatureException {
+    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+        &self.meta
+    }
+}
 impl KmsInvalidSignatureException {
-    /// Creates a new builder-style object to manufacture [`KmsInvalidSignatureException`](crate::types::KmsInvalidSignatureException).
-    pub fn builder() -> crate::types::builders::KmsInvalidSignatureExceptionBuilder {
-        crate::types::builders::KmsInvalidSignatureExceptionBuilder::default()
+    /// Creates a new builder-style object to manufacture [`KmsInvalidSignatureException`](crate::types::error::KmsInvalidSignatureException).
+    pub fn builder() -> crate::types::error::builders::KmsInvalidSignatureExceptionBuilder {
+        crate::types::error::builders::KmsInvalidSignatureExceptionBuilder::default()
     }
 }
 
-/// A builder for [`KmsInvalidSignatureException`](crate::types::KmsInvalidSignatureException).
+/// A builder for [`KmsInvalidSignatureException`](crate::types::error::KmsInvalidSignatureException).
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct KmsInvalidSignatureExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
+    meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
 }
 impl KmsInvalidSignatureExceptionBuilder {
+    #[allow(missing_docs)] // documentation missing in model
     pub fn message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.message = input; self }
-    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> { &self.message }
-    /// Consumes the builder and constructs a [`KmsInvalidSignatureException`](crate::types::KmsInvalidSignatureException).
-    pub fn build(self) -> crate::types::KmsInvalidSignatureException {
-        crate::types::KmsInvalidSignatureException {
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.message = input;
+        self
+    }
+    #[allow(missing_docs)] // documentation missing in model
+    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.message
+    }
+    /// Sets error metadata
+    pub fn meta(mut self, meta: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+        self.meta = Some(meta);
+        self
+    }
+
+    /// Sets error metadata
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+        self.meta = meta;
+        self
+    }
+    /// Consumes the builder and constructs a [`KmsInvalidSignatureException`](crate::types::error::KmsInvalidSignatureException).
+    pub fn build(self) -> crate::types::error::KmsInvalidSignatureException {
+        crate::types::error::KmsInvalidSignatureException {
             message: self.message,
+            meta: self.meta.unwrap_or_default(),
         }
     }
 }
-impl ::std::fmt::Display for KmsInvalidSignatureException { fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result { f.write_str("KMSInvalidSignatureException") } }

@@ -21,7 +21,10 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_publish_batch_result_entry.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_route_type.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_sms_sandbox_phone_number.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_sms_sandbox_phone_number_verification_status.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sns/src/types/_sms_sandbox_phone_number_verification_status.rs"
+    ));
     pub type String = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_subscription.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_tag.rs"));
@@ -48,39 +51,84 @@ pub mod types {
     pub type TopicArn = ::std::string::String;
     pub type TopicName = ::std::string::String;
     pub mod error {
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_authorization_error_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_batch_entry_ids_not_distinct_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_batch_request_too_long_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_concurrent_access_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_empty_batch_request_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_endpoint_disabled_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_filter_policy_limit_exceeded_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/types/error/_authorization_error_exception.rs"
+        ));
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_internal_error_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_invalid_batch_entry_id_exception.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_invalid_parameter_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_invalid_parameter_value_exception.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_not_found_exception.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_throttled_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/types/error/_filter_policy_limit_exceeded_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/types/error/_replay_limit_exceeded_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/types/error/_subscription_limit_exceeded_exception.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_opted_out_exception.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_user_error_exception.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_concurrent_access_exception.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_invalid_security_exception.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_stale_tag_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/types/error/_tag_limit_exceeded_exception.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_tag_policy_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/types/error/_topic_limit_exceeded_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/types/error/_resource_not_found_exception.rs"
+        ));
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_invalid_state_exception.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_validation_exception.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_endpoint_disabled_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/types/error/_invalid_parameter_value_exception.rs"
+        ));
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_kms_access_denied_exception.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_kms_disabled_exception.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_kms_invalid_state_exception.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_kms_not_found_exception.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_kms_opt_in_required.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_kms_throttling_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_not_found_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_opted_out_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_platform_application_disabled_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_replay_limit_exceeded_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_resource_not_found_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_stale_tag_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_subscription_limit_exceeded_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_tag_limit_exceeded_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_tag_policy_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_throttled_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_too_many_entries_in_batch_request_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_topic_limit_exceeded_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_user_error_exception.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_validation_exception.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/types/error/_platform_application_disabled_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/types/error/_batch_entry_ids_not_distinct_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/types/error/_batch_request_too_long_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/types/error/_empty_batch_request_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/types/error/_invalid_batch_entry_id_exception.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/types/error/_too_many_entries_in_batch_request_exception.rs"
+        ));
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/_verification_exception.rs"));
+        pub mod builders {
+            include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/error/builders.rs"));
+        }
     }
 }

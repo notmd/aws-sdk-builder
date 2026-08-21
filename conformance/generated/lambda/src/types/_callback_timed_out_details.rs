@@ -32,13 +32,16 @@ impl CallbackTimedOutDetailsBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>Details about the callback timeout.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> {
+        &self.error
+    }
     /// Consumes the builder and constructs a [`CallbackTimedOutDetails`](crate::types::CallbackTimedOutDetails).
     pub fn build(self) -> crate::types::CallbackTimedOutDetails {
-        crate::types::CallbackTimedOutDetails {
-            error: self.error,
-        }
+        crate::types::CallbackTimedOutDetails { error: self.error }
     }
 }

@@ -76,66 +76,111 @@ impl ParameterDefinitionBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.name = input; self }
+    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.name = input;
+        self
+    }
     /// <p>The name of the parameter.</p>
-    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> { &self.name }
+    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.name
+    }
     /// <p>The data type of the parameter. Valid values are <code>String</code>, <code>StringList</code>, <code>Number</code>, <code>NumberList</code>, <code>Arn</code>, and <code>ArnList</code>.</p>
     /// This field is required.
     pub fn r#type(mut self, input: crate::types::ParameterTypeType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::ParameterTypeType>) -> Self { self.r#type = input; self }
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::ParameterTypeType>) -> Self {
+        self.r#type = input;
+        self
+    }
     /// <p>The data type of the parameter. Valid values are <code>String</code>, <code>StringList</code>, <code>Number</code>, <code>NumberList</code>, <code>Arn</code>, and <code>ArnList</code>.</p>
-    pub fn get_type(&self) -> &::std::option::Option<crate::types::ParameterTypeType> { &self.r#type }
+    pub fn get_type(&self) -> &::std::option::Option<crate::types::ParameterTypeType> {
+        &self.r#type
+    }
     /// <p>An optional subtype that further constrains the values that are allowed for the parameter.</p>
     pub fn sub_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.sub_type = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.sub_type = input; self }
+    pub fn set_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.sub_type = input;
+        self
+    }
     /// <p>An optional subtype that further constrains the values that are allowed for the parameter.</p>
-    pub fn get_sub_type(&self) -> &::std::option::Option<::std::string::String> { &self.sub_type }
+    pub fn get_sub_type(&self) -> &::std::option::Option<::std::string::String> {
+        &self.sub_type
+    }
     /// <p>A description of the parameter.</p>
     pub fn description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.description = input; self }
+    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.description = input;
+        self
+    }
     /// <p>A description of the parameter.</p>
-    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> { &self.description }
+    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
+        &self.description
+    }
     /// <p>Specifies whether you must supply a value for the parameter when you create a role from the template.</p>
     pub fn is_required(mut self, input: bool) -> Self {
         self.is_required = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_is_required(mut self, input: ::std::option::Option<bool>) -> Self { self.is_required = input; self }
+    pub fn set_is_required(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.is_required = input;
+        self
+    }
     /// <p>Specifies whether you must supply a value for the parameter when you create a role from the template.</p>
-    pub fn get_is_required(&self) -> &::std::option::Option<bool> { &self.is_required }
+    pub fn get_is_required(&self) -> &::std::option::Option<bool> {
+        &self.is_required
+    }
     /// <p>The value that the service uses for the parameter when you do not supply one.</p>
     pub fn default_value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.default_value = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_default_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.default_value = input; self }
+    pub fn set_default_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.default_value = input;
+        self
+    }
     /// <p>The value that the service uses for the parameter when you do not supply one.</p>
-    pub fn get_default_value(&self) -> &::std::option::Option<::std::string::String> { &self.default_value }
+    pub fn get_default_value(&self) -> &::std::option::Option<::std::string::String> {
+        &self.default_value
+    }
     /// <p>Specifies whether you can change the parameter value after you create the role.</p>
     pub fn immutable(mut self, input: bool) -> Self {
         self.immutable = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_immutable(mut self, input: ::std::option::Option<bool>) -> Self { self.immutable = input; self }
+    pub fn set_immutable(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.immutable = input;
+        self
+    }
     /// <p>Specifies whether you can change the parameter value after you create the role.</p>
-    pub fn get_immutable(&self) -> &::std::option::Option<bool> { &self.immutable }
+    pub fn get_immutable(&self) -> &::std::option::Option<bool> {
+        &self.immutable
+    }
     /// Consumes the builder and constructs a [`ParameterDefinition`](crate::types::ParameterDefinition).
     /// This method will fail if any of the following fields are not set:
     /// - [`name`](Self::name)
     /// - [`r#type`](Self::r#type)
     pub fn build(self) -> ::std::result::Result<crate::types::ParameterDefinition, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ParameterDefinition {
-            name: self.name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building ParameterDefinition"))?,
-            r#type: self.r#type.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("r#type", "r#type was not specified but it is required when building ParameterDefinition"))?,
+            name: self.name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "name",
+                    "name was not specified but it is required when building ParameterDefinition",
+                )
+            })?,
+            r#type: self.r#type.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "r#type",
+                    "r#type was not specified but it is required when building ParameterDefinition",
+                )
+            })?,
             sub_type: self.sub_type,
             description: self.description,
             is_required: self.is_required,

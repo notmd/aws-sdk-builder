@@ -10,6 +10,8 @@ impl super::Client {
     pub fn get_outbound_web_identity_federation_info(
         &self,
     ) -> crate::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoFluentBuilder {
-        crate::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoFluentBuilder::new(self.handle.clone())
+        crate::operation::get_outbound_web_identity_federation_info::builders::GetOutboundWebIdentityFederationInfoFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

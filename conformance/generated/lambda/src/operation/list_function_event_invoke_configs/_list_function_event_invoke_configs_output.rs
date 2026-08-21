@@ -51,17 +51,30 @@ impl ListFunctionEventInvokeConfigsOutputBuilder {
         self.function_event_invoke_configs = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_function_event_invoke_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>>) -> Self { self.function_event_invoke_configs = input; self }
+    pub fn set_function_event_invoke_configs(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>>,
+    ) -> Self {
+        self.function_event_invoke_configs = input;
+        self
+    }
     /// <p>A list of configurations.</p>
-    pub fn get_function_event_invoke_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>> { &self.function_event_invoke_configs }
+    pub fn get_function_event_invoke_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>> {
+        &self.function_event_invoke_configs
+    }
     /// <p>The pagination token that's included if more results are available.</p>
     pub fn next_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>The pagination token that's included if more results are available.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

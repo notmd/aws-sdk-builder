@@ -6,27 +6,51 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn server_certificate_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.server_certificate_name = Some(value.into()); self }
-    pub fn new_path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.new_path = Some(value.into()); self }
-    pub fn new_server_certificate_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.new_server_certificate_name = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::UpdateServerCertificateOutput, super::UpdateServerCertificateError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UpdateServerCertificateError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::UpdateServerCertificateError::unhandled_with_request_ids(format!("UpdateServerCertificate returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_update_server_certificate_output::UpdateServerCertificateOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn server_certificate_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.server_certificate_name = Some(value.into());
+        self
+    }
+    pub fn new_path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.new_path = Some(value.into());
+        self
+    }
+    pub fn new_server_certificate_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.new_server_certificate_name = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::UpdateServerCertificateOutput, super::UpdateServerCertificateError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::UpdateServerCertificateError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::UpdateServerCertificateError::unhandled_with_request_ids(
+                format!("UpdateServerCertificate returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_update_server_certificate_output::UpdateServerCertificateOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as UpdateServerCertificateFluentBuilder;

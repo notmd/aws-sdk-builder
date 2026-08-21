@@ -45,23 +45,38 @@ impl GetDurableExecutionHistoryResponseBuilder {
         self.events = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Event>>) -> Self { self.events = input; self }
+    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Event>>) -> Self {
+        self.events = input;
+        self
+    }
     /// <p>An array of execution history events, ordered chronologically unless <code>ReverseOrder</code> is set to <code>true</code>. Each event represents a significant occurrence during the execution, such as step completion or callback resolution.</p>
-    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Event>> { &self.events }
+    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Event>> {
+        &self.events
+    }
     /// <p>If present, indicates that more history events are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
     pub fn next_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>If present, indicates that more history events are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// Consumes the builder and constructs a [`GetDurableExecutionHistoryResponse`](crate::types::GetDurableExecutionHistoryResponse).
     /// This method will fail if any of the following fields are not set:
     /// - [`events`](Self::events)
     pub fn build(self) -> ::std::result::Result<crate::types::GetDurableExecutionHistoryResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetDurableExecutionHistoryResponse {
-            events: self.events.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("events", "events was not specified but it is required when building GetDurableExecutionHistoryResponse"))?,
+            events: self.events.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "events",
+                    "events was not specified but it is required when building GetDurableExecutionHistoryResponse",
+                )
+            })?,
             next_marker: self.next_marker,
         })
     }

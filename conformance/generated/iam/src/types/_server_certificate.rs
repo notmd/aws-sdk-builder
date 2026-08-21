@@ -55,26 +55,41 @@ impl ServerCertificateBuilder {
         self.server_certificate_metadata = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_server_certificate_metadata(mut self, input: ::std::option::Option<crate::types::ServerCertificateMetadata>) -> Self { self.server_certificate_metadata = input; self }
+    pub fn set_server_certificate_metadata(mut self, input: ::std::option::Option<crate::types::ServerCertificateMetadata>) -> Self {
+        self.server_certificate_metadata = input;
+        self
+    }
     /// <p>The meta information of the server certificate, such as its name, path, ID, and ARN.</p>
-    pub fn get_server_certificate_metadata(&self) -> &::std::option::Option<crate::types::ServerCertificateMetadata> { &self.server_certificate_metadata }
+    pub fn get_server_certificate_metadata(&self) -> &::std::option::Option<crate::types::ServerCertificateMetadata> {
+        &self.server_certificate_metadata
+    }
     /// <p>The contents of the public key certificate.</p>
     /// This field is required.
     pub fn certificate_body(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.certificate_body = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_certificate_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.certificate_body = input; self }
+    pub fn set_certificate_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.certificate_body = input;
+        self
+    }
     /// <p>The contents of the public key certificate.</p>
-    pub fn get_certificate_body(&self) -> &::std::option::Option<::std::string::String> { &self.certificate_body }
+    pub fn get_certificate_body(&self) -> &::std::option::Option<::std::string::String> {
+        &self.certificate_body
+    }
     /// <p>The contents of the public key certificate chain.</p>
     pub fn certificate_chain(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.certificate_chain = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_certificate_chain(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.certificate_chain = input; self }
+    pub fn set_certificate_chain(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.certificate_chain = input;
+        self
+    }
     /// <p>The contents of the public key certificate chain.</p>
-    pub fn get_certificate_chain(&self) -> &::std::option::Option<::std::string::String> { &self.certificate_chain }
+    pub fn get_certificate_chain(&self) -> &::std::option::Option<::std::string::String> {
+        &self.certificate_chain
+    }
     /// <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     /// Appends an item to `tags`.
     ///
@@ -85,16 +100,26 @@ impl ServerCertificateBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.tags = input;
+        self
+    }
     /// <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.tags }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+        &self.tags
+    }
     /// Consumes the builder and constructs a [`ServerCertificate`](crate::types::ServerCertificate).
     /// This method will fail if any of the following fields are not set:
     /// - [`certificate_body`](Self::certificate_body)
     pub fn build(self) -> ::std::result::Result<crate::types::ServerCertificate, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ServerCertificate {
             server_certificate_metadata: self.server_certificate_metadata,
-            certificate_body: self.certificate_body.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("certificate_body", "certificate_body was not specified but it is required when building ServerCertificate"))?,
+            certificate_body: self.certificate_body.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "certificate_body",
+                    "certificate_body was not specified but it is required when building ServerCertificate",
+                )
+            })?,
             certificate_chain: self.certificate_chain,
             tags: self.tags,
         })

@@ -39,9 +39,14 @@ impl GetServerCertificateOutputBuilder {
         self.server_certificate = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_server_certificate(mut self, input: ::std::option::Option<crate::types::ServerCertificate>) -> Self { self.server_certificate = input; self }
+    pub fn set_server_certificate(mut self, input: ::std::option::Option<crate::types::ServerCertificate>) -> Self {
+        self.server_certificate = input;
+        self
+    }
     /// <p>A structure containing details about the server certificate.</p>
-    pub fn get_server_certificate(&self) -> &::std::option::Option<crate::types::ServerCertificate> { &self.server_certificate }
+    pub fn get_server_certificate(&self) -> &::std::option::Option<crate::types::ServerCertificate> {
+        &self.server_certificate
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

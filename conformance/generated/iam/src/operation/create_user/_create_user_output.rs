@@ -39,9 +39,14 @@ impl CreateUserOutputBuilder {
         self.user = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_user(mut self, input: ::std::option::Option<crate::types::User>) -> Self { self.user = input; self }
+    pub fn set_user(mut self, input: ::std::option::Option<crate::types::User>) -> Self {
+        self.user = input;
+        self
+    }
     /// <p>A structure with details about the new IAM user.</p>
-    pub fn get_user(&self) -> &::std::option::Option<crate::types::User> { &self.user }
+    pub fn get_user(&self) -> &::std::option::Option<crate::types::User> {
+        &self.user
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

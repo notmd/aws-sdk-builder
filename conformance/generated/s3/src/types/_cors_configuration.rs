@@ -38,15 +38,25 @@ impl CorsConfigurationBuilder {
         self.cors_rules = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_cors_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CorsRule>>) -> Self { self.cors_rules = input; self }
+    pub fn set_cors_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CorsRule>>) -> Self {
+        self.cors_rules = input;
+        self
+    }
     /// <p>A set of origins and methods (cross-origin access that you want to allow). You can add up to 100 rules to the configuration.</p>
-    pub fn get_cors_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CorsRule>> { &self.cors_rules }
+    pub fn get_cors_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CorsRule>> {
+        &self.cors_rules
+    }
     /// Consumes the builder and constructs a [`CorsConfiguration`](crate::types::CorsConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`cors_rules`](Self::cors_rules)
     pub fn build(self) -> ::std::result::Result<crate::types::CorsConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CorsConfiguration {
-            cors_rules: self.cors_rules.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("cors_rules", "cors_rules was not specified but it is required when building CorsConfiguration"))?,
+            cors_rules: self.cors_rules.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "cors_rules",
+                    "cors_rules was not specified but it is required when building CorsConfiguration",
+                )
+            })?,
         })
     }
 }

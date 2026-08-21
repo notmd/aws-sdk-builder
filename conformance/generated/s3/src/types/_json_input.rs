@@ -32,13 +32,16 @@ impl JsonInputBuilder {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::JsonType>) -> Self { self.r#type = input; self }
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::JsonType>) -> Self {
+        self.r#type = input;
+        self
+    }
     /// <p>The type of JSON. Valid values: Document, Lines.</p>
-    pub fn get_type(&self) -> &::std::option::Option<crate::types::JsonType> { &self.r#type }
+    pub fn get_type(&self) -> &::std::option::Option<crate::types::JsonType> {
+        &self.r#type
+    }
     /// Consumes the builder and constructs a [`JsonInput`](crate::types::JsonInput).
     pub fn build(self) -> crate::types::JsonInput {
-        crate::types::JsonInput {
-            r#type: self.r#type,
-        }
+        crate::types::JsonInput { r#type: self.r#type }
     }
 }

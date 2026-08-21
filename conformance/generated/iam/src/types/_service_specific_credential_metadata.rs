@@ -85,69 +85,109 @@ impl ServiceSpecificCredentialMetadataBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.user_name = input; self }
+    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.user_name = input;
+        self
+    }
     /// <p>The name of the IAM user associated with the service-specific credential.</p>
-    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> { &self.user_name }
+    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.user_name
+    }
     /// <p>The status of the service-specific credential. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
     /// This field is required.
     pub fn status(mut self, input: crate::types::StatusType) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self { self.status = input; self }
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::StatusType>) -> Self {
+        self.status = input;
+        self
+    }
     /// <p>The status of the service-specific credential. <code>Active</code> means that the key is valid for API calls, while <code>Inactive</code> means it is not.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::StatusType> { &self.status }
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::StatusType> {
+        &self.status
+    }
     /// <p>The generated user name for the service-specific credential.</p>
     pub fn service_user_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_user_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_service_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.service_user_name = input; self }
+    pub fn set_service_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.service_user_name = input;
+        self
+    }
     /// <p>The generated user name for the service-specific credential.</p>
-    pub fn get_service_user_name(&self) -> &::std::option::Option<::std::string::String> { &self.service_user_name }
+    pub fn get_service_user_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.service_user_name
+    }
     /// <p>For Bedrock API keys and CloudWatch Logs API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.</p>
     pub fn service_credential_alias(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_credential_alias = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_service_credential_alias(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.service_credential_alias = input; self }
+    pub fn set_service_credential_alias(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.service_credential_alias = input;
+        self
+    }
     /// <p>For Bedrock API keys and CloudWatch Logs API keys, this is the public portion of the credential that includes the IAM user name and a suffix containing version and creation information.</p>
-    pub fn get_service_credential_alias(&self) -> &::std::option::Option<::std::string::String> { &self.service_credential_alias }
+    pub fn get_service_credential_alias(&self) -> &::std::option::Option<::std::string::String> {
+        &self.service_credential_alias
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the service-specific credential were created.</p>
     /// This field is required.
     pub fn create_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.create_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.create_date = input; self }
+    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.create_date = input;
+        self
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the service-specific credential were created.</p>
-    pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.create_date }
+    pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.create_date
+    }
     /// <p>The date and time when the service specific credential expires. This field is only present for Bedrock API keys and CloudWatch Logs API keys that were created with an expiration period.</p>
     pub fn expiration_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.expiration_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_expiration_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.expiration_date = input; self }
+    pub fn set_expiration_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.expiration_date = input;
+        self
+    }
     /// <p>The date and time when the service specific credential expires. This field is only present for Bedrock API keys and CloudWatch Logs API keys that were created with an expiration period.</p>
-    pub fn get_expiration_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.expiration_date }
+    pub fn get_expiration_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.expiration_date
+    }
     /// <p>The unique identifier for the service-specific credential.</p>
     /// This field is required.
     pub fn service_specific_credential_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_specific_credential_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_service_specific_credential_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.service_specific_credential_id = input; self }
+    pub fn set_service_specific_credential_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.service_specific_credential_id = input;
+        self
+    }
     /// <p>The unique identifier for the service-specific credential.</p>
-    pub fn get_service_specific_credential_id(&self) -> &::std::option::Option<::std::string::String> { &self.service_specific_credential_id }
+    pub fn get_service_specific_credential_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.service_specific_credential_id
+    }
     /// <p>The name of the service associated with the service-specific credential.</p>
     /// This field is required.
     pub fn service_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.service_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.service_name = input; self }
+    pub fn set_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.service_name = input;
+        self
+    }
     /// <p>The name of the service associated with the service-specific credential.</p>
-    pub fn get_service_name(&self) -> &::std::option::Option<::std::string::String> { &self.service_name }
+    pub fn get_service_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.service_name
+    }
     /// Consumes the builder and constructs a [`ServiceSpecificCredentialMetadata`](crate::types::ServiceSpecificCredentialMetadata).
     /// This method will fail if any of the following fields are not set:
     /// - [`user_name`](Self::user_name)
@@ -157,14 +197,39 @@ impl ServiceSpecificCredentialMetadataBuilder {
     /// - [`service_name`](Self::service_name)
     pub fn build(self) -> ::std::result::Result<crate::types::ServiceSpecificCredentialMetadata, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ServiceSpecificCredentialMetadata {
-            user_name: self.user_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("user_name", "user_name was not specified but it is required when building ServiceSpecificCredentialMetadata"))?,
-            status: self.status.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building ServiceSpecificCredentialMetadata"))?,
+            user_name: self.user_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "user_name",
+                    "user_name was not specified but it is required when building ServiceSpecificCredentialMetadata",
+                )
+            })?,
+            status: self.status.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "status",
+                    "status was not specified but it is required when building ServiceSpecificCredentialMetadata",
+                )
+            })?,
             service_user_name: self.service_user_name,
             service_credential_alias: self.service_credential_alias,
-            create_date: self.create_date.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("create_date", "create_date was not specified but it is required when building ServiceSpecificCredentialMetadata"))?,
+            create_date: self.create_date.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "create_date",
+                    "create_date was not specified but it is required when building ServiceSpecificCredentialMetadata",
+                )
+            })?,
             expiration_date: self.expiration_date,
-            service_specific_credential_id: self.service_specific_credential_id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("service_specific_credential_id", "service_specific_credential_id was not specified but it is required when building ServiceSpecificCredentialMetadata"))?,
-            service_name: self.service_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("service_name", "service_name was not specified but it is required when building ServiceSpecificCredentialMetadata"))?,
+            service_specific_credential_id: self.service_specific_credential_id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "service_specific_credential_id",
+                    "service_specific_credential_id was not specified but it is required when building ServiceSpecificCredentialMetadata",
+                )
+            })?,
+            service_name: self.service_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "service_name",
+                    "service_name was not specified but it is required when building ServiceSpecificCredentialMetadata",
+                )
+            })?,
         })
     }
 }

@@ -72,10 +72,15 @@ impl GenerateMacInputBuilder {
         self.message = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_message(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.message = input; self }
+    pub fn set_message(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.message = input;
+        self
+    }
     /// <p>The message to be hashed. Specify a message of up to 4,096 bytes.</p>
     /// <p><code>GenerateMac</code> and <a>VerifyMac</a> do not provide special handling for message digests. If you generate an HMAC for a hash digest of a message, you must verify the HMAC of the same hash digest.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.message }
+    pub fn get_message(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.message
+    }
     /// <p>The HMAC KMS key to use in the operation. The MAC algorithm computes the HMAC for the message and the key as described in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
     /// <p>To identify an HMAC KMS key, use the <a>DescribeKey</a> operation and see the <code>KeySpec</code> field in the response.</p>
     /// This field is required.
@@ -83,10 +88,15 @@ impl GenerateMacInputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>The HMAC KMS key to use in the operation. The MAC algorithm computes the HMAC for the message and the key as described in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
     /// <p>To identify an HMAC KMS key, use the <a>DescribeKey</a> operation and see the <code>KeySpec</code> field in the response.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// <p>The MAC algorithm used in the operation.</p>
     /// <p>The algorithm must be compatible with the HMAC KMS key that you specify. To find the MAC algorithms that your HMAC KMS key supports, use the <a>DescribeKey</a> operation and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</p>
     /// This field is required.
@@ -94,10 +104,15 @@ impl GenerateMacInputBuilder {
         self.mac_algorithm = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self { self.mac_algorithm = input; self }
+    pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self {
+        self.mac_algorithm = input;
+        self
+    }
     /// <p>The MAC algorithm used in the operation.</p>
     /// <p>The algorithm must be compatible with the HMAC KMS key that you specify. To find the MAC algorithms that your HMAC KMS key supports, use the <a>DescribeKey</a> operation and see the <code>MacAlgorithms</code> field in the <code>DescribeKey</code> response.</p>
-    pub fn get_mac_algorithm(&self) -> &::std::option::Option<crate::types::MacAlgorithmSpec> { &self.mac_algorithm }
+    pub fn get_mac_algorithm(&self) -> &::std::option::Option<crate::types::MacAlgorithmSpec> {
+        &self.mac_algorithm
+    }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// Appends an item to `grant_tokens`.
@@ -109,20 +124,30 @@ impl GenerateMacInputBuilder {
         self.grant_tokens = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.grant_tokens = input; self }
+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.grant_tokens = input;
+        self
+    }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.grant_tokens }
+    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.grant_tokens
+    }
     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
     /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub fn dry_run(mut self, input: bool) -> Self {
         self.dry_run = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self { self.dry_run = input; self }
+    pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.dry_run = input;
+        self
+    }
     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
     /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_dry_run(&self) -> &::std::option::Option<bool> { &self.dry_run }
+    pub fn get_dry_run(&self) -> &::std::option::Option<bool> {
+        &self.dry_run
+    }
     /// Consumes the builder and constructs a [`GenerateMacInput`](crate::operation::generate_mac::GenerateMacInput).
     pub fn build(self) -> crate::operation::generate_mac::GenerateMacInput {
         crate::operation::generate_mac::GenerateMacInput {

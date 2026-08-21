@@ -116,19 +116,29 @@ impl GetObjectAttributesOutputBuilder {
         self.delete_marker = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_delete_marker(mut self, input: ::std::option::Option<bool>) -> Self { self.delete_marker = input; self }
+    pub fn set_delete_marker(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.delete_marker = input;
+        self
+    }
     /// <p>Specifies whether the object retrieved was (<code>true</code>) or was not (<code>false</code>) a delete marker. If <code>false</code>, this response header does not appear in the response. To learn more about delete markers, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeleteMarker.html">Working with delete markers</a>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_delete_marker(&self) -> &::std::option::Option<bool> { &self.delete_marker }
+    pub fn get_delete_marker(&self) -> &::std::option::Option<bool> {
+        &self.delete_marker
+    }
     /// <p>Date and time when the object was last modified.</p>
     pub fn last_modified(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.last_modified = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.last_modified = input; self }
+    pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.last_modified = input;
+        self
+    }
     /// <p>Date and time when the object was last modified.</p>
-    pub fn get_last_modified(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.last_modified }
+    pub fn get_last_modified(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.last_modified
+    }
     /// <p>The version ID of the object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -136,41 +146,66 @@ impl GetObjectAttributesOutputBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.version_id = input; self }
+    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.version_id = input;
+        self
+    }
     /// <p>The version ID of the object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.version_id }
+    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.version_id
+    }
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+        self.request_charged = input;
+        self
+    }
+    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+        &self.request_charged
+    }
     /// <p>An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>
     pub fn e_tag(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.e_tag = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.e_tag = input; self }
+    pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.e_tag = input;
+        self
+    }
     /// <p>An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>
-    pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> { &self.e_tag }
+    pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> {
+        &self.e_tag
+    }
     /// <p>The checksum or digest of the object.</p>
     pub fn checksum(mut self, input: crate::types::Checksum) -> Self {
         self.checksum = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_checksum(mut self, input: ::std::option::Option<crate::types::Checksum>) -> Self { self.checksum = input; self }
+    pub fn set_checksum(mut self, input: ::std::option::Option<crate::types::Checksum>) -> Self {
+        self.checksum = input;
+        self
+    }
     /// <p>The checksum or digest of the object.</p>
-    pub fn get_checksum(&self) -> &::std::option::Option<crate::types::Checksum> { &self.checksum }
+    pub fn get_checksum(&self) -> &::std::option::Option<crate::types::Checksum> {
+        &self.checksum
+    }
     /// <p>A collection of parts associated with a multipart upload.</p>
     pub fn object_parts(mut self, input: crate::types::GetObjectAttributesParts) -> Self {
         self.object_parts = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_object_parts(mut self, input: ::std::option::Option<crate::types::GetObjectAttributesParts>) -> Self { self.object_parts = input; self }
+    pub fn set_object_parts(mut self, input: ::std::option::Option<crate::types::GetObjectAttributesParts>) -> Self {
+        self.object_parts = input;
+        self
+    }
     /// <p>A collection of parts associated with a multipart upload.</p>
-    pub fn get_object_parts(&self) -> &::std::option::Option<crate::types::GetObjectAttributesParts> { &self.object_parts }
+    pub fn get_object_parts(&self) -> &::std::option::Option<crate::types::GetObjectAttributesParts> {
+        &self.object_parts
+    }
     /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p><note>
     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
@@ -179,20 +214,30 @@ impl GetObjectAttributesOutputBuilder {
         self.storage_class = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self { self.storage_class = input; self }
+    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
+        self.storage_class = input;
+        self
+    }
     /// <p>Provides the storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p><note>
     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> { &self.storage_class }
+    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> {
+        &self.storage_class
+    }
     /// <p>The size of the object in bytes.</p>
     pub fn object_size(mut self, input: i64) -> Self {
         self.object_size = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_object_size(mut self, input: ::std::option::Option<i64>) -> Self { self.object_size = input; self }
+    pub fn set_object_size(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.object_size = input;
+        self
+    }
     /// <p>The size of the object in bytes.</p>
-    pub fn get_object_size(&self) -> &::std::option::Option<i64> { &self.object_size }
+    pub fn get_object_size(&self) -> &::std::option::Option<i64> {
+        &self.object_size
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

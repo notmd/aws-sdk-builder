@@ -7,7 +7,9 @@ impl super::Client {
     ///   - [`expected_bucket_owner(impl Into<String>)`](crate::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder::expected_bucket_owner) / [`set_expected_bucket_owner(Option<String>)`](crate::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder::set_expected_bucket_owner):<br>required: **false**<br><p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><br>
     /// - On success, responds with [`DeleteBucketOwnershipControlsOutput`](crate::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsOutput)
     /// - On failure, responds with [`SdkError<DeleteBucketOwnershipControlsError>`](crate::operation::delete_bucket_ownership_controls::DeleteBucketOwnershipControlsError)
-    pub fn delete_bucket_ownership_controls(&self) -> crate::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder {
+    pub fn delete_bucket_ownership_controls(
+        &self,
+    ) -> crate::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder {
         crate::operation::delete_bucket_ownership_controls::builders::DeleteBucketOwnershipControlsFluentBuilder::new(self.handle.clone())
     }
 }

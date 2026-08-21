@@ -59,25 +59,45 @@ impl ListPoliciesGrantingServiceAccessOutputBuilder {
         self.policies_granting_service_access = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_policies_granting_service_access(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ListPoliciesGrantingServiceAccessEntry>>) -> Self { self.policies_granting_service_access = input; self }
+    pub fn set_policies_granting_service_access(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ListPoliciesGrantingServiceAccessEntry>>,
+    ) -> Self {
+        self.policies_granting_service_access = input;
+        self
+    }
     /// <p>A <code>ListPoliciesGrantingServiceAccess</code> object that contains details about the permissions policies attached to the specified identity (user, group, or role).</p>
-    pub fn get_policies_granting_service_access(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ListPoliciesGrantingServiceAccessEntry>> { &self.policies_granting_service_access }
+    pub fn get_policies_granting_service_access(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ListPoliciesGrantingServiceAccessEntry>> {
+        &self.policies_granting_service_access
+    }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub fn is_truncated(mut self, input: bool) -> Self {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self { self.is_truncated = input; self }
+    pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.is_truncated = input;
+        self
+    }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
-    pub fn get_is_truncated(&self) -> &::std::option::Option<bool> { &self.is_truncated }
+    pub fn get_is_truncated(&self) -> &::std::option::Option<bool> {
+        &self.is_truncated
+    }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -90,12 +110,24 @@ impl ListPoliciesGrantingServiceAccessOutputBuilder {
     /// Consumes the builder and constructs a [`ListPoliciesGrantingServiceAccessOutput`](crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`policies_granting_service_access`](Self::policies_granting_service_access)
-    pub fn build(self) -> ::std::result::Result<crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessOutput, ::aws_smithy_types::error::operation::BuildError> {
-        ::std::result::Result::Ok(crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessOutput {
-            policies_granting_service_access: self.policies_granting_service_access.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("policies_granting_service_access", "policies_granting_service_access was not specified but it is required when building ListPoliciesGrantingServiceAccessOutput"))?,
-            is_truncated: self.is_truncated,
-            marker: self.marker,
-            _request_id: self._request_id,
-        })
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessOutput {
+                policies_granting_service_access: self.policies_granting_service_access.ok_or_else(|| {
+                    ::aws_smithy_types::error::operation::BuildError::missing_field(
+                        "policies_granting_service_access",
+                        "policies_granting_service_access was not specified but it is required when building ListPoliciesGrantingServiceAccessOutput",
+                    )
+                })?,
+                is_truncated: self.is_truncated,
+                marker: self.marker,
+                _request_id: self._request_id,
+            },
+        )
     }
 }

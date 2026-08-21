@@ -74,35 +74,55 @@ impl ListBucketsOutputBuilder {
         self.buckets = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_buckets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Bucket>>) -> Self { self.buckets = input; self }
+    pub fn set_buckets(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Bucket>>) -> Self {
+        self.buckets = input;
+        self
+    }
     /// <p>The list of buckets owned by the requester.</p>
-    pub fn get_buckets(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Bucket>> { &self.buckets }
+    pub fn get_buckets(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Bucket>> {
+        &self.buckets
+    }
     /// <p>The owner of the buckets listed.</p>
     pub fn owner(mut self, input: crate::types::Owner) -> Self {
         self.owner = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_owner(mut self, input: ::std::option::Option<crate::types::Owner>) -> Self { self.owner = input; self }
+    pub fn set_owner(mut self, input: ::std::option::Option<crate::types::Owner>) -> Self {
+        self.owner = input;
+        self
+    }
     /// <p>The owner of the buckets listed.</p>
-    pub fn get_owner(&self) -> &::std::option::Option<crate::types::Owner> { &self.owner }
+    pub fn get_owner(&self) -> &::std::option::Option<crate::types::Owner> {
+        &self.owner
+    }
     /// <p><code>ContinuationToken</code> is included in the response when there are more buckets that can be listed with pagination. The next <code>ListBuckets</code> request to Amazon S3 can be continued with this <code>ContinuationToken</code>. <code>ContinuationToken</code> is obfuscated and is not a real bucket.</p>
     pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.continuation_token = input; self }
+    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.continuation_token = input;
+        self
+    }
     /// <p><code>ContinuationToken</code> is included in the response when there are more buckets that can be listed with pagination. The next <code>ListBuckets</code> request to Amazon S3 can be continued with this <code>ContinuationToken</code>. <code>ContinuationToken</code> is obfuscated and is not a real bucket.</p>
-    pub fn get_continuation_token(&self) -> &::std::option::Option<::std::string::String> { &self.continuation_token }
+    pub fn get_continuation_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.continuation_token
+    }
     /// <p>If <code>Prefix</code> was sent with the request, it is included in the response.</p>
     /// <p>All bucket names in the response begin with the specified bucket name prefix.</p>
     pub fn prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.prefix = input; self }
+    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.prefix = input;
+        self
+    }
     /// <p>If <code>Prefix</code> was sent with the request, it is included in the response.</p>
     /// <p>All bucket names in the response begin with the specified bucket name prefix.</p>
-    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.prefix }
+    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.prefix
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

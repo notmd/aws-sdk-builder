@@ -60,42 +60,67 @@ impl GranteeBuilder {
         self.display_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_display_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.display_name = input; self }
+    pub fn set_display_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.display_name = input;
+        self
+    }
     /// <p></p>
-    pub fn get_display_name(&self) -> &::std::option::Option<::std::string::String> { &self.display_name }
+    pub fn get_display_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.display_name
+    }
     /// <p></p>
     pub fn email_address(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.email_address = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.email_address = input; self }
+    pub fn set_email_address(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.email_address = input;
+        self
+    }
     /// <p></p>
-    pub fn get_email_address(&self) -> &::std::option::Option<::std::string::String> { &self.email_address }
+    pub fn get_email_address(&self) -> &::std::option::Option<::std::string::String> {
+        &self.email_address
+    }
     /// <p>The canonical user ID of the grantee.</p>
     pub fn id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>The canonical user ID of the grantee.</p>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>URI of the grantee group.</p>
     pub fn uri(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.uri = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.uri = input; self }
+    pub fn set_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.uri = input;
+        self
+    }
     /// <p>URI of the grantee group.</p>
-    pub fn get_uri(&self) -> &::std::option::Option<::std::string::String> { &self.uri }
+    pub fn get_uri(&self) -> &::std::option::Option<::std::string::String> {
+        &self.uri
+    }
     /// <p>Type of grantee</p>
     /// This field is required.
     pub fn r#type(mut self, input: crate::types::Type) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::Type>) -> Self { self.r#type = input; self }
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::Type>) -> Self {
+        self.r#type = input;
+        self
+    }
     /// <p>Type of grantee</p>
-    pub fn get_type(&self) -> &::std::option::Option<crate::types::Type> { &self.r#type }
+    pub fn get_type(&self) -> &::std::option::Option<crate::types::Type> {
+        &self.r#type
+    }
     /// Consumes the builder and constructs a [`Grantee`](crate::types::Grantee).
     /// This method will fail if any of the following fields are not set:
     /// - [`r#type`](Self::r#type)
@@ -105,7 +130,12 @@ impl GranteeBuilder {
             email_address: self.email_address,
             id: self.id,
             uri: self.uri,
-            r#type: self.r#type.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("r#type", "r#type was not specified but it is required when building Grantee"))?,
+            r#type: self.r#type.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "r#type",
+                    "r#type was not specified but it is required when building Grantee",
+                )
+            })?,
         })
     }
 }

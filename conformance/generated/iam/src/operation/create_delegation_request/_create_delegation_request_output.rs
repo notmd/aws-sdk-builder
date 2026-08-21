@@ -49,18 +49,28 @@ impl CreateDelegationRequestOutputBuilder {
         self.console_deep_link = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_console_deep_link(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.console_deep_link = input; self }
+    pub fn set_console_deep_link(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.console_deep_link = input;
+        self
+    }
     /// <p>A deep link URL to the Amazon Web Services Management Console for managing the delegation request.</p>
     /// <p>For a console based workflow, partners should redirect the customer to this URL. If the customer is not logged in to any Amazon Web Services account, the Amazon Web Services workflow will automatically direct the customer to log in and then display the delegation request approval page.</p>
-    pub fn get_console_deep_link(&self) -> &::std::option::Option<::std::string::String> { &self.console_deep_link }
+    pub fn get_console_deep_link(&self) -> &::std::option::Option<::std::string::String> {
+        &self.console_deep_link
+    }
     /// <p>The unique identifier for the created delegation request.</p>
     pub fn delegation_request_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.delegation_request_id = input; self }
+    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.delegation_request_id = input;
+        self
+    }
     /// <p>The unique identifier for the created delegation request.</p>
-    pub fn get_delegation_request_id(&self) -> &::std::option::Option<::std::string::String> { &self.delegation_request_id }
+    pub fn get_delegation_request_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.delegation_request_id
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

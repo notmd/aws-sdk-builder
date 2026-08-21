@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ExportTableToPointInTime;
-impl ExportTableToPointInTime { pub fn new() -> Self { Self } }
+impl ExportTableToPointInTime {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     ExportConflictException(super::super::types::error::ExportConflictException),
@@ -12,15 +16,31 @@ pub enum Error {
     PointInTimeRecoveryUnavailableException(super::super::types::error::PointInTimeRecoveryUnavailableException),
     TableNotFoundException(super::super::types::error::TableNotFoundException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_export_conflict_exception(&self) -> bool { matches!(self, Self::ExportConflictException(_)) }
-    pub fn is_internal_server_error(&self) -> bool { matches!(self, Self::InternalServerError(_)) }
-    pub fn is_invalid_export_time_exception(&self) -> bool { matches!(self, Self::InvalidExportTimeException(_)) }
-    pub fn is_limit_exceeded_exception(&self) -> bool { matches!(self, Self::LimitExceededException(_)) }
-    pub fn is_point_in_time_recovery_unavailable_exception(&self) -> bool { matches!(self, Self::PointInTimeRecoveryUnavailableException(_)) }
-    pub fn is_table_not_found_exception(&self) -> bool { matches!(self, Self::TableNotFoundException(_)) }
+    pub fn is_export_conflict_exception(&self) -> bool {
+        matches!(self, Self::ExportConflictException(_))
+    }
+    pub fn is_internal_server_error(&self) -> bool {
+        matches!(self, Self::InternalServerError(_))
+    }
+    pub fn is_invalid_export_time_exception(&self) -> bool {
+        matches!(self, Self::InvalidExportTimeException(_))
+    }
+    pub fn is_limit_exceeded_exception(&self) -> bool {
+        matches!(self, Self::LimitExceededException(_))
+    }
+    pub fn is_point_in_time_recovery_unavailable_exception(&self) -> bool {
+        matches!(self, Self::PointInTimeRecoveryUnavailableException(_))
+    }
+    pub fn is_table_not_found_exception(&self) -> bool {
+        matches!(self, Self::TableNotFoundException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -38,26 +58,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _export_table_to_point_in_time_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/export_table_to_point_in_time/_export_table_to_point_in_time_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/dynamodb/src/operation/export_table_to_point_in_time/_export_table_to_point_in_time_input.rs"
+    ));
 }
 pub use _export_table_to_point_in_time_input::ExportTableToPointInTimeInput;
 pub type Input = ExportTableToPointInTimeInput;
 pub mod _export_table_to_point_in_time_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/export_table_to_point_in_time/_export_table_to_point_in_time_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/dynamodb/src/operation/export_table_to_point_in_time/_export_table_to_point_in_time_output.rs"
+    ));
 }
 pub use _export_table_to_point_in_time_output::ExportTableToPointInTimeOutput;
 pub type Output = ExportTableToPointInTimeOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/export_table_to_point_in_time/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/dynamodb/src/operation/export_table_to_point_in_time/builders.rs"
+    ));
 }
 pub type ExportTableToPointInTimeError = Error;
 pub type ExportTableToPointInTimeFluentBuilder = builders::Builder;

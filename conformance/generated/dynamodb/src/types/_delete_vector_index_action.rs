@@ -34,15 +34,25 @@ impl DeleteVectorIndexActionBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.index_name = input; self }
+    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.index_name = input;
+        self
+    }
     /// <p>The name of the vector index to delete.</p>
-    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> { &self.index_name }
+    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.index_name
+    }
     /// Consumes the builder and constructs a [`DeleteVectorIndexAction`](crate::types::DeleteVectorIndexAction).
     /// This method will fail if any of the following fields are not set:
     /// - [`index_name`](Self::index_name)
     pub fn build(self) -> ::std::result::Result<crate::types::DeleteVectorIndexAction, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteVectorIndexAction {
-            index_name: self.index_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("index_name", "index_name was not specified but it is required when building DeleteVectorIndexAction"))?,
+            index_name: self.index_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "index_name",
+                    "index_name was not specified but it is required when building DeleteVectorIndexAction",
+                )
+            })?,
         })
     }
 }

@@ -56,18 +56,28 @@ impl CheckpointDurableExecutionRequestBuilder {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.durable_execution_arn = input; self }
+    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.durable_execution_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn get_durable_execution_arn(&self) -> &::std::option::Option<::std::string::String> { &self.durable_execution_arn }
+    pub fn get_durable_execution_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.durable_execution_arn
+    }
     /// <p>A unique token that identifies the current checkpoint state. This token is provided by the Lambda runtime and must be used to ensure checkpoints are applied in the correct order. Each checkpoint operation consumes this token and returns a new one.</p>
     /// This field is required.
     pub fn checkpoint_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checkpoint_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checkpoint_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checkpoint_token = input; self }
+    pub fn set_checkpoint_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checkpoint_token = input;
+        self
+    }
     /// <p>A unique token that identifies the current checkpoint state. This token is provided by the Lambda runtime and must be used to ensure checkpoints are applied in the correct order. Each checkpoint operation consumes this token and returns a new one.</p>
-    pub fn get_checkpoint_token(&self) -> &::std::option::Option<::std::string::String> { &self.checkpoint_token }
+    pub fn get_checkpoint_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checkpoint_token
+    }
     /// <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
     /// Appends an item to `updates`.
     ///
@@ -78,25 +88,45 @@ impl CheckpointDurableExecutionRequestBuilder {
         self.updates = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>>) -> Self { self.updates = input; self }
+    pub fn set_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>>) -> Self {
+        self.updates = input;
+        self
+    }
     /// <p>An array of state updates to apply during this checkpoint. Each update represents a change to the execution state, such as completing a step, starting a callback, or scheduling a timer. Updates are applied atomically as part of the checkpoint operation.</p>
-    pub fn get_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>> { &self.updates }
+    pub fn get_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::OperationUpdate>> {
+        &self.updates
+    }
     /// <p>An optional idempotency token to ensure that duplicate checkpoint requests are handled correctly. If provided, Lambda uses this token to detect and handle duplicate requests within a 15-minute window.</p>
     pub fn client_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.client_token = input; self }
+    pub fn set_client_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.client_token = input;
+        self
+    }
     /// <p>An optional idempotency token to ensure that duplicate checkpoint requests are handled correctly. If provided, Lambda uses this token to detect and handle duplicate requests within a 15-minute window.</p>
-    pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> { &self.client_token }
+    pub fn get_client_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.client_token
+    }
     /// Consumes the builder and constructs a [`CheckpointDurableExecutionRequest`](crate::types::CheckpointDurableExecutionRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`durable_execution_arn`](Self::durable_execution_arn)
     /// - [`checkpoint_token`](Self::checkpoint_token)
     pub fn build(self) -> ::std::result::Result<crate::types::CheckpointDurableExecutionRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::CheckpointDurableExecutionRequest {
-            durable_execution_arn: self.durable_execution_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("durable_execution_arn", "durable_execution_arn was not specified but it is required when building CheckpointDurableExecutionRequest"))?,
-            checkpoint_token: self.checkpoint_token.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("checkpoint_token", "checkpoint_token was not specified but it is required when building CheckpointDurableExecutionRequest"))?,
+            durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "durable_execution_arn",
+                    "durable_execution_arn was not specified but it is required when building CheckpointDurableExecutionRequest",
+                )
+            })?,
+            checkpoint_token: self.checkpoint_token.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "checkpoint_token",
+                    "checkpoint_token was not specified but it is required when building CheckpointDurableExecutionRequest",
+                )
+            })?,
             updates: self.updates,
             client_token: self.client_token,
         })

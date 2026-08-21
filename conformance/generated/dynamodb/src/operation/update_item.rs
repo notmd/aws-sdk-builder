@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct UpdateItem;
-impl UpdateItem { pub fn new() -> Self { Self } }
+impl UpdateItem {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     ConditionalCheckFailedException(super::super::types::error::ConditionalCheckFailedException),
@@ -16,19 +20,43 @@ pub enum Error {
     ThrottlingException(super::super::types::error::ThrottlingException),
     TransactionConflictException(super::super::types::error::TransactionConflictException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_conditional_check_failed_exception(&self) -> bool { matches!(self, Self::ConditionalCheckFailedException(_)) }
-    pub fn is_internal_server_error(&self) -> bool { matches!(self, Self::InternalServerError(_)) }
-    pub fn is_invalid_endpoint_exception(&self) -> bool { matches!(self, Self::InvalidEndpointException(_)) }
-    pub fn is_item_collection_size_limit_exceeded_exception(&self) -> bool { matches!(self, Self::ItemCollectionSizeLimitExceededException(_)) }
-    pub fn is_provisioned_throughput_exceeded_exception(&self) -> bool { matches!(self, Self::ProvisionedThroughputExceededException(_)) }
-    pub fn is_replicated_write_conflict_exception(&self) -> bool { matches!(self, Self::ReplicatedWriteConflictException(_)) }
-    pub fn is_request_limit_exceeded(&self) -> bool { matches!(self, Self::RequestLimitExceeded(_)) }
-    pub fn is_resource_not_found_exception(&self) -> bool { matches!(self, Self::ResourceNotFoundException(_)) }
-    pub fn is_throttling_exception(&self) -> bool { matches!(self, Self::ThrottlingException(_)) }
-    pub fn is_transaction_conflict_exception(&self) -> bool { matches!(self, Self::TransactionConflictException(_)) }
+    pub fn is_conditional_check_failed_exception(&self) -> bool {
+        matches!(self, Self::ConditionalCheckFailedException(_))
+    }
+    pub fn is_internal_server_error(&self) -> bool {
+        matches!(self, Self::InternalServerError(_))
+    }
+    pub fn is_invalid_endpoint_exception(&self) -> bool {
+        matches!(self, Self::InvalidEndpointException(_))
+    }
+    pub fn is_item_collection_size_limit_exceeded_exception(&self) -> bool {
+        matches!(self, Self::ItemCollectionSizeLimitExceededException(_))
+    }
+    pub fn is_provisioned_throughput_exceeded_exception(&self) -> bool {
+        matches!(self, Self::ProvisionedThroughputExceededException(_))
+    }
+    pub fn is_replicated_write_conflict_exception(&self) -> bool {
+        matches!(self, Self::ReplicatedWriteConflictException(_))
+    }
+    pub fn is_request_limit_exceeded(&self) -> bool {
+        matches!(self, Self::RequestLimitExceeded(_))
+    }
+    pub fn is_resource_not_found_exception(&self) -> bool {
+        matches!(self, Self::ResourceNotFoundException(_))
+    }
+    pub fn is_throttling_exception(&self) -> bool {
+        matches!(self, Self::ThrottlingException(_))
+    }
+    pub fn is_transaction_conflict_exception(&self) -> bool {
+        matches!(self, Self::TransactionConflictException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -50,19 +78,49 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _update_item_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/update_item/_update_item_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/dynamodb/src/operation/update_item/_update_item_input.rs"
+    ));
 }
 pub use _update_item_input::UpdateItemInput;
 pub type Input = UpdateItemInput;
 pub mod _update_item_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/update_item/_update_item_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/dynamodb/src/operation/update_item/_update_item_output.rs"
+    ));
 }
 pub use _update_item_output::UpdateItemOutput;
 pub type Output = UpdateItemOutput;

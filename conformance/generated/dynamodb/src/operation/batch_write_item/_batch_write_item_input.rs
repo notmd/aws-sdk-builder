@@ -14,7 +14,9 @@ pub struct BatchWriteItemInput {
 impl BatchWriteItemInput {
     /// <p>A map of one or more table names or table ARNs and, for each table, a list of operations to be performed (<code>DeleteRequest</code> or <code>PutRequest</code>). Each element in the map consists of the following:</p><ul><li><p><code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p><ul><li><p><code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value. For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for <i>both</i> the partition key and the sort key.</p></li></ul></li><li><p><code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p><ul><li><p><code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values are rejected with a <code>ValidationException</code> exception.</p>
     /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li></ul></li></ul>
-    pub fn request_items(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>> {
+    pub fn request_items(
+        &self,
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>> {
         self.request_items.as_ref()
     }
     pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
@@ -52,24 +54,44 @@ impl BatchWriteItemInputBuilder {
         self.request_items = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_request_items(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>>) -> Self { self.request_items = input; self }
+    pub fn set_request_items(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>>,
+    ) -> Self {
+        self.request_items = input;
+        self
+    }
     /// <p>A map of one or more table names or table ARNs and, for each table, a list of operations to be performed (<code>DeleteRequest</code> or <code>PutRequest</code>). Each element in the map consists of the following:</p><ul><li><p><code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p><ul><li><p><code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value. For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for <i>both</i> the partition key and the sort key.</p></li></ul></li><li><p><code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p><ul><li><p><code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values are rejected with a <code>ValidationException</code> exception.</p>
     /// <p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li></ul></li></ul>
-    pub fn get_request_items(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>> { &self.request_items }
+    pub fn get_request_items(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>> {
+        &self.request_items
+    }
     pub fn return_consumed_capacity(mut self, input: crate::types::ReturnConsumedCapacity) -> Self {
         self.return_consumed_capacity = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
-    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
+    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
+        self.return_consumed_capacity = input;
+        self
+    }
+    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+        &self.return_consumed_capacity
+    }
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
     pub fn return_item_collection_metrics(mut self, input: crate::types::ReturnItemCollectionMetrics) -> Self {
         self.return_item_collection_metrics = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>) -> Self { self.return_item_collection_metrics = input; self }
+    pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>) -> Self {
+        self.return_item_collection_metrics = input;
+        self
+    }
     /// <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned.</p>
-    pub fn get_return_item_collection_metrics(&self) -> &::std::option::Option<crate::types::ReturnItemCollectionMetrics> { &self.return_item_collection_metrics }
+    pub fn get_return_item_collection_metrics(&self) -> &::std::option::Option<crate::types::ReturnItemCollectionMetrics> {
+        &self.return_item_collection_metrics
+    }
     /// Consumes the builder and constructs a [`BatchWriteItemInput`](crate::operation::batch_write_item::BatchWriteItemInput).
     pub fn build(self) -> crate::operation::batch_write_item::BatchWriteItemInput {
         crate::operation::batch_write_item::BatchWriteItemInput {

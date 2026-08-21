@@ -37,13 +37,19 @@ impl ItemResponseBuilder {
         self.item = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_item(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.item = input; self }
+    pub fn set_item(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    ) -> Self {
+        self.item = input;
+        self
+    }
     /// <p>Map of attribute data consisting of the data type and attribute value.</p>
-    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> { &self.item }
+    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+        &self.item
+    }
     /// Consumes the builder and constructs a [`ItemResponse`](crate::types::ItemResponse).
     pub fn build(self) -> crate::types::ItemResponse {
-        crate::types::ItemResponse {
-            item: self.item,
-        }
+        crate::types::ItemResponse { item: self.item }
     }
 }

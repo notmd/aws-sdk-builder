@@ -46,9 +46,17 @@ impl GetBucketMetadataConfigurationOutputBuilder {
         self.get_bucket_metadata_configuration_result = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_get_bucket_metadata_configuration_result(mut self, input: ::std::option::Option<crate::types::GetBucketMetadataConfigurationResult>) -> Self { self.get_bucket_metadata_configuration_result = input; self }
+    pub fn set_get_bucket_metadata_configuration_result(
+        mut self,
+        input: ::std::option::Option<crate::types::GetBucketMetadataConfigurationResult>,
+    ) -> Self {
+        self.get_bucket_metadata_configuration_result = input;
+        self
+    }
     /// <p>The metadata configuration for the general purpose bucket.</p>
-    pub fn get_get_bucket_metadata_configuration_result(&self) -> &::std::option::Option<crate::types::GetBucketMetadataConfigurationResult> { &self.get_bucket_metadata_configuration_result }
+    pub fn get_get_bucket_metadata_configuration_result(&self) -> &::std::option::Option<crate::types::GetBucketMetadataConfigurationResult> {
+        &self.get_bucket_metadata_configuration_result
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

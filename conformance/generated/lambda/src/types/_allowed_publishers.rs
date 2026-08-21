@@ -38,15 +38,25 @@ impl AllowedPublishersBuilder {
         self.signing_profile_version_arns = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_signing_profile_version_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.signing_profile_version_arns = input; self }
+    pub fn set_signing_profile_version_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.signing_profile_version_arns = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.</p>
-    pub fn get_signing_profile_version_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.signing_profile_version_arns }
+    pub fn get_signing_profile_version_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.signing_profile_version_arns
+    }
     /// Consumes the builder and constructs a [`AllowedPublishers`](crate::types::AllowedPublishers).
     /// This method will fail if any of the following fields are not set:
     /// - [`signing_profile_version_arns`](Self::signing_profile_version_arns)
     pub fn build(self) -> ::std::result::Result<crate::types::AllowedPublishers, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AllowedPublishers {
-            signing_profile_version_arns: self.signing_profile_version_arns.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("signing_profile_version_arns", "signing_profile_version_arns was not specified but it is required when building AllowedPublishers"))?,
+            signing_profile_version_arns: self.signing_profile_version_arns.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "signing_profile_version_arns",
+                    "signing_profile_version_arns was not specified but it is required when building AllowedPublishers",
+                )
+            })?,
         })
     }
 }

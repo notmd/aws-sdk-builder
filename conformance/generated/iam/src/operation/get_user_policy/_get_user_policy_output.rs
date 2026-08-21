@@ -59,18 +59,28 @@ impl GetUserPolicyOutputBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.user_name = input; self }
+    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.user_name = input;
+        self
+    }
     /// <p>The user the policy is associated with.</p>
-    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> { &self.user_name }
+    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.user_name
+    }
     /// <p>The name of the policy.</p>
     /// This field is required.
     pub fn policy_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_name = input; self }
+    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_name = input;
+        self
+    }
     /// <p>The name of the policy.</p>
-    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> { &self.policy_name }
+    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_name
+    }
     /// <p>The policy document.</p>
     /// <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
     /// This field is required.
@@ -78,10 +88,15 @@ impl GetUserPolicyOutputBuilder {
         self.policy_document = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_document = input; self }
+    pub fn set_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_document = input;
+        self
+    }
     /// <p>The policy document.</p>
     /// <p>IAM stores policies in JSON format. However, resources that were created using CloudFormation templates can be formatted in YAML. CloudFormation always converts a YAML policy to JSON format before submitting it to IAM.</p>
-    pub fn get_policy_document(&self) -> &::std::option::Option<::std::string::String> { &self.policy_document }
+    pub fn get_policy_document(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_document
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -96,11 +111,28 @@ impl GetUserPolicyOutputBuilder {
     /// - [`user_name`](Self::user_name)
     /// - [`policy_name`](Self::policy_name)
     /// - [`policy_document`](Self::policy_document)
-    pub fn build(self) -> ::std::result::Result<crate::operation::get_user_policy::GetUserPolicyOutput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::operation::get_user_policy::GetUserPolicyOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::get_user_policy::GetUserPolicyOutput {
-            user_name: self.user_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("user_name", "user_name was not specified but it is required when building GetUserPolicyOutput"))?,
-            policy_name: self.policy_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("policy_name", "policy_name was not specified but it is required when building GetUserPolicyOutput"))?,
-            policy_document: self.policy_document.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("policy_document", "policy_document was not specified but it is required when building GetUserPolicyOutput"))?,
+            user_name: self.user_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "user_name",
+                    "user_name was not specified but it is required when building GetUserPolicyOutput",
+                )
+            })?,
+            policy_name: self.policy_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "policy_name",
+                    "policy_name was not specified but it is required when building GetUserPolicyOutput",
+                )
+            })?,
+            policy_document: self.policy_document.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "policy_document",
+                    "policy_document was not specified but it is required when building GetUserPolicyOutput",
+                )
+            })?,
             _request_id: self._request_id,
         })
     }

@@ -10,6 +10,8 @@ impl super::Client {
     pub fn send_durable_execution_callback_success(
         &self,
     ) -> crate::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessFluentBuilder {
-        crate::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessFluentBuilder::new(self.handle.clone())
+        crate::operation::send_durable_execution_callback_success::builders::SendDurableExecutionCallbackSuccessFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

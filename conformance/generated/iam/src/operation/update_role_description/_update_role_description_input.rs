@@ -40,18 +40,28 @@ impl UpdateRoleDescriptionInputBuilder {
         self.role_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.role_name = input; self }
+    pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.role_name = input;
+        self
+    }
     /// <p>The name of the role that you want to modify.</p>
-    pub fn get_role_name(&self) -> &::std::option::Option<::std::string::String> { &self.role_name }
+    pub fn get_role_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.role_name
+    }
     /// <p>The new description that you want to apply to the specified role.</p>
     /// This field is required.
     pub fn description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.description = input; self }
+    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.description = input;
+        self
+    }
     /// <p>The new description that you want to apply to the specified role.</p>
-    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> { &self.description }
+    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
+        &self.description
+    }
     /// Consumes the builder and constructs a [`UpdateRoleDescriptionInput`](crate::operation::update_role_description::UpdateRoleDescriptionInput).
     pub fn build(self) -> crate::operation::update_role_description::UpdateRoleDescriptionInput {
         crate::operation::update_role_description::UpdateRoleDescriptionInput {

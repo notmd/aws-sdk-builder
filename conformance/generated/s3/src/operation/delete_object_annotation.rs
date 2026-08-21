@@ -2,17 +2,29 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct DeleteObjectAnnotation;
-impl DeleteObjectAnnotation { pub fn new() -> Self { Self } }
+impl DeleteObjectAnnotation {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     NoSuchBucket(super::super::types::error::NoSuchBucket),
     NoSuchKey(super::super::types::error::NoSuchKey),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_no_such_bucket(&self) -> bool { matches!(self, Self::NoSuchBucket(_)) }
-    pub fn is_no_such_key(&self) -> bool { matches!(self, Self::NoSuchKey(_)) }
+    pub fn is_no_such_bucket(&self) -> bool {
+        matches!(self, Self::NoSuchBucket(_))
+    }
+    pub fn is_no_such_key(&self) -> bool {
+        matches!(self, Self::NoSuchKey(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -26,29 +38,67 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 impl crate::s3_request_id::RequestIdExt for Error {
-    fn extended_request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { extended_request_id, .. } => extended_request_id.as_deref(), _ => None } }
+    fn extended_request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { extended_request_id, .. } => extended_request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _delete_object_annotation_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/delete_object_annotation/_delete_object_annotation_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/operation/delete_object_annotation/_delete_object_annotation_input.rs"
+    ));
 }
 pub use _delete_object_annotation_input::DeleteObjectAnnotationInput;
 pub type Input = DeleteObjectAnnotationInput;
 pub mod _delete_object_annotation_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/delete_object_annotation/_delete_object_annotation_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/operation/delete_object_annotation/_delete_object_annotation_output.rs"
+    ));
 }
 pub use _delete_object_annotation_output::DeleteObjectAnnotationOutput;
 pub type Output = DeleteObjectAnnotationOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/delete_object_annotation/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/operation/delete_object_annotation/builders.rs"
+    ));
 }
 pub type DeleteObjectAnnotationError = Error;
 pub type DeleteObjectAnnotationFluentBuilder = builders::Builder;

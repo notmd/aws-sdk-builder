@@ -39,17 +39,27 @@ impl MultiRegionKeyBuilder {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.arn = input; self }
+    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.arn = input;
+        self
+    }
     /// <p>Displays the key ARN of a primary or replica key of a multi-Region key.</p>
-    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> { &self.arn }
+    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.arn
+    }
     /// <p>Displays the Amazon Web Services Region of a primary or replica key in a multi-Region key.</p>
     pub fn region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.region = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.region = input; self }
+    pub fn set_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.region = input;
+        self
+    }
     /// <p>Displays the Amazon Web Services Region of a primary or replica key in a multi-Region key.</p>
-    pub fn get_region(&self) -> &::std::option::Option<::std::string::String> { &self.region }
+    pub fn get_region(&self) -> &::std::option::Option<::std::string::String> {
+        &self.region
+    }
     /// Consumes the builder and constructs a [`MultiRegionKey`](crate::types::MultiRegionKey).
     pub fn build(self) -> crate::types::MultiRegionKey {
         crate::types::MultiRegionKey {

@@ -39,17 +39,27 @@ impl VectorIndexUpdateBuilder {
         self.create = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_create(mut self, input: ::std::option::Option<crate::types::CreateVectorIndexAction>) -> Self { self.create = input; self }
+    pub fn set_create(mut self, input: ::std::option::Option<crate::types::CreateVectorIndexAction>) -> Self {
+        self.create = input;
+        self
+    }
     /// <p>The configuration for creating a new vector index on the table.</p>
-    pub fn get_create(&self) -> &::std::option::Option<crate::types::CreateVectorIndexAction> { &self.create }
+    pub fn get_create(&self) -> &::std::option::Option<crate::types::CreateVectorIndexAction> {
+        &self.create
+    }
     /// <p>The configuration for deleting an existing vector index from the table.</p>
     pub fn delete(mut self, input: crate::types::DeleteVectorIndexAction) -> Self {
         self.delete = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_delete(mut self, input: ::std::option::Option<crate::types::DeleteVectorIndexAction>) -> Self { self.delete = input; self }
+    pub fn set_delete(mut self, input: ::std::option::Option<crate::types::DeleteVectorIndexAction>) -> Self {
+        self.delete = input;
+        self
+    }
     /// <p>The configuration for deleting an existing vector index from the table.</p>
-    pub fn get_delete(&self) -> &::std::option::Option<crate::types::DeleteVectorIndexAction> { &self.delete }
+    pub fn get_delete(&self) -> &::std::option::Option<crate::types::DeleteVectorIndexAction> {
+        &self.delete
+    }
     /// Consumes the builder and constructs a [`VectorIndexUpdate`](crate::types::VectorIndexUpdate).
     pub fn build(self) -> crate::types::VectorIndexUpdate {
         crate::types::VectorIndexUpdate {

@@ -110,47 +110,77 @@ impl RoleDetailBuilder {
         self.path = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.path = input; self }
+    pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.path = input;
+        self
+    }
     /// <p>The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_path(&self) -> &::std::option::Option<::std::string::String> { &self.path }
+    pub fn get_path(&self) -> &::std::option::Option<::std::string::String> {
+        &self.path
+    }
     /// <p>The friendly name that identifies the role.</p>
     pub fn role_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.role_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.role_name = input; self }
+    pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.role_name = input;
+        self
+    }
     /// <p>The friendly name that identifies the role.</p>
-    pub fn get_role_name(&self) -> &::std::option::Option<::std::string::String> { &self.role_name }
+    pub fn get_role_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.role_name
+    }
     /// <p>The stable and unique string identifying the role. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn role_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.role_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_role_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.role_id = input; self }
+    pub fn set_role_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.role_id = input;
+        self
+    }
     /// <p>The stable and unique string identifying the role. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_role_id(&self) -> &::std::option::Option<::std::string::String> { &self.role_id }
+    pub fn get_role_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.role_id
+    }
     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.arn = input; self }
-    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> { &self.arn }
+    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.arn = input;
+        self
+    }
+    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.arn
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the role was created.</p>
     pub fn create_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.create_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.create_date = input; self }
+    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.create_date = input;
+        self
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the role was created.</p>
-    pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.create_date }
+    pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.create_date
+    }
     /// <p>The trust policy that grants permission to assume the role.</p>
     pub fn assume_role_policy_document(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.assume_role_policy_document = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_assume_role_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.assume_role_policy_document = input; self }
+    pub fn set_assume_role_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.assume_role_policy_document = input;
+        self
+    }
     /// <p>The trust policy that grants permission to assume the role.</p>
-    pub fn get_assume_role_policy_document(&self) -> &::std::option::Option<::std::string::String> { &self.assume_role_policy_document }
+    pub fn get_assume_role_policy_document(&self) -> &::std::option::Option<::std::string::String> {
+        &self.assume_role_policy_document
+    }
     /// <p>A list of instance profiles that contain this role.</p>
     /// Appends an item to `instance_profile_list`.
     ///
@@ -161,9 +191,14 @@ impl RoleDetailBuilder {
         self.instance_profile_list = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_instance_profile_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>>) -> Self { self.instance_profile_list = input; self }
+    pub fn set_instance_profile_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>>) -> Self {
+        self.instance_profile_list = input;
+        self
+    }
     /// <p>A list of instance profiles that contain this role.</p>
-    pub fn get_instance_profile_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>> { &self.instance_profile_list }
+    pub fn get_instance_profile_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InstanceProfile>> {
+        &self.instance_profile_list
+    }
     /// <p>A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.</p>
     /// Appends an item to `role_policy_list`.
     ///
@@ -174,9 +209,14 @@ impl RoleDetailBuilder {
         self.role_policy_list = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_role_policy_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>>) -> Self { self.role_policy_list = input; self }
+    pub fn set_role_policy_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>>) -> Self {
+        self.role_policy_list = input;
+        self
+    }
     /// <p>A list of inline policies embedded in the role. These policies are the role's access (permissions) policies.</p>
-    pub fn get_role_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>> { &self.role_policy_list }
+    pub fn get_role_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>> {
+        &self.role_policy_list
+    }
     /// <p>A list of managed policies attached to the role. These policies are the role's access (permissions) policies.</p>
     /// Appends an item to `attached_managed_policies`.
     ///
@@ -187,19 +227,29 @@ impl RoleDetailBuilder {
         self.attached_managed_policies = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>) -> Self { self.attached_managed_policies = input; self }
+    pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>) -> Self {
+        self.attached_managed_policies = input;
+        self
+    }
     /// <p>A list of managed policies attached to the role. These policies are the role's access (permissions) policies.</p>
-    pub fn get_attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>> { &self.attached_managed_policies }
+    pub fn get_attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>> {
+        &self.attached_managed_policies
+    }
     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
     pub fn permissions_boundary(mut self, input: crate::types::AttachedPermissionsBoundary) -> Self {
         self.permissions_boundary = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_permissions_boundary(mut self, input: ::std::option::Option<crate::types::AttachedPermissionsBoundary>) -> Self { self.permissions_boundary = input; self }
+    pub fn set_permissions_boundary(mut self, input: ::std::option::Option<crate::types::AttachedPermissionsBoundary>) -> Self {
+        self.permissions_boundary = input;
+        self
+    }
     /// <p>The ARN of the policy used to set the permissions boundary for the role.</p>
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_permissions_boundary(&self) -> &::std::option::Option<crate::types::AttachedPermissionsBoundary> { &self.permissions_boundary }
+    pub fn get_permissions_boundary(&self) -> &::std::option::Option<crate::types::AttachedPermissionsBoundary> {
+        &self.permissions_boundary
+    }
     /// <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     /// Appends an item to `tags`.
     ///
@@ -210,17 +260,27 @@ impl RoleDetailBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.tags = input;
+        self
+    }
     /// <p>A list of tags that are attached to the role. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.tags }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+        &self.tags
+    }
     /// <p>Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM User Guide</i>.</p>
     pub fn role_last_used(mut self, input: crate::types::RoleLastUsed) -> Self {
         self.role_last_used = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_role_last_used(mut self, input: ::std::option::Option<crate::types::RoleLastUsed>) -> Self { self.role_last_used = input; self }
+    pub fn set_role_last_used(mut self, input: ::std::option::Option<crate::types::RoleLastUsed>) -> Self {
+        self.role_last_used = input;
+        self
+    }
     /// <p>Contains information about the last time that an IAM role was used. This includes the date and time and the Region in which the role was last used. Activity is only reported for the trailing 400 days. This period can be shorter if your Region began supporting these features within the last year. The role might have been used more than 400 days ago. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period">Regions where data is tracked</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_role_last_used(&self) -> &::std::option::Option<crate::types::RoleLastUsed> { &self.role_last_used }
+    pub fn get_role_last_used(&self) -> &::std::option::Option<crate::types::RoleLastUsed> {
+        &self.role_last_used
+    }
     /// Consumes the builder and constructs a [`RoleDetail`](crate::types::RoleDetail).
     pub fn build(self) -> crate::types::RoleDetail {
         crate::types::RoleDetail {

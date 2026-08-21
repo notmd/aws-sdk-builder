@@ -6,25 +6,43 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn next_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.next_token = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::ListPhoneNumbersOptedOutOutput, super::ListPhoneNumbersOptedOutError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ListPhoneNumbersOptedOutError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::ListPhoneNumbersOptedOutError::unhandled_with_request_ids(format!("ListPhoneNumbersOptedOut returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_list_phone_numbers_opted_out_output::ListPhoneNumbersOptedOutOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn next_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.next_token = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::ListPhoneNumbersOptedOutOutput, super::ListPhoneNumbersOptedOutError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::ListPhoneNumbersOptedOutError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::ListPhoneNumbersOptedOutError::unhandled_with_request_ids(
+                format!("ListPhoneNumbersOptedOut returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_list_phone_numbers_opted_out_output::ListPhoneNumbersOptedOutOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as ListPhoneNumbersOptedOutFluentBuilder;

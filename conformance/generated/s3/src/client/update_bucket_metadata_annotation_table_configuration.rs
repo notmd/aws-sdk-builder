@@ -12,7 +12,7 @@ impl super::Client {
     /// - On failure, responds with [`SdkError<UpdateBucketMetadataAnnotationTableConfigurationError>`](crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationError)
     pub fn update_bucket_metadata_annotation_table_configuration(
         &self,
-    ) -> crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder {
+    ) -> crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder{
         crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder::new(self.handle.clone())
     }
 }

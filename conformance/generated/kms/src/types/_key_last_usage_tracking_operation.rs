@@ -127,7 +127,20 @@ impl KeyLastUsageTrackingOperation {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["Decrypt", "DeriveSharedSecret", "Encrypt", "GenerateDataKey", "GenerateDataKeyPair", "GenerateDataKeyPairWithoutPlaintext", "GenerateDataKeyWithoutPlaintext", "GenerateMac", "ReEncrypt", "Sign", "Verify", "VerifyMac"]
+        &[
+            "Decrypt",
+            "DeriveSharedSecret",
+            "Encrypt",
+            "GenerateDataKey",
+            "GenerateDataKeyPair",
+            "GenerateDataKeyPairWithoutPlaintext",
+            "GenerateDataKeyWithoutPlaintext",
+            "GenerateMac",
+            "ReEncrypt",
+            "Sign",
+            "Verify",
+            "VerifyMac",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for KeyLastUsageTrackingOperation {

@@ -7,7 +7,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/add_permission.rs"));
     }
     pub mod check_if_phone_number_is_opted_out {
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/check_if_phone_number_is_opted_out.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/operation/check_if_phone_number_is_opted_out.rs"
+        ));
     }
     pub mod confirm_subscription {
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/confirm_subscription.rs"));
@@ -19,7 +22,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/create_platform_endpoint.rs"));
     }
     pub mod create_sms_sandbox_phone_number {
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/create_sms_sandbox_phone_number.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/operation/create_sms_sandbox_phone_number.rs"
+        ));
     }
     pub mod create_topic {
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/create_topic.rs"));
@@ -31,7 +37,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/delete_platform_application.rs"));
     }
     pub mod delete_sms_sandbox_phone_number {
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/delete_sms_sandbox_phone_number.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/operation/delete_sms_sandbox_phone_number.rs"
+        ));
     }
     pub mod delete_topic {
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/delete_topic.rs"));
@@ -43,7 +52,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/get_endpoint_attributes.rs"));
     }
     pub mod get_platform_application_attributes {
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/get_platform_application_attributes.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/operation/get_platform_application_attributes.rs"
+        ));
     }
     pub mod get_sms_attributes {
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/get_sms_attributes.rs"));
@@ -58,7 +70,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/get_topic_attributes.rs"));
     }
     pub mod list_endpoints_by_platform_application {
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/list_endpoints_by_platform_application.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/operation/list_endpoints_by_platform_application.rs"
+        ));
     }
     pub mod list_origination_numbers {
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/list_origination_numbers.rs"));
@@ -103,7 +118,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/set_endpoint_attributes.rs"));
     }
     pub mod set_platform_application_attributes {
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/set_platform_application_attributes.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/operation/set_platform_application_attributes.rs"
+        ));
     }
     pub mod set_sms_attributes {
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/set_sms_attributes.rs"));
@@ -127,6 +145,9 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/untag_resource.rs"));
     }
     pub mod verify_sms_sandbox_phone_number {
-        include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/verify_sms_sandbox_phone_number.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sns/src/operation/verify_sms_sandbox_phone_number.rs"
+        ));
     }
 }

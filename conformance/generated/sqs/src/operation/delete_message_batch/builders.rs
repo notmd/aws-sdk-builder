@@ -6,36 +6,71 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn queue_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.queue_url = Some(value.into()); self }
-    pub fn entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>>) -> Self { self.input.entries = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::DeleteMessageBatchOutput, super::DeleteMessageBatchError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DeleteMessageBatchError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::DeleteMessageBatchError::unhandled_with_request_ids(format!("DeleteMessageBatch returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_delete_message_batch_output::DeleteMessageBatchOutputBuilder::default();
-                         let body = response.text().await.map_err(super::DeleteMessageBatchError::Unhandled)?;
-                         let values = super::super::super::transport::xml_tags(&body, "DeleteMessageBatchResultEntry").into_iter().filter_map(|value| { let mut item: crate::types::DeleteMessageBatchResultEntryBuilder = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
- item.build().ok() }).collect();
-                         output.successful = Some(values);
-                         let values = super::super::super::transport::xml_tags(&body, "BatchResultErrorEntry").into_iter().filter_map(|value| { let mut item: crate::types::BatchResultErrorEntryBuilder = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
- item.sender_fault = super::super::super::transport::xml_first(&value, "SenderFault").and_then(|value| value.parse().ok());
- item.code = super::super::super::transport::xml_first(&value, "Code").and_then(|value| value.parse().ok());
- item.message = super::super::super::transport::xml_first(&value, "Message").and_then(|value| value.parse().ok());
- item.build().ok() }).collect();
-                         output.failed = Some(values);
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         output.build().map_err(|error| super::DeleteMessageBatchError::Unhandled(error.to_string()))
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn queue_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.queue_url = Some(value.into());
+        self
+    }
+    pub fn entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>>) -> Self {
+        self.input.entries = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::DeleteMessageBatchOutput, super::DeleteMessageBatchError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::DeleteMessageBatchError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::DeleteMessageBatchError::unhandled_with_request_ids(
+                format!("DeleteMessageBatch returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_delete_message_batch_output::DeleteMessageBatchOutputBuilder::default();
+        let body = response.text().await.map_err(super::DeleteMessageBatchError::Unhandled)?;
+        let values = super::super::super::transport::xml_tags(&body, "DeleteMessageBatchResultEntry")
+            .into_iter()
+            .filter_map(|value| {
+                let mut item: crate::types::DeleteMessageBatchResultEntryBuilder = ::std::default::Default::default();
+                item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
+                item.build().ok()
+            })
+            .collect();
+        output.successful = Some(values);
+        let values = super::super::super::transport::xml_tags(&body, "BatchResultErrorEntry")
+            .into_iter()
+            .filter_map(|value| {
+                let mut item: crate::types::BatchResultErrorEntryBuilder = ::std::default::Default::default();
+                item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
+                item.sender_fault = super::super::super::transport::xml_first(&value, "SenderFault").and_then(|value| value.parse().ok());
+                item.code = super::super::super::transport::xml_first(&value, "Code").and_then(|value| value.parse().ok());
+                item.message = super::super::super::transport::xml_first(&value, "Message").and_then(|value| value.parse().ok());
+                item.build().ok()
+            })
+            .collect();
+        output.failed = Some(values);
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        output
+            .build()
+            .map_err(|error| super::DeleteMessageBatchError::Unhandled(error.to_string()))
+    }
 }
 pub use Builder as DeleteMessageBatchFluentBuilder;

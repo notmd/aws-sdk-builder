@@ -67,49 +67,79 @@ impl InvocationResponseBuilder {
         self.status_code = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status_code(mut self, input: ::std::option::Option<i32>) -> Self { self.status_code = input; self }
+    pub fn set_status_code(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.status_code = input;
+        self
+    }
     /// <p>The HTTP status code is in the 200 range for a successful request. For the <code>RequestResponse</code> invocation type, this status code is 200. For the <code>Event</code> invocation type, this status code is 202. For the <code>DryRun</code> invocation type, the status code is 204.</p>
-    pub fn get_status_code(&self) -> &::std::option::Option<i32> { &self.status_code }
+    pub fn get_status_code(&self) -> &::std::option::Option<i32> {
+        &self.status_code
+    }
     /// <p>If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.</p>
     pub fn function_error(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_error = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_function_error(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.function_error = input; self }
+    pub fn set_function_error(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.function_error = input;
+        self
+    }
     /// <p>If present, indicates that an error occurred during function execution. Details about the error are included in the response payload.</p>
-    pub fn get_function_error(&self) -> &::std::option::Option<::std::string::String> { &self.function_error }
+    pub fn get_function_error(&self) -> &::std::option::Option<::std::string::String> {
+        &self.function_error
+    }
     /// <p>The last 4 KB of the execution log, which is base64-encoded.</p>
     pub fn log_result(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.log_result = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_log_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.log_result = input; self }
+    pub fn set_log_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.log_result = input;
+        self
+    }
     /// <p>The last 4 KB of the execution log, which is base64-encoded.</p>
-    pub fn get_log_result(&self) -> &::std::option::Option<::std::string::String> { &self.log_result }
+    pub fn get_log_result(&self) -> &::std::option::Option<::std::string::String> {
+        &self.log_result
+    }
     /// <p>The response from the function, or an error object.</p>
     pub fn payload(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.payload = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.payload = input; self }
+    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.payload = input;
+        self
+    }
     /// <p>The response from the function, or an error object.</p>
-    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.payload }
+    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.payload
+    }
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
     pub fn executed_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.executed_version = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_executed_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.executed_version = input; self }
+    pub fn set_executed_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.executed_version = input;
+        self
+    }
     /// <p>The version of the function that executed. When you invoke a function with an alias, this indicates which version the alias resolved to.</p>
-    pub fn get_executed_version(&self) -> &::std::option::Option<::std::string::String> { &self.executed_version }
+    pub fn get_executed_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.executed_version
+    }
     /// <p>The ARN of the durable execution that was started. This is returned when invoking a durable function and provides a unique identifier for tracking the execution.</p>
     pub fn durable_execution_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.durable_execution_arn = input; self }
+    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.durable_execution_arn = input;
+        self
+    }
     /// <p>The ARN of the durable execution that was started. This is returned when invoking a durable function and provides a unique identifier for tracking the execution.</p>
-    pub fn get_durable_execution_arn(&self) -> &::std::option::Option<::std::string::String> { &self.durable_execution_arn }
+    pub fn get_durable_execution_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.durable_execution_arn
+    }
     /// Consumes the builder and constructs a [`InvocationResponse`](crate::types::InvocationResponse).
     pub fn build(self) -> crate::types::InvocationResponse {
         crate::types::InvocationResponse {

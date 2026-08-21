@@ -247,7 +247,44 @@ impl LastUpdateStatusReasonCode {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["CapacityProviderScalingLimitExceeded", "DependencyError", "DisabledKMSKey", "DisallowedByVpcEncryptionControl", "EC2RequestLimitExceeded", "EFSIOError", "EFSMountConnectivityError", "EFSMountFailure", "EFSMountTimeout", "EniLimitExceeded", "FunctionError", "FunctionError.ExtensionInitError", "FunctionError.InitResourceExhausted", "FunctionError.InitTimeout", "FunctionError.InvalidEntryPoint", "FunctionError.InvalidWorkingDirectory", "FunctionError.PermissionDenied", "FunctionError.RuntimeInitError", "FunctionError.TooManyExtensions", "ImageAccessDenied", "ImageDeleted", "InsufficientCapacity", "InsufficientRolePermissions", "InternalError", "InvalidConfiguration", "InvalidImage", "InvalidRuntime", "InvalidSecurityGroup", "InvalidStateKMSKey", "InvalidSubnet", "InvalidZipFileException", "KMSKeyAccessDenied", "KMSKeyNotFound", "ServiceQuotaExceededException", "SubnetOutOfIPAddresses", "VcpuLimitExceeded"]
+        &[
+            "CapacityProviderScalingLimitExceeded",
+            "DependencyError",
+            "DisabledKMSKey",
+            "DisallowedByVpcEncryptionControl",
+            "EC2RequestLimitExceeded",
+            "EFSIOError",
+            "EFSMountConnectivityError",
+            "EFSMountFailure",
+            "EFSMountTimeout",
+            "EniLimitExceeded",
+            "FunctionError",
+            "FunctionError.ExtensionInitError",
+            "FunctionError.InitResourceExhausted",
+            "FunctionError.InitTimeout",
+            "FunctionError.InvalidEntryPoint",
+            "FunctionError.InvalidWorkingDirectory",
+            "FunctionError.PermissionDenied",
+            "FunctionError.RuntimeInitError",
+            "FunctionError.TooManyExtensions",
+            "ImageAccessDenied",
+            "ImageDeleted",
+            "InsufficientCapacity",
+            "InsufficientRolePermissions",
+            "InternalError",
+            "InvalidConfiguration",
+            "InvalidImage",
+            "InvalidRuntime",
+            "InvalidSecurityGroup",
+            "InvalidStateKMSKey",
+            "InvalidSubnet",
+            "InvalidZipFileException",
+            "KMSKeyAccessDenied",
+            "KMSKeyNotFound",
+            "ServiceQuotaExceededException",
+            "SubnetOutOfIPAddresses",
+            "VcpuLimitExceeded",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for LastUpdateStatusReasonCode {

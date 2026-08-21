@@ -51,17 +51,27 @@ impl ListPlatformApplicationsOutputBuilder {
         self.platform_applications = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_platform_applications(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PlatformApplication>>) -> Self { self.platform_applications = input; self }
+    pub fn set_platform_applications(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PlatformApplication>>) -> Self {
+        self.platform_applications = input;
+        self
+    }
     /// <p>Platform applications returned when calling <code>ListPlatformApplications</code> action.</p>
-    pub fn get_platform_applications(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PlatformApplication>> { &self.platform_applications }
+    pub fn get_platform_applications(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PlatformApplication>> {
+        &self.platform_applications
+    }
     /// <p><code>NextToken</code> string is returned when calling <code>ListPlatformApplications</code> action if additional records are available after the first page results.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
+    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_token = input;
+        self
+    }
     /// <p><code>NextToken</code> string is returned when calling <code>ListPlatformApplications</code> action if additional records are available after the first page results.</p>
-    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_token
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

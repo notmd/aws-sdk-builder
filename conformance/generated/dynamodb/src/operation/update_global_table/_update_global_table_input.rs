@@ -40,9 +40,14 @@ impl UpdateGlobalTableInputBuilder {
         self.global_table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.global_table_name = input; self }
+    pub fn set_global_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.global_table_name = input;
+        self
+    }
     /// <p>The global table name.</p>
-    pub fn get_global_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.global_table_name }
+    pub fn get_global_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.global_table_name
+    }
     /// <p>A list of Regions that should be added or removed from the global table.</p>
     /// Appends an item to `replica_updates`.
     ///
@@ -53,9 +58,14 @@ impl UpdateGlobalTableInputBuilder {
         self.replica_updates = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaUpdate>>) -> Self { self.replica_updates = input; self }
+    pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaUpdate>>) -> Self {
+        self.replica_updates = input;
+        self
+    }
     /// <p>A list of Regions that should be added or removed from the global table.</p>
-    pub fn get_replica_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaUpdate>> { &self.replica_updates }
+    pub fn get_replica_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaUpdate>> {
+        &self.replica_updates
+    }
     /// Consumes the builder and constructs a [`UpdateGlobalTableInput`](crate::operation::update_global_table::UpdateGlobalTableInput).
     pub fn build(self) -> crate::operation::update_global_table::UpdateGlobalTableInput {
         crate::operation::update_global_table::UpdateGlobalTableInput {

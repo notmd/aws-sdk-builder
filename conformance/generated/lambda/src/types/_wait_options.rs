@@ -32,9 +32,14 @@ impl WaitOptionsBuilder {
         self.wait_seconds = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_wait_seconds(mut self, input: ::std::option::Option<i32>) -> Self { self.wait_seconds = input; self }
+    pub fn set_wait_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.wait_seconds = input;
+        self
+    }
     /// <p>The duration to wait, in seconds.</p>
-    pub fn get_wait_seconds(&self) -> &::std::option::Option<i32> { &self.wait_seconds }
+    pub fn get_wait_seconds(&self) -> &::std::option::Option<i32> {
+        &self.wait_seconds
+    }
     /// Consumes the builder and constructs a [`WaitOptions`](crate::types::WaitOptions).
     pub fn build(self) -> crate::types::WaitOptions {
         crate::types::WaitOptions {

@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct PutResourcePolicy;
-impl PutResourcePolicy { pub fn new() -> Self { Self } }
+impl PutResourcePolicy {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     InvalidParameterValueException(super::super::types::error::InvalidParameterValueException),
@@ -14,17 +18,37 @@ pub enum Error {
     ServiceException(super::super::types::error::ServiceException),
     TooManyRequestsException(super::super::types::error::TooManyRequestsException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_invalid_parameter_value_exception(&self) -> bool { matches!(self, Self::InvalidParameterValueException(_)) }
-    pub fn is_policy_length_exceeded_exception(&self) -> bool { matches!(self, Self::PolicyLengthExceededException(_)) }
-    pub fn is_precondition_failed_exception(&self) -> bool { matches!(self, Self::PreconditionFailedException(_)) }
-    pub fn is_public_policy_exception(&self) -> bool { matches!(self, Self::PublicPolicyException(_)) }
-    pub fn is_resource_conflict_exception(&self) -> bool { matches!(self, Self::ResourceConflictException(_)) }
-    pub fn is_resource_not_found_exception(&self) -> bool { matches!(self, Self::ResourceNotFoundException(_)) }
-    pub fn is_service_exception(&self) -> bool { matches!(self, Self::ServiceException(_)) }
-    pub fn is_too_many_requests_exception(&self) -> bool { matches!(self, Self::TooManyRequestsException(_)) }
+    pub fn is_invalid_parameter_value_exception(&self) -> bool {
+        matches!(self, Self::InvalidParameterValueException(_))
+    }
+    pub fn is_policy_length_exceeded_exception(&self) -> bool {
+        matches!(self, Self::PolicyLengthExceededException(_))
+    }
+    pub fn is_precondition_failed_exception(&self) -> bool {
+        matches!(self, Self::PreconditionFailedException(_))
+    }
+    pub fn is_public_policy_exception(&self) -> bool {
+        matches!(self, Self::PublicPolicyException(_))
+    }
+    pub fn is_resource_conflict_exception(&self) -> bool {
+        matches!(self, Self::ResourceConflictException(_))
+    }
+    pub fn is_resource_not_found_exception(&self) -> bool {
+        matches!(self, Self::ResourceNotFoundException(_))
+    }
+    pub fn is_service_exception(&self) -> bool {
+        matches!(self, Self::ServiceException(_))
+    }
+    pub fn is_too_many_requests_exception(&self) -> bool {
+        matches!(self, Self::TooManyRequestsException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -44,26 +68,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _put_resource_policy_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/put_resource_policy/_put_resource_policy_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/operation/put_resource_policy/_put_resource_policy_input.rs"
+    ));
 }
 pub use _put_resource_policy_input::PutResourcePolicyInput;
 pub type Input = PutResourcePolicyInput;
 pub mod _put_resource_policy_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/put_resource_policy/_put_resource_policy_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/operation/put_resource_policy/_put_resource_policy_output.rs"
+    ));
 }
 pub use _put_resource_policy_output::PutResourcePolicyOutput;
 pub type Output = PutResourcePolicyOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/put_resource_policy/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/lambda/src/operation/put_resource_policy/builders.rs"
+    ));
 }
 pub type PutResourcePolicyError = Error;
 pub type PutResourcePolicyFluentBuilder = builders::Builder;

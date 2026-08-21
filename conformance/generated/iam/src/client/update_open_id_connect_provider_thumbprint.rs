@@ -10,6 +10,8 @@ impl super::Client {
     pub fn update_open_id_connect_provider_thumbprint(
         &self,
     ) -> crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintFluentBuilder {
-        crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintFluentBuilder::new(self.handle.clone())
+        crate::operation::update_open_id_connect_provider_thumbprint::builders::UpdateOpenIdConnectProviderThumbprintFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

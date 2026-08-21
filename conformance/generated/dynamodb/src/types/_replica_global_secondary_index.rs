@@ -48,31 +48,51 @@ impl ReplicaGlobalSecondaryIndexBuilder {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.index_name = input; self }
+    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.index_name = input;
+        self
+    }
     /// <p>The name of the global secondary index.</p>
-    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> { &self.index_name }
+    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.index_name
+    }
     /// <p>Replica table GSI-specific provisioned throughput. If not specified, uses the source table GSI's read capacity settings.</p>
     pub fn provisioned_throughput_override(mut self, input: crate::types::ProvisionedThroughputOverride) -> Self {
         self.provisioned_throughput_override = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self { self.provisioned_throughput_override = input; self }
+    pub fn set_provisioned_throughput_override(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughputOverride>) -> Self {
+        self.provisioned_throughput_override = input;
+        self
+    }
     /// <p>Replica table GSI-specific provisioned throughput. If not specified, uses the source table GSI's read capacity settings.</p>
-    pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<crate::types::ProvisionedThroughputOverride> { &self.provisioned_throughput_override }
+    pub fn get_provisioned_throughput_override(&self) -> &::std::option::Option<crate::types::ProvisionedThroughputOverride> {
+        &self.provisioned_throughput_override
+    }
     /// <p>Overrides the maximum on-demand throughput settings for the specified global secondary index in the specified replica table.</p>
     pub fn on_demand_throughput_override(mut self, input: crate::types::OnDemandThroughputOverride) -> Self {
         self.on_demand_throughput_override = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self { self.on_demand_throughput_override = input; self }
+    pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<crate::types::OnDemandThroughputOverride>) -> Self {
+        self.on_demand_throughput_override = input;
+        self
+    }
     /// <p>Overrides the maximum on-demand throughput settings for the specified global secondary index in the specified replica table.</p>
-    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughputOverride> { &self.on_demand_throughput_override }
+    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<crate::types::OnDemandThroughputOverride> {
+        &self.on_demand_throughput_override
+    }
     /// Consumes the builder and constructs a [`ReplicaGlobalSecondaryIndex`](crate::types::ReplicaGlobalSecondaryIndex).
     /// This method will fail if any of the following fields are not set:
     /// - [`index_name`](Self::index_name)
     pub fn build(self) -> ::std::result::Result<crate::types::ReplicaGlobalSecondaryIndex, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReplicaGlobalSecondaryIndex {
-            index_name: self.index_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("index_name", "index_name was not specified but it is required when building ReplicaGlobalSecondaryIndex"))?,
+            index_name: self.index_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "index_name",
+                    "index_name was not specified but it is required when building ReplicaGlobalSecondaryIndex",
+                )
+            })?,
             provisioned_throughput_override: self.provisioned_throughput_override,
             on_demand_throughput_override: self.on_demand_throughput_override,
         })

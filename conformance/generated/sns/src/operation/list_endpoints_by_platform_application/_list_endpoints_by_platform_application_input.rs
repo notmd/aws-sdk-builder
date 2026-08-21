@@ -40,17 +40,27 @@ impl ListEndpointsByPlatformApplicationInputBuilder {
         self.platform_application_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.platform_application_arn = input; self }
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.platform_application_arn = input;
+        self
+    }
     /// <p><code>PlatformApplicationArn</code> for <code>ListEndpointsByPlatformApplicationInput</code> action.</p>
-    pub fn get_platform_application_arn(&self) -> &::std::option::Option<::std::string::String> { &self.platform_application_arn }
+    pub fn get_platform_application_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.platform_application_arn
+    }
     /// <p><code>NextToken</code> string is used when calling <code>ListEndpointsByPlatformApplication</code> action to retrieve additional records that are available after the first page results.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
+    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_token = input;
+        self
+    }
     /// <p><code>NextToken</code> string is used when calling <code>ListEndpointsByPlatformApplication</code> action to retrieve additional records that are available after the first page results.</p>
-    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_token
+    }
     /// Consumes the builder and constructs a [`ListEndpointsByPlatformApplicationInput`](crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationInput).
     pub fn build(self) -> crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationInput {
         crate::operation::list_endpoints_by_platform_application::ListEndpointsByPlatformApplicationInput {

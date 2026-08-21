@@ -33,15 +33,25 @@ impl EphemeralStorageBuilder {
         self.size = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_size(mut self, input: ::std::option::Option<i32>) -> Self { self.size = input; self }
+    pub fn set_size(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.size = input;
+        self
+    }
     /// <p>The size of the function's <code>/tmp</code> directory.</p>
-    pub fn get_size(&self) -> &::std::option::Option<i32> { &self.size }
+    pub fn get_size(&self) -> &::std::option::Option<i32> {
+        &self.size
+    }
     /// Consumes the builder and constructs a [`EphemeralStorage`](crate::types::EphemeralStorage).
     /// This method will fail if any of the following fields are not set:
     /// - [`size`](Self::size)
     pub fn build(self) -> ::std::result::Result<crate::types::EphemeralStorage, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::EphemeralStorage {
-            size: self.size.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("size", "size was not specified but it is required when building EphemeralStorage"))?,
+            size: self.size.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "size",
+                    "size was not specified but it is required when building EphemeralStorage",
+                )
+            })?,
         })
     }
 }

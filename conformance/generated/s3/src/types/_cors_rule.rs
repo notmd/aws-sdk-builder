@@ -69,9 +69,14 @@ impl CorsRuleBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>Headers that are specified in the <code>Access-Control-Request-Headers</code> header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.</p>
     /// Appends an item to `allowed_headers`.
     ///
@@ -82,9 +87,14 @@ impl CorsRuleBuilder {
         self.allowed_headers = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_allowed_headers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.allowed_headers = input; self }
+    pub fn set_allowed_headers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.allowed_headers = input;
+        self
+    }
     /// <p>Headers that are specified in the <code>Access-Control-Request-Headers</code> header. These headers are allowed in a preflight OPTIONS request. In response to any preflight OPTIONS request, Amazon S3 returns any requested headers that are allowed.</p>
-    pub fn get_allowed_headers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.allowed_headers }
+    pub fn get_allowed_headers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.allowed_headers
+    }
     /// <p>An HTTP method that you allow the origin to execute. Valid values are <code>GET</code>, <code>PUT</code>, <code>HEAD</code>, <code>POST</code>, and <code>DELETE</code>.</p>
     /// Appends an item to `allowed_methods`.
     ///
@@ -95,9 +105,14 @@ impl CorsRuleBuilder {
         self.allowed_methods = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_allowed_methods(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.allowed_methods = input; self }
+    pub fn set_allowed_methods(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.allowed_methods = input;
+        self
+    }
     /// <p>An HTTP method that you allow the origin to execute. Valid values are <code>GET</code>, <code>PUT</code>, <code>HEAD</code>, <code>POST</code>, and <code>DELETE</code>.</p>
-    pub fn get_allowed_methods(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.allowed_methods }
+    pub fn get_allowed_methods(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.allowed_methods
+    }
     /// <p>One or more origins you want customers to be able to access the bucket from.</p>
     /// Appends an item to `allowed_origins`.
     ///
@@ -108,9 +123,14 @@ impl CorsRuleBuilder {
         self.allowed_origins = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_allowed_origins(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.allowed_origins = input; self }
+    pub fn set_allowed_origins(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.allowed_origins = input;
+        self
+    }
     /// <p>One or more origins you want customers to be able to access the bucket from.</p>
-    pub fn get_allowed_origins(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.allowed_origins }
+    pub fn get_allowed_origins(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.allowed_origins
+    }
     /// <p>One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>
     /// Appends an item to `expose_headers`.
     ///
@@ -121,17 +141,27 @@ impl CorsRuleBuilder {
         self.expose_headers = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_expose_headers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.expose_headers = input; self }
+    pub fn set_expose_headers(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.expose_headers = input;
+        self
+    }
     /// <p>One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript <code>XMLHttpRequest</code> object).</p>
-    pub fn get_expose_headers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.expose_headers }
+    pub fn get_expose_headers(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.expose_headers
+    }
     /// <p>The time in seconds that your browser is to cache the preflight response for the specified resource.</p>
     pub fn max_age_seconds(mut self, input: i32) -> Self {
         self.max_age_seconds = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_age_seconds(mut self, input: ::std::option::Option<i32>) -> Self { self.max_age_seconds = input; self }
+    pub fn set_max_age_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.max_age_seconds = input;
+        self
+    }
     /// <p>The time in seconds that your browser is to cache the preflight response for the specified resource.</p>
-    pub fn get_max_age_seconds(&self) -> &::std::option::Option<i32> { &self.max_age_seconds }
+    pub fn get_max_age_seconds(&self) -> &::std::option::Option<i32> {
+        &self.max_age_seconds
+    }
     /// Consumes the builder and constructs a [`CorsRule`](crate::types::CorsRule).
     /// This method will fail if any of the following fields are not set:
     /// - [`allowed_methods`](Self::allowed_methods)
@@ -140,8 +170,18 @@ impl CorsRuleBuilder {
         ::std::result::Result::Ok(crate::types::CorsRule {
             id: self.id,
             allowed_headers: self.allowed_headers,
-            allowed_methods: self.allowed_methods.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("allowed_methods", "allowed_methods was not specified but it is required when building CorsRule"))?,
-            allowed_origins: self.allowed_origins.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("allowed_origins", "allowed_origins was not specified but it is required when building CorsRule"))?,
+            allowed_methods: self.allowed_methods.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "allowed_methods",
+                    "allowed_methods was not specified but it is required when building CorsRule",
+                )
+            })?,
+            allowed_origins: self.allowed_origins.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "allowed_origins",
+                    "allowed_origins was not specified but it is required when building CorsRule",
+                )
+            })?,
             expose_headers: self.expose_headers,
             max_age_seconds: self.max_age_seconds,
         })

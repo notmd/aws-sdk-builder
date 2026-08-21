@@ -41,26 +41,46 @@ impl GetLayerVersionPolicyRequestBuilder {
         self.layer_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_layer_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.layer_name = input; self }
+    pub fn set_layer_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.layer_name = input;
+        self
+    }
     /// <p>The name or Amazon Resource Name (ARN) of the layer.</p>
-    pub fn get_layer_name(&self) -> &::std::option::Option<::std::string::String> { &self.layer_name }
+    pub fn get_layer_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.layer_name
+    }
     /// <p>The version number.</p>
     /// This field is required.
     pub fn version_number(mut self, input: i64) -> Self {
         self.version_number = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_version_number(mut self, input: ::std::option::Option<i64>) -> Self { self.version_number = input; self }
+    pub fn set_version_number(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.version_number = input;
+        self
+    }
     /// <p>The version number.</p>
-    pub fn get_version_number(&self) -> &::std::option::Option<i64> { &self.version_number }
+    pub fn get_version_number(&self) -> &::std::option::Option<i64> {
+        &self.version_number
+    }
     /// Consumes the builder and constructs a [`GetLayerVersionPolicyRequest`](crate::types::GetLayerVersionPolicyRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`layer_name`](Self::layer_name)
     /// - [`version_number`](Self::version_number)
     pub fn build(self) -> ::std::result::Result<crate::types::GetLayerVersionPolicyRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetLayerVersionPolicyRequest {
-            layer_name: self.layer_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("layer_name", "layer_name was not specified but it is required when building GetLayerVersionPolicyRequest"))?,
-            version_number: self.version_number.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("version_number", "version_number was not specified but it is required when building GetLayerVersionPolicyRequest"))?,
+            layer_name: self.layer_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "layer_name",
+                    "layer_name was not specified but it is required when building GetLayerVersionPolicyRequest",
+                )
+            })?,
+            version_number: self.version_number.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "version_number",
+                    "version_number was not specified but it is required when building GetLayerVersionPolicyRequest",
+                )
+            })?,
         })
     }
 }

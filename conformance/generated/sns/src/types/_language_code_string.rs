@@ -132,7 +132,9 @@ impl LanguageCodeString {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["de-DE", "en-GB", "en-US", "es-419", "es-ES", "fr-CA", "fr-FR", "it-IT", "ja-JP", "kr-KR", "pt-BR", "zh-CN", "zh-TW"]
+        &[
+            "de-DE", "en-GB", "en-US", "es-419", "es-ES", "fr-CA", "fr-FR", "it-IT", "ja-JP", "kr-KR", "pt-BR", "zh-CN", "zh-TW",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for LanguageCodeString {

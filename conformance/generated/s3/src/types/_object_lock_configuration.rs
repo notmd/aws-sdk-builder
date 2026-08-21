@@ -39,17 +39,27 @@ impl ObjectLockConfigurationBuilder {
         self.object_lock_enabled = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_object_lock_enabled(mut self, input: ::std::option::Option<crate::types::ObjectLockEnabled>) -> Self { self.object_lock_enabled = input; self }
+    pub fn set_object_lock_enabled(mut self, input: ::std::option::Option<crate::types::ObjectLockEnabled>) -> Self {
+        self.object_lock_enabled = input;
+        self
+    }
     /// <p>Indicates whether this bucket has an Object Lock configuration enabled. Enable <code>ObjectLockEnabled</code> when you apply <code>ObjectLockConfiguration</code> to a bucket.</p>
-    pub fn get_object_lock_enabled(&self) -> &::std::option::Option<crate::types::ObjectLockEnabled> { &self.object_lock_enabled }
+    pub fn get_object_lock_enabled(&self) -> &::std::option::Option<crate::types::ObjectLockEnabled> {
+        &self.object_lock_enabled
+    }
     /// <p>Specifies the Object Lock rule for the specified object. Enable the this rule when you apply <code>ObjectLockConfiguration</code> to a bucket. Bucket settings require both a mode and a period. The period can be either <code>Days</code> or <code>Years</code> but you must select one. You cannot specify <code>Days</code> and <code>Years</code> at the same time.</p>
     pub fn rule(mut self, input: crate::types::ObjectLockRule) -> Self {
         self.rule = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_rule(mut self, input: ::std::option::Option<crate::types::ObjectLockRule>) -> Self { self.rule = input; self }
+    pub fn set_rule(mut self, input: ::std::option::Option<crate::types::ObjectLockRule>) -> Self {
+        self.rule = input;
+        self
+    }
     /// <p>Specifies the Object Lock rule for the specified object. Enable the this rule when you apply <code>ObjectLockConfiguration</code> to a bucket. Bucket settings require both a mode and a period. The period can be either <code>Days</code> or <code>Years</code> but you must select one. You cannot specify <code>Days</code> and <code>Years</code> at the same time.</p>
-    pub fn get_rule(&self) -> &::std::option::Option<crate::types::ObjectLockRule> { &self.rule }
+    pub fn get_rule(&self) -> &::std::option::Option<crate::types::ObjectLockRule> {
+        &self.rule
+    }
     /// Consumes the builder and constructs a [`ObjectLockConfiguration`](crate::types::ObjectLockConfiguration).
     pub fn build(self) -> crate::types::ObjectLockConfiguration {
         crate::types::ObjectLockConfiguration {

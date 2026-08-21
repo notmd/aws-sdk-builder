@@ -46,25 +46,40 @@ impl ProgressBuilder {
         self.bytes_scanned = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_bytes_scanned(mut self, input: ::std::option::Option<i64>) -> Self { self.bytes_scanned = input; self }
+    pub fn set_bytes_scanned(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.bytes_scanned = input;
+        self
+    }
     /// <p>The current number of object bytes scanned.</p>
-    pub fn get_bytes_scanned(&self) -> &::std::option::Option<i64> { &self.bytes_scanned }
+    pub fn get_bytes_scanned(&self) -> &::std::option::Option<i64> {
+        &self.bytes_scanned
+    }
     /// <p>The current number of uncompressed object bytes processed.</p>
     pub fn bytes_processed(mut self, input: i64) -> Self {
         self.bytes_processed = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_bytes_processed(mut self, input: ::std::option::Option<i64>) -> Self { self.bytes_processed = input; self }
+    pub fn set_bytes_processed(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.bytes_processed = input;
+        self
+    }
     /// <p>The current number of uncompressed object bytes processed.</p>
-    pub fn get_bytes_processed(&self) -> &::std::option::Option<i64> { &self.bytes_processed }
+    pub fn get_bytes_processed(&self) -> &::std::option::Option<i64> {
+        &self.bytes_processed
+    }
     /// <p>The current number of bytes of records payload data returned.</p>
     pub fn bytes_returned(mut self, input: i64) -> Self {
         self.bytes_returned = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_bytes_returned(mut self, input: ::std::option::Option<i64>) -> Self { self.bytes_returned = input; self }
+    pub fn set_bytes_returned(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.bytes_returned = input;
+        self
+    }
     /// <p>The current number of bytes of records payload data returned.</p>
-    pub fn get_bytes_returned(&self) -> &::std::option::Option<i64> { &self.bytes_returned }
+    pub fn get_bytes_returned(&self) -> &::std::option::Option<i64> {
+        &self.bytes_returned
+    }
     /// Consumes the builder and constructs a [`Progress`](crate::types::Progress).
     pub fn build(self) -> crate::types::Progress {
         crate::types::Progress {

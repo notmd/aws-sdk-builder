@@ -37,15 +37,25 @@ impl DeleteRequestBuilder {
         self.key = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.</p>
-    pub fn get_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+        &self.key
+    }
     /// Consumes the builder and constructs a [`DeleteRequest`](crate::types::DeleteRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`key`](Self::key)
     pub fn build(self) -> ::std::result::Result<crate::types::DeleteRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteRequest {
-            key: self.key.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("key", "key was not specified but it is required when building DeleteRequest"))?,
+            key: self.key.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "key",
+                    "key was not specified but it is required when building DeleteRequest",
+                )
+            })?,
         })
     }
 }

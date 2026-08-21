@@ -41,17 +41,27 @@ impl AttachedPermissionsBoundaryBuilder {
         self.permissions_boundary_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_permissions_boundary_type(mut self, input: ::std::option::Option<crate::types::PermissionsBoundaryAttachmentType>) -> Self { self.permissions_boundary_type = input; self }
+    pub fn set_permissions_boundary_type(mut self, input: ::std::option::Option<crate::types::PermissionsBoundaryAttachmentType>) -> Self {
+        self.permissions_boundary_type = input;
+        self
+    }
     /// <p>The permissions boundary usage type that indicates what type of IAM resource is used as the permissions boundary for an entity. This data type can only have a value of <code>Policy</code>.</p>
-    pub fn get_permissions_boundary_type(&self) -> &::std::option::Option<crate::types::PermissionsBoundaryAttachmentType> { &self.permissions_boundary_type }
+    pub fn get_permissions_boundary_type(&self) -> &::std::option::Option<crate::types::PermissionsBoundaryAttachmentType> {
+        &self.permissions_boundary_type
+    }
     /// <p>The ARN of the policy used to set the permissions boundary for the user or role.</p>
     pub fn permissions_boundary_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.permissions_boundary_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_permissions_boundary_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.permissions_boundary_arn = input; self }
+    pub fn set_permissions_boundary_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.permissions_boundary_arn = input;
+        self
+    }
     /// <p>The ARN of the policy used to set the permissions boundary for the user or role.</p>
-    pub fn get_permissions_boundary_arn(&self) -> &::std::option::Option<::std::string::String> { &self.permissions_boundary_arn }
+    pub fn get_permissions_boundary_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.permissions_boundary_arn
+    }
     /// Consumes the builder and constructs a [`AttachedPermissionsBoundary`](crate::types::AttachedPermissionsBoundary).
     pub fn build(self) -> crate::types::AttachedPermissionsBoundary {
         crate::types::AttachedPermissionsBoundary {

@@ -40,23 +40,38 @@ impl ReplicationTimeBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ReplicationTimeStatus>) -> Self { self.status = input; self }
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ReplicationTimeStatus>) -> Self {
+        self.status = input;
+        self
+    }
     /// <p>Specifies whether the replication time is enabled.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::ReplicationTimeStatus> { &self.status }
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::ReplicationTimeStatus> {
+        &self.status
+    }
     /// <p>A container specifying the time by which replication should be complete for all objects and operations on objects.</p>
     pub fn time(mut self, input: crate::types::ReplicationTimeValue) -> Self {
         self.time = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_time(mut self, input: ::std::option::Option<crate::types::ReplicationTimeValue>) -> Self { self.time = input; self }
+    pub fn set_time(mut self, input: ::std::option::Option<crate::types::ReplicationTimeValue>) -> Self {
+        self.time = input;
+        self
+    }
     /// <p>A container specifying the time by which replication should be complete for all objects and operations on objects.</p>
-    pub fn get_time(&self) -> &::std::option::Option<crate::types::ReplicationTimeValue> { &self.time }
+    pub fn get_time(&self) -> &::std::option::Option<crate::types::ReplicationTimeValue> {
+        &self.time
+    }
     /// Consumes the builder and constructs a [`ReplicationTime`](crate::types::ReplicationTime).
     /// This method will fail if any of the following fields are not set:
     /// - [`status`](Self::status)
     pub fn build(self) -> ::std::result::Result<crate::types::ReplicationTime, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReplicationTime {
-            status: self.status.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building ReplicationTime"))?,
+            status: self.status.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "status",
+                    "status was not specified but it is required when building ReplicationTime",
+                )
+            })?,
             time: self.time,
         })
     }

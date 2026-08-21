@@ -46,9 +46,14 @@ impl GetObjectLegalHoldOutputBuilder {
         self.legal_hold = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_legal_hold(mut self, input: ::std::option::Option<crate::types::ObjectLockLegalHold>) -> Self { self.legal_hold = input; self }
+    pub fn set_legal_hold(mut self, input: ::std::option::Option<crate::types::ObjectLockLegalHold>) -> Self {
+        self.legal_hold = input;
+        self
+    }
     /// <p>The current legal hold status for the specified object.</p>
-    pub fn get_legal_hold(&self) -> &::std::option::Option<crate::types::ObjectLockLegalHold> { &self.legal_hold }
+    pub fn get_legal_hold(&self) -> &::std::option::Option<crate::types::ObjectLockLegalHold> {
+        &self.legal_hold
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

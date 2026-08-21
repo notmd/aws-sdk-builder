@@ -51,9 +51,14 @@ impl BatchExecuteStatementOutputBuilder {
         self.responses = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>>) -> Self { self.responses = input; self }
+    pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>>) -> Self {
+        self.responses = input;
+        self
+    }
     /// <p>The response to each PartiQL statement in the batch. The values of the list are ordered according to the ordering of the request statements.</p>
-    pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>> { &self.responses }
+    pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>> {
+        &self.responses
+    }
     /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
     /// Appends an item to `consumed_capacity`.
     ///
@@ -64,9 +69,14 @@ impl BatchExecuteStatementOutputBuilder {
         self.consumed_capacity = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = input; self }
+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>) -> Self {
+        self.consumed_capacity = input;
+        self
+    }
     /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
-    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>> { &self.consumed_capacity }
+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>> {
+        &self.consumed_capacity
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

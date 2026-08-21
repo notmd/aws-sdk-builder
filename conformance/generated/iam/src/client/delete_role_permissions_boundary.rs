@@ -6,7 +6,9 @@ impl super::Client {
     ///   - [`role_name(impl Into<String>)`](crate::operation::delete_role_permissions_boundary::builders::DeleteRolePermissionsBoundaryFluentBuilder::role_name) / [`set_role_name(Option<String>)`](crate::operation::delete_role_permissions_boundary::builders::DeleteRolePermissionsBoundaryFluentBuilder::set_role_name):<br>required: **true**<br><p>The name (friendly name, not ARN) of the IAM role from which you want to remove the permissions boundary.</p><br>
     /// - On success, responds with [`DeleteRolePermissionsBoundaryOutput`](crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryOutput)
     /// - On failure, responds with [`SdkError<DeleteRolePermissionsBoundaryError>`](crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryError)
-    pub fn delete_role_permissions_boundary(&self) -> crate::operation::delete_role_permissions_boundary::builders::DeleteRolePermissionsBoundaryFluentBuilder {
+    pub fn delete_role_permissions_boundary(
+        &self,
+    ) -> crate::operation::delete_role_permissions_boundary::builders::DeleteRolePermissionsBoundaryFluentBuilder {
         crate::operation::delete_role_permissions_boundary::builders::DeleteRolePermissionsBoundaryFluentBuilder::new(self.handle.clone())
     }
 }

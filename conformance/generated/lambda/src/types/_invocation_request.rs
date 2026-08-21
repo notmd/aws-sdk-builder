@@ -87,75 +87,120 @@ impl InvocationRequestBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.function_name = input; self }
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.function_name = input;
+        self
+    }
     /// <p>The name or ARN of the Lambda function, version, or alias.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> – <code>my-function</code> (name-only), <code>my-function:v1</code> (with alias).</p></li><li><p><b>Function ARN</b> – <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> – <code>123456789012:function:my-function</code>.</p></li></ul><p>You can append a version number or alias to any of the formats. The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
-    pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> { &self.function_name }
+    pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.function_name
+    }
     /// <p>Choose from the following options.</p><ul><li><p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p></li><li><p><code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p></li><li><p><code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p></li></ul>
     pub fn invocation_type(mut self, input: crate::types::InvocationType) -> Self {
         self.invocation_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_invocation_type(mut self, input: ::std::option::Option<crate::types::InvocationType>) -> Self { self.invocation_type = input; self }
+    pub fn set_invocation_type(mut self, input: ::std::option::Option<crate::types::InvocationType>) -> Self {
+        self.invocation_type = input;
+        self
+    }
     /// <p>Choose from the following options.</p><ul><li><p><code>RequestResponse</code> (default) – Invoke the function synchronously. Keep the connection open until the function returns a response or times out. The API response includes the function response and additional data.</p></li><li><p><code>Event</code> – Invoke the function asynchronously. Send events that fail multiple times to the function's dead-letter queue (if one is configured). The API response only includes a status code.</p></li><li><p><code>DryRun</code> – Validate parameter values and verify that the user or role has permission to invoke the function.</p></li></ul>
-    pub fn get_invocation_type(&self) -> &::std::option::Option<crate::types::InvocationType> { &self.invocation_type }
+    pub fn get_invocation_type(&self) -> &::std::option::Option<crate::types::InvocationType> {
+        &self.invocation_type
+    }
     /// <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
     pub fn log_type(mut self, input: crate::types::LogType) -> Self {
         self.log_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_log_type(mut self, input: ::std::option::Option<crate::types::LogType>) -> Self { self.log_type = input; self }
+    pub fn set_log_type(mut self, input: ::std::option::Option<crate::types::LogType>) -> Self {
+        self.log_type = input;
+        self
+    }
     /// <p>Set to <code>Tail</code> to include the execution log in the response. Applies to synchronously invoked functions only.</p>
-    pub fn get_log_type(&self) -> &::std::option::Option<crate::types::LogType> { &self.log_type }
+    pub fn get_log_type(&self) -> &::std::option::Option<crate::types::LogType> {
+        &self.log_type
+    }
     /// <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object. Lambda passes the <code>ClientContext</code> object to your function for synchronous invocations only.</p>
     pub fn client_context(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.client_context = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_client_context(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.client_context = input; self }
+    pub fn set_client_context(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.client_context = input;
+        self
+    }
     /// <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context object. Lambda passes the <code>ClientContext</code> object to your function for synchronous invocations only.</p>
-    pub fn get_client_context(&self) -> &::std::option::Option<::std::string::String> { &self.client_context }
+    pub fn get_client_context(&self) -> &::std::option::Option<::std::string::String> {
+        &self.client_context
+    }
     /// <p>A unique name for the durable execution. If you invoke a durable function using a name that already exists with the same payload, Lambda returns the existing execution instead of creating a duplicate. If the payload differs, Lambda returns a <code>DurableExecutionAlreadyStartedException</code> error.</p>
     /// <p>If not specified, Lambda generates a unique identifier automatically. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-execution-idempotency.html#durable-idempotency-execution-names">Execution names</a>.</p>
     pub fn durable_execution_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.durable_execution_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.durable_execution_name = input; self }
+    pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.durable_execution_name = input;
+        self
+    }
     /// <p>A unique name for the durable execution. If you invoke a durable function using a name that already exists with the same payload, Lambda returns the existing execution instead of creating a duplicate. If the payload differs, Lambda returns a <code>DurableExecutionAlreadyStartedException</code> error.</p>
     /// <p>If not specified, Lambda generates a unique identifier automatically. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/durable-execution-idempotency.html#durable-idempotency-execution-names">Execution names</a>.</p>
-    pub fn get_durable_execution_name(&self) -> &::std::option::Option<::std::string::String> { &self.durable_execution_name }
+    pub fn get_durable_execution_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.durable_execution_name
+    }
     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
     pub fn payload(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.payload = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.payload = input; self }
+    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.payload = input;
+        self
+    }
     /// <p>The JSON that you want to provide to your Lambda function as input. The maximum payload size is 6 MB for synchronous invocations and 1 MB for asynchronous invocations.</p>
     /// <p>You can enter the JSON directly. For example, <code>--payload '{ "key": "value" }'</code>. You can also specify a file path. For example, <code>--payload file://payload.json</code>.</p>
-    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.payload }
+    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.payload
+    }
     /// <p>Specify a version or alias to invoke a published version of the function.</p>
     pub fn qualifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.qualifier = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.qualifier = input; self }
+    pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.qualifier = input;
+        self
+    }
     /// <p>Specify a version or alias to invoke a published version of the function.</p>
-    pub fn get_qualifier(&self) -> &::std::option::Option<::std::string::String> { &self.qualifier }
+    pub fn get_qualifier(&self) -> &::std::option::Option<::std::string::String> {
+        &self.qualifier
+    }
     /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
     pub fn tenant_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.tenant_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_tenant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.tenant_id = input; self }
+    pub fn set_tenant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.tenant_id = input;
+        self
+    }
     /// <p>The identifier of the tenant in a multi-tenant Lambda function.</p>
-    pub fn get_tenant_id(&self) -> &::std::option::Option<::std::string::String> { &self.tenant_id }
+    pub fn get_tenant_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.tenant_id
+    }
     /// Consumes the builder and constructs a [`InvocationRequest`](crate::types::InvocationRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`function_name`](Self::function_name)
     pub fn build(self) -> ::std::result::Result<crate::types::InvocationRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InvocationRequest {
-            function_name: self.function_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_name", "function_name was not specified but it is required when building InvocationRequest"))?,
+            function_name: self.function_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "function_name",
+                    "function_name was not specified but it is required when building InvocationRequest",
+                )
+            })?,
             invocation_type: self.invocation_type,
             log_type: self.log_type,
             client_context: self.client_context,

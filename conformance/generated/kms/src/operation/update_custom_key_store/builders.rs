@@ -6,34 +6,82 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn custom_key_store_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.custom_key_store_id = Some(value.into()); self }
-    pub fn new_custom_key_store_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.new_custom_key_store_name = Some(value.into()); self }
-    pub fn key_store_password(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_store_password = Some(value.into()); self }
-    pub fn cloud_hsm_cluster_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.cloud_hsm_cluster_id = Some(value.into()); self }
-    pub fn xks_proxy_uri_endpoint(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.xks_proxy_uri_endpoint = Some(value.into()); self }
-    pub fn xks_proxy_uri_path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.xks_proxy_uri_path = Some(value.into()); self }
-    pub fn xks_proxy_vpc_endpoint_service_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.xks_proxy_vpc_endpoint_service_name = Some(value.into()); self }
-    pub fn xks_proxy_vpc_endpoint_service_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.xks_proxy_vpc_endpoint_service_owner = Some(value.into()); self }
-    pub fn xks_proxy_authentication_credential(mut self, value: impl ::std::convert::Into<crate::types::XksProxyAuthenticationCredentialType>) -> Self { self.input.xks_proxy_authentication_credential = Some(value.into()); self }
-    pub fn xks_proxy_connectivity(mut self, value: impl ::std::convert::Into<crate::types::XksProxyConnectivityType>) -> Self { self.input.xks_proxy_connectivity = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::UpdateCustomKeyStoreOutput, super::UpdateCustomKeyStoreError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::UpdateCustomKeyStoreError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::UpdateCustomKeyStoreError::unhandled_with_request_ids(format!("UpdateCustomKeyStore returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_update_custom_key_store_output::UpdateCustomKeyStoreOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn custom_key_store_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.custom_key_store_id = Some(value.into());
+        self
+    }
+    pub fn new_custom_key_store_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.new_custom_key_store_name = Some(value.into());
+        self
+    }
+    pub fn key_store_password(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key_store_password = Some(value.into());
+        self
+    }
+    pub fn cloud_hsm_cluster_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.cloud_hsm_cluster_id = Some(value.into());
+        self
+    }
+    pub fn xks_proxy_uri_endpoint(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.xks_proxy_uri_endpoint = Some(value.into());
+        self
+    }
+    pub fn xks_proxy_uri_path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.xks_proxy_uri_path = Some(value.into());
+        self
+    }
+    pub fn xks_proxy_vpc_endpoint_service_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.xks_proxy_vpc_endpoint_service_name = Some(value.into());
+        self
+    }
+    pub fn xks_proxy_vpc_endpoint_service_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.xks_proxy_vpc_endpoint_service_owner = Some(value.into());
+        self
+    }
+    pub fn xks_proxy_authentication_credential(
+        mut self,
+        value: impl ::std::convert::Into<crate::types::XksProxyAuthenticationCredentialType>,
+    ) -> Self {
+        self.input.xks_proxy_authentication_credential = Some(value.into());
+        self
+    }
+    pub fn xks_proxy_connectivity(mut self, value: impl ::std::convert::Into<crate::types::XksProxyConnectivityType>) -> Self {
+        self.input.xks_proxy_connectivity = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::UpdateCustomKeyStoreOutput, super::UpdateCustomKeyStoreError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::UpdateCustomKeyStoreError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::UpdateCustomKeyStoreError::unhandled_with_request_ids(
+                format!("UpdateCustomKeyStore returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_update_custom_key_store_output::UpdateCustomKeyStoreOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as UpdateCustomKeyStoreFluentBuilder;

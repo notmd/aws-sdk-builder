@@ -40,23 +40,38 @@ impl StorageClassAnalysisDataExportBuilder {
         self.output_schema_version = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_output_schema_version(mut self, input: ::std::option::Option<crate::types::StorageClassAnalysisSchemaVersion>) -> Self { self.output_schema_version = input; self }
+    pub fn set_output_schema_version(mut self, input: ::std::option::Option<crate::types::StorageClassAnalysisSchemaVersion>) -> Self {
+        self.output_schema_version = input;
+        self
+    }
     /// <p>The version of the output schema to use when exporting data. Must be <code>V_1</code>.</p>
-    pub fn get_output_schema_version(&self) -> &::std::option::Option<crate::types::StorageClassAnalysisSchemaVersion> { &self.output_schema_version }
+    pub fn get_output_schema_version(&self) -> &::std::option::Option<crate::types::StorageClassAnalysisSchemaVersion> {
+        &self.output_schema_version
+    }
     /// <p>The place to store the data for an analysis.</p>
     pub fn destination(mut self, input: crate::types::AnalyticsExportDestination) -> Self {
         self.destination = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_destination(mut self, input: ::std::option::Option<crate::types::AnalyticsExportDestination>) -> Self { self.destination = input; self }
+    pub fn set_destination(mut self, input: ::std::option::Option<crate::types::AnalyticsExportDestination>) -> Self {
+        self.destination = input;
+        self
+    }
     /// <p>The place to store the data for an analysis.</p>
-    pub fn get_destination(&self) -> &::std::option::Option<crate::types::AnalyticsExportDestination> { &self.destination }
+    pub fn get_destination(&self) -> &::std::option::Option<crate::types::AnalyticsExportDestination> {
+        &self.destination
+    }
     /// Consumes the builder and constructs a [`StorageClassAnalysisDataExport`](crate::types::StorageClassAnalysisDataExport).
     /// This method will fail if any of the following fields are not set:
     /// - [`output_schema_version`](Self::output_schema_version)
     pub fn build(self) -> ::std::result::Result<crate::types::StorageClassAnalysisDataExport, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::StorageClassAnalysisDataExport {
-            output_schema_version: self.output_schema_version.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("output_schema_version", "output_schema_version was not specified but it is required when building StorageClassAnalysisDataExport"))?,
+            output_schema_version: self.output_schema_version.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "output_schema_version",
+                    "output_schema_version was not specified but it is required when building StorageClassAnalysisDataExport",
+                )
+            })?,
             destination: self.destination,
         })
     }

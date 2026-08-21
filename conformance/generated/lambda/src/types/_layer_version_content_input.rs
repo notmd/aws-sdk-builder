@@ -60,41 +60,66 @@ impl LayerVersionContentInputBuilder {
         self.s3_bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.s3_bucket = input; self }
+    pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.s3_bucket = input;
+        self
+    }
     /// <p>The Amazon S3 bucket of the layer archive.</p>
-    pub fn get_s3_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.s3_bucket }
+    pub fn get_s3_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.s3_bucket
+    }
     /// <p>The Amazon S3 key of the layer archive.</p>
     pub fn s3_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_s3_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.s3_key = input; self }
+    pub fn set_s3_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.s3_key = input;
+        self
+    }
     /// <p>The Amazon S3 key of the layer archive.</p>
-    pub fn get_s3_key(&self) -> &::std::option::Option<::std::string::String> { &self.s3_key }
+    pub fn get_s3_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.s3_key
+    }
     /// <p>For versioned objects, the version of the layer archive object to use.</p>
     pub fn s3_object_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_object_version = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_s3_object_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.s3_object_version = input; self }
+    pub fn set_s3_object_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.s3_object_version = input;
+        self
+    }
     /// <p>For versioned objects, the version of the layer archive object to use.</p>
-    pub fn get_s3_object_version(&self) -> &::std::option::Option<::std::string::String> { &self.s3_object_version }
+    pub fn get_s3_object_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.s3_object_version
+    }
     /// <p>Specifies how the layer archive is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li></ul>
     pub fn s3_object_storage_mode(mut self, input: crate::types::S3ObjectStorageMode) -> Self {
         self.s3_object_storage_mode = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_s3_object_storage_mode(mut self, input: ::std::option::Option<crate::types::S3ObjectStorageMode>) -> Self { self.s3_object_storage_mode = input; self }
+    pub fn set_s3_object_storage_mode(mut self, input: ::std::option::Option<crate::types::S3ObjectStorageMode>) -> Self {
+        self.s3_object_storage_mode = input;
+        self
+    }
     /// <p>Specifies how the layer archive is stored. Valid values:</p><ul><li><p><code>COPY</code> (default) – Uploads a copy of your layer archive to Lambda.</p></li><li><p><code>REFERENCE</code> – Lambda references the layer archive from the specified Amazon S3 bucket.</p></li></ul>
-    pub fn get_s3_object_storage_mode(&self) -> &::std::option::Option<crate::types::S3ObjectStorageMode> { &self.s3_object_storage_mode }
+    pub fn get_s3_object_storage_mode(&self) -> &::std::option::Option<crate::types::S3ObjectStorageMode> {
+        &self.s3_object_storage_mode
+    }
     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
     pub fn zip_file(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.zip_file = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_zip_file(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.zip_file = input; self }
+    pub fn set_zip_file(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.zip_file = input;
+        self
+    }
     /// <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
-    pub fn get_zip_file(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.zip_file }
+    pub fn get_zip_file(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.zip_file
+    }
     /// Consumes the builder and constructs a [`LayerVersionContentInput`](crate::types::LayerVersionContentInput).
     pub fn build(self) -> crate::types::LayerVersionContentInput {
         crate::types::LayerVersionContentInput {

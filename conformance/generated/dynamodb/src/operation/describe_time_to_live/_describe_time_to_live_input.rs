@@ -33,13 +33,16 @@ impl DescribeTimeToLiveInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the table to be described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// Consumes the builder and constructs a [`DescribeTimeToLiveInput`](crate::operation::describe_time_to_live::DescribeTimeToLiveInput).
     pub fn build(self) -> crate::operation::describe_time_to_live::DescribeTimeToLiveInput {
-        crate::operation::describe_time_to_live::DescribeTimeToLiveInput {
-            table_name: self.table_name,
-        }
+        crate::operation::describe_time_to_live::DescribeTimeToLiveInput { table_name: self.table_name }
     }
 }

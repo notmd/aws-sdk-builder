@@ -112,7 +112,17 @@ impl DataKeyPairSpec {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["ECC_NIST_EDWARDS25519", "ECC_NIST_P256", "ECC_NIST_P384", "ECC_NIST_P521", "ECC_SECG_P256K1", "RSA_2048", "RSA_3072", "RSA_4096", "SM2"]
+        &[
+            "ECC_NIST_EDWARDS25519",
+            "ECC_NIST_P256",
+            "ECC_NIST_P384",
+            "ECC_NIST_P521",
+            "ECC_SECG_P256K1",
+            "RSA_2048",
+            "RSA_3072",
+            "RSA_4096",
+            "SM2",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for DataKeyPairSpec {

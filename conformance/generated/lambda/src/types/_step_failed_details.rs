@@ -39,17 +39,27 @@ impl StepFailedDetailsBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>Details about the step failure.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> {
+        &self.error
+    }
     /// <p>Information about retry attempts for this step operation.</p>
     pub fn retry_details(mut self, input: crate::types::RetryDetails) -> Self {
         self.retry_details = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_retry_details(mut self, input: ::std::option::Option<crate::types::RetryDetails>) -> Self { self.retry_details = input; self }
+    pub fn set_retry_details(mut self, input: ::std::option::Option<crate::types::RetryDetails>) -> Self {
+        self.retry_details = input;
+        self
+    }
     /// <p>Information about retry attempts for this step operation.</p>
-    pub fn get_retry_details(&self) -> &::std::option::Option<crate::types::RetryDetails> { &self.retry_details }
+    pub fn get_retry_details(&self) -> &::std::option::Option<crate::types::RetryDetails> {
+        &self.retry_details
+    }
     /// Consumes the builder and constructs a [`StepFailedDetails`](crate::types::StepFailedDetails).
     pub fn build(self) -> crate::types::StepFailedDetails {
         crate::types::StepFailedDetails {

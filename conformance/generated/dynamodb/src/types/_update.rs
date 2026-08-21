@@ -43,7 +43,9 @@ impl Update {
         self.expression_attribute_names.as_ref()
     }
     /// <p>One or more values that can be substituted in an expression.</p>
-    pub fn expression_attribute_values(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+    pub fn expression_attribute_values(
+        &self,
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         self.expression_attribute_values.as_ref()
     }
     /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Update</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
@@ -81,48 +83,82 @@ impl UpdateBuilder {
         self.key = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
-    pub fn get_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+        &self.key
+    }
     /// <p>An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.</p>
     /// This field is required.
     pub fn update_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.update_expression = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_update_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.update_expression = input; self }
+    pub fn set_update_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.update_expression = input;
+        self
+    }
     /// <p>An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.</p>
-    pub fn get_update_expression(&self) -> &::std::option::Option<::std::string::String> { &self.update_expression }
+    pub fn get_update_expression(&self) -> &::std::option::Option<::std::string::String> {
+        &self.update_expression
+    }
     /// <p>Name of the table for the <code>UpdateItem</code> request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     /// This field is required.
     pub fn table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>Name of the table for the <code>UpdateItem</code> request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
     pub fn condition_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.condition_expression = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.condition_expression = input; self }
+    pub fn set_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.condition_expression = input;
+        self
+    }
     /// <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
-    pub fn get_condition_expression(&self) -> &::std::option::Option<::std::string::String> { &self.condition_expression }
+    pub fn get_condition_expression(&self) -> &::std::option::Option<::std::string::String> {
+        &self.condition_expression
+    }
     /// <p>One or more substitution tokens for attribute names in an expression.</p>
     /// Adds a key-value pair to `expression_attribute_names`.
     ///
     /// To override the contents of this collection use [`set_expression_attribute_names`](Self::set_expression_attribute_names).
-    pub fn expression_attribute_names(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expression_attribute_names(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut map = self.expression_attribute_names.unwrap_or_default();
         map.insert(k.into(), v.into());
         self.expression_attribute_names = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.expression_attribute_names = input; self }
+    pub fn set_expression_attribute_names(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    ) -> Self {
+        self.expression_attribute_names = input;
+        self
+    }
     /// <p>One or more substitution tokens for attribute names in an expression.</p>
-    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.expression_attribute_names }
+    pub fn get_expression_attribute_names(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.expression_attribute_names
+    }
     /// <p>One or more values that can be substituted in an expression.</p>
     /// Adds a key-value pair to `expression_attribute_values`.
     ///
@@ -133,17 +169,35 @@ impl UpdateBuilder {
         self.expression_attribute_values = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
+    pub fn set_expression_attribute_values(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    ) -> Self {
+        self.expression_attribute_values = input;
+        self
+    }
     /// <p>One or more values that can be substituted in an expression.</p>
-    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> { &self.expression_attribute_values }
+    pub fn get_expression_attribute_values(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+        &self.expression_attribute_values
+    }
     /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Update</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
     pub fn return_values_on_condition_check_failure(mut self, input: crate::types::ReturnValuesOnConditionCheckFailure) -> Self {
         self.return_values_on_condition_check_failure = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_return_values_on_condition_check_failure(mut self, input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = input; self }
+    pub fn set_return_values_on_condition_check_failure(
+        mut self,
+        input: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
+    ) -> Self {
+        self.return_values_on_condition_check_failure = input;
+        self
+    }
     /// <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Update</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
-    pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
+    pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure> {
+        &self.return_values_on_condition_check_failure
+    }
     /// Consumes the builder and constructs a [`Update`](crate::types::Update).
     /// This method will fail if any of the following fields are not set:
     /// - [`key`](Self::key)
@@ -151,9 +205,24 @@ impl UpdateBuilder {
     /// - [`table_name`](Self::table_name)
     pub fn build(self) -> ::std::result::Result<crate::types::Update, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Update {
-            key: self.key.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("key", "key was not specified but it is required when building Update"))?,
-            update_expression: self.update_expression.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("update_expression", "update_expression was not specified but it is required when building Update"))?,
-            table_name: self.table_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("table_name", "table_name was not specified but it is required when building Update"))?,
+            key: self.key.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "key",
+                    "key was not specified but it is required when building Update",
+                )
+            })?,
+            update_expression: self.update_expression.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "update_expression",
+                    "update_expression was not specified but it is required when building Update",
+                )
+            })?,
+            table_name: self.table_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "table_name",
+                    "table_name was not specified but it is required when building Update",
+                )
+            })?,
             condition_expression: self.condition_expression,
             expression_attribute_names: self.expression_attribute_names,
             expression_attribute_values: self.expression_attribute_values,

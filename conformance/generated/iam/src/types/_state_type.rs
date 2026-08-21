@@ -102,7 +102,15 @@ impl StateType {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["ACCEPTED", "ASSIGNED", "EXPIRED", "FINALIZED", "PENDING_APPROVAL", "REJECTED", "UNASSIGNED"]
+        &[
+            "ACCEPTED",
+            "ASSIGNED",
+            "EXPIRED",
+            "FINALIZED",
+            "PENDING_APPROVAL",
+            "REJECTED",
+            "UNASSIGNED",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for StateType {

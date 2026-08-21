@@ -51,9 +51,14 @@ impl PublishBatchOutputBuilder {
         self.successful = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PublishBatchResultEntry>>) -> Self { self.successful = input; self }
+    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PublishBatchResultEntry>>) -> Self {
+        self.successful = input;
+        self
+    }
     /// <p>A list of successful <code>PublishBatch</code> responses.</p>
-    pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PublishBatchResultEntry>> { &self.successful }
+    pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PublishBatchResultEntry>> {
+        &self.successful
+    }
     /// <p>A list of failed <code>PublishBatch</code> responses.</p>
     /// Appends an item to `failed`.
     ///
@@ -64,9 +69,14 @@ impl PublishBatchOutputBuilder {
         self.failed = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self { self.failed = input; self }
+    pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>) -> Self {
+        self.failed = input;
+        self
+    }
     /// <p>A list of failed <code>PublishBatch</code> responses.</p>
-    pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> { &self.failed }
+    pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>> {
+        &self.failed
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

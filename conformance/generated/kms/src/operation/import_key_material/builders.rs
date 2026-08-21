@@ -6,32 +6,71 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn import_token(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self { self.input.import_token = Some(value.into()); self }
-    pub fn encrypted_key_material(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self { self.input.encrypted_key_material = Some(value.into()); self }
-    pub fn valid_to(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.valid_to = Some(value.into()); self }
-    pub fn expiration_model(mut self, value: impl ::std::convert::Into<crate::types::ExpirationModelType>) -> Self { self.input.expiration_model = Some(value.into()); self }
-    pub fn import_type(mut self, value: impl ::std::convert::Into<crate::types::ImportType>) -> Self { self.input.import_type = Some(value.into()); self }
-    pub fn key_material_description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_material_description = Some(value.into()); self }
-    pub fn key_material_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_material_id = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::ImportKeyMaterialOutput, super::ImportKeyMaterialError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ImportKeyMaterialError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::ImportKeyMaterialError::unhandled_with_request_ids(format!("ImportKeyMaterial returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_import_key_material_output::ImportKeyMaterialOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key_id = Some(value.into());
+        self
+    }
+    pub fn import_token(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self {
+        self.input.import_token = Some(value.into());
+        self
+    }
+    pub fn encrypted_key_material(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self {
+        self.input.encrypted_key_material = Some(value.into());
+        self
+    }
+    pub fn valid_to(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
+        self.input.valid_to = Some(value.into());
+        self
+    }
+    pub fn expiration_model(mut self, value: impl ::std::convert::Into<crate::types::ExpirationModelType>) -> Self {
+        self.input.expiration_model = Some(value.into());
+        self
+    }
+    pub fn import_type(mut self, value: impl ::std::convert::Into<crate::types::ImportType>) -> Self {
+        self.input.import_type = Some(value.into());
+        self
+    }
+    pub fn key_material_description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key_material_description = Some(value.into());
+        self
+    }
+    pub fn key_material_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key_material_id = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::ImportKeyMaterialOutput, super::ImportKeyMaterialError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::ImportKeyMaterialError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::ImportKeyMaterialError::unhandled_with_request_ids(
+                format!("ImportKeyMaterial returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_import_key_material_output::ImportKeyMaterialOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as ImportKeyMaterialFluentBuilder;

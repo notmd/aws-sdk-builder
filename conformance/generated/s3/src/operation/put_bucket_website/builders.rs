@@ -6,31 +6,158 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_md5 = Some(value.into()); self }
-    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
-    pub fn website_configuration(mut self, value: impl ::std::convert::Into<crate::types::WebsiteConfiguration>) -> Self { self.input.website_configuration = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::PutBucketWebsiteOutput, super::PutBucketWebsiteError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::PutBucketWebsiteError::Unhandled("PutBucketWebsite requires bucket".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}?website"); path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path };
-                         let body = { let mut body = ::std::string::String::new(); if let Some(value) = self.input.website_configuration.as_ref() { body.push_str("<WebsiteConfiguration>"); if let Some(value) = value.error_document.as_ref() { body.push_str("<ErrorDocument>"); body.push_str("<Key>"); body.push_str(&super::super::super::transport::xml_escape(&value.key.to_string())); body.push_str("</Key>"); body.push_str("</ErrorDocument>"); } if let Some(value) = value.index_document.as_ref() { body.push_str("<IndexDocument>"); body.push_str("<Suffix>"); body.push_str(&super::super::super::transport::xml_escape(&value.suffix.to_string())); body.push_str("</Suffix>"); body.push_str("</IndexDocument>"); } if let Some(value) = value.redirect_all_requests_to.as_ref() { body.push_str("<RedirectAllRequestsTo>"); body.push_str("<HostName>"); body.push_str(&super::super::super::transport::xml_escape(&value.host_name.to_string())); body.push_str("</HostName>"); if let Some(value) = value.protocol.as_ref() { body.push_str("<Protocol>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Protocol>"); } body.push_str("</RedirectAllRequestsTo>"); } if let Some(value) = value.routing_rules.as_ref() { body.push_str("<RoutingRules>"); for item in value { body.push_str("<RoutingRule>"); if let Some(value) = item.condition.as_ref() { body.push_str("<Condition>"); if let Some(value) = value.http_error_code_returned_equals.as_ref() { body.push_str("<HttpErrorCodeReturnedEquals>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</HttpErrorCodeReturnedEquals>"); } if let Some(value) = value.key_prefix_equals.as_ref() { body.push_str("<KeyPrefixEquals>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</KeyPrefixEquals>"); } body.push_str("</Condition>"); } body.push_str("<Redirect>"); if let Some(value) = item.redirect.host_name.as_ref() { body.push_str("<HostName>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</HostName>"); } if let Some(value) = item.redirect.http_redirect_code.as_ref() { body.push_str("<HttpRedirectCode>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</HttpRedirectCode>"); } if let Some(value) = item.redirect.protocol.as_ref() { body.push_str("<Protocol>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Protocol>"); } if let Some(value) = item.redirect.replace_key_prefix_with.as_ref() { body.push_str("<ReplaceKeyPrefixWith>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ReplaceKeyPrefixWith>"); } if let Some(value) = item.redirect.replace_key_with.as_ref() { body.push_str("<ReplaceKeyWith>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ReplaceKeyWith>"); } body.push_str("</Redirect>"); body.push_str("</RoutingRule>"); } body.push_str("</RoutingRules>"); } body.push_str("</WebsiteConfiguration>"); } body.into_bytes() };
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers.push(("content-type", "application/xml")); headers };
-                         let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::PutBucketWebsiteError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::PutBucketWebsiteError::unhandled_with_request_ids(format!("PutBucketWebsite returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_put_bucket_website_output::PutBucketWebsiteOutputBuilder::default();
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.content_md5 = Some(value.into());
+        self
+    }
+    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
+        self.input.checksum_algorithm = Some(value.into());
+        self
+    }
+    pub fn website_configuration(mut self, value: impl ::std::convert::Into<crate::types::WebsiteConfiguration>) -> Self {
+        self.input.website_configuration = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::PutBucketWebsiteOutput, super::PutBucketWebsiteError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::PutBucketWebsiteError::Unhandled("PutBucketWebsite requires bucket".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}?website");
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path
+        };
+        let body = {
+            let mut body = ::std::string::String::new();
+            if let Some(value) = self.input.website_configuration.as_ref() {
+                body.push_str("<WebsiteConfiguration>");
+                if let Some(value) = value.error_document.as_ref() {
+                    body.push_str("<ErrorDocument>");
+                    body.push_str("<Key>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.key.to_string()));
+                    body.push_str("</Key>");
+                    body.push_str("</ErrorDocument>");
+                }
+                if let Some(value) = value.index_document.as_ref() {
+                    body.push_str("<IndexDocument>");
+                    body.push_str("<Suffix>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.suffix.to_string()));
+                    body.push_str("</Suffix>");
+                    body.push_str("</IndexDocument>");
+                }
+                if let Some(value) = value.redirect_all_requests_to.as_ref() {
+                    body.push_str("<RedirectAllRequestsTo>");
+                    body.push_str("<HostName>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.host_name.to_string()));
+                    body.push_str("</HostName>");
+                    if let Some(value) = value.protocol.as_ref() {
+                        body.push_str("<Protocol>");
+                        body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                        body.push_str("</Protocol>");
+                    }
+                    body.push_str("</RedirectAllRequestsTo>");
+                }
+                if let Some(value) = value.routing_rules.as_ref() {
+                    body.push_str("<RoutingRules>");
+                    for item in value {
+                        body.push_str("<RoutingRule>");
+                        if let Some(value) = item.condition.as_ref() {
+                            body.push_str("<Condition>");
+                            if let Some(value) = value.http_error_code_returned_equals.as_ref() {
+                                body.push_str("<HttpErrorCodeReturnedEquals>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                body.push_str("</HttpErrorCodeReturnedEquals>");
+                            }
+                            if let Some(value) = value.key_prefix_equals.as_ref() {
+                                body.push_str("<KeyPrefixEquals>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                body.push_str("</KeyPrefixEquals>");
+                            }
+                            body.push_str("</Condition>");
+                        }
+                        body.push_str("<Redirect>");
+                        if let Some(value) = item.redirect.host_name.as_ref() {
+                            body.push_str("<HostName>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</HostName>");
+                        }
+                        if let Some(value) = item.redirect.http_redirect_code.as_ref() {
+                            body.push_str("<HttpRedirectCode>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</HttpRedirectCode>");
+                        }
+                        if let Some(value) = item.redirect.protocol.as_ref() {
+                            body.push_str("<Protocol>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</Protocol>");
+                        }
+                        if let Some(value) = item.redirect.replace_key_prefix_with.as_ref() {
+                            body.push_str("<ReplaceKeyPrefixWith>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ReplaceKeyPrefixWith>");
+                        }
+                        if let Some(value) = item.redirect.replace_key_with.as_ref() {
+                            body.push_str("<ReplaceKeyWith>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ReplaceKeyWith>");
+                        }
+                        body.push_str("</Redirect>");
+                        body.push_str("</RoutingRule>");
+                    }
+                    body.push_str("</RoutingRules>");
+                }
+                body.push_str("</WebsiteConfiguration>");
+            }
+            body.into_bytes()
+        };
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers.push(("content-type", "application/xml"));
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Put, &path, &headers, &body)
+            .await
+            .map_err(super::PutBucketWebsiteError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::PutBucketWebsiteError::unhandled_with_request_ids(
+                format!("PutBucketWebsite returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_put_bucket_website_output::PutBucketWebsiteOutputBuilder::default();
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as PutBucketWebsiteFluentBuilder;

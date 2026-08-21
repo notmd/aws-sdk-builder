@@ -75,18 +75,28 @@ impl GetObjectAnnotationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The name of the bucket that contains the object.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>The object key.</p>
     /// This field is required.
     pub fn key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>The object key.</p>
-    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key
+    }
     /// <p>The name of the annotation to retrieve.</p>
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
     /// This field is required.
@@ -94,40 +104,65 @@ impl GetObjectAnnotationInputBuilder {
         self.annotation_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_annotation_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.annotation_name = input; self }
+    pub fn set_annotation_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.annotation_name = input;
+        self
+    }
     /// <p>The name of the annotation to retrieve.</p>
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
-    pub fn get_annotation_name(&self) -> &::std::option::Option<::std::string::String> { &self.annotation_name }
+    pub fn get_annotation_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.annotation_name
+    }
     /// <p>The version ID of the object.</p>
     pub fn version_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.version_id = input; self }
+    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.version_id = input;
+        self
+    }
     /// <p>The version ID of the object.</p>
-    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.version_id }
+    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.version_id
+    }
     pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self { self.request_payer = input; self }
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> { &self.request_payer }
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+        self.request_payer = input;
+        self
+    }
+    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+        &self.request_payer
+    }
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner. If the bucket is owned by a different account, the request fails with an HTTP 403 (Access Denied) error.</p>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
     pub fn checksum_mode(mut self, input: crate::types::ChecksumMode) -> Self {
         self.checksum_mode = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_checksum_mode(mut self, input: ::std::option::Option<crate::types::ChecksumMode>) -> Self { self.checksum_mode = input; self }
+    pub fn set_checksum_mode(mut self, input: ::std::option::Option<crate::types::ChecksumMode>) -> Self {
+        self.checksum_mode = input;
+        self
+    }
     /// <p>Set to <code>ENABLED</code> to validate the checksum of the annotation payload on retrieval.</p>
-    pub fn get_checksum_mode(&self) -> &::std::option::Option<crate::types::ChecksumMode> { &self.checksum_mode }
+    pub fn get_checksum_mode(&self) -> &::std::option::Option<crate::types::ChecksumMode> {
+        &self.checksum_mode
+    }
     /// Consumes the builder and constructs a [`GetObjectAnnotationInput`](crate::operation::get_object_annotation::GetObjectAnnotationInput).
     pub fn build(self) -> crate::operation::get_object_annotation::GetObjectAnnotationInput {
         crate::operation::get_object_annotation::GetObjectAnnotationInput {

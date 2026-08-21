@@ -38,15 +38,25 @@ impl ReplacementValueEntryBuilder {
         self.values = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.values = input; self }
+    pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.values = input;
+        self
+    }
     /// <p>The list of replacement values for the template parameter.</p>
-    pub fn get_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.values }
+    pub fn get_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.values
+    }
     /// Consumes the builder and constructs a [`ReplacementValueEntry`](crate::types::ReplacementValueEntry).
     /// This method will fail if any of the following fields are not set:
     /// - [`values`](Self::values)
     pub fn build(self) -> ::std::result::Result<crate::types::ReplacementValueEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReplacementValueEntry {
-            values: self.values.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("values", "values was not specified but it is required when building ReplacementValueEntry"))?,
+            values: self.values.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "values",
+                    "values was not specified but it is required when building ReplacementValueEntry",
+                )
+            })?,
         })
     }
 }

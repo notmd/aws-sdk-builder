@@ -32,13 +32,16 @@ impl ChainedInvokeTimedOutDetailsBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>Details about the chained invocation timeout.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> {
+        &self.error
+    }
     /// Consumes the builder and constructs a [`ChainedInvokeTimedOutDetails`](crate::types::ChainedInvokeTimedOutDetails).
     pub fn build(self) -> crate::types::ChainedInvokeTimedOutDetails {
-        crate::types::ChainedInvokeTimedOutDetails {
-            error: self.error,
-        }
+        crate::types::ChainedInvokeTimedOutDetails { error: self.error }
     }
 }

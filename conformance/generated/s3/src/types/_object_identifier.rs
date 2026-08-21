@@ -78,9 +78,14 @@ impl ObjectIdentifierBuilder {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>Key name of the object.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
-    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key
+    }
     /// <p>Version ID for the specific version of the object to delete.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -88,11 +93,16 @@ impl ObjectIdentifierBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.version_id = input; self }
+    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.version_id = input;
+        self
+    }
     /// <p>Version ID for the specific version of the object to delete.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.version_id }
+    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.version_id
+    }
     /// <p>An entity tag (ETag) is an identifier assigned by a web server to a specific version of a resource found at a URL. This header field makes the request method conditional on <code>ETags</code>.</p><note>
     /// <p>Entity tags (ETags) for S3 Express One Zone are random alphanumeric strings unique to the object.</p>
     /// </note>
@@ -100,11 +110,16 @@ impl ObjectIdentifierBuilder {
         self.e_tag = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.e_tag = input; self }
+    pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.e_tag = input;
+        self
+    }
     /// <p>An entity tag (ETag) is an identifier assigned by a web server to a specific version of a resource found at a URL. This header field makes the request method conditional on <code>ETags</code>.</p><note>
     /// <p>Entity tags (ETags) for S3 Express One Zone are random alphanumeric strings unique to the object.</p>
     /// </note>
-    pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> { &self.e_tag }
+    pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> {
+        &self.e_tag
+    }
     /// <p>If present, the objects are deleted only if its modification times matches the provided <code>Timestamp</code>.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
     /// </note>
@@ -112,11 +127,16 @@ impl ObjectIdentifierBuilder {
         self.last_modified_time = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_last_modified_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.last_modified_time = input; self }
+    pub fn set_last_modified_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.last_modified_time = input;
+        self
+    }
     /// <p>If present, the objects are deleted only if its modification times matches the provided <code>Timestamp</code>.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
     /// </note>
-    pub fn get_last_modified_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.last_modified_time }
+    pub fn get_last_modified_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.last_modified_time
+    }
     /// <p>If present, the objects are deleted only if its size matches the provided size in bytes.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
     /// </note>
@@ -124,17 +144,27 @@ impl ObjectIdentifierBuilder {
         self.size = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_size(mut self, input: ::std::option::Option<i64>) -> Self { self.size = input; self }
+    pub fn set_size(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.size = input;
+        self
+    }
     /// <p>If present, the objects are deleted only if its size matches the provided size in bytes.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
     /// </note>
-    pub fn get_size(&self) -> &::std::option::Option<i64> { &self.size }
+    pub fn get_size(&self) -> &::std::option::Option<i64> {
+        &self.size
+    }
     /// Consumes the builder and constructs a [`ObjectIdentifier`](crate::types::ObjectIdentifier).
     /// This method will fail if any of the following fields are not set:
     /// - [`key`](Self::key)
     pub fn build(self) -> ::std::result::Result<crate::types::ObjectIdentifier, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ObjectIdentifier {
-            key: self.key.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("key", "key was not specified but it is required when building ObjectIdentifier"))?,
+            key: self.key.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "key",
+                    "key was not specified but it is required when building ObjectIdentifier",
+                )
+            })?,
             version_id: self.version_id,
             e_tag: self.e_tag,
             last_modified_time: self.last_modified_time,

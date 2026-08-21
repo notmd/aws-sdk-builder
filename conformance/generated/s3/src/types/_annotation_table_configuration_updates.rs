@@ -45,29 +45,49 @@ impl AnnotationTableConfigurationUpdatesBuilder {
         self.configuration_state = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::AnnotationConfigurationState>) -> Self { self.configuration_state = input; self }
+    pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::AnnotationConfigurationState>) -> Self {
+        self.configuration_state = input;
+        self
+    }
     /// <p>The new configuration state to apply.</p>
-    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::AnnotationConfigurationState> { &self.configuration_state }
+    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::AnnotationConfigurationState> {
+        &self.configuration_state
+    }
     pub fn encryption_configuration(mut self, input: crate::types::MetadataTableEncryptionConfiguration) -> Self {
         self.encryption_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_encryption_configuration(mut self, input: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>) -> Self { self.encryption_configuration = input; self }
-    pub fn get_encryption_configuration(&self) -> &::std::option::Option<crate::types::MetadataTableEncryptionConfiguration> { &self.encryption_configuration }
+    pub fn set_encryption_configuration(mut self, input: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>) -> Self {
+        self.encryption_configuration = input;
+        self
+    }
+    pub fn get_encryption_configuration(&self) -> &::std::option::Option<crate::types::MetadataTableEncryptionConfiguration> {
+        &self.encryption_configuration
+    }
     /// <p>The new IAM role ARN to apply.</p>
     pub fn role(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.role = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.role = input; self }
+    pub fn set_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.role = input;
+        self
+    }
     /// <p>The new IAM role ARN to apply.</p>
-    pub fn get_role(&self) -> &::std::option::Option<::std::string::String> { &self.role }
+    pub fn get_role(&self) -> &::std::option::Option<::std::string::String> {
+        &self.role
+    }
     /// Consumes the builder and constructs a [`AnnotationTableConfigurationUpdates`](crate::types::AnnotationTableConfigurationUpdates).
     /// This method will fail if any of the following fields are not set:
     /// - [`configuration_state`](Self::configuration_state)
     pub fn build(self) -> ::std::result::Result<crate::types::AnnotationTableConfigurationUpdates, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AnnotationTableConfigurationUpdates {
-            configuration_state: self.configuration_state.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("configuration_state", "configuration_state was not specified but it is required when building AnnotationTableConfigurationUpdates"))?,
+            configuration_state: self.configuration_state.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "configuration_state",
+                    "configuration_state was not specified but it is required when building AnnotationTableConfigurationUpdates",
+                )
+            })?,
             encryption_configuration: self.encryption_configuration,
             role: self.role,
         })

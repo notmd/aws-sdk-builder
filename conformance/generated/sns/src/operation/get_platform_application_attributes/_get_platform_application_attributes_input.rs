@@ -33,9 +33,14 @@ impl GetPlatformApplicationAttributesInputBuilder {
         self.platform_application_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.platform_application_arn = input; self }
+    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.platform_application_arn = input;
+        self
+    }
     /// <p><code>PlatformApplicationArn</code> for GetPlatformApplicationAttributesInput.</p>
-    pub fn get_platform_application_arn(&self) -> &::std::option::Option<::std::string::String> { &self.platform_application_arn }
+    pub fn get_platform_application_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.platform_application_arn
+    }
     /// Consumes the builder and constructs a [`GetPlatformApplicationAttributesInput`](crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesInput).
     pub fn build(self) -> crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesInput {
         crate::operation::get_platform_application_attributes::GetPlatformApplicationAttributesInput {

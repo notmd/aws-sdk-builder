@@ -48,27 +48,42 @@ impl ListDelegationRequestsInputBuilder {
         self.owner_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_owner_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.owner_id = input; self }
+    pub fn set_owner_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.owner_id = input;
+        self
+    }
     /// <p>The owner ID to filter delegation requests by.</p>
-    pub fn get_owner_id(&self) -> &::std::option::Option<::std::string::String> { &self.owner_id }
+    pub fn get_owner_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.owner_id
+    }
     /// <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     /// <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
     /// <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM may return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
     pub fn max_items(mut self, input: i32) -> Self {
         self.max_items = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self { self.max_items = input; self }
+    pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.max_items = input;
+        self
+    }
     /// <p>Use this only when paginating results to indicate the maximum number of items you want in the response. If additional items exist beyond the maximum you specify, the <code>IsTruncated</code> response element is <code>true</code>.</p>
     /// <p>If you do not include this parameter, the number of items defaults to 100. Note that IAM may return fewer results, even when there are more results available. In that case, the <code>IsTruncated</code> response element returns <code>true</code>, and <code>Marker</code> contains a value to include in the subsequent call that tells the service where to continue from.</p>
-    pub fn get_max_items(&self) -> &::std::option::Option<i32> { &self.max_items }
+    pub fn get_max_items(&self) -> &::std::option::Option<i32> {
+        &self.max_items
+    }
     /// Consumes the builder and constructs a [`ListDelegationRequestsInput`](crate::operation::list_delegation_requests::ListDelegationRequestsInput).
     pub fn build(self) -> crate::operation::list_delegation_requests::ListDelegationRequestsInput {
         crate::operation::list_delegation_requests::ListDelegationRequestsInput {

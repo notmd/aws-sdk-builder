@@ -32,13 +32,16 @@ impl TracingConfigBuilder {
         self.mode = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_mode(mut self, input: ::std::option::Option<crate::types::TracingMode>) -> Self { self.mode = input; self }
+    pub fn set_mode(mut self, input: ::std::option::Option<crate::types::TracingMode>) -> Self {
+        self.mode = input;
+        self
+    }
     /// <p>The tracing mode.</p>
-    pub fn get_mode(&self) -> &::std::option::Option<crate::types::TracingMode> { &self.mode }
+    pub fn get_mode(&self) -> &::std::option::Option<crate::types::TracingMode> {
+        &self.mode
+    }
     /// Consumes the builder and constructs a [`TracingConfig`](crate::types::TracingConfig).
     pub fn build(self) -> crate::types::TracingConfig {
-        crate::types::TracingConfig {
-            mode: self.mode,
-        }
+        crate::types::TracingConfig { mode: self.mode }
     }
 }

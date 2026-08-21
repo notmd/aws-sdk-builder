@@ -59,45 +59,75 @@ impl InventoryTableConfigurationResultBuilder {
         self.configuration_state = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::InventoryConfigurationState>) -> Self { self.configuration_state = input; self }
+    pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::InventoryConfigurationState>) -> Self {
+        self.configuration_state = input;
+        self
+    }
     /// <p>The configuration state of the inventory table, indicating whether the inventory table is enabled or disabled.</p>
-    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::InventoryConfigurationState> { &self.configuration_state }
+    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::InventoryConfigurationState> {
+        &self.configuration_state
+    }
     /// <p>The status of the inventory table. The status values are:</p><ul><li><p><code>CREATING</code> - The inventory table is in the process of being created in the specified Amazon Web Services managed table bucket.</p></li><li><p><code>BACKFILLING</code> - The inventory table is in the process of being backfilled. When you enable the inventory table for your metadata configuration, the table goes through a process known as backfilling, during which Amazon S3 scans your general purpose bucket to retrieve the initial metadata for all objects in the bucket. Depending on the number of objects in your bucket, this process can take several hours. When the backfilling process is finished, the status of your inventory table changes from <code>BACKFILLING</code> to <code>ACTIVE</code>. After backfilling is completed, updates to your objects are reflected in the inventory table within one hour.</p></li><li><p><code>ACTIVE</code> - The inventory table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the inventory table, or Amazon S3 is unable to deliver records.</p></li></ul>
     pub fn table_status(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_status = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_status = input; self }
+    pub fn set_table_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_status = input;
+        self
+    }
     /// <p>The status of the inventory table. The status values are:</p><ul><li><p><code>CREATING</code> - The inventory table is in the process of being created in the specified Amazon Web Services managed table bucket.</p></li><li><p><code>BACKFILLING</code> - The inventory table is in the process of being backfilled. When you enable the inventory table for your metadata configuration, the table goes through a process known as backfilling, during which Amazon S3 scans your general purpose bucket to retrieve the initial metadata for all objects in the bucket. Depending on the number of objects in your bucket, this process can take several hours. When the backfilling process is finished, the status of your inventory table changes from <code>BACKFILLING</code> to <code>ACTIVE</code>. After backfilling is completed, updates to your objects are reflected in the inventory table within one hour.</p></li><li><p><code>ACTIVE</code> - The inventory table has been created successfully, and records are being delivered to the table.</p></li><li><p><code>FAILED</code> - Amazon S3 is unable to create the inventory table, or Amazon S3 is unable to deliver records.</p></li></ul>
-    pub fn get_table_status(&self) -> &::std::option::Option<::std::string::String> { &self.table_status }
+    pub fn get_table_status(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_status
+    }
     pub fn error(mut self, input: crate::types::ErrorDetails) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self { self.error = input; self }
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorDetails> { &self.error }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
+        self.error = input;
+        self
+    }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorDetails> {
+        &self.error
+    }
     /// <p>The name of the inventory table.</p>
     pub fn table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the inventory table.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>The Amazon Resource Name (ARN) for the inventory table.</p>
     pub fn table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_arn = input; self }
+    pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) for the inventory table.</p>
-    pub fn get_table_arn(&self) -> &::std::option::Option<::std::string::String> { &self.table_arn }
+    pub fn get_table_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_arn
+    }
     /// Consumes the builder and constructs a [`InventoryTableConfigurationResult`](crate::types::InventoryTableConfigurationResult).
     /// This method will fail if any of the following fields are not set:
     /// - [`configuration_state`](Self::configuration_state)
     pub fn build(self) -> ::std::result::Result<crate::types::InventoryTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::InventoryTableConfigurationResult {
-            configuration_state: self.configuration_state.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("configuration_state", "configuration_state was not specified but it is required when building InventoryTableConfigurationResult"))?,
+            configuration_state: self.configuration_state.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "configuration_state",
+                    "configuration_state was not specified but it is required when building InventoryTableConfigurationResult",
+                )
+            })?,
             table_status: self.table_status,
             error: self.error,
             table_name: self.table_name,

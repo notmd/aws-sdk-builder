@@ -44,19 +44,29 @@ impl LocationInfoBuilder {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::LocationType>) -> Self { self.r#type = input; self }
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::LocationType>) -> Self {
+        self.r#type = input;
+        self
+    }
     /// <p>The type of location where the bucket will be created.</p>
-    pub fn get_type(&self) -> &::std::option::Option<crate::types::LocationType> { &self.r#type }
+    pub fn get_type(&self) -> &::std::option::Option<crate::types::LocationType> {
+        &self.r#type
+    }
     /// <p>The name of the location where the bucket will be created.</p>
     /// <p>For directory buckets, the name of the location is the Zone ID of the Availability Zone (AZ) or Local Zone (LZ) where the bucket will be created. An example AZ ID value is <code>usw2-az1</code>.</p>
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.name = input; self }
+    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.name = input;
+        self
+    }
     /// <p>The name of the location where the bucket will be created.</p>
     /// <p>For directory buckets, the name of the location is the Zone ID of the Availability Zone (AZ) or Local Zone (LZ) where the bucket will be created. An example AZ ID value is <code>usw2-az1</code>.</p>
-    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> { &self.name }
+    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.name
+    }
     /// Consumes the builder and constructs a [`LocationInfo`](crate::types::LocationInfo).
     pub fn build(self) -> crate::types::LocationInfo {
         crate::types::LocationInfo {

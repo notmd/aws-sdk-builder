@@ -62,9 +62,14 @@ impl LifecycleRuleFilterBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.prefix = input; self }
+    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.prefix = input;
+        self
+    }
     /// <p>Prefix identifying one or more objects to which the rule applies.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
-    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.prefix }
+    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.prefix
+    }
     /// <p>This tag must exist in the object's tag set in order for the rule to apply.</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
@@ -72,33 +77,53 @@ impl LifecycleRuleFilterBuilder {
         self.tag = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_tag(mut self, input: ::std::option::Option<crate::types::Tag>) -> Self { self.tag = input; self }
+    pub fn set_tag(mut self, input: ::std::option::Option<crate::types::Tag>) -> Self {
+        self.tag = input;
+        self
+    }
     /// <p>This tag must exist in the object's tag set in order for the rule to apply.</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
-    pub fn get_tag(&self) -> &::std::option::Option<crate::types::Tag> { &self.tag }
+    pub fn get_tag(&self) -> &::std::option::Option<crate::types::Tag> {
+        &self.tag
+    }
     /// <p>Minimum object size to which the rule applies.</p>
     pub fn object_size_greater_than(mut self, input: i64) -> Self {
         self.object_size_greater_than = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_object_size_greater_than(mut self, input: ::std::option::Option<i64>) -> Self { self.object_size_greater_than = input; self }
+    pub fn set_object_size_greater_than(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.object_size_greater_than = input;
+        self
+    }
     /// <p>Minimum object size to which the rule applies.</p>
-    pub fn get_object_size_greater_than(&self) -> &::std::option::Option<i64> { &self.object_size_greater_than }
+    pub fn get_object_size_greater_than(&self) -> &::std::option::Option<i64> {
+        &self.object_size_greater_than
+    }
     /// <p>Maximum object size to which the rule applies.</p>
     pub fn object_size_less_than(mut self, input: i64) -> Self {
         self.object_size_less_than = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_object_size_less_than(mut self, input: ::std::option::Option<i64>) -> Self { self.object_size_less_than = input; self }
+    pub fn set_object_size_less_than(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.object_size_less_than = input;
+        self
+    }
     /// <p>Maximum object size to which the rule applies.</p>
-    pub fn get_object_size_less_than(&self) -> &::std::option::Option<i64> { &self.object_size_less_than }
+    pub fn get_object_size_less_than(&self) -> &::std::option::Option<i64> {
+        &self.object_size_less_than
+    }
     pub fn and(mut self, input: crate::types::LifecycleRuleAndOperator) -> Self {
         self.and = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_and(mut self, input: ::std::option::Option<crate::types::LifecycleRuleAndOperator>) -> Self { self.and = input; self }
-    pub fn get_and(&self) -> &::std::option::Option<crate::types::LifecycleRuleAndOperator> { &self.and }
+    pub fn set_and(mut self, input: ::std::option::Option<crate::types::LifecycleRuleAndOperator>) -> Self {
+        self.and = input;
+        self
+    }
+    pub fn get_and(&self) -> &::std::option::Option<crate::types::LifecycleRuleAndOperator> {
+        &self.and
+    }
     /// Consumes the builder and constructs a [`LifecycleRuleFilter`](crate::types::LifecycleRuleFilter).
     pub fn build(self) -> crate::types::LifecycleRuleFilter {
         crate::types::LifecycleRuleFilter {

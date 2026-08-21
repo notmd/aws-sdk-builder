@@ -107,7 +107,16 @@ impl KeyState {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["Creating", "Disabled", "Enabled", "PendingDeletion", "PendingImport", "PendingReplicaDeletion", "Unavailable", "Updating"]
+        &[
+            "Creating",
+            "Disabled",
+            "Enabled",
+            "PendingDeletion",
+            "PendingImport",
+            "PendingReplicaDeletion",
+            "Unavailable",
+            "Updating",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for KeyState {

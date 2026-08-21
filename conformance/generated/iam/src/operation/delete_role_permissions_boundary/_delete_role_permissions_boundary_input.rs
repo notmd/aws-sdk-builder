@@ -33,13 +33,16 @@ impl DeleteRolePermissionsBoundaryInputBuilder {
         self.role_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.role_name = input; self }
+    pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.role_name = input;
+        self
+    }
     /// <p>The name (friendly name, not ARN) of the IAM role from which you want to remove the permissions boundary.</p>
-    pub fn get_role_name(&self) -> &::std::option::Option<::std::string::String> { &self.role_name }
+    pub fn get_role_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.role_name
+    }
     /// Consumes the builder and constructs a [`DeleteRolePermissionsBoundaryInput`](crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryInput).
     pub fn build(self) -> crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryInput {
-        crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryInput {
-            role_name: self.role_name,
-        }
+        crate::operation::delete_role_permissions_boundary::DeleteRolePermissionsBoundaryInput { role_name: self.role_name }
     }
 }

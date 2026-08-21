@@ -39,7 +39,9 @@ impl UpdateBucketMetadataInventoryTableConfigurationInput {
 }
 impl UpdateBucketMetadataInventoryTableConfigurationInput {
     /// Creates a new builder-style object to manufacture [`UpdateBucketMetadataInventoryTableConfigurationInput`](crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationInput).
-    pub fn builder() -> crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationInputBuilder
+    {
         crate::operation::update_bucket_metadata_inventory_table_configuration::builders::UpdateBucketMetadataInventoryTableConfigurationInputBuilder::default()
     }
 }
@@ -61,43 +63,70 @@ impl UpdateBucketMetadataInventoryTableConfigurationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The general purpose bucket that corresponds to the metadata configuration that you want to enable or disable an inventory table for.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>The <code>Content-MD5</code> header for the inventory table configuration.</p>
     pub fn content_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.content_md5 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_content_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.content_md5 = input; self }
+    pub fn set_content_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.content_md5 = input;
+        self
+    }
     /// <p>The <code>Content-MD5</code> header for the inventory table configuration.</p>
-    pub fn get_content_md5(&self) -> &::std::option::Option<::std::string::String> { &self.content_md5 }
+    pub fn get_content_md5(&self) -> &::std::option::Option<::std::string::String> {
+        &self.content_md5
+    }
     /// <p>The checksum algorithm to use with your inventory table configuration.</p>
     pub fn checksum_algorithm(mut self, input: crate::types::ChecksumAlgorithm) -> Self {
         self.checksum_algorithm = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self { self.checksum_algorithm = input; self }
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+        self.checksum_algorithm = input;
+        self
+    }
     /// <p>The checksum algorithm to use with your inventory table configuration.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> { &self.checksum_algorithm }
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+        &self.checksum_algorithm
+    }
     /// <p>The contents of your inventory table configuration.</p>
     pub fn inventory_table_configuration(mut self, input: crate::types::InventoryTableConfigurationUpdates) -> Self {
         self.inventory_table_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_inventory_table_configuration(mut self, input: ::std::option::Option<crate::types::InventoryTableConfigurationUpdates>) -> Self { self.inventory_table_configuration = input; self }
+    pub fn set_inventory_table_configuration(mut self, input: ::std::option::Option<crate::types::InventoryTableConfigurationUpdates>) -> Self {
+        self.inventory_table_configuration = input;
+        self
+    }
     /// <p>The contents of your inventory table configuration.</p>
-    pub fn get_inventory_table_configuration(&self) -> &::std::option::Option<crate::types::InventoryTableConfigurationUpdates> { &self.inventory_table_configuration }
+    pub fn get_inventory_table_configuration(&self) -> &::std::option::Option<crate::types::InventoryTableConfigurationUpdates> {
+        &self.inventory_table_configuration
+    }
     /// <p>The expected owner of the general purpose bucket that corresponds to the metadata table configuration that you want to enable or disable an inventory table for.</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The expected owner of the general purpose bucket that corresponds to the metadata table configuration that you want to enable or disable an inventory table for.</p>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// Consumes the builder and constructs a [`UpdateBucketMetadataInventoryTableConfigurationInput`](crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationInput).
-    pub fn build(self) -> crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationInput {
+    pub fn build(
+        self,
+    ) -> crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationInput {
         crate::operation::update_bucket_metadata_inventory_table_configuration::UpdateBucketMetadataInventoryTableConfigurationInput {
             bucket: self.bucket,
             content_md5: self.content_md5,

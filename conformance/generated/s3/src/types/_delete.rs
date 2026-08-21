@@ -51,25 +51,40 @@ impl DeleteBuilder {
         self.objects = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_objects(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ObjectIdentifier>>) -> Self { self.objects = input; self }
+    pub fn set_objects(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ObjectIdentifier>>) -> Self {
+        self.objects = input;
+        self
+    }
     /// <p>The object to delete.</p><note>
     /// <p><b>Directory buckets</b> - For directory buckets, an object that's composed entirely of whitespace characters is not supported by the <code>DeleteObjects</code> API operation. The request will receive a <code>400 Bad Request</code> error and none of the objects in the request will be deleted.</p>
     /// </note>
-    pub fn get_objects(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ObjectIdentifier>> { &self.objects }
+    pub fn get_objects(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ObjectIdentifier>> {
+        &self.objects
+    }
     /// <p>Element to enable quiet mode for the request. When you add this element, you must set its value to <code>true</code>.</p>
     pub fn quiet(mut self, input: bool) -> Self {
         self.quiet = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_quiet(mut self, input: ::std::option::Option<bool>) -> Self { self.quiet = input; self }
+    pub fn set_quiet(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.quiet = input;
+        self
+    }
     /// <p>Element to enable quiet mode for the request. When you add this element, you must set its value to <code>true</code>.</p>
-    pub fn get_quiet(&self) -> &::std::option::Option<bool> { &self.quiet }
+    pub fn get_quiet(&self) -> &::std::option::Option<bool> {
+        &self.quiet
+    }
     /// Consumes the builder and constructs a [`Delete`](crate::types::Delete).
     /// This method will fail if any of the following fields are not set:
     /// - [`objects`](Self::objects)
     pub fn build(self) -> ::std::result::Result<crate::types::Delete, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Delete {
-            objects: self.objects.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("objects", "objects was not specified but it is required when building Delete"))?,
+            objects: self.objects.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "objects",
+                    "objects was not specified but it is required when building Delete",
+                )
+            })?,
             quiet: self.quiet,
         })
     }

@@ -80,64 +80,104 @@ impl ListObjectAnnotationsInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The name of the bucket that contains the object.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>The object key.</p>
     /// This field is required.
     pub fn key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>The object key.</p>
-    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key
+    }
     /// <p>The version ID of the object.</p>
     pub fn version_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.version_id = input; self }
+    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.version_id = input;
+        self
+    }
     /// <p>The version ID of the object.</p>
-    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.version_id }
+    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.version_id
+    }
     /// <p>The maximum number of annotations to return in the response. Maximum is 1,000.</p>
     pub fn max_annotation_results(mut self, input: i32) -> Self {
         self.max_annotation_results = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_annotation_results(mut self, input: ::std::option::Option<i32>) -> Self { self.max_annotation_results = input; self }
+    pub fn set_max_annotation_results(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.max_annotation_results = input;
+        self
+    }
     /// <p>The maximum number of annotations to return in the response. Maximum is 1,000.</p>
-    pub fn get_max_annotation_results(&self) -> &::std::option::Option<i32> { &self.max_annotation_results }
+    pub fn get_max_annotation_results(&self) -> &::std::option::Option<i32> {
+        &self.max_annotation_results
+    }
     /// <p>Filter results to annotations whose name begins with the specified prefix.</p>
     pub fn annotation_prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.annotation_prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_annotation_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.annotation_prefix = input; self }
+    pub fn set_annotation_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.annotation_prefix = input;
+        self
+    }
     /// <p>Filter results to annotations whose name begins with the specified prefix.</p>
-    pub fn get_annotation_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.annotation_prefix }
+    pub fn get_annotation_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.annotation_prefix
+    }
     /// <p>Continuation token returned by a previous request to retrieve the next page.</p>
     pub fn continuation_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.continuation_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.continuation_token = input; self }
+    pub fn set_continuation_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.continuation_token = input;
+        self
+    }
     /// <p>Continuation token returned by a previous request to retrieve the next page.</p>
-    pub fn get_continuation_token(&self) -> &::std::option::Option<::std::string::String> { &self.continuation_token }
+    pub fn get_continuation_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.continuation_token
+    }
     pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self { self.request_payer = input; self }
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> { &self.request_payer }
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+        self.request_payer = input;
+        self
+    }
+    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+        &self.request_payer
+    }
     /// <p>The account ID of the expected bucket owner.</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner.</p>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// Consumes the builder and constructs a [`ListObjectAnnotationsInput`](crate::operation::list_object_annotations::ListObjectAnnotationsInput).
     pub fn build(self) -> crate::operation::list_object_annotations::ListObjectAnnotationsInput {
         crate::operation::list_object_annotations::ListObjectAnnotationsInput {

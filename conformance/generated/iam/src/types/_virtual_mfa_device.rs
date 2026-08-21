@@ -69,41 +69,66 @@ impl VirtualMfaDeviceBuilder {
         self.serial_number = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.serial_number = input; self }
+    pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.serial_number = input;
+        self
+    }
     /// <p>The serial number associated with <code>VirtualMFADevice</code>.</p>
-    pub fn get_serial_number(&self) -> &::std::option::Option<::std::string::String> { &self.serial_number }
+    pub fn get_serial_number(&self) -> &::std::option::Option<::std::string::String> {
+        &self.serial_number
+    }
     /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
     pub fn base32_string_seed(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.base32_string_seed = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_base32_string_seed(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.base32_string_seed = input; self }
+    pub fn set_base32_string_seed(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.base32_string_seed = input;
+        self
+    }
     /// <p>The base32 seed defined as specified in <a href="https://tools.ietf.org/html/rfc3548.txt">RFC3548</a>. The <code>Base32StringSeed</code> is base32-encoded.</p>
-    pub fn get_base32_string_seed(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.base32_string_seed }
+    pub fn get_base32_string_seed(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.base32_string_seed
+    }
     /// <p>A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded.</p>
     pub fn qr_code_png(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.qr_code_png = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_qr_code_png(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.qr_code_png = input; self }
+    pub fn set_qr_code_png(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.qr_code_png = input;
+        self
+    }
     /// <p>A QR code PNG image that encodes <code>otpauth://totp/$virtualMFADeviceName@$AccountName?secret=$Base32String</code> where <code>$virtualMFADeviceName</code> is one of the create call arguments. <code>AccountName</code> is the user name if set (otherwise, the account ID otherwise), and <code>Base32String</code> is the seed in base32 format. The <code>Base32String</code> value is base64-encoded.</p>
-    pub fn get_qr_code_png(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.qr_code_png }
+    pub fn get_qr_code_png(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.qr_code_png
+    }
     /// <p>The IAM user associated with this virtual MFA device.</p>
     pub fn user(mut self, input: crate::types::User) -> Self {
         self.user = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_user(mut self, input: ::std::option::Option<crate::types::User>) -> Self { self.user = input; self }
+    pub fn set_user(mut self, input: ::std::option::Option<crate::types::User>) -> Self {
+        self.user = input;
+        self
+    }
     /// <p>The IAM user associated with this virtual MFA device.</p>
-    pub fn get_user(&self) -> &::std::option::Option<crate::types::User> { &self.user }
+    pub fn get_user(&self) -> &::std::option::Option<crate::types::User> {
+        &self.user
+    }
     /// <p>The date and time on which the virtual MFA device was enabled.</p>
     pub fn enable_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.enable_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_enable_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.enable_date = input; self }
+    pub fn set_enable_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.enable_date = input;
+        self
+    }
     /// <p>The date and time on which the virtual MFA device was enabled.</p>
-    pub fn get_enable_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.enable_date }
+    pub fn get_enable_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.enable_date
+    }
     /// <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
     /// Appends an item to `tags`.
     ///
@@ -114,15 +139,25 @@ impl VirtualMfaDeviceBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.tags = input;
+        self
+    }
     /// <p>A list of tags that are attached to the virtual MFA device. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.tags }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+        &self.tags
+    }
     /// Consumes the builder and constructs a [`VirtualMfaDevice`](crate::types::VirtualMfaDevice).
     /// This method will fail if any of the following fields are not set:
     /// - [`serial_number`](Self::serial_number)
     pub fn build(self) -> ::std::result::Result<crate::types::VirtualMfaDevice, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::VirtualMfaDevice {
-            serial_number: self.serial_number.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("serial_number", "serial_number was not specified but it is required when building VirtualMfaDevice"))?,
+            serial_number: self.serial_number.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "serial_number",
+                    "serial_number was not specified but it is required when building VirtualMfaDevice",
+                )
+            })?,
             base32_string_seed: self.base32_string_seed,
             qr_code_png: self.qr_code_png,
             user: self.user,

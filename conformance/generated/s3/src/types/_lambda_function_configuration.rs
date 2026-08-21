@@ -50,17 +50,27 @@ impl LambdaFunctionConfigurationBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>The Amazon Resource Name (ARN) of the Lambda function that Amazon S3 invokes when the specified event type occurs.</p>
     /// This field is required.
     pub fn lambda_function_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.lambda_function_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_lambda_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.lambda_function_arn = input; self }
+    pub fn set_lambda_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.lambda_function_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the Lambda function that Amazon S3 invokes when the specified event type occurs.</p>
-    pub fn get_lambda_function_arn(&self) -> &::std::option::Option<::std::string::String> { &self.lambda_function_arn }
+    pub fn get_lambda_function_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.lambda_function_arn
+    }
     /// <p>The Amazon S3 bucket event for which to invoke the Lambda function. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// Appends an item to `events`.
     ///
@@ -71,15 +81,25 @@ impl LambdaFunctionConfigurationBuilder {
         self.events = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Event>>) -> Self { self.events = input; self }
+    pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Event>>) -> Self {
+        self.events = input;
+        self
+    }
     /// <p>The Amazon S3 bucket event for which to invoke the Lambda function. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Supported Event Types</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Event>> { &self.events }
+    pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Event>> {
+        &self.events
+    }
     pub fn filter(mut self, input: crate::types::NotificationConfigurationFilter) -> Self {
         self.filter = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::NotificationConfigurationFilter>) -> Self { self.filter = input; self }
-    pub fn get_filter(&self) -> &::std::option::Option<crate::types::NotificationConfigurationFilter> { &self.filter }
+    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::NotificationConfigurationFilter>) -> Self {
+        self.filter = input;
+        self
+    }
+    pub fn get_filter(&self) -> &::std::option::Option<crate::types::NotificationConfigurationFilter> {
+        &self.filter
+    }
     /// Consumes the builder and constructs a [`LambdaFunctionConfiguration`](crate::types::LambdaFunctionConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`lambda_function_arn`](Self::lambda_function_arn)
@@ -87,8 +107,18 @@ impl LambdaFunctionConfigurationBuilder {
     pub fn build(self) -> ::std::result::Result<crate::types::LambdaFunctionConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::LambdaFunctionConfiguration {
             id: self.id,
-            lambda_function_arn: self.lambda_function_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("lambda_function_arn", "lambda_function_arn was not specified but it is required when building LambdaFunctionConfiguration"))?,
-            events: self.events.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("events", "events was not specified but it is required when building LambdaFunctionConfiguration"))?,
+            lambda_function_arn: self.lambda_function_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "lambda_function_arn",
+                    "lambda_function_arn was not specified but it is required when building LambdaFunctionConfiguration",
+                )
+            })?,
+            events: self.events.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "events",
+                    "events was not specified but it is required when building LambdaFunctionConfiguration",
+                )
+            })?,
             filter: self.filter,
         })
     }

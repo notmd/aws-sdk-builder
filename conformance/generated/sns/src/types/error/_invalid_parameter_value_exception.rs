@@ -6,25 +6,50 @@
 pub struct InvalidParameterValueException {
     /// <p>The parameter of an entry in a request doesn't abide by the specification.</p>
     pub message: ::std::option::Option<::std::string::String>,
+    pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
 }
 impl InvalidParameterValueException {
-    /// <p>The parameter of an entry in a request doesn't abide by the specification.</p>
+    /// Returns the error message.
     pub fn message(&self) -> ::std::option::Option<&str> {
         self.message.as_deref()
     }
 }
+impl ::std::fmt::Display for InvalidParameterValueException {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        ::std::write!(f, "InvalidParameterValueException")?;
+        if let ::std::option::Option::Some(inner_1) = &self.message {
+            {
+                ::std::write!(f, ": {inner_1}")?;
+            }
+        }
+        Ok(())
+    }
+}
+impl ::std::error::Error for InvalidParameterValueException {}
+impl ::aws_types::request_id::RequestId for crate::types::error::InvalidParameterValueException {
+    fn request_id(&self) -> Option<&str> {
+        use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+        self.meta().request_id()
+    }
+}
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for InvalidParameterValueException {
+    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+        &self.meta
+    }
+}
 impl InvalidParameterValueException {
-    /// Creates a new builder-style object to manufacture [`InvalidParameterValueException`](crate::types::InvalidParameterValueException).
-    pub fn builder() -> crate::types::builders::InvalidParameterValueExceptionBuilder {
-        crate::types::builders::InvalidParameterValueExceptionBuilder::default()
+    /// Creates a new builder-style object to manufacture [`InvalidParameterValueException`](crate::types::error::InvalidParameterValueException).
+    pub fn builder() -> crate::types::error::builders::InvalidParameterValueExceptionBuilder {
+        crate::types::error::builders::InvalidParameterValueExceptionBuilder::default()
     }
 }
 
-/// A builder for [`InvalidParameterValueException`](crate::types::InvalidParameterValueException).
+/// A builder for [`InvalidParameterValueException`](crate::types::error::InvalidParameterValueException).
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct InvalidParameterValueExceptionBuilder {
     pub(crate) message: ::std::option::Option<::std::string::String>,
+    meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
 }
 impl InvalidParameterValueExceptionBuilder {
     /// <p>The parameter of an entry in a request doesn't abide by the specification.</p>
@@ -32,14 +57,30 @@ impl InvalidParameterValueExceptionBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.message = input; self }
+    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.message = input;
+        self
+    }
     /// <p>The parameter of an entry in a request doesn't abide by the specification.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> { &self.message }
-    /// Consumes the builder and constructs a [`InvalidParameterValueException`](crate::types::InvalidParameterValueException).
-    pub fn build(self) -> crate::types::InvalidParameterValueException {
-        crate::types::InvalidParameterValueException {
+    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.message
+    }
+    /// Sets error metadata
+    pub fn meta(mut self, meta: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+        self.meta = Some(meta);
+        self
+    }
+
+    /// Sets error metadata
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+        self.meta = meta;
+        self
+    }
+    /// Consumes the builder and constructs a [`InvalidParameterValueException`](crate::types::error::InvalidParameterValueException).
+    pub fn build(self) -> crate::types::error::InvalidParameterValueException {
+        crate::types::error::InvalidParameterValueException {
             message: self.message,
+            meta: self.meta.unwrap_or_default(),
         }
     }
 }
-impl ::std::fmt::Display for InvalidParameterValueException { fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result { f.write_str("InvalidParameterValueException") } }

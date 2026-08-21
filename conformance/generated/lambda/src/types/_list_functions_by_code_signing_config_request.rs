@@ -48,31 +48,53 @@ impl ListFunctionsByCodeSigningConfigRequestBuilder {
         self.code_signing_config_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.code_signing_config_arn = input; self }
+    pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.code_signing_config_arn = input;
+        self
+    }
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    pub fn get_code_signing_config_arn(&self) -> &::std::option::Option<::std::string::String> { &self.code_signing_config_arn }
+    pub fn get_code_signing_config_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.code_signing_config_arn
+    }
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     /// <p>Maximum number of items to return.</p>
     pub fn max_items(mut self, input: i32) -> Self {
         self.max_items = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self { self.max_items = input; self }
+    pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.max_items = input;
+        self
+    }
     /// <p>Maximum number of items to return.</p>
-    pub fn get_max_items(&self) -> &::std::option::Option<i32> { &self.max_items }
+    pub fn get_max_items(&self) -> &::std::option::Option<i32> {
+        &self.max_items
+    }
     /// Consumes the builder and constructs a [`ListFunctionsByCodeSigningConfigRequest`](crate::types::ListFunctionsByCodeSigningConfigRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`code_signing_config_arn`](Self::code_signing_config_arn)
-    pub fn build(self) -> ::std::result::Result<crate::types::ListFunctionsByCodeSigningConfigRequest, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::types::ListFunctionsByCodeSigningConfigRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ListFunctionsByCodeSigningConfigRequest {
-            code_signing_config_arn: self.code_signing_config_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("code_signing_config_arn", "code_signing_config_arn was not specified but it is required when building ListFunctionsByCodeSigningConfigRequest"))?,
+            code_signing_config_arn: self.code_signing_config_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "code_signing_config_arn",
+                    "code_signing_config_arn was not specified but it is required when building ListFunctionsByCodeSigningConfigRequest",
+                )
+            })?,
             marker: self.marker,
             max_items: self.max_items,
         })

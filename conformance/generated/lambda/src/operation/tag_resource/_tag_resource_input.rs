@@ -40,9 +40,14 @@ impl TagResourceInputBuilder {
         self.resource = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.resource = input; self }
+    pub fn set_resource(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.resource = input;
+        self
+    }
     /// <p>The resource's Amazon Resource Name (ARN).</p>
-    pub fn get_resource(&self) -> &::std::option::Option<::std::string::String> { &self.resource }
+    pub fn get_resource(&self) -> &::std::option::Option<::std::string::String> {
+        &self.resource
+    }
     /// <p>A list of tags to apply to the resource.</p>
     /// Adds a key-value pair to `tags`.
     ///
@@ -53,9 +58,14 @@ impl TagResourceInputBuilder {
         self.tags = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.tags = input; self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.tags = input;
+        self
+    }
     /// <p>A list of tags to apply to the resource.</p>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.tags }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.tags
+    }
     /// Consumes the builder and constructs a [`TagResourceInput`](crate::operation::tag_resource::TagResourceInput).
     pub fn build(self) -> crate::operation::tag_resource::TagResourceInput {
         crate::operation::tag_resource::TagResourceInput {

@@ -40,23 +40,38 @@ impl MetricsBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::MetricsStatus>) -> Self { self.status = input; self }
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::MetricsStatus>) -> Self {
+        self.status = input;
+        self
+    }
     /// <p>Specifies whether the replication metrics are enabled.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::MetricsStatus> { &self.status }
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::MetricsStatus> {
+        &self.status
+    }
     /// <p>A container specifying the time threshold for emitting the <code>s3:Replication:OperationMissedThreshold</code> event.</p>
     pub fn event_threshold(mut self, input: crate::types::ReplicationTimeValue) -> Self {
         self.event_threshold = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_event_threshold(mut self, input: ::std::option::Option<crate::types::ReplicationTimeValue>) -> Self { self.event_threshold = input; self }
+    pub fn set_event_threshold(mut self, input: ::std::option::Option<crate::types::ReplicationTimeValue>) -> Self {
+        self.event_threshold = input;
+        self
+    }
     /// <p>A container specifying the time threshold for emitting the <code>s3:Replication:OperationMissedThreshold</code> event.</p>
-    pub fn get_event_threshold(&self) -> &::std::option::Option<crate::types::ReplicationTimeValue> { &self.event_threshold }
+    pub fn get_event_threshold(&self) -> &::std::option::Option<crate::types::ReplicationTimeValue> {
+        &self.event_threshold
+    }
     /// Consumes the builder and constructs a [`Metrics`](crate::types::Metrics).
     /// This method will fail if any of the following fields are not set:
     /// - [`status`](Self::status)
     pub fn build(self) -> ::std::result::Result<crate::types::Metrics, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Metrics {
-            status: self.status.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building Metrics"))?,
+            status: self.status.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "status",
+                    "status was not specified but it is required when building Metrics",
+                )
+            })?,
             event_threshold: self.event_threshold,
         })
     }

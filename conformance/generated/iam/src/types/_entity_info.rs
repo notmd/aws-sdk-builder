@@ -62,43 +62,68 @@ impl EntityInfoBuilder {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.arn = input; self }
-    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> { &self.arn }
+    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.arn = input;
+        self
+    }
+    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.arn
+    }
     /// <p>The name of the entity (user or role).</p>
     /// This field is required.
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.name = input; self }
+    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.name = input;
+        self
+    }
     /// <p>The name of the entity (user or role).</p>
-    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> { &self.name }
+    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.name
+    }
     /// <p>The type of entity (user or role).</p>
     /// This field is required.
     pub fn r#type(mut self, input: crate::types::PolicyOwnerEntityType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::PolicyOwnerEntityType>) -> Self { self.r#type = input; self }
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::PolicyOwnerEntityType>) -> Self {
+        self.r#type = input;
+        self
+    }
     /// <p>The type of entity (user or role).</p>
-    pub fn get_type(&self) -> &::std::option::Option<crate::types::PolicyOwnerEntityType> { &self.r#type }
+    pub fn get_type(&self) -> &::std::option::Option<crate::types::PolicyOwnerEntityType> {
+        &self.r#type
+    }
     /// <p>The identifier of the entity (user or role).</p>
     /// This field is required.
     pub fn id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>The identifier of the entity (user or role).</p>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>The path to the entity (user or role). For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn path(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.path = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.path = input; self }
+    pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.path = input;
+        self
+    }
     /// <p>The path to the entity (user or role). For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_path(&self) -> &::std::option::Option<::std::string::String> { &self.path }
+    pub fn get_path(&self) -> &::std::option::Option<::std::string::String> {
+        &self.path
+    }
     /// Consumes the builder and constructs a [`EntityInfo`](crate::types::EntityInfo).
     /// This method will fail if any of the following fields are not set:
     /// - [`arn`](Self::arn)
@@ -107,10 +132,30 @@ impl EntityInfoBuilder {
     /// - [`id`](Self::id)
     pub fn build(self) -> ::std::result::Result<crate::types::EntityInfo, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::EntityInfo {
-            arn: self.arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("arn", "arn was not specified but it is required when building EntityInfo"))?,
-            name: self.name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("name", "name was not specified but it is required when building EntityInfo"))?,
-            r#type: self.r#type.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("r#type", "r#type was not specified but it is required when building EntityInfo"))?,
-            id: self.id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building EntityInfo"))?,
+            arn: self.arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "arn",
+                    "arn was not specified but it is required when building EntityInfo",
+                )
+            })?,
+            name: self.name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "name",
+                    "name was not specified but it is required when building EntityInfo",
+                )
+            })?,
+            r#type: self.r#type.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "r#type",
+                    "r#type was not specified but it is required when building EntityInfo",
+                )
+            })?,
+            id: self.id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "id",
+                    "id was not specified but it is required when building EntityInfo",
+                )
+            })?,
             path: self.path,
         })
     }

@@ -39,9 +39,14 @@ impl GetPolicyOutputBuilder {
         self.policy = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_policy(mut self, input: ::std::option::Option<crate::types::Policy>) -> Self { self.policy = input; self }
+    pub fn set_policy(mut self, input: ::std::option::Option<crate::types::Policy>) -> Self {
+        self.policy = input;
+        self
+    }
     /// <p>A structure containing details about the policy.</p>
-    pub fn get_policy(&self) -> &::std::option::Option<crate::types::Policy> { &self.policy }
+    pub fn get_policy(&self) -> &::std::option::Option<crate::types::Policy> {
+        &self.policy
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

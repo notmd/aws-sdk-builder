@@ -29,12 +29,15 @@ impl OpenIdConnectProviderListEntryBuilder {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.arn = input; self }
-    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> { &self.arn }
+    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.arn = input;
+        self
+    }
+    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.arn
+    }
     /// Consumes the builder and constructs a [`OpenIdConnectProviderListEntry`](crate::types::OpenIdConnectProviderListEntry).
     pub fn build(self) -> crate::types::OpenIdConnectProviderListEntry {
-        crate::types::OpenIdConnectProviderListEntry {
-            arn: self.arn,
-        }
+        crate::types::OpenIdConnectProviderListEntry { arn: self.arn }
     }
 }

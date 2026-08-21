@@ -79,61 +79,96 @@ impl AddLayerVersionPermissionRequestBuilder {
         self.layer_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_layer_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.layer_name = input; self }
+    pub fn set_layer_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.layer_name = input;
+        self
+    }
     /// <p>The name or Amazon Resource Name (ARN) of the layer.</p>
-    pub fn get_layer_name(&self) -> &::std::option::Option<::std::string::String> { &self.layer_name }
+    pub fn get_layer_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.layer_name
+    }
     /// <p>The version number.</p>
     /// This field is required.
     pub fn version_number(mut self, input: i64) -> Self {
         self.version_number = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_version_number(mut self, input: ::std::option::Option<i64>) -> Self { self.version_number = input; self }
+    pub fn set_version_number(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.version_number = input;
+        self
+    }
     /// <p>The version number.</p>
-    pub fn get_version_number(&self) -> &::std::option::Option<i64> { &self.version_number }
+    pub fn get_version_number(&self) -> &::std::option::Option<i64> {
+        &self.version_number
+    }
     /// <p>An identifier that distinguishes the policy from others on the same layer version.</p>
     /// This field is required.
     pub fn statement_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.statement_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_statement_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.statement_id = input; self }
+    pub fn set_statement_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.statement_id = input;
+        self
+    }
     /// <p>An identifier that distinguishes the policy from others on the same layer version.</p>
-    pub fn get_statement_id(&self) -> &::std::option::Option<::std::string::String> { &self.statement_id }
+    pub fn get_statement_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.statement_id
+    }
     /// <p>The API action that grants access to the layer. For example, <code>lambda:GetLayerVersion</code>.</p>
     /// This field is required.
     pub fn action(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.action = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_action(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.action = input; self }
+    pub fn set_action(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.action = input;
+        self
+    }
     /// <p>The API action that grants access to the layer. For example, <code>lambda:GetLayerVersion</code>.</p>
-    pub fn get_action(&self) -> &::std::option::Option<::std::string::String> { &self.action }
+    pub fn get_action(&self) -> &::std::option::Option<::std::string::String> {
+        &self.action
+    }
     /// <p>An account ID, or <code>*</code> to grant layer usage permission to all accounts in an organization, or all Amazon Web Services accounts (if <code>organizationId</code> is not specified). For the last case, make sure that you really do want all Amazon Web Services accounts to have usage permission to this layer.</p>
     /// This field is required.
     pub fn principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.principal = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.principal = input; self }
+    pub fn set_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.principal = input;
+        self
+    }
     /// <p>An account ID, or <code>*</code> to grant layer usage permission to all accounts in an organization, or all Amazon Web Services accounts (if <code>organizationId</code> is not specified). For the last case, make sure that you really do want all Amazon Web Services accounts to have usage permission to this layer.</p>
-    pub fn get_principal(&self) -> &::std::option::Option<::std::string::String> { &self.principal }
+    pub fn get_principal(&self) -> &::std::option::Option<::std::string::String> {
+        &self.principal
+    }
     /// <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified organization.</p>
     pub fn organization_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.organization_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.organization_id = input; self }
+    pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.organization_id = input;
+        self
+    }
     /// <p>With the principal set to <code>*</code>, grant permission to all accounts in the specified organization.</p>
-    pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> { &self.organization_id }
+    pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.organization_id
+    }
     /// <p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
     pub fn revision_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.revision_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.revision_id = input; self }
+    pub fn set_revision_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.revision_id = input;
+        self
+    }
     /// <p>Only update the policy if the revision ID matches the ID specified. Use this option to avoid modifying a policy that has changed since you last read it.</p>
-    pub fn get_revision_id(&self) -> &::std::option::Option<::std::string::String> { &self.revision_id }
+    pub fn get_revision_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.revision_id
+    }
     /// Consumes the builder and constructs a [`AddLayerVersionPermissionRequest`](crate::types::AddLayerVersionPermissionRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`layer_name`](Self::layer_name)
@@ -143,11 +178,36 @@ impl AddLayerVersionPermissionRequestBuilder {
     /// - [`principal`](Self::principal)
     pub fn build(self) -> ::std::result::Result<crate::types::AddLayerVersionPermissionRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AddLayerVersionPermissionRequest {
-            layer_name: self.layer_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("layer_name", "layer_name was not specified but it is required when building AddLayerVersionPermissionRequest"))?,
-            version_number: self.version_number.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("version_number", "version_number was not specified but it is required when building AddLayerVersionPermissionRequest"))?,
-            statement_id: self.statement_id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("statement_id", "statement_id was not specified but it is required when building AddLayerVersionPermissionRequest"))?,
-            action: self.action.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("action", "action was not specified but it is required when building AddLayerVersionPermissionRequest"))?,
-            principal: self.principal.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("principal", "principal was not specified but it is required when building AddLayerVersionPermissionRequest"))?,
+            layer_name: self.layer_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "layer_name",
+                    "layer_name was not specified but it is required when building AddLayerVersionPermissionRequest",
+                )
+            })?,
+            version_number: self.version_number.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "version_number",
+                    "version_number was not specified but it is required when building AddLayerVersionPermissionRequest",
+                )
+            })?,
+            statement_id: self.statement_id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "statement_id",
+                    "statement_id was not specified but it is required when building AddLayerVersionPermissionRequest",
+                )
+            })?,
+            action: self.action.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "action",
+                    "action was not specified but it is required when building AddLayerVersionPermissionRequest",
+                )
+            })?,
+            principal: self.principal.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "principal",
+                    "principal was not specified but it is required when building AddLayerVersionPermissionRequest",
+                )
+            })?,
             organization_id: self.organization_id,
             revision_id: self.revision_id,
         })

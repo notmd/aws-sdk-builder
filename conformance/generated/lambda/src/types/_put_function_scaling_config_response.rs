@@ -32,9 +32,14 @@ impl PutFunctionScalingConfigResponseBuilder {
         self.function_state = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_function_state(mut self, input: ::std::option::Option<crate::types::State>) -> Self { self.function_state = input; self }
+    pub fn set_function_state(mut self, input: ::std::option::Option<crate::types::State>) -> Self {
+        self.function_state = input;
+        self
+    }
     /// <p>The current state of the function after applying the scaling configuration.</p>
-    pub fn get_function_state(&self) -> &::std::option::Option<crate::types::State> { &self.function_state }
+    pub fn get_function_state(&self) -> &::std::option::Option<crate::types::State> {
+        &self.function_state
+    }
     /// Consumes the builder and constructs a [`PutFunctionScalingConfigResponse`](crate::types::PutFunctionScalingConfigResponse).
     pub fn build(self) -> crate::types::PutFunctionScalingConfigResponse {
         crate::types::PutFunctionScalingConfigResponse {

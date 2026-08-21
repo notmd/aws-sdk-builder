@@ -33,9 +33,14 @@ impl AssociateDelegationRequestInputBuilder {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.delegation_request_id = input; self }
+    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.delegation_request_id = input;
+        self
+    }
     /// <p>The unique identifier of the delegation request to associate.</p>
-    pub fn get_delegation_request_id(&self) -> &::std::option::Option<::std::string::String> { &self.delegation_request_id }
+    pub fn get_delegation_request_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.delegation_request_id
+    }
     /// Consumes the builder and constructs a [`AssociateDelegationRequestInput`](crate::operation::associate_delegation_request::AssociateDelegationRequestInput).
     pub fn build(self) -> crate::operation::associate_delegation_request::AssociateDelegationRequestInput {
         crate::operation::associate_delegation_request::AssociateDelegationRequestInput {

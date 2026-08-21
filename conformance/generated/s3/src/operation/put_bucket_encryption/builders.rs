@@ -6,31 +6,117 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_md5 = Some(value.into()); self }
-    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
-    pub fn server_side_encryption_configuration(mut self, value: impl ::std::convert::Into<crate::types::ServerSideEncryptionConfiguration>) -> Self { self.input.server_side_encryption_configuration = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::PutBucketEncryptionOutput, super::PutBucketEncryptionError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::PutBucketEncryptionError::Unhandled("PutBucketEncryption requires bucket".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}?encryption"); path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path };
-                         let body = { let mut body = ::std::string::String::new(); if let Some(value) = self.input.server_side_encryption_configuration.as_ref() { body.push_str("<ServerSideEncryptionConfiguration>"); if let Some(value) = value.rules.as_ref() { for item in value { body.push_str("<Rule>"); if let Some(value) = item.apply_server_side_encryption_by_default.as_ref() { body.push_str("<ApplyServerSideEncryptionByDefault>"); body.push_str("<SSEAlgorithm>"); body.push_str(&super::super::super::transport::xml_escape(&value.sse_algorithm.to_string())); body.push_str("</SSEAlgorithm>"); if let Some(value) = value.kms_master_key_id.as_ref() { body.push_str("<KMSMasterKeyID>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</KMSMasterKeyID>"); } body.push_str("</ApplyServerSideEncryptionByDefault>"); } if let Some(value) = item.bucket_key_enabled.as_ref() { body.push_str("<BucketKeyEnabled>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</BucketKeyEnabled>"); } if let Some(value) = item.blocked_encryption_types.as_ref() { body.push_str("<BlockedEncryptionTypes>"); if let Some(value) = value.encryption_type.as_ref() { for item in value { body.push_str("<EncryptionType>"); body.push_str(&super::super::super::transport::xml_escape(&item.to_string())); body.push_str("</EncryptionType>"); } } body.push_str("</BlockedEncryptionTypes>"); } body.push_str("</Rule>"); } } body.push_str("</ServerSideEncryptionConfiguration>"); } body.into_bytes() };
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers.push(("content-type", "application/xml")); headers };
-                         let response = self.client.request(super::super::super::transport::Method::Put, &path, &headers, &body).await.map_err(super::PutBucketEncryptionError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::PutBucketEncryptionError::unhandled_with_request_ids(format!("PutBucketEncryption returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_put_bucket_encryption_output::PutBucketEncryptionOutputBuilder::default();
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.content_md5 = Some(value.into());
+        self
+    }
+    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
+        self.input.checksum_algorithm = Some(value.into());
+        self
+    }
+    pub fn server_side_encryption_configuration(mut self, value: impl ::std::convert::Into<crate::types::ServerSideEncryptionConfiguration>) -> Self {
+        self.input.server_side_encryption_configuration = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::PutBucketEncryptionOutput, super::PutBucketEncryptionError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::PutBucketEncryptionError::Unhandled("PutBucketEncryption requires bucket".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}?encryption");
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path
+        };
+        let body = {
+            let mut body = ::std::string::String::new();
+            if let Some(value) = self.input.server_side_encryption_configuration.as_ref() {
+                body.push_str("<ServerSideEncryptionConfiguration>");
+                if let Some(value) = value.rules.as_ref() {
+                    for item in value {
+                        body.push_str("<Rule>");
+                        if let Some(value) = item.apply_server_side_encryption_by_default.as_ref() {
+                            body.push_str("<ApplyServerSideEncryptionByDefault>");
+                            body.push_str("<SSEAlgorithm>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.sse_algorithm.to_string()));
+                            body.push_str("</SSEAlgorithm>");
+                            if let Some(value) = value.kms_master_key_id.as_ref() {
+                                body.push_str("<KMSMasterKeyID>");
+                                body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                                body.push_str("</KMSMasterKeyID>");
+                            }
+                            body.push_str("</ApplyServerSideEncryptionByDefault>");
+                        }
+                        if let Some(value) = item.bucket_key_enabled.as_ref() {
+                            body.push_str("<BucketKeyEnabled>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</BucketKeyEnabled>");
+                        }
+                        if let Some(value) = item.blocked_encryption_types.as_ref() {
+                            body.push_str("<BlockedEncryptionTypes>");
+                            if let Some(value) = value.encryption_type.as_ref() {
+                                for item in value {
+                                    body.push_str("<EncryptionType>");
+                                    body.push_str(&super::super::super::transport::xml_escape(&item.to_string()));
+                                    body.push_str("</EncryptionType>");
+                                }
+                            }
+                            body.push_str("</BlockedEncryptionTypes>");
+                        }
+                        body.push_str("</Rule>");
+                    }
+                }
+                body.push_str("</ServerSideEncryptionConfiguration>");
+            }
+            body.into_bytes()
+        };
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers.push(("content-type", "application/xml"));
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Put, &path, &headers, &body)
+            .await
+            .map_err(super::PutBucketEncryptionError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::PutBucketEncryptionError::unhandled_with_request_ids(
+                format!("PutBucketEncryption returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_put_bucket_encryption_output::PutBucketEncryptionOutputBuilder::default();
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as PutBucketEncryptionFluentBuilder;

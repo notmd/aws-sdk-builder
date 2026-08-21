@@ -96,44 +96,69 @@ impl GetOrganizationsAccessReportOutputBuilder {
         self.job_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_job_status(mut self, input: ::std::option::Option<crate::types::JobStatusType>) -> Self { self.job_status = input; self }
+    pub fn set_job_status(mut self, input: ::std::option::Option<crate::types::JobStatusType>) -> Self {
+        self.job_status = input;
+        self
+    }
     /// <p>The status of the job.</p>
-    pub fn get_job_status(&self) -> &::std::option::Option<crate::types::JobStatusType> { &self.job_status }
+    pub fn get_job_status(&self) -> &::std::option::Option<crate::types::JobStatusType> {
+        &self.job_status
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the report job was created.</p>
     /// This field is required.
     pub fn job_creation_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.job_creation_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_job_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.job_creation_date = input; self }
+    pub fn set_job_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.job_creation_date = input;
+        self
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the report job was created.</p>
-    pub fn get_job_creation_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.job_creation_date }
+    pub fn get_job_creation_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.job_creation_date
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the generated report job was completed or failed.</p>
     /// <p>This field is null if the job is still in progress, as indicated by a job status value of <code>IN_PROGRESS</code>.</p>
     pub fn job_completion_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.job_completion_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_job_completion_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.job_completion_date = input; self }
+    pub fn set_job_completion_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.job_completion_date = input;
+        self
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the generated report job was completed or failed.</p>
     /// <p>This field is null if the job is still in progress, as indicated by a job status value of <code>IN_PROGRESS</code>.</p>
-    pub fn get_job_completion_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.job_completion_date }
+    pub fn get_job_completion_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.job_completion_date
+    }
     /// <p>The number of services that the applicable SCPs allow account principals to access.</p>
     pub fn number_of_services_accessible(mut self, input: i32) -> Self {
         self.number_of_services_accessible = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_number_of_services_accessible(mut self, input: ::std::option::Option<i32>) -> Self { self.number_of_services_accessible = input; self }
+    pub fn set_number_of_services_accessible(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.number_of_services_accessible = input;
+        self
+    }
     /// <p>The number of services that the applicable SCPs allow account principals to access.</p>
-    pub fn get_number_of_services_accessible(&self) -> &::std::option::Option<i32> { &self.number_of_services_accessible }
+    pub fn get_number_of_services_accessible(&self) -> &::std::option::Option<i32> {
+        &self.number_of_services_accessible
+    }
     /// <p>The number of services that account principals are allowed but did not attempt to access.</p>
     pub fn number_of_services_not_accessed(mut self, input: i32) -> Self {
         self.number_of_services_not_accessed = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_number_of_services_not_accessed(mut self, input: ::std::option::Option<i32>) -> Self { self.number_of_services_not_accessed = input; self }
+    pub fn set_number_of_services_not_accessed(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.number_of_services_not_accessed = input;
+        self
+    }
     /// <p>The number of services that account principals are allowed but did not attempt to access.</p>
-    pub fn get_number_of_services_not_accessed(&self) -> &::std::option::Option<i32> { &self.number_of_services_not_accessed }
+    pub fn get_number_of_services_not_accessed(&self) -> &::std::option::Option<i32> {
+        &self.number_of_services_not_accessed
+    }
     /// <p>An object that contains details about the most recent attempt to access the service.</p>
     /// Appends an item to `access_details`.
     ///
@@ -144,31 +169,51 @@ impl GetOrganizationsAccessReportOutputBuilder {
         self.access_details = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_access_details(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AccessDetail>>) -> Self { self.access_details = input; self }
+    pub fn set_access_details(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AccessDetail>>) -> Self {
+        self.access_details = input;
+        self
+    }
     /// <p>An object that contains details about the most recent attempt to access the service.</p>
-    pub fn get_access_details(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AccessDetail>> { &self.access_details }
+    pub fn get_access_details(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AccessDetail>> {
+        &self.access_details
+    }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
     pub fn is_truncated(mut self, input: bool) -> Self {
         self.is_truncated = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self { self.is_truncated = input; self }
+    pub fn set_is_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.is_truncated = input;
+        self
+    }
     /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items. Note that IAM might return fewer than the <code>MaxItems</code> number of results even when there are more results available. We recommend that you check <code>IsTruncated</code> after every call to ensure that you receive all your results.</p>
-    pub fn get_is_truncated(&self) -> &::std::option::Option<bool> { &self.is_truncated }
+    pub fn get_is_truncated(&self) -> &::std::option::Option<bool> {
+        &self.is_truncated
+    }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     pub fn error_details(mut self, input: crate::types::ErrorDetails) -> Self {
         self.error_details = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error_details(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self { self.error_details = input; self }
-    pub fn get_error_details(&self) -> &::std::option::Option<crate::types::ErrorDetails> { &self.error_details }
+    pub fn set_error_details(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
+        self.error_details = input;
+        self
+    }
+    pub fn get_error_details(&self) -> &::std::option::Option<crate::types::ErrorDetails> {
+        &self.error_details
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self
@@ -182,10 +227,25 @@ impl GetOrganizationsAccessReportOutputBuilder {
     /// This method will fail if any of the following fields are not set:
     /// - [`job_status`](Self::job_status)
     /// - [`job_creation_date`](Self::job_creation_date)
-    pub fn build(self) -> ::std::result::Result<crate::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
         ::std::result::Result::Ok(crate::operation::get_organizations_access_report::GetOrganizationsAccessReportOutput {
-            job_status: self.job_status.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("job_status", "job_status was not specified but it is required when building GetOrganizationsAccessReportOutput"))?,
-            job_creation_date: self.job_creation_date.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("job_creation_date", "job_creation_date was not specified but it is required when building GetOrganizationsAccessReportOutput"))?,
+            job_status: self.job_status.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "job_status",
+                    "job_status was not specified but it is required when building GetOrganizationsAccessReportOutput",
+                )
+            })?,
+            job_creation_date: self.job_creation_date.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "job_creation_date",
+                    "job_creation_date was not specified but it is required when building GetOrganizationsAccessReportOutput",
+                )
+            })?,
             job_completion_date: self.job_completion_date,
             number_of_services_accessible: self.number_of_services_accessible,
             number_of_services_not_accessed: self.number_of_services_not_accessed,

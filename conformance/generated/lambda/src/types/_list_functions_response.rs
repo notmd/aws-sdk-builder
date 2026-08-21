@@ -39,9 +39,14 @@ impl ListFunctionsResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>The pagination token that's included if more results are available.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// <p>A list of Lambda functions.</p>
     /// Appends an item to `functions`.
     ///
@@ -52,9 +57,14 @@ impl ListFunctionsResponseBuilder {
         self.functions = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_functions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionConfiguration>>) -> Self { self.functions = input; self }
+    pub fn set_functions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FunctionConfiguration>>) -> Self {
+        self.functions = input;
+        self
+    }
     /// <p>A list of Lambda functions.</p>
-    pub fn get_functions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionConfiguration>> { &self.functions }
+    pub fn get_functions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FunctionConfiguration>> {
+        &self.functions
+    }
     /// Consumes the builder and constructs a [`ListFunctionsResponse`](crate::types::ListFunctionsResponse).
     pub fn build(self) -> crate::types::ListFunctionsResponse {
         crate::types::ListFunctionsResponse {

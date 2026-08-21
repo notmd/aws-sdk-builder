@@ -58,25 +58,40 @@ impl DescribeCustomKeyStoresOutputBuilder {
         self.custom_key_stores = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_custom_key_stores(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CustomKeyStoresListEntry>>) -> Self { self.custom_key_stores = input; self }
+    pub fn set_custom_key_stores(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CustomKeyStoresListEntry>>) -> Self {
+        self.custom_key_stores = input;
+        self
+    }
     /// <p>Contains metadata about each custom key store.</p>
-    pub fn get_custom_key_stores(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CustomKeyStoresListEntry>> { &self.custom_key_stores }
+    pub fn get_custom_key_stores(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CustomKeyStoresListEntry>> {
+        &self.custom_key_stores
+    }
     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
     pub fn next_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>When <code>Truncated</code> is true, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent request.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
     pub fn truncated(mut self, input: bool) -> Self {
         self.truncated = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self { self.truncated = input; self }
+    pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.truncated = input;
+        self
+    }
     /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
-    pub fn get_truncated(&self) -> &::std::option::Option<bool> { &self.truncated }
+    pub fn get_truncated(&self) -> &::std::option::Option<bool> {
+        &self.truncated
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

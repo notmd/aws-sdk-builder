@@ -46,25 +46,40 @@ impl ResolvedS3ObjectBuilder {
         self.s3_bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.s3_bucket = input; self }
+    pub fn set_s3_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.s3_bucket = input;
+        self
+    }
     /// <p>The Amazon S3 bucket that contains the deployment package.</p>
-    pub fn get_s3_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.s3_bucket }
+    pub fn get_s3_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.s3_bucket
+    }
     /// <p>The Amazon S3 key of the deployment package.</p>
     pub fn s3_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_s3_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.s3_key = input; self }
+    pub fn set_s3_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.s3_key = input;
+        self
+    }
     /// <p>The Amazon S3 key of the deployment package.</p>
-    pub fn get_s3_key(&self) -> &::std::option::Option<::std::string::String> { &self.s3_key }
+    pub fn get_s3_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.s3_key
+    }
     /// <p>The version of the deployment package object.</p>
     pub fn s3_object_version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.s3_object_version = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_s3_object_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.s3_object_version = input; self }
+    pub fn set_s3_object_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.s3_object_version = input;
+        self
+    }
     /// <p>The version of the deployment package object.</p>
-    pub fn get_s3_object_version(&self) -> &::std::option::Option<::std::string::String> { &self.s3_object_version }
+    pub fn get_s3_object_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.s3_object_version
+    }
     /// Consumes the builder and constructs a [`ResolvedS3Object`](crate::types::ResolvedS3Object).
     pub fn build(self) -> crate::types::ResolvedS3Object {
         crate::types::ResolvedS3Object {

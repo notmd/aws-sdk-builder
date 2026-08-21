@@ -132,7 +132,21 @@ impl ComparisonOperator {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["BEGINS_WITH", "BETWEEN", "CONTAINS", "EQ", "GE", "GT", "IN", "LE", "LT", "NE", "NOT_CONTAINS", "NOT_NULL", "NULL"]
+        &[
+            "BEGINS_WITH",
+            "BETWEEN",
+            "CONTAINS",
+            "EQ",
+            "GE",
+            "GT",
+            "IN",
+            "LE",
+            "LT",
+            "NE",
+            "NOT_CONTAINS",
+            "NOT_NULL",
+            "NULL",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for ComparisonOperator {

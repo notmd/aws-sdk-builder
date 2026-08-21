@@ -40,18 +40,28 @@ impl VerifySmsSandboxPhoneNumberInputBuilder {
         self.phone_number = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_phone_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.phone_number = input; self }
+    pub fn set_phone_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.phone_number = input;
+        self
+    }
     /// <p>The destination phone number to verify.</p>
-    pub fn get_phone_number(&self) -> &::std::option::Option<::std::string::String> { &self.phone_number }
+    pub fn get_phone_number(&self) -> &::std::option::Option<::std::string::String> {
+        &self.phone_number
+    }
     /// <p>The OTP sent to the destination number from the <code>CreateSMSSandBoxPhoneNumber</code> call.</p>
     /// This field is required.
     pub fn one_time_password(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.one_time_password = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_one_time_password(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.one_time_password = input; self }
+    pub fn set_one_time_password(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.one_time_password = input;
+        self
+    }
     /// <p>The OTP sent to the destination number from the <code>CreateSMSSandBoxPhoneNumber</code> call.</p>
-    pub fn get_one_time_password(&self) -> &::std::option::Option<::std::string::String> { &self.one_time_password }
+    pub fn get_one_time_password(&self) -> &::std::option::Option<::std::string::String> {
+        &self.one_time_password
+    }
     /// Consumes the builder and constructs a [`VerifySmsSandboxPhoneNumberInput`](crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberInput).
     pub fn build(self) -> crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberInput {
         crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberInput {

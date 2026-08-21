@@ -48,18 +48,28 @@ impl ListPoliciesGrantingServiceAccessInputBuilder {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     /// <p>The ARN of the IAM identity (user, group, or role) whose policies you want to list.</p>
     /// This field is required.
     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.arn = input; self }
+    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.arn = input;
+        self
+    }
     /// <p>The ARN of the IAM identity (user, group, or role) whose policies you want to list.</p>
-    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> { &self.arn }
+    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.arn
+    }
     /// <p>The service namespace for the Amazon Web Services services whose policies you want to list.</p>
     /// <p>To learn the service namespace for a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>. Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, <code>(service prefix: a4b)</code>. For more information about service namespaces, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
     /// Appends an item to `service_namespaces`.
@@ -71,10 +81,15 @@ impl ListPoliciesGrantingServiceAccessInputBuilder {
         self.service_namespaces = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_service_namespaces(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.service_namespaces = input; self }
+    pub fn set_service_namespaces(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.service_namespaces = input;
+        self
+    }
     /// <p>The service namespace for the Amazon Web Services services whose policies you want to list.</p>
     /// <p>To learn the service namespace for a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for Amazon Web Services services</a> in the <i>IAM User Guide</i>. Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, <code>(service prefix: a4b)</code>. For more information about service namespaces, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn get_service_namespaces(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.service_namespaces }
+    pub fn get_service_namespaces(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.service_namespaces
+    }
     /// Consumes the builder and constructs a [`ListPoliciesGrantingServiceAccessInput`](crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessInput).
     pub fn build(self) -> crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessInput {
         crate::operation::list_policies_granting_service_access::ListPoliciesGrantingServiceAccessInput {

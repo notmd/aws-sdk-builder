@@ -45,9 +45,14 @@ impl MetricsConfigurationBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>The ID used to identify the metrics configuration. The ID has a 64 character limit and can only contain letters, numbers, periods, dashes, and underscores.</p>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, an object tag, an access point ARN, or a conjunction (MetricsAndOperator).</p><note>
     /// <p>Metrics configurations for directory buckets do not support tag filters.</p>
     /// </note>
@@ -55,17 +60,27 @@ impl MetricsConfigurationBuilder {
         self.filter = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::MetricsFilter>) -> Self { self.filter = input; self }
+    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::MetricsFilter>) -> Self {
+        self.filter = input;
+        self
+    }
     /// <p>Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, an object tag, an access point ARN, or a conjunction (MetricsAndOperator).</p><note>
     /// <p>Metrics configurations for directory buckets do not support tag filters.</p>
     /// </note>
-    pub fn get_filter(&self) -> &::std::option::Option<crate::types::MetricsFilter> { &self.filter }
+    pub fn get_filter(&self) -> &::std::option::Option<crate::types::MetricsFilter> {
+        &self.filter
+    }
     /// Consumes the builder and constructs a [`MetricsConfiguration`](crate::types::MetricsConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](Self::id)
     pub fn build(self) -> ::std::result::Result<crate::types::MetricsConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::MetricsConfiguration {
-            id: self.id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building MetricsConfiguration"))?,
+            id: self.id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "id",
+                    "id was not specified but it is required when building MetricsConfiguration",
+                )
+            })?,
             filter: self.filter,
         })
     }

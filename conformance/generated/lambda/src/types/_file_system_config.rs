@@ -42,26 +42,46 @@ impl FileSystemConfigBuilder {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.arn = input; self }
+    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.</p>
-    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> { &self.arn }
+    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.arn
+    }
     /// <p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>
     /// This field is required.
     pub fn local_mount_path(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.local_mount_path = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_local_mount_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.local_mount_path = input; self }
+    pub fn set_local_mount_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.local_mount_path = input;
+        self
+    }
     /// <p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>
-    pub fn get_local_mount_path(&self) -> &::std::option::Option<::std::string::String> { &self.local_mount_path }
+    pub fn get_local_mount_path(&self) -> &::std::option::Option<::std::string::String> {
+        &self.local_mount_path
+    }
     /// Consumes the builder and constructs a [`FileSystemConfig`](crate::types::FileSystemConfig).
     /// This method will fail if any of the following fields are not set:
     /// - [`arn`](Self::arn)
     /// - [`local_mount_path`](Self::local_mount_path)
     pub fn build(self) -> ::std::result::Result<crate::types::FileSystemConfig, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::FileSystemConfig {
-            arn: self.arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("arn", "arn was not specified but it is required when building FileSystemConfig"))?,
-            local_mount_path: self.local_mount_path.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("local_mount_path", "local_mount_path was not specified but it is required when building FileSystemConfig"))?,
+            arn: self.arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "arn",
+                    "arn was not specified but it is required when building FileSystemConfig",
+                )
+            })?,
+            local_mount_path: self.local_mount_path.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "local_mount_path",
+                    "local_mount_path was not specified but it is required when building FileSystemConfig",
+                )
+            })?,
         })
     }
 }

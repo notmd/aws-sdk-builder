@@ -46,25 +46,40 @@ impl ExportSummaryBuilder {
         self.export_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_export_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.export_arn = input; self }
+    pub fn set_export_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.export_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the export.</p>
-    pub fn get_export_arn(&self) -> &::std::option::Option<::std::string::String> { &self.export_arn }
+    pub fn get_export_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.export_arn
+    }
     /// <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
     pub fn export_status(mut self, input: crate::types::ExportStatus) -> Self {
         self.export_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_export_status(mut self, input: ::std::option::Option<crate::types::ExportStatus>) -> Self { self.export_status = input; self }
+    pub fn set_export_status(mut self, input: ::std::option::Option<crate::types::ExportStatus>) -> Self {
+        self.export_status = input;
+        self
+    }
     /// <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
-    pub fn get_export_status(&self) -> &::std::option::Option<crate::types::ExportStatus> { &self.export_status }
+    pub fn get_export_status(&self) -> &::std::option::Option<crate::types::ExportStatus> {
+        &self.export_status
+    }
     /// <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
     pub fn export_type(mut self, input: crate::types::ExportType) -> Self {
         self.export_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_export_type(mut self, input: ::std::option::Option<crate::types::ExportType>) -> Self { self.export_type = input; self }
+    pub fn set_export_type(mut self, input: ::std::option::Option<crate::types::ExportType>) -> Self {
+        self.export_type = input;
+        self
+    }
     /// <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
-    pub fn get_export_type(&self) -> &::std::option::Option<crate::types::ExportType> { &self.export_type }
+    pub fn get_export_type(&self) -> &::std::option::Option<crate::types::ExportType> {
+        &self.export_type
+    }
     /// Consumes the builder and constructs a [`ExportSummary`](crate::types::ExportSummary).
     pub fn build(self) -> crate::types::ExportSummary {
         crate::types::ExportSummary {

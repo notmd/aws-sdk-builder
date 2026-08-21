@@ -429,19 +429,29 @@ impl HeadObjectOutputBuilder {
         self.delete_marker = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_delete_marker(mut self, input: ::std::option::Option<bool>) -> Self { self.delete_marker = input; self }
+    pub fn set_delete_marker(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.delete_marker = input;
+        self
+    }
     /// <p>Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_delete_marker(&self) -> &::std::option::Option<bool> { &self.delete_marker }
+    pub fn get_delete_marker(&self) -> &::std::option::Option<bool> {
+        &self.delete_marker
+    }
     /// <p>Indicates that a range of bytes was specified.</p>
     pub fn accept_ranges(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.accept_ranges = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_accept_ranges(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.accept_ranges = input; self }
+    pub fn set_accept_ranges(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.accept_ranges = input;
+        self
+    }
     /// <p>Indicates that a range of bytes was specified.</p>
-    pub fn get_accept_ranges(&self) -> &::std::option::Option<::std::string::String> { &self.accept_ranges }
+    pub fn get_accept_ranges(&self) -> &::std::option::Option<::std::string::String> {
+        &self.accept_ranges
+    }
     /// <p>If the object expiration is configured (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html"><code>PutBucketLifecycleConfiguration</code></a>), the response includes this header. It includes the <code>expiry-date</code> and <code>rule-id</code> key-value pairs providing object expiration information. The value of the <code>rule-id</code> is URL-encoded.</p><note>
     /// <p>Object expiration information is not returned in directory buckets and this header returns the value "<code>NotImplemented</code>" in all responses for directory buckets.</p>
     /// </note>
@@ -449,11 +459,16 @@ impl HeadObjectOutputBuilder {
         self.expiration = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expiration(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expiration = input; self }
+    pub fn set_expiration(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expiration = input;
+        self
+    }
     /// <p>If the object expiration is configured (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycleConfiguration.html"><code>PutBucketLifecycleConfiguration</code></a>), the response includes this header. It includes the <code>expiry-date</code> and <code>rule-id</code> key-value pairs providing object expiration information. The value of the <code>rule-id</code> is URL-encoded.</p><note>
     /// <p>Object expiration information is not returned in directory buckets and this header returns the value "<code>NotImplemented</code>" in all responses for directory buckets.</p>
     /// </note>
-    pub fn get_expiration(&self) -> &::std::option::Option<::std::string::String> { &self.expiration }
+    pub fn get_expiration(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expiration
+    }
     /// <p>If the object is an archived object (an object whose storage class is GLACIER), the response includes this header if either the archive restoration is in progress (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a> or an archive copy is already restored.</p>
     /// <p>If an archive copy is already restored, the header value indicates when Amazon S3 is scheduled to delete the object copy. For example:</p>
     /// <p><code>x-amz-restore: ongoing-request="false", expiry-date="Fri, 21 Dec 2012 00:00:00 GMT"</code></p>
@@ -465,7 +480,10 @@ impl HeadObjectOutputBuilder {
         self.restore = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_restore(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.restore = input; self }
+    pub fn set_restore(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.restore = input;
+        self
+    }
     /// <p>If the object is an archived object (an object whose storage class is GLACIER), the response includes this header if either the archive restoration is in progress (see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_RestoreObject.html">RestoreObject</a> or an archive copy is already restored.</p>
     /// <p>If an archive copy is already restored, the header value indicates when Amazon S3 is scheduled to delete the object copy. For example:</p>
     /// <p><code>x-amz-restore: ongoing-request="false", expiry-date="Fri, 21 Dec 2012 00:00:00 GMT"</code></p>
@@ -473,7 +491,9 @@ impl HeadObjectOutputBuilder {
     /// <p>For more information about archiving objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html#lifecycle-transition-general-considerations">Transitioning Objects: General Considerations</a>.</p><note>
     /// <p>This functionality is not supported for directory buckets. Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn get_restore(&self) -> &::std::option::Option<::std::string::String> { &self.restore }
+    pub fn get_restore(&self) -> &::std::option::Option<::std::string::String> {
+        &self.restore
+    }
     /// <p>The archive state of the head object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -481,123 +501,198 @@ impl HeadObjectOutputBuilder {
         self.archive_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_archive_status(mut self, input: ::std::option::Option<crate::types::ArchiveStatus>) -> Self { self.archive_status = input; self }
+    pub fn set_archive_status(mut self, input: ::std::option::Option<crate::types::ArchiveStatus>) -> Self {
+        self.archive_status = input;
+        self
+    }
     /// <p>The archive state of the head object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_archive_status(&self) -> &::std::option::Option<crate::types::ArchiveStatus> { &self.archive_status }
+    pub fn get_archive_status(&self) -> &::std::option::Option<crate::types::ArchiveStatus> {
+        &self.archive_status
+    }
     /// <p>Date and time when the object was last modified.</p>
     pub fn last_modified(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.last_modified = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.last_modified = input; self }
+    pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.last_modified = input;
+        self
+    }
     /// <p>Date and time when the object was last modified.</p>
-    pub fn get_last_modified(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.last_modified }
+    pub fn get_last_modified(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.last_modified
+    }
     /// <p>Size of the body in bytes.</p>
     pub fn content_length(mut self, input: i64) -> Self {
         self.content_length = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_content_length(mut self, input: ::std::option::Option<i64>) -> Self { self.content_length = input; self }
+    pub fn set_content_length(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.content_length = input;
+        self
+    }
     /// <p>Size of the body in bytes.</p>
-    pub fn get_content_length(&self) -> &::std::option::Option<i64> { &self.content_length }
+    pub fn get_content_length(&self) -> &::std::option::Option<i64> {
+        &self.content_length
+    }
     /// <p>The Base64 encoded, 32-bit <code>CRC32 checksum</code> of the object. This checksum is only present if the checksum was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_crc32(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc32 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_crc32(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_crc32 = input; self }
+    pub fn set_checksum_crc32(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_crc32 = input;
+        self
+    }
     /// <p>The Base64 encoded, 32-bit <code>CRC32 checksum</code> of the object. This checksum is only present if the checksum was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_crc32(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_crc32 }
+    pub fn get_checksum_crc32(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_crc32
+    }
     /// <p>The Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. This checksum is only present if the checksum was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_crc32_c(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc32_c = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_crc32_c(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_crc32_c = input; self }
+    pub fn set_checksum_crc32_c(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_crc32_c = input;
+        self
+    }
     /// <p>The Base64 encoded, 32-bit <code>CRC32C</code> checksum of the object. This checksum is only present if the checksum was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_crc32_c(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_crc32_c }
+    pub fn get_checksum_crc32_c(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_crc32_c
+    }
     /// <p>The Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_crc64_nvme(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_crc64_nvme = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_crc64_nvme(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_crc64_nvme = input; self }
+    pub fn set_checksum_crc64_nvme(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_crc64_nvme = input;
+        self
+    }
     /// <p>The Base64 encoded, 64-bit <code>CRC64NVME</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_crc64_nvme(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_crc64_nvme }
+    pub fn get_checksum_crc64_nvme(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_crc64_nvme
+    }
     /// <p>The Base64 encoded, 160-bit <code>SHA1</code> digest of the object. This checksum is only present if the checksum was uploaded with the object. When you use the API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_sha1(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha1 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_sha1(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_sha1 = input; self }
+    pub fn set_checksum_sha1(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_sha1 = input;
+        self
+    }
     /// <p>The Base64 encoded, 160-bit <code>SHA1</code> digest of the object. This checksum is only present if the checksum was uploaded with the object. When you use the API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_sha1(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_sha1 }
+    pub fn get_checksum_sha1(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_sha1
+    }
     /// <p>The Base64 encoded, 256-bit <code>SHA256</code> digest of the object. This checksum is only present if the checksum was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     pub fn checksum_sha256(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha256 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_sha256 = input; self }
+    pub fn set_checksum_sha256(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_sha256 = input;
+        self
+    }
     /// <p>The Base64 encoded, 256-bit <code>SHA256</code> digest of the object. This checksum is only present if the checksum was uploaded with the object. When you use an API operation on an object that was uploaded using multipart uploads, this value may not be a direct checksum value of the full object. Instead, it's a calculation based on the checksum values of each individual part. For more information about how checksums are calculated with multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html#large-object-checksums">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_checksum_sha256(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_sha256 }
+    pub fn get_checksum_sha256(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_sha256
+    }
     /// <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_sha512(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_sha512 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_sha512(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_sha512 = input; self }
+    pub fn set_checksum_sha512(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_sha512 = input;
+        self
+    }
     /// <p>The Base64 encoded, 512-bit <code>SHA512</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_sha512(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_sha512 }
+    pub fn get_checksum_sha512(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_sha512
+    }
     /// <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_md5 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_md5 = input; self }
+    pub fn set_checksum_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_md5 = input;
+        self
+    }
     /// <p>The Base64 encoded, 128-bit <code>MD5</code> digest of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_md5(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_md5 }
+    pub fn get_checksum_md5(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_md5
+    }
     /// <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_xxhash64(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash64 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_xxhash64(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_xxhash64 = input; self }
+    pub fn set_checksum_xxhash64(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_xxhash64 = input;
+        self
+    }
     /// <p>The Base64 encoded, 64-bit <code>XXHASH64</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_xxhash64(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_xxhash64 }
+    pub fn get_checksum_xxhash64(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_xxhash64
+    }
     /// <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_xxhash3(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash3 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_xxhash3(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_xxhash3 = input; self }
+    pub fn set_checksum_xxhash3(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_xxhash3 = input;
+        self
+    }
     /// <p>The Base64 encoded, 64-bit <code>XXHASH3</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_xxhash3(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_xxhash3 }
+    pub fn get_checksum_xxhash3(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_xxhash3
+    }
     /// <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_xxhash128(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.checksum_xxhash128 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_checksum_xxhash128(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.checksum_xxhash128 = input; self }
+    pub fn set_checksum_xxhash128(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.checksum_xxhash128 = input;
+        self
+    }
     /// <p>The Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_xxhash128(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_xxhash128 }
+    pub fn get_checksum_xxhash128(&self) -> &::std::option::Option<::std::string::String> {
+        &self.checksum_xxhash128
+    }
     /// <p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header response to verify that the checksum type that is received is the same checksum type that was specified in <code>CreateMultipartUpload</code> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn checksum_type(mut self, input: crate::types::ChecksumType) -> Self {
         self.checksum_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self { self.checksum_type = input; self }
+    pub fn set_checksum_type(mut self, input: ::std::option::Option<crate::types::ChecksumType>) -> Self {
+        self.checksum_type = input;
+        self
+    }
     /// <p>The checksum type, which determines how part-level checksums are combined to create an object-level checksum for multipart objects. You can use this header response to verify that the checksum type that is received is the same checksum type that was specified in <code>CreateMultipartUpload</code> request. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
-    pub fn get_checksum_type(&self) -> &::std::option::Option<crate::types::ChecksumType> { &self.checksum_type }
+    pub fn get_checksum_type(&self) -> &::std::option::Option<crate::types::ChecksumType> {
+        &self.checksum_type
+    }
     /// <p>An entity tag (ETag) is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>
     pub fn e_tag(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.e_tag = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.e_tag = input; self }
+    pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.e_tag = input;
+        self
+    }
     /// <p>An entity tag (ETag) is an opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>
-    pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> { &self.e_tag }
+    pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> {
+        &self.e_tag
+    }
     /// <p>This is set to the number of metadata entries not returned in <code>x-amz-meta</code> headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -605,11 +700,16 @@ impl HeadObjectOutputBuilder {
         self.missing_meta = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_missing_meta(mut self, input: ::std::option::Option<i32>) -> Self { self.missing_meta = input; self }
+    pub fn set_missing_meta(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.missing_meta = input;
+        self
+    }
     /// <p>This is set to the number of metadata entries not returned in <code>x-amz-meta</code> headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_missing_meta(&self) -> &::std::option::Option<i32> { &self.missing_meta }
+    pub fn get_missing_meta(&self) -> &::std::option::Option<i32> {
+        &self.missing_meta
+    }
     /// <p>Version ID of the object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -617,59 +717,94 @@ impl HeadObjectOutputBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.version_id = input; self }
+    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.version_id = input;
+        self
+    }
     /// <p>Version ID of the object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.version_id }
+    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.version_id
+    }
     /// <p>Specifies caching behavior along the request/reply chain.</p>
     pub fn cache_control(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.cache_control = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_cache_control(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.cache_control = input; self }
+    pub fn set_cache_control(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.cache_control = input;
+        self
+    }
     /// <p>Specifies caching behavior along the request/reply chain.</p>
-    pub fn get_cache_control(&self) -> &::std::option::Option<::std::string::String> { &self.cache_control }
+    pub fn get_cache_control(&self) -> &::std::option::Option<::std::string::String> {
+        &self.cache_control
+    }
     /// <p>Specifies presentational information for the object.</p>
     pub fn content_disposition(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.content_disposition = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_content_disposition(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.content_disposition = input; self }
+    pub fn set_content_disposition(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.content_disposition = input;
+        self
+    }
     /// <p>Specifies presentational information for the object.</p>
-    pub fn get_content_disposition(&self) -> &::std::option::Option<::std::string::String> { &self.content_disposition }
+    pub fn get_content_disposition(&self) -> &::std::option::Option<::std::string::String> {
+        &self.content_disposition
+    }
     /// <p>Indicates what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>
     pub fn content_encoding(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.content_encoding = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_content_encoding(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.content_encoding = input; self }
+    pub fn set_content_encoding(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.content_encoding = input;
+        self
+    }
     /// <p>Indicates what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>
-    pub fn get_content_encoding(&self) -> &::std::option::Option<::std::string::String> { &self.content_encoding }
+    pub fn get_content_encoding(&self) -> &::std::option::Option<::std::string::String> {
+        &self.content_encoding
+    }
     /// <p>The language the content is in.</p>
     pub fn content_language(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.content_language = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_content_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.content_language = input; self }
+    pub fn set_content_language(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.content_language = input;
+        self
+    }
     /// <p>The language the content is in.</p>
-    pub fn get_content_language(&self) -> &::std::option::Option<::std::string::String> { &self.content_language }
+    pub fn get_content_language(&self) -> &::std::option::Option<::std::string::String> {
+        &self.content_language
+    }
     /// <p>A standard MIME type describing the format of the object data.</p>
     pub fn content_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.content_type = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_content_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.content_type = input; self }
+    pub fn set_content_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.content_type = input;
+        self
+    }
     /// <p>A standard MIME type describing the format of the object data.</p>
-    pub fn get_content_type(&self) -> &::std::option::Option<::std::string::String> { &self.content_type }
+    pub fn get_content_type(&self) -> &::std::option::Option<::std::string::String> {
+        &self.content_type
+    }
     /// <p>The portion of the object returned in the response for a <code>GET</code> request.</p>
     pub fn content_range(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.content_range = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_content_range(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.content_range = input; self }
+    pub fn set_content_range(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.content_range = input;
+        self
+    }
     /// <p>The portion of the object returned in the response for a <code>GET</code> request.</p>
-    pub fn get_content_range(&self) -> &::std::option::Option<::std::string::String> { &self.content_range }
+    pub fn get_content_range(&self) -> &::std::option::Option<::std::string::String> {
+        &self.content_range
+    }
     /// <p>The date and time at which the object is no longer cacheable.</p>
     #[deprecated(note = "Please use `expires_string` which contains the raw, unparsed value of this field.")]
     pub fn expires(mut self, input: ::aws_smithy_types::DateTime) -> Self {
@@ -677,18 +812,28 @@ impl HeadObjectOutputBuilder {
         self
     }
     #[deprecated(note = "Please use `expires_string` which contains the raw, unparsed value of this field.")]
-    pub fn set_expires(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.expires = input; self }
+    pub fn set_expires(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.expires = input;
+        self
+    }
     /// <p>The date and time at which the object is no longer cacheable.</p>
     #[deprecated(note = "Please use `expires_string` which contains the raw, unparsed value of this field.")]
-    pub fn get_expires(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.expires }
+    pub fn get_expires(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.expires
+    }
     /// <p>The date and time at which the object is no longer cacheable.</p>
     pub fn expires_string(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expires_string = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expires_string(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expires_string = input; self }
+    pub fn set_expires_string(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expires_string = input;
+        self
+    }
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub fn get_expires_string(&self) -> &::std::option::Option<::std::string::String> { &self.expires_string }
+    pub fn get_expires_string(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expires_string
+    }
     /// <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -696,11 +841,16 @@ impl HeadObjectOutputBuilder {
         self.website_redirect_location = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_website_redirect_location(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.website_redirect_location = input; self }
+    pub fn set_website_redirect_location(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.website_redirect_location = input;
+        self
+    }
     /// <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_website_redirect_location(&self) -> &::std::option::Option<::std::string::String> { &self.website_redirect_location }
+    pub fn get_website_redirect_location(&self) -> &::std::option::Option<::std::string::String> {
+        &self.website_redirect_location
+    }
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
@@ -708,11 +858,16 @@ impl HeadObjectOutputBuilder {
         self.server_side_encryption = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self { self.server_side_encryption = input; self }
+    pub fn set_server_side_encryption(mut self, input: ::std::option::Option<crate::types::ServerSideEncryption>) -> Self {
+        self.server_side_encryption = input;
+        self
+    }
     /// <p>The server-side encryption algorithm used when you store this object in Amazon S3 or Amazon FSx.</p><note>
     /// <p>When accessing data stored in Amazon FSx file systems using S3 access points, the only valid server side encryption option is <code>aws:fsx</code>.</p>
     /// </note>
-    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> { &self.server_side_encryption }
+    pub fn get_server_side_encryption(&self) -> &::std::option::Option<crate::types::ServerSideEncryption> {
+        &self.server_side_encryption
+    }
     /// <p>A map of metadata to store with the object in S3.</p>
     /// Adds a key-value pair to `metadata`.
     ///
@@ -723,9 +878,14 @@ impl HeadObjectOutputBuilder {
         self.metadata = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_metadata(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.metadata = input; self }
+    pub fn set_metadata(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.metadata = input;
+        self
+    }
     /// <p>A map of metadata to store with the object in S3.</p>
-    pub fn get_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.metadata }
+    pub fn get_metadata(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.metadata
+    }
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -733,11 +893,16 @@ impl HeadObjectOutputBuilder {
         self.sse_customer_algorithm = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.sse_customer_algorithm = input; self }
+    pub fn set_sse_customer_algorithm(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.sse_customer_algorithm = input;
+        self
+    }
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to confirm the encryption algorithm that's used.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_sse_customer_algorithm(&self) -> &::std::option::Option<::std::string::String> { &self.sse_customer_algorithm }
+    pub fn get_sse_customer_algorithm(&self) -> &::std::option::Option<::std::string::String> {
+        &self.sse_customer_algorithm
+    }
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide the round-trip message integrity verification of the customer-provided encryption key.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -745,27 +910,42 @@ impl HeadObjectOutputBuilder {
         self.sse_customer_key_md5 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.sse_customer_key_md5 = input; self }
+    pub fn set_sse_customer_key_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.sse_customer_key_md5 = input;
+        self
+    }
     /// <p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide the round-trip message integrity verification of the customer-provided encryption key.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_sse_customer_key_md5(&self) -> &::std::option::Option<::std::string::String> { &self.sse_customer_key_md5 }
+    pub fn get_sse_customer_key_md5(&self) -> &::std::option::Option<::std::string::String> {
+        &self.sse_customer_key_md5
+    }
     /// <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
     pub fn ssekms_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.ssekms_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_ssekms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.ssekms_key_id = input; self }
+    pub fn set_ssekms_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.ssekms_key_id = input;
+        self
+    }
     /// <p>If present, indicates the ID of the KMS key that was used for object encryption.</p>
-    pub fn get_ssekms_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.ssekms_key_id }
+    pub fn get_ssekms_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.ssekms_key_id
+    }
     /// <p>Indicates whether the object uses an S3 Bucket Key for server-side encryption with Key Management Service (KMS) keys (SSE-KMS).</p>
     pub fn bucket_key_enabled(mut self, input: bool) -> Self {
         self.bucket_key_enabled = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_bucket_key_enabled(mut self, input: ::std::option::Option<bool>) -> Self { self.bucket_key_enabled = input; self }
+    pub fn set_bucket_key_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.bucket_key_enabled = input;
+        self
+    }
     /// <p>Indicates whether the object uses an S3 Bucket Key for server-side encryption with Key Management Service (KMS) keys (SSE-KMS).</p>
-    pub fn get_bucket_key_enabled(&self) -> &::std::option::Option<bool> { &self.bucket_key_enabled }
+    pub fn get_bucket_key_enabled(&self) -> &::std::option::Option<bool> {
+        &self.bucket_key_enabled
+    }
     /// <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p><note>
     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
@@ -774,18 +954,28 @@ impl HeadObjectOutputBuilder {
         self.storage_class = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self { self.storage_class = input; self }
+    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
+        self.storage_class = input;
+        self
+    }
     /// <p>Provides storage class information of the object. Amazon S3 returns this header for all objects except for S3 Standard storage class objects.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a>.</p><note>
     /// <p><b>Directory buckets</b> - Directory buckets only support <code>EXPRESS_ONEZONE</code> (the S3 Express One Zone storage class) in Availability Zones and <code>ONEZONE_IA</code> (the S3 One Zone-Infrequent Access storage class) in Dedicated Local Zones.</p>
     /// </note>
-    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> { &self.storage_class }
+    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> {
+        &self.storage_class
+    }
     pub fn request_charged(mut self, input: crate::types::RequestCharged) -> Self {
         self.request_charged = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self { self.request_charged = input; self }
-    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> { &self.request_charged }
+    pub fn set_request_charged(mut self, input: ::std::option::Option<crate::types::RequestCharged>) -> Self {
+        self.request_charged = input;
+        self
+    }
+    pub fn get_request_charged(&self) -> &::std::option::Option<crate::types::RequestCharged> {
+        &self.request_charged
+    }
     /// <p>Amazon S3 can return this header if your request involves a bucket that is either a source or a destination in a replication rule.</p>
     /// <p>In replication, you have a source bucket on which you configure replication and destination bucket or buckets where Amazon S3 stores object replicas. When you request an object (<code>GetObject</code>) or object metadata (<code>HeadObject</code>) from these buckets, Amazon S3 will return the <code>x-amz-replication-status</code> header in the response as follows:</p><ul><li><p><b>If requesting an object from the source bucket</b>, Amazon S3 will return the <code>x-amz-replication-status</code> header if the object in your request is eligible for replication.</p>
     /// <p>For example, suppose that in your replication configuration, you specify object prefix <code>TaxDocs</code> requesting Amazon S3 to replicate objects with key prefix <code>TaxDocs</code>. Any objects you upload with this key name prefix, for example <code>TaxDocs/document1.pdf</code>, are eligible for replication. For any object request with this key name prefix, Amazon S3 will return the <code>x-amz-replication-status</code> header with value PENDING, COMPLETED or FAILED indicating object replication status.</p></li><li><p><b>If requesting an object from a destination bucket</b>, Amazon S3 will return the <code>x-amz-replication-status</code> header with value REPLICA if the object in your request is a replica that Amazon S3 created and there is no replica modification replication in progress.</p></li><li><p><b>When replicating objects to multiple destination buckets</b>, the <code>x-amz-replication-status</code> header acts differently. The header of the source object will only return a value of COMPLETED when replication is successful to all destinations. The header will remain at value PENDING until replication has completed for all destinations. If one or more destinations fails replication the header will return FAILED.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Replication</a>.</p><note>
@@ -795,21 +985,31 @@ impl HeadObjectOutputBuilder {
         self.replication_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_replication_status(mut self, input: ::std::option::Option<crate::types::ReplicationStatus>) -> Self { self.replication_status = input; self }
+    pub fn set_replication_status(mut self, input: ::std::option::Option<crate::types::ReplicationStatus>) -> Self {
+        self.replication_status = input;
+        self
+    }
     /// <p>Amazon S3 can return this header if your request involves a bucket that is either a source or a destination in a replication rule.</p>
     /// <p>In replication, you have a source bucket on which you configure replication and destination bucket or buckets where Amazon S3 stores object replicas. When you request an object (<code>GetObject</code>) or object metadata (<code>HeadObject</code>) from these buckets, Amazon S3 will return the <code>x-amz-replication-status</code> header in the response as follows:</p><ul><li><p><b>If requesting an object from the source bucket</b>, Amazon S3 will return the <code>x-amz-replication-status</code> header if the object in your request is eligible for replication.</p>
     /// <p>For example, suppose that in your replication configuration, you specify object prefix <code>TaxDocs</code> requesting Amazon S3 to replicate objects with key prefix <code>TaxDocs</code>. Any objects you upload with this key name prefix, for example <code>TaxDocs/document1.pdf</code>, are eligible for replication. For any object request with this key name prefix, Amazon S3 will return the <code>x-amz-replication-status</code> header with value PENDING, COMPLETED or FAILED indicating object replication status.</p></li><li><p><b>If requesting an object from a destination bucket</b>, Amazon S3 will return the <code>x-amz-replication-status</code> header with value REPLICA if the object in your request is a replica that Amazon S3 created and there is no replica modification replication in progress.</p></li><li><p><b>When replicating objects to multiple destination buckets</b>, the <code>x-amz-replication-status</code> header acts differently. The header of the source object will only return a value of COMPLETED when replication is successful to all destinations. The header will remain at value PENDING until replication has completed for all destinations. If one or more destinations fails replication the header will return FAILED.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html">Replication</a>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_replication_status(&self) -> &::std::option::Option<crate::types::ReplicationStatus> { &self.replication_status }
+    pub fn get_replication_status(&self) -> &::std::option::Option<crate::types::ReplicationStatus> {
+        &self.replication_status
+    }
     /// <p>The count of parts this object has. This value is only returned if you specify <code>partNumber</code> in your request and the object was uploaded as a multipart upload.</p>
     pub fn parts_count(mut self, input: i32) -> Self {
         self.parts_count = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_parts_count(mut self, input: ::std::option::Option<i32>) -> Self { self.parts_count = input; self }
+    pub fn set_parts_count(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.parts_count = input;
+        self
+    }
     /// <p>The count of parts this object has. This value is only returned if you specify <code>partNumber</code> in your request and the object was uploaded as a multipart upload.</p>
-    pub fn get_parts_count(&self) -> &::std::option::Option<i32> { &self.parts_count }
+    pub fn get_parts_count(&self) -> &::std::option::Option<i32> {
+        &self.parts_count
+    }
     /// <p>The number of tags, if any, on the object, when you have the relevant permission to read object tags.</p>
     /// <p>You can use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a> to retrieve the tag set associated with an object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
@@ -818,12 +1018,17 @@ impl HeadObjectOutputBuilder {
         self.tag_count = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_tag_count(mut self, input: ::std::option::Option<i32>) -> Self { self.tag_count = input; self }
+    pub fn set_tag_count(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.tag_count = input;
+        self
+    }
     /// <p>The number of tags, if any, on the object, when you have the relevant permission to read object tags.</p>
     /// <p>You can use <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetObjectTagging.html">GetObjectTagging</a> to retrieve the tag set associated with an object.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_tag_count(&self) -> &::std::option::Option<i32> { &self.tag_count }
+    pub fn get_tag_count(&self) -> &::std::option::Option<i32> {
+        &self.tag_count
+    }
     /// <p>The Object Lock mode, if any, that's in effect for this object. This header is only returned if the requester has the <code>s3:GetObjectRetention</code> permission. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -831,11 +1036,16 @@ impl HeadObjectOutputBuilder {
         self.object_lock_mode = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_object_lock_mode(mut self, input: ::std::option::Option<crate::types::ObjectLockMode>) -> Self { self.object_lock_mode = input; self }
+    pub fn set_object_lock_mode(mut self, input: ::std::option::Option<crate::types::ObjectLockMode>) -> Self {
+        self.object_lock_mode = input;
+        self
+    }
     /// <p>The Object Lock mode, if any, that's in effect for this object. This header is only returned if the requester has the <code>s3:GetObjectRetention</code> permission. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_object_lock_mode(&self) -> &::std::option::Option<crate::types::ObjectLockMode> { &self.object_lock_mode }
+    pub fn get_object_lock_mode(&self) -> &::std::option::Option<crate::types::ObjectLockMode> {
+        &self.object_lock_mode
+    }
     /// <p>The date and time when the Object Lock retention period expires. This header is only returned if the requester has the <code>s3:GetObjectRetention</code> permission.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -843,11 +1053,16 @@ impl HeadObjectOutputBuilder {
         self.object_lock_retain_until_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_object_lock_retain_until_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.object_lock_retain_until_date = input; self }
+    pub fn set_object_lock_retain_until_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.object_lock_retain_until_date = input;
+        self
+    }
     /// <p>The date and time when the Object Lock retention period expires. This header is only returned if the requester has the <code>s3:GetObjectRetention</code> permission.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_object_lock_retain_until_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.object_lock_retain_until_date }
+    pub fn get_object_lock_retain_until_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.object_lock_retain_until_date
+    }
     /// <p>Specifies whether a legal hold is in effect for this object. This header is only returned if the requester has the <code>s3:GetObjectLegalHold</code> permission. This header is not returned if the specified version of this object has never had a legal hold applied. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -855,11 +1070,16 @@ impl HeadObjectOutputBuilder {
         self.object_lock_legal_hold_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>) -> Self { self.object_lock_legal_hold_status = input; self }
+    pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<crate::types::ObjectLockLegalHoldStatus>) -> Self {
+        self.object_lock_legal_hold_status = input;
+        self
+    }
     /// <p>Specifies whether a legal hold is in effect for this object. This header is only returned if the requester has the <code>s3:GetObjectLegalHold</code> permission. This header is not returned if the specified version of this object has never had a legal hold applied. For more information about S3 Object Lock, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lock.html">Object Lock</a>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<crate::types::ObjectLockLegalHoldStatus> { &self.object_lock_legal_hold_status }
+    pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<crate::types::ObjectLockLegalHoldStatus> {
+        &self.object_lock_legal_hold_status
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

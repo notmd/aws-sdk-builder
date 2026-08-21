@@ -39,9 +39,14 @@ impl UploadSigningCertificateOutputBuilder {
         self.certificate = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_certificate(mut self, input: ::std::option::Option<crate::types::SigningCertificate>) -> Self { self.certificate = input; self }
+    pub fn set_certificate(mut self, input: ::std::option::Option<crate::types::SigningCertificate>) -> Self {
+        self.certificate = input;
+        self
+    }
     /// <p>Information about the certificate.</p>
-    pub fn get_certificate(&self) -> &::std::option::Option<crate::types::SigningCertificate> { &self.certificate }
+    pub fn get_certificate(&self) -> &::std::option::Option<crate::types::SigningCertificate> {
+        &self.certificate
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

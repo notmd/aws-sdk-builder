@@ -84,35 +84,57 @@ impl EncryptInputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>Identifies the KMS key to use in the encryption operation. The KMS key must have a <code>KeyUsage</code> of <code>ENCRYPT_DECRYPT</code>. To find the <code>KeyUsage</code> of a KMS key, use the <a>DescribeKey</a> operation.</p>
     /// <p>To specify a KMS key, use its key ID, key ARN, alias name, or alias ARN. When using an alias name, prefix it with <code>"alias/"</code>. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN or alias ARN.</p>
     /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Alias name: <code>alias/ExampleAlias</code></p></li><li><p>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>. To get the alias name and alias ARN, use <a>ListAliases</a>.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// <p>Data to be encrypted.</p>
     /// This field is required.
     pub fn plaintext(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.plaintext = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_plaintext(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.plaintext = input; self }
+    pub fn set_plaintext(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.plaintext = input;
+        self
+    }
     /// <p>Data to be encrypted.</p>
-    pub fn get_plaintext(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.plaintext }
+    pub fn get_plaintext(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.plaintext
+    }
     /// <p>Specifies the encryption context that will be used to encrypt the data. An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption algorithms and HMAC algorithms that KMS uses do not support an encryption context.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// Adds a key-value pair to `encryption_context`.
     ///
     /// To override the contents of this collection use [`set_encryption_context`](Self::set_encryption_context).
-    pub fn encryption_context(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn encryption_context(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut map = self.encryption_context.unwrap_or_default();
         map.insert(k.into(), v.into());
         self.encryption_context = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_encryption_context(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.encryption_context = input; self }
+    pub fn set_encryption_context(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    ) -> Self {
+        self.encryption_context = input;
+        self
+    }
     /// <p>Specifies the encryption context that will be used to encrypt the data. An encryption context is valid only for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a> with a symmetric encryption KMS key. The standard asymmetric encryption algorithms and HMAC algorithms that KMS uses do not support an encryption context.</p> <important><p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p></important><p>An <i>encryption context</i> is a collection of non-secret key-value pairs that represent additional authenticated data. When you use an encryption context to encrypt data, you must specify the same (an exact case-sensitive match) encryption context to decrypt the data. An encryption context is supported only on operations with symmetric encryption KMS keys. On operations with symmetric encryption KMS keys, an encryption context is optional, but it is strongly recommended.</p>
     /// <p>For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption context</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_encryption_context(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.encryption_context }
+    pub fn get_encryption_context(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.encryption_context
+    }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
     /// Appends an item to `grant_tokens`.
@@ -124,10 +146,15 @@ impl EncryptInputBuilder {
         self.grant_tokens = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.grant_tokens = input; self }
+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.grant_tokens = input;
+        self
+    }
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.grant_tokens }
+    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.grant_tokens
+    }
     /// <p>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message. The algorithm must be compatible with the KMS key that you specify.</p>
     /// <p>This parameter is required only for asymmetric KMS keys. The default value, <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric encryption KMS keys. If you are using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p>
     /// <p>The SM2PKE algorithm is only available in China Regions.</p>
@@ -135,21 +162,31 @@ impl EncryptInputBuilder {
         self.encryption_algorithm = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self { self.encryption_algorithm = input; self }
+    pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<crate::types::EncryptionAlgorithmSpec>) -> Self {
+        self.encryption_algorithm = input;
+        self
+    }
     /// <p>Specifies the encryption algorithm that KMS will use to encrypt the plaintext message. The algorithm must be compatible with the KMS key that you specify.</p>
     /// <p>This parameter is required only for asymmetric KMS keys. The default value, <code>SYMMETRIC_DEFAULT</code>, is the algorithm used for symmetric encryption KMS keys. If you are using an asymmetric KMS key, we recommend RSAES_OAEP_SHA_256.</p>
     /// <p>The SM2PKE algorithm is only available in China Regions.</p>
-    pub fn get_encryption_algorithm(&self) -> &::std::option::Option<crate::types::EncryptionAlgorithmSpec> { &self.encryption_algorithm }
+    pub fn get_encryption_algorithm(&self) -> &::std::option::Option<crate::types::EncryptionAlgorithmSpec> {
+        &self.encryption_algorithm
+    }
     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
     /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub fn dry_run(mut self, input: bool) -> Self {
         self.dry_run = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self { self.dry_run = input; self }
+    pub fn set_dry_run(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.dry_run = input;
+        self
+    }
     /// <p>Checks if your request will succeed. <code>DryRun</code> is an optional parameter.</p>
     /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_dry_run(&self) -> &::std::option::Option<bool> { &self.dry_run }
+    pub fn get_dry_run(&self) -> &::std::option::Option<bool> {
+        &self.dry_run
+    }
     /// Consumes the builder and constructs a [`EncryptInput`](crate::operation::encrypt::EncryptInput).
     pub fn build(self) -> crate::operation::encrypt::EncryptInput {
         crate::operation::encrypt::EncryptInput {

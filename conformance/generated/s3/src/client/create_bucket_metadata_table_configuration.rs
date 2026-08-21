@@ -13,6 +13,8 @@ impl super::Client {
     pub fn create_bucket_metadata_table_configuration(
         &self,
     ) -> crate::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationFluentBuilder {
-        crate::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationFluentBuilder::new(self.handle.clone())
+        crate::operation::create_bucket_metadata_table_configuration::builders::CreateBucketMetadataTableConfigurationFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

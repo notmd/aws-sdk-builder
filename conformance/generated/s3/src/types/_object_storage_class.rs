@@ -142,7 +142,23 @@ impl ObjectStorageClass {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["AWS_BACKUP_LOW_COST_WARM", "AWS_BACKUP_WARM", "DEEP_ARCHIVE", "EXPRESS_ONEZONE", "FSX_ONTAP", "FSX_OPENZFS", "GLACIER", "GLACIER_IR", "INTELLIGENT_TIERING", "ONEZONE_IA", "OUTPOSTS", "REDUCED_REDUNDANCY", "SNOW", "STANDARD", "STANDARD_IA"]
+        &[
+            "AWS_BACKUP_LOW_COST_WARM",
+            "AWS_BACKUP_WARM",
+            "DEEP_ARCHIVE",
+            "EXPRESS_ONEZONE",
+            "FSX_ONTAP",
+            "FSX_OPENZFS",
+            "GLACIER",
+            "GLACIER_IR",
+            "INTELLIGENT_TIERING",
+            "ONEZONE_IA",
+            "OUTPOSTS",
+            "REDUCED_REDUNDANCY",
+            "SNOW",
+            "STANDARD",
+            "STANDARD_IA",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for ObjectStorageClass {

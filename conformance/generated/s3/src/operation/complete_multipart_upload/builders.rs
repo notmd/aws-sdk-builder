@@ -6,70 +6,255 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn multipart_upload(mut self, value: impl ::std::convert::Into<crate::types::CompletedMultipartUpload>) -> Self { self.input.multipart_upload = Some(value.into()); self }
-    pub fn upload_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.upload_id = Some(value.into()); self }
-    pub fn checksum_crc32(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_crc32 = Some(value.into()); self }
-    pub fn checksum_crc32_c(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_crc32_c = Some(value.into()); self }
-    pub fn checksum_crc64_nvme(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_crc64_nvme = Some(value.into()); self }
-    pub fn checksum_sha1(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_sha1 = Some(value.into()); self }
-    pub fn checksum_sha256(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_sha256 = Some(value.into()); self }
-    pub fn checksum_sha512(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_sha512 = Some(value.into()); self }
-    pub fn checksum_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_md5 = Some(value.into()); self }
-    pub fn checksum_xxhash64(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_xxhash64 = Some(value.into()); self }
-    pub fn checksum_xxhash3(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_xxhash3 = Some(value.into()); self }
-    pub fn checksum_xxhash128(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_xxhash128 = Some(value.into()); self }
-    pub fn checksum_type(mut self, value: impl ::std::convert::Into<crate::types::ChecksumType>) -> Self { self.input.checksum_type = Some(value.into()); self }
-    pub fn mpu_object_size(mut self, value: impl ::std::convert::Into<i64>) -> Self { self.input.mpu_object_size = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.if_match = Some(value.into()); self }
-    pub fn if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.if_none_match = Some(value.into()); self }
-    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }
-    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key = Some(value.into()); self }
-    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key_md5 = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::CompleteMultipartUploadOutput, super::CompleteMultipartUploadError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::CompleteMultipartUploadError::Unhandled("CompleteMultipartUpload requires bucket".to_owned()))?;
-                         let key = self.input.key.as_deref().ok_or_else(|| super::CompleteMultipartUploadError::Unhandled("CompleteMultipartUpload requires key".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}/{Key+}"); if let Some(value) = self.input.upload_id.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("uploadId"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path = path.replace("{Key+}", &super::super::super::transport::encode_path(key)); path };
-                         let body = { let mut body = ::std::string::String::new(); if let Some(value) = self.input.multipart_upload.as_ref() { body.push_str("<CompleteMultipartUpload>"); if let Some(value) = value.parts.as_ref() { for item in value { body.push_str("<Part>"); if let Some(value) = item.e_tag.as_ref() { body.push_str("<ETag>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ETag>"); } if let Some(value) = item.checksum_crc32.as_ref() { body.push_str("<ChecksumCRC32>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ChecksumCRC32>"); } if let Some(value) = item.checksum_crc32_c.as_ref() { body.push_str("<ChecksumCRC32C>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ChecksumCRC32C>"); } if let Some(value) = item.checksum_crc64_nvme.as_ref() { body.push_str("<ChecksumCRC64NVME>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ChecksumCRC64NVME>"); } if let Some(value) = item.checksum_sha1.as_ref() { body.push_str("<ChecksumSHA1>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ChecksumSHA1>"); } if let Some(value) = item.checksum_sha256.as_ref() { body.push_str("<ChecksumSHA256>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ChecksumSHA256>"); } if let Some(value) = item.checksum_sha512.as_ref() { body.push_str("<ChecksumSHA512>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ChecksumSHA512>"); } if let Some(value) = item.checksum_md5.as_ref() { body.push_str("<ChecksumMD5>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ChecksumMD5>"); } if let Some(value) = item.checksum_xxhash64.as_ref() { body.push_str("<ChecksumXXHASH64>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ChecksumXXHASH64>"); } if let Some(value) = item.checksum_xxhash3.as_ref() { body.push_str("<ChecksumXXHASH3>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ChecksumXXHASH3>"); } if let Some(value) = item.checksum_xxhash128.as_ref() { body.push_str("<ChecksumXXHASH128>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ChecksumXXHASH128>"); } if let Some(value) = item.part_number.as_ref() { body.push_str("<PartNumber>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</PartNumber>"); } body.push_str("</Part>"); } } body.push_str("</CompleteMultipartUpload>"); } body.into_bytes() };
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers.push(("content-type", "application/xml")); headers };
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::CompleteMultipartUploadError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::CompleteMultipartUploadError::unhandled_with_request_ids(format!("CompleteMultipartUpload returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_complete_multipart_upload_output::CompleteMultipartUploadOutputBuilder::default();
-                         let body = response.text().await.map_err(super::CompleteMultipartUploadError::Unhandled)?;
-                         output.location = super::super::super::transport::xml_first(&body, "Location").and_then(|value| value.parse().ok());
-                         output.bucket = super::super::super::transport::xml_first(&body, "Bucket").and_then(|value| value.parse().ok());
-                         output.key = super::super::super::transport::xml_first(&body, "Key").and_then(|value| value.parse().ok());
-                         output.expiration = response.header("x-amz-expiration").map(str::to_owned);
-                         output.e_tag = super::super::super::transport::xml_first(&body, "ETag").and_then(|value| value.parse().ok());
-                         output.checksum_crc32 = super::super::super::transport::xml_first(&body, "ChecksumCRC32").and_then(|value| value.parse().ok());
-                         output.checksum_crc32_c = super::super::super::transport::xml_first(&body, "ChecksumCRC32C").and_then(|value| value.parse().ok());
-                         output.checksum_crc64_nvme = super::super::super::transport::xml_first(&body, "ChecksumCRC64NVME").and_then(|value| value.parse().ok());
-                         output.checksum_sha1 = super::super::super::transport::xml_first(&body, "ChecksumSHA1").and_then(|value| value.parse().ok());
-                         output.checksum_sha256 = super::super::super::transport::xml_first(&body, "ChecksumSHA256").and_then(|value| value.parse().ok());
-                         output.checksum_sha512 = super::super::super::transport::xml_first(&body, "ChecksumSHA512").and_then(|value| value.parse().ok());
-                         output.checksum_md5 = super::super::super::transport::xml_first(&body, "ChecksumMD5").and_then(|value| value.parse().ok());
-                         output.checksum_xxhash64 = super::super::super::transport::xml_first(&body, "ChecksumXXHASH64").and_then(|value| value.parse().ok());
-                         output.checksum_xxhash3 = super::super::super::transport::xml_first(&body, "ChecksumXXHASH3").and_then(|value| value.parse().ok());
-                         output.checksum_xxhash128 = super::super::super::transport::xml_first(&body, "ChecksumXXHASH128").and_then(|value| value.parse().ok());
-                         output.checksum_type = super::super::super::transport::xml_first(&body, "ChecksumType").and_then(|value| value.parse().ok());
-                         output.version_id = response.header("x-amz-version-id").map(str::to_owned);
-                         output.ssekms_key_id = response.header("x-amz-server-side-encryption-aws-kms-key-id").map(str::to_owned);
-                         output.bucket_key_enabled = response.header("x-amz-server-side-encryption-bucket-key-enabled").and_then(|value| value.parse().ok());
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key = Some(value.into());
+        self
+    }
+    pub fn multipart_upload(mut self, value: impl ::std::convert::Into<crate::types::CompletedMultipartUpload>) -> Self {
+        self.input.multipart_upload = Some(value.into());
+        self
+    }
+    pub fn upload_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.upload_id = Some(value.into());
+        self
+    }
+    pub fn checksum_crc32(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_crc32 = Some(value.into());
+        self
+    }
+    pub fn checksum_crc32_c(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_crc32_c = Some(value.into());
+        self
+    }
+    pub fn checksum_crc64_nvme(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_crc64_nvme = Some(value.into());
+        self
+    }
+    pub fn checksum_sha1(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_sha1 = Some(value.into());
+        self
+    }
+    pub fn checksum_sha256(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_sha256 = Some(value.into());
+        self
+    }
+    pub fn checksum_sha512(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_sha512 = Some(value.into());
+        self
+    }
+    pub fn checksum_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_md5 = Some(value.into());
+        self
+    }
+    pub fn checksum_xxhash64(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_xxhash64 = Some(value.into());
+        self
+    }
+    pub fn checksum_xxhash3(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_xxhash3 = Some(value.into());
+        self
+    }
+    pub fn checksum_xxhash128(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.checksum_xxhash128 = Some(value.into());
+        self
+    }
+    pub fn checksum_type(mut self, value: impl ::std::convert::Into<crate::types::ChecksumType>) -> Self {
+        self.input.checksum_type = Some(value.into());
+        self
+    }
+    pub fn mpu_object_size(mut self, value: impl ::std::convert::Into<i64>) -> Self {
+        self.input.mpu_object_size = Some(value.into());
+        self
+    }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
+        self.input.request_payer = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.if_match = Some(value.into());
+        self
+    }
+    pub fn if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.if_none_match = Some(value.into());
+        self
+    }
+    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.sse_customer_algorithm = Some(value.into());
+        self
+    }
+    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.sse_customer_key = Some(value.into());
+        self
+    }
+    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.sse_customer_key_md5 = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::CompleteMultipartUploadOutput, super::CompleteMultipartUploadError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::CompleteMultipartUploadError::Unhandled("CompleteMultipartUpload requires bucket".to_owned()))?;
+        let key = self
+            .input
+            .key
+            .as_deref()
+            .ok_or_else(|| super::CompleteMultipartUploadError::Unhandled("CompleteMultipartUpload requires key".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}/{Key+}");
+            if let Some(value) = self.input.upload_id.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("uploadId");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path = path.replace("{Key+}", &super::super::super::transport::encode_path(key));
+            path
+        };
+        let body = {
+            let mut body = ::std::string::String::new();
+            if let Some(value) = self.input.multipart_upload.as_ref() {
+                body.push_str("<CompleteMultipartUpload>");
+                if let Some(value) = value.parts.as_ref() {
+                    for item in value {
+                        body.push_str("<Part>");
+                        if let Some(value) = item.e_tag.as_ref() {
+                            body.push_str("<ETag>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ETag>");
+                        }
+                        if let Some(value) = item.checksum_crc32.as_ref() {
+                            body.push_str("<ChecksumCRC32>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ChecksumCRC32>");
+                        }
+                        if let Some(value) = item.checksum_crc32_c.as_ref() {
+                            body.push_str("<ChecksumCRC32C>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ChecksumCRC32C>");
+                        }
+                        if let Some(value) = item.checksum_crc64_nvme.as_ref() {
+                            body.push_str("<ChecksumCRC64NVME>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ChecksumCRC64NVME>");
+                        }
+                        if let Some(value) = item.checksum_sha1.as_ref() {
+                            body.push_str("<ChecksumSHA1>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ChecksumSHA1>");
+                        }
+                        if let Some(value) = item.checksum_sha256.as_ref() {
+                            body.push_str("<ChecksumSHA256>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ChecksumSHA256>");
+                        }
+                        if let Some(value) = item.checksum_sha512.as_ref() {
+                            body.push_str("<ChecksumSHA512>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ChecksumSHA512>");
+                        }
+                        if let Some(value) = item.checksum_md5.as_ref() {
+                            body.push_str("<ChecksumMD5>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ChecksumMD5>");
+                        }
+                        if let Some(value) = item.checksum_xxhash64.as_ref() {
+                            body.push_str("<ChecksumXXHASH64>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ChecksumXXHASH64>");
+                        }
+                        if let Some(value) = item.checksum_xxhash3.as_ref() {
+                            body.push_str("<ChecksumXXHASH3>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ChecksumXXHASH3>");
+                        }
+                        if let Some(value) = item.checksum_xxhash128.as_ref() {
+                            body.push_str("<ChecksumXXHASH128>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ChecksumXXHASH128>");
+                        }
+                        if let Some(value) = item.part_number.as_ref() {
+                            body.push_str("<PartNumber>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</PartNumber>");
+                        }
+                        body.push_str("</Part>");
+                    }
+                }
+                body.push_str("</CompleteMultipartUpload>");
+            }
+            body.into_bytes()
+        };
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers.push(("content-type", "application/xml"));
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::CompleteMultipartUploadError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::CompleteMultipartUploadError::unhandled_with_request_ids(
+                format!("CompleteMultipartUpload returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_complete_multipart_upload_output::CompleteMultipartUploadOutputBuilder::default();
+        let body = response.text().await.map_err(super::CompleteMultipartUploadError::Unhandled)?;
+        output.location = super::super::super::transport::xml_first(&body, "Location").and_then(|value| value.parse().ok());
+        output.bucket = super::super::super::transport::xml_first(&body, "Bucket").and_then(|value| value.parse().ok());
+        output.key = super::super::super::transport::xml_first(&body, "Key").and_then(|value| value.parse().ok());
+        output.expiration = response.header("x-amz-expiration").map(str::to_owned);
+        output.e_tag = super::super::super::transport::xml_first(&body, "ETag").and_then(|value| value.parse().ok());
+        output.checksum_crc32 = super::super::super::transport::xml_first(&body, "ChecksumCRC32").and_then(|value| value.parse().ok());
+        output.checksum_crc32_c = super::super::super::transport::xml_first(&body, "ChecksumCRC32C").and_then(|value| value.parse().ok());
+        output.checksum_crc64_nvme = super::super::super::transport::xml_first(&body, "ChecksumCRC64NVME").and_then(|value| value.parse().ok());
+        output.checksum_sha1 = super::super::super::transport::xml_first(&body, "ChecksumSHA1").and_then(|value| value.parse().ok());
+        output.checksum_sha256 = super::super::super::transport::xml_first(&body, "ChecksumSHA256").and_then(|value| value.parse().ok());
+        output.checksum_sha512 = super::super::super::transport::xml_first(&body, "ChecksumSHA512").and_then(|value| value.parse().ok());
+        output.checksum_md5 = super::super::super::transport::xml_first(&body, "ChecksumMD5").and_then(|value| value.parse().ok());
+        output.checksum_xxhash64 = super::super::super::transport::xml_first(&body, "ChecksumXXHASH64").and_then(|value| value.parse().ok());
+        output.checksum_xxhash3 = super::super::super::transport::xml_first(&body, "ChecksumXXHASH3").and_then(|value| value.parse().ok());
+        output.checksum_xxhash128 = super::super::super::transport::xml_first(&body, "ChecksumXXHASH128").and_then(|value| value.parse().ok());
+        output.checksum_type = super::super::super::transport::xml_first(&body, "ChecksumType").and_then(|value| value.parse().ok());
+        output.version_id = response.header("x-amz-version-id").map(str::to_owned);
+        output.ssekms_key_id = response.header("x-amz-server-side-encryption-aws-kms-key-id").map(str::to_owned);
+        output.bucket_key_enabled = response
+            .header("x-amz-server-side-encryption-bucket-key-enabled")
+            .and_then(|value| value.parse().ok());
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as CompleteMultipartUploadFluentBuilder;

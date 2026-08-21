@@ -39,9 +39,14 @@ impl PropagateTagsBuilder {
         self.mode = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_mode(mut self, input: ::std::option::Option<crate::types::PropagateTagsMode>) -> Self { self.mode = input; self }
+    pub fn set_mode(mut self, input: ::std::option::Option<crate::types::PropagateTagsMode>) -> Self {
+        self.mode = input;
+        self
+    }
     /// <p>The tag propagation mode. Set to <code>Explicit</code> to propagate the tags specified in <code>ExplicitTags</code> to managed resources. Set to <code>None</code> to disable tag propagation.</p>
-    pub fn get_mode(&self) -> &::std::option::Option<crate::types::PropagateTagsMode> { &self.mode }
+    pub fn get_mode(&self) -> &::std::option::Option<crate::types::PropagateTagsMode> {
+        &self.mode
+    }
     /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
     /// Adds a key-value pair to `explicit_tags`.
     ///
@@ -52,9 +57,17 @@ impl PropagateTagsBuilder {
         self.explicit_tags = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_explicit_tags(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.explicit_tags = input; self }
+    pub fn set_explicit_tags(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    ) -> Self {
+        self.explicit_tags = input;
+        self
+    }
     /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
-    pub fn get_explicit_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.explicit_tags }
+    pub fn get_explicit_tags(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.explicit_tags
+    }
     /// Consumes the builder and constructs a [`PropagateTags`](crate::types::PropagateTags).
     pub fn build(self) -> crate::types::PropagateTags {
         crate::types::PropagateTags {

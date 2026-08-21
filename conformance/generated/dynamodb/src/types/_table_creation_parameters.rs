@@ -86,9 +86,14 @@ impl TableCreationParametersBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the table created as part of the import operation.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>The attributes of the table created as part of the import operation.</p>
     /// Appends an item to `attribute_definitions`.
     ///
@@ -99,9 +104,14 @@ impl TableCreationParametersBuilder {
         self.attribute_definitions = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>) -> Self { self.attribute_definitions = input; self }
+    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>>) -> Self {
+        self.attribute_definitions = input;
+        self
+    }
     /// <p>The attributes of the table created as part of the import operation.</p>
-    pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>> { &self.attribute_definitions }
+    pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeDefinition>> {
+        &self.attribute_definitions
+    }
     /// <p>The primary key and option sort key of the table created as part of the import operation.</p>
     /// Appends an item to `key_schema`.
     ///
@@ -112,35 +122,60 @@ impl TableCreationParametersBuilder {
         self.key_schema = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self { self.key_schema = input; self }
+    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>>) -> Self {
+        self.key_schema = input;
+        self
+    }
     /// <p>The primary key and option sort key of the table created as part of the import operation.</p>
-    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> { &self.key_schema }
+    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KeySchemaElement>> {
+        &self.key_schema
+    }
     /// <p>The billing mode for provisioning the table created as part of the import operation.</p>
     pub fn billing_mode(mut self, input: crate::types::BillingMode) -> Self {
         self.billing_mode = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self { self.billing_mode = input; self }
+    pub fn set_billing_mode(mut self, input: ::std::option::Option<crate::types::BillingMode>) -> Self {
+        self.billing_mode = input;
+        self
+    }
     /// <p>The billing mode for provisioning the table created as part of the import operation.</p>
-    pub fn get_billing_mode(&self) -> &::std::option::Option<crate::types::BillingMode> { &self.billing_mode }
+    pub fn get_billing_mode(&self) -> &::std::option::Option<crate::types::BillingMode> {
+        &self.billing_mode
+    }
     pub fn provisioned_throughput(mut self, input: crate::types::ProvisionedThroughput) -> Self {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self { self.provisioned_throughput = input; self }
-    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> { &self.provisioned_throughput }
+    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<crate::types::ProvisionedThroughput>) -> Self {
+        self.provisioned_throughput = input;
+        self
+    }
+    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<crate::types::ProvisionedThroughput> {
+        &self.provisioned_throughput
+    }
     pub fn on_demand_throughput(mut self, input: crate::types::OnDemandThroughput) -> Self {
         self.on_demand_throughput = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
-    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> { &self.on_demand_throughput }
+    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<crate::types::OnDemandThroughput>) -> Self {
+        self.on_demand_throughput = input;
+        self
+    }
+    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
+        &self.on_demand_throughput
+    }
     pub fn sse_specification(mut self, input: crate::types::SseSpecification) -> Self {
         self.sse_specification = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_sse_specification(mut self, input: ::std::option::Option<crate::types::SseSpecification>) -> Self { self.sse_specification = input; self }
-    pub fn get_sse_specification(&self) -> &::std::option::Option<crate::types::SseSpecification> { &self.sse_specification }
+    pub fn set_sse_specification(mut self, input: ::std::option::Option<crate::types::SseSpecification>) -> Self {
+        self.sse_specification = input;
+        self
+    }
+    pub fn get_sse_specification(&self) -> &::std::option::Option<crate::types::SseSpecification> {
+        &self.sse_specification
+    }
     /// <p>The Global Secondary Indexes (GSI) of the table to be created as part of the import operation.</p>
     /// Appends an item to `global_secondary_indexes`.
     ///
@@ -151,9 +186,14 @@ impl TableCreationParametersBuilder {
         self.global_secondary_indexes = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>) -> Self { self.global_secondary_indexes = input; self }
+    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>) -> Self {
+        self.global_secondary_indexes = input;
+        self
+    }
     /// <p>The Global Secondary Indexes (GSI) of the table to be created as part of the import operation.</p>
-    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>> { &self.global_secondary_indexes }
+    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndex>> {
+        &self.global_secondary_indexes
+    }
     /// <p>The vector indexes of the table to be created as part of the import operation.</p>
     /// Appends an item to `vector_indexes`.
     ///
@@ -164,9 +204,14 @@ impl TableCreationParametersBuilder {
         self.vector_indexes = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>) -> Self { self.vector_indexes = input; self }
+    pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>) -> Self {
+        self.vector_indexes = input;
+        self
+    }
     /// <p>The vector indexes of the table to be created as part of the import operation.</p>
-    pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>> { &self.vector_indexes }
+    pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>> {
+        &self.vector_indexes
+    }
     /// Consumes the builder and constructs a [`TableCreationParameters`](crate::types::TableCreationParameters).
     /// This method will fail if any of the following fields are not set:
     /// - [`table_name`](Self::table_name)
@@ -174,9 +219,24 @@ impl TableCreationParametersBuilder {
     /// - [`key_schema`](Self::key_schema)
     pub fn build(self) -> ::std::result::Result<crate::types::TableCreationParameters, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::TableCreationParameters {
-            table_name: self.table_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("table_name", "table_name was not specified but it is required when building TableCreationParameters"))?,
-            attribute_definitions: self.attribute_definitions.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("attribute_definitions", "attribute_definitions was not specified but it is required when building TableCreationParameters"))?,
-            key_schema: self.key_schema.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("key_schema", "key_schema was not specified but it is required when building TableCreationParameters"))?,
+            table_name: self.table_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "table_name",
+                    "table_name was not specified but it is required when building TableCreationParameters",
+                )
+            })?,
+            attribute_definitions: self.attribute_definitions.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "attribute_definitions",
+                    "attribute_definitions was not specified but it is required when building TableCreationParameters",
+                )
+            })?,
+            key_schema: self.key_schema.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "key_schema",
+                    "key_schema was not specified but it is required when building TableCreationParameters",
+                )
+            })?,
             billing_mode: self.billing_mode,
             provisioned_throughput: self.provisioned_throughput,
             on_demand_throughput: self.on_demand_throughput,

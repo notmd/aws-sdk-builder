@@ -32,13 +32,16 @@ impl ContextFailedDetailsBuilder {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::EventError>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>Details about the context failure.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::EventError> {
+        &self.error
+    }
     /// Consumes the builder and constructs a [`ContextFailedDetails`](crate::types::ContextFailedDetails).
     pub fn build(self) -> crate::types::ContextFailedDetails {
-        crate::types::ContextFailedDetails {
-            error: self.error,
-        }
+        crate::types::ContextFailedDetails { error: self.error }
     }
 }

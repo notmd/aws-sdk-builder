@@ -49,34 +49,59 @@ impl LoginProfileBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.user_name = input; self }
+    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.user_name = input;
+        self
+    }
     /// <p>The name of the user, which can be used for signing in to the Amazon Web Services Management Console.</p>
-    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> { &self.user_name }
+    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.user_name
+    }
     /// <p>The date when the password for the user was created.</p>
     /// This field is required.
     pub fn create_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.create_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.create_date = input; self }
+    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.create_date = input;
+        self
+    }
     /// <p>The date when the password for the user was created.</p>
-    pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.create_date }
+    pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.create_date
+    }
     /// <p>Specifies whether the user is required to set a new password on next sign-in.</p>
     pub fn password_reset_required(mut self, input: bool) -> Self {
         self.password_reset_required = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_password_reset_required(mut self, input: ::std::option::Option<bool>) -> Self { self.password_reset_required = input; self }
+    pub fn set_password_reset_required(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.password_reset_required = input;
+        self
+    }
     /// <p>Specifies whether the user is required to set a new password on next sign-in.</p>
-    pub fn get_password_reset_required(&self) -> &::std::option::Option<bool> { &self.password_reset_required }
+    pub fn get_password_reset_required(&self) -> &::std::option::Option<bool> {
+        &self.password_reset_required
+    }
     /// Consumes the builder and constructs a [`LoginProfile`](crate::types::LoginProfile).
     /// This method will fail if any of the following fields are not set:
     /// - [`user_name`](Self::user_name)
     /// - [`create_date`](Self::create_date)
     pub fn build(self) -> ::std::result::Result<crate::types::LoginProfile, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::LoginProfile {
-            user_name: self.user_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("user_name", "user_name was not specified but it is required when building LoginProfile"))?,
-            create_date: self.create_date.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("create_date", "create_date was not specified but it is required when building LoginProfile"))?,
+            user_name: self.user_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "user_name",
+                    "user_name was not specified but it is required when building LoginProfile",
+                )
+            })?,
+            create_date: self.create_date.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "create_date",
+                    "create_date was not specified but it is required when building LoginProfile",
+                )
+            })?,
             password_reset_required: self.password_reset_required,
         })
     }

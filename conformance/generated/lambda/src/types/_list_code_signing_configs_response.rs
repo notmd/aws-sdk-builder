@@ -39,9 +39,14 @@ impl ListCodeSigningConfigsResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>The pagination token that's included if more results are available.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// <p>The code signing configurations</p>
     /// Appends an item to `code_signing_configs`.
     ///
@@ -52,9 +57,14 @@ impl ListCodeSigningConfigsResponseBuilder {
         self.code_signing_configs = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_code_signing_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>>) -> Self { self.code_signing_configs = input; self }
+    pub fn set_code_signing_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>>) -> Self {
+        self.code_signing_configs = input;
+        self
+    }
     /// <p>The code signing configurations</p>
-    pub fn get_code_signing_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>> { &self.code_signing_configs }
+    pub fn get_code_signing_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::CodeSigningConfig>> {
+        &self.code_signing_configs
+    }
     /// Consumes the builder and constructs a [`ListCodeSigningConfigsResponse`](crate::types::ListCodeSigningConfigsResponse).
     pub fn build(self) -> crate::types::ListCodeSigningConfigsResponse {
         crate::types::ListCodeSigningConfigsResponse {

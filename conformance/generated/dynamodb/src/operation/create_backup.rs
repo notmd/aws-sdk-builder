@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct CreateBackup;
-impl CreateBackup { pub fn new() -> Self { Self } }
+impl CreateBackup {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     BackupInUseException(super::super::types::error::BackupInUseException),
@@ -13,16 +17,34 @@ pub enum Error {
     TableInUseException(super::super::types::error::TableInUseException),
     TableNotFoundException(super::super::types::error::TableNotFoundException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_backup_in_use_exception(&self) -> bool { matches!(self, Self::BackupInUseException(_)) }
-    pub fn is_continuous_backups_unavailable_exception(&self) -> bool { matches!(self, Self::ContinuousBackupsUnavailableException(_)) }
-    pub fn is_internal_server_error(&self) -> bool { matches!(self, Self::InternalServerError(_)) }
-    pub fn is_invalid_endpoint_exception(&self) -> bool { matches!(self, Self::InvalidEndpointException(_)) }
-    pub fn is_limit_exceeded_exception(&self) -> bool { matches!(self, Self::LimitExceededException(_)) }
-    pub fn is_table_in_use_exception(&self) -> bool { matches!(self, Self::TableInUseException(_)) }
-    pub fn is_table_not_found_exception(&self) -> bool { matches!(self, Self::TableNotFoundException(_)) }
+    pub fn is_backup_in_use_exception(&self) -> bool {
+        matches!(self, Self::BackupInUseException(_))
+    }
+    pub fn is_continuous_backups_unavailable_exception(&self) -> bool {
+        matches!(self, Self::ContinuousBackupsUnavailableException(_))
+    }
+    pub fn is_internal_server_error(&self) -> bool {
+        matches!(self, Self::InternalServerError(_))
+    }
+    pub fn is_invalid_endpoint_exception(&self) -> bool {
+        matches!(self, Self::InvalidEndpointException(_))
+    }
+    pub fn is_limit_exceeded_exception(&self) -> bool {
+        matches!(self, Self::LimitExceededException(_))
+    }
+    pub fn is_table_in_use_exception(&self) -> bool {
+        matches!(self, Self::TableInUseException(_))
+    }
+    pub fn is_table_not_found_exception(&self) -> bool {
+        matches!(self, Self::TableNotFoundException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -41,19 +63,49 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _create_backup_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/create_backup/_create_backup_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/dynamodb/src/operation/create_backup/_create_backup_input.rs"
+    ));
 }
 pub use _create_backup_input::CreateBackupInput;
 pub type Input = CreateBackupInput;
 pub mod _create_backup_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/create_backup/_create_backup_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/dynamodb/src/operation/create_backup/_create_backup_output.rs"
+    ));
 }
 pub use _create_backup_output::CreateBackupOutput;
 pub type Output = CreateBackupOutput;

@@ -53,33 +53,53 @@ impl TransactWriteItemBuilder {
         self.condition_check = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_condition_check(mut self, input: ::std::option::Option<crate::types::ConditionCheck>) -> Self { self.condition_check = input; self }
+    pub fn set_condition_check(mut self, input: ::std::option::Option<crate::types::ConditionCheck>) -> Self {
+        self.condition_check = input;
+        self
+    }
     /// <p>A request to perform a check item operation.</p>
-    pub fn get_condition_check(&self) -> &::std::option::Option<crate::types::ConditionCheck> { &self.condition_check }
+    pub fn get_condition_check(&self) -> &::std::option::Option<crate::types::ConditionCheck> {
+        &self.condition_check
+    }
     /// <p>A request to perform a <code>PutItem</code> operation.</p>
     pub fn put(mut self, input: crate::types::Put) -> Self {
         self.put = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_put(mut self, input: ::std::option::Option<crate::types::Put>) -> Self { self.put = input; self }
+    pub fn set_put(mut self, input: ::std::option::Option<crate::types::Put>) -> Self {
+        self.put = input;
+        self
+    }
     /// <p>A request to perform a <code>PutItem</code> operation.</p>
-    pub fn get_put(&self) -> &::std::option::Option<crate::types::Put> { &self.put }
+    pub fn get_put(&self) -> &::std::option::Option<crate::types::Put> {
+        &self.put
+    }
     /// <p>A request to perform a <code>DeleteItem</code> operation.</p>
     pub fn delete(mut self, input: crate::types::Delete) -> Self {
         self.delete = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_delete(mut self, input: ::std::option::Option<crate::types::Delete>) -> Self { self.delete = input; self }
+    pub fn set_delete(mut self, input: ::std::option::Option<crate::types::Delete>) -> Self {
+        self.delete = input;
+        self
+    }
     /// <p>A request to perform a <code>DeleteItem</code> operation.</p>
-    pub fn get_delete(&self) -> &::std::option::Option<crate::types::Delete> { &self.delete }
+    pub fn get_delete(&self) -> &::std::option::Option<crate::types::Delete> {
+        &self.delete
+    }
     /// <p>A request to perform an <code>UpdateItem</code> operation.</p>
     pub fn update(mut self, input: crate::types::Update) -> Self {
         self.update = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_update(mut self, input: ::std::option::Option<crate::types::Update>) -> Self { self.update = input; self }
+    pub fn set_update(mut self, input: ::std::option::Option<crate::types::Update>) -> Self {
+        self.update = input;
+        self
+    }
     /// <p>A request to perform an <code>UpdateItem</code> operation.</p>
-    pub fn get_update(&self) -> &::std::option::Option<crate::types::Update> { &self.update }
+    pub fn get_update(&self) -> &::std::option::Option<crate::types::Update> {
+        &self.update
+    }
     /// Consumes the builder and constructs a [`TransactWriteItem`](crate::types::TransactWriteItem).
     pub fn build(self) -> crate::types::TransactWriteItem {
         crate::types::TransactWriteItem {

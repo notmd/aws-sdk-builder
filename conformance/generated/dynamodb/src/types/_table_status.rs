@@ -107,7 +107,16 @@ impl TableStatus {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["ACTIVE", "ARCHIVED", "ARCHIVING", "CREATING", "DELETING", "INACCESSIBLE_ENCRYPTION_CREDENTIALS", "REPLICATION_NOT_AUTHORIZED", "UPDATING"]
+        &[
+            "ACTIVE",
+            "ARCHIVED",
+            "ARCHIVING",
+            "CREATING",
+            "DELETING",
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+            "REPLICATION_NOT_AUTHORIZED",
+            "UPDATING",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for TableStatus {

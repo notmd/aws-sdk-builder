@@ -132,7 +132,21 @@ impl SigningAlgorithmSpec {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["ECDSA_SHA_256", "ECDSA_SHA_384", "ECDSA_SHA_512", "ED25519_PH_SHA_512", "ED25519_SHA_512", "ML_DSA_SHAKE_256", "RSASSA_PKCS1_V1_5_SHA_256", "RSASSA_PKCS1_V1_5_SHA_384", "RSASSA_PKCS1_V1_5_SHA_512", "RSASSA_PSS_SHA_256", "RSASSA_PSS_SHA_384", "RSASSA_PSS_SHA_512", "SM2DSA"]
+        &[
+            "ECDSA_SHA_256",
+            "ECDSA_SHA_384",
+            "ECDSA_SHA_512",
+            "ED25519_PH_SHA_512",
+            "ED25519_SHA_512",
+            "ML_DSA_SHAKE_256",
+            "RSASSA_PKCS1_V1_5_SHA_256",
+            "RSASSA_PKCS1_V1_5_SHA_384",
+            "RSASSA_PKCS1_V1_5_SHA_512",
+            "RSASSA_PSS_SHA_256",
+            "RSASSA_PSS_SHA_384",
+            "RSASSA_PSS_SHA_512",
+            "SM2DSA",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for SigningAlgorithmSpec {

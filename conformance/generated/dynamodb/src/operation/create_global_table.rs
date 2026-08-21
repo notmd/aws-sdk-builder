@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct CreateGlobalTable;
-impl CreateGlobalTable { pub fn new() -> Self { Self } }
+impl CreateGlobalTable {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     GlobalTableAlreadyExistsException(super::super::types::error::GlobalTableAlreadyExistsException),
@@ -11,14 +15,28 @@ pub enum Error {
     LimitExceededException(super::super::types::error::LimitExceededException),
     TableNotFoundException(super::super::types::error::TableNotFoundException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_global_table_already_exists_exception(&self) -> bool { matches!(self, Self::GlobalTableAlreadyExistsException(_)) }
-    pub fn is_internal_server_error(&self) -> bool { matches!(self, Self::InternalServerError(_)) }
-    pub fn is_invalid_endpoint_exception(&self) -> bool { matches!(self, Self::InvalidEndpointException(_)) }
-    pub fn is_limit_exceeded_exception(&self) -> bool { matches!(self, Self::LimitExceededException(_)) }
-    pub fn is_table_not_found_exception(&self) -> bool { matches!(self, Self::TableNotFoundException(_)) }
+    pub fn is_global_table_already_exists_exception(&self) -> bool {
+        matches!(self, Self::GlobalTableAlreadyExistsException(_))
+    }
+    pub fn is_internal_server_error(&self) -> bool {
+        matches!(self, Self::InternalServerError(_))
+    }
+    pub fn is_invalid_endpoint_exception(&self) -> bool {
+        matches!(self, Self::InvalidEndpointException(_))
+    }
+    pub fn is_limit_exceeded_exception(&self) -> bool {
+        matches!(self, Self::LimitExceededException(_))
+    }
+    pub fn is_table_not_found_exception(&self) -> bool {
+        matches!(self, Self::TableNotFoundException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -35,26 +53,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _create_global_table_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/create_global_table/_create_global_table_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/dynamodb/src/operation/create_global_table/_create_global_table_input.rs"
+    ));
 }
 pub use _create_global_table_input::CreateGlobalTableInput;
 pub type Input = CreateGlobalTableInput;
 pub mod _create_global_table_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/create_global_table/_create_global_table_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/dynamodb/src/operation/create_global_table/_create_global_table_output.rs"
+    ));
 }
 pub use _create_global_table_output::CreateGlobalTableOutput;
 pub type Output = CreateGlobalTableOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/create_global_table/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/dynamodb/src/operation/create_global_table/builders.rs"
+    ));
 }
 pub type CreateGlobalTableError = Error;
 pub type CreateGlobalTableFluentBuilder = builders::Builder;

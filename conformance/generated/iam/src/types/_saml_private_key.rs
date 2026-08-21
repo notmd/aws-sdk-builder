@@ -40,17 +40,27 @@ impl SamlPrivateKeyBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>The unique identifier for the SAML private key.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time</a> format, when the private key was uploaded.</p>
     pub fn timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.timestamp = input; self }
+    pub fn set_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.timestamp = input;
+        self
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time</a> format, when the private key was uploaded.</p>
-    pub fn get_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.timestamp }
+    pub fn get_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.timestamp
+    }
     /// Consumes the builder and constructs a [`SamlPrivateKey`](crate::types::SamlPrivateKey).
     pub fn build(self) -> crate::types::SamlPrivateKey {
         crate::types::SamlPrivateKey {

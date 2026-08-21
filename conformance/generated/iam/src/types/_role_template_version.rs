@@ -191,114 +191,184 @@ impl RoleTemplateVersionBuilder {
         self.template_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.template_arn = input; self }
+    pub fn set_template_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.template_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) that identifies the role template.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn get_template_arn(&self) -> &::std::option::Option<::std::string::String> { &self.template_arn }
+    pub fn get_template_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.template_arn
+    }
     /// <p>The friendly name that identifies the role template.</p>
     pub fn template_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.template_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.template_name = input; self }
+    pub fn set_template_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.template_name = input;
+        self
+    }
     /// <p>The friendly name that identifies the role template.</p>
-    pub fn get_template_name(&self) -> &::std::option::Option<::std::string::String> { &self.template_name }
+    pub fn get_template_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.template_name
+    }
     /// <p>The identifier of the role template version.</p>
     pub fn template_version_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.template_version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_template_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.template_version_id = input; self }
+    pub fn set_template_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.template_version_id = input;
+        self
+    }
     /// <p>The identifier of the role template version.</p>
-    pub fn get_template_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.template_version_id }
+    pub fn get_template_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.template_version_id
+    }
     /// <p>The description of the role template.</p>
     pub fn description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.description = input; self }
+    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.description = input;
+        self
+    }
     /// <p>The description of the role template.</p>
-    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> { &self.description }
+    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
+        &self.description
+    }
     /// <p>The major version number of the role template.</p>
     pub fn major_version(mut self, input: i32) -> Self {
         self.major_version = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_major_version(mut self, input: ::std::option::Option<i32>) -> Self { self.major_version = input; self }
+    pub fn set_major_version(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.major_version = input;
+        self
+    }
     /// <p>The major version number of the role template.</p>
-    pub fn get_major_version(&self) -> &::std::option::Option<i32> { &self.major_version }
+    pub fn get_major_version(&self) -> &::std::option::Option<i32> {
+        &self.major_version
+    }
     /// <p>The minor version that the service uses by default when you create a role from this template without specifying a minor version.</p>
     pub fn default_minor_version(mut self, input: i32) -> Self {
         self.default_minor_version = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_default_minor_version(mut self, input: ::std::option::Option<i32>) -> Self { self.default_minor_version = input; self }
+    pub fn set_default_minor_version(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.default_minor_version = input;
+        self
+    }
     /// <p>The minor version that the service uses by default when you create a role from this template without specifying a minor version.</p>
-    pub fn get_default_minor_version(&self) -> &::std::option::Option<i32> { &self.default_minor_version }
+    pub fn get_default_minor_version(&self) -> &::std::option::Option<i32> {
+        &self.default_minor_version
+    }
     /// <p>Indicates that the role template is managed by an Amazon Web Services service.</p>
     pub fn managed_by_type(mut self, input: crate::types::ManagedByTypeType) -> Self {
         self.managed_by_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_managed_by_type(mut self, input: ::std::option::Option<crate::types::ManagedByTypeType>) -> Self { self.managed_by_type = input; self }
+    pub fn set_managed_by_type(mut self, input: ::std::option::Option<crate::types::ManagedByTypeType>) -> Self {
+        self.managed_by_type = input;
+        self
+    }
     /// <p>Indicates that the role template is managed by an Amazon Web Services service.</p>
-    pub fn get_managed_by_type(&self) -> &::std::option::Option<crate::types::ManagedByTypeType> { &self.managed_by_type }
+    pub fn get_managed_by_type(&self) -> &::std::option::Option<crate::types::ManagedByTypeType> {
+        &self.managed_by_type
+    }
     /// <p>The identifier of the Amazon Web Services service that manages the role template.</p>
     pub fn managed_by_value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.managed_by_value = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_managed_by_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.managed_by_value = input; self }
+    pub fn set_managed_by_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.managed_by_value = input;
+        self
+    }
     /// <p>The identifier of the Amazon Web Services service that manages the role template.</p>
-    pub fn get_managed_by_value(&self) -> &::std::option::Option<::std::string::String> { &self.managed_by_value }
+    pub fn get_managed_by_value(&self) -> &::std::option::Option<::std::string::String> {
+        &self.managed_by_value
+    }
     /// <p>Specifies whether the role template is enabled. When a template is disabled, you cannot create roles from it.</p>
     pub fn enabled(mut self, input: bool) -> Self {
         self.enabled = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_enabled(mut self, input: ::std::option::Option<bool>) -> Self { self.enabled = input; self }
+    pub fn set_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.enabled = input;
+        self
+    }
     /// <p>Specifies whether the role template is enabled. When a template is disabled, you cannot create roles from it.</p>
-    pub fn get_enabled(&self) -> &::std::option::Option<bool> { &self.enabled }
+    pub fn get_enabled(&self) -> &::std::option::Option<bool> {
+        &self.enabled
+    }
     /// <p>The minor version number of this role template version.</p>
     pub fn minor_version(mut self, input: i32) -> Self {
         self.minor_version = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_minor_version(mut self, input: ::std::option::Option<i32>) -> Self { self.minor_version = input; self }
+    pub fn set_minor_version(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.minor_version = input;
+        self
+    }
     /// <p>The minor version number of this role template version.</p>
-    pub fn get_minor_version(&self) -> &::std::option::Option<i32> { &self.minor_version }
+    pub fn get_minor_version(&self) -> &::std::option::Option<i32> {
+        &self.minor_version
+    }
     /// <p>The pattern that is used to generate the name of a role that is created from this template. The pattern can include <code>@{parameter}</code> placeholders that are replaced with the values you supply in the <code>ReplacementValues</code> parameter of <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
     pub fn role_name_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.role_name_pattern = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_role_name_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.role_name_pattern = input; self }
+    pub fn set_role_name_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.role_name_pattern = input;
+        self
+    }
     /// <p>The pattern that is used to generate the name of a role that is created from this template. The pattern can include <code>@{parameter}</code> placeholders that are replaced with the values you supply in the <code>ReplacementValues</code> parameter of <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
-    pub fn get_role_name_pattern(&self) -> &::std::option::Option<::std::string::String> { &self.role_name_pattern }
+    pub fn get_role_name_pattern(&self) -> &::std::option::Option<::std::string::String> {
+        &self.role_name_pattern
+    }
     /// <p>The pattern that is used to generate the path of a role that is created from this template.</p>
     pub fn role_path_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.role_path_pattern = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_role_path_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.role_path_pattern = input; self }
+    pub fn set_role_path_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.role_path_pattern = input;
+        self
+    }
     /// <p>The pattern that is used to generate the path of a role that is created from this template.</p>
-    pub fn get_role_path_pattern(&self) -> &::std::option::Option<::std::string::String> { &self.role_path_pattern }
+    pub fn get_role_path_pattern(&self) -> &::std::option::Option<::std::string::String> {
+        &self.role_path_pattern
+    }
     /// <p>The pattern that is used to generate the description of a role that is created from this template.</p>
     pub fn role_description_pattern(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.role_description_pattern = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_role_description_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.role_description_pattern = input; self }
+    pub fn set_role_description_pattern(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.role_description_pattern = input;
+        self
+    }
     /// <p>The pattern that is used to generate the description of a role that is created from this template.</p>
-    pub fn get_role_description_pattern(&self) -> &::std::option::Option<::std::string::String> { &self.role_description_pattern }
+    pub fn get_role_description_pattern(&self) -> &::std::option::Option<::std::string::String> {
+        &self.role_description_pattern
+    }
     /// <p>The trust policy template that grants an entity permission to assume roles that you create from this template.</p>
     pub fn assume_role_policy_document_template(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.assume_role_policy_document_template = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_assume_role_policy_document_template(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.assume_role_policy_document_template = input; self }
+    pub fn set_assume_role_policy_document_template(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.assume_role_policy_document_template = input;
+        self
+    }
     /// <p>The trust policy template that grants an entity permission to assume roles that you create from this template.</p>
-    pub fn get_assume_role_policy_document_template(&self) -> &::std::option::Option<::std::string::String> { &self.assume_role_policy_document_template }
+    pub fn get_assume_role_policy_document_template(&self) -> &::std::option::Option<::std::string::String> {
+        &self.assume_role_policy_document_template
+    }
     /// <p>A list of inline policy templates that the service embeds in roles that you create from this template.</p>
     /// Appends an item to `inline_policy_templates`.
     ///
@@ -309,9 +379,14 @@ impl RoleTemplateVersionBuilder {
         self.inline_policy_templates = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_inline_policy_templates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::InlinePolicy>>) -> Self { self.inline_policy_templates = input; self }
+    pub fn set_inline_policy_templates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::InlinePolicy>>) -> Self {
+        self.inline_policy_templates = input;
+        self
+    }
     /// <p>A list of inline policy templates that the service embeds in roles that you create from this template.</p>
-    pub fn get_inline_policy_templates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InlinePolicy>> { &self.inline_policy_templates }
+    pub fn get_inline_policy_templates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::InlinePolicy>> {
+        &self.inline_policy_templates
+    }
     /// <p>A list of the ARNs of the managed policies that the service attaches to roles that you create from this template.</p>
     /// Appends an item to `managed_policy_arns`.
     ///
@@ -322,19 +397,29 @@ impl RoleTemplateVersionBuilder {
         self.managed_policy_arns = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_managed_policy_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.managed_policy_arns = input; self }
+    pub fn set_managed_policy_arns(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.managed_policy_arns = input;
+        self
+    }
     /// <p>A list of the ARNs of the managed policies that the service attaches to roles that you create from this template.</p>
-    pub fn get_managed_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.managed_policy_arns }
+    pub fn get_managed_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.managed_policy_arns
+    }
     /// <p>The ARN of the policy that sets the permissions boundary for roles that you create from this template.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
     pub fn permission_boundary_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.permission_boundary_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_permission_boundary_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.permission_boundary_arn = input; self }
+    pub fn set_permission_boundary_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.permission_boundary_arn = input;
+        self
+    }
     /// <p>The ARN of the policy that sets the permissions boundary for roles that you create from this template.</p>
     /// <p>For more information about ARNs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn get_permission_boundary_arn(&self) -> &::std::option::Option<::std::string::String> { &self.permission_boundary_arn }
+    pub fn get_permission_boundary_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.permission_boundary_arn
+    }
     /// <p>A list of the parameters that are defined for this role template version. You supply values for these parameters when you create a role with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
     /// Appends an item to `parameters_definition`.
     ///
@@ -345,9 +430,14 @@ impl RoleTemplateVersionBuilder {
         self.parameters_definition = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_parameters_definition(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ParameterDefinition>>) -> Self { self.parameters_definition = input; self }
+    pub fn set_parameters_definition(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ParameterDefinition>>) -> Self {
+        self.parameters_definition = input;
+        self
+    }
     /// <p>A list of the parameters that are defined for this role template version. You supply values for these parameters when you create a role with <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_AcquireRole.html">AcquireRole</a>.</p>
-    pub fn get_parameters_definition(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ParameterDefinition>> { &self.parameters_definition }
+    pub fn get_parameters_definition(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ParameterDefinition>> {
+        &self.parameters_definition
+    }
     /// <p>A list of tag templates that are applied to roles that are created from this template.</p>
     /// Appends an item to `role_tags_template`.
     ///
@@ -358,41 +448,66 @@ impl RoleTemplateVersionBuilder {
         self.role_tags_template = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_role_tags_template(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TagTemplate>>) -> Self { self.role_tags_template = input; self }
+    pub fn set_role_tags_template(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::TagTemplate>>) -> Self {
+        self.role_tags_template = input;
+        self
+    }
     /// <p>A list of tag templates that are applied to roles that are created from this template.</p>
-    pub fn get_role_tags_template(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TagTemplate>> { &self.role_tags_template }
+    pub fn get_role_tags_template(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::TagTemplate>> {
+        &self.role_tags_template
+    }
     /// <p>The maximum session duration (in seconds) for roles that are created from this template.</p>
     pub fn max_session_duration(mut self, input: i32) -> Self {
         self.max_session_duration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_session_duration(mut self, input: ::std::option::Option<i32>) -> Self { self.max_session_duration = input; self }
+    pub fn set_max_session_duration(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.max_session_duration = input;
+        self
+    }
     /// <p>The maximum session duration (in seconds) for roles that are created from this template.</p>
-    pub fn get_max_session_duration(&self) -> &::std::option::Option<i32> { &self.max_session_duration }
+    pub fn get_max_session_duration(&self) -> &::std::option::Option<i32> {
+        &self.max_session_duration
+    }
     /// <p>Specifies whether this specific minor version of the role template is enabled.</p>
     pub fn version_enabled(mut self, input: bool) -> Self {
         self.version_enabled = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_version_enabled(mut self, input: ::std::option::Option<bool>) -> Self { self.version_enabled = input; self }
+    pub fn set_version_enabled(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.version_enabled = input;
+        self
+    }
     /// <p>Specifies whether this specific minor version of the role template is enabled.</p>
-    pub fn get_version_enabled(&self) -> &::std::option::Option<bool> { &self.version_enabled }
+    pub fn get_version_enabled(&self) -> &::std::option::Option<bool> {
+        &self.version_enabled
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the role template version was created.</p>
     pub fn create_timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.create_timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_create_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.create_timestamp = input; self }
+    pub fn set_create_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.create_timestamp = input;
+        self
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the role template version was created.</p>
-    pub fn get_create_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.create_timestamp }
+    pub fn get_create_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.create_timestamp
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the role template version was last updated.</p>
     pub fn update_timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.update_timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_update_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.update_timestamp = input; self }
+    pub fn set_update_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.update_timestamp = input;
+        self
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the role template version was last updated.</p>
-    pub fn get_update_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.update_timestamp }
+    pub fn get_update_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.update_timestamp
+    }
     /// Consumes the builder and constructs a [`RoleTemplateVersion`](crate::types::RoleTemplateVersion).
     pub fn build(self) -> crate::types::RoleTemplateVersion {
         crate::types::RoleTemplateVersion {

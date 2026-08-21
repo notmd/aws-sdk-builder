@@ -56,9 +56,14 @@ impl ReplicaAutoScalingDescriptionBuilder {
         self.region_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.region_name = input; self }
+    pub fn set_region_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.region_name = input;
+        self
+    }
     /// <p>The Region where the replica exists.</p>
-    pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> { &self.region_name }
+    pub fn get_region_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.region_name
+    }
     /// <p>Replica-specific global secondary index auto scaling settings.</p>
     /// Appends an item to `global_secondary_indexes`.
     ///
@@ -69,29 +74,64 @@ impl ReplicaAutoScalingDescriptionBuilder {
         self.global_secondary_indexes = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>>) -> Self { self.global_secondary_indexes = input; self }
+    pub fn set_global_secondary_indexes(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>>,
+    ) -> Self {
+        self.global_secondary_indexes = input;
+        self
+    }
     /// <p>Replica-specific global secondary index auto scaling settings.</p>
-    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>> { &self.global_secondary_indexes }
+    pub fn get_global_secondary_indexes(
+        &self,
+    ) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaGlobalSecondaryIndexAutoScalingDescription>> {
+        &self.global_secondary_indexes
+    }
     pub fn replica_provisioned_read_capacity_auto_scaling_settings(mut self, input: crate::types::AutoScalingSettingsDescription) -> Self {
         self.replica_provisioned_read_capacity_auto_scaling_settings = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_replica_provisioned_read_capacity_auto_scaling_settings(mut self, input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>) -> Self { self.replica_provisioned_read_capacity_auto_scaling_settings = input; self }
-    pub fn get_replica_provisioned_read_capacity_auto_scaling_settings(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsDescription> { &self.replica_provisioned_read_capacity_auto_scaling_settings }
+    pub fn set_replica_provisioned_read_capacity_auto_scaling_settings(
+        mut self,
+        input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
+    ) -> Self {
+        self.replica_provisioned_read_capacity_auto_scaling_settings = input;
+        self
+    }
+    pub fn get_replica_provisioned_read_capacity_auto_scaling_settings(
+        &self,
+    ) -> &::std::option::Option<crate::types::AutoScalingSettingsDescription> {
+        &self.replica_provisioned_read_capacity_auto_scaling_settings
+    }
     pub fn replica_provisioned_write_capacity_auto_scaling_settings(mut self, input: crate::types::AutoScalingSettingsDescription) -> Self {
         self.replica_provisioned_write_capacity_auto_scaling_settings = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_replica_provisioned_write_capacity_auto_scaling_settings(mut self, input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>) -> Self { self.replica_provisioned_write_capacity_auto_scaling_settings = input; self }
-    pub fn get_replica_provisioned_write_capacity_auto_scaling_settings(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsDescription> { &self.replica_provisioned_write_capacity_auto_scaling_settings }
+    pub fn set_replica_provisioned_write_capacity_auto_scaling_settings(
+        mut self,
+        input: ::std::option::Option<crate::types::AutoScalingSettingsDescription>,
+    ) -> Self {
+        self.replica_provisioned_write_capacity_auto_scaling_settings = input;
+        self
+    }
+    pub fn get_replica_provisioned_write_capacity_auto_scaling_settings(
+        &self,
+    ) -> &::std::option::Option<crate::types::AutoScalingSettingsDescription> {
+        &self.replica_provisioned_write_capacity_auto_scaling_settings
+    }
     /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li></ul>
     pub fn replica_status(mut self, input: crate::types::ReplicaStatus) -> Self {
         self.replica_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_replica_status(mut self, input: ::std::option::Option<crate::types::ReplicaStatus>) -> Self { self.replica_status = input; self }
+    pub fn set_replica_status(mut self, input: ::std::option::Option<crate::types::ReplicaStatus>) -> Self {
+        self.replica_status = input;
+        self
+    }
     /// <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li></ul>
-    pub fn get_replica_status(&self) -> &::std::option::Option<crate::types::ReplicaStatus> { &self.replica_status }
+    pub fn get_replica_status(&self) -> &::std::option::Option<crate::types::ReplicaStatus> {
+        &self.replica_status
+    }
     /// Consumes the builder and constructs a [`ReplicaAutoScalingDescription`](crate::types::ReplicaAutoScalingDescription).
     pub fn build(self) -> crate::types::ReplicaAutoScalingDescription {
         crate::types::ReplicaAutoScalingDescription {

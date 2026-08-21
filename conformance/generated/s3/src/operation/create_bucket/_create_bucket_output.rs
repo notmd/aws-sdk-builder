@@ -57,9 +57,14 @@ impl CreateBucketOutputBuilder {
         self.location = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_location(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.location = input; self }
+    pub fn set_location(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.location = input;
+        self
+    }
     /// <p>A forward slash followed by the name of the bucket for all account regional namespace buckets and all global general purpose buckets created in us-east-1. For example, <code>/amzn-s3-demo-bucket</code>. For global general purpose buckets created in other Amazon Web Services Regions, the Location field is the global endpoint URL. For example, <code>http://amzn-s3-demo-bucket.s3.amazonaws.com/</code>.</p>
-    pub fn get_location(&self) -> &::std::option::Option<::std::string::String> { &self.location }
+    pub fn get_location(&self) -> &::std::option::Option<::std::string::String> {
+        &self.location
+    }
     /// <p>The Amazon Resource Name (ARN) of the S3 bucket. ARNs uniquely identify Amazon Web Services resources across all of Amazon Web Services.</p><note>
     /// <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with directory buckets</a>.</p>
     /// </note>
@@ -67,11 +72,16 @@ impl CreateBucketOutputBuilder {
         self.bucket_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket_arn = input; self }
+    pub fn set_bucket_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the S3 bucket. ARNs uniquely identify Amazon Web Services resources across all of Amazon Web Services.</p><note>
     /// <p>This parameter is only supported for S3 directory buckets. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-tagging.html">Using tags with directory buckets</a>.</p>
     /// </note>
-    pub fn get_bucket_arn(&self) -> &::std::option::Option<::std::string::String> { &self.bucket_arn }
+    pub fn get_bucket_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket_arn
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

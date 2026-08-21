@@ -55,39 +55,64 @@ impl UpdateCodeSigningConfigRequestBuilder {
         self.code_signing_config_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.code_signing_config_arn = input; self }
+    pub fn set_code_signing_config_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.code_signing_config_arn = input;
+        self
+    }
     /// <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
-    pub fn get_code_signing_config_arn(&self) -> &::std::option::Option<::std::string::String> { &self.code_signing_config_arn }
+    pub fn get_code_signing_config_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.code_signing_config_arn
+    }
     /// <p>Descriptive name for this code signing configuration.</p>
     pub fn description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.description = input; self }
+    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.description = input;
+        self
+    }
     /// <p>Descriptive name for this code signing configuration.</p>
-    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> { &self.description }
+    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
+        &self.description
+    }
     /// <p>Signing profiles for this code signing configuration.</p>
     pub fn allowed_publishers(mut self, input: crate::types::AllowedPublishers) -> Self {
         self.allowed_publishers = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_allowed_publishers(mut self, input: ::std::option::Option<crate::types::AllowedPublishers>) -> Self { self.allowed_publishers = input; self }
+    pub fn set_allowed_publishers(mut self, input: ::std::option::Option<crate::types::AllowedPublishers>) -> Self {
+        self.allowed_publishers = input;
+        self
+    }
     /// <p>Signing profiles for this code signing configuration.</p>
-    pub fn get_allowed_publishers(&self) -> &::std::option::Option<crate::types::AllowedPublishers> { &self.allowed_publishers }
+    pub fn get_allowed_publishers(&self) -> &::std::option::Option<crate::types::AllowedPublishers> {
+        &self.allowed_publishers
+    }
     /// <p>The code signing policy.</p>
     pub fn code_signing_policies(mut self, input: crate::types::CodeSigningPolicies) -> Self {
         self.code_signing_policies = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_code_signing_policies(mut self, input: ::std::option::Option<crate::types::CodeSigningPolicies>) -> Self { self.code_signing_policies = input; self }
+    pub fn set_code_signing_policies(mut self, input: ::std::option::Option<crate::types::CodeSigningPolicies>) -> Self {
+        self.code_signing_policies = input;
+        self
+    }
     /// <p>The code signing policy.</p>
-    pub fn get_code_signing_policies(&self) -> &::std::option::Option<crate::types::CodeSigningPolicies> { &self.code_signing_policies }
+    pub fn get_code_signing_policies(&self) -> &::std::option::Option<crate::types::CodeSigningPolicies> {
+        &self.code_signing_policies
+    }
     /// Consumes the builder and constructs a [`UpdateCodeSigningConfigRequest`](crate::types::UpdateCodeSigningConfigRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`code_signing_config_arn`](Self::code_signing_config_arn)
     pub fn build(self) -> ::std::result::Result<crate::types::UpdateCodeSigningConfigRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::UpdateCodeSigningConfigRequest {
-            code_signing_config_arn: self.code_signing_config_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("code_signing_config_arn", "code_signing_config_arn was not specified but it is required when building UpdateCodeSigningConfigRequest"))?,
+            code_signing_config_arn: self.code_signing_config_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "code_signing_config_arn",
+                    "code_signing_config_arn was not specified but it is required when building UpdateCodeSigningConfigRequest",
+                )
+            })?,
             description: self.description,
             allowed_publishers: self.allowed_publishers,
             code_signing_policies: self.code_signing_policies,

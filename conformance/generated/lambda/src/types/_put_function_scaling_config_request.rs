@@ -49,34 +49,59 @@ impl PutFunctionScalingConfigRequestBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.function_name = input; self }
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.function_name = input;
+        self
+    }
     /// <p>The name or ARN of the Lambda function.</p>
-    pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> { &self.function_name }
+    pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.function_name
+    }
     /// <p>Specify a version or alias to set the scaling configuration for a published version of the function.</p>
     /// This field is required.
     pub fn qualifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.qualifier = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.qualifier = input; self }
+    pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.qualifier = input;
+        self
+    }
     /// <p>Specify a version or alias to set the scaling configuration for a published version of the function.</p>
-    pub fn get_qualifier(&self) -> &::std::option::Option<::std::string::String> { &self.qualifier }
+    pub fn get_qualifier(&self) -> &::std::option::Option<::std::string::String> {
+        &self.qualifier
+    }
     /// <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
     pub fn function_scaling_config(mut self, input: crate::types::FunctionScalingConfig) -> Self {
         self.function_scaling_config = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_function_scaling_config(mut self, input: ::std::option::Option<crate::types::FunctionScalingConfig>) -> Self { self.function_scaling_config = input; self }
+    pub fn set_function_scaling_config(mut self, input: ::std::option::Option<crate::types::FunctionScalingConfig>) -> Self {
+        self.function_scaling_config = input;
+        self
+    }
     /// <p>The scaling configuration to apply to the function, including minimum and maximum execution environment limits.</p>
-    pub fn get_function_scaling_config(&self) -> &::std::option::Option<crate::types::FunctionScalingConfig> { &self.function_scaling_config }
+    pub fn get_function_scaling_config(&self) -> &::std::option::Option<crate::types::FunctionScalingConfig> {
+        &self.function_scaling_config
+    }
     /// Consumes the builder and constructs a [`PutFunctionScalingConfigRequest`](crate::types::PutFunctionScalingConfigRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`function_name`](Self::function_name)
     /// - [`qualifier`](Self::qualifier)
     pub fn build(self) -> ::std::result::Result<crate::types::PutFunctionScalingConfigRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::PutFunctionScalingConfigRequest {
-            function_name: self.function_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_name", "function_name was not specified but it is required when building PutFunctionScalingConfigRequest"))?,
-            qualifier: self.qualifier.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("qualifier", "qualifier was not specified but it is required when building PutFunctionScalingConfigRequest"))?,
+            function_name: self.function_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "function_name",
+                    "function_name was not specified but it is required when building PutFunctionScalingConfigRequest",
+                )
+            })?,
+            qualifier: self.qualifier.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "qualifier",
+                    "qualifier was not specified but it is required when building PutFunctionScalingConfigRequest",
+                )
+            })?,
             function_scaling_config: self.function_scaling_config,
         })
     }

@@ -7,7 +7,9 @@ impl super::Client {
     ///   - [`one_time_password(impl Into<String>)`](crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberFluentBuilder::one_time_password) / [`set_one_time_password(Option<String>)`](crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberFluentBuilder::set_one_time_password):<br>required: **true**<br><p>The OTP sent to the destination number from the <code>CreateSMSSandBoxPhoneNumber</code> call.</p><br>
     /// - On success, responds with [`VerifySmsSandboxPhoneNumberOutput`](crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberOutput)
     /// - On failure, responds with [`SdkError<VerifySmsSandboxPhoneNumberError>`](crate::operation::verify_sms_sandbox_phone_number::VerifySmsSandboxPhoneNumberError)
-    pub fn verify_sms_sandbox_phone_number(&self) -> crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberFluentBuilder {
+    pub fn verify_sms_sandbox_phone_number(
+        &self,
+    ) -> crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberFluentBuilder {
         crate::operation::verify_sms_sandbox_phone_number::builders::VerifySmsSandboxPhoneNumberFluentBuilder::new(self.handle.clone())
     }
 }

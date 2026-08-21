@@ -6,27 +6,51 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn transact_statements(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ParameterizedStatement>>) -> Self { self.input.transact_statements = Some(value.into()); self }
-    pub fn client_request_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.client_request_token = Some(value.into()); self }
-    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::ExecuteTransactionOutput, super::ExecuteTransactionError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::ExecuteTransactionError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::ExecuteTransactionError::unhandled_with_request_ids(format!("ExecuteTransaction returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_execute_transaction_output::ExecuteTransactionOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn transact_statements(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ParameterizedStatement>>) -> Self {
+        self.input.transact_statements = Some(value.into());
+        self
+    }
+    pub fn client_request_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.client_request_token = Some(value.into());
+        self
+    }
+    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self {
+        self.input.return_consumed_capacity = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::ExecuteTransactionOutput, super::ExecuteTransactionError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::ExecuteTransactionError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::ExecuteTransactionError::unhandled_with_request_ids(
+                format!("ExecuteTransaction returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_execute_transaction_output::ExecuteTransactionOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as ExecuteTransactionFluentBuilder;

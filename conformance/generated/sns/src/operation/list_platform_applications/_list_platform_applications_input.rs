@@ -32,13 +32,16 @@ impl ListPlatformApplicationsInputBuilder {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
+    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_token = input;
+        self
+    }
     /// <p><code>NextToken</code> string is used when calling <code>ListPlatformApplications</code> action to retrieve additional records that are available after the first page results.</p>
-    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_token
+    }
     /// Consumes the builder and constructs a [`ListPlatformApplicationsInput`](crate::operation::list_platform_applications::ListPlatformApplicationsInput).
     pub fn build(self) -> crate::operation::list_platform_applications::ListPlatformApplicationsInput {
-        crate::operation::list_platform_applications::ListPlatformApplicationsInput {
-            next_token: self.next_token,
-        }
+        crate::operation::list_platform_applications::ListPlatformApplicationsInput { next_token: self.next_token }
     }
 }

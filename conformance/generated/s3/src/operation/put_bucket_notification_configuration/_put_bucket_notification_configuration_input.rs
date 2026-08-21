@@ -52,31 +52,51 @@ impl PutBucketNotificationConfigurationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The name of the bucket.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     pub fn notification_configuration(mut self, input: crate::types::NotificationConfiguration) -> Self {
         self.notification_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_notification_configuration(mut self, input: ::std::option::Option<crate::types::NotificationConfiguration>) -> Self { self.notification_configuration = input; self }
-    pub fn get_notification_configuration(&self) -> &::std::option::Option<crate::types::NotificationConfiguration> { &self.notification_configuration }
+    pub fn set_notification_configuration(mut self, input: ::std::option::Option<crate::types::NotificationConfiguration>) -> Self {
+        self.notification_configuration = input;
+        self
+    }
+    pub fn get_notification_configuration(&self) -> &::std::option::Option<crate::types::NotificationConfiguration> {
+        &self.notification_configuration
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// <p>Skips validation of Amazon SQS, Amazon SNS, and Lambda destinations. True or false value.</p>
     pub fn skip_destination_validation(mut self, input: bool) -> Self {
         self.skip_destination_validation = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_skip_destination_validation(mut self, input: ::std::option::Option<bool>) -> Self { self.skip_destination_validation = input; self }
+    pub fn set_skip_destination_validation(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.skip_destination_validation = input;
+        self
+    }
     /// <p>Skips validation of Amazon SQS, Amazon SNS, and Lambda destinations. True or false value.</p>
-    pub fn get_skip_destination_validation(&self) -> &::std::option::Option<bool> { &self.skip_destination_validation }
+    pub fn get_skip_destination_validation(&self) -> &::std::option::Option<bool> {
+        &self.skip_destination_validation
+    }
     /// Consumes the builder and constructs a [`PutBucketNotificationConfigurationInput`](crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationInput).
     pub fn build(self) -> crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationInput {
         crate::operation::put_bucket_notification_configuration::PutBucketNotificationConfigurationInput {

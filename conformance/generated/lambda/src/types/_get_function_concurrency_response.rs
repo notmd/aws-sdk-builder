@@ -32,9 +32,14 @@ impl GetFunctionConcurrencyResponseBuilder {
         self.reserved_concurrent_executions = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_reserved_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self { self.reserved_concurrent_executions = input; self }
+    pub fn set_reserved_concurrent_executions(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.reserved_concurrent_executions = input;
+        self
+    }
     /// <p>The number of simultaneous executions that are reserved for the function.</p>
-    pub fn get_reserved_concurrent_executions(&self) -> &::std::option::Option<i32> { &self.reserved_concurrent_executions }
+    pub fn get_reserved_concurrent_executions(&self) -> &::std::option::Option<i32> {
+        &self.reserved_concurrent_executions
+    }
     /// Consumes the builder and constructs a [`GetFunctionConcurrencyResponse`](crate::types::GetFunctionConcurrencyResponse).
     pub fn build(self) -> crate::types::GetFunctionConcurrencyResponse {
         crate::types::GetFunctionConcurrencyResponse {

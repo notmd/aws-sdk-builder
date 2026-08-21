@@ -50,9 +50,14 @@ impl MetricsAndOperatorBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.prefix = input; self }
+    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.prefix = input;
+        self
+    }
     /// <p>The prefix used when evaluating an AND predicate.</p>
-    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.prefix }
+    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.prefix
+    }
     /// <p>The list of tags used when evaluating an AND predicate.</p><note>
     /// <p><code>Tag</code> filters are not supported for directory buckets.</p>
     /// </note>
@@ -65,19 +70,29 @@ impl MetricsAndOperatorBuilder {
         self.tags = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.tags = input;
+        self
+    }
     /// <p>The list of tags used when evaluating an AND predicate.</p><note>
     /// <p><code>Tag</code> filters are not supported for directory buckets.</p>
     /// </note>
-    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.tags }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+        &self.tags
+    }
     /// <p>The access point ARN used when evaluating an <code>AND</code> predicate.</p>
     pub fn access_point_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.access_point_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_access_point_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.access_point_arn = input; self }
+    pub fn set_access_point_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.access_point_arn = input;
+        self
+    }
     /// <p>The access point ARN used when evaluating an <code>AND</code> predicate.</p>
-    pub fn get_access_point_arn(&self) -> &::std::option::Option<::std::string::String> { &self.access_point_arn }
+    pub fn get_access_point_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.access_point_arn
+    }
     /// Consumes the builder and constructs a [`MetricsAndOperator`](crate::types::MetricsAndOperator).
     pub fn build(self) -> crate::types::MetricsAndOperator {
         crate::types::MetricsAndOperator {

@@ -119,97 +119,152 @@ impl ManagedPolicyDetailBuilder {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_name = input; self }
+    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_name = input;
+        self
+    }
     /// <p>The friendly name (not ARN) identifying the policy.</p>
-    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> { &self.policy_name }
+    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_name
+    }
     /// <p>The stable and unique string identifying the policy.</p>
     /// <p>For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn policy_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_id = input; self }
+    pub fn set_policy_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_id = input;
+        self
+    }
     /// <p>The stable and unique string identifying the policy.</p>
     /// <p>For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_policy_id(&self) -> &::std::option::Option<::std::string::String> { &self.policy_id }
+    pub fn get_policy_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_id
+    }
     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.arn = input; self }
-    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> { &self.arn }
+    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.arn = input;
+        self
+    }
+    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.arn
+    }
     /// <p>The path to the policy.</p>
     /// <p>For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn path(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.path = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.path = input; self }
+    pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.path = input;
+        self
+    }
     /// <p>The path to the policy.</p>
     /// <p>For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_path(&self) -> &::std::option::Option<::std::string::String> { &self.path }
+    pub fn get_path(&self) -> &::std::option::Option<::std::string::String> {
+        &self.path
+    }
     /// <p>The identifier for the version of the policy that is set as the default (operative) version.</p>
     /// <p>For more information about policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
     pub fn default_version_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.default_version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_default_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.default_version_id = input; self }
+    pub fn set_default_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.default_version_id = input;
+        self
+    }
     /// <p>The identifier for the version of the policy that is set as the default (operative) version.</p>
     /// <p>For more information about policy versions, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html">Versioning for managed policies</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_default_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.default_version_id }
+    pub fn get_default_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.default_version_id
+    }
     /// <p>The number of principal entities (users, groups, and roles) that the policy is attached to.</p>
     pub fn attachment_count(mut self, input: i32) -> Self {
         self.attachment_count = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_attachment_count(mut self, input: ::std::option::Option<i32>) -> Self { self.attachment_count = input; self }
+    pub fn set_attachment_count(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.attachment_count = input;
+        self
+    }
     /// <p>The number of principal entities (users, groups, and roles) that the policy is attached to.</p>
-    pub fn get_attachment_count(&self) -> &::std::option::Option<i32> { &self.attachment_count }
+    pub fn get_attachment_count(&self) -> &::std::option::Option<i32> {
+        &self.attachment_count
+    }
     /// <p>The number of entities (users and roles) for which the policy is used as the permissions boundary.</p>
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
     pub fn permissions_boundary_usage_count(mut self, input: i32) -> Self {
         self.permissions_boundary_usage_count = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_permissions_boundary_usage_count(mut self, input: ::std::option::Option<i32>) -> Self { self.permissions_boundary_usage_count = input; self }
+    pub fn set_permissions_boundary_usage_count(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.permissions_boundary_usage_count = input;
+        self
+    }
     /// <p>The number of entities (users and roles) for which the policy is used as the permissions boundary.</p>
     /// <p>For more information about permissions boundaries, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html">Permissions boundaries for IAM identities</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_permissions_boundary_usage_count(&self) -> &::std::option::Option<i32> { &self.permissions_boundary_usage_count }
+    pub fn get_permissions_boundary_usage_count(&self) -> &::std::option::Option<i32> {
+        &self.permissions_boundary_usage_count
+    }
     /// <p>Specifies whether the policy can be attached to an IAM user, group, or role.</p>
     pub fn is_attachable(mut self, input: bool) -> Self {
         self.is_attachable = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_is_attachable(mut self, input: ::std::option::Option<bool>) -> Self { self.is_attachable = input; self }
+    pub fn set_is_attachable(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.is_attachable = input;
+        self
+    }
     /// <p>Specifies whether the policy can be attached to an IAM user, group, or role.</p>
-    pub fn get_is_attachable(&self) -> &::std::option::Option<bool> { &self.is_attachable }
+    pub fn get_is_attachable(&self) -> &::std::option::Option<bool> {
+        &self.is_attachable
+    }
     /// <p>A friendly description of the policy.</p>
     pub fn description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.description = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.description = input; self }
+    pub fn set_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.description = input;
+        self
+    }
     /// <p>A friendly description of the policy.</p>
-    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> { &self.description }
+    pub fn get_description(&self) -> &::std::option::Option<::std::string::String> {
+        &self.description
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the policy was created.</p>
     pub fn create_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.create_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.create_date = input; self }
+    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.create_date = input;
+        self
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the policy was created.</p>
-    pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.create_date }
+    pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.create_date
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the policy was last updated.</p>
     /// <p>When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.</p>
     pub fn update_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.update_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_update_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.update_date = input; self }
+    pub fn set_update_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.update_date = input;
+        self
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the policy was last updated.</p>
     /// <p>When a policy has only one version, this field contains the date and time when the policy was created. When a policy has more than one version, this field contains the date and time when the most recent policy version was created.</p>
-    pub fn get_update_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.update_date }
+    pub fn get_update_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.update_date
+    }
     /// <p>A list containing information about the versions of the policy.</p>
     /// Appends an item to `policy_version_list`.
     ///
@@ -220,9 +275,14 @@ impl ManagedPolicyDetailBuilder {
         self.policy_version_list = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_policy_version_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>>) -> Self { self.policy_version_list = input; self }
+    pub fn set_policy_version_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>>) -> Self {
+        self.policy_version_list = input;
+        self
+    }
     /// <p>A list containing information about the versions of the policy.</p>
-    pub fn get_policy_version_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>> { &self.policy_version_list }
+    pub fn get_policy_version_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyVersion>> {
+        &self.policy_version_list
+    }
     /// Consumes the builder and constructs a [`ManagedPolicyDetail`](crate::types::ManagedPolicyDetail).
     pub fn build(self) -> crate::types::ManagedPolicyDetail {
         crate::types::ManagedPolicyDetail {

@@ -47,10 +47,15 @@ impl TagBuilder {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>The key for a session tag.</p>
     /// <p>You can pass up to 50 session tags. The plain text session tag keys can’t exceed 128 characters. For these and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key
+    }
     /// <p>The value for a session tag.</p>
     /// <p>You can pass up to 50 session tags. The plain text session tag values can’t exceed 256 characters. For these and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
     /// This field is required.
@@ -58,18 +63,30 @@ impl TagBuilder {
         self.value = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.value = input; self }
+    pub fn set_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.value = input;
+        self
+    }
     /// <p>The value for a session tag.</p>
     /// <p>You can pass up to 50 session tags. The plain text session tag values can’t exceed 256 characters. For these and additional limits, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-limits.html#reference_iam-limits-entity-length">IAM and STS Character Limits</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_value(&self) -> &::std::option::Option<::std::string::String> { &self.value }
+    pub fn get_value(&self) -> &::std::option::Option<::std::string::String> {
+        &self.value
+    }
     /// Consumes the builder and constructs a [`Tag`](crate::types::Tag).
     /// This method will fail if any of the following fields are not set:
     /// - [`key`](Self::key)
     /// - [`value`](Self::value)
     pub fn build(self) -> ::std::result::Result<crate::types::Tag, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Tag {
-            key: self.key.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("key", "key was not specified but it is required when building Tag"))?,
-            value: self.value.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("value", "value was not specified but it is required when building Tag"))?,
+            key: self.key.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field("key", "key was not specified but it is required when building Tag")
+            })?,
+            value: self.value.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "value",
+                    "value was not specified but it is required when building Tag",
+                )
+            })?,
         })
     }
 }

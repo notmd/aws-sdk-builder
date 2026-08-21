@@ -37,10 +37,16 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/describe_backup.rs"));
     }
     pub mod describe_continuous_backups {
-        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/describe_continuous_backups.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/dynamodb/src/operation/describe_continuous_backups.rs"
+        ));
     }
     pub mod describe_contributor_insights {
-        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/describe_contributor_insights.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/dynamodb/src/operation/describe_contributor_insights.rs"
+        ));
     }
     pub mod describe_endpoints {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/describe_endpoints.rs"));
@@ -52,13 +58,19 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/describe_global_table.rs"));
     }
     pub mod describe_global_table_settings {
-        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/describe_global_table_settings.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/dynamodb/src/operation/describe_global_table_settings.rs"
+        ));
     }
     pub mod describe_import {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/describe_import.rs"));
     }
     pub mod describe_kinesis_streaming_destination {
-        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/describe_kinesis_streaming_destination.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/dynamodb/src/operation/describe_kinesis_streaming_destination.rs"
+        ));
     }
     pub mod describe_limits {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/describe_limits.rs"));
@@ -67,16 +79,25 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/describe_table.rs"));
     }
     pub mod describe_table_replica_auto_scaling {
-        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/describe_table_replica_auto_scaling.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/dynamodb/src/operation/describe_table_replica_auto_scaling.rs"
+        ));
     }
     pub mod describe_time_to_live {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/describe_time_to_live.rs"));
     }
     pub mod disable_kinesis_streaming_destination {
-        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/disable_kinesis_streaming_destination.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/dynamodb/src/operation/disable_kinesis_streaming_destination.rs"
+        ));
     }
     pub mod enable_kinesis_streaming_destination {
-        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/enable_kinesis_streaming_destination.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/dynamodb/src/operation/enable_kinesis_streaming_destination.rs"
+        ));
     }
     pub mod execute_statement {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/execute_statement.rs"));
@@ -85,7 +106,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/execute_transaction.rs"));
     }
     pub mod export_table_to_point_in_time {
-        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/export_table_to_point_in_time.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/dynamodb/src/operation/export_table_to_point_in_time.rs"
+        ));
     }
     pub mod get_item {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/get_item.rs"));
@@ -130,7 +154,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/restore_table_from_backup.rs"));
     }
     pub mod restore_table_to_point_in_time {
-        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/restore_table_to_point_in_time.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/dynamodb/src/operation/restore_table_to_point_in_time.rs"
+        ));
     }
     pub mod scan {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/scan.rs"));
@@ -154,25 +181,37 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/update_continuous_backups.rs"));
     }
     pub mod update_contributor_insights {
-        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/update_contributor_insights.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/dynamodb/src/operation/update_contributor_insights.rs"
+        ));
     }
     pub mod update_global_table {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/update_global_table.rs"));
     }
     pub mod update_global_table_settings {
-        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/update_global_table_settings.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/dynamodb/src/operation/update_global_table_settings.rs"
+        ));
     }
     pub mod update_item {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/update_item.rs"));
     }
     pub mod update_kinesis_streaming_destination {
-        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/update_kinesis_streaming_destination.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/dynamodb/src/operation/update_kinesis_streaming_destination.rs"
+        ));
     }
     pub mod update_table {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/update_table.rs"));
     }
     pub mod update_table_replica_auto_scaling {
-        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/update_table_replica_auto_scaling.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/dynamodb/src/operation/update_table_replica_auto_scaling.rs"
+        ));
     }
     pub mod update_time_to_live {
         include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/operation/update_time_to_live.rs"));

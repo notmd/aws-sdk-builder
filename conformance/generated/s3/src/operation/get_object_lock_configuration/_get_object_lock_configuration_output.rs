@@ -46,9 +46,14 @@ impl GetObjectLockConfigurationOutputBuilder {
         self.object_lock_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_object_lock_configuration(mut self, input: ::std::option::Option<crate::types::ObjectLockConfiguration>) -> Self { self.object_lock_configuration = input; self }
+    pub fn set_object_lock_configuration(mut self, input: ::std::option::Option<crate::types::ObjectLockConfiguration>) -> Self {
+        self.object_lock_configuration = input;
+        self
+    }
     /// <p>The specified bucket's Object Lock configuration.</p>
-    pub fn get_object_lock_configuration(&self) -> &::std::option::Option<crate::types::ObjectLockConfiguration> { &self.object_lock_configuration }
+    pub fn get_object_lock_configuration(&self) -> &::std::option::Option<crate::types::ObjectLockConfiguration> {
+        &self.object_lock_configuration
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

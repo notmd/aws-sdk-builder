@@ -44,17 +44,27 @@ impl ListDurableExecutionsByFunctionResponseBuilder {
         self.durable_executions = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_durable_executions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Execution>>) -> Self { self.durable_executions = input; self }
+    pub fn set_durable_executions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Execution>>) -> Self {
+        self.durable_executions = input;
+        self
+    }
     /// <p>List of durable execution summaries matching the filter criteria.</p>
-    pub fn get_durable_executions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Execution>> { &self.durable_executions }
+    pub fn get_durable_executions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Execution>> {
+        &self.durable_executions
+    }
     /// <p>Pagination token for retrieving additional results. Present only if there are more results available.</p>
     pub fn next_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>Pagination token for retrieving additional results. Present only if there are more results available.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// Consumes the builder and constructs a [`ListDurableExecutionsByFunctionResponse`](crate::types::ListDurableExecutionsByFunctionResponse).
     pub fn build(self) -> crate::types::ListDurableExecutionsByFunctionResponse {
         crate::types::ListDurableExecutionsByFunctionResponse {

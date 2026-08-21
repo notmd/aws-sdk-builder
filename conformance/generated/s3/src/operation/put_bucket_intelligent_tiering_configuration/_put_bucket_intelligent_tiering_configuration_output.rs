@@ -18,7 +18,8 @@ impl ::aws_types::request_id::RequestId for PutBucketIntelligentTieringConfigura
 }
 impl PutBucketIntelligentTieringConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`PutBucketIntelligentTieringConfigurationOutput`](crate::operation::put_bucket_intelligent_tiering_configuration::PutBucketIntelligentTieringConfigurationOutput).
-    pub fn builder() -> crate::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationOutputBuilder {
+    pub fn builder() -> crate::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationOutputBuilder
+    {
         crate::operation::put_bucket_intelligent_tiering_configuration::builders::PutBucketIntelligentTieringConfigurationOutputBuilder::default()
     }
 }

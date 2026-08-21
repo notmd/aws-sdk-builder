@@ -6,33 +6,75 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn owner_account_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.owner_account_id = Some(value.into()); self }
-    pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.description = Some(value.into()); self }
-    pub fn permissions(mut self, value: impl ::std::convert::Into<crate::types::DelegationPermission>) -> Self { self.input.permissions = Some(value.into()); self }
-    pub fn request_message(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.request_message = Some(value.into()); self }
-    pub fn requestor_workflow_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.requestor_workflow_id = Some(value.into()); self }
-    pub fn redirect_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.redirect_url = Some(value.into()); self }
-    pub fn notification_channel(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.notification_channel = Some(value.into()); self }
-    pub fn session_duration(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.session_duration = Some(value.into()); self }
-    pub fn only_send_by_owner(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.only_send_by_owner = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::CreateDelegationRequestOutput, super::CreateDelegationRequestError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::CreateDelegationRequestError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::CreateDelegationRequestError::unhandled_with_request_ids(format!("CreateDelegationRequest returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_create_delegation_request_output::CreateDelegationRequestOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn owner_account_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.owner_account_id = Some(value.into());
+        self
+    }
+    pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.description = Some(value.into());
+        self
+    }
+    pub fn permissions(mut self, value: impl ::std::convert::Into<crate::types::DelegationPermission>) -> Self {
+        self.input.permissions = Some(value.into());
+        self
+    }
+    pub fn request_message(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.request_message = Some(value.into());
+        self
+    }
+    pub fn requestor_workflow_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.requestor_workflow_id = Some(value.into());
+        self
+    }
+    pub fn redirect_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.redirect_url = Some(value.into());
+        self
+    }
+    pub fn notification_channel(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.notification_channel = Some(value.into());
+        self
+    }
+    pub fn session_duration(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.session_duration = Some(value.into());
+        self
+    }
+    pub fn only_send_by_owner(mut self, value: impl ::std::convert::Into<bool>) -> Self {
+        self.input.only_send_by_owner = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::CreateDelegationRequestOutput, super::CreateDelegationRequestError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::CreateDelegationRequestError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::CreateDelegationRequestError::unhandled_with_request_ids(
+                format!("CreateDelegationRequest returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_create_delegation_request_output::CreateDelegationRequestOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as CreateDelegationRequestFluentBuilder;

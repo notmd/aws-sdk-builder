@@ -95,10 +95,15 @@ impl PutBucketPolicyInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The name of the bucket.</p>
     /// <p><b>Directory buckets</b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i></code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must also follow the format <code><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code><i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i></p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>The MD5 hash of the request body.</p>
     /// <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
@@ -107,12 +112,17 @@ impl PutBucketPolicyInputBuilder {
         self.content_md5 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_content_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.content_md5 = input; self }
+    pub fn set_content_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.content_md5 = input;
+        self
+    }
     /// <p>The MD5 hash of the request body.</p>
     /// <p>For requests made using the Amazon Web Services Command Line Interface (CLI) or Amazon Web Services SDKs, this field is calculated automatically.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_content_md5(&self) -> &::std::option::Option<::std::string::String> { &self.content_md5 }
+    pub fn get_content_md5(&self) -> &::std::option::Option<::std::string::String> {
+        &self.content_md5
+    }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum-<i>algorithm</i></code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>.</p>
     /// <p>For the <code>x-amz-checksum-<i>algorithm</i></code> header, replace <code><i>algorithm</i></code> with the supported algorithm from the following list:</p><ul><li><p><code>CRC32</code></p></li><li><p><code>CRC32C</code></p></li><li><p><code>CRC64NVME</code></p></li><li><p><code>MD5</code></p></li><li><p><code>SHA1</code></p></li><li><p><code>SHA256</code></p></li><li><p><code>SHA512</code></p></li><li><p><code>XXHASH3</code></p></li><li><p><code>XXHASH64</code></p></li><li><p><code>XXHASH128</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i></code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>, Amazon S3 fails the request with a <code>BadDigest</code> error.</p><note>
@@ -122,13 +132,18 @@ impl PutBucketPolicyInputBuilder {
         self.checksum_algorithm = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self { self.checksum_algorithm = input; self }
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<crate::types::ChecksumAlgorithm>) -> Self {
+        self.checksum_algorithm = input;
+        self
+    }
     /// <p>Indicates the algorithm used to create the checksum for the request when you use the SDK. This header will not provide any additional functionality if you don't use the SDK. When you send this header, there must be a corresponding <code>x-amz-checksum-<i>algorithm</i></code> or <code>x-amz-trailer</code> header sent. Otherwise, Amazon S3 fails the request with the HTTP status code <code>400 Bad Request</code>.</p>
     /// <p>For the <code>x-amz-checksum-<i>algorithm</i></code> header, replace <code><i>algorithm</i></code> with the supported algorithm from the following list:</p><ul><li><p><code>CRC32</code></p></li><li><p><code>CRC32C</code></p></li><li><p><code>CRC64NVME</code></p></li><li><p><code>MD5</code></p></li><li><p><code>SHA1</code></p></li><li><p><code>SHA256</code></p></li><li><p><code>SHA512</code></p></li><li><p><code>XXHASH3</code></p></li><li><p><code>XXHASH64</code></p></li><li><p><code>XXHASH128</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>If the individual checksum value you provide through <code>x-amz-checksum-<i>algorithm</i></code> doesn't match the checksum algorithm you set through <code>x-amz-sdk-checksum-algorithm</code>, Amazon S3 fails the request with a <code>BadDigest</code> error.</p><note>
     /// <p>For directory buckets, when you use Amazon Web Services SDKs, <code>CRC32</code> is the default checksum algorithm that's used for performance.</p>
     /// </note>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> { &self.checksum_algorithm }
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<crate::types::ChecksumAlgorithm> {
+        &self.checksum_algorithm
+    }
     /// <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -136,11 +151,16 @@ impl PutBucketPolicyInputBuilder {
         self.confirm_remove_self_bucket_access = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_confirm_remove_self_bucket_access(mut self, input: ::std::option::Option<bool>) -> Self { self.confirm_remove_self_bucket_access = input; self }
+    pub fn set_confirm_remove_self_bucket_access(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.confirm_remove_self_bucket_access = input;
+        self
+    }
     /// <p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_confirm_remove_self_bucket_access(&self) -> &::std::option::Option<bool> { &self.confirm_remove_self_bucket_access }
+    pub fn get_confirm_remove_self_bucket_access(&self) -> &::std::option::Option<bool> {
+        &self.confirm_remove_self_bucket_access
+    }
     /// <p>The bucket policy as a JSON document.</p>
     /// <p>For directory buckets, the only IAM action supported in the bucket policy is <code>s3express:CreateSession</code>.</p>
     /// This field is required.
@@ -148,10 +168,15 @@ impl PutBucketPolicyInputBuilder {
         self.policy = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy = input; self }
+    pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy = input;
+        self
+    }
     /// <p>The bucket policy as a JSON document.</p>
     /// <p>For directory buckets, the only IAM action supported in the bucket policy is <code>s3express:CreateSession</code>.</p>
-    pub fn get_policy(&self) -> &::std::option::Option<::std::string::String> { &self.policy }
+    pub fn get_policy(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
@@ -159,11 +184,16 @@ impl PutBucketPolicyInputBuilder {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p><note>
     /// <p>For directory buckets, this header is not supported in this API operation. If you specify this header, the request fails with the HTTP status code <code>501 Not Implemented</code>.</p>
     /// </note>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// Consumes the builder and constructs a [`PutBucketPolicyInput`](crate::operation::put_bucket_policy::PutBucketPolicyInput).
     pub fn build(self) -> crate::operation::put_bucket_policy::PutBucketPolicyInput {
         crate::operation::put_bucket_policy::PutBucketPolicyInput {

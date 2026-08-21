@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct PutObjectAnnotation;
-impl PutObjectAnnotation { pub fn new() -> Self { Self } }
+impl PutObjectAnnotation {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     AnnotationLimitExceeded(super::super::types::error::AnnotationLimitExceeded),
@@ -13,16 +17,34 @@ pub enum Error {
     NoSuchKey(super::super::types::error::NoSuchKey),
     UnsupportedMediaType(super::super::types::error::UnsupportedMediaType),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_annotation_limit_exceeded(&self) -> bool { matches!(self, Self::AnnotationLimitExceeded(_)) }
-    pub fn is_annotation_name_too_long(&self) -> bool { matches!(self, Self::AnnotationNameTooLong(_)) }
-    pub fn is_invalid_annotation_name(&self) -> bool { matches!(self, Self::InvalidAnnotationName(_)) }
-    pub fn is_invalid_request(&self) -> bool { matches!(self, Self::InvalidRequest(_)) }
-    pub fn is_no_such_bucket(&self) -> bool { matches!(self, Self::NoSuchBucket(_)) }
-    pub fn is_no_such_key(&self) -> bool { matches!(self, Self::NoSuchKey(_)) }
-    pub fn is_unsupported_media_type(&self) -> bool { matches!(self, Self::UnsupportedMediaType(_)) }
+    pub fn is_annotation_limit_exceeded(&self) -> bool {
+        matches!(self, Self::AnnotationLimitExceeded(_))
+    }
+    pub fn is_annotation_name_too_long(&self) -> bool {
+        matches!(self, Self::AnnotationNameTooLong(_))
+    }
+    pub fn is_invalid_annotation_name(&self) -> bool {
+        matches!(self, Self::InvalidAnnotationName(_))
+    }
+    pub fn is_invalid_request(&self) -> bool {
+        matches!(self, Self::InvalidRequest(_))
+    }
+    pub fn is_no_such_bucket(&self) -> bool {
+        matches!(self, Self::NoSuchBucket(_))
+    }
+    pub fn is_no_such_key(&self) -> bool {
+        matches!(self, Self::NoSuchKey(_))
+    }
+    pub fn is_unsupported_media_type(&self) -> bool {
+        matches!(self, Self::UnsupportedMediaType(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -41,22 +63,57 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 impl crate::s3_request_id::RequestIdExt for Error {
-    fn extended_request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { extended_request_id, .. } => extended_request_id.as_deref(), _ => None } }
+    fn extended_request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { extended_request_id, .. } => extended_request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _put_object_annotation_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/put_object_annotation/_put_object_annotation_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/operation/put_object_annotation/_put_object_annotation_input.rs"
+    ));
 }
 pub use _put_object_annotation_input::PutObjectAnnotationInput;
 pub type Input = PutObjectAnnotationInput;
 pub mod _put_object_annotation_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation/put_object_annotation/_put_object_annotation_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/operation/put_object_annotation/_put_object_annotation_output.rs"
+    ));
 }
 pub use _put_object_annotation_output::PutObjectAnnotationOutput;
 pub type Output = PutObjectAnnotationOutput;

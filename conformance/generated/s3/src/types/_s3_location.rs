@@ -82,32 +82,52 @@ impl S3LocationBuilder {
         self.bucket_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket_name = input; self }
+    pub fn set_bucket_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket_name = input;
+        self
+    }
     /// <p>The name of the bucket where the restore results will be placed.</p>
-    pub fn get_bucket_name(&self) -> &::std::option::Option<::std::string::String> { &self.bucket_name }
+    pub fn get_bucket_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket_name
+    }
     /// <p>The prefix that is prepended to the restore results for this request.</p>
     /// This field is required.
     pub fn prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.prefix = input; self }
+    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.prefix = input;
+        self
+    }
     /// <p>The prefix that is prepended to the restore results for this request.</p>
-    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.prefix }
+    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.prefix
+    }
     pub fn encryption(mut self, input: crate::types::Encryption) -> Self {
         self.encryption = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_encryption(mut self, input: ::std::option::Option<crate::types::Encryption>) -> Self { self.encryption = input; self }
-    pub fn get_encryption(&self) -> &::std::option::Option<crate::types::Encryption> { &self.encryption }
+    pub fn set_encryption(mut self, input: ::std::option::Option<crate::types::Encryption>) -> Self {
+        self.encryption = input;
+        self
+    }
+    pub fn get_encryption(&self) -> &::std::option::Option<crate::types::Encryption> {
+        &self.encryption
+    }
     /// <p>The canned ACL to apply to the restore results.</p>
     pub fn canned_acl(mut self, input: crate::types::ObjectCannedAcl) -> Self {
         self.canned_acl = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_canned_acl(mut self, input: ::std::option::Option<crate::types::ObjectCannedAcl>) -> Self { self.canned_acl = input; self }
+    pub fn set_canned_acl(mut self, input: ::std::option::Option<crate::types::ObjectCannedAcl>) -> Self {
+        self.canned_acl = input;
+        self
+    }
     /// <p>The canned ACL to apply to the restore results.</p>
-    pub fn get_canned_acl(&self) -> &::std::option::Option<crate::types::ObjectCannedAcl> { &self.canned_acl }
+    pub fn get_canned_acl(&self) -> &::std::option::Option<crate::types::ObjectCannedAcl> {
+        &self.canned_acl
+    }
     /// <p>A list of grants that control access to the staged results.</p>
     /// Appends an item to `access_control_list`.
     ///
@@ -118,17 +138,27 @@ impl S3LocationBuilder {
         self.access_control_list = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_access_control_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Grant>>) -> Self { self.access_control_list = input; self }
+    pub fn set_access_control_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Grant>>) -> Self {
+        self.access_control_list = input;
+        self
+    }
     /// <p>A list of grants that control access to the staged results.</p>
-    pub fn get_access_control_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Grant>> { &self.access_control_list }
+    pub fn get_access_control_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Grant>> {
+        &self.access_control_list
+    }
     /// <p>The tag-set that is applied to the restore results.</p>
     pub fn tagging(mut self, input: crate::types::Tagging) -> Self {
         self.tagging = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_tagging(mut self, input: ::std::option::Option<crate::types::Tagging>) -> Self { self.tagging = input; self }
+    pub fn set_tagging(mut self, input: ::std::option::Option<crate::types::Tagging>) -> Self {
+        self.tagging = input;
+        self
+    }
     /// <p>The tag-set that is applied to the restore results.</p>
-    pub fn get_tagging(&self) -> &::std::option::Option<crate::types::Tagging> { &self.tagging }
+    pub fn get_tagging(&self) -> &::std::option::Option<crate::types::Tagging> {
+        &self.tagging
+    }
     /// <p>A list of metadata to store with the restore results in S3.</p>
     /// Appends an item to `user_metadata`.
     ///
@@ -139,25 +169,45 @@ impl S3LocationBuilder {
         self.user_metadata = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_user_metadata(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MetadataEntry>>) -> Self { self.user_metadata = input; self }
+    pub fn set_user_metadata(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::MetadataEntry>>) -> Self {
+        self.user_metadata = input;
+        self
+    }
     /// <p>A list of metadata to store with the restore results in S3.</p>
-    pub fn get_user_metadata(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MetadataEntry>> { &self.user_metadata }
+    pub fn get_user_metadata(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::MetadataEntry>> {
+        &self.user_metadata
+    }
     /// <p>The class of storage used to store the restore results.</p>
     pub fn storage_class(mut self, input: crate::types::StorageClass) -> Self {
         self.storage_class = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self { self.storage_class = input; self }
+    pub fn set_storage_class(mut self, input: ::std::option::Option<crate::types::StorageClass>) -> Self {
+        self.storage_class = input;
+        self
+    }
     /// <p>The class of storage used to store the restore results.</p>
-    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> { &self.storage_class }
+    pub fn get_storage_class(&self) -> &::std::option::Option<crate::types::StorageClass> {
+        &self.storage_class
+    }
     /// Consumes the builder and constructs a [`S3Location`](crate::types::S3Location).
     /// This method will fail if any of the following fields are not set:
     /// - [`bucket_name`](Self::bucket_name)
     /// - [`prefix`](Self::prefix)
     pub fn build(self) -> ::std::result::Result<crate::types::S3Location, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::S3Location {
-            bucket_name: self.bucket_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("bucket_name", "bucket_name was not specified but it is required when building S3Location"))?,
-            prefix: self.prefix.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("prefix", "prefix was not specified but it is required when building S3Location"))?,
+            bucket_name: self.bucket_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "bucket_name",
+                    "bucket_name was not specified but it is required when building S3Location",
+                )
+            })?,
+            prefix: self.prefix.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "prefix",
+                    "prefix was not specified but it is required when building S3Location",
+                )
+            })?,
             encryption: self.encryption,
             canned_acl: self.canned_acl,
             access_control_list: self.access_control_list,

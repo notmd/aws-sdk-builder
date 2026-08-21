@@ -45,10 +45,15 @@ impl AddRoleToInstanceProfileInputBuilder {
         self.instance_profile_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_instance_profile_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.instance_profile_name = input; self }
+    pub fn set_instance_profile_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.instance_profile_name = input;
+        self
+    }
     /// <p>The name of the instance profile to update.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_instance_profile_name(&self) -> &::std::option::Option<::std::string::String> { &self.instance_profile_name }
+    pub fn get_instance_profile_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.instance_profile_name
+    }
     /// <p>The name of the role to add.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     /// This field is required.
@@ -56,10 +61,15 @@ impl AddRoleToInstanceProfileInputBuilder {
         self.role_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.role_name = input; self }
+    pub fn set_role_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.role_name = input;
+        self
+    }
     /// <p>The name of the role to add.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_role_name(&self) -> &::std::option::Option<::std::string::String> { &self.role_name }
+    pub fn get_role_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.role_name
+    }
     /// Consumes the builder and constructs a [`AddRoleToInstanceProfileInput`](crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileInput).
     pub fn build(self) -> crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileInput {
         crate::operation::add_role_to_instance_profile::AddRoleToInstanceProfileInput {

@@ -48,31 +48,51 @@ impl AnalyticsConfigurationBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>The ID that identifies the analytics configuration.</p>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.</p>
     pub fn filter(mut self, input: crate::types::AnalyticsFilter) -> Self {
         self.filter = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::AnalyticsFilter>) -> Self { self.filter = input; self }
+    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::AnalyticsFilter>) -> Self {
+        self.filter = input;
+        self
+    }
     /// <p>The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.</p>
-    pub fn get_filter(&self) -> &::std::option::Option<crate::types::AnalyticsFilter> { &self.filter }
+    pub fn get_filter(&self) -> &::std::option::Option<crate::types::AnalyticsFilter> {
+        &self.filter
+    }
     /// <p>Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.</p>
     pub fn storage_class_analysis(mut self, input: crate::types::StorageClassAnalysis) -> Self {
         self.storage_class_analysis = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_storage_class_analysis(mut self, input: ::std::option::Option<crate::types::StorageClassAnalysis>) -> Self { self.storage_class_analysis = input; self }
+    pub fn set_storage_class_analysis(mut self, input: ::std::option::Option<crate::types::StorageClassAnalysis>) -> Self {
+        self.storage_class_analysis = input;
+        self
+    }
     /// <p>Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.</p>
-    pub fn get_storage_class_analysis(&self) -> &::std::option::Option<crate::types::StorageClassAnalysis> { &self.storage_class_analysis }
+    pub fn get_storage_class_analysis(&self) -> &::std::option::Option<crate::types::StorageClassAnalysis> {
+        &self.storage_class_analysis
+    }
     /// Consumes the builder and constructs a [`AnalyticsConfiguration`](crate::types::AnalyticsConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](Self::id)
     pub fn build(self) -> ::std::result::Result<crate::types::AnalyticsConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AnalyticsConfiguration {
-            id: self.id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building AnalyticsConfiguration"))?,
+            id: self.id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "id",
+                    "id was not specified but it is required when building AnalyticsConfiguration",
+                )
+            })?,
             filter: self.filter,
             storage_class_analysis: self.storage_class_analysis,
         })

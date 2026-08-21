@@ -39,25 +39,40 @@ impl ExecutionStartedDetailsBuilder {
         self.input = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_input(mut self, input: ::std::option::Option<crate::types::EventInput>) -> Self { self.input = input; self }
+    pub fn set_input(mut self, input: ::std::option::Option<crate::types::EventInput>) -> Self {
+        self.input = input;
+        self
+    }
     /// <p>The input payload provided for the durable execution.</p>
-    pub fn get_input(&self) -> &::std::option::Option<crate::types::EventInput> { &self.input }
+    pub fn get_input(&self) -> &::std::option::Option<crate::types::EventInput> {
+        &self.input
+    }
     /// <p>The maximum amount of time that the durable execution is allowed to run, in seconds.</p>
     /// This field is required.
     pub fn execution_timeout(mut self, input: i32) -> Self {
         self.execution_timeout = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_execution_timeout(mut self, input: ::std::option::Option<i32>) -> Self { self.execution_timeout = input; self }
+    pub fn set_execution_timeout(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.execution_timeout = input;
+        self
+    }
     /// <p>The maximum amount of time that the durable execution is allowed to run, in seconds.</p>
-    pub fn get_execution_timeout(&self) -> &::std::option::Option<i32> { &self.execution_timeout }
+    pub fn get_execution_timeout(&self) -> &::std::option::Option<i32> {
+        &self.execution_timeout
+    }
     /// Consumes the builder and constructs a [`ExecutionStartedDetails`](crate::types::ExecutionStartedDetails).
     /// This method will fail if any of the following fields are not set:
     /// - [`execution_timeout`](Self::execution_timeout)
     pub fn build(self) -> ::std::result::Result<crate::types::ExecutionStartedDetails, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ExecutionStartedDetails {
             input: self.input,
-            execution_timeout: self.execution_timeout.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("execution_timeout", "execution_timeout was not specified but it is required when building ExecutionStartedDetails"))?,
+            execution_timeout: self.execution_timeout.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "execution_timeout",
+                    "execution_timeout was not specified but it is required when building ExecutionStartedDetails",
+                )
+            })?,
         })
     }
 }

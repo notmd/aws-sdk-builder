@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct PublishBatch;
-impl PublishBatch { pub fn new() -> Self { Self } }
+impl PublishBatch {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     AuthorizationErrorException(super::super::types::error::AuthorizationErrorException),
@@ -26,29 +30,73 @@ pub enum Error {
     TooManyEntriesInBatchRequestException(super::super::types::error::TooManyEntriesInBatchRequestException),
     ValidationException(super::super::types::error::ValidationException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_authorization_error_exception(&self) -> bool { matches!(self, Self::AuthorizationErrorException(_)) }
-    pub fn is_batch_entry_ids_not_distinct_exception(&self) -> bool { matches!(self, Self::BatchEntryIdsNotDistinctException(_)) }
-    pub fn is_batch_request_too_long_exception(&self) -> bool { matches!(self, Self::BatchRequestTooLongException(_)) }
-    pub fn is_empty_batch_request_exception(&self) -> bool { matches!(self, Self::EmptyBatchRequestException(_)) }
-    pub fn is_endpoint_disabled_exception(&self) -> bool { matches!(self, Self::EndpointDisabledException(_)) }
-    pub fn is_internal_error_exception(&self) -> bool { matches!(self, Self::InternalErrorException(_)) }
-    pub fn is_invalid_batch_entry_id_exception(&self) -> bool { matches!(self, Self::InvalidBatchEntryIdException(_)) }
-    pub fn is_invalid_parameter_exception(&self) -> bool { matches!(self, Self::InvalidParameterException(_)) }
-    pub fn is_invalid_parameter_value_exception(&self) -> bool { matches!(self, Self::InvalidParameterValueException(_)) }
-    pub fn is_invalid_security_exception(&self) -> bool { matches!(self, Self::InvalidSecurityException(_)) }
-    pub fn is_kms_access_denied_exception(&self) -> bool { matches!(self, Self::KmsAccessDeniedException(_)) }
-    pub fn is_kms_disabled_exception(&self) -> bool { matches!(self, Self::KmsDisabledException(_)) }
-    pub fn is_kms_invalid_state_exception(&self) -> bool { matches!(self, Self::KmsInvalidStateException(_)) }
-    pub fn is_kms_not_found_exception(&self) -> bool { matches!(self, Self::KmsNotFoundException(_)) }
-    pub fn is_kms_opt_in_required(&self) -> bool { matches!(self, Self::KmsOptInRequired(_)) }
-    pub fn is_kms_throttling_exception(&self) -> bool { matches!(self, Self::KmsThrottlingException(_)) }
-    pub fn is_not_found_exception(&self) -> bool { matches!(self, Self::NotFoundException(_)) }
-    pub fn is_platform_application_disabled_exception(&self) -> bool { matches!(self, Self::PlatformApplicationDisabledException(_)) }
-    pub fn is_too_many_entries_in_batch_request_exception(&self) -> bool { matches!(self, Self::TooManyEntriesInBatchRequestException(_)) }
-    pub fn is_validation_exception(&self) -> bool { matches!(self, Self::ValidationException(_)) }
+    pub fn is_authorization_error_exception(&self) -> bool {
+        matches!(self, Self::AuthorizationErrorException(_))
+    }
+    pub fn is_batch_entry_ids_not_distinct_exception(&self) -> bool {
+        matches!(self, Self::BatchEntryIdsNotDistinctException(_))
+    }
+    pub fn is_batch_request_too_long_exception(&self) -> bool {
+        matches!(self, Self::BatchRequestTooLongException(_))
+    }
+    pub fn is_empty_batch_request_exception(&self) -> bool {
+        matches!(self, Self::EmptyBatchRequestException(_))
+    }
+    pub fn is_endpoint_disabled_exception(&self) -> bool {
+        matches!(self, Self::EndpointDisabledException(_))
+    }
+    pub fn is_internal_error_exception(&self) -> bool {
+        matches!(self, Self::InternalErrorException(_))
+    }
+    pub fn is_invalid_batch_entry_id_exception(&self) -> bool {
+        matches!(self, Self::InvalidBatchEntryIdException(_))
+    }
+    pub fn is_invalid_parameter_exception(&self) -> bool {
+        matches!(self, Self::InvalidParameterException(_))
+    }
+    pub fn is_invalid_parameter_value_exception(&self) -> bool {
+        matches!(self, Self::InvalidParameterValueException(_))
+    }
+    pub fn is_invalid_security_exception(&self) -> bool {
+        matches!(self, Self::InvalidSecurityException(_))
+    }
+    pub fn is_kms_access_denied_exception(&self) -> bool {
+        matches!(self, Self::KmsAccessDeniedException(_))
+    }
+    pub fn is_kms_disabled_exception(&self) -> bool {
+        matches!(self, Self::KmsDisabledException(_))
+    }
+    pub fn is_kms_invalid_state_exception(&self) -> bool {
+        matches!(self, Self::KmsInvalidStateException(_))
+    }
+    pub fn is_kms_not_found_exception(&self) -> bool {
+        matches!(self, Self::KmsNotFoundException(_))
+    }
+    pub fn is_kms_opt_in_required(&self) -> bool {
+        matches!(self, Self::KmsOptInRequired(_))
+    }
+    pub fn is_kms_throttling_exception(&self) -> bool {
+        matches!(self, Self::KmsThrottlingException(_))
+    }
+    pub fn is_not_found_exception(&self) -> bool {
+        matches!(self, Self::NotFoundException(_))
+    }
+    pub fn is_platform_application_disabled_exception(&self) -> bool {
+        matches!(self, Self::PlatformApplicationDisabledException(_))
+    }
+    pub fn is_too_many_entries_in_batch_request_exception(&self) -> bool {
+        matches!(self, Self::TooManyEntriesInBatchRequestException(_))
+    }
+    pub fn is_validation_exception(&self) -> bool {
+        matches!(self, Self::ValidationException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -80,19 +128,49 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _publish_batch_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/publish_batch/_publish_batch_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sns/src/operation/publish_batch/_publish_batch_input.rs"
+    ));
 }
 pub use _publish_batch_input::PublishBatchInput;
 pub type Input = PublishBatchInput;
 pub mod _publish_batch_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/publish_batch/_publish_batch_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sns/src/operation/publish_batch/_publish_batch_output.rs"
+    ));
 }
 pub use _publish_batch_output::PublishBatchOutput;
 pub type Output = PublishBatchOutput;

@@ -78,61 +78,96 @@ impl ExecutionBuilder {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.durable_execution_arn = input; self }
+    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.durable_execution_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the durable execution, if this execution is a durable execution.</p>
-    pub fn get_durable_execution_arn(&self) -> &::std::option::Option<::std::string::String> { &self.durable_execution_arn }
+    pub fn get_durable_execution_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.durable_execution_arn
+    }
     /// <p>The unique name of the durable execution, if one was provided when the execution was started.</p>
     /// This field is required.
     pub fn durable_execution_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.durable_execution_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.durable_execution_name = input; self }
+    pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.durable_execution_name = input;
+        self
+    }
     /// <p>The unique name of the durable execution, if one was provided when the execution was started.</p>
-    pub fn get_durable_execution_name(&self) -> &::std::option::Option<::std::string::String> { &self.durable_execution_name }
+    pub fn get_durable_execution_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.durable_execution_name
+    }
     /// <p>The Amazon Resource Name (ARN) of the Lambda function.</p>
     /// This field is required.
     pub fn function_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.function_arn = input; self }
+    pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.function_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the Lambda function.</p>
-    pub fn get_function_arn(&self) -> &::std::option::Option<::std::string::String> { &self.function_arn }
+    pub fn get_function_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.function_arn
+    }
     /// <p>The current status of the durable execution.</p>
     /// This field is required.
     pub fn status(mut self, input: crate::types::ExecutionStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExecutionStatus>) -> Self { self.status = input; self }
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExecutionStatus>) -> Self {
+        self.status = input;
+        self
+    }
     /// <p>The current status of the durable execution.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::ExecutionStatus> { &self.status }
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::ExecutionStatus> {
+        &self.status
+    }
     /// <p>The date and time when the durable execution started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     /// This field is required.
     pub fn start_timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.start_timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.start_timestamp = input; self }
+    pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.start_timestamp = input;
+        self
+    }
     /// <p>The date and time when the durable execution started, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn get_start_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.start_timestamp }
+    pub fn get_start_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.start_timestamp
+    }
     /// <p>The date and time when the durable execution ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
     pub fn end_timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.end_timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.end_timestamp = input; self }
+    pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.end_timestamp = input;
+        self
+    }
     /// <p>The date and time when the durable execution ended, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD).</p>
-    pub fn get_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.end_timestamp }
+    pub fn get_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.end_timestamp
+    }
     /// <p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
     pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.kms_key_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.kms_key_arn = input; self }
+    pub fn set_kms_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.kms_key_arn = input;
+        self
+    }
     /// <p>The ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
-    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> { &self.kms_key_arn }
+    pub fn get_kms_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.kms_key_arn
+    }
     /// Consumes the builder and constructs a [`Execution`](crate::types::Execution).
     /// This method will fail if any of the following fields are not set:
     /// - [`durable_execution_arn`](Self::durable_execution_arn)
@@ -142,11 +177,36 @@ impl ExecutionBuilder {
     /// - [`start_timestamp`](Self::start_timestamp)
     pub fn build(self) -> ::std::result::Result<crate::types::Execution, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Execution {
-            durable_execution_arn: self.durable_execution_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("durable_execution_arn", "durable_execution_arn was not specified but it is required when building Execution"))?,
-            durable_execution_name: self.durable_execution_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("durable_execution_name", "durable_execution_name was not specified but it is required when building Execution"))?,
-            function_arn: self.function_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_arn", "function_arn was not specified but it is required when building Execution"))?,
-            status: self.status.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building Execution"))?,
-            start_timestamp: self.start_timestamp.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("start_timestamp", "start_timestamp was not specified but it is required when building Execution"))?,
+            durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "durable_execution_arn",
+                    "durable_execution_arn was not specified but it is required when building Execution",
+                )
+            })?,
+            durable_execution_name: self.durable_execution_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "durable_execution_name",
+                    "durable_execution_name was not specified but it is required when building Execution",
+                )
+            })?,
+            function_arn: self.function_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "function_arn",
+                    "function_arn was not specified but it is required when building Execution",
+                )
+            })?,
+            status: self.status.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "status",
+                    "status was not specified but it is required when building Execution",
+                )
+            })?,
+            start_timestamp: self.start_timestamp.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "start_timestamp",
+                    "start_timestamp was not specified but it is required when building Execution",
+                )
+            })?,
             end_timestamp: self.end_timestamp,
             kms_key_arn: self.kms_key_arn,
         })

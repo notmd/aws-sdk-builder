@@ -6,48 +6,115 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn annotation_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.annotation_name = Some(value.into()); self }
-    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.version_id = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn checksum_mode(mut self, value: impl ::std::convert::Into<crate::types::ChecksumMode>) -> Self { self.input.checksum_mode = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::GetObjectAnnotationOutput, super::GetObjectAnnotationError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::GetObjectAnnotationError::Unhandled("GetObjectAnnotation requires bucket".to_owned()))?;
-                         let key = self.input.key.as_deref().ok_or_else(|| super::GetObjectAnnotationError::Unhandled("GetObjectAnnotation requires key".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}/{Key+}?annotation&x-id=GetObjectAnnotation"); if let Some(value) = self.input.annotation_name.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("annotationName"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } if let Some(value) = self.input.version_id.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("versionId"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path = path.replace("{Key+}", &super::super::super::transport::encode_path(key)); path };
-                         let body = ::std::vec::Vec::new();
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers };
-                         let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::GetObjectAnnotationError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::GetObjectAnnotationError::unhandled_with_request_ids(format!("GetObjectAnnotation returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_get_object_annotation_output::GetObjectAnnotationOutputBuilder::default();
-                         output.annotation_payload = Some(super::super::super::primitives::ByteStream::from(response.body().to_vec()));
-                         output.object_version_id = response.header("x-amz-object-version-id").map(str::to_owned);
-                         output.content_length = response.header("Content-Length").and_then(|value| value.parse().ok());
-                         output.e_tag = response.header("ETag").map(str::to_owned);
-                         output.checksum_crc32 = response.header("x-amz-checksum-crc32").map(str::to_owned);
-                         output.checksum_crc32_c = response.header("x-amz-checksum-crc32c").map(str::to_owned);
-                         output.checksum_crc64_nvme = response.header("x-amz-checksum-crc64nvme").map(str::to_owned);
-                         output.checksum_sha1 = response.header("x-amz-checksum-sha1").map(str::to_owned);
-                         output.checksum_sha256 = response.header("x-amz-checksum-sha256").map(str::to_owned);
-                         output.checksum_sha512 = response.header("x-amz-checksum-sha512").map(str::to_owned);
-                         output.checksum_md5 = response.header("x-amz-checksum-md5").map(str::to_owned);
-                         output.checksum_xxhash64 = response.header("x-amz-checksum-xxhash64").map(str::to_owned);
-                         output.checksum_xxhash3 = response.header("x-amz-checksum-xxhash3").map(str::to_owned);
-                         output.checksum_xxhash128 = response.header("x-amz-checksum-xxhash128").map(str::to_owned);
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key = Some(value.into());
+        self
+    }
+    pub fn annotation_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.annotation_name = Some(value.into());
+        self
+    }
+    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.version_id = Some(value.into());
+        self
+    }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
+        self.input.request_payer = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn checksum_mode(mut self, value: impl ::std::convert::Into<crate::types::ChecksumMode>) -> Self {
+        self.input.checksum_mode = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::GetObjectAnnotationOutput, super::GetObjectAnnotationError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::GetObjectAnnotationError::Unhandled("GetObjectAnnotation requires bucket".to_owned()))?;
+        let key = self
+            .input
+            .key
+            .as_deref()
+            .ok_or_else(|| super::GetObjectAnnotationError::Unhandled("GetObjectAnnotation requires key".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}/{Key+}?annotation&x-id=GetObjectAnnotation");
+            if let Some(value) = self.input.annotation_name.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("annotationName");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            if let Some(value) = self.input.version_id.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("versionId");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path = path.replace("{Key+}", &super::super::super::transport::encode_path(key));
+            path
+        };
+        let body = ::std::vec::Vec::new();
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Get, &path, &headers, &body)
+            .await
+            .map_err(super::GetObjectAnnotationError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::GetObjectAnnotationError::unhandled_with_request_ids(
+                format!("GetObjectAnnotation returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_get_object_annotation_output::GetObjectAnnotationOutputBuilder::default();
+        output.annotation_payload = Some(super::super::super::primitives::ByteStream::from(response.body().to_vec()));
+        output.object_version_id = response.header("x-amz-object-version-id").map(str::to_owned);
+        output.content_length = response.header("Content-Length").and_then(|value| value.parse().ok());
+        output.e_tag = response.header("ETag").map(str::to_owned);
+        output.checksum_crc32 = response.header("x-amz-checksum-crc32").map(str::to_owned);
+        output.checksum_crc32_c = response.header("x-amz-checksum-crc32c").map(str::to_owned);
+        output.checksum_crc64_nvme = response.header("x-amz-checksum-crc64nvme").map(str::to_owned);
+        output.checksum_sha1 = response.header("x-amz-checksum-sha1").map(str::to_owned);
+        output.checksum_sha256 = response.header("x-amz-checksum-sha256").map(str::to_owned);
+        output.checksum_sha512 = response.header("x-amz-checksum-sha512").map(str::to_owned);
+        output.checksum_md5 = response.header("x-amz-checksum-md5").map(str::to_owned);
+        output.checksum_xxhash64 = response.header("x-amz-checksum-xxhash64").map(str::to_owned);
+        output.checksum_xxhash3 = response.header("x-amz-checksum-xxhash3").map(str::to_owned);
+        output.checksum_xxhash128 = response.header("x-amz-checksum-xxhash128").map(str::to_owned);
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as GetObjectAnnotationFluentBuilder;

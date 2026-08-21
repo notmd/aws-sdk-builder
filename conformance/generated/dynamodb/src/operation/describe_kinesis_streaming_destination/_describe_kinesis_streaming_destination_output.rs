@@ -46,9 +46,14 @@ impl DescribeKinesisStreamingDestinationOutputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the table being described.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>The list of replica structures for the table being described.</p>
     /// Appends an item to `kinesis_data_stream_destinations`.
     ///
@@ -59,9 +64,17 @@ impl DescribeKinesisStreamingDestinationOutputBuilder {
         self.kinesis_data_stream_destinations = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_kinesis_data_stream_destinations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::KinesisDataStreamDestination>>) -> Self { self.kinesis_data_stream_destinations = input; self }
+    pub fn set_kinesis_data_stream_destinations(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::KinesisDataStreamDestination>>,
+    ) -> Self {
+        self.kinesis_data_stream_destinations = input;
+        self
+    }
     /// <p>The list of replica structures for the table being described.</p>
-    pub fn get_kinesis_data_stream_destinations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KinesisDataStreamDestination>> { &self.kinesis_data_stream_destinations }
+    pub fn get_kinesis_data_stream_destinations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::KinesisDataStreamDestination>> {
+        &self.kinesis_data_stream_destinations
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

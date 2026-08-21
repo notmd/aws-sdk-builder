@@ -48,31 +48,53 @@ impl LambdaManagedInstancesCapacityProviderConfigBuilder {
         self.capacity_provider_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_capacity_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.capacity_provider_arn = input; self }
+    pub fn set_capacity_provider_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.capacity_provider_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the capacity provider.</p>
-    pub fn get_capacity_provider_arn(&self) -> &::std::option::Option<::std::string::String> { &self.capacity_provider_arn }
+    pub fn get_capacity_provider_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.capacity_provider_arn
+    }
     /// <p>The maximum number of concurrent execution environments that can run on each compute instance.</p>
     pub fn per_execution_environment_max_concurrency(mut self, input: i32) -> Self {
         self.per_execution_environment_max_concurrency = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_per_execution_environment_max_concurrency(mut self, input: ::std::option::Option<i32>) -> Self { self.per_execution_environment_max_concurrency = input; self }
+    pub fn set_per_execution_environment_max_concurrency(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.per_execution_environment_max_concurrency = input;
+        self
+    }
     /// <p>The maximum number of concurrent execution environments that can run on each compute instance.</p>
-    pub fn get_per_execution_environment_max_concurrency(&self) -> &::std::option::Option<i32> { &self.per_execution_environment_max_concurrency }
+    pub fn get_per_execution_environment_max_concurrency(&self) -> &::std::option::Option<i32> {
+        &self.per_execution_environment_max_concurrency
+    }
     /// <p>The amount of memory in GiB allocated per vCPU for execution environments.</p>
     pub fn execution_environment_memory_gi_b_per_v_cpu(mut self, input: f64) -> Self {
         self.execution_environment_memory_gi_b_per_v_cpu = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_execution_environment_memory_gi_b_per_v_cpu(mut self, input: ::std::option::Option<f64>) -> Self { self.execution_environment_memory_gi_b_per_v_cpu = input; self }
+    pub fn set_execution_environment_memory_gi_b_per_v_cpu(mut self, input: ::std::option::Option<f64>) -> Self {
+        self.execution_environment_memory_gi_b_per_v_cpu = input;
+        self
+    }
     /// <p>The amount of memory in GiB allocated per vCPU for execution environments.</p>
-    pub fn get_execution_environment_memory_gi_b_per_v_cpu(&self) -> &::std::option::Option<f64> { &self.execution_environment_memory_gi_b_per_v_cpu }
+    pub fn get_execution_environment_memory_gi_b_per_v_cpu(&self) -> &::std::option::Option<f64> {
+        &self.execution_environment_memory_gi_b_per_v_cpu
+    }
     /// Consumes the builder and constructs a [`LambdaManagedInstancesCapacityProviderConfig`](crate::types::LambdaManagedInstancesCapacityProviderConfig).
     /// This method will fail if any of the following fields are not set:
     /// - [`capacity_provider_arn`](Self::capacity_provider_arn)
-    pub fn build(self) -> ::std::result::Result<crate::types::LambdaManagedInstancesCapacityProviderConfig, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::types::LambdaManagedInstancesCapacityProviderConfig, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::LambdaManagedInstancesCapacityProviderConfig {
-            capacity_provider_arn: self.capacity_provider_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("capacity_provider_arn", "capacity_provider_arn was not specified but it is required when building LambdaManagedInstancesCapacityProviderConfig"))?,
+            capacity_provider_arn: self.capacity_provider_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "capacity_provider_arn",
+                    "capacity_provider_arn was not specified but it is required when building LambdaManagedInstancesCapacityProviderConfig",
+                )
+            })?,
             per_execution_environment_max_concurrency: self.per_execution_environment_max_concurrency,
             execution_environment_memory_gi_b_per_v_cpu: self.execution_environment_memory_gi_b_per_v_cpu,
         })

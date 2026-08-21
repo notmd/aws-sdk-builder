@@ -39,17 +39,27 @@ impl ImageConfigResponseBuilder {
         self.image_config = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_image_config(mut self, input: ::std::option::Option<crate::types::ImageConfig>) -> Self { self.image_config = input; self }
+    pub fn set_image_config(mut self, input: ::std::option::Option<crate::types::ImageConfig>) -> Self {
+        self.image_config = input;
+        self
+    }
     /// <p>Configuration values that override the container image Dockerfile.</p>
-    pub fn get_image_config(&self) -> &::std::option::Option<crate::types::ImageConfig> { &self.image_config }
+    pub fn get_image_config(&self) -> &::std::option::Option<crate::types::ImageConfig> {
+        &self.image_config
+    }
     /// <p>Error response to <code>GetFunctionConfiguration</code>.</p>
     pub fn error(mut self, input: crate::types::ImageConfigError) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ImageConfigError>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ImageConfigError>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>Error response to <code>GetFunctionConfiguration</code>.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ImageConfigError> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::ImageConfigError> {
+        &self.error
+    }
     /// Consumes the builder and constructs a [`ImageConfigResponse`](crate::types::ImageConfigResponse).
     pub fn build(self) -> crate::types::ImageConfigResponse {
         crate::types::ImageConfigResponse {

@@ -53,25 +53,40 @@ impl GetCredentialReportOutputBuilder {
         self.content = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.content = input; self }
+    pub fn set_content(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.content = input;
+        self
+    }
     /// <p>Contains the credential report. The report is Base64-encoded.</p>
-    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.content }
+    pub fn get_content(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.content
+    }
     /// <p>The format (MIME type) of the credential report.</p>
     pub fn report_format(mut self, input: crate::types::ReportFormatType) -> Self {
         self.report_format = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_report_format(mut self, input: ::std::option::Option<crate::types::ReportFormatType>) -> Self { self.report_format = input; self }
+    pub fn set_report_format(mut self, input: ::std::option::Option<crate::types::ReportFormatType>) -> Self {
+        self.report_format = input;
+        self
+    }
     /// <p>The format (MIME type) of the credential report.</p>
-    pub fn get_report_format(&self) -> &::std::option::Option<crate::types::ReportFormatType> { &self.report_format }
+    pub fn get_report_format(&self) -> &::std::option::Option<crate::types::ReportFormatType> {
+        &self.report_format
+    }
     /// <p>The date and time when the credential report was created, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>.</p>
     pub fn generated_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.generated_time = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_generated_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.generated_time = input; self }
+    pub fn set_generated_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.generated_time = input;
+        self
+    }
     /// <p>The date and time when the credential report was created, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>.</p>
-    pub fn get_generated_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.generated_time }
+    pub fn get_generated_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.generated_time
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

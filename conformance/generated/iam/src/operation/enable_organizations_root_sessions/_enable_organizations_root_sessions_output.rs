@@ -46,9 +46,14 @@ impl EnableOrganizationsRootSessionsOutputBuilder {
         self.organization_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.organization_id = input; self }
+    pub fn set_organization_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.organization_id = input;
+        self
+    }
     /// <p>The unique identifier (ID) of an organization.</p>
-    pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> { &self.organization_id }
+    pub fn get_organization_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.organization_id
+    }
     /// <p>The features you have enabled for centralized root access.</p>
     /// Appends an item to `enabled_features`.
     ///
@@ -59,9 +64,14 @@ impl EnableOrganizationsRootSessionsOutputBuilder {
         self.enabled_features = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>) -> Self { self.enabled_features = input; self }
+    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>) -> Self {
+        self.enabled_features = input;
+        self
+    }
     /// <p>The features you have enabled for centralized root access.</p>
-    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> { &self.enabled_features }
+    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::FeatureType>> {
+        &self.enabled_features
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

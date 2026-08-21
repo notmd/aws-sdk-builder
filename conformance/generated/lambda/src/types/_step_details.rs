@@ -53,33 +53,53 @@ impl StepDetailsBuilder {
         self.attempt = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_attempt(mut self, input: ::std::option::Option<i32>) -> Self { self.attempt = input; self }
+    pub fn set_attempt(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.attempt = input;
+        self
+    }
     /// <p>The current attempt number for this step.</p>
-    pub fn get_attempt(&self) -> &::std::option::Option<i32> { &self.attempt }
+    pub fn get_attempt(&self) -> &::std::option::Option<i32> {
+        &self.attempt
+    }
     /// <p>The date and time when the next attempt is scheduled, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD). Only populated when the step is in a pending state.</p>
     pub fn next_attempt_timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.next_attempt_timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_next_attempt_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.next_attempt_timestamp = input; self }
+    pub fn set_next_attempt_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.next_attempt_timestamp = input;
+        self
+    }
     /// <p>The date and time when the next attempt is scheduled, in <a href="https://www.w3.org/TR/NOTE-datetime">ISO-8601 format</a> (YYYY-MM-DDThh:mm:ss.sTZD). Only populated when the step is in a pending state.</p>
-    pub fn get_next_attempt_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.next_attempt_timestamp }
+    pub fn get_next_attempt_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.next_attempt_timestamp
+    }
     /// <p>The JSON response payload from the step operation.</p>
     pub fn result(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.result = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.result = input; self }
+    pub fn set_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.result = input;
+        self
+    }
     /// <p>The JSON response payload from the step operation.</p>
-    pub fn get_result(&self) -> &::std::option::Option<::std::string::String> { &self.result }
+    pub fn get_result(&self) -> &::std::option::Option<::std::string::String> {
+        &self.result
+    }
     /// <p>Details about the step failure.</p>
     pub fn error(mut self, input: crate::types::ErrorObject) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>Details about the step failure.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> {
+        &self.error
+    }
     /// Consumes the builder and constructs a [`StepDetails`](crate::types::StepDetails).
     pub fn build(self) -> crate::types::StepDetails {
         crate::types::StepDetails {

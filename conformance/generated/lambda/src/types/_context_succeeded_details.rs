@@ -32,13 +32,16 @@ impl ContextSucceededDetailsBuilder {
         self.result = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_result(mut self, input: ::std::option::Option<crate::types::EventResult>) -> Self { self.result = input; self }
+    pub fn set_result(mut self, input: ::std::option::Option<crate::types::EventResult>) -> Self {
+        self.result = input;
+        self
+    }
     /// <p>The JSON response payload from the successful context.</p>
-    pub fn get_result(&self) -> &::std::option::Option<crate::types::EventResult> { &self.result }
+    pub fn get_result(&self) -> &::std::option::Option<crate::types::EventResult> {
+        &self.result
+    }
     /// Consumes the builder and constructs a [`ContextSucceededDetails`](crate::types::ContextSucceededDetails).
     pub fn build(self) -> crate::types::ContextSucceededDetails {
-        crate::types::ContextSucceededDetails {
-            result: self.result,
-        }
+        crate::types::ContextSucceededDetails { result: self.result }
     }
 }

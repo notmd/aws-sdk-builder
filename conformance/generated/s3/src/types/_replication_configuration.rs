@@ -42,9 +42,14 @@ impl ReplicationConfigurationBuilder {
         self.role = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.role = input; self }
+    pub fn set_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.role = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that Amazon S3 assumes when replicating objects. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication-how-setup.html">How to Set Up Replication</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_role(&self) -> &::std::option::Option<::std::string::String> { &self.role }
+    pub fn get_role(&self) -> &::std::option::Option<::std::string::String> {
+        &self.role
+    }
     /// <p>A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.</p>
     /// Appends an item to `rules`.
     ///
@@ -55,17 +60,32 @@ impl ReplicationConfigurationBuilder {
         self.rules = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicationRule>>) -> Self { self.rules = input; self }
+    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicationRule>>) -> Self {
+        self.rules = input;
+        self
+    }
     /// <p>A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules.</p>
-    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicationRule>> { &self.rules }
+    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicationRule>> {
+        &self.rules
+    }
     /// Consumes the builder and constructs a [`ReplicationConfiguration`](crate::types::ReplicationConfiguration).
     /// This method will fail if any of the following fields are not set:
     /// - [`role`](Self::role)
     /// - [`rules`](Self::rules)
     pub fn build(self) -> ::std::result::Result<crate::types::ReplicationConfiguration, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ReplicationConfiguration {
-            role: self.role.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("role", "role was not specified but it is required when building ReplicationConfiguration"))?,
-            rules: self.rules.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("rules", "rules was not specified but it is required when building ReplicationConfiguration"))?,
+            role: self.role.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "role",
+                    "role was not specified but it is required when building ReplicationConfiguration",
+                )
+            })?,
+            rules: self.rules.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "rules",
+                    "rules was not specified but it is required when building ReplicationConfiguration",
+                )
+            })?,
         })
     }
 }

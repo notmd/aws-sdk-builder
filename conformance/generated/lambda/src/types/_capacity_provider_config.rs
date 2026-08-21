@@ -9,7 +9,9 @@ pub struct CapacityProviderConfig {
 }
 impl CapacityProviderConfig {
     /// <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
-    pub fn lambda_managed_instances_capacity_provider_config(&self) -> ::std::option::Option<&crate::types::LambdaManagedInstancesCapacityProviderConfig> {
+    pub fn lambda_managed_instances_capacity_provider_config(
+        &self,
+    ) -> ::std::option::Option<&crate::types::LambdaManagedInstancesCapacityProviderConfig> {
         self.lambda_managed_instances_capacity_provider_config.as_ref()
     }
 }
@@ -32,9 +34,19 @@ impl CapacityProviderConfigBuilder {
         self.lambda_managed_instances_capacity_provider_config = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_lambda_managed_instances_capacity_provider_config(mut self, input: ::std::option::Option<crate::types::LambdaManagedInstancesCapacityProviderConfig>) -> Self { self.lambda_managed_instances_capacity_provider_config = input; self }
+    pub fn set_lambda_managed_instances_capacity_provider_config(
+        mut self,
+        input: ::std::option::Option<crate::types::LambdaManagedInstancesCapacityProviderConfig>,
+    ) -> Self {
+        self.lambda_managed_instances_capacity_provider_config = input;
+        self
+    }
     /// <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
-    pub fn get_lambda_managed_instances_capacity_provider_config(&self) -> &::std::option::Option<crate::types::LambdaManagedInstancesCapacityProviderConfig> { &self.lambda_managed_instances_capacity_provider_config }
+    pub fn get_lambda_managed_instances_capacity_provider_config(
+        &self,
+    ) -> &::std::option::Option<crate::types::LambdaManagedInstancesCapacityProviderConfig> {
+        &self.lambda_managed_instances_capacity_provider_config
+    }
     /// Consumes the builder and constructs a [`CapacityProviderConfig`](crate::types::CapacityProviderConfig).
     pub fn build(self) -> crate::types::CapacityProviderConfig {
         crate::types::CapacityProviderConfig {

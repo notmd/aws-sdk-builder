@@ -59,10 +59,15 @@ impl GetQueueAttributesInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_url = input; self }
+    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.queue_url = input;
+        self
+    }
     /// <p>The URL of the Amazon SQS queue whose attribute information is retrieved.</p>
     /// <p>Queue URLs and names are case-sensitive.</p>
-    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> { &self.queue_url }
+    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.queue_url
+    }
     /// <p>A list of attributes for which to retrieve information.</p>
     /// <p>The <code>AttributeNames</code> parameter is optional, but if you don't specify values for this parameter, the request returns empty results.</p><note>
     /// <p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p>
@@ -81,7 +86,10 @@ impl GetQueueAttributesInputBuilder {
         self.attribute_names = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>) -> Self { self.attribute_names = input; self }
+    pub fn set_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>) -> Self {
+        self.attribute_names = input;
+        self
+    }
     /// <p>A list of attributes for which to retrieve information.</p>
     /// <p>The <code>AttributeNames</code> parameter is optional, but if you don't specify values for this parameter, the request returns empty results.</p><note>
     /// <p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p>
@@ -91,7 +99,9 @@ impl GetQueueAttributesInputBuilder {
     /// <p>To determine whether a queue is <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html">FIFO</a>, you can check whether <code>QueueName</code> ends with the <code>.fifo</code> suffix.</p>
     /// </note></li><li><p><code>ContentBasedDeduplication</code> – Returns whether content-based deduplication is enabled for the queue. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues-exactly-once-processing.html">Exactly-once processing</a> in the <i>Amazon SQS Developer Guide</i>.</p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/high-throughput-fifo.html">high throughput for FIFO queues</a>:</p><ul><li><p><code>DeduplicationScope</code> – Specifies whether message deduplication occurs at the message group or queue level. Valid values are <code>messageGroup</code> and <code>queue</code>.</p></li><li><p><code>FifoThroughputLimit</code> – Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group. Valid values are <code>perQueue</code> and <code>perMessageGroupId</code>. The <code>perMessageGroupId</code> value is allowed only when the value for <code>DeduplicationScope</code> is <code>messageGroup</code>.</p></li></ul><p>To enable high throughput for FIFO queues, do the following:</p><ul><li><p>Set <code>DeduplicationScope</code> to <code>messageGroup</code>.</p></li><li><p>Set <code>FifoThroughputLimit</code> to <code>perMessageGroupId</code>.</p></li></ul><p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
     /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn get_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>> { &self.attribute_names }
+    pub fn get_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>> {
+        &self.attribute_names
+    }
     /// Consumes the builder and constructs a [`GetQueueAttributesInput`](crate::operation::get_queue_attributes::GetQueueAttributesInput).
     pub fn build(self) -> crate::operation::get_queue_attributes::GetQueueAttributesInput {
         crate::operation::get_queue_attributes::GetQueueAttributesInput {

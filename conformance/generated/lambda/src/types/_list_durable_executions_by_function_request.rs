@@ -90,25 +90,40 @@ impl ListDurableExecutionsByFunctionRequestBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.function_name = input; self }
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.function_name = input;
+        self
+    }
     /// <p>The name or ARN of the Lambda function. You can specify a function name, a partial ARN, or a full ARN.</p>
-    pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> { &self.function_name }
+    pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.function_name
+    }
     /// <p>The function version or alias. If not specified, lists executions for the $LATEST version.</p>
     pub fn qualifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.qualifier = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.qualifier = input; self }
+    pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.qualifier = input;
+        self
+    }
     /// <p>The function version or alias. If not specified, lists executions for the $LATEST version.</p>
-    pub fn get_qualifier(&self) -> &::std::option::Option<::std::string::String> { &self.qualifier }
+    pub fn get_qualifier(&self) -> &::std::option::Option<::std::string::String> {
+        &self.qualifier
+    }
     /// <p>Filter executions by name. Only executions with names that matches this string are returned.</p>
     pub fn durable_execution_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.durable_execution_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.durable_execution_name = input; self }
+    pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.durable_execution_name = input;
+        self
+    }
     /// <p>Filter executions by name. Only executions with names that matches this string are returned.</p>
-    pub fn get_durable_execution_name(&self) -> &::std::option::Option<::std::string::String> { &self.durable_execution_name }
+    pub fn get_durable_execution_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.durable_execution_name
+    }
     /// <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
     /// Appends an item to `statuses`.
     ///
@@ -119,55 +134,92 @@ impl ListDurableExecutionsByFunctionRequestBuilder {
         self.statuses = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_statuses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>>) -> Self { self.statuses = input; self }
+    pub fn set_statuses(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>>) -> Self {
+        self.statuses = input;
+        self
+    }
     /// <p>Filter executions by status. Valid values: RUNNING, SUCCEEDED, FAILED, TIMED_OUT, STOPPED.</p>
-    pub fn get_statuses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>> { &self.statuses }
+    pub fn get_statuses(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ExecutionStatus>> {
+        &self.statuses
+    }
     /// <p>Filter executions that started after this timestamp (ISO 8601 format).</p>
     pub fn started_after(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.started_after = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_started_after(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.started_after = input; self }
+    pub fn set_started_after(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.started_after = input;
+        self
+    }
     /// <p>Filter executions that started after this timestamp (ISO 8601 format).</p>
-    pub fn get_started_after(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.started_after }
+    pub fn get_started_after(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.started_after
+    }
     /// <p>Filter executions that started before this timestamp (ISO 8601 format).</p>
     pub fn started_before(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.started_before = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_started_before(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.started_before = input; self }
+    pub fn set_started_before(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.started_before = input;
+        self
+    }
     /// <p>Filter executions that started before this timestamp (ISO 8601 format).</p>
-    pub fn get_started_before(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.started_before }
+    pub fn get_started_before(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.started_before
+    }
     /// <p>Set to true to return results in chronological order (oldest first). Default is false.</p>
     pub fn reverse_order(mut self, input: bool) -> Self {
         self.reverse_order = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_reverse_order(mut self, input: ::std::option::Option<bool>) -> Self { self.reverse_order = input; self }
+    pub fn set_reverse_order(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.reverse_order = input;
+        self
+    }
     /// <p>Set to true to return results in chronological order (oldest first). Default is false.</p>
-    pub fn get_reverse_order(&self) -> &::std::option::Option<bool> { &self.reverse_order }
+    pub fn get_reverse_order(&self) -> &::std::option::Option<bool> {
+        &self.reverse_order
+    }
     /// <p>Pagination token from a previous request to continue retrieving results.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>Pagination token from a previous request to continue retrieving results.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     /// <p>Maximum number of executions to return (1-1000). Default is 100.</p>
     pub fn max_items(mut self, input: i32) -> Self {
         self.max_items = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self { self.max_items = input; self }
+    pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.max_items = input;
+        self
+    }
     /// <p>Maximum number of executions to return (1-1000). Default is 100.</p>
-    pub fn get_max_items(&self) -> &::std::option::Option<i32> { &self.max_items }
+    pub fn get_max_items(&self) -> &::std::option::Option<i32> {
+        &self.max_items
+    }
     /// Consumes the builder and constructs a [`ListDurableExecutionsByFunctionRequest`](crate::types::ListDurableExecutionsByFunctionRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`function_name`](Self::function_name)
-    pub fn build(self) -> ::std::result::Result<crate::types::ListDurableExecutionsByFunctionRequest, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::types::ListDurableExecutionsByFunctionRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ListDurableExecutionsByFunctionRequest {
-            function_name: self.function_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_name", "function_name was not specified but it is required when building ListDurableExecutionsByFunctionRequest"))?,
+            function_name: self.function_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "function_name",
+                    "function_name was not specified but it is required when building ListDurableExecutionsByFunctionRequest",
+                )
+            })?,
             qualifier: self.qualifier,
             durable_execution_name: self.durable_execution_name,
             statuses: self.statuses,

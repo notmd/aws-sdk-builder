@@ -102,7 +102,15 @@ impl ObjectCannedAcl {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["authenticated-read", "aws-exec-read", "bucket-owner-full-control", "bucket-owner-read", "private", "public-read", "public-read-write"]
+        &[
+            "authenticated-read",
+            "aws-exec-read",
+            "bucket-owner-full-control",
+            "bucket-owner-read",
+            "private",
+            "public-read",
+            "public-read-write",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for ObjectCannedAcl {

@@ -39,9 +39,14 @@ impl ImportTableOutputBuilder {
         self.import_table_description = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_import_table_description(mut self, input: ::std::option::Option<crate::types::ImportTableDescription>) -> Self { self.import_table_description = input; self }
+    pub fn set_import_table_description(mut self, input: ::std::option::Option<crate::types::ImportTableDescription>) -> Self {
+        self.import_table_description = input;
+        self
+    }
     /// <p>Represents the properties of the table created for the import, and parameters of the import. The import parameters include import status, how many items were processed, and how many errors were encountered.</p>
-    pub fn get_import_table_description(&self) -> &::std::option::Option<crate::types::ImportTableDescription> { &self.import_table_description }
+    pub fn get_import_table_description(&self) -> &::std::option::Option<crate::types::ImportTableDescription> {
+        &self.import_table_description
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

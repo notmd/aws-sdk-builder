@@ -73,39 +73,64 @@ impl GroupDetailBuilder {
         self.path = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.path = input; self }
+    pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.path = input;
+        self
+    }
     /// <p>The path to the group. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_path(&self) -> &::std::option::Option<::std::string::String> { &self.path }
+    pub fn get_path(&self) -> &::std::option::Option<::std::string::String> {
+        &self.path
+    }
     /// <p>The friendly name that identifies the group.</p>
     pub fn group_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.group_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.group_name = input; self }
+    pub fn set_group_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.group_name = input;
+        self
+    }
     /// <p>The friendly name that identifies the group.</p>
-    pub fn get_group_name(&self) -> &::std::option::Option<::std::string::String> { &self.group_name }
+    pub fn get_group_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.group_name
+    }
     /// <p>The stable and unique string identifying the group. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
     pub fn group_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.group_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.group_id = input; self }
+    pub fn set_group_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.group_id = input;
+        self
+    }
     /// <p>The stable and unique string identifying the group. For more information about IDs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_group_id(&self) -> &::std::option::Option<::std::string::String> { &self.group_id }
+    pub fn get_group_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.group_id
+    }
     pub fn arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.arn = input; self }
-    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> { &self.arn }
+    pub fn set_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.arn = input;
+        self
+    }
+    pub fn get_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.arn
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the group was created.</p>
     pub fn create_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.create_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.create_date = input; self }
+    pub fn set_create_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.create_date = input;
+        self
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when the group was created.</p>
-    pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.create_date }
+    pub fn get_create_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.create_date
+    }
     /// <p>A list of the inline policies embedded in the group.</p>
     /// Appends an item to `group_policy_list`.
     ///
@@ -116,9 +141,14 @@ impl GroupDetailBuilder {
         self.group_policy_list = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_group_policy_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>>) -> Self { self.group_policy_list = input; self }
+    pub fn set_group_policy_list(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>>) -> Self {
+        self.group_policy_list = input;
+        self
+    }
     /// <p>A list of the inline policies embedded in the group.</p>
-    pub fn get_group_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>> { &self.group_policy_list }
+    pub fn get_group_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::PolicyDetail>> {
+        &self.group_policy_list
+    }
     /// <p>A list of the managed policies attached to the group.</p>
     /// Appends an item to `attached_managed_policies`.
     ///
@@ -129,9 +159,14 @@ impl GroupDetailBuilder {
         self.attached_managed_policies = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>) -> Self { self.attached_managed_policies = input; self }
+    pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>>) -> Self {
+        self.attached_managed_policies = input;
+        self
+    }
     /// <p>A list of the managed policies attached to the group.</p>
-    pub fn get_attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>> { &self.attached_managed_policies }
+    pub fn get_attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttachedPolicy>> {
+        &self.attached_managed_policies
+    }
     /// Consumes the builder and constructs a [`GroupDetail`](crate::types::GroupDetail).
     pub fn build(self) -> crate::types::GroupDetail {
         crate::types::GroupDetail {

@@ -60,33 +60,53 @@ impl GetKeyLastUsageOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>The globally unique identifier for the KMS key.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// <p>Contains usage information about the last time the KMS key was used for a successful cryptographic operation. If the key has not been used since tracking began, this response element is empty.</p>
     pub fn key_last_usage(mut self, input: crate::types::KeyLastUsageData) -> Self {
         self.key_last_usage = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_key_last_usage(mut self, input: ::std::option::Option<crate::types::KeyLastUsageData>) -> Self { self.key_last_usage = input; self }
+    pub fn set_key_last_usage(mut self, input: ::std::option::Option<crate::types::KeyLastUsageData>) -> Self {
+        self.key_last_usage = input;
+        self
+    }
     /// <p>Contains usage information about the last time the KMS key was used for a successful cryptographic operation. If the key has not been used since tracking began, this response element is empty.</p>
-    pub fn get_key_last_usage(&self) -> &::std::option::Option<crate::types::KeyLastUsageData> { &self.key_last_usage }
+    pub fn get_key_last_usage(&self) -> &::std::option::Option<crate::types::KeyLastUsageData> {
+        &self.key_last_usage
+    }
     /// <p>The date from which KMS began recording cryptographic activity for this key, or the date the KMS key was created, whichever is later.</p>
     pub fn tracking_start_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.tracking_start_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_tracking_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.tracking_start_date = input; self }
+    pub fn set_tracking_start_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.tracking_start_date = input;
+        self
+    }
     /// <p>The date from which KMS began recording cryptographic activity for this key, or the date the KMS key was created, whichever is later.</p>
-    pub fn get_tracking_start_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.tracking_start_date }
+    pub fn get_tracking_start_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.tracking_start_date
+    }
     /// <p>The date and time when the KMS key was created.</p>
     pub fn key_creation_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.key_creation_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_key_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.key_creation_date = input; self }
+    pub fn set_key_creation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.key_creation_date = input;
+        self
+    }
     /// <p>The date and time when the KMS key was created.</p>
-    pub fn get_key_creation_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.key_creation_date }
+    pub fn get_key_creation_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.key_creation_date
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

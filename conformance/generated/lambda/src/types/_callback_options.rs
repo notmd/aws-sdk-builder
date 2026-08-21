@@ -39,17 +39,27 @@ impl CallbackOptionsBuilder {
         self.timeout_seconds = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_timeout_seconds(mut self, input: ::std::option::Option<i32>) -> Self { self.timeout_seconds = input; self }
+    pub fn set_timeout_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.timeout_seconds = input;
+        self
+    }
     /// <p>The timeout for the callback operation in seconds. If not specified or set to 0, the callback has no timeout.</p>
-    pub fn get_timeout_seconds(&self) -> &::std::option::Option<i32> { &self.timeout_seconds }
+    pub fn get_timeout_seconds(&self) -> &::std::option::Option<i32> {
+        &self.timeout_seconds
+    }
     /// <p>The heartbeat timeout for the callback operation, in seconds. If not specified or set to 0, heartbeat timeout is disabled.</p>
     pub fn heartbeat_timeout_seconds(mut self, input: i32) -> Self {
         self.heartbeat_timeout_seconds = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_heartbeat_timeout_seconds(mut self, input: ::std::option::Option<i32>) -> Self { self.heartbeat_timeout_seconds = input; self }
+    pub fn set_heartbeat_timeout_seconds(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.heartbeat_timeout_seconds = input;
+        self
+    }
     /// <p>The heartbeat timeout for the callback operation, in seconds. If not specified or set to 0, heartbeat timeout is disabled.</p>
-    pub fn get_heartbeat_timeout_seconds(&self) -> &::std::option::Option<i32> { &self.heartbeat_timeout_seconds }
+    pub fn get_heartbeat_timeout_seconds(&self) -> &::std::option::Option<i32> {
+        &self.heartbeat_timeout_seconds
+    }
     /// Consumes the builder and constructs a [`CallbackOptions`](crate::types::CallbackOptions).
     pub fn build(self) -> crate::types::CallbackOptions {
         crate::types::CallbackOptions {

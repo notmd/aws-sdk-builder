@@ -39,9 +39,14 @@ impl ConfirmSubscriptionOutputBuilder {
         self.subscription_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_subscription_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.subscription_arn = input; self }
+    pub fn set_subscription_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.subscription_arn = input;
+        self
+    }
     /// <p>The ARN of the created subscription.</p>
-    pub fn get_subscription_arn(&self) -> &::std::option::Option<::std::string::String> { &self.subscription_arn }
+    pub fn get_subscription_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.subscription_arn
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

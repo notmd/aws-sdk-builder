@@ -56,24 +56,45 @@ impl UpdateTableReplicaAutoScalingInputBuilder {
         self.global_secondary_index_updates = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_global_secondary_index_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>>) -> Self { self.global_secondary_index_updates = input; self }
+    pub fn set_global_secondary_index_updates(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>>,
+    ) -> Self {
+        self.global_secondary_index_updates = input;
+        self
+    }
     /// <p>Represents the auto scaling settings of the global secondary indexes of the replica to be updated.</p>
-    pub fn get_global_secondary_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>> { &self.global_secondary_index_updates }
+    pub fn get_global_secondary_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>> {
+        &self.global_secondary_index_updates
+    }
     /// <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
     /// This field is required.
     pub fn table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     pub fn provisioned_write_capacity_auto_scaling_update(mut self, input: crate::types::AutoScalingSettingsUpdate) -> Self {
         self.provisioned_write_capacity_auto_scaling_update = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_provisioned_write_capacity_auto_scaling_update(mut self, input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>) -> Self { self.provisioned_write_capacity_auto_scaling_update = input; self }
-    pub fn get_provisioned_write_capacity_auto_scaling_update(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> { &self.provisioned_write_capacity_auto_scaling_update }
+    pub fn set_provisioned_write_capacity_auto_scaling_update(
+        mut self,
+        input: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
+    ) -> Self {
+        self.provisioned_write_capacity_auto_scaling_update = input;
+        self
+    }
+    pub fn get_provisioned_write_capacity_auto_scaling_update(&self) -> &::std::option::Option<crate::types::AutoScalingSettingsUpdate> {
+        &self.provisioned_write_capacity_auto_scaling_update
+    }
     /// <p>Represents the auto scaling settings of replicas of the table that will be modified.</p>
     /// Appends an item to `replica_updates`.
     ///
@@ -84,9 +105,14 @@ impl UpdateTableReplicaAutoScalingInputBuilder {
         self.replica_updates = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingUpdate>>) -> Self { self.replica_updates = input; self }
+    pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingUpdate>>) -> Self {
+        self.replica_updates = input;
+        self
+    }
     /// <p>Represents the auto scaling settings of replicas of the table that will be modified.</p>
-    pub fn get_replica_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingUpdate>> { &self.replica_updates }
+    pub fn get_replica_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingUpdate>> {
+        &self.replica_updates
+    }
     /// Consumes the builder and constructs a [`UpdateTableReplicaAutoScalingInput`](crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput).
     pub fn build(self) -> crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput {
         crate::operation::update_table_replica_auto_scaling::UpdateTableReplicaAutoScalingInput {

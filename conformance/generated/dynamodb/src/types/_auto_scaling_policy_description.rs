@@ -7,7 +7,8 @@ pub struct AutoScalingPolicyDescription {
     /// <p>The name of the scaling policy.</p>
     pub policy_name: ::std::option::Option<::std::string::String>,
     /// <p>Represents a target tracking scaling policy configuration.</p>
-    pub target_tracking_scaling_policy_configuration: ::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription>,
+    pub target_tracking_scaling_policy_configuration:
+        ::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription>,
 }
 impl AutoScalingPolicyDescription {
     /// <p>The name of the scaling policy.</p>
@@ -15,7 +16,9 @@ impl AutoScalingPolicyDescription {
         self.policy_name.as_deref()
     }
     /// <p>Represents a target tracking scaling policy configuration.</p>
-    pub fn target_tracking_scaling_policy_configuration(&self) -> ::std::option::Option<&crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription> {
+    pub fn target_tracking_scaling_policy_configuration(
+        &self,
+    ) -> ::std::option::Option<&crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription> {
         self.target_tracking_scaling_policy_configuration.as_ref()
     }
 }
@@ -31,7 +34,8 @@ impl AutoScalingPolicyDescription {
 #[non_exhaustive]
 pub struct AutoScalingPolicyDescriptionBuilder {
     pub(crate) policy_name: ::std::option::Option<::std::string::String>,
-    pub(crate) target_tracking_scaling_policy_configuration: ::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription>,
+    pub(crate) target_tracking_scaling_policy_configuration:
+        ::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription>,
 }
 impl AutoScalingPolicyDescriptionBuilder {
     /// <p>The name of the scaling policy.</p>
@@ -39,17 +43,35 @@ impl AutoScalingPolicyDescriptionBuilder {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_name = input; self }
+    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_name = input;
+        self
+    }
     /// <p>The name of the scaling policy.</p>
-    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> { &self.policy_name }
+    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_name
+    }
     /// <p>Represents a target tracking scaling policy configuration.</p>
-    pub fn target_tracking_scaling_policy_configuration(mut self, input: crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription) -> Self {
+    pub fn target_tracking_scaling_policy_configuration(
+        mut self,
+        input: crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription,
+    ) -> Self {
         self.target_tracking_scaling_policy_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_target_tracking_scaling_policy_configuration(mut self, input: ::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription>) -> Self { self.target_tracking_scaling_policy_configuration = input; self }
+    pub fn set_target_tracking_scaling_policy_configuration(
+        mut self,
+        input: ::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription>,
+    ) -> Self {
+        self.target_tracking_scaling_policy_configuration = input;
+        self
+    }
     /// <p>Represents a target tracking scaling policy configuration.</p>
-    pub fn get_target_tracking_scaling_policy_configuration(&self) -> &::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription> { &self.target_tracking_scaling_policy_configuration }
+    pub fn get_target_tracking_scaling_policy_configuration(
+        &self,
+    ) -> &::std::option::Option<crate::types::AutoScalingTargetTrackingScalingPolicyConfigurationDescription> {
+        &self.target_tracking_scaling_policy_configuration
+    }
     /// Consumes the builder and constructs a [`AutoScalingPolicyDescription`](crate::types::AutoScalingPolicyDescription).
     pub fn build(self) -> crate::types::AutoScalingPolicyDescription {
         crate::types::AutoScalingPolicyDescription {

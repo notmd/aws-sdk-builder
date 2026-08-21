@@ -7,7 +7,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_function.rs"));
     }
     pub mod delete_function_event_invoke_config {
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_function_event_invoke_config.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/delete_function_event_invoke_config.rs"
+        ));
     }
     pub mod delete_resource_policy {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/delete_resource_policy.rs"));
@@ -16,31 +19,49 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_account_settings.rs"));
     }
     pub mod get_function_event_invoke_config {
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_function_event_invoke_config.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/get_function_event_invoke_config.rs"
+        ));
     }
     pub mod get_resource_policy {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/get_resource_policy.rs"));
     }
     pub mod list_function_event_invoke_configs {
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_function_event_invoke_configs.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/list_function_event_invoke_configs.rs"
+        ));
     }
     pub mod list_tags {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/list_tags.rs"));
     }
     pub mod put_function_event_invoke_config {
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/put_function_event_invoke_config.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/put_function_event_invoke_config.rs"
+        ));
     }
     pub mod put_resource_policy {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/put_resource_policy.rs"));
     }
     pub mod send_durable_execution_callback_failure {
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/send_durable_execution_callback_failure.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/send_durable_execution_callback_failure.rs"
+        ));
     }
     pub mod send_durable_execution_callback_heartbeat {
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/send_durable_execution_callback_heartbeat.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/send_durable_execution_callback_heartbeat.rs"
+        ));
     }
     pub mod send_durable_execution_callback_success {
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/send_durable_execution_callback_success.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/send_durable_execution_callback_success.rs"
+        ));
     }
     pub mod tag_resource {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/tag_resource.rs"));
@@ -49,6 +70,9 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/untag_resource.rs"));
     }
     pub mod update_function_event_invoke_config {
-        include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation/update_function_event_invoke_config.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/lambda/src/operation/update_function_event_invoke_config.rs"
+        ));
     }
 }

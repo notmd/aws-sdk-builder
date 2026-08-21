@@ -8,30 +8,57 @@ pub struct CodeArtifactUserDeletedException {
     pub r#type: ::std::option::Option<::std::string::String>,
     /// <p>The exception message.</p>
     pub message: ::std::option::Option<::std::string::String>,
+    pub(crate) meta: ::aws_smithy_types::error::ErrorMetadata,
 }
 impl CodeArtifactUserDeletedException {
     /// <p>The exception type.</p>
     pub fn r#type(&self) -> ::std::option::Option<&str> {
         self.r#type.as_deref()
     }
-    /// <p>The exception message.</p>
+}
+impl CodeArtifactUserDeletedException {
+    /// Returns the error message.
     pub fn message(&self) -> ::std::option::Option<&str> {
         self.message.as_deref()
     }
 }
+impl ::std::fmt::Display for CodeArtifactUserDeletedException {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        ::std::write!(f, "CodeArtifactUserDeletedException")?;
+        if let ::std::option::Option::Some(inner_1) = &self.message {
+            {
+                ::std::write!(f, ": {inner_1}")?;
+            }
+        }
+        Ok(())
+    }
+}
+impl ::std::error::Error for CodeArtifactUserDeletedException {}
+impl ::aws_types::request_id::RequestId for crate::types::error::CodeArtifactUserDeletedException {
+    fn request_id(&self) -> Option<&str> {
+        use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;
+        self.meta().request_id()
+    }
+}
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CodeArtifactUserDeletedException {
+    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+        &self.meta
+    }
+}
 impl CodeArtifactUserDeletedException {
-    /// Creates a new builder-style object to manufacture [`CodeArtifactUserDeletedException`](crate::types::CodeArtifactUserDeletedException).
-    pub fn builder() -> crate::types::builders::CodeArtifactUserDeletedExceptionBuilder {
-        crate::types::builders::CodeArtifactUserDeletedExceptionBuilder::default()
+    /// Creates a new builder-style object to manufacture [`CodeArtifactUserDeletedException`](crate::types::error::CodeArtifactUserDeletedException).
+    pub fn builder() -> crate::types::error::builders::CodeArtifactUserDeletedExceptionBuilder {
+        crate::types::error::builders::CodeArtifactUserDeletedExceptionBuilder::default()
     }
 }
 
-/// A builder for [`CodeArtifactUserDeletedException`](crate::types::CodeArtifactUserDeletedException).
+/// A builder for [`CodeArtifactUserDeletedException`](crate::types::error::CodeArtifactUserDeletedException).
 #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug)]
 #[non_exhaustive]
 pub struct CodeArtifactUserDeletedExceptionBuilder {
     pub(crate) r#type: ::std::option::Option<::std::string::String>,
     pub(crate) message: ::std::option::Option<::std::string::String>,
+    meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
 }
 impl CodeArtifactUserDeletedExceptionBuilder {
     /// <p>The exception type.</p>
@@ -39,23 +66,44 @@ impl CodeArtifactUserDeletedExceptionBuilder {
         self.r#type = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.r#type = input; self }
+    pub fn set_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.r#type = input;
+        self
+    }
     /// <p>The exception type.</p>
-    pub fn get_type(&self) -> &::std::option::Option<::std::string::String> { &self.r#type }
+    pub fn get_type(&self) -> &::std::option::Option<::std::string::String> {
+        &self.r#type
+    }
     /// <p>The exception message.</p>
     pub fn message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.message = input; self }
+    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.message = input;
+        self
+    }
     /// <p>The exception message.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> { &self.message }
-    /// Consumes the builder and constructs a [`CodeArtifactUserDeletedException`](crate::types::CodeArtifactUserDeletedException).
-    pub fn build(self) -> crate::types::CodeArtifactUserDeletedException {
-        crate::types::CodeArtifactUserDeletedException {
+    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.message
+    }
+    /// Sets error metadata
+    pub fn meta(mut self, meta: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+        self.meta = Some(meta);
+        self
+    }
+
+    /// Sets error metadata
+    pub fn set_meta(&mut self, meta: std::option::Option<::aws_smithy_types::error::ErrorMetadata>) -> &mut Self {
+        self.meta = meta;
+        self
+    }
+    /// Consumes the builder and constructs a [`CodeArtifactUserDeletedException`](crate::types::error::CodeArtifactUserDeletedException).
+    pub fn build(self) -> crate::types::error::CodeArtifactUserDeletedException {
+        crate::types::error::CodeArtifactUserDeletedException {
             r#type: self.r#type,
             message: self.message,
+            meta: self.meta.unwrap_or_default(),
         }
     }
 }
-impl ::std::fmt::Display for CodeArtifactUserDeletedException { fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result { f.write_str("CodeArtifactUserDeletedException") } }

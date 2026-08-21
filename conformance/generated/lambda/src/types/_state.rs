@@ -107,7 +107,16 @@ impl State {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["Active", "ActiveNonInvocable", "Deactivated", "Deactivating", "Deleting", "Failed", "Inactive", "Pending"]
+        &[
+            "Active",
+            "ActiveNonInvocable",
+            "Deactivated",
+            "Deactivating",
+            "Deleting",
+            "Failed",
+            "Inactive",
+            "Pending",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for State {

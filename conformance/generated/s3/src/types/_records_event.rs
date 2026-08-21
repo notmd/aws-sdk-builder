@@ -32,13 +32,16 @@ impl RecordsEventBuilder {
         self.payload = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.payload = input; self }
+    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.payload = input;
+        self
+    }
     /// <p>The byte array of partial, one or more result records. S3 Select doesn't guarantee that a record will be self-contained in one record frame. To ensure continuous streaming of data, S3 Select might split the same record across multiple record frames instead of aggregating the results in memory. Some S3 clients (for example, the SDK for Java) handle this behavior by creating a <code>ByteStream</code> out of the response by default. Other clients might not handle this behavior by default. In those cases, you must aggregate the results on the client side and parse the response.</p>
-    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.payload }
+    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.payload
+    }
     /// Consumes the builder and constructs a [`RecordsEvent`](crate::types::RecordsEvent).
     pub fn build(self) -> crate::types::RecordsEvent {
-        crate::types::RecordsEvent {
-            payload: self.payload,
-        }
+        crate::types::RecordsEvent { payload: self.payload }
     }
 }

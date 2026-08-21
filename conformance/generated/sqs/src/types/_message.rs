@@ -45,7 +45,9 @@ impl Message {
         self.md5_of_message_attributes.as_deref()
     }
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn message_attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>> {
+    pub fn message_attributes(
+        &self,
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>> {
         self.message_attributes.as_ref()
     }
 }
@@ -74,33 +76,53 @@ impl MessageBuilder {
         self.message_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_message_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.message_id = input; self }
+    pub fn set_message_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.message_id = input;
+        self
+    }
     /// <p>A unique identifier for the message. A <code>MessageId</code>is considered unique across all Amazon Web Services accounts for an extended period of time.</p>
-    pub fn get_message_id(&self) -> &::std::option::Option<::std::string::String> { &self.message_id }
+    pub fn get_message_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.message_id
+    }
     /// <p>An identifier associated with the act of receiving the message. A new receipt handle is returned every time you receive a message. When deleting a message, you provide the last received receipt handle to delete the message.</p>
     pub fn receipt_handle(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.receipt_handle = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.receipt_handle = input; self }
+    pub fn set_receipt_handle(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.receipt_handle = input;
+        self
+    }
     /// <p>An identifier associated with the act of receiving the message. A new receipt handle is returned every time you receive a message. When deleting a message, you provide the last received receipt handle to delete the message.</p>
-    pub fn get_receipt_handle(&self) -> &::std::option::Option<::std::string::String> { &self.receipt_handle }
+    pub fn get_receipt_handle(&self) -> &::std::option::Option<::std::string::String> {
+        &self.receipt_handle
+    }
     /// <p>An MD5 digest of the non-URL-encoded message body string.</p>
     pub fn md5_of_body(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.md5_of_body = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_md5_of_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.md5_of_body = input; self }
+    pub fn set_md5_of_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.md5_of_body = input;
+        self
+    }
     /// <p>An MD5 digest of the non-URL-encoded message body string.</p>
-    pub fn get_md5_of_body(&self) -> &::std::option::Option<::std::string::String> { &self.md5_of_body }
+    pub fn get_md5_of_body(&self) -> &::std::option::Option<::std::string::String> {
+        &self.md5_of_body
+    }
     /// <p>The message's contents (not URL-encoded).</p>
     pub fn body(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.body = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.body = input; self }
+    pub fn set_body(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.body = input;
+        self
+    }
     /// <p>The message's contents (not URL-encoded).</p>
-    pub fn get_body(&self) -> &::std::option::Option<::std::string::String> { &self.body }
+    pub fn get_body(&self) -> &::std::option::Option<::std::string::String> {
+        &self.body
+    }
     /// <p>A map of the attributes requested in <code><a>ReceiveMessage</a></code> to their respective values. Supported attributes:</p><ul><li><p><code>ApproximateReceiveCount</code></p></li><li><p><code>ApproximateFirstReceiveTimestamp</code></p></li><li><p><code>MessageDeduplicationId</code></p></li><li><p><code>MessageGroupId</code></p></li><li><p><code>SenderId</code></p></li><li><p><code>SentTimestamp</code></p></li><li><p><code>SequenceNumber</code></p></li></ul><p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
     /// Adds a key-value pair to `attributes`.
     ///
@@ -111,17 +133,32 @@ impl MessageBuilder {
         self.attributes = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<crate::types::MessageSystemAttributeName, ::std::string::String>>) -> Self { self.attributes = input; self }
+    pub fn set_attributes(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<crate::types::MessageSystemAttributeName, ::std::string::String>>,
+    ) -> Self {
+        self.attributes = input;
+        self
+    }
     /// <p>A map of the attributes requested in <code><a>ReceiveMessage</a></code> to their respective values. Supported attributes:</p><ul><li><p><code>ApproximateReceiveCount</code></p></li><li><p><code>ApproximateFirstReceiveTimestamp</code></p></li><li><p><code>MessageDeduplicationId</code></p></li><li><p><code>MessageGroupId</code></p></li><li><p><code>SenderId</code></p></li><li><p><code>SentTimestamp</code></p></li><li><p><code>SequenceNumber</code></p></li></ul><p><code>ApproximateFirstReceiveTimestamp</code> and <code>SentTimestamp</code> are each returned as an integer representing the <a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds.</p>
-    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<crate::types::MessageSystemAttributeName, ::std::string::String>> { &self.attributes }
+    pub fn get_attributes(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<crate::types::MessageSystemAttributeName, ::std::string::String>> {
+        &self.attributes
+    }
     /// <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
     pub fn md5_of_message_attributes(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.md5_of_message_attributes = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_md5_of_message_attributes(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.md5_of_message_attributes = input; self }
+    pub fn set_md5_of_message_attributes(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.md5_of_message_attributes = input;
+        self
+    }
     /// <p>An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see <a href="https://www.ietf.org/rfc/rfc1321.txt">RFC1321</a>.</p>
-    pub fn get_md5_of_message_attributes(&self) -> &::std::option::Option<::std::string::String> { &self.md5_of_message_attributes }
+    pub fn get_md5_of_message_attributes(&self) -> &::std::option::Option<::std::string::String> {
+        &self.md5_of_message_attributes
+    }
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
     /// Adds a key-value pair to `message_attributes`.
     ///
@@ -132,9 +169,19 @@ impl MessageBuilder {
         self.message_attributes = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_message_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>) -> Self { self.message_attributes = input; self }
+    pub fn set_message_attributes(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>,
+    ) -> Self {
+        self.message_attributes = input;
+        self
+    }
     /// <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS message attributes</a> in the <i>Amazon SQS Developer Guide</i>.</p>
-    pub fn get_message_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>> { &self.message_attributes }
+    pub fn get_message_attributes(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>> {
+        &self.message_attributes
+    }
     /// Consumes the builder and constructs a [`Message`](crate::types::Message).
     pub fn build(self) -> crate::types::Message {
         crate::types::Message {

@@ -6,46 +6,151 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn delete(mut self, value: impl ::std::convert::Into<crate::types::Delete>) -> Self { self.input.delete = Some(value.into()); self }
-    pub fn mfa(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.mfa = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn bypass_governance_retention(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.bypass_governance_retention = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::DeleteObjectsOutput, super::DeleteObjectsError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::DeleteObjectsError::Unhandled("DeleteObjects requires bucket".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}?delete"); path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path };
-                         let body = { let mut body = ::std::string::String::new(); if let Some(value) = self.input.delete.as_ref() { body.push_str("<Delete>"); if let Some(value) = value.objects.as_ref() { for item in value { body.push_str("<Object>"); body.push_str("<Key>"); body.push_str(&super::super::super::transport::xml_escape(&item.key.to_string())); body.push_str("</Key>"); if let Some(value) = item.version_id.as_ref() { body.push_str("<VersionId>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</VersionId>"); } if let Some(value) = item.e_tag.as_ref() { body.push_str("<ETag>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</ETag>"); } if let Some(value) = item.last_modified_time.as_ref() { body.push_str("<LastModifiedTime>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</LastModifiedTime>"); } if let Some(value) = item.size.as_ref() { body.push_str("<Size>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Size>"); } body.push_str("</Object>"); } } if let Some(value) = value.quiet.as_ref() { body.push_str("<Quiet>"); body.push_str(&super::super::super::transport::xml_escape(&value.to_string())); body.push_str("</Quiet>"); } body.push_str("</Delete>"); } body.into_bytes() };
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers.push(("content-type", "application/xml")); headers };
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::DeleteObjectsError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::DeleteObjectsError::unhandled_with_request_ids(format!("DeleteObjects returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_delete_objects_output::DeleteObjectsOutputBuilder::default();
-                         let body = response.text().await.map_err(super::DeleteObjectsError::Unhandled)?;
-                         let values = super::super::super::transport::xml_tags(&body, "Deleted").into_iter().map(|value| { let mut item: crate::types::DeletedObjectBuilder = ::std::default::Default::default(); item.key = super::super::super::transport::xml_first(&value, "Key").and_then(|value| value.parse().ok());
- item.version_id = super::super::super::transport::xml_first(&value, "VersionId").and_then(|value| value.parse().ok());
- item.delete_marker = super::super::super::transport::xml_first(&value, "DeleteMarker").and_then(|value| value.parse().ok());
- item.delete_marker_version_id = super::super::super::transport::xml_first(&value, "DeleteMarkerVersionId").and_then(|value| value.parse().ok());
- item.build() }).collect();
-                         output.deleted = Some(values);
-                         let values = super::super::super::transport::xml_tags(&body, "Error").into_iter().map(|value| { let mut item: crate::types::ErrorBuilder = ::std::default::Default::default(); item.key = super::super::super::transport::xml_first(&value, "Key").and_then(|value| value.parse().ok());
- item.version_id = super::super::super::transport::xml_first(&value, "VersionId").and_then(|value| value.parse().ok());
- item.code = super::super::super::transport::xml_first(&value, "Code").and_then(|value| value.parse().ok());
- item.message = super::super::super::transport::xml_first(&value, "Message").and_then(|value| value.parse().ok());
- item.build() }).collect();
-                         output.errors = Some(values);
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn delete(mut self, value: impl ::std::convert::Into<crate::types::Delete>) -> Self {
+        self.input.delete = Some(value.into());
+        self
+    }
+    pub fn mfa(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.mfa = Some(value.into());
+        self
+    }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
+        self.input.request_payer = Some(value.into());
+        self
+    }
+    pub fn bypass_governance_retention(mut self, value: impl ::std::convert::Into<bool>) -> Self {
+        self.input.bypass_governance_retention = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
+        self.input.checksum_algorithm = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::DeleteObjectsOutput, super::DeleteObjectsError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::DeleteObjectsError::Unhandled("DeleteObjects requires bucket".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}?delete");
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path
+        };
+        let body = {
+            let mut body = ::std::string::String::new();
+            if let Some(value) = self.input.delete.as_ref() {
+                body.push_str("<Delete>");
+                if let Some(value) = value.objects.as_ref() {
+                    for item in value {
+                        body.push_str("<Object>");
+                        body.push_str("<Key>");
+                        body.push_str(&super::super::super::transport::xml_escape(&item.key.to_string()));
+                        body.push_str("</Key>");
+                        if let Some(value) = item.version_id.as_ref() {
+                            body.push_str("<VersionId>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</VersionId>");
+                        }
+                        if let Some(value) = item.e_tag.as_ref() {
+                            body.push_str("<ETag>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</ETag>");
+                        }
+                        if let Some(value) = item.last_modified_time.as_ref() {
+                            body.push_str("<LastModifiedTime>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</LastModifiedTime>");
+                        }
+                        if let Some(value) = item.size.as_ref() {
+                            body.push_str("<Size>");
+                            body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                            body.push_str("</Size>");
+                        }
+                        body.push_str("</Object>");
+                    }
+                }
+                if let Some(value) = value.quiet.as_ref() {
+                    body.push_str("<Quiet>");
+                    body.push_str(&super::super::super::transport::xml_escape(&value.to_string()));
+                    body.push_str("</Quiet>");
+                }
+                body.push_str("</Delete>");
+            }
+            body.into_bytes()
+        };
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers.push(("content-type", "application/xml"));
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::DeleteObjectsError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::DeleteObjectsError::unhandled_with_request_ids(
+                format!("DeleteObjects returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_delete_objects_output::DeleteObjectsOutputBuilder::default();
+        let body = response.text().await.map_err(super::DeleteObjectsError::Unhandled)?;
+        let values = super::super::super::transport::xml_tags(&body, "Deleted")
+            .into_iter()
+            .map(|value| {
+                let mut item: crate::types::DeletedObjectBuilder = ::std::default::Default::default();
+                item.key = super::super::super::transport::xml_first(&value, "Key").and_then(|value| value.parse().ok());
+                item.version_id = super::super::super::transport::xml_first(&value, "VersionId").and_then(|value| value.parse().ok());
+                item.delete_marker = super::super::super::transport::xml_first(&value, "DeleteMarker").and_then(|value| value.parse().ok());
+                item.delete_marker_version_id =
+                    super::super::super::transport::xml_first(&value, "DeleteMarkerVersionId").and_then(|value| value.parse().ok());
+                item.build()
+            })
+            .collect();
+        output.deleted = Some(values);
+        let values = super::super::super::transport::xml_tags(&body, "Error")
+            .into_iter()
+            .map(|value| {
+                let mut item: crate::types::ErrorBuilder = ::std::default::Default::default();
+                item.key = super::super::super::transport::xml_first(&value, "Key").and_then(|value| value.parse().ok());
+                item.version_id = super::super::super::transport::xml_first(&value, "VersionId").and_then(|value| value.parse().ok());
+                item.code = super::super::super::transport::xml_first(&value, "Code").and_then(|value| value.parse().ok());
+                item.message = super::super::super::transport::xml_first(&value, "Message").and_then(|value| value.parse().ok());
+                item.build()
+            })
+            .collect();
+        output.errors = Some(values);
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as DeleteObjectsFluentBuilder;

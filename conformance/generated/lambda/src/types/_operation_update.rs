@@ -114,103 +114,168 @@ impl OperationUpdateBuilder {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>The unique identifier for this operation.</p>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
     pub fn parent_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.parent_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_parent_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.parent_id = input; self }
+    pub fn set_parent_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.parent_id = input;
+        self
+    }
     /// <p>The unique identifier of the parent operation, if this operation is running within a child context.</p>
-    pub fn get_parent_id(&self) -> &::std::option::Option<::std::string::String> { &self.parent_id }
+    pub fn get_parent_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.parent_id
+    }
     /// <p>The customer-provided name for this operation.</p>
     pub fn name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.name = input; self }
+    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.name = input;
+        self
+    }
     /// <p>The customer-provided name for this operation.</p>
-    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> { &self.name }
+    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.name
+    }
     /// <p>The type of operation to update.</p>
     /// This field is required.
     pub fn r#type(mut self, input: crate::types::OperationType) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::OperationType>) -> Self { self.r#type = input; self }
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::OperationType>) -> Self {
+        self.r#type = input;
+        self
+    }
     /// <p>The type of operation to update.</p>
-    pub fn get_type(&self) -> &::std::option::Option<crate::types::OperationType> { &self.r#type }
+    pub fn get_type(&self) -> &::std::option::Option<crate::types::OperationType> {
+        &self.r#type
+    }
     /// <p>The subtype of the operation, providing additional categorization.</p>
     pub fn sub_type(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.sub_type = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.sub_type = input; self }
+    pub fn set_sub_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.sub_type = input;
+        self
+    }
     /// <p>The subtype of the operation, providing additional categorization.</p>
-    pub fn get_sub_type(&self) -> &::std::option::Option<::std::string::String> { &self.sub_type }
+    pub fn get_sub_type(&self) -> &::std::option::Option<::std::string::String> {
+        &self.sub_type
+    }
     /// <p>The action to take on the operation.</p>
     /// This field is required.
     pub fn action(mut self, input: crate::types::OperationAction) -> Self {
         self.action = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_action(mut self, input: ::std::option::Option<crate::types::OperationAction>) -> Self { self.action = input; self }
+    pub fn set_action(mut self, input: ::std::option::Option<crate::types::OperationAction>) -> Self {
+        self.action = input;
+        self
+    }
     /// <p>The action to take on the operation.</p>
-    pub fn get_action(&self) -> &::std::option::Option<crate::types::OperationAction> { &self.action }
+    pub fn get_action(&self) -> &::std::option::Option<crate::types::OperationAction> {
+        &self.action
+    }
     /// <p>The payload for successful operations. The maximum payload size is 6 MB for synchronous <code>EXECUTION</code> operations (RequestResponse invocationType), 1 MB for asynchronous <code>EXECUTION</code> (Event invocationType) and <code>CHAINED_INVOKE</code> operations, and 256 KB for <code>CONTEXT</code>, <code>STEP</code>, <code>WAIT</code>, and <code>CALLBACK</code> operations.</p>
     pub fn payload(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.payload = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.payload = input; self }
+    pub fn set_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.payload = input;
+        self
+    }
     /// <p>The payload for successful operations. The maximum payload size is 6 MB for synchronous <code>EXECUTION</code> operations (RequestResponse invocationType), 1 MB for asynchronous <code>EXECUTION</code> (Event invocationType) and <code>CHAINED_INVOKE</code> operations, and 256 KB for <code>CONTEXT</code>, <code>STEP</code>, <code>WAIT</code>, and <code>CALLBACK</code> operations.</p>
-    pub fn get_payload(&self) -> &::std::option::Option<::std::string::String> { &self.payload }
+    pub fn get_payload(&self) -> &::std::option::Option<::std::string::String> {
+        &self.payload
+    }
     /// <p>The error information for failed operations.</p>
     pub fn error(mut self, input: crate::types::ErrorObject) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>The error information for failed operations.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> {
+        &self.error
+    }
     /// <p>Options for context operations.</p>
     pub fn context_options(mut self, input: crate::types::ContextOptions) -> Self {
         self.context_options = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_context_options(mut self, input: ::std::option::Option<crate::types::ContextOptions>) -> Self { self.context_options = input; self }
+    pub fn set_context_options(mut self, input: ::std::option::Option<crate::types::ContextOptions>) -> Self {
+        self.context_options = input;
+        self
+    }
     /// <p>Options for context operations.</p>
-    pub fn get_context_options(&self) -> &::std::option::Option<crate::types::ContextOptions> { &self.context_options }
+    pub fn get_context_options(&self) -> &::std::option::Option<crate::types::ContextOptions> {
+        &self.context_options
+    }
     /// <p>Options for step operations.</p>
     pub fn step_options(mut self, input: crate::types::StepOptions) -> Self {
         self.step_options = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_step_options(mut self, input: ::std::option::Option<crate::types::StepOptions>) -> Self { self.step_options = input; self }
+    pub fn set_step_options(mut self, input: ::std::option::Option<crate::types::StepOptions>) -> Self {
+        self.step_options = input;
+        self
+    }
     /// <p>Options for step operations.</p>
-    pub fn get_step_options(&self) -> &::std::option::Option<crate::types::StepOptions> { &self.step_options }
+    pub fn get_step_options(&self) -> &::std::option::Option<crate::types::StepOptions> {
+        &self.step_options
+    }
     /// <p>Options for wait operations.</p>
     pub fn wait_options(mut self, input: crate::types::WaitOptions) -> Self {
         self.wait_options = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_wait_options(mut self, input: ::std::option::Option<crate::types::WaitOptions>) -> Self { self.wait_options = input; self }
+    pub fn set_wait_options(mut self, input: ::std::option::Option<crate::types::WaitOptions>) -> Self {
+        self.wait_options = input;
+        self
+    }
     /// <p>Options for wait operations.</p>
-    pub fn get_wait_options(&self) -> &::std::option::Option<crate::types::WaitOptions> { &self.wait_options }
+    pub fn get_wait_options(&self) -> &::std::option::Option<crate::types::WaitOptions> {
+        &self.wait_options
+    }
     pub fn callback_options(mut self, input: crate::types::CallbackOptions) -> Self {
         self.callback_options = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_callback_options(mut self, input: ::std::option::Option<crate::types::CallbackOptions>) -> Self { self.callback_options = input; self }
-    pub fn get_callback_options(&self) -> &::std::option::Option<crate::types::CallbackOptions> { &self.callback_options }
+    pub fn set_callback_options(mut self, input: ::std::option::Option<crate::types::CallbackOptions>) -> Self {
+        self.callback_options = input;
+        self
+    }
+    pub fn get_callback_options(&self) -> &::std::option::Option<crate::types::CallbackOptions> {
+        &self.callback_options
+    }
     pub fn chained_invoke_options(mut self, input: crate::types::ChainedInvokeOptions) -> Self {
         self.chained_invoke_options = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_chained_invoke_options(mut self, input: ::std::option::Option<crate::types::ChainedInvokeOptions>) -> Self { self.chained_invoke_options = input; self }
-    pub fn get_chained_invoke_options(&self) -> &::std::option::Option<crate::types::ChainedInvokeOptions> { &self.chained_invoke_options }
+    pub fn set_chained_invoke_options(mut self, input: ::std::option::Option<crate::types::ChainedInvokeOptions>) -> Self {
+        self.chained_invoke_options = input;
+        self
+    }
+    pub fn get_chained_invoke_options(&self) -> &::std::option::Option<crate::types::ChainedInvokeOptions> {
+        &self.chained_invoke_options
+    }
     /// Consumes the builder and constructs a [`OperationUpdate`](crate::types::OperationUpdate).
     /// This method will fail if any of the following fields are not set:
     /// - [`id`](Self::id)
@@ -218,12 +283,27 @@ impl OperationUpdateBuilder {
     /// - [`action`](Self::action)
     pub fn build(self) -> ::std::result::Result<crate::types::OperationUpdate, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::OperationUpdate {
-            id: self.id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("id", "id was not specified but it is required when building OperationUpdate"))?,
+            id: self.id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "id",
+                    "id was not specified but it is required when building OperationUpdate",
+                )
+            })?,
             parent_id: self.parent_id,
             name: self.name,
-            r#type: self.r#type.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("r#type", "r#type was not specified but it is required when building OperationUpdate"))?,
+            r#type: self.r#type.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "r#type",
+                    "r#type was not specified but it is required when building OperationUpdate",
+                )
+            })?,
             sub_type: self.sub_type,
-            action: self.action.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("action", "action was not specified but it is required when building OperationUpdate"))?,
+            action: self.action.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "action",
+                    "action was not specified but it is required when building OperationUpdate",
+                )
+            })?,
             payload: self.payload,
             error: self.error,
             context_options: self.context_options,

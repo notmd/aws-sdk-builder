@@ -69,26 +69,41 @@ impl AnnotationEntryBuilder {
         self.annotation_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_annotation_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.annotation_name = input; self }
+    pub fn set_annotation_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.annotation_name = input;
+        self
+    }
     /// <p>The name of the annotation.</p>
-    pub fn get_annotation_name(&self) -> &::std::option::Option<::std::string::String> { &self.annotation_name }
+    pub fn get_annotation_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.annotation_name
+    }
     /// <p>The date and time the annotation was last modified.</p>
     /// This field is required.
     pub fn last_modified(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.last_modified = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.last_modified = input; self }
+    pub fn set_last_modified(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.last_modified = input;
+        self
+    }
     /// <p>The date and time the annotation was last modified.</p>
-    pub fn get_last_modified(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.last_modified }
+    pub fn get_last_modified(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.last_modified
+    }
     /// <p>The entity tag of the annotation.</p>
     pub fn e_tag(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.e_tag = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.e_tag = input; self }
+    pub fn set_e_tag(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.e_tag = input;
+        self
+    }
     /// <p>The entity tag of the annotation.</p>
-    pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> { &self.e_tag }
+    pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> {
+        &self.e_tag
+    }
     /// <p>The checksum algorithm used for the annotation.</p>
     /// Appends an item to `checksum_algorithm`.
     ///
@@ -99,26 +114,41 @@ impl AnnotationEntryBuilder {
         self.checksum_algorithm = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>>) -> Self { self.checksum_algorithm = input; self }
+    pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>>) -> Self {
+        self.checksum_algorithm = input;
+        self
+    }
     /// <p>The checksum algorithm used for the annotation.</p>
-    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>> { &self.checksum_algorithm }
+    pub fn get_checksum_algorithm(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChecksumAlgorithm>> {
+        &self.checksum_algorithm
+    }
     /// <p>The size of the annotation payload, in bytes.</p>
     /// This field is required.
     pub fn size(mut self, input: i64) -> Self {
         self.size = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_size(mut self, input: ::std::option::Option<i64>) -> Self { self.size = input; self }
+    pub fn set_size(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.size = input;
+        self
+    }
     /// <p>The size of the annotation payload, in bytes.</p>
-    pub fn get_size(&self) -> &::std::option::Option<i64> { &self.size }
+    pub fn get_size(&self) -> &::std::option::Option<i64> {
+        &self.size
+    }
     /// <p>The replication status of the annotation.</p>
     pub fn replication_status(mut self, input: crate::types::ReplicationStatus) -> Self {
         self.replication_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_replication_status(mut self, input: ::std::option::Option<crate::types::ReplicationStatus>) -> Self { self.replication_status = input; self }
+    pub fn set_replication_status(mut self, input: ::std::option::Option<crate::types::ReplicationStatus>) -> Self {
+        self.replication_status = input;
+        self
+    }
     /// <p>The replication status of the annotation.</p>
-    pub fn get_replication_status(&self) -> &::std::option::Option<crate::types::ReplicationStatus> { &self.replication_status }
+    pub fn get_replication_status(&self) -> &::std::option::Option<crate::types::ReplicationStatus> {
+        &self.replication_status
+    }
     /// Consumes the builder and constructs a [`AnnotationEntry`](crate::types::AnnotationEntry).
     /// This method will fail if any of the following fields are not set:
     /// - [`annotation_name`](Self::annotation_name)
@@ -126,11 +156,26 @@ impl AnnotationEntryBuilder {
     /// - [`size`](Self::size)
     pub fn build(self) -> ::std::result::Result<crate::types::AnnotationEntry, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AnnotationEntry {
-            annotation_name: self.annotation_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("annotation_name", "annotation_name was not specified but it is required when building AnnotationEntry"))?,
-            last_modified: self.last_modified.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("last_modified", "last_modified was not specified but it is required when building AnnotationEntry"))?,
+            annotation_name: self.annotation_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "annotation_name",
+                    "annotation_name was not specified but it is required when building AnnotationEntry",
+                )
+            })?,
+            last_modified: self.last_modified.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "last_modified",
+                    "last_modified was not specified but it is required when building AnnotationEntry",
+                )
+            })?,
             e_tag: self.e_tag,
             checksum_algorithm: self.checksum_algorithm,
-            size: self.size.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("size", "size was not specified but it is required when building AnnotationEntry"))?,
+            size: self.size.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "size",
+                    "size was not specified but it is required when building AnnotationEntry",
+                )
+            })?,
             replication_status: self.replication_status,
         })
     }

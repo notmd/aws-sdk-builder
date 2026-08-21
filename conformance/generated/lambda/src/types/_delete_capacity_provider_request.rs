@@ -34,15 +34,25 @@ impl DeleteCapacityProviderRequestBuilder {
         self.capacity_provider_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.capacity_provider_name = input; self }
+    pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.capacity_provider_name = input;
+        self
+    }
     /// <p>The name of the capacity provider to delete.</p>
-    pub fn get_capacity_provider_name(&self) -> &::std::option::Option<::std::string::String> { &self.capacity_provider_name }
+    pub fn get_capacity_provider_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.capacity_provider_name
+    }
     /// Consumes the builder and constructs a [`DeleteCapacityProviderRequest`](crate::types::DeleteCapacityProviderRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`capacity_provider_name`](Self::capacity_provider_name)
     pub fn build(self) -> ::std::result::Result<crate::types::DeleteCapacityProviderRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::DeleteCapacityProviderRequest {
-            capacity_provider_name: self.capacity_provider_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("capacity_provider_name", "capacity_provider_name was not specified but it is required when building DeleteCapacityProviderRequest"))?,
+            capacity_provider_name: self.capacity_provider_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "capacity_provider_name",
+                    "capacity_provider_name was not specified but it is required when building DeleteCapacityProviderRequest",
+                )
+            })?,
         })
     }
 }

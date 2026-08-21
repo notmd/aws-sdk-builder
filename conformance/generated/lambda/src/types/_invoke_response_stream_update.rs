@@ -32,13 +32,16 @@ impl InvokeResponseStreamUpdateBuilder {
         self.payload = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.payload = input; self }
+    pub fn set_payload(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.payload = input;
+        self
+    }
     /// <p>Data returned by your Lambda function.</p>
-    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.payload }
+    pub fn get_payload(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.payload
+    }
     /// Consumes the builder and constructs a [`InvokeResponseStreamUpdate`](crate::types::InvokeResponseStreamUpdate).
     pub fn build(self) -> crate::types::InvokeResponseStreamUpdate {
-        crate::types::InvokeResponseStreamUpdate {
-            payload: self.payload,
-        }
+        crate::types::InvokeResponseStreamUpdate { payload: self.payload }
     }
 }

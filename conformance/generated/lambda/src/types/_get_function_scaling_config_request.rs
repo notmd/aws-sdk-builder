@@ -42,26 +42,46 @@ impl GetFunctionScalingConfigRequestBuilder {
         self.function_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.function_name = input; self }
+    pub fn set_function_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.function_name = input;
+        self
+    }
     /// <p>The name or ARN of the Lambda function.</p>
-    pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> { &self.function_name }
+    pub fn get_function_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.function_name
+    }
     /// <p>Specify a version or alias to get the scaling configuration for a published version of the function.</p>
     /// This field is required.
     pub fn qualifier(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.qualifier = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.qualifier = input; self }
+    pub fn set_qualifier(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.qualifier = input;
+        self
+    }
     /// <p>Specify a version or alias to get the scaling configuration for a published version of the function.</p>
-    pub fn get_qualifier(&self) -> &::std::option::Option<::std::string::String> { &self.qualifier }
+    pub fn get_qualifier(&self) -> &::std::option::Option<::std::string::String> {
+        &self.qualifier
+    }
     /// Consumes the builder and constructs a [`GetFunctionScalingConfigRequest`](crate::types::GetFunctionScalingConfigRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`function_name`](Self::function_name)
     /// - [`qualifier`](Self::qualifier)
     pub fn build(self) -> ::std::result::Result<crate::types::GetFunctionScalingConfigRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetFunctionScalingConfigRequest {
-            function_name: self.function_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_name", "function_name was not specified but it is required when building GetFunctionScalingConfigRequest"))?,
-            qualifier: self.qualifier.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("qualifier", "qualifier was not specified but it is required when building GetFunctionScalingConfigRequest"))?,
+            function_name: self.function_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "function_name",
+                    "function_name was not specified but it is required when building GetFunctionScalingConfigRequest",
+                )
+            })?,
+            qualifier: self.qualifier.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "qualifier",
+                    "qualifier was not specified but it is required when building GetFunctionScalingConfigRequest",
+                )
+            })?,
         })
     }
 }

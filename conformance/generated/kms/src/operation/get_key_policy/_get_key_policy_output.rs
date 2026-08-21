@@ -46,17 +46,27 @@ impl GetKeyPolicyOutputBuilder {
         self.policy = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy = input; self }
+    pub fn set_policy(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy = input;
+        self
+    }
     /// <p>A key policy document in JSON format.</p>
-    pub fn get_policy(&self) -> &::std::option::Option<::std::string::String> { &self.policy }
+    pub fn get_policy(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy
+    }
     /// <p>The name of the key policy. The only valid value is <code>default</code>.</p>
     pub fn policy_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_name = input; self }
+    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_name = input;
+        self
+    }
     /// <p>The name of the key policy. The only valid value is <code>default</code>.</p>
-    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> { &self.policy_name }
+    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_name
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

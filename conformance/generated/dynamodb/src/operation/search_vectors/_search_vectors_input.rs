@@ -42,7 +42,9 @@ impl SearchVectorsInput {
         self.expression_attribute_names.as_ref()
     }
     /// <p>One or more values that can be substituted in an expression. Use the <code>:</code> character in an expression to dereference an attribute value.</p>
-    pub fn expression_attribute_values(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+    pub fn expression_attribute_values(
+        &self,
+    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
         self.expression_attribute_values.as_ref()
     }
     /// <p>A string that identifies one or more attributes to retrieve from the index. Separate attribute names with commas. If not specified, the operation returns all attributes projected into the vector index.</p>
@@ -93,37 +95,66 @@ impl SearchVectorsInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name or Amazon Resource Name (ARN) of the table containing the vector index.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>The name of the vector index to search. The index must be in the <code>ACTIVE</code> state.</p>
     /// This field is required.
     pub fn index_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.index_name = input; self }
+    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.index_name = input;
+        self
+    }
     /// <p>The name of the vector index to search. The index must be in the <code>ACTIVE</code> state.</p>
-    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> { &self.index_name }
+    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.index_name
+    }
     pub fn return_consumed_capacity(mut self, input: crate::types::ReturnConsumedCapacity) -> Self {
         self.return_consumed_capacity = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
-    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
+    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<crate::types::ReturnConsumedCapacity>) -> Self {
+        self.return_consumed_capacity = input;
+        self
+    }
+    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<crate::types::ReturnConsumedCapacity> {
+        &self.return_consumed_capacity
+    }
     /// <p>One or more substitution tokens for attribute names in an expression. Use the <code>#</code> character in an expression to dereference an attribute name.</p>
     /// Adds a key-value pair to `expression_attribute_names`.
     ///
     /// To override the contents of this collection use [`set_expression_attribute_names`](Self::set_expression_attribute_names).
-    pub fn expression_attribute_names(mut self, k: impl ::std::convert::Into<::std::string::String>, v: impl ::std::convert::Into<::std::string::String>) -> Self {
+    pub fn expression_attribute_names(
+        mut self,
+        k: impl ::std::convert::Into<::std::string::String>,
+        v: impl ::std::convert::Into<::std::string::String>,
+    ) -> Self {
         let mut map = self.expression_attribute_names.unwrap_or_default();
         map.insert(k.into(), v.into());
         self.expression_attribute_names = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.expression_attribute_names = input; self }
+    pub fn set_expression_attribute_names(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    ) -> Self {
+        self.expression_attribute_names = input;
+        self
+    }
     /// <p>One or more substitution tokens for attribute names in an expression. Use the <code>#</code> character in an expression to dereference an attribute name.</p>
-    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.expression_attribute_names }
+    pub fn get_expression_attribute_names(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.expression_attribute_names
+    }
     /// <p>One or more values that can be substituted in an expression. Use the <code>:</code> character in an expression to dereference an attribute value.</p>
     /// Adds a key-value pair to `expression_attribute_values`.
     ///
@@ -134,19 +165,34 @@ impl SearchVectorsInputBuilder {
         self.expression_attribute_values = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
+    pub fn set_expression_attribute_values(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    ) -> Self {
+        self.expression_attribute_values = input;
+        self
+    }
     /// <p>One or more values that can be substituted in an expression. Use the <code>:</code> character in an expression to dereference an attribute value.</p>
-    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> { &self.expression_attribute_values }
+    pub fn get_expression_attribute_values(
+        &self,
+    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+        &self.expression_attribute_values
+    }
     /// <p>A string that identifies one or more attributes to retrieve from the index. Separate attribute names with commas. If not specified, the operation returns all attributes projected into the vector index.</p>
     /// <p>Only attributes projected into the vector index can be retrieved.</p>
     pub fn projection_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.projection_expression = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_projection_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.projection_expression = input; self }
+    pub fn set_projection_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.projection_expression = input;
+        self
+    }
     /// <p>A string that identifies one or more attributes to retrieve from the index. Separate attribute names with commas. If not specified, the operation returns all attributes projected into the vector index.</p>
     /// <p>Only attributes projected into the vector index can be retrieved.</p>
-    pub fn get_projection_expression(&self) -> &::std::option::Option<::std::string::String> { &self.projection_expression }
+    pub fn get_projection_expression(&self) -> &::std::option::Option<::std::string::String> {
+        &self.projection_expression
+    }
     /// <p>The search vector to compare against the indexed vectors. Each element is a 32-bit IEEE-754 floating point number, provided in DynamoDB list format.</p>
     /// <p>The number of dimensions must match the number of dimensions configured for the vector index.</p>
     /// Appends an item to `search_vector`.
@@ -158,29 +204,44 @@ impl SearchVectorsInputBuilder {
         self.search_vector = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_search_vector(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self { self.search_vector = input; self }
+    pub fn set_search_vector(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
+        self.search_vector = input;
+        self
+    }
     /// <p>The search vector to compare against the indexed vectors. Each element is a 32-bit IEEE-754 floating point number, provided in DynamoDB list format.</p>
     /// <p>The number of dimensions must match the number of dimensions configured for the vector index.</p>
-    pub fn get_search_vector(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> { &self.search_vector }
+    pub fn get_search_vector(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>> {
+        &self.search_vector
+    }
     /// <p>A condition expression used to filter the vector search results. The expression can reference attributes defined in the vector index search schema, including <code>HASH</code> and <code>INLINE_FILTER</code> key elements.</p>
     /// <p>Only the equality operator (<code>=</code>) is supported for <code>HASH</code> attributes. Comparison and range operators are supported for <code>INLINE_FILTER</code> attributes. Only top-level attributes from the search schema can be referenced.</p>
     pub fn search_condition_expression(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.search_condition_expression = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_search_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.search_condition_expression = input; self }
+    pub fn set_search_condition_expression(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.search_condition_expression = input;
+        self
+    }
     /// <p>A condition expression used to filter the vector search results. The expression can reference attributes defined in the vector index search schema, including <code>HASH</code> and <code>INLINE_FILTER</code> key elements.</p>
     /// <p>Only the equality operator (<code>=</code>) is supported for <code>HASH</code> attributes. Comparison and range operators are supported for <code>INLINE_FILTER</code> attributes. Only top-level attributes from the search schema can be referenced.</p>
-    pub fn get_search_condition_expression(&self) -> &::std::option::Option<::std::string::String> { &self.search_condition_expression }
+    pub fn get_search_condition_expression(&self) -> &::std::option::Option<::std::string::String> {
+        &self.search_condition_expression
+    }
     /// <p>The number of most similar results to return.</p>
     /// This field is required.
     pub fn top_k(mut self, input: i32) -> Self {
         self.top_k = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_top_k(mut self, input: ::std::option::Option<i32>) -> Self { self.top_k = input; self }
+    pub fn set_top_k(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.top_k = input;
+        self
+    }
     /// <p>The number of most similar results to return.</p>
-    pub fn get_top_k(&self) -> &::std::option::Option<i32> { &self.top_k }
+    pub fn get_top_k(&self) -> &::std::option::Option<i32> {
+        &self.top_k
+    }
     /// Consumes the builder and constructs a [`SearchVectorsInput`](crate::operation::search_vectors::SearchVectorsInput).
     pub fn build(self) -> crate::operation::search_vectors::SearchVectorsInput {
         crate::operation::search_vectors::SearchVectorsInput {

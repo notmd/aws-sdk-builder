@@ -119,13 +119,18 @@ impl ListMultipartUploadsInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The name of the bucket to which the multipart upload was initiated.</p>
     /// <p><b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code><i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>. Path-style requests are not supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format <code><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p><b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When you use this action with an access point for directory buckets, you must provide the access point name in place of the bucket name. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>Object Lambda access points are not supported by directory buckets.</p>
     /// </note><p><b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts, the destination bucket must be the Outposts access point ARN or the access point alias. For more information about S3 on Outposts, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>Character you use to group keys.</p>
     /// <p>All keys that contain the same string between the prefix, if specified, and the first occurrence of the delimiter after the prefix are grouped under a single result element, <code>CommonPrefixes</code>. If you don't specify the prefix parameter, then the substring starts at the beginning of the key. The keys that are grouped under <code>CommonPrefixes</code> result element are not returned elsewhere in the response.</p>
     /// <p><code>CommonPrefixes</code> is filtered out from results if it is not lexicographically greater than the key-marker.</p><note>
@@ -135,19 +140,29 @@ impl ListMultipartUploadsInputBuilder {
         self.delimiter = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.delimiter = input; self }
+    pub fn set_delimiter(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.delimiter = input;
+        self
+    }
     /// <p>Character you use to group keys.</p>
     /// <p>All keys that contain the same string between the prefix, if specified, and the first occurrence of the delimiter after the prefix are grouped under a single result element, <code>CommonPrefixes</code>. If you don't specify the prefix parameter, then the substring starts at the beginning of the key. The keys that are grouped under <code>CommonPrefixes</code> result element are not returned elsewhere in the response.</p>
     /// <p><code>CommonPrefixes</code> is filtered out from results if it is not lexicographically greater than the key-marker.</p><note>
     /// <p><b>Directory buckets</b> - For directory buckets, <code>/</code> is the only supported delimiter.</p>
     /// </note>
-    pub fn get_delimiter(&self) -> &::std::option::Option<::std::string::String> { &self.delimiter }
+    pub fn get_delimiter(&self) -> &::std::option::Option<::std::string::String> {
+        &self.delimiter
+    }
     pub fn encoding_type(mut self, input: crate::types::EncodingType) -> Self {
         self.encoding_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_encoding_type(mut self, input: ::std::option::Option<crate::types::EncodingType>) -> Self { self.encoding_type = input; self }
-    pub fn get_encoding_type(&self) -> &::std::option::Option<crate::types::EncodingType> { &self.encoding_type }
+    pub fn set_encoding_type(mut self, input: ::std::option::Option<crate::types::EncodingType>) -> Self {
+        self.encoding_type = input;
+        self
+    }
+    pub fn get_encoding_type(&self) -> &::std::option::Option<crate::types::EncodingType> {
+        &self.encoding_type
+    }
     /// <p>Specifies the multipart upload after which listing should begin.</p><note><ul><li><p><b>General purpose buckets</b> - For general purpose buckets, <code>key-marker</code> is an object key. Together with <code>upload-id-marker</code>, this parameter specifies the multipart upload after which listing should begin.</p>
     /// <p>If <code>upload-id-marker</code> is not specified, only the keys lexicographically greater than the specified <code>key-marker</code> will be included in the list.</p>
     /// <p>If <code>upload-id-marker</code> is specified, any multipart uploads for a key equal to the <code>key-marker</code> might also be included, provided those multipart uploads have upload IDs lexicographically greater than the specified <code>upload-id-marker</code>.</p></li><li><p><b>Directory buckets</b> - For directory buckets, <code>key-marker</code> is obfuscated and isn't a real object key. The <code>upload-id-marker</code> parameter isn't supported by directory buckets. To list the additional multipart uploads, you only need to set the value of <code>key-marker</code> to the <code>NextKeyMarker</code> value from the previous response.</p>
@@ -156,20 +171,30 @@ impl ListMultipartUploadsInputBuilder {
         self.key_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_marker = input; self }
+    pub fn set_key_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_marker = input;
+        self
+    }
     /// <p>Specifies the multipart upload after which listing should begin.</p><note><ul><li><p><b>General purpose buckets</b> - For general purpose buckets, <code>key-marker</code> is an object key. Together with <code>upload-id-marker</code>, this parameter specifies the multipart upload after which listing should begin.</p>
     /// <p>If <code>upload-id-marker</code> is not specified, only the keys lexicographically greater than the specified <code>key-marker</code> will be included in the list.</p>
     /// <p>If <code>upload-id-marker</code> is specified, any multipart uploads for a key equal to the <code>key-marker</code> might also be included, provided those multipart uploads have upload IDs lexicographically greater than the specified <code>upload-id-marker</code>.</p></li><li><p><b>Directory buckets</b> - For directory buckets, <code>key-marker</code> is obfuscated and isn't a real object key. The <code>upload-id-marker</code> parameter isn't supported by directory buckets. To list the additional multipart uploads, you only need to set the value of <code>key-marker</code> to the <code>NextKeyMarker</code> value from the previous response.</p>
     /// <p>In the <code>ListMultipartUploads</code> response, the multipart uploads aren't sorted lexicographically based on the object keys.</p></li></ul></note>
-    pub fn get_key_marker(&self) -> &::std::option::Option<::std::string::String> { &self.key_marker }
+    pub fn get_key_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_marker
+    }
     /// <p>Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.</p>
     pub fn max_uploads(mut self, input: i32) -> Self {
         self.max_uploads = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_uploads(mut self, input: ::std::option::Option<i32>) -> Self { self.max_uploads = input; self }
+    pub fn set_max_uploads(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.max_uploads = input;
+        self
+    }
     /// <p>Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.</p>
-    pub fn get_max_uploads(&self) -> &::std::option::Option<i32> { &self.max_uploads }
+    pub fn get_max_uploads(&self) -> &::std::option::Option<i32> {
+        &self.max_uploads
+    }
     /// <p>Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using <code>prefix</code> to make groups in the same way that you'd use a folder in a file system.)</p><note>
     /// <p><b>Directory buckets</b> - For directory buckets, only prefixes that end in a delimiter (<code>/</code>) are supported.</p>
     /// </note>
@@ -177,11 +202,16 @@ impl ListMultipartUploadsInputBuilder {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.prefix = input; self }
+    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.prefix = input;
+        self
+    }
     /// <p>Lists in-progress uploads only for those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different grouping of keys. (You can think of using <code>prefix</code> to make groups in the same way that you'd use a folder in a file system.)</p><note>
     /// <p><b>Directory buckets</b> - For directory buckets, only prefixes that end in a delimiter (<code>/</code>) are supported.</p>
     /// </note>
-    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.prefix }
+    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.prefix
+    }
     /// <p>Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified <code>upload-id-marker</code>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -189,25 +219,40 @@ impl ListMultipartUploadsInputBuilder {
         self.upload_id_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_upload_id_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.upload_id_marker = input; self }
+    pub fn set_upload_id_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.upload_id_marker = input;
+        self
+    }
     /// <p>Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored. Otherwise, any multipart uploads for a key equal to the key-marker might be included in the list only if they have an upload ID lexicographically greater than the specified <code>upload-id-marker</code>.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
-    pub fn get_upload_id_marker(&self) -> &::std::option::Option<::std::string::String> { &self.upload_id_marker }
+    pub fn get_upload_id_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.upload_id_marker
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self { self.request_payer = input; self }
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> { &self.request_payer }
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+        self.request_payer = input;
+        self
+    }
+    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+        &self.request_payer
+    }
     /// Consumes the builder and constructs a [`ListMultipartUploadsInput`](crate::operation::list_multipart_uploads::ListMultipartUploadsInput).
     pub fn build(self) -> crate::operation::list_multipart_uploads::ListMultipartUploadsInput {
         crate::operation::list_multipart_uploads::ListMultipartUploadsInput {

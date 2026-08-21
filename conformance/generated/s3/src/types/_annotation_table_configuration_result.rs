@@ -66,53 +66,88 @@ impl AnnotationTableConfigurationResultBuilder {
         self.configuration_state = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::AnnotationConfigurationState>) -> Self { self.configuration_state = input; self }
+    pub fn set_configuration_state(mut self, input: ::std::option::Option<crate::types::AnnotationConfigurationState>) -> Self {
+        self.configuration_state = input;
+        self
+    }
     /// <p>The current configuration state of the annotation table.</p>
-    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::AnnotationConfigurationState> { &self.configuration_state }
+    pub fn get_configuration_state(&self) -> &::std::option::Option<crate::types::AnnotationConfigurationState> {
+        &self.configuration_state
+    }
     /// <p>The provisioning status of the annotation table. Possible values: <code>CREATING</code>, <code>BACKFILLING</code>, <code>ACTIVE</code>, <code>FAILED</code>.</p>
     pub fn table_status(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_status = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_status = input; self }
+    pub fn set_table_status(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_status = input;
+        self
+    }
     /// <p>The provisioning status of the annotation table. Possible values: <code>CREATING</code>, <code>BACKFILLING</code>, <code>ACTIVE</code>, <code>FAILED</code>.</p>
-    pub fn get_table_status(&self) -> &::std::option::Option<::std::string::String> { &self.table_status }
+    pub fn get_table_status(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_status
+    }
     pub fn error(mut self, input: crate::types::ErrorDetails) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self { self.error = input; self }
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorDetails> { &self.error }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorDetails>) -> Self {
+        self.error = input;
+        self
+    }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorDetails> {
+        &self.error
+    }
     /// <p>The name of the annotation table.</p>
     pub fn table_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the annotation table.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>The ARN of the annotation table.</p>
     pub fn table_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.table_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_arn = input; self }
+    pub fn set_table_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_arn = input;
+        self
+    }
     /// <p>The ARN of the annotation table.</p>
-    pub fn get_table_arn(&self) -> &::std::option::Option<::std::string::String> { &self.table_arn }
+    pub fn get_table_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_arn
+    }
     /// <p>The ARN of the IAM role associated with the annotation table.</p>
     pub fn role(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.role = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.role = input; self }
+    pub fn set_role(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.role = input;
+        self
+    }
     /// <p>The ARN of the IAM role associated with the annotation table.</p>
-    pub fn get_role(&self) -> &::std::option::Option<::std::string::String> { &self.role }
+    pub fn get_role(&self) -> &::std::option::Option<::std::string::String> {
+        &self.role
+    }
     /// Consumes the builder and constructs a [`AnnotationTableConfigurationResult`](crate::types::AnnotationTableConfigurationResult).
     /// This method will fail if any of the following fields are not set:
     /// - [`configuration_state`](Self::configuration_state)
     pub fn build(self) -> ::std::result::Result<crate::types::AnnotationTableConfigurationResult, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AnnotationTableConfigurationResult {
-            configuration_state: self.configuration_state.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("configuration_state", "configuration_state was not specified but it is required when building AnnotationTableConfigurationResult"))?,
+            configuration_state: self.configuration_state.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "configuration_state",
+                    "configuration_state was not specified but it is required when building AnnotationTableConfigurationResult",
+                )
+            })?,
             table_status: self.table_status,
             error: self.error,
             table_name: self.table_name,

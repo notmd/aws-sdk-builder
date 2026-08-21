@@ -88,73 +88,118 @@ impl RotationsListEntryBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>Unique identifier of the key.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// <p>Unique identifier of the key material.</p>
     pub fn key_material_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_material_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_material_id = input; self }
+    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_material_id = input;
+        self
+    }
     /// <p>Unique identifier of the key material.</p>
-    pub fn get_key_material_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_material_id }
+    pub fn get_key_material_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_material_id
+    }
     /// <p>User-specified description of the key material. This field is only present for symmetric encryption KMS keys with <code>EXTERNAL</code> origin.</p>
     pub fn key_material_description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_material_description = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_material_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_material_description = input; self }
+    pub fn set_key_material_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_material_description = input;
+        self
+    }
     /// <p>User-specified description of the key material. This field is only present for symmetric encryption KMS keys with <code>EXTERNAL</code> origin.</p>
-    pub fn get_key_material_description(&self) -> &::std::option::Option<::std::string::String> { &self.key_material_description }
+    pub fn get_key_material_description(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_material_description
+    }
     /// <p>Indicates if the key material is currently imported into KMS. It has two possible values: <code>IMPORTED</code> or <code>PENDING_IMPORT</code>. This field is only present for symmetric encryption KMS keys with <code>EXTERNAL</code> origin.</p>
     pub fn import_state(mut self, input: crate::types::ImportState) -> Self {
         self.import_state = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_import_state(mut self, input: ::std::option::Option<crate::types::ImportState>) -> Self { self.import_state = input; self }
+    pub fn set_import_state(mut self, input: ::std::option::Option<crate::types::ImportState>) -> Self {
+        self.import_state = input;
+        self
+    }
     /// <p>Indicates if the key material is currently imported into KMS. It has two possible values: <code>IMPORTED</code> or <code>PENDING_IMPORT</code>. This field is only present for symmetric encryption KMS keys with <code>EXTERNAL</code> origin.</p>
-    pub fn get_import_state(&self) -> &::std::option::Option<crate::types::ImportState> { &self.import_state }
+    pub fn get_import_state(&self) -> &::std::option::Option<crate::types::ImportState> {
+        &self.import_state
+    }
     /// <p>There are four possible values for this field: <code>CURRENT</code>, <code>NON_CURRENT</code>, <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code> and <code>PENDING_ROTATION</code>. KMS uses <code>CURRENT</code> key material for both encryption and decryption and <code>NON_CURRENT</code> key material only for decryption. <code>PENDING_ROTATION</code> identifies key material that has been imported for on-demand key rotation but the rotation hasn't completed. The key material state <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code> is unique to multi-region, symmetric encryption keys with imported key material. It indicates key material that has been imported into the primary Region key but not all of the replica Region keys. When this key material is imported in to all of the replica Region keys, the key material state will change to <code>PENDING_ROTATION</code>. Key material in <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code> or <code>PENDING_ROTATION</code> state is not permanently associated with the KMS key. You can delete this key material and import different key material in its place. The <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code> and <code>PENDING_ROTATION</code> values are only used in symmetric encryption keys with imported key material. The other values, <code>CURRENT</code> and <code>NON_CURRENT</code>, are used for all KMS keys that support automatic or on-demand key rotation.</p>
     pub fn key_material_state(mut self, input: crate::types::KeyMaterialState) -> Self {
         self.key_material_state = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_key_material_state(mut self, input: ::std::option::Option<crate::types::KeyMaterialState>) -> Self { self.key_material_state = input; self }
+    pub fn set_key_material_state(mut self, input: ::std::option::Option<crate::types::KeyMaterialState>) -> Self {
+        self.key_material_state = input;
+        self
+    }
     /// <p>There are four possible values for this field: <code>CURRENT</code>, <code>NON_CURRENT</code>, <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code> and <code>PENDING_ROTATION</code>. KMS uses <code>CURRENT</code> key material for both encryption and decryption and <code>NON_CURRENT</code> key material only for decryption. <code>PENDING_ROTATION</code> identifies key material that has been imported for on-demand key rotation but the rotation hasn't completed. The key material state <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code> is unique to multi-region, symmetric encryption keys with imported key material. It indicates key material that has been imported into the primary Region key but not all of the replica Region keys. When this key material is imported in to all of the replica Region keys, the key material state will change to <code>PENDING_ROTATION</code>. Key material in <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code> or <code>PENDING_ROTATION</code> state is not permanently associated with the KMS key. You can delete this key material and import different key material in its place. The <code>PENDING_MULTI_REGION_IMPORT_AND_ROTATION</code> and <code>PENDING_ROTATION</code> values are only used in symmetric encryption keys with imported key material. The other values, <code>CURRENT</code> and <code>NON_CURRENT</code>, are used for all KMS keys that support automatic or on-demand key rotation.</p>
-    pub fn get_key_material_state(&self) -> &::std::option::Option<crate::types::KeyMaterialState> { &self.key_material_state }
+    pub fn get_key_material_state(&self) -> &::std::option::Option<crate::types::KeyMaterialState> {
+        &self.key_material_state
+    }
     /// <p>Indicates if the key material is configured to automatically expire. There are two possible values for this field: <code>KEY_MATERIAL_EXPIRES</code> and <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>. For any key material that expires, the expiration date and time is indicated in <code>ValidTo</code>. This field is only present for symmetric encryption KMS keys with <code>EXTERNAL</code> origin.</p>
     pub fn expiration_model(mut self, input: crate::types::ExpirationModelType) -> Self {
         self.expiration_model = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_expiration_model(mut self, input: ::std::option::Option<crate::types::ExpirationModelType>) -> Self { self.expiration_model = input; self }
+    pub fn set_expiration_model(mut self, input: ::std::option::Option<crate::types::ExpirationModelType>) -> Self {
+        self.expiration_model = input;
+        self
+    }
     /// <p>Indicates if the key material is configured to automatically expire. There are two possible values for this field: <code>KEY_MATERIAL_EXPIRES</code> and <code>KEY_MATERIAL_DOES_NOT_EXPIRE</code>. For any key material that expires, the expiration date and time is indicated in <code>ValidTo</code>. This field is only present for symmetric encryption KMS keys with <code>EXTERNAL</code> origin.</p>
-    pub fn get_expiration_model(&self) -> &::std::option::Option<crate::types::ExpirationModelType> { &self.expiration_model }
+    pub fn get_expiration_model(&self) -> &::std::option::Option<crate::types::ExpirationModelType> {
+        &self.expiration_model
+    }
     /// <p>Date and time at which the key material expires. This field is only present for symmetric encryption KMS keys with <code>EXTERNAL</code> origin in rotation list entries with an <code>ExpirationModel</code> value of <code>KEY_MATERIAL_EXPIRES</code>.</p>
     pub fn valid_to(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.valid_to = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_valid_to(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.valid_to = input; self }
+    pub fn set_valid_to(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.valid_to = input;
+        self
+    }
     /// <p>Date and time at which the key material expires. This field is only present for symmetric encryption KMS keys with <code>EXTERNAL</code> origin in rotation list entries with an <code>ExpirationModel</code> value of <code>KEY_MATERIAL_EXPIRES</code>.</p>
-    pub fn get_valid_to(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.valid_to }
+    pub fn get_valid_to(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.valid_to
+    }
     /// <p>Date and time that the key material rotation completed. Formatted as Unix time. This field is not present for the first key material or an imported key material in <code>PENDING_ROTATION</code> state.</p>
     pub fn rotation_date(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.rotation_date = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_rotation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.rotation_date = input; self }
+    pub fn set_rotation_date(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.rotation_date = input;
+        self
+    }
     /// <p>Date and time that the key material rotation completed. Formatted as Unix time. This field is not present for the first key material or an imported key material in <code>PENDING_ROTATION</code> state.</p>
-    pub fn get_rotation_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.rotation_date }
+    pub fn get_rotation_date(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.rotation_date
+    }
     /// <p>Identifies whether the key material rotation was a scheduled <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-enable-disable.html">automatic rotation</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-on-demand.html">on-demand rotation</a>. This field is not present for the first key material or an imported key material in <code>PENDING_ROTATION</code> state.</p>
     pub fn rotation_type(mut self, input: crate::types::RotationType) -> Self {
         self.rotation_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_rotation_type(mut self, input: ::std::option::Option<crate::types::RotationType>) -> Self { self.rotation_type = input; self }
+    pub fn set_rotation_type(mut self, input: ::std::option::Option<crate::types::RotationType>) -> Self {
+        self.rotation_type = input;
+        self
+    }
     /// <p>Identifies whether the key material rotation was a scheduled <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-enable-disable.html">automatic rotation</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-on-demand.html">on-demand rotation</a>. This field is not present for the first key material or an imported key material in <code>PENDING_ROTATION</code> state.</p>
-    pub fn get_rotation_type(&self) -> &::std::option::Option<crate::types::RotationType> { &self.rotation_type }
+    pub fn get_rotation_type(&self) -> &::std::option::Option<crate::types::RotationType> {
+        &self.rotation_type
+    }
     /// Consumes the builder and constructs a [`RotationsListEntry`](crate::types::RotationsListEntry).
     pub fn build(self) -> crate::types::RotationsListEntry {
         crate::types::RotationsListEntry {

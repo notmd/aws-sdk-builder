@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListOriginationNumbers;
-impl ListOriginationNumbers { pub fn new() -> Self { Self } }
+impl ListOriginationNumbers {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     AuthorizationErrorException(super::super::types::error::AuthorizationErrorException),
@@ -11,14 +15,28 @@ pub enum Error {
     ThrottledException(super::super::types::error::ThrottledException),
     ValidationException(super::super::types::error::ValidationException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_authorization_error_exception(&self) -> bool { matches!(self, Self::AuthorizationErrorException(_)) }
-    pub fn is_internal_error_exception(&self) -> bool { matches!(self, Self::InternalErrorException(_)) }
-    pub fn is_invalid_parameter_exception(&self) -> bool { matches!(self, Self::InvalidParameterException(_)) }
-    pub fn is_throttled_exception(&self) -> bool { matches!(self, Self::ThrottledException(_)) }
-    pub fn is_validation_exception(&self) -> bool { matches!(self, Self::ValidationException(_)) }
+    pub fn is_authorization_error_exception(&self) -> bool {
+        matches!(self, Self::AuthorizationErrorException(_))
+    }
+    pub fn is_internal_error_exception(&self) -> bool {
+        matches!(self, Self::InternalErrorException(_))
+    }
+    pub fn is_invalid_parameter_exception(&self) -> bool {
+        matches!(self, Self::InvalidParameterException(_))
+    }
+    pub fn is_throttled_exception(&self) -> bool {
+        matches!(self, Self::ThrottledException(_))
+    }
+    pub fn is_validation_exception(&self) -> bool {
+        matches!(self, Self::ValidationException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -35,26 +53,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _list_origination_numbers_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/list_origination_numbers/_list_origination_numbers_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sns/src/operation/list_origination_numbers/_list_origination_numbers_input.rs"
+    ));
 }
 pub use _list_origination_numbers_input::ListOriginationNumbersInput;
 pub type Input = ListOriginationNumbersInput;
 pub mod _list_origination_numbers_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/list_origination_numbers/_list_origination_numbers_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sns/src/operation/list_origination_numbers/_list_origination_numbers_output.rs"
+    ));
 }
 pub use _list_origination_numbers_output::ListOriginationNumbersOutput;
 pub type Output = ListOriginationNumbersOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/operation/list_origination_numbers/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/sns/src/operation/list_origination_numbers/builders.rs"
+    ));
 }
 pub type ListOriginationNumbersError = Error;
 pub type ListOriginationNumbersFluentBuilder = builders::Builder;

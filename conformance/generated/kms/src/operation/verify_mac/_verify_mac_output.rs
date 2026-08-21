@@ -55,27 +55,42 @@ impl VerifyMacOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>The HMAC KMS key used in the verification.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// <p>A Boolean value that indicates whether the HMAC was verified. A value of <code>True</code> indicates that the HMAC (<code>Mac</code>) was generated with the specified <code>Message</code>, HMAC KMS key (<code>KeyID</code>) and <code>MacAlgorithm.</code>.</p>
     /// <p>If the HMAC is not verified, the <code>VerifyMac</code> operation fails with a <code>KMSInvalidMacException</code> exception. This exception indicates that one or more of the inputs changed since the HMAC was computed.</p>
     pub fn mac_valid(mut self, input: bool) -> Self {
         self.mac_valid = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_mac_valid(mut self, input: ::std::option::Option<bool>) -> Self { self.mac_valid = input; self }
+    pub fn set_mac_valid(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.mac_valid = input;
+        self
+    }
     /// <p>A Boolean value that indicates whether the HMAC was verified. A value of <code>True</code> indicates that the HMAC (<code>Mac</code>) was generated with the specified <code>Message</code>, HMAC KMS key (<code>KeyID</code>) and <code>MacAlgorithm.</code>.</p>
     /// <p>If the HMAC is not verified, the <code>VerifyMac</code> operation fails with a <code>KMSInvalidMacException</code> exception. This exception indicates that one or more of the inputs changed since the HMAC was computed.</p>
-    pub fn get_mac_valid(&self) -> &::std::option::Option<bool> { &self.mac_valid }
+    pub fn get_mac_valid(&self) -> &::std::option::Option<bool> {
+        &self.mac_valid
+    }
     /// <p>The MAC algorithm used in the verification.</p>
     pub fn mac_algorithm(mut self, input: crate::types::MacAlgorithmSpec) -> Self {
         self.mac_algorithm = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self { self.mac_algorithm = input; self }
+    pub fn set_mac_algorithm(mut self, input: ::std::option::Option<crate::types::MacAlgorithmSpec>) -> Self {
+        self.mac_algorithm = input;
+        self
+    }
     /// <p>The MAC algorithm used in the verification.</p>
-    pub fn get_mac_algorithm(&self) -> &::std::option::Option<crate::types::MacAlgorithmSpec> { &self.mac_algorithm }
+    pub fn get_mac_algorithm(&self) -> &::std::option::Option<crate::types::MacAlgorithmSpec> {
+        &self.mac_algorithm
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

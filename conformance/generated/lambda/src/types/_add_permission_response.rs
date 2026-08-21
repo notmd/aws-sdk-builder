@@ -32,13 +32,16 @@ impl AddPermissionResponseBuilder {
         self.statement = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_statement(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.statement = input; self }
+    pub fn set_statement(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.statement = input;
+        self
+    }
     /// <p>The permission statement that's added to the function policy.</p>
-    pub fn get_statement(&self) -> &::std::option::Option<::std::string::String> { &self.statement }
+    pub fn get_statement(&self) -> &::std::option::Option<::std::string::String> {
+        &self.statement
+    }
     /// Consumes the builder and constructs a [`AddPermissionResponse`](crate::types::AddPermissionResponse).
     pub fn build(self) -> crate::types::AddPermissionResponse {
-        crate::types::AddPermissionResponse {
-            statement: self.statement,
-        }
+        crate::types::AddPermissionResponse { statement: self.statement }
     }
 }

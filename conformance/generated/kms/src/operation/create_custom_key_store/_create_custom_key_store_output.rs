@@ -39,9 +39,14 @@ impl CreateCustomKeyStoreOutputBuilder {
         self.custom_key_store_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.custom_key_store_id = input; self }
+    pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.custom_key_store_id = input;
+        self
+    }
     /// <p>A unique identifier for the new custom key store.</p>
-    pub fn get_custom_key_store_id(&self) -> &::std::option::Option<::std::string::String> { &self.custom_key_store_id }
+    pub fn get_custom_key_store_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.custom_key_store_id
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

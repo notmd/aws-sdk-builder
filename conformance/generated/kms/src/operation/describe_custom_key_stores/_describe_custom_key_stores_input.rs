@@ -58,36 +58,56 @@ impl DescribeCustomKeyStoresInputBuilder {
         self.custom_key_store_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.custom_key_store_id = input; self }
+    pub fn set_custom_key_store_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.custom_key_store_id = input;
+        self
+    }
     /// <p>Gets only information about the specified custom key store. Enter the key store ID.</p>
     /// <p>By default, this operation gets information about all custom key stores in the account and Region. To limit the output to a particular custom key store, provide either the <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not both.</p>
-    pub fn get_custom_key_store_id(&self) -> &::std::option::Option<::std::string::String> { &self.custom_key_store_id }
+    pub fn get_custom_key_store_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.custom_key_store_id
+    }
     /// <p>Gets only information about the specified custom key store. Enter the friendly name of the custom key store.</p>
     /// <p>By default, this operation gets information about all custom key stores in the account and Region. To limit the output to a particular custom key store, provide either the <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not both.</p>
     pub fn custom_key_store_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.custom_key_store_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_custom_key_store_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.custom_key_store_name = input; self }
+    pub fn set_custom_key_store_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.custom_key_store_name = input;
+        self
+    }
     /// <p>Gets only information about the specified custom key store. Enter the friendly name of the custom key store.</p>
     /// <p>By default, this operation gets information about all custom key stores in the account and Region. To limit the output to a particular custom key store, provide either the <code>CustomKeyStoreId</code> or <code>CustomKeyStoreName</code> parameter, but not both.</p>
-    pub fn get_custom_key_store_name(&self) -> &::std::option::Option<::std::string::String> { &self.custom_key_store_name }
+    pub fn get_custom_key_store_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.custom_key_store_name
+    }
     /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
     pub fn limit(mut self, input: i32) -> Self {
         self.limit = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self { self.limit = input; self }
+    pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.limit = input;
+        self
+    }
     /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
-    pub fn get_limit(&self) -> &::std::option::Option<i32> { &self.limit }
+    pub fn get_limit(&self) -> &::std::option::Option<i32> {
+        &self.limit
+    }
     /// <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     /// Consumes the builder and constructs a [`DescribeCustomKeyStoresInput`](crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresInput).
     pub fn build(self) -> crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresInput {
         crate::operation::describe_custom_key_stores::DescribeCustomKeyStoresInput {

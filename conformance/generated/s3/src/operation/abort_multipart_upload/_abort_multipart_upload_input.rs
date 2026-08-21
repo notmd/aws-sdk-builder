@@ -82,45 +82,70 @@ impl AbortMultipartUploadInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The bucket name to which the upload was taking place.</p>
     /// <p><b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code><i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>. Path-style requests are not supported. Directory bucket names must be unique in the chosen Zone (Availability Zone or Local Zone). Bucket names must follow the format <code><i>bucket-base-name</i>--<i>zone-id</i>--x-s3</code> (for example, <code><i>amzn-s3-demo-bucket</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p><b>Access points</b> - When you use this action with an access point for general purpose buckets, you must provide the alias of the access point in place of the bucket name or specify the access point ARN. When you use this action with an access point for directory buckets, you must provide the access point name in place of the bucket name. When using the access point ARN, you must direct requests to the access point hostname. The access point hostname takes the form <i>AccessPointName</i>-<i>AccountId</i>.s3-accesspoint.<i>Region</i>.amazonaws.com. When using this action with an access point through the Amazon Web Services SDKs, you provide the access point ARN in place of the bucket name. For more information about access point ARNs, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-access-points.html">Using access points</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p>Object Lambda access points are not supported by directory buckets.</p>
     /// </note><p><b>S3 on Outposts</b> - When you use this action with S3 on Outposts, you must direct requests to the S3 on Outposts hostname. The S3 on Outposts hostname takes the form <code><i>AccessPointName</i>-<i>AccountId</i>.<i>outpostID</i>.s3-outposts.<i>Region</i>.amazonaws.com</code>. When you use this action with S3 on Outposts, the destination bucket must be the Outposts access point ARN or the access point alias. For more information about S3 on Outposts, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/S3onOutposts.html">What is S3 on Outposts?</a> in the <i>Amazon S3 User Guide</i>.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>Key of the object for which the multipart upload was initiated.</p>
     /// This field is required.
     pub fn key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>Key of the object for which the multipart upload was initiated.</p>
-    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key
+    }
     /// <p>Upload ID that identifies the multipart upload.</p>
     /// This field is required.
     pub fn upload_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.upload_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_upload_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.upload_id = input; self }
+    pub fn set_upload_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.upload_id = input;
+        self
+    }
     /// <p>Upload ID that identifies the multipart upload.</p>
-    pub fn get_upload_id(&self) -> &::std::option::Option<::std::string::String> { &self.upload_id }
+    pub fn get_upload_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.upload_id
+    }
     pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self { self.request_payer = input; self }
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> { &self.request_payer }
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+        self.request_payer = input;
+        self
+    }
+    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+        &self.request_payer
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner. If the account ID that you provide does not match the actual owner of the bucket, the request fails with the HTTP status code <code>403 Forbidden</code> (access denied).</p>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// <p>If present, this header aborts an in progress multipart upload only if it was initiated on the provided timestamp. If the initiated timestamp of the multipart upload does not match the provided value, the operation returns a <code>412 Precondition Failed</code> error. If the initiated timestamp matches or if the multipart upload doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
     /// </note>
@@ -128,11 +153,16 @@ impl AbortMultipartUploadInputBuilder {
         self.if_match_initiated_time = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_if_match_initiated_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.if_match_initiated_time = input; self }
+    pub fn set_if_match_initiated_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.if_match_initiated_time = input;
+        self
+    }
     /// <p>If present, this header aborts an in progress multipart upload only if it was initiated on the provided timestamp. If the initiated timestamp of the multipart upload does not match the provided value, the operation returns a <code>412 Precondition Failed</code> error. If the initiated timestamp matches or if the multipart upload doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
     /// </note>
-    pub fn get_if_match_initiated_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.if_match_initiated_time }
+    pub fn get_if_match_initiated_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.if_match_initiated_time
+    }
     /// Consumes the builder and constructs a [`AbortMultipartUploadInput`](crate::operation::abort_multipart_upload::AbortMultipartUploadInput).
     pub fn build(self) -> crate::operation::abort_multipart_upload::AbortMultipartUploadInput {
         crate::operation::abort_multipart_upload::AbortMultipartUploadInput {

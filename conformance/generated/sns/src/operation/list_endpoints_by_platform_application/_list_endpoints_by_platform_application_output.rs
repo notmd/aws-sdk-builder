@@ -51,17 +51,27 @@ impl ListEndpointsByPlatformApplicationOutputBuilder {
         self.endpoints = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>) -> Self { self.endpoints = input; self }
+    pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>) -> Self {
+        self.endpoints = input;
+        self
+    }
     /// <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
-    pub fn get_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Endpoint>> { &self.endpoints }
+    pub fn get_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Endpoint>> {
+        &self.endpoints
+    }
     /// <p><code>NextToken</code> string is returned when calling <code>ListEndpointsByPlatformApplication</code> action if additional records are available after the first page results.</p>
     pub fn next_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_token = input; self }
+    pub fn set_next_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_token = input;
+        self
+    }
     /// <p><code>NextToken</code> string is returned when calling <code>ListEndpointsByPlatformApplication</code> action if additional records are available after the first page results.</p>
-    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> { &self.next_token }
+    pub fn get_next_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_token
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

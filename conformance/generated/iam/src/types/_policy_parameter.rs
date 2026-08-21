@@ -46,9 +46,14 @@ impl PolicyParameterBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.name = input; self }
+    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.name = input;
+        self
+    }
     /// <p>The name of the policy parameter.</p>
-    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> { &self.name }
+    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.name
+    }
     /// <p>The allowed values for the policy parameter.</p>
     /// Appends an item to `values`.
     ///
@@ -59,17 +64,27 @@ impl PolicyParameterBuilder {
         self.values = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.values = input; self }
+    pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.values = input;
+        self
+    }
     /// <p>The allowed values for the policy parameter.</p>
-    pub fn get_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.values }
+    pub fn get_values(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.values
+    }
     /// <p>The data type of the policy parameter value.</p>
     pub fn r#type(mut self, input: crate::types::PolicyParameterTypeEnum) -> Self {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::PolicyParameterTypeEnum>) -> Self { self.r#type = input; self }
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::PolicyParameterTypeEnum>) -> Self {
+        self.r#type = input;
+        self
+    }
     /// <p>The data type of the policy parameter value.</p>
-    pub fn get_type(&self) -> &::std::option::Option<crate::types::PolicyParameterTypeEnum> { &self.r#type }
+    pub fn get_type(&self) -> &::std::option::Option<crate::types::PolicyParameterTypeEnum> {
+        &self.r#type
+    }
     /// Consumes the builder and constructs a [`PolicyParameter`](crate::types::PolicyParameter).
     pub fn build(self) -> crate::types::PolicyParameter {
         crate::types::PolicyParameter {

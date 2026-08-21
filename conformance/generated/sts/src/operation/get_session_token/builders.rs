@@ -6,27 +6,51 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.duration_seconds = Some(value.into()); self }
-    pub fn serial_number(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.serial_number = Some(value.into()); self }
-    pub fn token_code(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.token_code = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::GetSessionTokenOutput, super::GetSessionTokenError> {
-                         let path = "/";
-                         let body = ::std::vec::Vec::new();
-                         let headers = ::std::vec::Vec::new();
-                         let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::GetSessionTokenError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::GetSessionTokenError::unhandled_with_request_ids(format!("GetSessionToken returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), ::std::option::Option::None));
-                         }
-                         let mut output = super::_get_session_token_output::GetSessionTokenOutputBuilder::default();
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.duration_seconds = Some(value.into());
+        self
+    }
+    pub fn serial_number(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.serial_number = Some(value.into());
+        self
+    }
+    pub fn token_code(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.token_code = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::GetSessionTokenOutput, super::GetSessionTokenError> {
+        let path = "/";
+        let body = ::std::vec::Vec::new();
+        let headers = ::std::vec::Vec::new();
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Post, &path, &headers, &body)
+            .await
+            .map_err(super::GetSessionTokenError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::GetSessionTokenError::unhandled_with_request_ids(
+                format!("GetSessionToken returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                ::std::option::Option::None,
+            ));
+        }
+        let mut output = super::_get_session_token_output::GetSessionTokenOutputBuilder::default();
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as GetSessionTokenFluentBuilder;

@@ -40,17 +40,27 @@ impl SendDurableExecutionCallbackSuccessInputBuilder {
         self.callback_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_callback_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.callback_id = input; self }
+    pub fn set_callback_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.callback_id = input;
+        self
+    }
     /// <p>The unique identifier for the callback operation.</p>
-    pub fn get_callback_id(&self) -> &::std::option::Option<::std::string::String> { &self.callback_id }
+    pub fn get_callback_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.callback_id
+    }
     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
     pub fn result(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.result = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_result(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.result = input; self }
+    pub fn set_result(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.result = input;
+        self
+    }
     /// <p>The result data from the successful callback operation. Maximum size is 256 KB.</p>
-    pub fn get_result(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.result }
+    pub fn get_result(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.result
+    }
     /// Consumes the builder and constructs a [`SendDurableExecutionCallbackSuccessInput`](crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput).
     pub fn build(self) -> crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput {
         crate::operation::send_durable_execution_callback_success::SendDurableExecutionCallbackSuccessInput {

@@ -53,25 +53,40 @@ impl GetHumanReadableSummaryOutputBuilder {
         self.summary_content = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_summary_content(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.summary_content = input; self }
+    pub fn set_summary_content(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.summary_content = input;
+        self
+    }
     /// <p>Summary content in the specified locale. Summary content is non-empty only if the <code>SummaryState</code> is <code>AVAILABLE</code>.</p>
-    pub fn get_summary_content(&self) -> &::std::option::Option<::std::string::String> { &self.summary_content }
+    pub fn get_summary_content(&self) -> &::std::option::Option<::std::string::String> {
+        &self.summary_content
+    }
     /// <p>The locale that this response was generated for. This maps to the input locale.</p>
     pub fn locale(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.locale = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_locale(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.locale = input; self }
+    pub fn set_locale(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.locale = input;
+        self
+    }
     /// <p>The locale that this response was generated for. This maps to the input locale.</p>
-    pub fn get_locale(&self) -> &::std::option::Option<::std::string::String> { &self.locale }
+    pub fn get_locale(&self) -> &::std::option::Option<::std::string::String> {
+        &self.locale
+    }
     /// <p>State of summary generation. This generation process is asynchronous and this attribute indicates the state of the generation process.</p>
     pub fn summary_state(mut self, input: crate::types::SummaryStateType) -> Self {
         self.summary_state = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_summary_state(mut self, input: ::std::option::Option<crate::types::SummaryStateType>) -> Self { self.summary_state = input; self }
+    pub fn set_summary_state(mut self, input: ::std::option::Option<crate::types::SummaryStateType>) -> Self {
+        self.summary_state = input;
+        self
+    }
     /// <p>State of summary generation. This generation process is asynchronous and this attribute indicates the state of the generation process.</p>
-    pub fn get_summary_state(&self) -> &::std::option::Option<crate::types::SummaryStateType> { &self.summary_state }
+    pub fn get_summary_state(&self) -> &::std::option::Option<crate::types::SummaryStateType> {
+        &self.summary_state
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

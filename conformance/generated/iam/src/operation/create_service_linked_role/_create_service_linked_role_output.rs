@@ -39,9 +39,14 @@ impl CreateServiceLinkedRoleOutputBuilder {
         self.role = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_role(mut self, input: ::std::option::Option<crate::types::Role>) -> Self { self.role = input; self }
+    pub fn set_role(mut self, input: ::std::option::Option<crate::types::Role>) -> Self {
+        self.role = input;
+        self
+    }
     /// <p>A <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_Role.html">Role</a> object that contains details about the newly created role.</p>
-    pub fn get_role(&self) -> &::std::option::Option<crate::types::Role> { &self.role }
+    pub fn get_role(&self) -> &::std::option::Option<crate::types::Role> {
+        &self.role
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

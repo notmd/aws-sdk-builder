@@ -44,17 +44,30 @@ impl ListProvisionedConcurrencyConfigsResponseBuilder {
         self.provisioned_concurrency_configs = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_provisioned_concurrency_configs(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ProvisionedConcurrencyConfigListItem>>) -> Self { self.provisioned_concurrency_configs = input; self }
+    pub fn set_provisioned_concurrency_configs(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::ProvisionedConcurrencyConfigListItem>>,
+    ) -> Self {
+        self.provisioned_concurrency_configs = input;
+        self
+    }
     /// <p>A list of provisioned concurrency configurations.</p>
-    pub fn get_provisioned_concurrency_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ProvisionedConcurrencyConfigListItem>> { &self.provisioned_concurrency_configs }
+    pub fn get_provisioned_concurrency_configs(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ProvisionedConcurrencyConfigListItem>> {
+        &self.provisioned_concurrency_configs
+    }
     /// <p>The pagination token that's included if more results are available.</p>
     pub fn next_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>The pagination token that's included if more results are available.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// Consumes the builder and constructs a [`ListProvisionedConcurrencyConfigsResponse`](crate::types::ListProvisionedConcurrencyConfigsResponse).
     pub fn build(self) -> crate::types::ListProvisionedConcurrencyConfigsResponse {
         crate::types::ListProvisionedConcurrencyConfigsResponse {

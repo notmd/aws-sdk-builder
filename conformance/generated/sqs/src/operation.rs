@@ -13,7 +13,10 @@ pub mod operation {
         include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/operation/change_message_visibility.rs"));
     }
     pub mod change_message_visibility_batch {
-        include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/operation/change_message_visibility_batch.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/sqs/src/operation/change_message_visibility_batch.rs"
+        ));
     }
     pub mod create_queue {
         include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/operation/create_queue.rs"));

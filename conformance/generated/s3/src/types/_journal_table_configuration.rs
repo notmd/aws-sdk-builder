@@ -39,17 +39,27 @@ impl JournalTableConfigurationBuilder {
         self.record_expiration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_record_expiration(mut self, input: ::std::option::Option<crate::types::RecordExpiration>) -> Self { self.record_expiration = input; self }
+    pub fn set_record_expiration(mut self, input: ::std::option::Option<crate::types::RecordExpiration>) -> Self {
+        self.record_expiration = input;
+        self
+    }
     /// <p>The journal table record expiration settings for the journal table.</p>
-    pub fn get_record_expiration(&self) -> &::std::option::Option<crate::types::RecordExpiration> { &self.record_expiration }
+    pub fn get_record_expiration(&self) -> &::std::option::Option<crate::types::RecordExpiration> {
+        &self.record_expiration
+    }
     /// <p>The encryption configuration for the journal table.</p>
     pub fn encryption_configuration(mut self, input: crate::types::MetadataTableEncryptionConfiguration) -> Self {
         self.encryption_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_encryption_configuration(mut self, input: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>) -> Self { self.encryption_configuration = input; self }
+    pub fn set_encryption_configuration(mut self, input: ::std::option::Option<crate::types::MetadataTableEncryptionConfiguration>) -> Self {
+        self.encryption_configuration = input;
+        self
+    }
     /// <p>The encryption configuration for the journal table.</p>
-    pub fn get_encryption_configuration(&self) -> &::std::option::Option<crate::types::MetadataTableEncryptionConfiguration> { &self.encryption_configuration }
+    pub fn get_encryption_configuration(&self) -> &::std::option::Option<crate::types::MetadataTableEncryptionConfiguration> {
+        &self.encryption_configuration
+    }
     /// Consumes the builder and constructs a [`JournalTableConfiguration`](crate::types::JournalTableConfiguration).
     pub fn build(self) -> crate::types::JournalTableConfiguration {
         crate::types::JournalTableConfiguration {

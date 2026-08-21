@@ -33,15 +33,25 @@ impl GlacierJobParametersBuilder {
         self.tier = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_tier(mut self, input: ::std::option::Option<crate::types::Tier>) -> Self { self.tier = input; self }
+    pub fn set_tier(mut self, input: ::std::option::Option<crate::types::Tier>) -> Self {
+        self.tier = input;
+        self
+    }
     /// <p>Retrieval tier at which the restore will be processed.</p>
-    pub fn get_tier(&self) -> &::std::option::Option<crate::types::Tier> { &self.tier }
+    pub fn get_tier(&self) -> &::std::option::Option<crate::types::Tier> {
+        &self.tier
+    }
     /// Consumes the builder and constructs a [`GlacierJobParameters`](crate::types::GlacierJobParameters).
     /// This method will fail if any of the following fields are not set:
     /// - [`tier`](Self::tier)
     pub fn build(self) -> ::std::result::Result<crate::types::GlacierJobParameters, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GlacierJobParameters {
-            tier: self.tier.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("tier", "tier was not specified but it is required when building GlacierJobParameters"))?,
+            tier: self.tier.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "tier",
+                    "tier was not specified but it is required when building GlacierJobParameters",
+                )
+            })?,
         })
     }
 }

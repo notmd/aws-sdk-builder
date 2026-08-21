@@ -32,9 +32,14 @@ impl ContextOptionsBuilder {
         self.replay_children = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_replay_children(mut self, input: ::std::option::Option<bool>) -> Self { self.replay_children = input; self }
+    pub fn set_replay_children(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.replay_children = input;
+        self
+    }
     /// <p>Whether the state data of children of the completed context should be included in the invoke payload and <code>GetDurableExecutionState</code> response.</p>
-    pub fn get_replay_children(&self) -> &::std::option::Option<bool> { &self.replay_children }
+    pub fn get_replay_children(&self) -> &::std::option::Option<bool> {
+        &self.replay_children
+    }
     /// Consumes the builder and constructs a [`ContextOptions`](crate::types::ContextOptions).
     pub fn build(self) -> crate::types::ContextOptions {
         crate::types::ContextOptions {

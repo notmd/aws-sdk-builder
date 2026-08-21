@@ -57,36 +57,56 @@ impl CredentialsBuilder {
         self.access_key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.access_key_id = input; self }
+    pub fn set_access_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.access_key_id = input;
+        self
+    }
     /// <p>The access key ID that identifies the temporary security credentials.</p>
-    pub fn get_access_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.access_key_id }
+    pub fn get_access_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.access_key_id
+    }
     /// <p>The secret access key that can be used to sign requests.</p>
     /// This field is required.
     pub fn secret_access_key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.secret_access_key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_secret_access_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.secret_access_key = input; self }
+    pub fn set_secret_access_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.secret_access_key = input;
+        self
+    }
     /// <p>The secret access key that can be used to sign requests.</p>
-    pub fn get_secret_access_key(&self) -> &::std::option::Option<::std::string::String> { &self.secret_access_key }
+    pub fn get_secret_access_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.secret_access_key
+    }
     /// <p>The token that users must pass to the service API to use the temporary credentials.</p>
     /// This field is required.
     pub fn session_token(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.session_token = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_session_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.session_token = input; self }
+    pub fn set_session_token(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.session_token = input;
+        self
+    }
     /// <p>The token that users must pass to the service API to use the temporary credentials.</p>
-    pub fn get_session_token(&self) -> &::std::option::Option<::std::string::String> { &self.session_token }
+    pub fn get_session_token(&self) -> &::std::option::Option<::std::string::String> {
+        &self.session_token
+    }
     /// <p>The date on which the current credentials expire.</p>
     /// This field is required.
     pub fn expiration(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.expiration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_expiration(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.expiration = input; self }
+    pub fn set_expiration(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.expiration = input;
+        self
+    }
     /// <p>The date on which the current credentials expire.</p>
-    pub fn get_expiration(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.expiration }
+    pub fn get_expiration(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.expiration
+    }
     /// Consumes the builder and constructs a [`Credentials`](crate::types::Credentials).
     /// This method will fail if any of the following fields are not set:
     /// - [`access_key_id`](Self::access_key_id)
@@ -95,10 +115,30 @@ impl CredentialsBuilder {
     /// - [`expiration`](Self::expiration)
     pub fn build(self) -> ::std::result::Result<crate::types::Credentials, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Credentials {
-            access_key_id: self.access_key_id.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("access_key_id", "access_key_id was not specified but it is required when building Credentials"))?,
-            secret_access_key: self.secret_access_key.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("secret_access_key", "secret_access_key was not specified but it is required when building Credentials"))?,
-            session_token: self.session_token.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("session_token", "session_token was not specified but it is required when building Credentials"))?,
-            expiration: self.expiration.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("expiration", "expiration was not specified but it is required when building Credentials"))?,
+            access_key_id: self.access_key_id.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "access_key_id",
+                    "access_key_id was not specified but it is required when building Credentials",
+                )
+            })?,
+            secret_access_key: self.secret_access_key.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "secret_access_key",
+                    "secret_access_key was not specified but it is required when building Credentials",
+                )
+            })?,
+            session_token: self.session_token.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "session_token",
+                    "session_token was not specified but it is required when building Credentials",
+                )
+            })?,
+            expiration: self.expiration.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "expiration",
+                    "expiration was not specified but it is required when building Credentials",
+                )
+            })?,
         })
     }
 }

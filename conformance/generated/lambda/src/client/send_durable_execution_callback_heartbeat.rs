@@ -9,6 +9,8 @@ impl super::Client {
     pub fn send_durable_execution_callback_heartbeat(
         &self,
     ) -> crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatFluentBuilder {
-        crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatFluentBuilder::new(self.handle.clone())
+        crate::operation::send_durable_execution_callback_heartbeat::builders::SendDurableExecutionCallbackHeartbeatFluentBuilder::new(
+            self.handle.clone(),
+        )
     }
 }

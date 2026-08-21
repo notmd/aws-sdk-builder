@@ -41,17 +41,27 @@ impl KafkaSchemaRegistryAccessConfigBuilder {
         self.r#type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_type(mut self, input: ::std::option::Option<crate::types::KafkaSchemaRegistryAuthType>) -> Self { self.r#type = input; self }
+    pub fn set_type(mut self, input: ::std::option::Option<crate::types::KafkaSchemaRegistryAuthType>) -> Self {
+        self.r#type = input;
+        self
+    }
     /// <p>The type of authentication Lambda uses to access your schema registry.</p>
-    pub fn get_type(&self) -> &::std::option::Option<crate::types::KafkaSchemaRegistryAuthType> { &self.r#type }
+    pub fn get_type(&self) -> &::std::option::Option<crate::types::KafkaSchemaRegistryAuthType> {
+        &self.r#type
+    }
     /// <p>The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.</p>
     pub fn uri(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.uri = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.uri = input; self }
+    pub fn set_uri(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.uri = input;
+        self
+    }
     /// <p>The URI of the secret (Secrets Manager secret ARN) to authenticate with your schema registry.</p>
-    pub fn get_uri(&self) -> &::std::option::Option<::std::string::String> { &self.uri }
+    pub fn get_uri(&self) -> &::std::option::Option<::std::string::String> {
+        &self.uri
+    }
     /// Consumes the builder and constructs a [`KafkaSchemaRegistryAccessConfig`](crate::types::KafkaSchemaRegistryAccessConfig).
     pub fn build(self) -> crate::types::KafkaSchemaRegistryAccessConfig {
         crate::types::KafkaSchemaRegistryAccessConfig {

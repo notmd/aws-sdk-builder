@@ -152,7 +152,25 @@ impl KeySpec {
     }
     /// Returns all the `&str` representations of the enum members.
     pub const fn values() -> &'static [&'static str] {
-        &["ECC_NIST_EDWARDS25519", "ECC_NIST_P256", "ECC_NIST_P384", "ECC_NIST_P521", "ECC_SECG_P256K1", "HMAC_224", "HMAC_256", "HMAC_384", "HMAC_512", "ML_DSA_44", "ML_DSA_65", "ML_DSA_87", "RSA_2048", "RSA_3072", "RSA_4096", "SM2", "SYMMETRIC_DEFAULT"]
+        &[
+            "ECC_NIST_EDWARDS25519",
+            "ECC_NIST_P256",
+            "ECC_NIST_P384",
+            "ECC_NIST_P521",
+            "ECC_SECG_P256K1",
+            "HMAC_224",
+            "HMAC_256",
+            "HMAC_384",
+            "HMAC_512",
+            "ML_DSA_44",
+            "ML_DSA_65",
+            "ML_DSA_87",
+            "RSA_2048",
+            "RSA_3072",
+            "RSA_4096",
+            "SM2",
+            "SYMMETRIC_DEFAULT",
+        ]
     }
 }
 impl ::std::convert::AsRef<str> for KeySpec {

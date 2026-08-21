@@ -79,9 +79,14 @@ impl AccessDetailBuilder {
         self.service_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.service_name = input; self }
+    pub fn set_service_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.service_name = input;
+        self
+    }
     /// <p>The name of the service in which access was attempted.</p>
-    pub fn get_service_name(&self) -> &::std::option::Option<::std::string::String> { &self.service_name }
+    pub fn get_service_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.service_name
+    }
     /// <p>The namespace of the service in which access was attempted.</p>
     /// <p>To learn the service namespace of a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for Amazon Web Services services</a> in the <i>Service Authorization Reference</i>. Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, <code>(service prefix: a4b)</code>. For more information about service namespaces, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
     /// This field is required.
@@ -89,56 +94,91 @@ impl AccessDetailBuilder {
         self.service_namespace = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_service_namespace(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.service_namespace = input; self }
+    pub fn set_service_namespace(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.service_namespace = input;
+        self
+    }
     /// <p>The namespace of the service in which access was attempted.</p>
     /// <p>To learn the service namespace of a service, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html">Actions, resources, and condition keys for Amazon Web Services services</a> in the <i>Service Authorization Reference</i>. Choose the name of the service to view details for that service. In the first paragraph, find the service prefix. For example, <code>(service prefix: a4b)</code>. For more information about service namespaces, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#genref-aws-service-namespaces">Amazon Web Services service namespaces</a> in the <i>Amazon Web Services General Reference</i>.</p>
-    pub fn get_service_namespace(&self) -> &::std::option::Option<::std::string::String> { &self.service_namespace }
+    pub fn get_service_namespace(&self) -> &::std::option::Option<::std::string::String> {
+        &self.service_namespace
+    }
     /// <p>The Region where the last service access attempt occurred.</p>
     /// <p>This field is null if no principals in the reported Organizations entity attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
     pub fn region(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.region = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.region = input; self }
+    pub fn set_region(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.region = input;
+        self
+    }
     /// <p>The Region where the last service access attempt occurred.</p>
     /// <p>This field is null if no principals in the reported Organizations entity attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
-    pub fn get_region(&self) -> &::std::option::Option<::std::string::String> { &self.region }
+    pub fn get_region(&self) -> &::std::option::Option<::std::string::String> {
+        &self.region
+    }
     /// <p>The path of the Organizations entity (root, organizational unit, or account) from which an authenticated principal last attempted to access the service. Amazon Web Services does not report unauthenticated requests.</p>
     /// <p>This field is null if no principals (IAM users, IAM roles, or root user) in the reported Organizations entity attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
     pub fn entity_path(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.entity_path = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_entity_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.entity_path = input; self }
+    pub fn set_entity_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.entity_path = input;
+        self
+    }
     /// <p>The path of the Organizations entity (root, organizational unit, or account) from which an authenticated principal last attempted to access the service. Amazon Web Services does not report unauthenticated requests.</p>
     /// <p>This field is null if no principals (IAM users, IAM roles, or root user) in the reported Organizations entity attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
-    pub fn get_entity_path(&self) -> &::std::option::Option<::std::string::String> { &self.entity_path }
+    pub fn get_entity_path(&self) -> &::std::option::Option<::std::string::String> {
+        &self.entity_path
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when an authenticated principal most recently attempted to access the service. Amazon Web Services does not report unauthenticated requests.</p>
     /// <p>This field is null if no principals in the reported Organizations entity attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
     pub fn last_authenticated_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.last_authenticated_time = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_last_authenticated_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.last_authenticated_time = input; self }
+    pub fn set_last_authenticated_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.last_authenticated_time = input;
+        self
+    }
     /// <p>The date and time, in <a href="http://www.iso.org/iso/iso8601">ISO 8601 date-time format</a>, when an authenticated principal most recently attempted to access the service. Amazon Web Services does not report unauthenticated requests.</p>
     /// <p>This field is null if no principals in the reported Organizations entity attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
-    pub fn get_last_authenticated_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.last_authenticated_time }
+    pub fn get_last_authenticated_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.last_authenticated_time
+    }
     /// <p>The number of accounts with authenticated principals (root user, IAM users, and IAM roles) that attempted to access the service in the tracking period.</p>
     pub fn total_authenticated_entities(mut self, input: i32) -> Self {
         self.total_authenticated_entities = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_total_authenticated_entities(mut self, input: ::std::option::Option<i32>) -> Self { self.total_authenticated_entities = input; self }
+    pub fn set_total_authenticated_entities(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.total_authenticated_entities = input;
+        self
+    }
     /// <p>The number of accounts with authenticated principals (root user, IAM users, and IAM roles) that attempted to access the service in the tracking period.</p>
-    pub fn get_total_authenticated_entities(&self) -> &::std::option::Option<i32> { &self.total_authenticated_entities }
+    pub fn get_total_authenticated_entities(&self) -> &::std::option::Option<i32> {
+        &self.total_authenticated_entities
+    }
     /// Consumes the builder and constructs a [`AccessDetail`](crate::types::AccessDetail).
     /// This method will fail if any of the following fields are not set:
     /// - [`service_name`](Self::service_name)
     /// - [`service_namespace`](Self::service_namespace)
     pub fn build(self) -> ::std::result::Result<crate::types::AccessDetail, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::AccessDetail {
-            service_name: self.service_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("service_name", "service_name was not specified but it is required when building AccessDetail"))?,
-            service_namespace: self.service_namespace.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("service_namespace", "service_namespace was not specified but it is required when building AccessDetail"))?,
+            service_name: self.service_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "service_name",
+                    "service_name was not specified but it is required when building AccessDetail",
+                )
+            })?,
+            service_namespace: self.service_namespace.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "service_namespace",
+                    "service_namespace was not specified but it is required when building AccessDetail",
+                )
+            })?,
             region: self.region,
             entity_path: self.entity_path,
             last_authenticated_time: self.last_authenticated_time,

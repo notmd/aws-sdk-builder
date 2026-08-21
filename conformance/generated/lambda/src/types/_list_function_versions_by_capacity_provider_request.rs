@@ -48,31 +48,53 @@ impl ListFunctionVersionsByCapacityProviderRequestBuilder {
         self.capacity_provider_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.capacity_provider_name = input; self }
+    pub fn set_capacity_provider_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.capacity_provider_name = input;
+        self
+    }
     /// <p>The name of the capacity provider to list function versions for.</p>
-    pub fn get_capacity_provider_name(&self) -> &::std::option::Option<::std::string::String> { &self.capacity_provider_name }
+    pub fn get_capacity_provider_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.capacity_provider_name
+    }
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     /// <p>The maximum number of function versions to return in the response.</p>
     pub fn max_items(mut self, input: i32) -> Self {
         self.max_items = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self { self.max_items = input; self }
+    pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.max_items = input;
+        self
+    }
     /// <p>The maximum number of function versions to return in the response.</p>
-    pub fn get_max_items(&self) -> &::std::option::Option<i32> { &self.max_items }
+    pub fn get_max_items(&self) -> &::std::option::Option<i32> {
+        &self.max_items
+    }
     /// Consumes the builder and constructs a [`ListFunctionVersionsByCapacityProviderRequest`](crate::types::ListFunctionVersionsByCapacityProviderRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`capacity_provider_name`](Self::capacity_provider_name)
-    pub fn build(self) -> ::std::result::Result<crate::types::ListFunctionVersionsByCapacityProviderRequest, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::types::ListFunctionVersionsByCapacityProviderRequest, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ListFunctionVersionsByCapacityProviderRequest {
-            capacity_provider_name: self.capacity_provider_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("capacity_provider_name", "capacity_provider_name was not specified but it is required when building ListFunctionVersionsByCapacityProviderRequest"))?,
+            capacity_provider_name: self.capacity_provider_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "capacity_provider_name",
+                    "capacity_provider_name was not specified but it is required when building ListFunctionVersionsByCapacityProviderRequest",
+                )
+            })?,
             marker: self.marker,
             max_items: self.max_items,
         })

@@ -40,9 +40,14 @@ impl UntagQueueInputBuilder {
         self.queue_url = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_url = input; self }
+    pub fn set_queue_url(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.queue_url = input;
+        self
+    }
     /// <p>The URL of the queue.</p>
-    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> { &self.queue_url }
+    pub fn get_queue_url(&self) -> &::std::option::Option<::std::string::String> {
+        &self.queue_url
+    }
     /// <p>The list of tags to be removed from the specified queue.</p>
     /// Appends an item to `tag_keys`.
     ///
@@ -53,9 +58,14 @@ impl UntagQueueInputBuilder {
         self.tag_keys = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.tag_keys = input; self }
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.tag_keys = input;
+        self
+    }
     /// <p>The list of tags to be removed from the specified queue.</p>
-    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.tag_keys }
+    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.tag_keys
+    }
     /// Consumes the builder and constructs a [`UntagQueueInput`](crate::operation::untag_queue::UntagQueueInput).
     pub fn build(self) -> crate::operation::untag_queue::UntagQueueInput {
         crate::operation::untag_queue::UntagQueueInput {

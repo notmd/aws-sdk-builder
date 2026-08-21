@@ -18,7 +18,7 @@ impl ::aws_types::request_id::RequestId for UpdateBucketMetadataAnnotationTableC
 }
 impl UpdateBucketMetadataAnnotationTableConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`UpdateBucketMetadataAnnotationTableConfigurationOutput`](crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput).
-    pub fn builder() -> crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationOutputBuilder {
+    pub fn builder() -> crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationOutputBuilder{
         crate::operation::update_bucket_metadata_annotation_table_configuration::builders::UpdateBucketMetadataAnnotationTableConfigurationOutputBuilder::default()
     }
 }
@@ -50,7 +50,9 @@ impl UpdateBucketMetadataAnnotationTableConfigurationOutputBuilder {
         self
     }
     /// Consumes the builder and constructs a [`UpdateBucketMetadataAnnotationTableConfigurationOutput`](crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput).
-    pub fn build(self) -> crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput {
+    pub fn build(
+        self,
+    ) -> crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput {
         crate::operation::update_bucket_metadata_annotation_table_configuration::UpdateBucketMetadataAnnotationTableConfigurationOutput {
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,

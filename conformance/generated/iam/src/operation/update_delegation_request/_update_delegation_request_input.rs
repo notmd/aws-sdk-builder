@@ -40,17 +40,27 @@ impl UpdateDelegationRequestInputBuilder {
         self.delegation_request_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.delegation_request_id = input; self }
+    pub fn set_delegation_request_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.delegation_request_id = input;
+        self
+    }
     /// <p>The unique identifier of the delegation request to update.</p>
-    pub fn get_delegation_request_id(&self) -> &::std::option::Option<::std::string::String> { &self.delegation_request_id }
+    pub fn get_delegation_request_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.delegation_request_id
+    }
     /// <p>Additional notes or comments to add to the delegation request.</p>
     pub fn notes(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.notes = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_notes(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.notes = input; self }
+    pub fn set_notes(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.notes = input;
+        self
+    }
     /// <p>Additional notes or comments to add to the delegation request.</p>
-    pub fn get_notes(&self) -> &::std::option::Option<::std::string::String> { &self.notes }
+    pub fn get_notes(&self) -> &::std::option::Option<::std::string::String> {
+        &self.notes
+    }
     /// Consumes the builder and constructs a [`UpdateDelegationRequestInput`](crate::operation::update_delegation_request::UpdateDelegationRequestInput).
     pub fn build(self) -> crate::operation::update_delegation_request::UpdateDelegationRequestInput {
         crate::operation::update_delegation_request::UpdateDelegationRequestInput {

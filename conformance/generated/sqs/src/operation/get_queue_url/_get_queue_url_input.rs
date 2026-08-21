@@ -40,17 +40,27 @@ impl GetQueueUrlInputBuilder {
         self.queue_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_queue_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_name = input; self }
+    pub fn set_queue_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.queue_name = input;
+        self
+    }
     /// <p>(Required) The name of the queue for which you want to fetch the URL. The name can be up to 80 characters long and can include alphanumeric characters, hyphens (-), and underscores (_). Queue URLs and names are case-sensitive.</p>
-    pub fn get_queue_name(&self) -> &::std::option::Option<::std::string::String> { &self.queue_name }
+    pub fn get_queue_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.queue_name
+    }
     /// <p>(Optional) The Amazon Web Services account ID of the account that created the queue. This is only required when you are attempting to access a queue owned by another Amazon Web Services account.</p>
     pub fn queue_owner_aws_account_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.queue_owner_aws_account_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_queue_owner_aws_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.queue_owner_aws_account_id = input; self }
+    pub fn set_queue_owner_aws_account_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.queue_owner_aws_account_id = input;
+        self
+    }
     /// <p>(Optional) The Amazon Web Services account ID of the account that created the queue. This is only required when you are attempting to access a queue owned by another Amazon Web Services account.</p>
-    pub fn get_queue_owner_aws_account_id(&self) -> &::std::option::Option<::std::string::String> { &self.queue_owner_aws_account_id }
+    pub fn get_queue_owner_aws_account_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.queue_owner_aws_account_id
+    }
     /// Consumes the builder and constructs a [`GetQueueUrlInput`](crate::operation::get_queue_url::GetQueueUrlInput).
     pub fn build(self) -> crate::operation::get_queue_url::GetQueueUrlInput {
         crate::operation::get_queue_url::GetQueueUrlInput {

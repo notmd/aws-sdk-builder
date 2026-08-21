@@ -43,26 +43,46 @@ impl ErrorDetailsBuilder {
         self.message = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.message = input; self }
+    pub fn set_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.message = input;
+        self
+    }
     /// <p>Detailed information about the reason that the operation failed.</p>
-    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> { &self.message }
+    pub fn get_message(&self) -> &::std::option::Option<::std::string::String> {
+        &self.message
+    }
     /// <p>The error code associated with the operation failure.</p>
     /// This field is required.
     pub fn code(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.code = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.code = input; self }
+    pub fn set_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.code = input;
+        self
+    }
     /// <p>The error code associated with the operation failure.</p>
-    pub fn get_code(&self) -> &::std::option::Option<::std::string::String> { &self.code }
+    pub fn get_code(&self) -> &::std::option::Option<::std::string::String> {
+        &self.code
+    }
     /// Consumes the builder and constructs a [`ErrorDetails`](crate::types::ErrorDetails).
     /// This method will fail if any of the following fields are not set:
     /// - [`message`](Self::message)
     /// - [`code`](Self::code)
     pub fn build(self) -> ::std::result::Result<crate::types::ErrorDetails, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::ErrorDetails {
-            message: self.message.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("message", "message was not specified but it is required when building ErrorDetails"))?,
-            code: self.code.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("code", "code was not specified but it is required when building ErrorDetails"))?,
+            message: self.message.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "message",
+                    "message was not specified but it is required when building ErrorDetails",
+                )
+            })?,
+            code: self.code.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "code",
+                    "code was not specified but it is required when building ErrorDetails",
+                )
+            })?,
         })
     }
 }

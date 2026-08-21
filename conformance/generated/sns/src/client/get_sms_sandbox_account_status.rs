@@ -6,7 +6,9 @@ impl super::Client {
     /// - On success, responds with [`GetSmsSandboxAccountStatusOutput`](crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput) with field(s):
     ///   - [`is_in_sandbox(bool)`](crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput::is_in_sandbox): <p>Indicates whether the calling Amazon Web Services account is in the SMS sandbox.</p>
     /// - On failure, responds with [`SdkError<GetSmsSandboxAccountStatusError>`](crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError)
-    pub fn get_sms_sandbox_account_status(&self) -> crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusFluentBuilder {
+    pub fn get_sms_sandbox_account_status(
+        &self,
+    ) -> crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusFluentBuilder {
         crate::operation::get_sms_sandbox_account_status::builders::GetSmsSandboxAccountStatusFluentBuilder::new(self.handle.clone())
     }
 }

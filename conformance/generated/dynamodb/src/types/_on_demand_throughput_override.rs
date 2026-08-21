@@ -32,9 +32,14 @@ impl OnDemandThroughputOverrideBuilder {
         self.max_read_request_units = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_read_request_units(mut self, input: ::std::option::Option<i64>) -> Self { self.max_read_request_units = input; self }
+    pub fn set_max_read_request_units(mut self, input: ::std::option::Option<i64>) -> Self {
+        self.max_read_request_units = input;
+        self
+    }
     /// <p>Maximum number of read request units for the specified replica table.</p>
-    pub fn get_max_read_request_units(&self) -> &::std::option::Option<i64> { &self.max_read_request_units }
+    pub fn get_max_read_request_units(&self) -> &::std::option::Option<i64> {
+        &self.max_read_request_units
+    }
     /// Consumes the builder and constructs a [`OnDemandThroughputOverride`](crate::types::OnDemandThroughputOverride).
     pub fn build(self) -> crate::types::OnDemandThroughputOverride {
         crate::types::OnDemandThroughputOverride {

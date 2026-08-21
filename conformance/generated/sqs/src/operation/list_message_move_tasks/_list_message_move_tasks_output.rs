@@ -44,9 +44,14 @@ impl ListMessageMoveTasksOutputBuilder {
         self.results = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>>) -> Self { self.results = input; self }
+    pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>>) -> Self {
+        self.results = input;
+        self
+    }
     /// <p>A list of message movement tasks and their attributes.</p>
-    pub fn get_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>> { &self.results }
+    pub fn get_results(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>> {
+        &self.results
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

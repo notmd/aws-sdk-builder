@@ -41,9 +41,14 @@ impl ProjectionBuilder {
         self.projection_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_projection_type(mut self, input: ::std::option::Option<crate::types::ProjectionType>) -> Self { self.projection_type = input; self }
+    pub fn set_projection_type(mut self, input: ::std::option::Option<crate::types::ProjectionType>) -> Self {
+        self.projection_type = input;
+        self
+    }
     /// <p>The set of attributes that are projected into the index:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul><p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
-    pub fn get_projection_type(&self) -> &::std::option::Option<crate::types::ProjectionType> { &self.projection_type }
+    pub fn get_projection_type(&self) -> &::std::option::Option<crate::types::ProjectionType> {
+        &self.projection_type
+    }
     /// <p>Represents the non-key attribute names which will be projected into the index.</p>
     /// <p>For global and local secondary indexes, the total count of <code>NonKeyAttributes</code> summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p>
     /// Appends an item to `non_key_attributes`.
@@ -55,10 +60,15 @@ impl ProjectionBuilder {
         self.non_key_attributes = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_non_key_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.non_key_attributes = input; self }
+    pub fn set_non_key_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.non_key_attributes = input;
+        self
+    }
     /// <p>Represents the non-key attribute names which will be projected into the index.</p>
     /// <p>For global and local secondary indexes, the total count of <code>NonKeyAttributes</code> summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total. This limit only applies when you specify the ProjectionType of <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to project all attributes from the source table, even if the table has more than 100 attributes.</p>
-    pub fn get_non_key_attributes(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.non_key_attributes }
+    pub fn get_non_key_attributes(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.non_key_attributes
+    }
     /// Consumes the builder and constructs a [`Projection`](crate::types::Projection).
     pub fn build(self) -> crate::types::Projection {
         crate::types::Projection {

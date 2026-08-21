@@ -32,9 +32,14 @@ impl GetCapacityProviderResponseBuilder {
         self.capacity_provider = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_capacity_provider(mut self, input: ::std::option::Option<crate::types::CapacityProvider>) -> Self { self.capacity_provider = input; self }
+    pub fn set_capacity_provider(mut self, input: ::std::option::Option<crate::types::CapacityProvider>) -> Self {
+        self.capacity_provider = input;
+        self
+    }
     /// <p>Information about the capacity provider, including its configuration and current state.</p>
-    pub fn get_capacity_provider(&self) -> &::std::option::Option<crate::types::CapacityProvider> { &self.capacity_provider }
+    pub fn get_capacity_provider(&self) -> &::std::option::Option<crate::types::CapacityProvider> {
+        &self.capacity_provider
+    }
     /// Consumes the builder and constructs a [`GetCapacityProviderResponse`](crate::types::GetCapacityProviderResponse).
     pub fn build(self) -> crate::types::GetCapacityProviderResponse {
         crate::types::GetCapacityProviderResponse {

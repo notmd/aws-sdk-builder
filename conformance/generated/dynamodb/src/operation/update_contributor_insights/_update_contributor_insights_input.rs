@@ -54,34 +54,54 @@ impl UpdateContributorInsightsInputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>The global secondary index name, if applicable.</p>
     pub fn index_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.index_name = input; self }
+    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.index_name = input;
+        self
+    }
     /// <p>The global secondary index name, if applicable.</p>
-    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> { &self.index_name }
+    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.index_name
+    }
     /// <p>Represents the contributor insights action.</p>
     /// This field is required.
     pub fn contributor_insights_action(mut self, input: crate::types::ContributorInsightsAction) -> Self {
         self.contributor_insights_action = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_contributor_insights_action(mut self, input: ::std::option::Option<crate::types::ContributorInsightsAction>) -> Self { self.contributor_insights_action = input; self }
+    pub fn set_contributor_insights_action(mut self, input: ::std::option::Option<crate::types::ContributorInsightsAction>) -> Self {
+        self.contributor_insights_action = input;
+        self
+    }
     /// <p>Represents the contributor insights action.</p>
-    pub fn get_contributor_insights_action(&self) -> &::std::option::Option<crate::types::ContributorInsightsAction> { &self.contributor_insights_action }
+    pub fn get_contributor_insights_action(&self) -> &::std::option::Option<crate::types::ContributorInsightsAction> {
+        &self.contributor_insights_action
+    }
     /// <p>Specifies whether to track all access and throttled events or throttled events only for the DynamoDB table or index.</p>
     pub fn contributor_insights_mode(mut self, input: crate::types::ContributorInsightsMode) -> Self {
         self.contributor_insights_mode = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self { self.contributor_insights_mode = input; self }
+    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
+        self.contributor_insights_mode = input;
+        self
+    }
     /// <p>Specifies whether to track all access and throttled events or throttled events only for the DynamoDB table or index.</p>
-    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<crate::types::ContributorInsightsMode> { &self.contributor_insights_mode }
+    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<crate::types::ContributorInsightsMode> {
+        &self.contributor_insights_mode
+    }
     /// Consumes the builder and constructs a [`UpdateContributorInsightsInput`](crate::operation::update_contributor_insights::UpdateContributorInsightsInput).
     pub fn build(self) -> crate::operation::update_contributor_insights::UpdateContributorInsightsInput {
         crate::operation::update_contributor_insights::UpdateContributorInsightsInput {

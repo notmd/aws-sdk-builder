@@ -47,18 +47,28 @@ impl CreatePlatformApplicationInputBuilder {
         self.name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.name = input; self }
+    pub fn set_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.name = input;
+        self
+    }
     /// <p>Application names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, hyphens, and periods, and must be between 1 and 256 characters long.</p>
-    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> { &self.name }
+    pub fn get_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.name
+    }
     /// <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).</p>
     /// This field is required.
     pub fn platform(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.platform = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_platform(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.platform = input; self }
+    pub fn set_platform(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.platform = input;
+        self
+    }
     /// <p>The following platforms are supported: ADM (Amazon Device Messaging), APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Firebase Cloud Messaging).</p>
-    pub fn get_platform(&self) -> &::std::option::Option<::std::string::String> { &self.platform }
+    pub fn get_platform(&self) -> &::std::option::Option<::std::string::String> {
+        &self.platform
+    }
     /// <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html"><code>SetPlatformApplicationAttributes</code></a>.</p>
     /// Adds a key-value pair to `attributes`.
     ///
@@ -69,9 +79,14 @@ impl CreatePlatformApplicationInputBuilder {
         self.attributes = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.attributes = input; self }
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
+        self.attributes = input;
+        self
+    }
     /// <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html"><code>SetPlatformApplicationAttributes</code></a>.</p>
-    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> { &self.attributes }
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
+        &self.attributes
+    }
     /// Consumes the builder and constructs a [`CreatePlatformApplicationInput`](crate::operation::create_platform_application::CreatePlatformApplicationInput).
     pub fn build(self) -> crate::operation::create_platform_application::CreatePlatformApplicationInput {
         crate::operation::create_platform_application::CreatePlatformApplicationInput {

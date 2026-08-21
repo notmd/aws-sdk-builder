@@ -83,17 +83,27 @@ impl DescribeContributorInsightsOutputBuilder {
         self.table_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.table_name = input; self }
+    pub fn set_table_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.table_name = input;
+        self
+    }
     /// <p>The name of the table being described.</p>
-    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> { &self.table_name }
+    pub fn get_table_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.table_name
+    }
     /// <p>The name of the global secondary index being described.</p>
     pub fn index_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.index_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.index_name = input; self }
+    pub fn set_index_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.index_name = input;
+        self
+    }
     /// <p>The name of the global secondary index being described.</p>
-    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> { &self.index_name }
+    pub fn get_index_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.index_name
+    }
     /// <p>List of names of the associated contributor insights rules.</p>
     /// Appends an item to `contributor_insights_rule_list`.
     ///
@@ -104,43 +114,68 @@ impl DescribeContributorInsightsOutputBuilder {
         self.contributor_insights_rule_list = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_contributor_insights_rule_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self { self.contributor_insights_rule_list = input; self }
+    pub fn set_contributor_insights_rule_list(mut self, input: ::std::option::Option<::std::vec::Vec<::std::string::String>>) -> Self {
+        self.contributor_insights_rule_list = input;
+        self
+    }
     /// <p>List of names of the associated contributor insights rules.</p>
-    pub fn get_contributor_insights_rule_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> { &self.contributor_insights_rule_list }
+    pub fn get_contributor_insights_rule_list(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
+        &self.contributor_insights_rule_list
+    }
     /// <p>Current status of contributor insights.</p>
     pub fn contributor_insights_status(mut self, input: crate::types::ContributorInsightsStatus) -> Self {
         self.contributor_insights_status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self { self.contributor_insights_status = input; self }
+    pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<crate::types::ContributorInsightsStatus>) -> Self {
+        self.contributor_insights_status = input;
+        self
+    }
     /// <p>Current status of contributor insights.</p>
-    pub fn get_contributor_insights_status(&self) -> &::std::option::Option<crate::types::ContributorInsightsStatus> { &self.contributor_insights_status }
+    pub fn get_contributor_insights_status(&self) -> &::std::option::Option<crate::types::ContributorInsightsStatus> {
+        &self.contributor_insights_status
+    }
     /// <p>Timestamp of the last time the status was changed.</p>
     pub fn last_update_date_time(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.last_update_date_time = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_last_update_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.last_update_date_time = input; self }
+    pub fn set_last_update_date_time(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.last_update_date_time = input;
+        self
+    }
     /// <p>Timestamp of the last time the status was changed.</p>
-    pub fn get_last_update_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.last_update_date_time }
+    pub fn get_last_update_date_time(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.last_update_date_time
+    }
     /// <p>Returns information about the last failure that was encountered.</p>
     /// <p>The most common exceptions for a FAILED status are:</p><ul><li><p>LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.</p></li><li><p>AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.</p></li><li><p>AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.</p></li><li><p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li></ul>
     pub fn failure_exception(mut self, input: crate::types::FailureException) -> Self {
         self.failure_exception = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_failure_exception(mut self, input: ::std::option::Option<crate::types::FailureException>) -> Self { self.failure_exception = input; self }
+    pub fn set_failure_exception(mut self, input: ::std::option::Option<crate::types::FailureException>) -> Self {
+        self.failure_exception = input;
+        self
+    }
     /// <p>Returns information about the last failure that was encountered.</p>
     /// <p>The most common exceptions for a FAILED status are:</p><ul><li><p>LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.</p></li><li><p>AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.</p></li><li><p>AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.</p></li><li><p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li></ul>
-    pub fn get_failure_exception(&self) -> &::std::option::Option<crate::types::FailureException> { &self.failure_exception }
+    pub fn get_failure_exception(&self) -> &::std::option::Option<crate::types::FailureException> {
+        &self.failure_exception
+    }
     /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
     pub fn contributor_insights_mode(mut self, input: crate::types::ContributorInsightsMode) -> Self {
         self.contributor_insights_mode = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self { self.contributor_insights_mode = input; self }
+    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<crate::types::ContributorInsightsMode>) -> Self {
+        self.contributor_insights_mode = input;
+        self
+    }
     /// <p>The mode of CloudWatch Contributor Insights for DynamoDB that determines which events are emitted. Can be set to track all access and throttled events or throttled events only.</p>
-    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<crate::types::ContributorInsightsMode> { &self.contributor_insights_mode }
+    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<crate::types::ContributorInsightsMode> {
+        &self.contributor_insights_mode
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

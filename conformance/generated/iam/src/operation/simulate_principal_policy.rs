@@ -2,19 +2,33 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct SimulatePrincipalPolicy;
-impl SimulatePrincipalPolicy { pub fn new() -> Self { Self } }
+impl SimulatePrincipalPolicy {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     InvalidInputException(super::super::types::error::InvalidInputException),
     NoSuchEntityException(super::super::types::error::NoSuchEntityException),
     PolicyEvaluationException(super::super::types::error::PolicyEvaluationException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_invalid_input_exception(&self) -> bool { matches!(self, Self::InvalidInputException(_)) }
-    pub fn is_no_such_entity_exception(&self) -> bool { matches!(self, Self::NoSuchEntityException(_)) }
-    pub fn is_policy_evaluation_exception(&self) -> bool { matches!(self, Self::PolicyEvaluationException(_)) }
+    pub fn is_invalid_input_exception(&self) -> bool {
+        matches!(self, Self::InvalidInputException(_))
+    }
+    pub fn is_no_such_entity_exception(&self) -> bool {
+        matches!(self, Self::NoSuchEntityException(_))
+    }
+    pub fn is_policy_evaluation_exception(&self) -> bool {
+        matches!(self, Self::PolicyEvaluationException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -29,26 +43,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _simulate_principal_policy_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/simulate_principal_policy/_simulate_principal_policy_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/simulate_principal_policy/_simulate_principal_policy_input.rs"
+    ));
 }
 pub use _simulate_principal_policy_input::SimulatePrincipalPolicyInput;
 pub type Input = SimulatePrincipalPolicyInput;
 pub mod _simulate_principal_policy_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/simulate_principal_policy/_simulate_principal_policy_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/simulate_principal_policy/_simulate_principal_policy_output.rs"
+    ));
 }
 pub use _simulate_principal_policy_output::SimulatePrincipalPolicyOutput;
 pub type Output = SimulatePrincipalPolicyOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/simulate_principal_policy/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/simulate_principal_policy/builders.rs"
+    ));
 }
 pub type SimulatePrincipalPolicyError = Error;
 pub type SimulatePrincipalPolicyFluentBuilder = builders::Builder;

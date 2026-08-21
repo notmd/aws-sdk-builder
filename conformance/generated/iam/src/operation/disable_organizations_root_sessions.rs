@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct DisableOrganizationsRootSessions;
-impl DisableOrganizationsRootSessions { pub fn new() -> Self { Self } }
+impl DisableOrganizationsRootSessions {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     AccountNotManagementOrDelegatedAdministratorException(super::super::types::error::AccountNotManagementOrDelegatedAdministratorException),
@@ -10,13 +14,25 @@ pub enum Error {
     OrganizationNotInAllFeaturesModeException(super::super::types::error::OrganizationNotInAllFeaturesModeException),
     ServiceAccessNotEnabledException(super::super::types::error::ServiceAccessNotEnabledException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_account_not_management_or_delegated_administrator_exception(&self) -> bool { matches!(self, Self::AccountNotManagementOrDelegatedAdministratorException(_)) }
-    pub fn is_organization_not_found_exception(&self) -> bool { matches!(self, Self::OrganizationNotFoundException(_)) }
-    pub fn is_organization_not_in_all_features_mode_exception(&self) -> bool { matches!(self, Self::OrganizationNotInAllFeaturesModeException(_)) }
-    pub fn is_service_access_not_enabled_exception(&self) -> bool { matches!(self, Self::ServiceAccessNotEnabledException(_)) }
+    pub fn is_account_not_management_or_delegated_administrator_exception(&self) -> bool {
+        matches!(self, Self::AccountNotManagementOrDelegatedAdministratorException(_))
+    }
+    pub fn is_organization_not_found_exception(&self) -> bool {
+        matches!(self, Self::OrganizationNotFoundException(_))
+    }
+    pub fn is_organization_not_in_all_features_mode_exception(&self) -> bool {
+        matches!(self, Self::OrganizationNotInAllFeaturesModeException(_))
+    }
+    pub fn is_service_access_not_enabled_exception(&self) -> bool {
+        matches!(self, Self::ServiceAccessNotEnabledException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -32,26 +48,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _disable_organizations_root_sessions_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/disable_organizations_root_sessions/_disable_organizations_root_sessions_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/disable_organizations_root_sessions/_disable_organizations_root_sessions_input.rs"
+    ));
 }
 pub use _disable_organizations_root_sessions_input::DisableOrganizationsRootSessionsInput;
 pub type Input = DisableOrganizationsRootSessionsInput;
 pub mod _disable_organizations_root_sessions_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/disable_organizations_root_sessions/_disable_organizations_root_sessions_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/disable_organizations_root_sessions/_disable_organizations_root_sessions_output.rs"
+    ));
 }
 pub use _disable_organizations_root_sessions_output::DisableOrganizationsRootSessionsOutput;
 pub type Output = DisableOrganizationsRootSessionsOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/disable_organizations_root_sessions/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/disable_organizations_root_sessions/builders.rs"
+    ));
 }
 pub type DisableOrganizationsRootSessionsError = Error;
 pub type DisableOrganizationsRootSessionsFluentBuilder = builders::Builder;

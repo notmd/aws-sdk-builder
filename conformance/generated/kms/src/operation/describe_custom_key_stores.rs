@@ -2,19 +2,33 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct DescribeCustomKeyStores;
-impl DescribeCustomKeyStores { pub fn new() -> Self { Self } }
+impl DescribeCustomKeyStores {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     CustomKeyStoreNotFoundException(super::super::types::error::CustomKeyStoreNotFoundException),
     InvalidMarkerException(super::super::types::error::InvalidMarkerException),
     KmsInternalException(super::super::types::error::KmsInternalException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_custom_key_store_not_found_exception(&self) -> bool { matches!(self, Self::CustomKeyStoreNotFoundException(_)) }
-    pub fn is_invalid_marker_exception(&self) -> bool { matches!(self, Self::InvalidMarkerException(_)) }
-    pub fn is_kms_internal_exception(&self) -> bool { matches!(self, Self::KmsInternalException(_)) }
+    pub fn is_custom_key_store_not_found_exception(&self) -> bool {
+        matches!(self, Self::CustomKeyStoreNotFoundException(_))
+    }
+    pub fn is_invalid_marker_exception(&self) -> bool {
+        matches!(self, Self::InvalidMarkerException(_))
+    }
+    pub fn is_kms_internal_exception(&self) -> bool {
+        matches!(self, Self::KmsInternalException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -29,26 +43,59 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _describe_custom_key_stores_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/describe_custom_key_stores/_describe_custom_key_stores_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/kms/src/operation/describe_custom_key_stores/_describe_custom_key_stores_input.rs"
+    ));
 }
 pub use _describe_custom_key_stores_input::DescribeCustomKeyStoresInput;
 pub type Input = DescribeCustomKeyStoresInput;
 pub mod _describe_custom_key_stores_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/describe_custom_key_stores/_describe_custom_key_stores_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/kms/src/operation/describe_custom_key_stores/_describe_custom_key_stores_output.rs"
+    ));
 }
 pub use _describe_custom_key_stores_output::DescribeCustomKeyStoresOutput;
 pub type Output = DescribeCustomKeyStoresOutput;
 
 /// Builders
 pub mod builders {
-    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation/describe_custom_key_stores/builders.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/kms/src/operation/describe_custom_key_stores/builders.rs"
+    ));
 }
 pub type DescribeCustomKeyStoresError = Error;
 pub type DescribeCustomKeyStoresFluentBuilder = builders::Builder;

@@ -45,23 +45,38 @@ impl GetDurableExecutionStateResponseBuilder {
         self.operations = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>) -> Self { self.operations = input; self }
+    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Operation>>) -> Self {
+        self.operations = input;
+        self
+    }
     /// <p>An array of operations that represent the current state of the durable execution. Operations are ordered by their start sequence number in ascending order and include information needed for replay processing.</p>
-    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Operation>> { &self.operations }
+    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Operation>> {
+        &self.operations
+    }
     /// <p>If present, indicates that more operations are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
     pub fn next_marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>If present, indicates that more operations are available. Use this value as the <code>Marker</code> parameter in a subsequent request to retrieve the next page of results.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// Consumes the builder and constructs a [`GetDurableExecutionStateResponse`](crate::types::GetDurableExecutionStateResponse).
     /// This method will fail if any of the following fields are not set:
     /// - [`operations`](Self::operations)
     pub fn build(self) -> ::std::result::Result<crate::types::GetDurableExecutionStateResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetDurableExecutionStateResponse {
-            operations: self.operations.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("operations", "operations was not specified but it is required when building GetDurableExecutionStateResponse"))?,
+            operations: self.operations.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "operations",
+                    "operations was not specified but it is required when building GetDurableExecutionStateResponse",
+                )
+            })?,
             next_marker: self.next_marker,
         })
     }

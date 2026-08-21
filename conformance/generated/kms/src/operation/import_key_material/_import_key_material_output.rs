@@ -46,17 +46,27 @@ impl ImportKeyMaterialOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the KMS key into which key material was imported.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// <p>Identifies the imported key material.</p>
     pub fn key_material_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_material_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_material_id = input; self }
+    pub fn set_key_material_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_material_id = input;
+        self
+    }
     /// <p>Identifies the imported key material.</p>
-    pub fn get_key_material_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_material_id }
+    pub fn get_key_material_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_material_id
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

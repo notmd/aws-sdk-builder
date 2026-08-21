@@ -39,9 +39,14 @@ impl ListLayersResponseBuilder {
         self.next_marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.next_marker = input; self }
+    pub fn set_next_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.next_marker = input;
+        self
+    }
     /// <p>A pagination token returned when the response doesn't contain all layers.</p>
-    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> { &self.next_marker }
+    pub fn get_next_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.next_marker
+    }
     /// <p>A list of function layers.</p>
     /// Appends an item to `layers`.
     ///
@@ -52,9 +57,14 @@ impl ListLayersResponseBuilder {
         self.layers = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LayersListItem>>) -> Self { self.layers = input; self }
+    pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::LayersListItem>>) -> Self {
+        self.layers = input;
+        self
+    }
     /// <p>A list of function layers.</p>
-    pub fn get_layers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LayersListItem>> { &self.layers }
+    pub fn get_layers(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::LayersListItem>> {
+        &self.layers
+    }
     /// Consumes the builder and constructs a [`ListLayersResponse`](crate::types::ListLayersResponse).
     pub fn build(self) -> crate::types::ListLayersResponse {
         crate::types::ListLayersResponse {

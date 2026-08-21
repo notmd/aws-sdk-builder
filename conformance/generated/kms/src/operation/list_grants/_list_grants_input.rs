@@ -78,18 +78,28 @@ impl ListGrantsInputBuilder {
         self.limit = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self { self.limit = input; self }
+    pub fn set_limit(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.limit = input;
+        self
+    }
     /// <p>Use this parameter to specify the maximum number of items to return. When this value is present, KMS does not return more than the specified number of items, but it might return fewer.</p>
     /// <p>This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.</p>
-    pub fn get_limit(&self) -> &::std::option::Option<i32> { &self.limit }
+    pub fn get_limit(&self) -> &::std::option::Option<i32> {
+        &self.limit
+    }
     /// <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextMarker</code> from the truncated response you just received.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     /// <p>Returns only grants for the specified KMS key. This parameter is required.</p>
     /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
     /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
@@ -98,39 +108,59 @@ impl ListGrantsInputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>Returns only grants for the specified KMS key. This parameter is required.</p>
     /// <p>Specify the key ID or key ARN of the KMS key. To specify a KMS key in a different Amazon Web Services account, you must use the key ARN.</p>
     /// <p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a KMS key, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// <p>Returns only the grant with the specified grant ID. The grant ID uniquely identifies the grant.</p>
     pub fn grant_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grant_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_grant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.grant_id = input; self }
+    pub fn set_grant_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.grant_id = input;
+        self
+    }
     /// <p>Returns only the grant with the specified grant ID. The grant ID uniquely identifies the grant.</p>
-    pub fn get_grant_id(&self) -> &::std::option::Option<::std::string::String> { &self.grant_id }
+    pub fn get_grant_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.grant_id
+    }
     /// <p>Returns only grants where the specified principal is the grantee principal for the grant.</p>
     /// <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
     pub fn grantee_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grantee_principal = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_grantee_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.grantee_principal = input; self }
+    pub fn set_grantee_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.grantee_principal = input;
+        self
+    }
     /// <p>Returns only grants where the specified principal is the grantee principal for the grant.</p>
     /// <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-    pub fn get_grantee_principal(&self) -> &::std::option::Option<::std::string::String> { &self.grantee_principal }
+    pub fn get_grantee_principal(&self) -> &::std::option::Option<::std::string::String> {
+        &self.grantee_principal
+    }
     /// <p>Returns only grants where the specified Amazon Web Services service principal is the grantee service principal for the grant. This filter is only usable by callers in a service principal.</p>
     /// <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
     pub fn grantee_service_principal(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grantee_service_principal = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_grantee_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.grantee_service_principal = input; self }
+    pub fn set_grantee_service_principal(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.grantee_service_principal = input;
+        self
+    }
     /// <p>Returns only grants where the specified Amazon Web Services service principal is the grantee service principal for the grant. This filter is only usable by callers in a service principal.</p>
     /// <p>You can specify either <code>GranteePrincipal</code> or <code>GranteeServicePrincipal</code>, but not both.</p>
-    pub fn get_grantee_service_principal(&self) -> &::std::option::Option<::std::string::String> { &self.grantee_service_principal }
+    pub fn get_grantee_service_principal(&self) -> &::std::option::Option<::std::string::String> {
+        &self.grantee_service_principal
+    }
     /// Consumes the builder and constructs a [`ListGrantsInput`](crate::operation::list_grants::ListGrantsInput).
     pub fn build(self) -> crate::operation::list_grants::ListGrantsInput {
         crate::operation::list_grants::ListGrantsInput {

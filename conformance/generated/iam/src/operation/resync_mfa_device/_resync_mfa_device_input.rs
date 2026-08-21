@@ -63,10 +63,15 @@ impl ResyncMfaDeviceInputBuilder {
         self.user_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.user_name = input; self }
+    pub fn set_user_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.user_name = input;
+        self
+    }
     /// <p>The name of the user whose MFA device you want to resynchronize.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> { &self.user_name }
+    pub fn get_user_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.user_name
+    }
     /// <p>Serial number that uniquely identifies the MFA device.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
     /// This field is required.
@@ -74,10 +79,15 @@ impl ResyncMfaDeviceInputBuilder {
         self.serial_number = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.serial_number = input; self }
+    pub fn set_serial_number(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.serial_number = input;
+        self
+    }
     /// <p>Serial number that uniquely identifies the MFA device.</p>
     /// <p>This parameter allows (through its <a href="http://wikipedia.org/wiki/regex">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric characters with no spaces. You can also include any of the following characters: _+=,.@-</p>
-    pub fn get_serial_number(&self) -> &::std::option::Option<::std::string::String> { &self.serial_number }
+    pub fn get_serial_number(&self) -> &::std::option::Option<::std::string::String> {
+        &self.serial_number
+    }
     /// <p>An authentication code emitted by the device.</p>
     /// <p>The format for this parameter is a sequence of six digits.</p>
     /// This field is required.
@@ -85,10 +95,15 @@ impl ResyncMfaDeviceInputBuilder {
         self.authentication_code1 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_authentication_code1(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.authentication_code1 = input; self }
+    pub fn set_authentication_code1(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.authentication_code1 = input;
+        self
+    }
     /// <p>An authentication code emitted by the device.</p>
     /// <p>The format for this parameter is a sequence of six digits.</p>
-    pub fn get_authentication_code1(&self) -> &::std::option::Option<::std::string::String> { &self.authentication_code1 }
+    pub fn get_authentication_code1(&self) -> &::std::option::Option<::std::string::String> {
+        &self.authentication_code1
+    }
     /// <p>A subsequent authentication code emitted by the device.</p>
     /// <p>The format for this parameter is a sequence of six digits.</p>
     /// This field is required.
@@ -96,10 +111,15 @@ impl ResyncMfaDeviceInputBuilder {
         self.authentication_code2 = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_authentication_code2(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.authentication_code2 = input; self }
+    pub fn set_authentication_code2(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.authentication_code2 = input;
+        self
+    }
     /// <p>A subsequent authentication code emitted by the device.</p>
     /// <p>The format for this parameter is a sequence of six digits.</p>
-    pub fn get_authentication_code2(&self) -> &::std::option::Option<::std::string::String> { &self.authentication_code2 }
+    pub fn get_authentication_code2(&self) -> &::std::option::Option<::std::string::String> {
+        &self.authentication_code2
+    }
     /// Consumes the builder and constructs a [`ResyncMfaDeviceInput`](crate::operation::resync_mfa_device::ResyncMfaDeviceInput).
     pub fn build(self) -> crate::operation::resync_mfa_device::ResyncMfaDeviceInput {
         crate::operation::resync_mfa_device::ResyncMfaDeviceInput {

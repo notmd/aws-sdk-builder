@@ -65,9 +65,14 @@ impl ListLayerVersionsRequestBuilder {
         self.compatible_architecture = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_compatible_architecture(mut self, input: ::std::option::Option<crate::types::Architecture>) -> Self { self.compatible_architecture = input; self }
+    pub fn set_compatible_architecture(mut self, input: ::std::option::Option<crate::types::Architecture>) -> Self {
+        self.compatible_architecture = input;
+        self
+    }
     /// <p>The compatible <a href="https://docs.aws.amazon.com/lambda/latest/dg/foundation-arch.html">instruction set architecture</a>.</p>
-    pub fn get_compatible_architecture(&self) -> &::std::option::Option<crate::types::Architecture> { &self.compatible_architecture }
+    pub fn get_compatible_architecture(&self) -> &::std::option::Option<crate::types::Architecture> {
+        &self.compatible_architecture
+    }
     /// <p>A runtime identifier.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
@@ -75,36 +80,56 @@ impl ListLayerVersionsRequestBuilder {
         self.compatible_runtime = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_compatible_runtime(mut self, input: ::std::option::Option<crate::types::Runtime>) -> Self { self.compatible_runtime = input; self }
+    pub fn set_compatible_runtime(mut self, input: ::std::option::Option<crate::types::Runtime>) -> Self {
+        self.compatible_runtime = input;
+        self
+    }
     /// <p>A runtime identifier.</p>
     /// <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels">Runtime use after deprecation</a>.</p>
     /// <p>For a list of all currently supported runtimes, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported">Supported runtimes</a>.</p>
-    pub fn get_compatible_runtime(&self) -> &::std::option::Option<crate::types::Runtime> { &self.compatible_runtime }
+    pub fn get_compatible_runtime(&self) -> &::std::option::Option<crate::types::Runtime> {
+        &self.compatible_runtime
+    }
     /// <p>The name or Amazon Resource Name (ARN) of the layer.</p>
     /// This field is required.
     pub fn layer_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.layer_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_layer_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.layer_name = input; self }
+    pub fn set_layer_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.layer_name = input;
+        self
+    }
     /// <p>The name or Amazon Resource Name (ARN) of the layer.</p>
-    pub fn get_layer_name(&self) -> &::std::option::Option<::std::string::String> { &self.layer_name }
+    pub fn get_layer_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.layer_name
+    }
     /// <p>A pagination token returned by a previous call.</p>
     pub fn marker(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.marker = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.marker = input; self }
+    pub fn set_marker(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.marker = input;
+        self
+    }
     /// <p>A pagination token returned by a previous call.</p>
-    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> { &self.marker }
+    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
+        &self.marker
+    }
     /// <p>The maximum number of versions to return.</p>
     pub fn max_items(mut self, input: i32) -> Self {
         self.max_items = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self { self.max_items = input; self }
+    pub fn set_max_items(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.max_items = input;
+        self
+    }
     /// <p>The maximum number of versions to return.</p>
-    pub fn get_max_items(&self) -> &::std::option::Option<i32> { &self.max_items }
+    pub fn get_max_items(&self) -> &::std::option::Option<i32> {
+        &self.max_items
+    }
     /// Consumes the builder and constructs a [`ListLayerVersionsRequest`](crate::types::ListLayerVersionsRequest).
     /// This method will fail if any of the following fields are not set:
     /// - [`layer_name`](Self::layer_name)
@@ -112,7 +137,12 @@ impl ListLayerVersionsRequestBuilder {
         ::std::result::Result::Ok(crate::types::ListLayerVersionsRequest {
             compatible_architecture: self.compatible_architecture,
             compatible_runtime: self.compatible_runtime,
-            layer_name: self.layer_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("layer_name", "layer_name was not specified but it is required when building ListLayerVersionsRequest"))?,
+            layer_name: self.layer_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "layer_name",
+                    "layer_name was not specified but it is required when building ListLayerVersionsRequest",
+                )
+            })?,
             marker: self.marker,
             max_items: self.max_items,
         })

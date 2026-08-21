@@ -6,7 +6,9 @@ impl super::Client {
     ///   - [`phone_number(impl Into<String>)`](crate::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberFluentBuilder::phone_number) / [`set_phone_number(Option<String>)`](crate::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberFluentBuilder::set_phone_number):<br>required: **true**<br><p>The destination phone number to delete.</p><br>
     /// - On success, responds with [`DeleteSmsSandboxPhoneNumberOutput`](crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberOutput)
     /// - On failure, responds with [`SdkError<DeleteSmsSandboxPhoneNumberError>`](crate::operation::delete_sms_sandbox_phone_number::DeleteSmsSandboxPhoneNumberError)
-    pub fn delete_sms_sandbox_phone_number(&self) -> crate::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberFluentBuilder {
+    pub fn delete_sms_sandbox_phone_number(
+        &self,
+    ) -> crate::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberFluentBuilder {
         crate::operation::delete_sms_sandbox_phone_number::builders::DeleteSmsSandboxPhoneNumberFluentBuilder::new(self.handle.clone())
     }
 }

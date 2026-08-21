@@ -34,15 +34,25 @@ impl VectorAttributeDefinitionBuilder {
         self.attribute_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.attribute_name = input; self }
+    pub fn set_attribute_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.attribute_name = input;
+        self
+    }
     /// <p>The name of the vector attribute.</p>
-    pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> { &self.attribute_name }
+    pub fn get_attribute_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.attribute_name
+    }
     /// Consumes the builder and constructs a [`VectorAttributeDefinition`](crate::types::VectorAttributeDefinition).
     /// This method will fail if any of the following fields are not set:
     /// - [`attribute_name`](Self::attribute_name)
     pub fn build(self) -> ::std::result::Result<crate::types::VectorAttributeDefinition, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::VectorAttributeDefinition {
-            attribute_name: self.attribute_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("attribute_name", "attribute_name was not specified but it is required when building VectorAttributeDefinition"))?,
+            attribute_name: self.attribute_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "attribute_name",
+                    "attribute_name was not specified but it is required when building VectorAttributeDefinition",
+                )
+            })?,
         })
     }
 }

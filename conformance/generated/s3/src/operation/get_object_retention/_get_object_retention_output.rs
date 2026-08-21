@@ -46,9 +46,14 @@ impl GetObjectRetentionOutputBuilder {
         self.retention = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_retention(mut self, input: ::std::option::Option<crate::types::ObjectLockRetention>) -> Self { self.retention = input; self }
+    pub fn set_retention(mut self, input: ::std::option::Option<crate::types::ObjectLockRetention>) -> Self {
+        self.retention = input;
+        self
+    }
     /// <p>The container element for an object's retention settings.</p>
-    pub fn get_retention(&self) -> &::std::option::Option<crate::types::ObjectLockRetention> { &self.retention }
+    pub fn get_retention(&self) -> &::std::option::Option<crate::types::ObjectLockRetention> {
+        &self.retention
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

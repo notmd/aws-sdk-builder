@@ -2,7 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct DetachRolePolicy;
-impl DetachRolePolicy { pub fn new() -> Self { Self } }
+impl DetachRolePolicy {
+    pub fn new() -> Self {
+        Self
+    }
+}
 #[derive(Clone, Debug)]
 pub enum Error {
     InvalidInputException(super::super::types::error::InvalidInputException),
@@ -11,14 +15,28 @@ pub enum Error {
     ServiceFailureException(super::super::types::error::ServiceFailureException),
     UnmodifiableEntityException(super::super::types::error::UnmodifiableEntityException),
     Unhandled(::std::string::String),
-    UnhandledWithRequestIds { message: ::std::string::String, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String> },
+    UnhandledWithRequestIds {
+        message: ::std::string::String,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    },
 }
 impl Error {
-    pub fn is_invalid_input_exception(&self) -> bool { matches!(self, Self::InvalidInputException(_)) }
-    pub fn is_limit_exceeded_exception(&self) -> bool { matches!(self, Self::LimitExceededException(_)) }
-    pub fn is_no_such_entity_exception(&self) -> bool { matches!(self, Self::NoSuchEntityException(_)) }
-    pub fn is_service_failure_exception(&self) -> bool { matches!(self, Self::ServiceFailureException(_)) }
-    pub fn is_unmodifiable_entity_exception(&self) -> bool { matches!(self, Self::UnmodifiableEntityException(_)) }
+    pub fn is_invalid_input_exception(&self) -> bool {
+        matches!(self, Self::InvalidInputException(_))
+    }
+    pub fn is_limit_exceeded_exception(&self) -> bool {
+        matches!(self, Self::LimitExceededException(_))
+    }
+    pub fn is_no_such_entity_exception(&self) -> bool {
+        matches!(self, Self::NoSuchEntityException(_))
+    }
+    pub fn is_service_failure_exception(&self) -> bool {
+        matches!(self, Self::ServiceFailureException(_))
+    }
+    pub fn is_unmodifiable_entity_exception(&self) -> bool {
+        matches!(self, Self::UnmodifiableEntityException(_))
+    }
 }
 impl ::std::fmt::Display for Error {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -35,19 +53,49 @@ impl ::std::fmt::Display for Error {
 }
 impl ::std::error::Error for Error {}
 impl Error {
-    pub(crate) fn unhandled_with_request_ids(message: impl ::std::convert::Into<::std::string::String>, request_id: ::std::option::Option<::std::string::String>, extended_request_id: ::std::option::Option<::std::string::String>) -> Self { Self::UnhandledWithRequestIds { message: message.into(), request_id, extended_request_id } }
-    pub fn meta(&self) -> crate::error::ErrorMetadata { match self { Self::UnhandledWithRequestIds { request_id, extended_request_id, .. } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()), _ => crate::error::ErrorMetadata::default() } }
+    pub(crate) fn unhandled_with_request_ids(
+        message: impl ::std::convert::Into<::std::string::String>,
+        request_id: ::std::option::Option<::std::string::String>,
+        extended_request_id: ::std::option::Option<::std::string::String>,
+    ) -> Self {
+        Self::UnhandledWithRequestIds {
+            message: message.into(),
+            request_id,
+            extended_request_id,
+        }
+    }
+    pub fn meta(&self) -> crate::error::ErrorMetadata {
+        match self {
+            Self::UnhandledWithRequestIds {
+                request_id,
+                extended_request_id,
+                ..
+            } => crate::error::ErrorMetadata::from_request_ids(request_id.clone(), extended_request_id.clone()),
+            _ => crate::error::ErrorMetadata::default(),
+        }
+    }
 }
 impl ::aws_types::request_id::RequestId for Error {
-    fn request_id(&self) -> Option<&str> { match self { Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(), _ => None } }
+    fn request_id(&self) -> Option<&str> {
+        match self {
+            Self::UnhandledWithRequestIds { request_id, .. } => request_id.as_deref(),
+            _ => None,
+        }
+    }
 }
 pub mod _detach_role_policy_input {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/detach_role_policy/_detach_role_policy_input.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/detach_role_policy/_detach_role_policy_input.rs"
+    ));
 }
 pub use _detach_role_policy_input::DetachRolePolicyInput;
 pub type Input = DetachRolePolicyInput;
 pub mod _detach_role_policy_output {
-    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/operation/detach_role_policy/_detach_role_policy_output.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/iam/src/operation/detach_role_policy/_detach_role_policy_output.rs"
+    ));
 }
 pub use _detach_role_policy_output::DetachRolePolicyOutput;
 pub type Output = DetachRolePolicyOutput;

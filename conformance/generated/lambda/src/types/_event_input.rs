@@ -39,17 +39,27 @@ impl EventInputBuilder {
         self.payload = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.payload = input; self }
+    pub fn set_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.payload = input;
+        self
+    }
     /// <p>The input payload.</p>
-    pub fn get_payload(&self) -> &::std::option::Option<::std::string::String> { &self.payload }
+    pub fn get_payload(&self) -> &::std::option::Option<::std::string::String> {
+        &self.payload
+    }
     /// <p>Indicates if the error payload was truncated due to size limits.</p>
     pub fn truncated(mut self, input: bool) -> Self {
         self.truncated = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self { self.truncated = input; self }
+    pub fn set_truncated(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.truncated = input;
+        self
+    }
     /// <p>Indicates if the error payload was truncated due to size limits.</p>
-    pub fn get_truncated(&self) -> &::std::option::Option<bool> { &self.truncated }
+    pub fn get_truncated(&self) -> &::std::option::Option<bool> {
+        &self.truncated
+    }
     /// Consumes the builder and constructs a [`EventInput`](crate::types::EventInput).
     pub fn build(self) -> crate::types::EventInput {
         crate::types::EventInput {

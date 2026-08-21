@@ -6,39 +6,109 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn mfa(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.mfa = Some(value.into()); self }
-    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.version_id = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn bypass_governance_retention(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.bypass_governance_retention = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.if_match = Some(value.into()); self }
-    pub fn if_match_last_modified_time(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.if_match_last_modified_time = Some(value.into()); self }
-    pub fn if_match_size(mut self, value: impl ::std::convert::Into<i64>) -> Self { self.input.if_match_size = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::DeleteObjectOutput, super::DeleteObjectError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::DeleteObjectError::Unhandled("DeleteObject requires bucket".to_owned()))?;
-                         let key = self.input.key.as_deref().ok_or_else(|| super::DeleteObjectError::Unhandled("DeleteObject requires key".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}/{Key+}?x-id=DeleteObject"); if let Some(value) = self.input.version_id.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("versionId"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path = path.replace("{Key+}", &super::super::super::transport::encode_path(key)); path };
-                         let body = ::std::vec::Vec::new();
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers };
-                         let response = self.client.request(super::super::super::transport::Method::Delete, &path, &headers, &body).await.map_err(super::DeleteObjectError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::DeleteObjectError::unhandled_with_request_ids(format!("DeleteObject returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_delete_object_output::DeleteObjectOutputBuilder::default();
-                         output.delete_marker = response.header("x-amz-delete-marker").and_then(|value| value.parse().ok());
-                         output.version_id = response.header("x-amz-version-id").map(str::to_owned);
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key = Some(value.into());
+        self
+    }
+    pub fn mfa(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.mfa = Some(value.into());
+        self
+    }
+    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.version_id = Some(value.into());
+        self
+    }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
+        self.input.request_payer = Some(value.into());
+        self
+    }
+    pub fn bypass_governance_retention(mut self, value: impl ::std::convert::Into<bool>) -> Self {
+        self.input.bypass_governance_retention = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.if_match = Some(value.into());
+        self
+    }
+    pub fn if_match_last_modified_time(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
+        self.input.if_match_last_modified_time = Some(value.into());
+        self
+    }
+    pub fn if_match_size(mut self, value: impl ::std::convert::Into<i64>) -> Self {
+        self.input.if_match_size = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::DeleteObjectOutput, super::DeleteObjectError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::DeleteObjectError::Unhandled("DeleteObject requires bucket".to_owned()))?;
+        let key = self
+            .input
+            .key
+            .as_deref()
+            .ok_or_else(|| super::DeleteObjectError::Unhandled("DeleteObject requires key".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}/{Key+}?x-id=DeleteObject");
+            if let Some(value) = self.input.version_id.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("versionId");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path = path.replace("{Key+}", &super::super::super::transport::encode_path(key));
+            path
+        };
+        let body = ::std::vec::Vec::new();
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Delete, &path, &headers, &body)
+            .await
+            .map_err(super::DeleteObjectError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::DeleteObjectError::unhandled_with_request_ids(
+                format!("DeleteObject returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_delete_object_output::DeleteObjectOutputBuilder::default();
+        output.delete_marker = response.header("x-amz-delete-marker").and_then(|value| value.parse().ok());
+        output.version_id = response.header("x-amz-version-id").map(str::to_owned);
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as DeleteObjectFluentBuilder;

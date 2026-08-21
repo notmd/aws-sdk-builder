@@ -32,13 +32,16 @@ impl WaitSucceededDetailsBuilder {
         self.duration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_duration(mut self, input: ::std::option::Option<i32>) -> Self { self.duration = input; self }
+    pub fn set_duration(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.duration = input;
+        self
+    }
     /// <p>The wait duration, in seconds.</p>
-    pub fn get_duration(&self) -> &::std::option::Option<i32> { &self.duration }
+    pub fn get_duration(&self) -> &::std::option::Option<i32> {
+        &self.duration
+    }
     /// Consumes the builder and constructs a [`WaitSucceededDetails`](crate::types::WaitSucceededDetails).
     pub fn build(self) -> crate::types::WaitSucceededDetails {
-        crate::types::WaitSucceededDetails {
-            duration: self.duration,
-        }
+        crate::types::WaitSucceededDetails { duration: self.duration }
     }
 }

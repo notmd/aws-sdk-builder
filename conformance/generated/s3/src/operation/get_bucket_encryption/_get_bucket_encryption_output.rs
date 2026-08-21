@@ -43,8 +43,13 @@ impl GetBucketEncryptionOutputBuilder {
         self.server_side_encryption_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_server_side_encryption_configuration(mut self, input: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>) -> Self { self.server_side_encryption_configuration = input; self }
-    pub fn get_server_side_encryption_configuration(&self) -> &::std::option::Option<crate::types::ServerSideEncryptionConfiguration> { &self.server_side_encryption_configuration }
+    pub fn set_server_side_encryption_configuration(mut self, input: ::std::option::Option<crate::types::ServerSideEncryptionConfiguration>) -> Self {
+        self.server_side_encryption_configuration = input;
+        self
+    }
+    pub fn get_server_side_encryption_configuration(&self) -> &::std::option::Option<crate::types::ServerSideEncryptionConfiguration> {
+        &self.server_side_encryption_configuration
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

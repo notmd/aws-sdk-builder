@@ -42,26 +42,46 @@ impl TagBuilder {
         self.tag_key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_tag_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.tag_key = input; self }
+    pub fn set_tag_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.tag_key = input;
+        self
+    }
     /// <p>The key of the tag.</p>
-    pub fn get_tag_key(&self) -> &::std::option::Option<::std::string::String> { &self.tag_key }
+    pub fn get_tag_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.tag_key
+    }
     /// <p>The value of the tag.</p>
     /// This field is required.
     pub fn tag_value(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.tag_value = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_tag_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.tag_value = input; self }
+    pub fn set_tag_value(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.tag_value = input;
+        self
+    }
     /// <p>The value of the tag.</p>
-    pub fn get_tag_value(&self) -> &::std::option::Option<::std::string::String> { &self.tag_value }
+    pub fn get_tag_value(&self) -> &::std::option::Option<::std::string::String> {
+        &self.tag_value
+    }
     /// Consumes the builder and constructs a [`Tag`](crate::types::Tag).
     /// This method will fail if any of the following fields are not set:
     /// - [`tag_key`](Self::tag_key)
     /// - [`tag_value`](Self::tag_value)
     pub fn build(self) -> ::std::result::Result<crate::types::Tag, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::Tag {
-            tag_key: self.tag_key.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("tag_key", "tag_key was not specified but it is required when building Tag"))?,
-            tag_value: self.tag_value.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("tag_value", "tag_value was not specified but it is required when building Tag"))?,
+            tag_key: self.tag_key.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "tag_key",
+                    "tag_key was not specified but it is required when building Tag",
+                )
+            })?,
+            tag_value: self.tag_value.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "tag_value",
+                    "tag_value was not specified but it is required when building Tag",
+                )
+            })?,
         })
     }
 }

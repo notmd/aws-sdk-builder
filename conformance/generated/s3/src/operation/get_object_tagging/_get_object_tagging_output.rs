@@ -54,9 +54,14 @@ impl GetObjectTaggingOutputBuilder {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.version_id = input; self }
+    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.version_id = input;
+        self
+    }
     /// <p>The versionId of the object for which you got the tagging information.</p>
-    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.version_id }
+    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.version_id
+    }
     /// <p>Contains the tag set.</p>
     /// Appends an item to `tag_set`.
     ///
@@ -67,9 +72,14 @@ impl GetObjectTaggingOutputBuilder {
         self.tag_set = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self { self.tag_set = input; self }
+    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>) -> Self {
+        self.tag_set = input;
+        self
+    }
     /// <p>Contains the tag set.</p>
-    pub fn get_tag_set(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> { &self.tag_set }
+    pub fn get_tag_set(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Tag>> {
+        &self.tag_set
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self
@@ -91,10 +101,17 @@ impl GetObjectTaggingOutputBuilder {
     /// Consumes the builder and constructs a [`GetObjectTaggingOutput`](crate::operation::get_object_tagging::GetObjectTaggingOutput).
     /// This method will fail if any of the following fields are not set:
     /// - [`tag_set`](Self::tag_set)
-    pub fn build(self) -> ::std::result::Result<crate::operation::get_object_tagging::GetObjectTaggingOutput, ::aws_smithy_types::error::operation::BuildError> {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::operation::get_object_tagging::GetObjectTaggingOutput, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::operation::get_object_tagging::GetObjectTaggingOutput {
             version_id: self.version_id,
-            tag_set: self.tag_set.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("tag_set", "tag_set was not specified but it is required when building GetObjectTaggingOutput"))?,
+            tag_set: self.tag_set.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "tag_set",
+                    "tag_set was not specified but it is required when building GetObjectTaggingOutput",
+                )
+            })?,
             _extended_request_id: self._extended_request_id,
             _request_id: self._request_id,
         })

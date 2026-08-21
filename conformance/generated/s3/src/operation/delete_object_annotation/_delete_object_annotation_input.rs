@@ -75,18 +75,28 @@ impl DeleteObjectAnnotationInputBuilder {
         self.bucket = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.bucket = input; self }
+    pub fn set_bucket(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.bucket = input;
+        self
+    }
     /// <p>The name of the bucket that contains the object.</p>
-    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> { &self.bucket }
+    pub fn get_bucket(&self) -> &::std::option::Option<::std::string::String> {
+        &self.bucket
+    }
     /// <p>The object key.</p>
     /// This field is required.
     pub fn key(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key = input; self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key = input;
+        self
+    }
     /// <p>The object key.</p>
-    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> { &self.key }
+    pub fn get_key(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key
+    }
     /// <p>The name of the annotation to delete. Annotation names are UTF-8 encoded and cannot start with <code>aws</code> or <code>s3</code> (case-insensitive).</p>
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
     /// This field is required.
@@ -94,40 +104,65 @@ impl DeleteObjectAnnotationInputBuilder {
         self.annotation_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_annotation_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.annotation_name = input; self }
+    pub fn set_annotation_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.annotation_name = input;
+        self
+    }
     /// <p>The name of the annotation to delete. Annotation names are UTF-8 encoded and cannot start with <code>aws</code> or <code>s3</code> (case-insensitive).</p>
     /// <p>Length Constraints: Minimum length of 1. Maximum length of 512 bytes.</p>
-    pub fn get_annotation_name(&self) -> &::std::option::Option<::std::string::String> { &self.annotation_name }
+    pub fn get_annotation_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.annotation_name
+    }
     /// <p>The version ID of the object.</p>
     pub fn version_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.version_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.version_id = input; self }
+    pub fn set_version_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.version_id = input;
+        self
+    }
     /// <p>The version ID of the object.</p>
-    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> { &self.version_id }
+    pub fn get_version_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.version_id
+    }
     pub fn request_payer(mut self, input: crate::types::RequestPayer) -> Self {
         self.request_payer = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self { self.request_payer = input; self }
-    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> { &self.request_payer }
+    pub fn set_request_payer(mut self, input: ::std::option::Option<crate::types::RequestPayer>) -> Self {
+        self.request_payer = input;
+        self
+    }
+    pub fn get_request_payer(&self) -> &::std::option::Option<crate::types::RequestPayer> {
+        &self.request_payer
+    }
     /// <p>The account ID of the expected bucket owner.</p>
     pub fn expected_bucket_owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expected_bucket_owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expected_bucket_owner = input; self }
+    pub fn set_expected_bucket_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.expected_bucket_owner = input;
+        self
+    }
     /// <p>The account ID of the expected bucket owner.</p>
-    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> { &self.expected_bucket_owner }
+    pub fn get_expected_bucket_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.expected_bucket_owner
+    }
     /// <p>If specified, the operation only succeeds if the object's ETag matches the provided value.</p>
     pub fn object_if_match(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.object_if_match = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_object_if_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.object_if_match = input; self }
+    pub fn set_object_if_match(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.object_if_match = input;
+        self
+    }
     /// <p>If specified, the operation only succeeds if the object's ETag matches the provided value.</p>
-    pub fn get_object_if_match(&self) -> &::std::option::Option<::std::string::String> { &self.object_if_match }
+    pub fn get_object_if_match(&self) -> &::std::option::Option<::std::string::String> {
+        &self.object_if_match
+    }
     /// Consumes the builder and constructs a [`DeleteObjectAnnotationInput`](crate::operation::delete_object_annotation::DeleteObjectAnnotationInput).
     pub fn build(self) -> crate::operation::delete_object_annotation::DeleteObjectAnnotationInput {
         crate::operation::delete_object_annotation::DeleteObjectAnnotationInput {

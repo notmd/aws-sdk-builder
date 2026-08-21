@@ -75,37 +75,57 @@ impl DeriveSharedSecretOutputBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>Identifies the KMS key used to derive the shared secret.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// <p>The raw secret derived from the specified key agreement algorithm, private key in the asymmetric KMS key, and your peer's public key.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>SharedSecret</code> field is null or empty.</p>
     pub fn shared_secret(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.shared_secret = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_shared_secret(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.shared_secret = input; self }
+    pub fn set_shared_secret(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.shared_secret = input;
+        self
+    }
     /// <p>The raw secret derived from the specified key agreement algorithm, private key in the asymmetric KMS key, and your peer's public key.</p>
     /// <p>If the response includes the <code>CiphertextForRecipient</code> field, the <code>SharedSecret</code> field is null or empty.</p>
-    pub fn get_shared_secret(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.shared_secret }
+    pub fn get_shared_secret(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.shared_secret
+    }
     /// <p>The plaintext shared secret encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
     pub fn ciphertext_for_recipient(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.ciphertext_for_recipient = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self { self.ciphertext_for_recipient = input; self }
+    pub fn set_ciphertext_for_recipient(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
+        self.ciphertext_for_recipient = input;
+        self
+    }
     /// <p>The plaintext shared secret encrypted with the public key from the attestation document. This ciphertext can be decrypted only by using a private key from the attested environment.</p>
     /// <p>This field is included in the response only when the <code>Recipient</code> parameter in the request includes a valid attestation document from an Amazon Web Services Nitro enclave or NitroTPM. For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-    pub fn get_ciphertext_for_recipient(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.ciphertext_for_recipient }
+    pub fn get_ciphertext_for_recipient(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
+        &self.ciphertext_for_recipient
+    }
     /// <p>Identifies the key agreement algorithm used to derive the shared secret.</p>
     pub fn key_agreement_algorithm(mut self, input: crate::types::KeyAgreementAlgorithmSpec) -> Self {
         self.key_agreement_algorithm = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_key_agreement_algorithm(mut self, input: ::std::option::Option<crate::types::KeyAgreementAlgorithmSpec>) -> Self { self.key_agreement_algorithm = input; self }
+    pub fn set_key_agreement_algorithm(mut self, input: ::std::option::Option<crate::types::KeyAgreementAlgorithmSpec>) -> Self {
+        self.key_agreement_algorithm = input;
+        self
+    }
     /// <p>Identifies the key agreement algorithm used to derive the shared secret.</p>
-    pub fn get_key_agreement_algorithm(&self) -> &::std::option::Option<crate::types::KeyAgreementAlgorithmSpec> { &self.key_agreement_algorithm }
+    pub fn get_key_agreement_algorithm(&self) -> &::std::option::Option<crate::types::KeyAgreementAlgorithmSpec> {
+        &self.key_agreement_algorithm
+    }
     /// <p>The source of the key material for the specified KMS key.</p>
     /// <p>When this value is <code>AWS_KMS</code>, KMS created the key material. When this value is <code>EXTERNAL</code>, the key material was imported or the KMS key doesn't have any key material.</p>
     /// <p>The only valid values for DeriveSharedSecret are <code>AWS_KMS</code> and <code>EXTERNAL</code>. DeriveSharedSecret does not support KMS keys with a <code>KeyOrigin</code> value of <code>AWS_CLOUDHSM</code> or <code>EXTERNAL_KEY_STORE</code>.</p>
@@ -113,11 +133,16 @@ impl DeriveSharedSecretOutputBuilder {
         self.key_origin = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_key_origin(mut self, input: ::std::option::Option<crate::types::OriginType>) -> Self { self.key_origin = input; self }
+    pub fn set_key_origin(mut self, input: ::std::option::Option<crate::types::OriginType>) -> Self {
+        self.key_origin = input;
+        self
+    }
     /// <p>The source of the key material for the specified KMS key.</p>
     /// <p>When this value is <code>AWS_KMS</code>, KMS created the key material. When this value is <code>EXTERNAL</code>, the key material was imported or the KMS key doesn't have any key material.</p>
     /// <p>The only valid values for DeriveSharedSecret are <code>AWS_KMS</code> and <code>EXTERNAL</code>. DeriveSharedSecret does not support KMS keys with a <code>KeyOrigin</code> value of <code>AWS_CLOUDHSM</code> or <code>EXTERNAL_KEY_STORE</code>.</p>
-    pub fn get_key_origin(&self) -> &::std::option::Option<crate::types::OriginType> { &self.key_origin }
+    pub fn get_key_origin(&self) -> &::std::option::Option<crate::types::OriginType> {
+        &self.key_origin
+    }
     pub(crate) fn _request_id(mut self, request_id: impl Into<String>) -> Self {
         self._request_id = Some(request_id.into());
         self

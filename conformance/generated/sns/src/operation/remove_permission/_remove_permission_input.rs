@@ -40,18 +40,28 @@ impl RemovePermissionInputBuilder {
         self.topic_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.topic_arn = input; self }
+    pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.topic_arn = input;
+        self
+    }
     /// <p>The ARN of the topic whose access control policy you wish to modify.</p>
-    pub fn get_topic_arn(&self) -> &::std::option::Option<::std::string::String> { &self.topic_arn }
+    pub fn get_topic_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.topic_arn
+    }
     /// <p>The unique label of the statement you want to remove.</p>
     /// This field is required.
     pub fn label(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.label = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.label = input; self }
+    pub fn set_label(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.label = input;
+        self
+    }
     /// <p>The unique label of the statement you want to remove.</p>
-    pub fn get_label(&self) -> &::std::option::Option<::std::string::String> { &self.label }
+    pub fn get_label(&self) -> &::std::option::Option<::std::string::String> {
+        &self.label
+    }
     /// Consumes the builder and constructs a [`RemovePermissionInput`](crate::operation::remove_permission::RemovePermissionInput).
     pub fn build(self) -> crate::operation::remove_permission::RemovePermissionInput {
         crate::operation::remove_permission::RemovePermissionInput {

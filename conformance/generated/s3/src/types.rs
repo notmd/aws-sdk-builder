@@ -32,8 +32,14 @@ pub mod types {
     pub type AnnotationName = ::std::string::String;
     pub type AnnotationPrefix = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_annotation_table_configuration.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_annotation_table_configuration_result.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_annotation_table_configuration_updates.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/types/_annotation_table_configuration_result.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/types/_annotation_table_configuration_updates.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_archive_status.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_blocked_encryption_types.rs"));
     pub type Body = ::std::vec::Vec<u8>;
@@ -157,8 +163,14 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_filter_rule.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_filter_rule_name.rs"));
     pub type FilterRuleValue = ::std::string::String;
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_get_bucket_metadata_configuration_result.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_get_bucket_metadata_table_configuration_result.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/types/_get_bucket_metadata_configuration_result.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/types/_get_bucket_metadata_table_configuration_result.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_get_object_attributes_parts.rs"));
     pub type GetObjectResponseStatusCode = i32;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_glacier_job_parameters.rs"));
@@ -204,8 +216,14 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_inventory_s3_bucket_destination.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_inventory_schedule.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_inventory_table_configuration.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_inventory_table_configuration_result.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_inventory_table_configuration_updates.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/types/_inventory_table_configuration_result.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/types/_inventory_table_configuration_updates.rs"
+    ));
     pub type IsEnabled = bool;
     pub type IsLatest = bool;
     pub type IsPublic = bool;
@@ -216,7 +234,10 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_json_type.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_journal_table_configuration.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_journal_table_configuration_result.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_journal_table_configuration_updates.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/types/_journal_table_configuration_updates.rs"
+    ));
     pub type KmsContext = ::std::string::String;
     pub type KeyCount = i32;
     pub type KeyMarker = ::std::string::String;
@@ -254,8 +275,14 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_metadata_entry.rs"));
     pub type MetadataKey = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_metadata_table_configuration.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_metadata_table_configuration_result.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_metadata_table_encryption_configuration.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/types/_metadata_table_configuration_result.rs"
+    ));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/types/_metadata_table_encryption_configuration.rs"
+    ));
     pub type MetadataTableStatus = ::std::string::String;
     pub type MetadataValue = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_metrics.rs"));
@@ -407,7 +434,10 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_select_parameters.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_server_side_encryption.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_server_side_encryption_by_default.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_server_side_encryption_configuration.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/types/_server_side_encryption_configuration.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_server_side_encryption_rule.rs"));
     pub type SessionCredentialValue = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_session_credentials.rs"));
@@ -427,7 +457,10 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_storage_class.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_storage_class_analysis.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_storage_class_analysis_data_export.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_storage_class_analysis_schema_version.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/types/_storage_class_analysis_schema_version.rs"
+    ));
     pub type StreamingBlob = ::std::vec::Vec<u8>;
     pub type Suffix = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_table_sse_algorithm.rs"));
@@ -446,7 +479,10 @@ pub mod types {
     pub type TopicArn = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_topic_configuration.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_transition.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_transition_default_minimum_object_size.rs"));
+    include!(concat!(
+        env!("OUT_DIR"),
+        "/generated/s3/src/types/_transition_default_minimum_object_size.rs"
+    ));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_transition_storage_class.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_type_.rs"));
     pub type Uri = ::std::string::String;
@@ -460,26 +496,38 @@ pub mod types {
     pub type WriteOffsetBytes = i64;
     pub type Years = i32;
     pub mod error {
-        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_access_denied.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_annotation_limit_exceeded.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_annotation_name_too_long.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_no_such_upload.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/s3/src/types/error/_object_not_in_active_tier_error.rs"
+        ));
         include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_bucket_already_exists.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_bucket_already_owned_by_you.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_encryption_type_mismatch.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_idempotency_parameter_mismatch.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_invalid_annotation_name.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_invalid_object_state.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_invalid_prefix.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_invalid_request.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_invalid_write_offset.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_no_such_annotation.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_no_such_bucket.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_no_such_key.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_no_such_upload.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_invalid_object_state.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_no_such_annotation.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_not_found.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_object_already_in_active_tier_error.rs"));
-        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_object_not_in_active_tier_error.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_invalid_prefix.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_encryption_type_mismatch.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_invalid_request.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_invalid_write_offset.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_too_many_parts.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_annotation_limit_exceeded.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_annotation_name_too_long.rs"));
+        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_invalid_annotation_name.rs"));
         include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_unsupported_media_type.rs"));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/s3/src/types/error/_idempotency_parameter_mismatch.rs"
+        ));
+        include!(concat!(
+            env!("OUT_DIR"),
+            "/generated/s3/src/types/error/_object_already_in_active_tier_error.rs"
+        ));
+        include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/_access_denied.rs"));
+        pub mod builders {
+            include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/error/builders.rs"));
+        }
     }
 }

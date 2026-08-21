@@ -99,25 +99,40 @@ impl LifecycleRuleBuilder {
         self.expiration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_expiration(mut self, input: ::std::option::Option<crate::types::LifecycleExpiration>) -> Self { self.expiration = input; self }
+    pub fn set_expiration(mut self, input: ::std::option::Option<crate::types::LifecycleExpiration>) -> Self {
+        self.expiration = input;
+        self
+    }
     /// <p>Specifies the expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker.</p>
-    pub fn get_expiration(&self) -> &::std::option::Option<crate::types::LifecycleExpiration> { &self.expiration }
+    pub fn get_expiration(&self) -> &::std::option::Option<crate::types::LifecycleExpiration> {
+        &self.expiration
+    }
     /// <p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>
     pub fn id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.id = input; self }
+    pub fn set_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.id = input;
+        self
+    }
     /// <p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>
-    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> { &self.id }
+    pub fn get_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.id
+    }
     /// <p>The general purpose bucket prefix that identifies one or more objects to which the rule applies. We recommend using <code>Filter</code> instead of <code>Prefix</code> for new PUTs. Previous configurations where a prefix is defined will continue to operate as before.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
     pub fn prefix(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.prefix = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.prefix = input; self }
+    pub fn set_prefix(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.prefix = input;
+        self
+    }
     /// <p>The general purpose bucket prefix that identifies one or more objects to which the rule applies. We recommend using <code>Filter</code> instead of <code>Prefix</code> for new PUTs. Previous configurations where a prefix is defined will continue to operate as before.</p> <important><p>Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints">XML related object key constraints</a>.</p></important>
-    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> { &self.prefix }
+    pub fn get_prefix(&self) -> &::std::option::Option<::std::string::String> {
+        &self.prefix
+    }
     /// <p>The <code>Filter</code> is used to identify objects that a Lifecycle Rule applies to. A <code>Filter</code> must have exactly one of <code>Prefix</code>, <code>Tag</code>, <code>ObjectSizeGreaterThan</code>, <code>ObjectSizeLessThan</code>, or <code>And</code> specified. <code>Filter</code> is required if the <code>LifecycleRule</code> does not contain a <code>Prefix</code> element.</p>
     /// <p>For more information about <code>Tag</code> filters, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-filters.html">Adding filters to Lifecycle rules</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p><code>Tag</code> filters are not supported for directory buckets.</p>
@@ -126,21 +141,31 @@ impl LifecycleRuleBuilder {
         self.filter = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::LifecycleRuleFilter>) -> Self { self.filter = input; self }
+    pub fn set_filter(mut self, input: ::std::option::Option<crate::types::LifecycleRuleFilter>) -> Self {
+        self.filter = input;
+        self
+    }
     /// <p>The <code>Filter</code> is used to identify objects that a Lifecycle Rule applies to. A <code>Filter</code> must have exactly one of <code>Prefix</code>, <code>Tag</code>, <code>ObjectSizeGreaterThan</code>, <code>ObjectSizeLessThan</code>, or <code>And</code> specified. <code>Filter</code> is required if the <code>LifecycleRule</code> does not contain a <code>Prefix</code> element.</p>
     /// <p>For more information about <code>Tag</code> filters, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intro-lifecycle-filters.html">Adding filters to Lifecycle rules</a> in the <i>Amazon S3 User Guide</i>.</p><note>
     /// <p><code>Tag</code> filters are not supported for directory buckets.</p>
     /// </note>
-    pub fn get_filter(&self) -> &::std::option::Option<crate::types::LifecycleRuleFilter> { &self.filter }
+    pub fn get_filter(&self) -> &::std::option::Option<crate::types::LifecycleRuleFilter> {
+        &self.filter
+    }
     /// <p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</p>
     /// This field is required.
     pub fn status(mut self, input: crate::types::ExpirationStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExpirationStatus>) -> Self { self.status = input; self }
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExpirationStatus>) -> Self {
+        self.status = input;
+        self
+    }
     /// <p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::ExpirationStatus> { &self.status }
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::ExpirationStatus> {
+        &self.status
+    }
     /// <p>Specifies when an Amazon S3 object transitions to a specified storage class.</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
@@ -153,11 +178,16 @@ impl LifecycleRuleBuilder {
         self.transitions = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_transitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Transition>>) -> Self { self.transitions = input; self }
+    pub fn set_transitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Transition>>) -> Self {
+        self.transitions = input;
+        self
+    }
     /// <p>Specifies when an Amazon S3 object transitions to a specified storage class.</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
-    pub fn get_transitions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Transition>> { &self.transitions }
+    pub fn get_transitions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::Transition>> {
+        &self.transitions
+    }
     /// <p>Specifies the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to a specific storage class at a set period in the object's lifetime.</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
@@ -170,23 +200,41 @@ impl LifecycleRuleBuilder {
         self.noncurrent_version_transitions = ::std::option::Option::Some(v);
         self
     }
-    pub fn set_noncurrent_version_transitions(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::NoncurrentVersionTransition>>) -> Self { self.noncurrent_version_transitions = input; self }
+    pub fn set_noncurrent_version_transitions(
+        mut self,
+        input: ::std::option::Option<::std::vec::Vec<crate::types::NoncurrentVersionTransition>>,
+    ) -> Self {
+        self.noncurrent_version_transitions = input;
+        self
+    }
     /// <p>Specifies the transition rule for the lifecycle rule that describes when noncurrent objects transition to a specific storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to a specific storage class at a set period in the object's lifetime.</p><note>
     /// <p>This parameter applies to general purpose buckets only. It is not supported for directory bucket lifecycle configurations.</p>
     /// </note>
-    pub fn get_noncurrent_version_transitions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::NoncurrentVersionTransition>> { &self.noncurrent_version_transitions }
+    pub fn get_noncurrent_version_transitions(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::NoncurrentVersionTransition>> {
+        &self.noncurrent_version_transitions
+    }
     pub fn noncurrent_version_expiration(mut self, input: crate::types::NoncurrentVersionExpiration) -> Self {
         self.noncurrent_version_expiration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_noncurrent_version_expiration(mut self, input: ::std::option::Option<crate::types::NoncurrentVersionExpiration>) -> Self { self.noncurrent_version_expiration = input; self }
-    pub fn get_noncurrent_version_expiration(&self) -> &::std::option::Option<crate::types::NoncurrentVersionExpiration> { &self.noncurrent_version_expiration }
+    pub fn set_noncurrent_version_expiration(mut self, input: ::std::option::Option<crate::types::NoncurrentVersionExpiration>) -> Self {
+        self.noncurrent_version_expiration = input;
+        self
+    }
+    pub fn get_noncurrent_version_expiration(&self) -> &::std::option::Option<crate::types::NoncurrentVersionExpiration> {
+        &self.noncurrent_version_expiration
+    }
     pub fn abort_incomplete_multipart_upload(mut self, input: crate::types::AbortIncompleteMultipartUpload) -> Self {
         self.abort_incomplete_multipart_upload = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_abort_incomplete_multipart_upload(mut self, input: ::std::option::Option<crate::types::AbortIncompleteMultipartUpload>) -> Self { self.abort_incomplete_multipart_upload = input; self }
-    pub fn get_abort_incomplete_multipart_upload(&self) -> &::std::option::Option<crate::types::AbortIncompleteMultipartUpload> { &self.abort_incomplete_multipart_upload }
+    pub fn set_abort_incomplete_multipart_upload(mut self, input: ::std::option::Option<crate::types::AbortIncompleteMultipartUpload>) -> Self {
+        self.abort_incomplete_multipart_upload = input;
+        self
+    }
+    pub fn get_abort_incomplete_multipart_upload(&self) -> &::std::option::Option<crate::types::AbortIncompleteMultipartUpload> {
+        &self.abort_incomplete_multipart_upload
+    }
     /// Consumes the builder and constructs a [`LifecycleRule`](crate::types::LifecycleRule).
     /// This method will fail if any of the following fields are not set:
     /// - [`status`](Self::status)
@@ -196,7 +244,12 @@ impl LifecycleRuleBuilder {
             id: self.id,
             prefix: self.prefix,
             filter: self.filter,
-            status: self.status.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building LifecycleRule"))?,
+            status: self.status.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "status",
+                    "status was not specified but it is required when building LifecycleRule",
+                )
+            })?,
             transitions: self.transitions,
             noncurrent_version_transitions: self.noncurrent_version_transitions,
             noncurrent_version_expiration: self.noncurrent_version_expiration,

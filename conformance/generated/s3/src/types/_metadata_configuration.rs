@@ -46,25 +46,40 @@ impl MetadataConfigurationBuilder {
         self.journal_table_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_journal_table_configuration(mut self, input: ::std::option::Option<crate::types::JournalTableConfiguration>) -> Self { self.journal_table_configuration = input; self }
+    pub fn set_journal_table_configuration(mut self, input: ::std::option::Option<crate::types::JournalTableConfiguration>) -> Self {
+        self.journal_table_configuration = input;
+        self
+    }
     /// <p>The journal table configuration for a metadata configuration.</p>
-    pub fn get_journal_table_configuration(&self) -> &::std::option::Option<crate::types::JournalTableConfiguration> { &self.journal_table_configuration }
+    pub fn get_journal_table_configuration(&self) -> &::std::option::Option<crate::types::JournalTableConfiguration> {
+        &self.journal_table_configuration
+    }
     /// <p>The inventory table configuration for a metadata configuration.</p>
     pub fn inventory_table_configuration(mut self, input: crate::types::InventoryTableConfiguration) -> Self {
         self.inventory_table_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_inventory_table_configuration(mut self, input: ::std::option::Option<crate::types::InventoryTableConfiguration>) -> Self { self.inventory_table_configuration = input; self }
+    pub fn set_inventory_table_configuration(mut self, input: ::std::option::Option<crate::types::InventoryTableConfiguration>) -> Self {
+        self.inventory_table_configuration = input;
+        self
+    }
     /// <p>The inventory table configuration for a metadata configuration.</p>
-    pub fn get_inventory_table_configuration(&self) -> &::std::option::Option<crate::types::InventoryTableConfiguration> { &self.inventory_table_configuration }
+    pub fn get_inventory_table_configuration(&self) -> &::std::option::Option<crate::types::InventoryTableConfiguration> {
+        &self.inventory_table_configuration
+    }
     /// <p>Optional annotation table configuration to include with the metadata configuration.</p>
     pub fn annotation_table_configuration(mut self, input: crate::types::AnnotationTableConfiguration) -> Self {
         self.annotation_table_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_annotation_table_configuration(mut self, input: ::std::option::Option<crate::types::AnnotationTableConfiguration>) -> Self { self.annotation_table_configuration = input; self }
+    pub fn set_annotation_table_configuration(mut self, input: ::std::option::Option<crate::types::AnnotationTableConfiguration>) -> Self {
+        self.annotation_table_configuration = input;
+        self
+    }
     /// <p>Optional annotation table configuration to include with the metadata configuration.</p>
-    pub fn get_annotation_table_configuration(&self) -> &::std::option::Option<crate::types::AnnotationTableConfiguration> { &self.annotation_table_configuration }
+    pub fn get_annotation_table_configuration(&self) -> &::std::option::Option<crate::types::AnnotationTableConfiguration> {
+        &self.annotation_table_configuration
+    }
     /// Consumes the builder and constructs a [`MetadataConfiguration`](crate::types::MetadataConfiguration).
     pub fn build(self) -> crate::types::MetadataConfiguration {
         crate::types::MetadataConfiguration {

@@ -60,41 +60,66 @@ impl SubscriptionBuilder {
         self.subscription_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_subscription_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.subscription_arn = input; self }
+    pub fn set_subscription_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.subscription_arn = input;
+        self
+    }
     /// <p>The subscription's ARN.</p>
-    pub fn get_subscription_arn(&self) -> &::std::option::Option<::std::string::String> { &self.subscription_arn }
+    pub fn get_subscription_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.subscription_arn
+    }
     /// <p>The subscription's owner.</p>
     pub fn owner(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.owner = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.owner = input; self }
+    pub fn set_owner(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.owner = input;
+        self
+    }
     /// <p>The subscription's owner.</p>
-    pub fn get_owner(&self) -> &::std::option::Option<::std::string::String> { &self.owner }
+    pub fn get_owner(&self) -> &::std::option::Option<::std::string::String> {
+        &self.owner
+    }
     /// <p>The subscription's protocol.</p>
     pub fn protocol(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.protocol = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_protocol(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.protocol = input; self }
+    pub fn set_protocol(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.protocol = input;
+        self
+    }
     /// <p>The subscription's protocol.</p>
-    pub fn get_protocol(&self) -> &::std::option::Option<::std::string::String> { &self.protocol }
+    pub fn get_protocol(&self) -> &::std::option::Option<::std::string::String> {
+        &self.protocol
+    }
     /// <p>The subscription's endpoint (format depends on the protocol).</p>
     pub fn endpoint(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.endpoint = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_endpoint(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.endpoint = input; self }
+    pub fn set_endpoint(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.endpoint = input;
+        self
+    }
     /// <p>The subscription's endpoint (format depends on the protocol).</p>
-    pub fn get_endpoint(&self) -> &::std::option::Option<::std::string::String> { &self.endpoint }
+    pub fn get_endpoint(&self) -> &::std::option::Option<::std::string::String> {
+        &self.endpoint
+    }
     /// <p>The ARN of the subscription's topic.</p>
     pub fn topic_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.topic_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.topic_arn = input; self }
+    pub fn set_topic_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.topic_arn = input;
+        self
+    }
     /// <p>The ARN of the subscription's topic.</p>
-    pub fn get_topic_arn(&self) -> &::std::option::Option<::std::string::String> { &self.topic_arn }
+    pub fn get_topic_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.topic_arn
+    }
     /// Consumes the builder and constructs a [`Subscription`](crate::types::Subscription).
     pub fn build(self) -> crate::types::Subscription {
         crate::types::Subscription {

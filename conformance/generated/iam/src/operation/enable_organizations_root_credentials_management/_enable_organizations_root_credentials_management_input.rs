@@ -6,7 +6,8 @@
 pub struct EnableOrganizationsRootCredentialsManagementInput {}
 impl EnableOrganizationsRootCredentialsManagementInput {
     /// Creates a new builder-style object to manufacture [`EnableOrganizationsRootCredentialsManagementInput`](crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementInput).
-    pub fn builder() -> crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementInputBuilder {
+    pub fn builder(
+    ) -> crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementInputBuilder {
         crate::operation::enable_organizations_root_credentials_management::builders::EnableOrganizationsRootCredentialsManagementInputBuilder::default()
     }
 }

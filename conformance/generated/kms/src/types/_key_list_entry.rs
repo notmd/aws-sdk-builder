@@ -39,17 +39,27 @@ impl KeyListEntryBuilder {
         self.key_id = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_id = input; self }
+    pub fn set_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_id = input;
+        self
+    }
     /// <p>Unique identifier of the key.</p>
-    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> { &self.key_id }
+    pub fn get_key_id(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_id
+    }
     /// <p>ARN of the key.</p>
     pub fn key_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.key_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.key_arn = input; self }
+    pub fn set_key_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.key_arn = input;
+        self
+    }
     /// <p>ARN of the key.</p>
-    pub fn get_key_arn(&self) -> &::std::option::Option<::std::string::String> { &self.key_arn }
+    pub fn get_key_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.key_arn
+    }
     /// Consumes the builder and constructs a [`KeyListEntry`](crate::types::KeyListEntry).
     pub fn build(self) -> crate::types::KeyListEntry {
         crate::types::KeyListEntry {

@@ -39,17 +39,27 @@ impl FailureExceptionBuilder {
         self.exception_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_exception_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.exception_name = input; self }
+    pub fn set_exception_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.exception_name = input;
+        self
+    }
     /// <p>Exception name.</p>
-    pub fn get_exception_name(&self) -> &::std::option::Option<::std::string::String> { &self.exception_name }
+    pub fn get_exception_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.exception_name
+    }
     /// <p>Description of the failure.</p>
     pub fn exception_description(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.exception_description = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_exception_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.exception_description = input; self }
+    pub fn set_exception_description(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.exception_description = input;
+        self
+    }
     /// <p>Description of the failure.</p>
-    pub fn get_exception_description(&self) -> &::std::option::Option<::std::string::String> { &self.exception_description }
+    pub fn get_exception_description(&self) -> &::std::option::Option<::std::string::String> {
+        &self.exception_description
+    }
     /// Consumes the builder and constructs a [`FailureException`](crate::types::FailureException).
     pub fn build(self) -> crate::types::FailureException {
         crate::types::FailureException {

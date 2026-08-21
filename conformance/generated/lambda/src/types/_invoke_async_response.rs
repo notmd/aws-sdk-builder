@@ -32,13 +32,16 @@ impl InvokeAsyncResponseBuilder {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status(mut self, input: ::std::option::Option<i32>) -> Self { self.status = input; self }
+    pub fn set_status(mut self, input: ::std::option::Option<i32>) -> Self {
+        self.status = input;
+        self
+    }
     /// <p>The status code.</p>
-    pub fn get_status(&self) -> &::std::option::Option<i32> { &self.status }
+    pub fn get_status(&self) -> &::std::option::Option<i32> {
+        &self.status
+    }
     /// Consumes the builder and constructs a [`InvokeAsyncResponse`](crate::types::InvokeAsyncResponse).
     pub fn build(self) -> crate::types::InvokeAsyncResponse {
-        crate::types::InvokeAsyncResponse {
-            status: self.status,
-        }
+        crate::types::InvokeAsyncResponse { status: self.status }
     }
 }

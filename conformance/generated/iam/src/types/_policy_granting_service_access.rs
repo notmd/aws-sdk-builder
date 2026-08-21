@@ -65,52 +65,87 @@ impl PolicyGrantingServiceAccessBuilder {
         self.policy_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_name = input; self }
+    pub fn set_policy_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_name = input;
+        self
+    }
     /// <p>The policy name.</p>
-    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> { &self.policy_name }
+    pub fn get_policy_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_name
+    }
     /// <p>The policy type. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>
     /// This field is required.
     pub fn policy_type(mut self, input: crate::types::PolicyType) -> Self {
         self.policy_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_policy_type(mut self, input: ::std::option::Option<crate::types::PolicyType>) -> Self { self.policy_type = input; self }
+    pub fn set_policy_type(mut self, input: ::std::option::Option<crate::types::PolicyType>) -> Self {
+        self.policy_type = input;
+        self
+    }
     /// <p>The policy type. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_policy_type(&self) -> &::std::option::Option<crate::types::PolicyType> { &self.policy_type }
+    pub fn get_policy_type(&self) -> &::std::option::Option<crate::types::PolicyType> {
+        &self.policy_type
+    }
     pub fn policy_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.policy_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.policy_arn = input; self }
-    pub fn get_policy_arn(&self) -> &::std::option::Option<::std::string::String> { &self.policy_arn }
+    pub fn set_policy_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.policy_arn = input;
+        self
+    }
+    pub fn get_policy_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.policy_arn
+    }
     /// <p>The type of entity (user or role) that used the policy to access the service to which the inline policy is attached.</p>
     /// <p>This field is null for managed policies. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>
     pub fn entity_type(mut self, input: crate::types::PolicyOwnerEntityType) -> Self {
         self.entity_type = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_entity_type(mut self, input: ::std::option::Option<crate::types::PolicyOwnerEntityType>) -> Self { self.entity_type = input; self }
+    pub fn set_entity_type(mut self, input: ::std::option::Option<crate::types::PolicyOwnerEntityType>) -> Self {
+        self.entity_type = input;
+        self
+    }
     /// <p>The type of entity (user or role) that used the policy to access the service to which the inline policy is attached.</p>
     /// <p>This field is null for managed policies. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_entity_type(&self) -> &::std::option::Option<crate::types::PolicyOwnerEntityType> { &self.entity_type }
+    pub fn get_entity_type(&self) -> &::std::option::Option<crate::types::PolicyOwnerEntityType> {
+        &self.entity_type
+    }
     /// <p>The name of the entity (user or role) to which the inline policy is attached.</p>
     /// <p>This field is null for managed policies. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>
     pub fn entity_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.entity_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_entity_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.entity_name = input; self }
+    pub fn set_entity_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.entity_name = input;
+        self
+    }
     /// <p>The name of the entity (user or role) to which the inline policy is attached.</p>
     /// <p>This field is null for managed policies. For more information about these policy types, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html">Managed policies and inline policies</a> in the <i>IAM User Guide</i>.</p>
-    pub fn get_entity_name(&self) -> &::std::option::Option<::std::string::String> { &self.entity_name }
+    pub fn get_entity_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.entity_name
+    }
     /// Consumes the builder and constructs a [`PolicyGrantingServiceAccess`](crate::types::PolicyGrantingServiceAccess).
     /// This method will fail if any of the following fields are not set:
     /// - [`policy_name`](Self::policy_name)
     /// - [`policy_type`](Self::policy_type)
     pub fn build(self) -> ::std::result::Result<crate::types::PolicyGrantingServiceAccess, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::PolicyGrantingServiceAccess {
-            policy_name: self.policy_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("policy_name", "policy_name was not specified but it is required when building PolicyGrantingServiceAccess"))?,
-            policy_type: self.policy_type.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("policy_type", "policy_type was not specified but it is required when building PolicyGrantingServiceAccess"))?,
+            policy_name: self.policy_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "policy_name",
+                    "policy_name was not specified but it is required when building PolicyGrantingServiceAccess",
+                )
+            })?,
+            policy_type: self.policy_type.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "policy_type",
+                    "policy_type was not specified but it is required when building PolicyGrantingServiceAccess",
+                )
+            })?,
             policy_arn: self.policy_arn,
             entity_type: self.entity_type,
             entity_name: self.entity_name,

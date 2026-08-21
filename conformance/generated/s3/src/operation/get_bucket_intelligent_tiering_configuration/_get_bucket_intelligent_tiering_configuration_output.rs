@@ -27,7 +27,8 @@ impl ::aws_types::request_id::RequestId for GetBucketIntelligentTieringConfigura
 }
 impl GetBucketIntelligentTieringConfigurationOutput {
     /// Creates a new builder-style object to manufacture [`GetBucketIntelligentTieringConfigurationOutput`](crate::operation::get_bucket_intelligent_tiering_configuration::GetBucketIntelligentTieringConfigurationOutput).
-    pub fn builder() -> crate::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationOutputBuilder {
+    pub fn builder() -> crate::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationOutputBuilder
+    {
         crate::operation::get_bucket_intelligent_tiering_configuration::builders::GetBucketIntelligentTieringConfigurationOutputBuilder::default()
     }
 }
@@ -46,9 +47,14 @@ impl GetBucketIntelligentTieringConfigurationOutputBuilder {
         self.intelligent_tiering_configuration = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_intelligent_tiering_configuration(mut self, input: ::std::option::Option<crate::types::IntelligentTieringConfiguration>) -> Self { self.intelligent_tiering_configuration = input; self }
+    pub fn set_intelligent_tiering_configuration(mut self, input: ::std::option::Option<crate::types::IntelligentTieringConfiguration>) -> Self {
+        self.intelligent_tiering_configuration = input;
+        self
+    }
     /// <p>Container for S3 Intelligent-Tiering configuration.</p>
-    pub fn get_intelligent_tiering_configuration(&self) -> &::std::option::Option<crate::types::IntelligentTieringConfiguration> { &self.intelligent_tiering_configuration }
+    pub fn get_intelligent_tiering_configuration(&self) -> &::std::option::Option<crate::types::IntelligentTieringConfiguration> {
+        &self.intelligent_tiering_configuration
+    }
     pub(crate) fn _extended_request_id(mut self, extended_request_id: impl Into<String>) -> Self {
         self._extended_request_id = Some(extended_request_id.into());
         self

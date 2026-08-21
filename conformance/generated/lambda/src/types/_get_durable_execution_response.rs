@@ -120,109 +120,174 @@ impl GetDurableExecutionResponseBuilder {
         self.durable_execution_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.durable_execution_arn = input; self }
+    pub fn set_durable_execution_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.durable_execution_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the durable execution.</p>
-    pub fn get_durable_execution_arn(&self) -> &::std::option::Option<::std::string::String> { &self.durable_execution_arn }
+    pub fn get_durable_execution_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.durable_execution_arn
+    }
     /// <p>The name of the durable execution. This is either the name you provided when invoking the function, or a system-generated unique identifier if no name was provided.</p>
     /// This field is required.
     pub fn durable_execution_name(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.durable_execution_name = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.durable_execution_name = input; self }
+    pub fn set_durable_execution_name(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.durable_execution_name = input;
+        self
+    }
     /// <p>The name of the durable execution. This is either the name you provided when invoking the function, or a system-generated unique identifier if no name was provided.</p>
-    pub fn get_durable_execution_name(&self) -> &::std::option::Option<::std::string::String> { &self.durable_execution_name }
+    pub fn get_durable_execution_name(&self) -> &::std::option::Option<::std::string::String> {
+        &self.durable_execution_name
+    }
     /// <p>The Amazon Resource Name (ARN) of the Lambda function that was invoked to start this durable execution.</p>
     /// This field is required.
     pub fn function_arn(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.function_arn = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.function_arn = input; self }
+    pub fn set_function_arn(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.function_arn = input;
+        self
+    }
     /// <p>The Amazon Resource Name (ARN) of the Lambda function that was invoked to start this durable execution.</p>
-    pub fn get_function_arn(&self) -> &::std::option::Option<::std::string::String> { &self.function_arn }
+    pub fn get_function_arn(&self) -> &::std::option::Option<::std::string::String> {
+        &self.function_arn
+    }
     /// <p>The JSON input payload that was provided when the durable execution was started. For asynchronous invocations, this is limited to 256 KB. For synchronous invocations, this can be up to 6 MB.</p>
     pub fn input_payload(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.input_payload = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_input_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.input_payload = input; self }
+    pub fn set_input_payload(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.input_payload = input;
+        self
+    }
     /// <p>The JSON input payload that was provided when the durable execution was started. For asynchronous invocations, this is limited to 256 KB. For synchronous invocations, this can be up to 6 MB.</p>
-    pub fn get_input_payload(&self) -> &::std::option::Option<::std::string::String> { &self.input_payload }
+    pub fn get_input_payload(&self) -> &::std::option::Option<::std::string::String> {
+        &self.input_payload
+    }
     /// <p>The JSON result returned by the durable execution if it completed successfully. This field is only present when the execution status is <code>SUCCEEDED</code>. The result is limited to 256 KB.</p>
     pub fn result(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.result = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.result = input; self }
+    pub fn set_result(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.result = input;
+        self
+    }
     /// <p>The JSON result returned by the durable execution if it completed successfully. This field is only present when the execution status is <code>SUCCEEDED</code>. The result is limited to 256 KB.</p>
-    pub fn get_result(&self) -> &::std::option::Option<::std::string::String> { &self.result }
+    pub fn get_result(&self) -> &::std::option::Option<::std::string::String> {
+        &self.result
+    }
     /// <p>Error information if the durable execution failed. This field is only present when the execution status is <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>. The combined size of all error fields is limited to 256 KB.</p>
     pub fn error(mut self, input: crate::types::ErrorObject) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self { self.error = input; self }
+    pub fn set_error(mut self, input: ::std::option::Option<crate::types::ErrorObject>) -> Self {
+        self.error = input;
+        self
+    }
     /// <p>Error information if the durable execution failed. This field is only present when the execution status is <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>. The combined size of all error fields is limited to 256 KB.</p>
-    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> { &self.error }
+    pub fn get_error(&self) -> &::std::option::Option<crate::types::ErrorObject> {
+        &self.error
+    }
     /// <p>The date and time when the durable execution started, in Unix timestamp format.</p>
     /// This field is required.
     pub fn start_timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.start_timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.start_timestamp = input; self }
+    pub fn set_start_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.start_timestamp = input;
+        self
+    }
     /// <p>The date and time when the durable execution started, in Unix timestamp format.</p>
-    pub fn get_start_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.start_timestamp }
+    pub fn get_start_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.start_timestamp
+    }
     /// <p>The current status of the durable execution. Valid values are <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, and <code>STOPPED</code>.</p>
     /// This field is required.
     pub fn status(mut self, input: crate::types::ExecutionStatus) -> Self {
         self.status = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExecutionStatus>) -> Self { self.status = input; self }
+    pub fn set_status(mut self, input: ::std::option::Option<crate::types::ExecutionStatus>) -> Self {
+        self.status = input;
+        self
+    }
     /// <p>The current status of the durable execution. Valid values are <code>RUNNING</code>, <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, and <code>STOPPED</code>.</p>
-    pub fn get_status(&self) -> &::std::option::Option<crate::types::ExecutionStatus> { &self.status }
+    pub fn get_status(&self) -> &::std::option::Option<crate::types::ExecutionStatus> {
+        &self.status
+    }
     /// <p>The date and time when the durable execution ended, in Unix timestamp format. This field is only present if the execution has completed (status is <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>).</p>
     pub fn end_timestamp(mut self, input: ::aws_smithy_types::DateTime) -> Self {
         self.end_timestamp = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.end_timestamp = input; self }
+    pub fn set_end_timestamp(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self {
+        self.end_timestamp = input;
+        self
+    }
     /// <p>The date and time when the durable execution ended, in Unix timestamp format. This field is only present if the execution has completed (status is <code>SUCCEEDED</code>, <code>FAILED</code>, <code>TIMED_OUT</code>, or <code>STOPPED</code>).</p>
-    pub fn get_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.end_timestamp }
+    pub fn get_end_timestamp(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> {
+        &self.end_timestamp
+    }
     /// <p>The version of the Lambda function that was invoked for this durable execution. This ensures that all replays during the execution use the same function version.</p>
     pub fn version(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.version = ::std::option::Option::Some(input.into());
         self
     }
-    pub fn set_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.version = input; self }
+    pub fn set_version(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
+        self.version = input;
+        self
+    }
     /// <p>The version of the Lambda function that was invoked for this durable execution. This ensures that all replays during the execution use the same function version.</p>
-    pub fn get_version(&self) -> &::std::option::Option<::std::string::String> { &self.version }
+    pub fn get_version(&self) -> &::std::option::Option<::std::string::String> {
+        &self.version
+    }
     /// <p>The trace headers associated with the durable execution.</p>
     pub fn trace_header(mut self, input: crate::types::TraceHeader) -> Self {
         self.trace_header = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_trace_header(mut self, input: ::std::option::Option<crate::types::TraceHeader>) -> Self { self.trace_header = input; self }
+    pub fn set_trace_header(mut self, input: ::std::option::Option<crate::types::TraceHeader>) -> Self {
+        self.trace_header = input;
+        self
+    }
     /// <p>The trace headers associated with the durable execution.</p>
-    pub fn get_trace_header(&self) -> &::std::option::Option<crate::types::TraceHeader> { &self.trace_header }
+    pub fn get_trace_header(&self) -> &::std::option::Option<crate::types::TraceHeader> {
+        &self.trace_header
+    }
     /// <p>Indicates whether execution data is included in this response. Returns <code>false</code> when <code>IncludeExecutionData</code> is set to <code>false</code> in the request.</p>
     pub fn execution_data_included(mut self, input: bool) -> Self {
         self.execution_data_included = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_execution_data_included(mut self, input: ::std::option::Option<bool>) -> Self { self.execution_data_included = input; self }
+    pub fn set_execution_data_included(mut self, input: ::std::option::Option<bool>) -> Self {
+        self.execution_data_included = input;
+        self
+    }
     /// <p>Indicates whether execution data is included in this response. Returns <code>false</code> when <code>IncludeExecutionData</code> is set to <code>false</code> in the request.</p>
-    pub fn get_execution_data_included(&self) -> &::std::option::Option<bool> { &self.execution_data_included }
+    pub fn get_execution_data_included(&self) -> &::std::option::Option<bool> {
+        &self.execution_data_included
+    }
     /// <p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
     pub fn durable_config(mut self, input: crate::types::DurableConfig) -> Self {
         self.durable_config = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_durable_config(mut self, input: ::std::option::Option<crate::types::DurableConfig>) -> Self { self.durable_config = input; self }
+    pub fn set_durable_config(mut self, input: ::std::option::Option<crate::types::DurableConfig>) -> Self {
+        self.durable_config = input;
+        self
+    }
     /// <p>Configuration settings for the durable execution, including execution timeout, retention period for execution history, and an optional ARN of the Key Management Service (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.</p>
-    pub fn get_durable_config(&self) -> &::std::option::Option<crate::types::DurableConfig> { &self.durable_config }
+    pub fn get_durable_config(&self) -> &::std::option::Option<crate::types::DurableConfig> {
+        &self.durable_config
+    }
     /// Consumes the builder and constructs a [`GetDurableExecutionResponse`](crate::types::GetDurableExecutionResponse).
     /// This method will fail if any of the following fields are not set:
     /// - [`durable_execution_arn`](Self::durable_execution_arn)
@@ -232,14 +297,39 @@ impl GetDurableExecutionResponseBuilder {
     /// - [`status`](Self::status)
     pub fn build(self) -> ::std::result::Result<crate::types::GetDurableExecutionResponse, ::aws_smithy_types::error::operation::BuildError> {
         ::std::result::Result::Ok(crate::types::GetDurableExecutionResponse {
-            durable_execution_arn: self.durable_execution_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("durable_execution_arn", "durable_execution_arn was not specified but it is required when building GetDurableExecutionResponse"))?,
-            durable_execution_name: self.durable_execution_name.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("durable_execution_name", "durable_execution_name was not specified but it is required when building GetDurableExecutionResponse"))?,
-            function_arn: self.function_arn.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("function_arn", "function_arn was not specified but it is required when building GetDurableExecutionResponse"))?,
+            durable_execution_arn: self.durable_execution_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "durable_execution_arn",
+                    "durable_execution_arn was not specified but it is required when building GetDurableExecutionResponse",
+                )
+            })?,
+            durable_execution_name: self.durable_execution_name.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "durable_execution_name",
+                    "durable_execution_name was not specified but it is required when building GetDurableExecutionResponse",
+                )
+            })?,
+            function_arn: self.function_arn.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "function_arn",
+                    "function_arn was not specified but it is required when building GetDurableExecutionResponse",
+                )
+            })?,
             input_payload: self.input_payload,
             result: self.result,
             error: self.error,
-            start_timestamp: self.start_timestamp.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("start_timestamp", "start_timestamp was not specified but it is required when building GetDurableExecutionResponse"))?,
-            status: self.status.ok_or_else(|| ::aws_smithy_types::error::operation::BuildError::missing_field("status", "status was not specified but it is required when building GetDurableExecutionResponse"))?,
+            start_timestamp: self.start_timestamp.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "start_timestamp",
+                    "start_timestamp was not specified but it is required when building GetDurableExecutionResponse",
+                )
+            })?,
+            status: self.status.ok_or_else(|| {
+                ::aws_smithy_types::error::operation::BuildError::missing_field(
+                    "status",
+                    "status was not specified but it is required when building GetDurableExecutionResponse",
+                )
+            })?,
             end_timestamp: self.end_timestamp,
             version: self.version,
             trace_header: self.trace_header,

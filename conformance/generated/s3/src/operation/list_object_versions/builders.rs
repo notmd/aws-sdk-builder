@@ -6,62 +6,175 @@ pub struct Builder {
     client: super::super::super::Client,
 }
 impl Builder {
-    pub fn new() -> Self { Self::default() }
-    pub fn with_client(client: super::super::super::Client) -> Self {
-        Self { input: super::Input::default(), client }
+    pub fn new() -> Self {
+        Self::default()
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn delimiter(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.delimiter = Some(value.into()); self }
-    pub fn encoding_type(mut self, value: impl ::std::convert::Into<crate::types::EncodingType>) -> Self { self.input.encoding_type = Some(value.into()); self }
-    pub fn key_marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_marker = Some(value.into()); self }
-    pub fn max_keys(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_keys = Some(value.into()); self }
-    pub fn prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.prefix = Some(value.into()); self }
-    pub fn version_id_marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.version_id_marker = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn optional_object_attributes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::OptionalObjectAttributes>>) -> Self { self.input.optional_object_attributes = Some(value.into()); self }
-    pub fn build(self) -> super::Input { self.input }
-                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-                     pub async fn send(self) -> ::std::result::Result<super::ListObjectVersionsOutput, super::ListObjectVersionsError> {
-                         let bucket = self.input.bucket.as_deref().ok_or_else(|| super::ListObjectVersionsError::Unhandled("ListObjectVersions requires bucket".to_owned()))?;
-                         let path = { let mut path = ::std::string::String::from("/{Bucket}?versions"); if let Some(value) = self.input.delimiter.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("delimiter"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } if let Some(value) = self.input.encoding_type.as_ref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("encoding-type"); path.push('='); path.push_str(&super::super::super::transport::encode_path(&value.to_string())); } if let Some(value) = self.input.key_marker.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("key-marker"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } if let Some(value) = self.input.max_keys.as_ref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("max-keys"); path.push('='); path.push_str(&super::super::super::transport::encode_path(&value.to_string())); } if let Some(value) = self.input.prefix.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("prefix"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } if let Some(value) = self.input.version_id_marker.as_deref() { path.push_str(if path.contains('?') { "&" } else { "?" }); path.push_str("version-id-marker"); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); } path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket)); path };
-                         let body = ::std::vec::Vec::new();
-                         let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.expected_bucket_owner.as_deref() { headers.push(("x-amz-expected-bucket-owner", value)); } headers };
-                         let response = self.client.request(super::super::super::transport::Method::Get, &path, &headers, &body).await.map_err(super::ListObjectVersionsError::Unhandled)?;
-                         let status = response.status();
-                         if !status.is_success() {
-                             return Err(super::ListObjectVersionsError::unhandled_with_request_ids(format!("ListObjectVersions returned HTTP {}", status), response.header("x-amzn-requestid").map(str::to_owned), response.header("x-amz-id-2").map(str::to_owned)));
-                         }
-                         let mut output = super::_list_object_versions_output::ListObjectVersionsOutputBuilder::default();
-                         let body = response.text().await.map_err(super::ListObjectVersionsError::Unhandled)?;
-                         output.is_truncated = super::super::super::transport::xml_first(&body, "IsTruncated").and_then(|value| value.parse().ok());
-                         output.key_marker = super::super::super::transport::xml_first(&body, "KeyMarker").and_then(|value| value.parse().ok());
-                         output.version_id_marker = super::super::super::transport::xml_first(&body, "VersionIdMarker").and_then(|value| value.parse().ok());
-                         output.next_key_marker = super::super::super::transport::xml_first(&body, "NextKeyMarker").and_then(|value| value.parse().ok());
-                         output.next_version_id_marker = super::super::super::transport::xml_first(&body, "NextVersionIdMarker").and_then(|value| value.parse().ok());
-                         let values = super::super::super::transport::xml_tags(&body, "Version").into_iter().map(|value| { let mut item: crate::types::ObjectVersionBuilder = ::std::default::Default::default(); item.e_tag = super::super::super::transport::xml_first(&value, "ETag").and_then(|value| value.parse().ok());
- item.size = super::super::super::transport::xml_first(&value, "Size").and_then(|value| value.parse().ok());
- item.key = super::super::super::transport::xml_first(&value, "Key").and_then(|value| value.parse().ok());
- item.version_id = super::super::super::transport::xml_first(&value, "VersionId").and_then(|value| value.parse().ok());
- item.is_latest = super::super::super::transport::xml_first(&value, "IsLatest").and_then(|value| value.parse().ok());
- item.build() }).collect();
-                         output.versions = Some(values);
-                         let values = super::super::super::transport::xml_tags(&body, "DeleteMarker").into_iter().map(|value| { let mut item: crate::types::DeleteMarkerEntryBuilder = ::std::default::Default::default(); item.key = super::super::super::transport::xml_first(&value, "Key").and_then(|value| value.parse().ok());
- item.version_id = super::super::super::transport::xml_first(&value, "VersionId").and_then(|value| value.parse().ok());
- item.is_latest = super::super::super::transport::xml_first(&value, "IsLatest").and_then(|value| value.parse().ok());
- item.build() }).collect();
-                         output.delete_markers = Some(values);
-                         output.name = super::super::super::transport::xml_first(&body, "Name").and_then(|value| value.parse().ok());
-                         output.prefix = super::super::super::transport::xml_first(&body, "Prefix").and_then(|value| value.parse().ok());
-                         output.delimiter = super::super::super::transport::xml_first(&body, "Delimiter").and_then(|value| value.parse().ok());
-                         output.max_keys = super::super::super::transport::xml_first(&body, "MaxKeys").and_then(|value| value.parse().ok());
-                         let values = super::super::super::transport::xml_tags(&body, "CommonPrefixes").into_iter().map(|value| { let mut item: crate::types::CommonPrefixBuilder = ::std::default::Default::default(); item.prefix = super::super::super::transport::xml_first(&value, "Prefix").and_then(|value| value.parse().ok());
- item.build() }).collect();
-                         output.common_prefixes = Some(values);
-                         output.encoding_type = super::super::super::transport::xml_first(&body, "EncodingType").and_then(|value| value.parse().ok());
-                         output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
-                         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-                         Ok(output.build())
-                     }
+    pub fn with_client(client: super::super::super::Client) -> Self {
+        Self {
+            input: super::Input::default(),
+            client,
+        }
+    }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.bucket = Some(value.into());
+        self
+    }
+    pub fn delimiter(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.delimiter = Some(value.into());
+        self
+    }
+    pub fn encoding_type(mut self, value: impl ::std::convert::Into<crate::types::EncodingType>) -> Self {
+        self.input.encoding_type = Some(value.into());
+        self
+    }
+    pub fn key_marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.key_marker = Some(value.into());
+        self
+    }
+    pub fn max_keys(mut self, value: impl ::std::convert::Into<i32>) -> Self {
+        self.input.max_keys = Some(value.into());
+        self
+    }
+    pub fn prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.prefix = Some(value.into());
+        self
+    }
+    pub fn version_id_marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.version_id_marker = Some(value.into());
+        self
+    }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.input.expected_bucket_owner = Some(value.into());
+        self
+    }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
+        self.input.request_payer = Some(value.into());
+        self
+    }
+    pub fn optional_object_attributes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::OptionalObjectAttributes>>) -> Self {
+        self.input.optional_object_attributes = Some(value.into());
+        self
+    }
+    pub fn build(self) -> super::Input {
+        self.input
+    }
+    #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
+    pub async fn send(self) -> ::std::result::Result<super::ListObjectVersionsOutput, super::ListObjectVersionsError> {
+        let bucket = self
+            .input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::ListObjectVersionsError::Unhandled("ListObjectVersions requires bucket".to_owned()))?;
+        let path = {
+            let mut path = ::std::string::String::from("/{Bucket}?versions");
+            if let Some(value) = self.input.delimiter.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("delimiter");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            if let Some(value) = self.input.encoding_type.as_ref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("encoding-type");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(&value.to_string()));
+            }
+            if let Some(value) = self.input.key_marker.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("key-marker");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            if let Some(value) = self.input.max_keys.as_ref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("max-keys");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(&value.to_string()));
+            }
+            if let Some(value) = self.input.prefix.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("prefix");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            if let Some(value) = self.input.version_id_marker.as_deref() {
+                path.push_str(if path.contains('?') { "&" } else { "?" });
+                path.push_str("version-id-marker");
+                path.push('=');
+                path.push_str(&super::super::super::transport::encode_path(value));
+            }
+            path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
+            path
+        };
+        let body = ::std::vec::Vec::new();
+        let headers = {
+            let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
+            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+                headers.push(("x-amz-expected-bucket-owner", value));
+            }
+            headers
+        };
+        let response = self
+            .client
+            .request(super::super::super::transport::Method::Get, &path, &headers, &body)
+            .await
+            .map_err(super::ListObjectVersionsError::Unhandled)?;
+        let status = response.status();
+        if !status.is_success() {
+            return Err(super::ListObjectVersionsError::unhandled_with_request_ids(
+                format!("ListObjectVersions returned HTTP {}", status),
+                response.header("x-amzn-requestid").map(str::to_owned),
+                response.header("x-amz-id-2").map(str::to_owned),
+            ));
+        }
+        let mut output = super::_list_object_versions_output::ListObjectVersionsOutputBuilder::default();
+        let body = response.text().await.map_err(super::ListObjectVersionsError::Unhandled)?;
+        output.is_truncated = super::super::super::transport::xml_first(&body, "IsTruncated").and_then(|value| value.parse().ok());
+        output.key_marker = super::super::super::transport::xml_first(&body, "KeyMarker").and_then(|value| value.parse().ok());
+        output.version_id_marker = super::super::super::transport::xml_first(&body, "VersionIdMarker").and_then(|value| value.parse().ok());
+        output.next_key_marker = super::super::super::transport::xml_first(&body, "NextKeyMarker").and_then(|value| value.parse().ok());
+        output.next_version_id_marker = super::super::super::transport::xml_first(&body, "NextVersionIdMarker").and_then(|value| value.parse().ok());
+        let values = super::super::super::transport::xml_tags(&body, "Version")
+            .into_iter()
+            .map(|value| {
+                let mut item: crate::types::ObjectVersionBuilder = ::std::default::Default::default();
+                item.e_tag = super::super::super::transport::xml_first(&value, "ETag").and_then(|value| value.parse().ok());
+                item.size = super::super::super::transport::xml_first(&value, "Size").and_then(|value| value.parse().ok());
+                item.key = super::super::super::transport::xml_first(&value, "Key").and_then(|value| value.parse().ok());
+                item.version_id = super::super::super::transport::xml_first(&value, "VersionId").and_then(|value| value.parse().ok());
+                item.is_latest = super::super::super::transport::xml_first(&value, "IsLatest").and_then(|value| value.parse().ok());
+                item.build()
+            })
+            .collect();
+        output.versions = Some(values);
+        let values = super::super::super::transport::xml_tags(&body, "DeleteMarker")
+            .into_iter()
+            .map(|value| {
+                let mut item: crate::types::DeleteMarkerEntryBuilder = ::std::default::Default::default();
+                item.key = super::super::super::transport::xml_first(&value, "Key").and_then(|value| value.parse().ok());
+                item.version_id = super::super::super::transport::xml_first(&value, "VersionId").and_then(|value| value.parse().ok());
+                item.is_latest = super::super::super::transport::xml_first(&value, "IsLatest").and_then(|value| value.parse().ok());
+                item.build()
+            })
+            .collect();
+        output.delete_markers = Some(values);
+        output.name = super::super::super::transport::xml_first(&body, "Name").and_then(|value| value.parse().ok());
+        output.prefix = super::super::super::transport::xml_first(&body, "Prefix").and_then(|value| value.parse().ok());
+        output.delimiter = super::super::super::transport::xml_first(&body, "Delimiter").and_then(|value| value.parse().ok());
+        output.max_keys = super::super::super::transport::xml_first(&body, "MaxKeys").and_then(|value| value.parse().ok());
+        let values = super::super::super::transport::xml_tags(&body, "CommonPrefixes")
+            .into_iter()
+            .map(|value| {
+                let mut item: crate::types::CommonPrefixBuilder = ::std::default::Default::default();
+                item.prefix = super::super::super::transport::xml_first(&value, "Prefix").and_then(|value| value.parse().ok());
+                item.build()
+            })
+            .collect();
+        output.common_prefixes = Some(values);
+        output.encoding_type = super::super::super::transport::xml_first(&body, "EncodingType").and_then(|value| value.parse().ok());
+        output._set_extended_request_id(response.header("x-amz-id-2").map(str::to_owned));
+        output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
+        Ok(output.build())
+    }
 }
 pub use Builder as ListObjectVersionsFluentBuilder;

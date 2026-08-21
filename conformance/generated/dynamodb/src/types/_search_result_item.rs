@@ -44,17 +44,30 @@ impl SearchResultItemBuilder {
         self.item = ::std::option::Option::Some(map);
         self
     }
-    pub fn set_item(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.item = input; self }
+    pub fn set_item(
+        mut self,
+        input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
+    ) -> Self {
+        self.item = input;
+        self
+    }
     /// <p>A map of attribute names to <code>AttributeValue</code> objects, representing the projected attributes of the item returned by the vector search.</p>
-    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> { &self.item }
+    pub fn get_item(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
+        &self.item
+    }
     /// <p>The similarity score for this item relative to the search vector. The interpretation depends on the distance function configured for the vector index.</p>
     pub fn score(mut self, input: f64) -> Self {
         self.score = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_score(mut self, input: ::std::option::Option<f64>) -> Self { self.score = input; self }
+    pub fn set_score(mut self, input: ::std::option::Option<f64>) -> Self {
+        self.score = input;
+        self
+    }
     /// <p>The similarity score for this item relative to the search vector. The interpretation depends on the distance function configured for the vector index.</p>
-    pub fn get_score(&self) -> &::std::option::Option<f64> { &self.score }
+    pub fn get_score(&self) -> &::std::option::Option<f64> {
+        &self.score
+    }
     /// Consumes the builder and constructs a [`SearchResultItem`](crate::types::SearchResultItem).
     pub fn build(self) -> crate::types::SearchResultItem {
         crate::types::SearchResultItem {
