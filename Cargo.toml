@@ -2,6 +2,7 @@
 members = [
     "crates/aws-sdk-build",
     "crates/aws-sdk-conformance",
+    "examples/my_aws_sdk",
 ]
 resolver = "2"
 

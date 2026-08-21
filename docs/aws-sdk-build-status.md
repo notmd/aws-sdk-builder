@@ -19,7 +19,8 @@ Updated 2026-08-21. Prompt.md is the project specification.
   service decorators remain to be ported.
 - M5: in progress. aws_sdk.rs, consumer-prefixed service modules, output
   manifests, syntax validation, and atomic installation are implemented. The
-  checked-in generated source snapshot remains available under `conformance/generated`.
+  `my_aws_sdk` consumer fixture compiles, and the checked-in generated source snapshot
+  remains available under `conformance/generated`.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The
@@ -41,6 +42,7 @@ Passing checks:
 - cargo test -p aws-sdk-build --lib --tests
 - cargo test --workspace
 - cargo clippy --workspace --all-targets -- -D warnings
+- cargo check --manifest-path examples/my_aws_sdk/Cargo.toml
 - cargo check --manifest-path examples/floci-s3-smoke/Cargo.toml
 - checked-in all-operation conformance source snapshot;
 - cargo package -p aws-sdk-build --allow-dirty --no-verify includes 38 model assets
