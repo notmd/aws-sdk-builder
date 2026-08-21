@@ -69,7 +69,7 @@ impl Builder {
                          output.content_language = response.header("Content-Language").map(str::to_owned);
                          output.content_type = response.header("Content-Type").map(str::to_owned);
                          output.content_range = response.header("Content-Range").map(str::to_owned);
-                         output.expires = response.header("Expires").map(str::to_owned);
+                         output.expires_string = response.header("ExpiresString").map(str::to_owned);
                          output.website_redirect_location = response.header("x-amz-website-redirect-location").map(str::to_owned);
                          output.sse_customer_algorithm = response.header("x-amz-server-side-encryption-customer-algorithm").map(str::to_owned);
                          output.sse_customer_key_md5 = response.header("x-amz-server-side-encryption-customer-key-MD5").map(str::to_owned);

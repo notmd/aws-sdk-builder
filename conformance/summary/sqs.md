@@ -17615,7 +17615,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/receive_message/_receive_message_input.rs
 +++ generated/src/operation/receive_message/_receive_message_input.rs
-@@ -2,130 +2,27 @@
+@@ -2,130 +2,28 @@
 
  /// <p>Retrieves one or more messages from a specified queue.</p>
  #[non_exhaustive]
@@ -17657,8 +17657,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
 -    /// </ul>
--    #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
 +    /// <important><p>This parameter has been discontinued but will be supported for backward compatibility. To provide attribute names, you are encouraged to use <code>MessageSystemAttributeNames</code>.</p></important><p>A list of attributes that need to be returned along with each message. These attributes include:</p><ul><li><p><code>All</code> – Returns all values.</p></li><li><p><code>ApproximateFirstReceiveTimestamp</code> – Returns the time the message was first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>ApproximateReceiveCount</code> – Returns the number of times a message has been received across all queues but not deleted.</p></li><li><p><code>AWSTraceHeader</code> – Returns the X-Ray trace header string.</p></li><li><p><code>SenderId</code></p><ul><li><p>For a user, returns the user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</p></li><li><p>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</p></li></ul></li><li><p><code>SentTimestamp</code> – Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li><li><p><code>MessageDeduplicationId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>MessageGroupId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li></ul>
+     #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
      pub attribute_names: ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>,
 -    /// <p>A list of attributes that need to be returned along with each message. These attributes include:</p>
 -    /// <ul>
@@ -17754,7 +17754,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For best practices of using <code>ReceiveRequestAttemptId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html">Using the ReceiveRequestAttemptId Request Parameter</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub receive_request_attempt_id: ::std::option::Option<::std::string::String>,
  }
-@@ -135,94 +32,15 @@
+@@ -135,94 +33,16 @@
      pub fn queue_url(&self) -> ::std::option::Option<&str> {
          self.queue_url.as_deref()
      }
@@ -17792,8 +17792,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// </ul>
 -    ///
 -    /// If no value was sent for this field, a default will be set. If you want to determine if no value was sent, use `.attribute_names.is_none()`.
--    #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
 +    /// <important><p>This parameter has been discontinued but will be supported for backward compatibility. To provide attribute names, you are encouraged to use <code>MessageSystemAttributeNames</code>.</p></important><p>A list of attributes that need to be returned along with each message. These attributes include:</p><ul><li><p><code>All</code> – Returns all values.</p></li><li><p><code>ApproximateFirstReceiveTimestamp</code> – Returns the time the message was first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>ApproximateReceiveCount</code> – Returns the number of times a message has been received across all queues but not deleted.</p></li><li><p><code>AWSTraceHeader</code> – Returns the X-Ray trace header string.</p></li><li><p><code>SenderId</code></p><ul><li><p>For a user, returns the user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</p></li><li><p>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</p></li></ul></li><li><p><code>SentTimestamp</code> – Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li><li><p><code>MessageDeduplicationId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>MessageGroupId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li></ul>
+     #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
      pub fn attribute_names(&self) -> &[crate::types::QueueAttributeName] {
          self.attribute_names.as_deref().unwrap_or_default()
      }
@@ -17852,7 +17852,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn message_attribute_names(&self) -> &[::std::string::String] {
          self.message_attribute_names.as_deref().unwrap_or_default()
      }
-@@ -231,47 +49,17 @@
+@@ -231,47 +51,17 @@
          self.max_number_of_messages
      }
      /// <p>The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a <code>ReceiveMessage</code> request. If not specified, the default visibility timeout for the queue is used, which is 30 seconds.</p>
@@ -17904,7 +17904,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>For best practices of using <code>ReceiveRequestAttemptId</code>, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/using-receiverequestattemptid-request-parameter.html">Using the ReceiveRequestAttemptId Request Parameter</a> in the <i>Amazon SQS Developer Guide</i>.</p>
      pub fn receive_request_attempt_id(&self) -> ::std::option::Option<&str> {
          self.receive_request_attempt_id.as_deref()
-@@ -305,54 +93,14 @@
+@@ -305,53 +95,14 @@
          self.queue_url = ::std::option::Option::Some(input.into());
          self
      }
@@ -17958,11 +17958,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
 -    /// </ul>
--    #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
+     #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
      pub fn attribute_names(mut self, input: crate::types::QueueAttributeName) -> Self {
          let mut v = self.attribute_names.unwrap_or_default();
-         v.push(input);
-@@ -359,112 +107,13 @@
+@@ -359,112 +110,15 @@
          self.attribute_names = ::std::option::Option::Some(v);
          self
      }
@@ -17998,7 +17997,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
 -    /// </ul>
--    #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
+     #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
 -    pub fn set_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>) -> Self {
 -        self.attribute_names = input;
 -        self
@@ -18035,12 +18034,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <li>
 -    /// <p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li>
 -    /// </ul>
--    #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
++    pub fn set_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>) -> Self { self.attribute_names = input; self }
++    /// <important><p>This parameter has been discontinued but will be supported for backward compatibility. To provide attribute names, you are encouraged to use <code>MessageSystemAttributeNames</code>.</p></important><p>A list of attributes that need to be returned along with each message. These attributes include:</p><ul><li><p><code>All</code> – Returns all values.</p></li><li><p><code>ApproximateFirstReceiveTimestamp</code> – Returns the time the message was first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>ApproximateReceiveCount</code> – Returns the number of times a message has been received across all queues but not deleted.</p></li><li><p><code>AWSTraceHeader</code> – Returns the X-Ray trace header string.</p></li><li><p><code>SenderId</code></p><ul><li><p>For a user, returns the user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</p></li><li><p>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</p></li></ul></li><li><p><code>SentTimestamp</code> – Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li><li><p><code>MessageDeduplicationId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>MessageGroupId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li></ul>
+     #[deprecated(note = "AttributeNames has been replaced by MessageSystemAttributeNames")]
 -    pub fn get_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>> {
 -        &self.attribute_names
 -    }
-+    pub fn set_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>) -> Self { self.attribute_names = input; self }
-+    /// <important><p>This parameter has been discontinued but will be supported for backward compatibility. To provide attribute names, you are encouraged to use <code>MessageSystemAttributeNames</code>.</p></important><p>A list of attributes that need to be returned along with each message. These attributes include:</p><ul><li><p><code>All</code> – Returns all values.</p></li><li><p><code>ApproximateFirstReceiveTimestamp</code> – Returns the time the message was first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>ApproximateReceiveCount</code> – Returns the number of times a message has been received across all queues but not deleted.</p></li><li><p><code>AWSTraceHeader</code> – Returns the X-Ray trace header string.</p></li><li><p><code>SenderId</code></p><ul><li><p>For a user, returns the user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</p></li><li><p>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</p></li></ul></li><li><p><code>SentTimestamp</code> – Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li><li><p><code>MessageDeduplicationId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>MessageGroupId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li></ul>
 +    pub fn get_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>> { &self.attribute_names }
 +    /// <p>A list of attributes that need to be returned along with each message. These attributes include:</p><ul><li><p><code>All</code> – Returns all values.</p></li><li><p><code>ApproximateFirstReceiveTimestamp</code> – Returns the time the message was first received from the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>ApproximateReceiveCount</code> – Returns the number of times a message has been received across all queues but not deleted.</p></li><li><p><code>AWSTraceHeader</code> – Returns the X-Ray trace header string.</p></li><li><p><code>SenderId</code></p><ul><li><p>For a user, returns the user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</p></li><li><p>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</p></li></ul></li><li><p><code>SentTimestamp</code> – Returns the time the message was sent to the queue (<a href="http://en.wikipedia.org/wiki/Unix_time">epoch time</a> in milliseconds).</p></li><li><p><code>SqsManagedSseEnabled</code> – Enables server-side queue encryption using SQS owned encryption keys. Only one server-side encryption option is supported per queue (for example, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html">SSE-KMS</a> or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html">SSE-SQS</a>).</p></li><li><p><code>MessageDeduplicationId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>MessageGroupId</code> – Returns the value provided by the producer that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>SequenceNumber</code> – Returns the value provided by Amazon SQS.</p></li></ul>
      /// Appends an item to `message_system_attribute_names`.
@@ -18079,7 +18078,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn message_system_attribute_names(mut self, input: crate::types::MessageSystemAttributeName) -> Self {
          let mut v = self.message_system_attribute_names.unwrap_or_default();
          v.push(input);
-@@ -471,92 +120,13 @@
+@@ -471,92 +125,13 @@
          self.message_system_attribute_names = ::std::option::Option::Some(v);
          self
      }
@@ -18176,7 +18175,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn message_attribute_names(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
          let mut v = self.message_attribute_names.unwrap_or_default();
          v.push(input.into());
-@@ -563,204 +133,52 @@
+@@ -563,204 +138,52 @@
          self.message_attribute_names = ::std::option::Option::Some(v);
          self
      }
@@ -18402,7 +18401,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              queue_url: self.queue_url,
              attribute_names: self.attribute_names,
              message_system_attribute_names: self.message_system_attribute_names,
-@@ -769,6 +187,6 @@
+@@ -769,6 +192,6 @@
              visibility_timeout: self.visibility_timeout,
              wait_time_seconds: self.wait_time_seconds,
              receive_request_attempt_id: self.receive_request_attempt_id,

@@ -52,7 +52,7 @@ pub struct CopyObjectInput {
     /// <p>If both the <code>x-amz-copy-source-if-match</code> and <code>x-amz-copy-source-if-unmodified-since</code> headers are present in the request and evaluate as follows, Amazon S3 returns <code>200 OK</code> and copies the data:</p><ul><li><p><code>x-amz-copy-source-if-match</code> condition evaluates to true</p></li><li><p><code>x-amz-copy-source-if-unmodified-since</code> condition evaluates to false</p></li></ul>
     pub copy_source_if_unmodified_since: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub expires: ::std::option::Option<::std::string::String>,
+    pub expires: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p><note><ul><li><p>This functionality is not supported for directory buckets.</p></li><li><p>This functionality is not supported for Amazon S3 on Outposts.</p></li></ul></note>
     pub grant_full_control: ::std::option::Option<::std::string::String>,
     /// <p>Allows grantee to read the object data and its metadata.</p><note><ul><li><p>This functionality is not supported for directory buckets.</p></li><li><p>This functionality is not supported for Amazon S3 on Outposts.</p></li></ul></note>
@@ -241,8 +241,8 @@ impl CopyObjectInput {
         self.copy_source_if_unmodified_since.as_ref()
     }
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub fn expires(&self) -> ::std::option::Option<&str> {
-        self.expires.as_deref()
+    pub fn expires(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+        self.expires.as_ref()
     }
     /// <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p><note><ul><li><p>This functionality is not supported for directory buckets.</p></li><li><p>This functionality is not supported for Amazon S3 on Outposts.</p></li></ul></note>
     pub fn grant_full_control(&self) -> ::std::option::Option<&str> {
@@ -441,7 +441,7 @@ pub struct CopyObjectInputBuilder {
     pub(crate) copy_source_if_modified_since: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) copy_source_if_none_match: ::std::option::Option<::std::string::String>,
     pub(crate) copy_source_if_unmodified_since: ::std::option::Option<::aws_smithy_types::DateTime>,
-    pub(crate) expires: ::std::option::Option<::std::string::String>,
+    pub(crate) expires: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) grant_full_control: ::std::option::Option<::std::string::String>,
     pub(crate) grant_read: ::std::option::Option<::std::string::String>,
     pub(crate) grant_read_acp: ::std::option::Option<::std::string::String>,
@@ -623,13 +623,13 @@ impl CopyObjectInputBuilder {
     /// <p>If both the <code>x-amz-copy-source-if-match</code> and <code>x-amz-copy-source-if-unmodified-since</code> headers are present in the request and evaluate as follows, Amazon S3 returns <code>200 OK</code> and copies the data:</p><ul><li><p><code>x-amz-copy-source-if-match</code> condition evaluates to true</p></li><li><p><code>x-amz-copy-source-if-unmodified-since</code> condition evaluates to false</p></li></ul>
     pub fn get_copy_source_if_unmodified_since(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.copy_source_if_unmodified_since }
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub fn expires(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.expires = ::std::option::Option::Some(input.into());
+    pub fn expires(mut self, input: ::aws_smithy_types::DateTime) -> Self {
+        self.expires = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_expires(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expires = input; self }
+    pub fn set_expires(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.expires = input; self }
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub fn get_expires(&self) -> &::std::option::Option<::std::string::String> { &self.expires }
+    pub fn get_expires(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.expires }
     /// <p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p><note><ul><li><p>This functionality is not supported for directory buckets.</p></li><li><p>This functionality is not supported for Amazon S3 on Outposts.</p></li></ul></note>
     pub fn grant_full_control(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.grant_full_control = ::std::option::Option::Some(input.into());

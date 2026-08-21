@@ -31,7 +31,7 @@ impl Builder {
     pub fn checksum_xxhash64(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_xxhash64 = Some(value.into()); self }
     pub fn checksum_xxhash3(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_xxhash3 = Some(value.into()); self }
     pub fn checksum_xxhash128(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_xxhash128 = Some(value.into()); self }
-    pub fn expires(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expires = Some(value.into()); self }
+    pub fn expires(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.expires = Some(value.into()); self }
     pub fn if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.if_match = Some(value.into()); self }
     pub fn if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.if_none_match = Some(value.into()); self }
     pub fn grant_full_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_full_control = Some(value.into()); self }

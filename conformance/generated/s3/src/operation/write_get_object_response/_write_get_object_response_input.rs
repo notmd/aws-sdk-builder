@@ -62,7 +62,7 @@ pub struct WriteGetObjectResponseInput {
     /// <p>An opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>
     pub e_tag: ::std::option::Option<::std::string::String>,
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub expires: ::std::option::Option<::std::string::String>,
+    pub expires: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the <code>expiry-date</code> and <code>rule-id</code> key-value pairs that provide the object expiration information. The value of the <code>rule-id</code> is URL-encoded.</p>
     pub expiration: ::std::option::Option<::std::string::String>,
     /// <p>The date and time that the object was last modified.</p>
@@ -215,8 +215,8 @@ impl WriteGetObjectResponseInput {
         self.e_tag.as_deref()
     }
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub fn expires(&self) -> ::std::option::Option<&str> {
-        self.expires.as_deref()
+    pub fn expires(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+        self.expires.as_ref()
     }
     /// <p>If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the <code>expiry-date</code> and <code>rule-id</code> key-value pairs that provide the object expiration information. The value of the <code>rule-id</code> is URL-encoded.</p>
     pub fn expiration(&self) -> ::std::option::Option<&str> {
@@ -334,7 +334,7 @@ pub struct WriteGetObjectResponseInputBuilder {
     pub(crate) checksum_xxhash128: ::std::option::Option<::std::string::String>,
     pub(crate) delete_marker: ::std::option::Option<bool>,
     pub(crate) e_tag: ::std::option::Option<::std::string::String>,
-    pub(crate) expires: ::std::option::Option<::std::string::String>,
+    pub(crate) expires: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) expiration: ::std::option::Option<::std::string::String>,
     pub(crate) last_modified: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) missing_meta: ::std::option::Option<i32>,
@@ -577,13 +577,13 @@ impl WriteGetObjectResponseInputBuilder {
     /// <p>An opaque identifier assigned by a web server to a specific version of a resource found at a URL.</p>
     pub fn get_e_tag(&self) -> &::std::option::Option<::std::string::String> { &self.e_tag }
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub fn expires(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.expires = ::std::option::Option::Some(input.into());
+    pub fn expires(mut self, input: ::aws_smithy_types::DateTime) -> Self {
+        self.expires = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_expires(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expires = input; self }
+    pub fn set_expires(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.expires = input; self }
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub fn get_expires(&self) -> &::std::option::Option<::std::string::String> { &self.expires }
+    pub fn get_expires(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.expires }
     /// <p>If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the <code>expiry-date</code> and <code>rule-id</code> key-value pairs that provide the object expiration information. The value of the <code>rule-id</code> is URL-encoded.</p>
     pub fn expiration(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.expiration = ::std::option::Option::Some(input.into());

@@ -135,6 +135,12 @@ trait ModelTransform {
 
 Record the transform names and resulting model fingerprint in the output manifest.
 
+The current Rust port also applies a compact declarative transform over the selected
+JSON shape map before rendering. It recognizes the Smithy relationship used for S3’s
+`Expires` header, changes its string target to a timestamp, and adds the synthetic raw
+header member required by the AWS decorator. The renderer only consumes the resulting
+traits and shapes; it does not contain an S3 or operation-name branch.
+
 ## 3. Service-directed shape closure
 
 Start at the selected service shape and traverse only directed relationships. The

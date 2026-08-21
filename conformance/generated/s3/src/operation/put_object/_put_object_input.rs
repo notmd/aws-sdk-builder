@@ -61,7 +61,7 @@ pub struct PutObjectInput {
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub checksum_xxhash128: ::std::option::Option<::std::string::String>,
     /// <p>The date and time at which the object is no longer cacheable. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc7234#section-5.3">https://www.rfc-editor.org/rfc/rfc7234#section-5.3</a>.</p>
-    pub expires: ::std::option::Option<::std::string::String>,
+    pub expires: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>Uploads the object only if the ETag (entity tag) value provided during the WRITE operation matches the ETag of the object in S3. If the ETag values do not match, the operation returns a <code>412 Precondition Failed</code> error.</p>
     /// <p>If a conflicting operation occurs during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure you should fetch the object's ETag and retry the upload.</p>
     /// <p>Expects the ETag value as a string.</p>
@@ -248,8 +248,8 @@ impl PutObjectInput {
         self.checksum_xxhash128.as_deref()
     }
     /// <p>The date and time at which the object is no longer cacheable. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc7234#section-5.3">https://www.rfc-editor.org/rfc/rfc7234#section-5.3</a>.</p>
-    pub fn expires(&self) -> ::std::option::Option<&str> {
-        self.expires.as_deref()
+    pub fn expires(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+        self.expires.as_ref()
     }
     /// <p>Uploads the object only if the ETag (entity tag) value provided during the WRITE operation matches the ETag of the object in S3. If the ETag values do not match, the operation returns a <code>412 Precondition Failed</code> error.</p>
     /// <p>If a conflicting operation occurs during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure you should fetch the object's ETag and retry the upload.</p>
@@ -417,7 +417,7 @@ pub struct PutObjectInputBuilder {
     pub(crate) checksum_xxhash64: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_xxhash3: ::std::option::Option<::std::string::String>,
     pub(crate) checksum_xxhash128: ::std::option::Option<::std::string::String>,
-    pub(crate) expires: ::std::option::Option<::std::string::String>,
+    pub(crate) expires: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) if_match: ::std::option::Option<::std::string::String>,
     pub(crate) if_none_match: ::std::option::Option<::std::string::String>,
     pub(crate) grant_full_control: ::std::option::Option<::std::string::String>,
@@ -642,13 +642,13 @@ impl PutObjectInputBuilder {
     /// <p>This header can be used as a data integrity check to verify that the data received is the same data that was originally sent. This header specifies the Base64 encoded, 128-bit <code>XXHASH128</code> checksum of the object. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html">Checking object integrity in the Amazon S3 User Guide</a>.</p>
     pub fn get_checksum_xxhash128(&self) -> &::std::option::Option<::std::string::String> { &self.checksum_xxhash128 }
     /// <p>The date and time at which the object is no longer cacheable. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc7234#section-5.3">https://www.rfc-editor.org/rfc/rfc7234#section-5.3</a>.</p>
-    pub fn expires(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.expires = ::std::option::Option::Some(input.into());
+    pub fn expires(mut self, input: ::aws_smithy_types::DateTime) -> Self {
+        self.expires = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_expires(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expires = input; self }
+    pub fn set_expires(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.expires = input; self }
     /// <p>The date and time at which the object is no longer cacheable. For more information, see <a href="https://www.rfc-editor.org/rfc/rfc7234#section-5.3">https://www.rfc-editor.org/rfc/rfc7234#section-5.3</a>.</p>
-    pub fn get_expires(&self) -> &::std::option::Option<::std::string::String> { &self.expires }
+    pub fn get_expires(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.expires }
     /// <p>Uploads the object only if the ETag (entity tag) value provided during the WRITE operation matches the ETag of the object in S3. If the ETag values do not match, the operation returns a <code>412 Precondition Failed</code> error.</p>
     /// <p>If a conflicting operation occurs during the upload S3 returns a <code>409 ConditionalRequestConflict</code> response. On a 409 failure you should fetch the object's ETag and retry the upload.</p>
     /// <p>Expects the ETag value as a string.</p>

@@ -151,6 +151,7 @@ impl Model {
                 Value::Array(selected_ids.iter().cloned().map(operation_value).collect()),
             );
         }
+        apply_model_customizations(&mut shapes);
         let mut root = self.root.clone();
         root["shapes"] = Value::Object(shapes);
         let selected_shape_map = root_shape_map(&root);
@@ -279,6 +280,142 @@ impl Model {
             });
         }
         Ok(operations)
+    }
+}
+
+/// Applies model-driven AWS customizations that cannot be expressed in the
+/// packaged Smithy model alone. The predicates intentionally inspect shape
+/// relationships and traits instead of service or operation names.
+fn apply_model_customizations(shapes: &mut Map<String, Value>) {
+    let expires_targets = shapes
+        .values()
+        .filter_map(Value::as_object)
+        .filter_map(|shape| shape.get("members").and_then(Value::as_object))
+        .flat_map(|members| members.iter())
+        .filter(|(name, member)| {
+            name.eq_ignore_ascii_case("Expires")
+                && member
+                    .get("traits")
+                    .and_then(Value::as_object)
+                    .and_then(|traits| traits.get("smithy.api#httpHeader"))
+                    .and_then(Value::as_str)
+                    .is_some_and(|header| header.eq_ignore_ascii_case("Expires"))
+        })
+        .filter_map(|(_, member)| member_target(member).map(ToOwned::to_owned))
+        .filter(|target| {
+            shapes
+                .get(target)
+                .and_then(|shape| shape.get("type"))
+                .and_then(Value::as_str)
+                == Some("string")
+        })
+        .collect::<BTreeSet<_>>();
+
+    if expires_targets.is_empty() {
+        return;
+    }
+
+    for target in &expires_targets {
+        if let Some(shape) = shapes.get_mut(target).and_then(Value::as_object_mut) {
+            shape.insert("type".to_owned(), Value::String("timestamp".to_owned()));
+        }
+    }
+
+    let target = expires_targets
+        .first()
+        .expect("expires target set is non-empty");
+    let namespace = target
+        .split('#')
+        .next()
+        .and_then(|namespace| namespace.rsplit('.').next())
+        .unwrap_or("service");
+    let synthetic_target = format!("aws.sdk.rust.{namespace}.synthetic#ExpiresString");
+    shapes.insert(
+        synthetic_target.clone(),
+        serde_json::json!({ "type": "string" }),
+    );
+
+    for shape in shapes.values_mut() {
+        let Some(shape_object) = shape.as_object_mut() else {
+            continue;
+        };
+        let is_output = shape_object
+            .get("traits")
+            .and_then(Value::as_object)
+            .is_some_and(|traits| traits.contains_key("smithy.api#output"));
+        if !is_output {
+            continue;
+        }
+        let Some(members) = shape_object
+            .get_mut("members")
+            .and_then(Value::as_object_mut)
+        else {
+            continue;
+        };
+        let Some((expires_name, expires_member)) = members.iter_mut().find(|(name, member)| {
+            name.eq_ignore_ascii_case("Expires")
+                && member_target(member).is_some_and(|target| expires_targets.contains(target))
+        }) else {
+            continue;
+        };
+
+        let expires_name = expires_name.clone();
+        let expires_member = expires_member.clone();
+        let deprecated = expires_member
+            .get("traits")
+            .and_then(Value::as_object)
+            .and_then(|traits| traits.get("smithy.api#deprecated"))
+            .cloned()
+            .unwrap_or_else(|| {
+                serde_json::json!({
+                    "message": "Please use `expires_string` which contains the raw, unparsed value of this field."
+                })
+            });
+        let mut updated_member = expires_member;
+        updated_member
+            .as_object_mut()
+            .expect("expires member is an object")
+            .entry("traits".to_owned())
+            .or_insert_with(|| Value::Object(Map::new()));
+        updated_member
+            .get_mut("traits")
+            .and_then(Value::as_object_mut)
+            .expect("expires member traits are an object")
+            .insert("smithy.api#deprecated".to_owned(), deprecated);
+        let documentation = updated_member
+            .get("traits")
+            .and_then(Value::as_object)
+            .and_then(|traits| traits.get("smithy.api#documentation"))
+            .cloned();
+        let mut traits = Map::new();
+        if let Some(documentation) = documentation {
+            traits.insert("smithy.api#documentation".to_owned(), documentation);
+        }
+        traits.insert(
+            "smithy.api#httpHeader".to_owned(),
+            Value::String("ExpiresString".to_owned()),
+        );
+        let synthetic_member = Value::Object(Map::from_iter([
+            ("target".to_owned(), Value::String(synthetic_target.clone())),
+            ("traits".to_owned(), Value::Object(traits)),
+        ]));
+        let old_members = std::mem::take(members);
+        let mut new_members = Map::new();
+        for (name, member) in old_members {
+            let is_expires = name == expires_name;
+            new_members.insert(
+                name,
+                if is_expires {
+                    updated_member.clone()
+                } else {
+                    member
+                },
+            );
+            if is_expires {
+                new_members.insert(format!("{expires_name}String"), synthetic_member.clone());
+            }
+        }
+        *members = new_members;
     }
 }
 

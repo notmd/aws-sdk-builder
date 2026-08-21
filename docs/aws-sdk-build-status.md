@@ -30,8 +30,8 @@ Updated 2026-08-21. Prompt.md is the project specification.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The current report
-  compares 6,584 files and has 490 exact matches (6.82% arithmetic average),
-  with 3,084 mismatches, 2,887 missing files, and 123 extra files. Both comparison
+  compares 6,584 files and has 492 exact matches (6.84% arithmetic average),
+  with 3,082 mismatches, 2,887 missing files, and 123 extra files. Both comparison
   trees are checked in under `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. The live
   `my_aws_sdk::tests::creates_then_heads_a_bucket` test passes against the
@@ -50,6 +50,32 @@ pinned `smithy-rs` commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d` and should 
 updated when the port adopts a new reusable abstraction.
 
 ## Evidence
+
+### Checkpoint: 2026-08-21 — Model-derived Expires customization
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/model.rs` now applies a declarative model
+  transform when a string shape is used by an `Expires` HTTP header: it changes the
+  target to a timestamp, adds a synthetic raw-string header member to output
+  structures, and marks the parsed output member deprecated. `codegen.rs` now renders
+  Smithy deprecated traits on fields, accessors, and builders, and treats streaming
+  output members as required in client documentation. The transform is relationship-
+  and trait-driven; it does not branch on service or operation names.
+- Evidence: `/tmp/smithy-rs` at pinned Smithy commit `f1b64a9...` was consulted;
+  `cargo fmt --all`, `just conformance`, `cargo test --workspace`, `cargo clippy
+  --workspace --all-targets -- -D warnings`, `cargo fmt --all -- --check`, and
+  `git diff --check` pass (conformance intentionally exits 1 while parity is
+  incomplete).
+- Conformance: the previous checkpoint had `490` exact matches, `3,084` mismatches,
+  `2,887` missing, and `123` extra overall, with `153` exact / `675` mismatches /
+  `516` missing for S3. This checkpoint has `492` exact, `3,082` mismatches, `2,887`
+  missing, and `123` extra overall (`6.84%`), with `155` exact / `673` mismatches /
+  `516` missing for S3 (`11.53%`). The newly exact files are the S3 `GetObject` and
+  `HeadObject` client modules.
+- Blocker: request-ID fields, protocol/runtime behavior, endpoint/auth/retry/checksum
+  support, and the remaining missing source tree are still incomplete.
+- Next action: port request-ID metadata through generic output builders and response
+  decoding, then rerun the all-service conformance comparison.
 
 ### Checkpoint: 2026-08-21 — Inline client documentation whitespace parity
 

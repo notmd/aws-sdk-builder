@@ -17,7 +17,7 @@ impl Builder {
     pub fn content_encoding(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_encoding = Some(value.into()); self }
     pub fn content_language(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_language = Some(value.into()); self }
     pub fn content_type(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_type = Some(value.into()); self }
-    pub fn expires(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expires = Some(value.into()); self }
+    pub fn expires(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.expires = Some(value.into()); self }
     pub fn grant_full_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_full_control = Some(value.into()); self }
     pub fn grant_read(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_read = Some(value.into()); self }
     pub fn grant_read_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_read_acp = Some(value.into()); self }

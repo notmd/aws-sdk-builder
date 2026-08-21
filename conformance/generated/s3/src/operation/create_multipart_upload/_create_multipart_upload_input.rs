@@ -26,7 +26,7 @@ pub struct CreateMultipartUploadInput {
     /// <p>A standard MIME type describing the format of the object data.</p>
     pub content_type: ::std::option::Option<::std::string::String>,
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub expires: ::std::option::Option<::std::string::String>,
+    pub expires: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>Specify access permissions explicitly to give the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
     /// <p>By default, all objects are private. Only the owner has full access control. When uploading an object, you can use this header to explicitly grant access permissions to specific Amazon Web Services accounts or groups. This header maps to specific permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>You specify each grantee as a type=value pair, where the type is one of the following:</p><ul><li><p><code>id</code> – if the value specified is the canonical user ID of an Amazon Web Services account</p></li><li><p><code>uri</code> – if you are granting permissions to a predefined group</p></li><li><p><code>emailAddress</code> – if the value specified is the email address of an Amazon Web Services account</p><note>
@@ -154,8 +154,8 @@ impl CreateMultipartUploadInput {
         self.content_type.as_deref()
     }
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub fn expires(&self) -> ::std::option::Option<&str> {
-        self.expires.as_deref()
+    pub fn expires(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+        self.expires.as_ref()
     }
     /// <p>Specify access permissions explicitly to give the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
     /// <p>By default, all objects are private. Only the owner has full access control. When uploading an object, you can use this header to explicitly grant access permissions to specific Amazon Web Services accounts or groups. This header maps to specific permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> in the <i>Amazon S3 User Guide</i>.</p>
@@ -311,7 +311,7 @@ pub struct CreateMultipartUploadInputBuilder {
     pub(crate) content_encoding: ::std::option::Option<::std::string::String>,
     pub(crate) content_language: ::std::option::Option<::std::string::String>,
     pub(crate) content_type: ::std::option::Option<::std::string::String>,
-    pub(crate) expires: ::std::option::Option<::std::string::String>,
+    pub(crate) expires: ::std::option::Option<::aws_smithy_types::DateTime>,
     pub(crate) grant_full_control: ::std::option::Option<::std::string::String>,
     pub(crate) grant_read: ::std::option::Option<::std::string::String>,
     pub(crate) grant_read_acp: ::std::option::Option<::std::string::String>,
@@ -409,13 +409,13 @@ impl CreateMultipartUploadInputBuilder {
     /// <p>A standard MIME type describing the format of the object data.</p>
     pub fn get_content_type(&self) -> &::std::option::Option<::std::string::String> { &self.content_type }
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub fn expires(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.expires = ::std::option::Option::Some(input.into());
+    pub fn expires(mut self, input: ::aws_smithy_types::DateTime) -> Self {
+        self.expires = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_expires(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expires = input; self }
+    pub fn set_expires(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.expires = input; self }
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub fn get_expires(&self) -> &::std::option::Option<::std::string::String> { &self.expires }
+    pub fn get_expires(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.expires }
     /// <p>Specify access permissions explicitly to give the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>
     /// <p>By default, all objects are private. Only the owner has full access control. When uploading an object, you can use this header to explicitly grant access permissions to specific Amazon Web Services accounts or groups. This header maps to specific permissions that Amazon S3 supports in an ACL. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html">Access Control List (ACL) Overview</a> in the <i>Amazon S3 User Guide</i>.</p>
     /// <p>You specify each grantee as a type=value pair, where the type is one of the following:</p><ul><li><p><code>id</code> – if the value specified is the canonical user ID of an Amazon Web Services account</p></li><li><p><code>uri</code> – if you are granting permissions to a predefined group</p></li><li><p><code>emailAddress</code> – if the value specified is the email address of an Amazon Web Services account</p><note>

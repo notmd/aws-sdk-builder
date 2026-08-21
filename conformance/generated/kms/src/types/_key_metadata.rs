@@ -39,6 +39,7 @@ pub struct KeyMetadata {
     pub key_manager: ::std::option::Option<crate::types::KeyManagerType>,
     /// <p>Instead, use the <code>KeySpec</code> field.</p>
     /// <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS supports both fields.</p>
+    #[deprecated(note = "This field has been deprecated. Instead, use the KeySpec field.")]
     pub customer_master_key_spec: ::std::option::Option<crate::types::CustomerMasterKeySpec>,
     /// <p>Describes the type of key material in the KMS key.</p>
     pub key_spec: ::std::option::Option<crate::types::KeySpec>,
@@ -134,6 +135,7 @@ impl KeyMetadata {
     }
     /// <p>Instead, use the <code>KeySpec</code> field.</p>
     /// <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS supports both fields.</p>
+    #[deprecated(note = "This field has been deprecated. Instead, use the KeySpec field.")]
     pub fn customer_master_key_spec(&self) -> ::std::option::Option<&crate::types::CustomerMasterKeySpec> {
         self.customer_master_key_spec.as_ref()
     }
@@ -351,13 +353,16 @@ impl KeyMetadataBuilder {
     pub fn get_key_manager(&self) -> &::std::option::Option<crate::types::KeyManagerType> { &self.key_manager }
     /// <p>Instead, use the <code>KeySpec</code> field.</p>
     /// <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS supports both fields.</p>
+    #[deprecated(note = "This field has been deprecated. Instead, use the KeySpec field.")]
     pub fn customer_master_key_spec(mut self, input: crate::types::CustomerMasterKeySpec) -> Self {
         self.customer_master_key_spec = ::std::option::Option::Some(input);
         self
     }
+    #[deprecated(note = "This field has been deprecated. Instead, use the KeySpec field.")]
     pub fn set_customer_master_key_spec(mut self, input: ::std::option::Option<crate::types::CustomerMasterKeySpec>) -> Self { self.customer_master_key_spec = input; self }
     /// <p>Instead, use the <code>KeySpec</code> field.</p>
     /// <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS supports both fields.</p>
+    #[deprecated(note = "This field has been deprecated. Instead, use the KeySpec field.")]
     pub fn get_customer_master_key_spec(&self) -> &::std::option::Option<crate::types::CustomerMasterKeySpec> { &self.customer_master_key_spec }
     /// <p>Describes the type of key material in the KMS key.</p>
     pub fn key_spec(mut self, input: crate::types::KeySpec) -> Self {

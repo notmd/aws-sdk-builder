@@ -36,7 +36,7 @@ impl Builder {
     pub fn checksum_xxhash128(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_xxhash128 = Some(value.into()); self }
     pub fn delete_marker(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.delete_marker = Some(value.into()); self }
     pub fn e_tag(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.e_tag = Some(value.into()); self }
-    pub fn expires(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expires = Some(value.into()); self }
+    pub fn expires(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.expires = Some(value.into()); self }
     pub fn expiration(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expiration = Some(value.into()); self }
     pub fn last_modified(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.last_modified = Some(value.into()); self }
     pub fn missing_meta(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.missing_meta = Some(value.into()); self }

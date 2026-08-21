@@ -75,7 +75,10 @@ pub struct HeadObjectOutput {
     /// <p>The portion of the object returned in the response for a <code>GET</code> request.</p>
     pub content_range: ::std::option::Option<::std::string::String>,
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub expires: ::std::option::Option<::std::string::String>,
+    #[deprecated(note = "Please use `expires_string` which contains the raw, unparsed value of this field.")]
+    pub expires: ::std::option::Option<::aws_smithy_types::DateTime>,
+    /// <p>The date and time at which the object is no longer cacheable.</p>
+    pub expires_string: ::std::option::Option<::std::string::String>,
     /// <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -256,8 +259,13 @@ impl HeadObjectOutput {
         self.content_range.as_deref()
     }
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub fn expires(&self) -> ::std::option::Option<&str> {
-        self.expires.as_deref()
+    #[deprecated(note = "Please use `expires_string` which contains the raw, unparsed value of this field.")]
+    pub fn expires(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
+        self.expires.as_ref()
+    }
+    /// <p>The date and time at which the object is no longer cacheable.</p>
+    pub fn expires_string(&self) -> ::std::option::Option<&str> {
+        self.expires_string.as_deref()
     }
     /// <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
@@ -381,7 +389,8 @@ pub struct HeadObjectOutputBuilder {
     pub(crate) content_language: ::std::option::Option<::std::string::String>,
     pub(crate) content_type: ::std::option::Option<::std::string::String>,
     pub(crate) content_range: ::std::option::Option<::std::string::String>,
-    pub(crate) expires: ::std::option::Option<::std::string::String>,
+    pub(crate) expires: ::std::option::Option<::aws_smithy_types::DateTime>,
+    pub(crate) expires_string: ::std::option::Option<::std::string::String>,
     pub(crate) website_redirect_location: ::std::option::Option<::std::string::String>,
     pub(crate) server_side_encryption: ::std::option::Option<crate::types::ServerSideEncryption>,
     pub(crate) metadata: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
@@ -648,13 +657,24 @@ impl HeadObjectOutputBuilder {
     /// <p>The portion of the object returned in the response for a <code>GET</code> request.</p>
     pub fn get_content_range(&self) -> &::std::option::Option<::std::string::String> { &self.content_range }
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub fn expires(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.expires = ::std::option::Option::Some(input.into());
+    #[deprecated(note = "Please use `expires_string` which contains the raw, unparsed value of this field.")]
+    pub fn expires(mut self, input: ::aws_smithy_types::DateTime) -> Self {
+        self.expires = ::std::option::Option::Some(input);
         self
     }
-    pub fn set_expires(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expires = input; self }
+    #[deprecated(note = "Please use `expires_string` which contains the raw, unparsed value of this field.")]
+    pub fn set_expires(mut self, input: ::std::option::Option<::aws_smithy_types::DateTime>) -> Self { self.expires = input; self }
     /// <p>The date and time at which the object is no longer cacheable.</p>
-    pub fn get_expires(&self) -> &::std::option::Option<::std::string::String> { &self.expires }
+    #[deprecated(note = "Please use `expires_string` which contains the raw, unparsed value of this field.")]
+    pub fn get_expires(&self) -> &::std::option::Option<::aws_smithy_types::DateTime> { &self.expires }
+    /// <p>The date and time at which the object is no longer cacheable.</p>
+    pub fn expires_string(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
+        self.expires_string = ::std::option::Option::Some(input.into());
+        self
+    }
+    pub fn set_expires_string(mut self, input: ::std::option::Option<::std::string::String>) -> Self { self.expires_string = input; self }
+    /// <p>The date and time at which the object is no longer cacheable.</p>
+    pub fn get_expires_string(&self) -> &::std::option::Option<::std::string::String> { &self.expires_string }
     /// <p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p><note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
@@ -857,6 +877,7 @@ impl HeadObjectOutputBuilder {
             content_type: self.content_type,
             content_range: self.content_range,
             expires: self.expires,
+            expires_string: self.expires_string,
             website_redirect_location: self.website_redirect_location,
             server_side_encryption: self.server_side_encryption,
             metadata: self.metadata,

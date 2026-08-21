@@ -12,6 +12,7 @@ pub struct GetPublicKeyOutput {
     pub public_key: ::std::option::Option<::std::vec::Vec<u8>>,
     /// <p>Instead, use the <code>KeySpec</code> field in the <code>GetPublicKey</code> response.</p>
     /// <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS supports both fields.</p>
+    #[deprecated(note = "This field has been deprecated. Instead, use the KeySpec field.")]
     pub customer_master_key_spec: ::std::option::Option<crate::types::CustomerMasterKeySpec>,
     /// <p>The type of the of the public key that was downloaded.</p>
     pub key_spec: ::std::option::Option<crate::types::KeySpec>,
@@ -41,6 +42,7 @@ impl GetPublicKeyOutput {
     }
     /// <p>Instead, use the <code>KeySpec</code> field in the <code>GetPublicKey</code> response.</p>
     /// <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS supports both fields.</p>
+    #[deprecated(note = "This field has been deprecated. Instead, use the KeySpec field.")]
     pub fn customer_master_key_spec(&self) -> ::std::option::Option<&crate::types::CustomerMasterKeySpec> {
         self.customer_master_key_spec.as_ref()
     }
@@ -112,13 +114,16 @@ impl GetPublicKeyOutputBuilder {
     pub fn get_public_key(&self) -> &::std::option::Option<::std::vec::Vec<u8>> { &self.public_key }
     /// <p>Instead, use the <code>KeySpec</code> field in the <code>GetPublicKey</code> response.</p>
     /// <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS supports both fields.</p>
+    #[deprecated(note = "This field has been deprecated. Instead, use the KeySpec field.")]
     pub fn customer_master_key_spec(mut self, input: crate::types::CustomerMasterKeySpec) -> Self {
         self.customer_master_key_spec = ::std::option::Option::Some(input);
         self
     }
+    #[deprecated(note = "This field has been deprecated. Instead, use the KeySpec field.")]
     pub fn set_customer_master_key_spec(mut self, input: ::std::option::Option<crate::types::CustomerMasterKeySpec>) -> Self { self.customer_master_key_spec = input; self }
     /// <p>Instead, use the <code>KeySpec</code> field in the <code>GetPublicKey</code> response.</p>
     /// <p>The <code>KeySpec</code> and <code>CustomerMasterKeySpec</code> fields have the same value. We recommend that you use the <code>KeySpec</code> field in your code. However, to avoid breaking changes, KMS supports both fields.</p>
+    #[deprecated(note = "This field has been deprecated. Instead, use the KeySpec field.")]
     pub fn get_customer_master_key_spec(&self) -> &::std::option::Option<crate::types::CustomerMasterKeySpec> { &self.customer_master_key_spec }
     /// <p>The type of the of the public key that was downloaded.</p>
     pub fn key_spec(mut self, input: crate::types::KeySpec) -> Self {

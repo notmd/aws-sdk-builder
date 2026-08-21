@@ -2032,6 +2032,26 @@ fn render_doc_lines(output: &mut String, documentation: &str, indent: usize) {
     }
 }
 
+fn render_deprecated_attribute(output: &mut String, value: &Value, indent: usize) {
+    let Some(note) = value
+        .get("traits")
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("smithy.api#deprecated"))
+        .and_then(|deprecated| {
+            deprecated.as_str().map(ToOwned::to_owned).or_else(|| {
+                deprecated
+                    .get("message")
+                    .and_then(Value::as_str)
+                    .map(ToOwned::to_owned)
+            })
+        })
+    else {
+        return;
+    };
+    let padding = " ".repeat(indent);
+    writeln!(output, "{padding}#[deprecated(note = {note:?})]").unwrap();
+}
+
 fn render_builder_docs(output: &mut String, member: &Value, indent: &str, required: bool) {
     if let Some(documentation) = documentation(member) {
         for line in documentation.lines() {
@@ -2218,6 +2238,7 @@ fn render_structure_at_indent(
         if let Some(member_doc) = documentation(member) {
             render_doc_lines(output, &member_doc, indent + 4);
         }
+        render_deprecated_attribute(output, member, indent + 4);
         let target = member_target(member).unwrap_or("smithy.api#String");
         let field_type = structure_member_type(selected, member, target, &context);
         writeln!(output, "{}    pub {}: {},", padding, field, field_type).unwrap();
@@ -2245,6 +2266,7 @@ fn render_structure_accessors(
         if let Some(member_doc) = documentation(member) {
             render_doc_lines(output, &member_doc, indent + 4);
         }
+        render_deprecated_attribute(output, member, indent + 4);
         let required = is_streaming_target(target)
             || (!operation_input(&context)
                 && member_is_effectively_required(selected, member, target));
@@ -2413,6 +2435,7 @@ fn render_type_builder(
                 "{inner}/// Appends an item to `{field_method}`.\n{inner}///\n{inner}/// To override the contents of this collection use [`set_{field_method}`](Self::set_{field_method})."
             )
             .unwrap();
+            render_deprecated_attribute(output, member, indent + 4);
             writeln!(
                 output,
                 "{inner}pub fn {field}(mut self, input: {argument}) -> Self {{\n{inner}    let mut v = self.{field}.unwrap_or_default();\n{inner}    v.push({});\n{inner}    self.{field} = ::std::option::Option::Some(v);\n{inner}    self\n{inner}}}",
@@ -2440,6 +2463,7 @@ fn render_type_builder(
                 "{inner}/// Adds a key-value pair to `{field_method}`.\n{inner}///\n{inner}/// To override the contents of this collection use [`set_{field_method}`](Self::set_{field_method})."
             )
             .unwrap();
+            render_deprecated_attribute(output, member, indent + 4);
             writeln!(
                 output,
                 "{inner}pub fn {field}(mut self, k: {key_argument}, v: {value_argument}) -> Self {{\n{inner}    let mut map = self.{field}.unwrap_or_default();\n{inner}    map.insert({}, {});\n{inner}    self.{field} = ::std::option::Option::Some(map);\n{inner}    self\n{inner}}}",
@@ -2455,6 +2479,7 @@ fn render_type_builder(
                 &inner,
                 member_is_effectively_required(selected, member, target_id),
             );
+            render_deprecated_attribute(output, member, indent + 4);
             writeln!(
                 output,
                 "{inner}pub fn {field}(mut self, input: {argument}) -> Self {{\n{inner}    self.{field} = ::std::option::Option::Some({});\n{inner}    self\n{inner}}}",
@@ -2462,12 +2487,14 @@ fn render_type_builder(
             )
             .unwrap();
         }
+        render_deprecated_attribute(output, member, indent + 4);
         writeln!(
             output,
             "{inner}pub fn set_{field_method}(mut self, input: ::std::option::Option<{target}>) -> Self {{ self.{field} = input; self }}"
         )
         .unwrap();
         render_builder_docs(output, member, &inner, false);
+        render_deprecated_attribute(output, member, indent + 4);
         writeln!(
             output,
             "{inner}pub fn get_{field_method}(&self) -> &::std::option::Option<{target}> {{ &self.{field} }}"
@@ -2937,7 +2964,8 @@ fn render_client_operation_file(
                     let field = names::rust_identifier(&name);
                     let target_id = member_target(member).unwrap_or("smithy.api#String");
                     let target = client_documentation_type(selected, target_id);
-                    let field_type = if member_is_effectively_required(selected, member, target_id)
+                    let field_type = if is_streaming_target(target_id)
+                        || member_is_effectively_required(selected, member, target_id)
                     {
                         target
                     } else {
