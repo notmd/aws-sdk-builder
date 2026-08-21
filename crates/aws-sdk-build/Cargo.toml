@@ -8,6 +8,7 @@ description = "Build-time generation of modular AWS SDK clients from Smithy mode
 
 [dependencies]
 serde_json = "1"
+tempfile = "3"
 thiserror = "2"
 
 [dev-dependencies]

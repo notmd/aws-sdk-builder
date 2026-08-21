@@ -84,6 +84,14 @@ impl Model {
                 self.shapes
                     .get(&shape_id)
                     .cloned()
+                    .map(|mut shape| {
+                        if shape_id == service_id {
+                            shape["operations"] = Value::Array(
+                                selected_ids.iter().cloned().map(Value::String).collect(),
+                            );
+                        }
+                        shape
+                    })
                     .map(|shape| (shape_id, shape))
             })
             .collect::<Map<_, _>>();

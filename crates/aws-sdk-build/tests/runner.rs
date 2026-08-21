@@ -19,7 +19,7 @@ fn executable_resolution_prefers_explicit_then_environment_then_path() {
         |_| Some(path.clone()),
     )
     .unwrap();
-    assert_eq!(resolved, explicit);
+    assert_eq!(resolved, fs::canonicalize(&explicit).unwrap());
 
     let resolved = resolve_executable(
         None,
@@ -27,10 +27,10 @@ fn executable_resolution_prefers_explicit_then_environment_then_path() {
         |_| Some(path.clone()),
     )
     .unwrap();
-    assert_eq!(resolved, environment);
+    assert_eq!(resolved, fs::canonicalize(&environment).unwrap());
 
     let resolved = resolve_executable(None, |_| None, |_| Some(path.clone())).unwrap();
-    assert_eq!(resolved, path);
+    assert_eq!(resolved, fs::canonicalize(&path).unwrap());
 }
 
 #[test]

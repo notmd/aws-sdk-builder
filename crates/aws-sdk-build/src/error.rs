@@ -62,4 +62,25 @@ pub enum BuildError {
         stdout: String,
         stderr: String,
     },
+    #[error("failed to read generated output {path}: {source}")]
+    OutputRead {
+        path: PathBuf,
+        #[source]
+        source: io::Error,
+    },
+    #[error("failed to write generated output {path}: {source}")]
+    OutputWrite {
+        path: PathBuf,
+        #[source]
+        source: io::Error,
+    },
+    #[error("failed to copy generated output {path} to {destination}: {source}")]
+    OutputCopy {
+        path: PathBuf,
+        destination: PathBuf,
+        #[source]
+        source: io::Error,
+    },
+    #[error("generated Rust projection was not found below {path}")]
+    GeneratedOutputNotFound { path: PathBuf },
 }

@@ -22,7 +22,7 @@ where
     if let Some(path) = explicit {
         searched.push(format!("explicit path {}", path.display()));
         if path.is_file() {
-            return Ok(path.to_path_buf());
+            return Ok(canonical_or_original(path));
         }
     }
 
@@ -30,7 +30,7 @@ where
         let path = PathBuf::from(value);
         searched.push(format!("SMITHY_CLI {}", path.display()));
         if path.is_file() {
-            return Ok(path);
+            return Ok(canonical_or_original(&path));
         }
     } else {
         searched.push("SMITHY_CLI (not set)".to_owned());
@@ -39,13 +39,17 @@ where
     if let Some(path) = path_lookup(OsStr::new("smithy")) {
         searched.push(format!("PATH {}", path.display()));
         if path.is_file() {
-            return Ok(path);
+            return Ok(canonical_or_original(&path));
         }
     } else {
         searched.push("PATH (smithy not found)".to_owned());
     }
 
     Err(BuildError::SmithyExecutableNotFound { searched })
+}
+
+fn canonical_or_original(path: &Path) -> PathBuf {
+    fs::canonicalize(path).unwrap_or_else(|_| path.to_path_buf())
 }
 
 pub fn resolve_from_environment(explicit: Option<&Path>) -> Result<PathBuf, BuildError> {
