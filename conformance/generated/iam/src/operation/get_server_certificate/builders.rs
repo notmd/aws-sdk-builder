@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn server_certificate_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ServerCertificateNameType>) -> Self { self.input.server_certificate_name = Some(value.into()); self }
+    pub fn server_certificate_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.server_certificate_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetServerCertificateOutput, super::GetServerCertificateError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetServerCertificateError::Unhandled(format!("GetServerCertificate returned HTTP {}", status)));
                          }
-                         Ok(super::GetServerCertificateOutput::default())
+                         Ok(super::_get_server_certificate_output::GetServerCertificateOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetServerCertificateFluentBuilder;

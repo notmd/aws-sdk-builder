@@ -10,10 +10,10 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.attributes = Some(value.into()); self }
-    pub fn data_protection_policy(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeValue>) -> Self { self.input.data_protection_policy = Some(value.into()); self }
-    pub fn name(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicName>) -> Self { self.input.name = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.name = Some(value.into()); self }
+    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.input.attributes = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn data_protection_policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.data_protection_policy = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateTopicOutput, super::CreateTopicError> {
@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateTopicError::Unhandled(format!("CreateTopic returned HTTP {}", status)));
                          }
-                         Ok(super::CreateTopicOutput::default())
+                         Ok(super::_create_topic_output::CreateTopicOutputBuilder::default().build())
                      }
 }
 pub use Builder as CreateTopicFluentBuilder;

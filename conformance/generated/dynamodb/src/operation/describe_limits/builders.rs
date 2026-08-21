@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DescribeLimitsError::Unhandled(format!("DescribeLimits returned HTTP {}", status)));
                          }
-                         Ok(super::DescribeLimitsOutput::default())
+                         Ok(super::_describe_limits_output::DescribeLimitsOutputBuilder::default().build())
                      }
 }
 pub use Builder as DescribeLimitsFluentBuilder;

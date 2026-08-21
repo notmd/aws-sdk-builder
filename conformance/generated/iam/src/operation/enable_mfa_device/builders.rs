@@ -10,10 +10,10 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn authentication_code1(mut self, value: impl ::std::convert::Into<super::super::super::types::AuthenticationCodeType>) -> Self { self.input.authentication_code1 = Some(value.into()); self }
-    pub fn authentication_code2(mut self, value: impl ::std::convert::Into<super::super::super::types::AuthenticationCodeType>) -> Self { self.input.authentication_code2 = Some(value.into()); self }
-    pub fn serial_number(mut self, value: impl ::std::convert::Into<super::super::super::types::SerialNumberType>) -> Self { self.input.serial_number = Some(value.into()); self }
-    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ExistingUserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn serial_number(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.serial_number = Some(value.into()); self }
+    pub fn authentication_code1(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.authentication_code1 = Some(value.into()); self }
+    pub fn authentication_code2(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.authentication_code2 = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::EnableMfaDeviceOutput, super::EnableMfaDeviceError> {
@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::EnableMfaDeviceError::Unhandled(format!("EnableMfaDevice returned HTTP {}", status)));
                          }
-                         Ok(super::EnableMfaDeviceOutput)
+                         Ok(super::EnableMfaDeviceOutput{})
                      }
 }
 pub use Builder as EnableMfaDeviceFluentBuilder;

@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn point_in_time_recovery_specification(mut self, value: impl ::std::convert::Into<super::super::super::types::PointInTimeRecoverySpecification>) -> Self { self.input.point_in_time_recovery_specification = Some(value.into()); self }
-    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn point_in_time_recovery_specification(mut self, value: impl ::std::convert::Into<crate::types::PointInTimeRecoverySpecification>) -> Self { self.input.point_in_time_recovery_specification = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UpdateContinuousBackupsOutput, super::UpdateContinuousBackupsError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateContinuousBackupsError::Unhandled(format!("UpdateContinuousBackups returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateContinuousBackupsOutput::default())
+                         Ok(super::_update_continuous_backups_output::UpdateContinuousBackupsOutputBuilder::default().build())
                      }
 }
 pub use Builder as UpdateContinuousBackupsFluentBuilder;

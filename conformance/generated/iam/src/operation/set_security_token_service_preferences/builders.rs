@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn global_endpoint_token_version(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalEndpointTokenVersion>) -> Self { self.input.global_endpoint_token_version = Some(value.into()); self }
+    pub fn global_endpoint_token_version(mut self, value: impl ::std::convert::Into<crate::types::GlobalEndpointTokenVersion>) -> Self { self.input.global_endpoint_token_version = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::SetSecurityTokenServicePreferencesOutput, super::SetSecurityTokenServicePreferencesError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SetSecurityTokenServicePreferencesError::Unhandled(format!("SetSecurityTokenServicePreferences returned HTTP {}", status)));
                          }
-                         Ok(super::SetSecurityTokenServicePreferencesOutput)
+                         Ok(super::SetSecurityTokenServicePreferencesOutput{})
                      }
 }
 pub use Builder as SetSecurityTokenServicePreferencesFluentBuilder;

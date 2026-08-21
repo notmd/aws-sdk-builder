@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn minor_version(mut self, value: impl ::std::convert::Into<super::super::super::types::MinorVersionType>) -> Self { self.input.minor_version = Some(value.into()); self }
-    pub fn template_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.template_arn = Some(value.into()); self }
+    pub fn template_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.template_arn = Some(value.into()); self }
+    pub fn minor_version(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.minor_version = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetRoleTemplateVersionOutput, super::GetRoleTemplateVersionError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetRoleTemplateVersionError::Unhandled(format!("GetRoleTemplateVersion returned HTTP {}", status)));
                          }
-                         Ok(super::GetRoleTemplateVersionOutput::default())
+                         Ok(super::_get_role_template_version_output::GetRoleTemplateVersionOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetRoleTemplateVersionFluentBuilder;

@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetBucketAbacOutput, super::GetBucketAbacError> {
@@ -24,10 +24,10 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetBucketAbacError::Unhandled(format!("GetBucketAbac returned HTTP {}", status)));
                          }
-                         let mut output = super::GetBucketAbacOutput::default();
+                         let mut output = super::_get_bucket_abac_output::GetBucketAbacOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketAbacError::Unhandled)?;
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "AbacStatus") { let mut item: super::super::super::types::AbacStatus = ::std::default::Default::default(); item; output.abac_status = Some(item); }
-                         Ok(output)
+                         if let Some(value) = super::super::super::transport::xml_first(&body, "AbacStatus") { let mut item: crate::types::AbacStatusBuilder = ::std::default::Default::default(); let item = item.build(); output.abac_status = Some(item); }
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetBucketAbacFluentBuilder;

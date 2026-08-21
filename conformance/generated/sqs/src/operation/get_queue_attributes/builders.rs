@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::QueueAttributeName>>) -> Self { self.input.attribute_names = Some(value.into()); self }
-    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
+    pub fn queue_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.queue_url = Some(value.into()); self }
+    pub fn attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::QueueAttributeName>>) -> Self { self.input.attribute_names = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetQueueAttributesOutput, super::GetQueueAttributesError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetQueueAttributesError::Unhandled(format!("GetQueueAttributes returned HTTP {}", status)));
                          }
-                         Ok(super::GetQueueAttributesOutput::default())
+                         Ok(super::_get_queue_attributes_output::GetQueueAttributesOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetQueueAttributesFluentBuilder;

@@ -10,15 +10,15 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn message(mut self, value: impl ::std::convert::Into<super::super::super::types::Message>) -> Self { self.input.message = Some(value.into()); self }
-    pub fn message_attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>) -> Self { self.input.message_attributes = Some(value.into()); self }
-    pub fn message_deduplication_id(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.message_deduplication_id = Some(value.into()); self }
-    pub fn message_group_id(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.message_group_id = Some(value.into()); self }
-    pub fn message_structure(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageStructure>) -> Self { self.input.message_structure = Some(value.into()); self }
-    pub fn phone_number(mut self, value: impl ::std::convert::Into<super::super::super::types::PhoneNumber>) -> Self { self.input.phone_number = Some(value.into()); self }
-    pub fn subject(mut self, value: impl ::std::convert::Into<super::super::super::types::Subject>) -> Self { self.input.subject = Some(value.into()); self }
-    pub fn target_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.target_arn = Some(value.into()); self }
-    pub fn topic_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicArn>) -> Self { self.input.topic_arn = Some(value.into()); self }
+    pub fn topic_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.topic_arn = Some(value.into()); self }
+    pub fn target_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.target_arn = Some(value.into()); self }
+    pub fn phone_number(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.phone_number = Some(value.into()); self }
+    pub fn message(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.message = Some(value.into()); self }
+    pub fn subject(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.subject = Some(value.into()); self }
+    pub fn message_structure(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.message_structure = Some(value.into()); self }
+    pub fn message_attributes(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>) -> Self { self.input.message_attributes = Some(value.into()); self }
+    pub fn message_deduplication_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.message_deduplication_id = Some(value.into()); self }
+    pub fn message_group_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.message_group_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::PublishOutput, super::PublishError> {
@@ -30,7 +30,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PublishError::Unhandled(format!("Publish returned HTTP {}", status)));
                          }
-                         Ok(super::PublishOutput::default())
+                         Ok(super::_publish_output::PublishOutputBuilder::default().build())
                      }
 }
 pub use Builder as PublishFluentBuilder;

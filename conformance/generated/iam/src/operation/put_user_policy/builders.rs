@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn policy_document(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyDocumentType>) -> Self { self.input.policy_document = Some(value.into()); self }
-    pub fn policy_name(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyNameType>) -> Self { self.input.policy_name = Some(value.into()); self }
-    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ExistingUserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn policy_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy_name = Some(value.into()); self }
+    pub fn policy_document(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy_document = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::PutUserPolicyOutput, super::PutUserPolicyError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutUserPolicyError::Unhandled(format!("PutUserPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::PutUserPolicyOutput)
+                         Ok(super::PutUserPolicyOutput{})
                      }
 }
 pub use Builder as PutUserPolicyFluentBuilder;

@@ -10,13 +10,13 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.input.attributes_to_get = Some(value.into()); self }
-    pub fn consistent_read(mut self, value: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.input.consistent_read = Some(value.into()); self }
-    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn projection_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ProjectionExpression>) -> Self { self.input.projection_expression = Some(value.into()); self }
-    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
-    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.input.key = Some(value.into()); self }
+    pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.attributes_to_get = Some(value.into()); self }
+    pub fn consistent_read(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.consistent_read = Some(value.into()); self }
+    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
+    pub fn projection_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.projection_expression = Some(value.into()); self }
+    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetItemOutput, super::GetItemError> {
@@ -28,7 +28,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetItemError::Unhandled(format!("GetItem returned HTTP {}", status)));
                          }
-                         Ok(super::GetItemOutput::default())
+                         Ok(super::_get_item_output::GetItemOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetItemFluentBuilder;

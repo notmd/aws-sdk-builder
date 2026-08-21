@@ -10,15 +10,15 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn description(mut self, value: impl ::std::convert::Into<super::super::super::types::DelegationRequestDescriptionType>) -> Self { self.input.description = Some(value.into()); self }
-    pub fn notification_channel(mut self, value: impl ::std::convert::Into<super::super::super::types::NotificationChannelType>) -> Self { self.input.notification_channel = Some(value.into()); self }
-    pub fn only_send_by_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.input.only_send_by_owner = Some(value.into()); self }
-    pub fn owner_account_id(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountIdType>) -> Self { self.input.owner_account_id = Some(value.into()); self }
-    pub fn permissions(mut self, value: impl ::std::convert::Into<super::super::super::types::DelegationPermission>) -> Self { self.input.permissions = Some(value.into()); self }
-    pub fn redirect_url(mut self, value: impl ::std::convert::Into<super::super::super::types::RedirectUrlType>) -> Self { self.input.redirect_url = Some(value.into()); self }
-    pub fn request_message(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestMessageType>) -> Self { self.input.request_message = Some(value.into()); self }
-    pub fn requestor_workflow_id(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestorWorkflowIdType>) -> Self { self.input.requestor_workflow_id = Some(value.into()); self }
-    pub fn session_duration(mut self, value: impl ::std::convert::Into<super::super::super::types::SessionDurationType>) -> Self { self.input.session_duration = Some(value.into()); self }
+    pub fn owner_account_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.owner_account_id = Some(value.into()); self }
+    pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.description = Some(value.into()); self }
+    pub fn permissions(mut self, value: impl ::std::convert::Into<crate::types::DelegationPermission>) -> Self { self.input.permissions = Some(value.into()); self }
+    pub fn request_message(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.request_message = Some(value.into()); self }
+    pub fn requestor_workflow_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.requestor_workflow_id = Some(value.into()); self }
+    pub fn redirect_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.redirect_url = Some(value.into()); self }
+    pub fn notification_channel(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.notification_channel = Some(value.into()); self }
+    pub fn session_duration(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.session_duration = Some(value.into()); self }
+    pub fn only_send_by_owner(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.only_send_by_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateDelegationRequestOutput, super::CreateDelegationRequestError> {
@@ -30,7 +30,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateDelegationRequestError::Unhandled(format!("CreateDelegationRequest returned HTTP {}", status)));
                          }
-                         Ok(super::CreateDelegationRequestOutput::default())
+                         Ok(super::_create_delegation_request_output::CreateDelegationRequestOutputBuilder::default().build())
                      }
 }
 pub use Builder as CreateDelegationRequestFluentBuilder;

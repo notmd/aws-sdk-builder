@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn queue_name(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_name = Some(value.into()); self }
-    pub fn queue_owner_aws_account_id(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_owner_aws_account_id = Some(value.into()); self }
+    pub fn queue_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.queue_name = Some(value.into()); self }
+    pub fn queue_owner_aws_account_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.queue_owner_aws_account_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetQueueUrlOutput, super::GetQueueUrlError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetQueueUrlError::Unhandled(format!("GetQueueUrl returned HTTP {}", status)));
                          }
-                         Ok(super::GetQueueUrlOutput::default())
+                         Ok(super::_get_queue_url_output::GetQueueUrlOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetQueueUrlFluentBuilder;

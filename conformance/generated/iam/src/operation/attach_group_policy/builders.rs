@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn group_name(mut self, value: impl ::std::convert::Into<super::super::super::types::GroupNameType>) -> Self { self.input.group_name = Some(value.into()); self }
-    pub fn policy_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.policy_arn = Some(value.into()); self }
+    pub fn group_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.group_name = Some(value.into()); self }
+    pub fn policy_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy_arn = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::AttachGroupPolicyOutput, super::AttachGroupPolicyError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::AttachGroupPolicyError::Unhandled(format!("AttachGroupPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::AttachGroupPolicyOutput)
+                         Ok(super::AttachGroupPolicyOutput{})
                      }
 }
 pub use Builder as AttachGroupPolicyFluentBuilder;

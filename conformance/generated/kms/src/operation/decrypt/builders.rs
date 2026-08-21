@@ -10,14 +10,14 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn ciphertext_blob(mut self, value: impl ::std::convert::Into<super::super::super::types::CiphertextType>) -> Self { self.input.ciphertext_blob = Some(value.into()); self }
-    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-    pub fn dry_run_modifiers(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DryRunModifierType>>) -> Self { self.input.dry_run_modifiers = Some(value.into()); self }
-    pub fn encryption_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.input.encryption_algorithm = Some(value.into()); self }
-    pub fn encryption_context(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.input.encryption_context = Some(value.into()); self }
-    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn recipient(mut self, value: impl ::std::convert::Into<super::super::super::types::RecipientInfo>) -> Self { self.input.recipient = Some(value.into()); self }
+    pub fn ciphertext_blob(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self { self.input.ciphertext_blob = Some(value.into()); self }
+    pub fn encryption_context(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.input.encryption_context = Some(value.into()); self }
+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn encryption_algorithm(mut self, value: impl ::std::convert::Into<crate::types::EncryptionAlgorithmSpec>) -> Self { self.input.encryption_algorithm = Some(value.into()); self }
+    pub fn recipient(mut self, value: impl ::std::convert::Into<crate::types::RecipientInfo>) -> Self { self.input.recipient = Some(value.into()); self }
+    pub fn dry_run(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.dry_run = Some(value.into()); self }
+    pub fn dry_run_modifiers(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::DryRunModifierType>>) -> Self { self.input.dry_run_modifiers = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::DecryptOutput, super::DecryptError> {
@@ -29,7 +29,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DecryptError::Unhandled(format!("Decrypt returned HTTP {}", status)));
                          }
-                         Ok(super::DecryptOutput::default())
+                         Ok(super::_decrypt_output::DecryptOutputBuilder::default().build())
                      }
 }
 pub use Builder as DecryptFluentBuilder;

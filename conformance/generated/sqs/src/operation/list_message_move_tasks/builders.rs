@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn max_results(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.input.max_results = Some(value.into()); self }
-    pub fn source_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.source_arn = Some(value.into()); self }
+    pub fn source_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.source_arn = Some(value.into()); self }
+    pub fn max_results(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_results = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListMessageMoveTasksOutput, super::ListMessageMoveTasksError> {
@@ -23,20 +23,20 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListMessageMoveTasksError::Unhandled(format!("ListMessageMoveTasks returned HTTP {}", status)));
                          }
-                         let mut output = super::ListMessageMoveTasksOutput::default();
+                         let mut output = super::_list_message_move_tasks_output::ListMessageMoveTasksOutputBuilder::default();
                          let body = response.text().await.map_err(super::ListMessageMoveTasksError::Unhandled)?;
-                         let values = super::super::super::transport::xml_tags(&body, "ListMessageMoveTasksResultEntry").into_iter().map(|value| { let mut item: super::super::super::types::ListMessageMoveTasksResultEntry = ::std::default::Default::default(); item.approximate_number_of_messages_moved = super::super::super::transport::xml_first(&value, "ApproximateNumberOfMessagesMoved").and_then(|value| value.parse().ok());
- item.approximate_number_of_messages_to_move = super::super::super::transport::xml_first(&value, "ApproximateNumberOfMessagesToMove").and_then(|value| value.parse().ok());
- item.destination_arn = super::super::super::transport::xml_first(&value, "DestinationArn").and_then(|value| value.parse().ok());
- item.failure_reason = super::super::super::transport::xml_first(&value, "FailureReason").and_then(|value| value.parse().ok());
- item.max_number_of_messages_per_second = super::super::super::transport::xml_first(&value, "MaxNumberOfMessagesPerSecond").and_then(|value| value.parse().ok());
- item.source_arn = super::super::super::transport::xml_first(&value, "SourceArn").and_then(|value| value.parse().ok());
- item.started_timestamp = super::super::super::transport::xml_first(&value, "StartedTimestamp").and_then(|value| value.parse().ok());
+                         let values = super::super::super::transport::xml_tags(&body, "ListMessageMoveTasksResultEntry").into_iter().map(|value| { let mut item: crate::types::ListMessageMoveTasksResultEntryBuilder = ::std::default::Default::default(); item.task_handle = super::super::super::transport::xml_first(&value, "TaskHandle").and_then(|value| value.parse().ok());
  item.status = super::super::super::transport::xml_first(&value, "Status").and_then(|value| value.parse().ok());
- item.task_handle = super::super::super::transport::xml_first(&value, "TaskHandle").and_then(|value| value.parse().ok());
- item }).collect();
+ item.source_arn = super::super::super::transport::xml_first(&value, "SourceArn").and_then(|value| value.parse().ok());
+ item.destination_arn = super::super::super::transport::xml_first(&value, "DestinationArn").and_then(|value| value.parse().ok());
+ item.max_number_of_messages_per_second = super::super::super::transport::xml_first(&value, "MaxNumberOfMessagesPerSecond").and_then(|value| value.parse().ok());
+ item.approximate_number_of_messages_moved = super::super::super::transport::xml_first(&value, "ApproximateNumberOfMessagesMoved").and_then(|value| value.parse().ok());
+ item.approximate_number_of_messages_to_move = super::super::super::transport::xml_first(&value, "ApproximateNumberOfMessagesToMove").and_then(|value| value.parse().ok());
+ item.failure_reason = super::super::super::transport::xml_first(&value, "FailureReason").and_then(|value| value.parse().ok());
+ item.started_timestamp = super::super::super::transport::xml_first(&value, "StartedTimestamp").and_then(|value| value.parse().ok());
+ item.build() }).collect();
                          output.results = Some(values);
-                         Ok(output)
+                         Ok(output.build())
                      }
 }
 pub use Builder as ListMessageMoveTasksFluentBuilder;

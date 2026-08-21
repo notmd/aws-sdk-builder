@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn certificate_body(mut self, value: impl ::std::convert::Into<super::super::super::types::CertificateBodyType>) -> Self { self.input.certificate_body = Some(value.into()); self }
-    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ExistingUserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn certificate_body(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.certificate_body = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UploadSigningCertificateOutput, super::UploadSigningCertificateError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UploadSigningCertificateError::Unhandled(format!("UploadSigningCertificate returned HTTP {}", status)));
                          }
-                         Ok(super::UploadSigningCertificateOutput::default())
+                         Ok(super::_upload_signing_certificate_output::UploadSigningCertificateOutputBuilder::default().build())
                      }
 }
 pub use Builder as UploadSigningCertificateFluentBuilder;

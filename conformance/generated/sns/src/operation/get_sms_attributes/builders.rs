@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.input.attributes = Some(value.into()); self }
+    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.attributes = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetSmsAttributesOutput, super::GetSmsAttributesError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetSmsAttributesError::Unhandled(format!("GetSmsAttributes returned HTTP {}", status)));
                          }
-                         Ok(super::GetSmsAttributesOutput::default())
+                         Ok(super::_get_sms_attributes_output::GetSmsAttributesOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetSmsAttributesFluentBuilder;

@@ -10,17 +10,17 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bypass_policy_lockout_safety_check(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.input.bypass_policy_lockout_safety_check = Some(value.into()); self }
-    pub fn custom_key_store_id(mut self, value: impl ::std::convert::Into<super::super::super::types::CustomKeyStoreIdType>) -> Self { self.input.custom_key_store_id = Some(value.into()); self }
-    pub fn customer_master_key_spec(mut self, value: impl ::std::convert::Into<super::super::super::types::CustomerMasterKeySpec>) -> Self { self.input.customer_master_key_spec = Some(value.into()); self }
-    pub fn description(mut self, value: impl ::std::convert::Into<super::super::super::types::DescriptionType>) -> Self { self.input.description = Some(value.into()); self }
-    pub fn key_spec(mut self, value: impl ::std::convert::Into<super::super::super::types::KeySpec>) -> Self { self.input.key_spec = Some(value.into()); self }
-    pub fn key_usage(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyUsageType>) -> Self { self.input.key_usage = Some(value.into()); self }
-    pub fn multi_region(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.multi_region = Some(value.into()); self }
-    pub fn origin(mut self, value: impl ::std::convert::Into<super::super::super::types::OriginType>) -> Self { self.input.origin = Some(value.into()); self }
-    pub fn policy(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyType>) -> Self { self.input.policy = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
-    pub fn xks_key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::XksKeyIdType>) -> Self { self.input.xks_key_id = Some(value.into()); self }
+    pub fn policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy = Some(value.into()); self }
+    pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.description = Some(value.into()); self }
+    pub fn key_usage(mut self, value: impl ::std::convert::Into<crate::types::KeyUsageType>) -> Self { self.input.key_usage = Some(value.into()); self }
+    pub fn customer_master_key_spec(mut self, value: impl ::std::convert::Into<crate::types::CustomerMasterKeySpec>) -> Self { self.input.customer_master_key_spec = Some(value.into()); self }
+    pub fn key_spec(mut self, value: impl ::std::convert::Into<crate::types::KeySpec>) -> Self { self.input.key_spec = Some(value.into()); self }
+    pub fn origin(mut self, value: impl ::std::convert::Into<crate::types::OriginType>) -> Self { self.input.origin = Some(value.into()); self }
+    pub fn custom_key_store_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.custom_key_store_id = Some(value.into()); self }
+    pub fn bypass_policy_lockout_safety_check(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.bypass_policy_lockout_safety_check = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn multi_region(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.multi_region = Some(value.into()); self }
+    pub fn xks_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.xks_key_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateKeyOutput, super::CreateKeyError> {
@@ -32,7 +32,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateKeyError::Unhandled(format!("CreateKey returned HTTP {}", status)));
                          }
-                         Ok(super::CreateKeyOutput::default())
+                         Ok(super::_create_key_output::CreateKeyOutputBuilder::default().build())
                      }
 }
 pub use Builder as CreateKeyFluentBuilder;

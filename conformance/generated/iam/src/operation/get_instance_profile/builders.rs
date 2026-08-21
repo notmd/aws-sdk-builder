@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn instance_profile_name(mut self, value: impl ::std::convert::Into<super::super::super::types::InstanceProfileNameType>) -> Self { self.input.instance_profile_name = Some(value.into()); self }
+    pub fn instance_profile_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.instance_profile_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetInstanceProfileOutput, super::GetInstanceProfileError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetInstanceProfileError::Unhandled(format!("GetInstanceProfile returned HTTP {}", status)));
                          }
-                         Ok(super::GetInstanceProfileOutput::default())
+                         Ok(super::_get_instance_profile_output::GetInstanceProfileOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetInstanceProfileFluentBuilder;

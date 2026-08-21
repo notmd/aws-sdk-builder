@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn phone_number(mut self, value: impl ::std::convert::Into<super::super::super::types::PhoneNumber>) -> Self { self.input.phone_number = Some(value.into()); self }
+    pub fn phone_number(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.phone_number = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CheckIfPhoneNumberIsOptedOutOutput, super::CheckIfPhoneNumberIsOptedOutError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CheckIfPhoneNumberIsOptedOutError::Unhandled(format!("CheckIfPhoneNumberIsOptedOut returned HTTP {}", status)));
                          }
-                         Ok(super::CheckIfPhoneNumberIsOptedOutOutput::default())
+                         Ok(super::_check_if_phone_number_is_opted_out_output::CheckIfPhoneNumberIsOptedOutOutputBuilder::default().build())
                      }
 }
 pub use Builder as CheckIfPhoneNumberIsOptedOutFluentBuilder;

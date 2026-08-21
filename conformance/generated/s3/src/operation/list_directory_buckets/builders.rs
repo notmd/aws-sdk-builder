@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn continuation_token(mut self, value: impl ::std::convert::Into<super::super::super::types::DirectoryBucketToken>) -> Self { self.input.continuation_token = Some(value.into()); self }
-    pub fn max_directory_buckets(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxDirectoryBuckets>) -> Self { self.input.max_directory_buckets = Some(value.into()); self }
+    pub fn continuation_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.continuation_token = Some(value.into()); self }
+    pub fn max_directory_buckets(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_directory_buckets = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListDirectoryBucketsOutput, super::ListDirectoryBucketsError> {
@@ -23,11 +23,11 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListDirectoryBucketsError::Unhandled(format!("ListDirectoryBuckets returned HTTP {}", status)));
                          }
-                         let mut output = super::ListDirectoryBucketsOutput::default();
+                         let mut output = super::_list_directory_buckets_output::ListDirectoryBucketsOutputBuilder::default();
                          let body = response.text().await.map_err(super::ListDirectoryBucketsError::Unhandled)?;
                          output.buckets = Some(::std::vec::Vec::new());
                          output.continuation_token = super::super::super::transport::xml_first(&body, "ContinuationToken").and_then(|value| value.parse().ok());
-                         Ok(output)
+                         Ok(output.build())
                      }
 }
 pub use Builder as ListDirectoryBucketsFluentBuilder;

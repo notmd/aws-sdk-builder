@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn data_protection_policy(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeValue>) -> Self { self.input.data_protection_policy = Some(value.into()); self }
-    pub fn resource_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicArn>) -> Self { self.input.resource_arn = Some(value.into()); self }
+    pub fn resource_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.resource_arn = Some(value.into()); self }
+    pub fn data_protection_policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.data_protection_policy = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::PutDataProtectionPolicyOutput, super::PutDataProtectionPolicyError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutDataProtectionPolicyError::Unhandled(format!("PutDataProtectionPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::PutDataProtectionPolicyOutput)
+                         Ok(super::PutDataProtectionPolicyOutput{})
                      }
 }
 pub use Builder as PutDataProtectionPolicyFluentBuilder;

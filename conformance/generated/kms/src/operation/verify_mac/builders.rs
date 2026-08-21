@@ -10,12 +10,12 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn mac(mut self, value: impl ::std::convert::Into<super::super::super::types::CiphertextType>) -> Self { self.input.mac = Some(value.into()); self }
-    pub fn mac_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::MacAlgorithmSpec>) -> Self { self.input.mac_algorithm = Some(value.into()); self }
-    pub fn message(mut self, value: impl ::std::convert::Into<super::super::super::types::PlaintextType>) -> Self { self.input.message = Some(value.into()); self }
+    pub fn message(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self { self.input.message = Some(value.into()); self }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn mac_algorithm(mut self, value: impl ::std::convert::Into<crate::types::MacAlgorithmSpec>) -> Self { self.input.mac_algorithm = Some(value.into()); self }
+    pub fn mac(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self { self.input.mac = Some(value.into()); self }
+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
+    pub fn dry_run(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.dry_run = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::VerifyMacOutput, super::VerifyMacError> {
@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::VerifyMacError::Unhandled(format!("VerifyMac returned HTTP {}", status)));
                          }
-                         Ok(super::VerifyMacOutput::default())
+                         Ok(super::_verify_mac_output::VerifyMacOutputBuilder::default().build())
                      }
 }
 pub use Builder as VerifyMacFluentBuilder;

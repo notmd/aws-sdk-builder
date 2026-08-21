@@ -10,10 +10,10 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn limit(mut self, value: impl ::std::convert::Into<super::super::super::types::LimitType>) -> Self { self.input.limit = Some(value.into()); self }
-    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
-    pub fn retiring_principal(mut self, value: impl ::std::convert::Into<super::super::super::types::PrincipalIdType>) -> Self { self.input.retiring_principal = Some(value.into()); self }
-    pub fn retiring_service_principal(mut self, value: impl ::std::convert::Into<super::super::super::types::ServicePrincipalType>) -> Self { self.input.retiring_service_principal = Some(value.into()); self }
+    pub fn limit(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.limit = Some(value.into()); self }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
+    pub fn retiring_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.retiring_principal = Some(value.into()); self }
+    pub fn retiring_service_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.retiring_service_principal = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListRetirableGrantsOutput, super::ListRetirableGrantsError> {
@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListRetirableGrantsError::Unhandled(format!("ListRetirableGrants returned HTTP {}", status)));
                          }
-                         Ok(super::ListRetirableGrantsOutput::default())
+                         Ok(super::_list_retirable_grants_output::ListRetirableGrantsOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListRetirableGrantsFluentBuilder;

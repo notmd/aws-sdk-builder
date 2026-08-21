@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
-    pub fn max_items(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.input.max_items = Some(value.into()); self }
-    pub fn policy_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.policy_arn = Some(value.into()); self }
+    pub fn policy_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy_arn = Some(value.into()); self }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
+    pub fn max_items(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_items = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListPolicyVersionsOutput, super::ListPolicyVersionsError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListPolicyVersionsError::Unhandled(format!("ListPolicyVersions returned HTTP {}", status)));
                          }
-                         Ok(super::ListPolicyVersionsOutput::default())
+                         Ok(super::_list_policy_versions_output::ListPolicyVersionsOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListPolicyVersionsFluentBuilder;

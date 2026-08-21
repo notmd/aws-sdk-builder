@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>) -> Self { self.input.attributes = Some(value.into()); self }
-    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
+    pub fn queue_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.queue_url = Some(value.into()); self }
+    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>) -> Self { self.input.attributes = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::SetQueueAttributesOutput, super::SetQueueAttributesError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SetQueueAttributesError::Unhandled(format!("SetQueueAttributes returned HTTP {}", status)));
                          }
-                         Ok(super::SetQueueAttributesOutput)
+                         Ok(super::SetQueueAttributesOutput{})
                      }
 }
 pub use Builder as SetQueueAttributesFluentBuilder;

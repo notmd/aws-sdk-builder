@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CancelKeyDeletionOutput, super::CancelKeyDeletionError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CancelKeyDeletionError::Unhandled(format!("CancelKeyDeletion returned HTTP {}", status)));
                          }
-                         Ok(super::CancelKeyDeletionOutput::default())
+                         Ok(super::_cancel_key_deletion_output::CancelKeyDeletionOutputBuilder::default().build())
                      }
 }
 pub use Builder as CancelKeyDeletionFluentBuilder;

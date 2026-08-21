@@ -10,13 +10,13 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn annotation_name(mut self, value: impl ::std::convert::Into<super::super::super::types::AnnotationName>) -> Self { self.input.annotation_name = Some(value.into()); self }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn checksum_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumMode>) -> Self { self.input.checksum_mode = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectKey>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn version_id(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectVersionId>) -> Self { self.input.version_id = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
+    pub fn annotation_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.annotation_name = Some(value.into()); self }
+    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.version_id = Some(value.into()); self }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn checksum_mode(mut self, value: impl ::std::convert::Into<crate::types::ChecksumMode>) -> Self { self.input.checksum_mode = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetObjectAnnotationOutput, super::GetObjectAnnotationError> {
@@ -30,22 +30,22 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetObjectAnnotationError::Unhandled(format!("GetObjectAnnotation returned HTTP {}", status)));
                          }
-                         let mut output = super::GetObjectAnnotationOutput::default();
+                         let mut output = super::_get_object_annotation_output::GetObjectAnnotationOutputBuilder::default();
                          output.annotation_payload = Some(super::super::super::primitives::ByteStream::from(response.body().to_vec()));
+                         output.object_version_id = response.header("x-amz-object-version-id").map(str::to_owned);
+                         output.content_length = response.header("Content-Length").and_then(|value| value.parse().ok());
+                         output.e_tag = response.header("ETag").map(str::to_owned);
                          output.checksum_crc32 = response.header("x-amz-checksum-crc32").map(str::to_owned);
                          output.checksum_crc32_c = response.header("x-amz-checksum-crc32c").map(str::to_owned);
                          output.checksum_crc64_nvme = response.header("x-amz-checksum-crc64nvme").map(str::to_owned);
-                         output.checksum_md5 = response.header("x-amz-checksum-md5").map(str::to_owned);
                          output.checksum_sha1 = response.header("x-amz-checksum-sha1").map(str::to_owned);
                          output.checksum_sha256 = response.header("x-amz-checksum-sha256").map(str::to_owned);
                          output.checksum_sha512 = response.header("x-amz-checksum-sha512").map(str::to_owned);
-                         output.checksum_xxhash128 = response.header("x-amz-checksum-xxhash128").map(str::to_owned);
-                         output.checksum_xxhash3 = response.header("x-amz-checksum-xxhash3").map(str::to_owned);
+                         output.checksum_md5 = response.header("x-amz-checksum-md5").map(str::to_owned);
                          output.checksum_xxhash64 = response.header("x-amz-checksum-xxhash64").map(str::to_owned);
-                         output.content_length = response.header("Content-Length").and_then(|value| value.parse().ok());
-                         output.e_tag = response.header("ETag").map(str::to_owned);
-                         output.object_version_id = response.header("x-amz-object-version-id").map(str::to_owned);
-                         Ok(output)
+                         output.checksum_xxhash3 = response.header("x-amz-checksum-xxhash3").map(str::to_owned);
+                         output.checksum_xxhash128 = response.header("x-amz-checksum-xxhash128").map(str::to_owned);
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetObjectAnnotationFluentBuilder;

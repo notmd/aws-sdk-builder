@@ -10,10 +10,10 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bypass_policy_lockout_safety_check(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.input.bypass_policy_lockout_safety_check = Some(value.into()); self }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn policy(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyType>) -> Self { self.input.policy = Some(value.into()); self }
-    pub fn policy_name(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyNameType>) -> Self { self.input.policy_name = Some(value.into()); self }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn policy_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy_name = Some(value.into()); self }
+    pub fn policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy = Some(value.into()); self }
+    pub fn bypass_policy_lockout_safety_check(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.bypass_policy_lockout_safety_check = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::PutKeyPolicyOutput, super::PutKeyPolicyError> {
@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutKeyPolicyError::Unhandled(format!("PutKeyPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::PutKeyPolicyOutput)
+                         Ok(super::PutKeyPolicyOutput{})
                      }
 }
 pub use Builder as PutKeyPolicyFluentBuilder;

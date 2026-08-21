@@ -23,7 +23,7 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_customer_master_key_spec.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_data_key_pair_spec.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_data_key_spec.rs"));
-    pub type DateType = ::std::time::SystemTime;
+    pub type DateType = ::aws_smithy_types::DateTime;
     pub type DescriptionType = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_dry_run_modifier_type.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_encryption_algorithm_spec.rs"));

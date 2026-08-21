@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn backup_name(mut self, value: impl ::std::convert::Into<super::super::super::types::BackupName>) -> Self { self.input.backup_name = Some(value.into()); self }
-    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn backup_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.backup_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateBackupOutput, super::CreateBackupError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateBackupError::Unhandled(format!("CreateBackup returned HTTP {}", status)));
                          }
-                         Ok(super::CreateBackupOutput::default())
+                         Ok(super::_create_backup_output::CreateBackupOutputBuilder::default().build())
                      }
 }
 pub use Builder as CreateBackupFluentBuilder;

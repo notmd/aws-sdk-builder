@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn entity_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.entity_arn = Some(value.into()); self }
-    pub fn locale(mut self, value: impl ::std::convert::Into<super::super::super::types::LocaleType>) -> Self { self.input.locale = Some(value.into()); self }
+    pub fn entity_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.entity_arn = Some(value.into()); self }
+    pub fn locale(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.locale = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetHumanReadableSummaryOutput, super::GetHumanReadableSummaryError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetHumanReadableSummaryError::Unhandled(format!("GetHumanReadableSummary returned HTTP {}", status)));
                          }
-                         Ok(super::GetHumanReadableSummaryOutput::default())
+                         Ok(super::_get_human_readable_summary_output::GetHumanReadableSummaryOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetHumanReadableSummaryFluentBuilder;

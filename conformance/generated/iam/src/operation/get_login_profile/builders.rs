@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::UserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.user_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetLoginProfileOutput, super::GetLoginProfileError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetLoginProfileError::Unhandled(format!("GetLoginProfile returned HTTP {}", status)));
                          }
-                         Ok(super::GetLoginProfileOutput::default())
+                         Ok(super::_get_login_profile_output::GetLoginProfileOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetLoginProfileFluentBuilder;

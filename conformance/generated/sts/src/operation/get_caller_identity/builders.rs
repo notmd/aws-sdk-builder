@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetCallerIdentityError::Unhandled(format!("GetCallerIdentity returned HTTP {}", status)));
                          }
-                         Ok(super::GetCallerIdentityOutput::default())
+                         Ok(super::_get_caller_identity_output::GetCallerIdentityOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetCallerIdentityFluentBuilder;

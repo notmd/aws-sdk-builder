@@ -10,11 +10,11 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn destination_config(mut self, value: impl ::std::convert::Into<super::super::super::types::DestinationConfig>) -> Self { self.input.destination_config = Some(value.into()); self }
-    pub fn function_name(mut self, value: impl ::std::convert::Into<super::super::super::types::NamespacedFunctionName>) -> Self { self.input.function_name = Some(value.into()); self }
-    pub fn maximum_event_age_in_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::MaximumEventAgeInSeconds>) -> Self { self.input.maximum_event_age_in_seconds = Some(value.into()); self }
-    pub fn maximum_retry_attempts(mut self, value: impl ::std::convert::Into<super::super::super::types::MaximumRetryAttempts>) -> Self { self.input.maximum_retry_attempts = Some(value.into()); self }
-    pub fn qualifier(mut self, value: impl ::std::convert::Into<super::super::super::types::NumericLatestPublishedOrAliasQualifier>) -> Self { self.input.qualifier = Some(value.into()); self }
+    pub fn function_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.function_name = Some(value.into()); self }
+    pub fn qualifier(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.qualifier = Some(value.into()); self }
+    pub fn maximum_retry_attempts(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.maximum_retry_attempts = Some(value.into()); self }
+    pub fn maximum_event_age_in_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.maximum_event_age_in_seconds = Some(value.into()); self }
+    pub fn destination_config(mut self, value: impl ::std::convert::Into<crate::types::DestinationConfig>) -> Self { self.input.destination_config = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::PutFunctionEventInvokeConfigOutput, super::PutFunctionEventInvokeConfigError> {
@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutFunctionEventInvokeConfigError::Unhandled(format!("PutFunctionEventInvokeConfig returned HTTP {}", status)));
                          }
-                         Ok(super::PutFunctionEventInvokeConfigOutput::default())
+                         Ok(super::_put_function_event_invoke_config_output::PutFunctionEventInvokeConfigOutputBuilder::default().build())
                      }
 }
 pub use Builder as PutFunctionEventInvokeConfigFluentBuilder;

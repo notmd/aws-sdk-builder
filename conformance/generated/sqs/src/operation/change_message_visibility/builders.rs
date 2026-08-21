@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
-    pub fn receipt_handle(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.receipt_handle = Some(value.into()); self }
-    pub fn visibility_timeout(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.input.visibility_timeout = Some(value.into()); self }
+    pub fn queue_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.queue_url = Some(value.into()); self }
+    pub fn receipt_handle(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.receipt_handle = Some(value.into()); self }
+    pub fn visibility_timeout(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.visibility_timeout = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ChangeMessageVisibilityOutput, super::ChangeMessageVisibilityError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ChangeMessageVisibilityError::Unhandled(format!("ChangeMessageVisibility returned HTTP {}", status)));
                          }
-                         Ok(super::ChangeMessageVisibilityOutput)
+                         Ok(super::ChangeMessageVisibilityOutput{})
                      }
 }
 pub use Builder as ChangeMessageVisibilityFluentBuilder;

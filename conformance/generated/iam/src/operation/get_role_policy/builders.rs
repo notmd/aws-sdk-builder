@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn policy_name(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyNameType>) -> Self { self.input.policy_name = Some(value.into()); self }
-    pub fn role_name(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.input.role_name = Some(value.into()); self }
+    pub fn role_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.role_name = Some(value.into()); self }
+    pub fn policy_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetRolePolicyOutput, super::GetRolePolicyError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetRolePolicyError::Unhandled(format!("GetRolePolicy returned HTTP {}", status)));
                          }
-                         Ok(super::GetRolePolicyOutput::default())
+                         super::_get_role_policy_output::GetRolePolicyOutputBuilder::default().build().map_err(|error| super::GetRolePolicyError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as GetRolePolicyFluentBuilder;

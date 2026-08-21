@@ -10,11 +10,11 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::DurationSecondsType>) -> Self { self.input.duration_seconds = Some(value.into()); self }
-    pub fn name(mut self, value: impl ::std::convert::Into<super::super::super::types::UserNameType>) -> Self { self.input.name = Some(value.into()); self }
-    pub fn policy(mut self, value: impl ::std::convert::Into<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.input.policy = Some(value.into()); self }
-    pub fn policy_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.input.policy_arns = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.name = Some(value.into()); self }
+    pub fn policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy = Some(value.into()); self }
+    pub fn policy_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::PolicyDescriptorType>>) -> Self { self.input.policy_arns = Some(value.into()); self }
+    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.duration_seconds = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetFederationTokenOutput, super::GetFederationTokenError> {
@@ -26,7 +26,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetFederationTokenError::Unhandled(format!("GetFederationToken returned HTTP {}", status)));
                          }
-                         Ok(super::GetFederationTokenOutput::default())
+                         Ok(super::_get_federation_token_output::GetFederationTokenOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetFederationTokenFluentBuilder;

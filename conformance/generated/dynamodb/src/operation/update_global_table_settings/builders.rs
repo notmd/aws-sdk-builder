@@ -10,12 +10,12 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn global_table_billing_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.input.global_table_billing_mode = Some(value.into()); self }
-    pub fn global_table_global_secondary_index_settings_update(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>) -> Self { self.input.global_table_global_secondary_index_settings_update = Some(value.into()); self }
-    pub fn global_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.global_table_name = Some(value.into()); self }
-    pub fn global_table_provisioned_write_capacity_auto_scaling_settings_update(mut self, value: impl ::std::convert::Into<super::super::super::types::AutoScalingSettingsUpdate>) -> Self { self.input.global_table_provisioned_write_capacity_auto_scaling_settings_update = Some(value.into()); self }
-    pub fn global_table_provisioned_write_capacity_units(mut self, value: impl ::std::convert::Into<super::super::super::types::PositiveLongObject>) -> Self { self.input.global_table_provisioned_write_capacity_units = Some(value.into()); self }
-    pub fn replica_settings_update(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>) -> Self { self.input.replica_settings_update = Some(value.into()); self }
+    pub fn global_table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.global_table_name = Some(value.into()); self }
+    pub fn global_table_billing_mode(mut self, value: impl ::std::convert::Into<crate::types::BillingMode>) -> Self { self.input.global_table_billing_mode = Some(value.into()); self }
+    pub fn global_table_provisioned_write_capacity_units(mut self, value: impl ::std::convert::Into<i64>) -> Self { self.input.global_table_provisioned_write_capacity_units = Some(value.into()); self }
+    pub fn global_table_provisioned_write_capacity_auto_scaling_settings_update(mut self, value: impl ::std::convert::Into<crate::types::AutoScalingSettingsUpdate>) -> Self { self.input.global_table_provisioned_write_capacity_auto_scaling_settings_update = Some(value.into()); self }
+    pub fn global_table_global_secondary_index_settings_update(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>) -> Self { self.input.global_table_global_secondary_index_settings_update = Some(value.into()); self }
+    pub fn replica_settings_update(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ReplicaSettingsUpdate>>) -> Self { self.input.replica_settings_update = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UpdateGlobalTableSettingsOutput, super::UpdateGlobalTableSettingsError> {
@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateGlobalTableSettingsError::Unhandled(format!("UpdateGlobalTableSettings returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateGlobalTableSettingsOutput::default())
+                         Ok(super::_update_global_table_settings_output::UpdateGlobalTableSettingsOutputBuilder::default().build())
                      }
 }
 pub use Builder as UpdateGlobalTableSettingsFluentBuilder;

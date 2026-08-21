@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn platform_application_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.platform_application_arn = Some(value.into()); self }
+    pub fn platform_application_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.platform_application_arn = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetPlatformApplicationAttributesOutput, super::GetPlatformApplicationAttributesError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetPlatformApplicationAttributesError::Unhandled(format!("GetPlatformApplicationAttributes returned HTTP {}", status)));
                          }
-                         Ok(super::GetPlatformApplicationAttributesOutput::default())
+                         Ok(super::_get_platform_application_attributes_output::GetPlatformApplicationAttributesOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetPlatformApplicationAttributesFluentBuilder;

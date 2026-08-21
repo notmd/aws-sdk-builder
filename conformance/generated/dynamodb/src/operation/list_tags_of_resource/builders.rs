@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn next_token(mut self, value: impl ::std::convert::Into<super::super::super::types::NextTokenString>) -> Self { self.input.next_token = Some(value.into()); self }
-    pub fn resource_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceArnString>) -> Self { self.input.resource_arn = Some(value.into()); self }
+    pub fn resource_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.resource_arn = Some(value.into()); self }
+    pub fn next_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.next_token = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListTagsOfResourceOutput, super::ListTagsOfResourceError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListTagsOfResourceError::Unhandled(format!("ListTagsOfResource returned HTTP {}", status)));
                          }
-                         Ok(super::ListTagsOfResourceOutput::default())
+                         Ok(super::_list_tags_of_resource_output::ListTagsOfResourceOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListTagsOfResourceFluentBuilder;

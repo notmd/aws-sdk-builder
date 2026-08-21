@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn policy_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.policy_arn = Some(value.into()); self }
-    pub fn role_name(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.input.role_name = Some(value.into()); self }
+    pub fn role_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.role_name = Some(value.into()); self }
+    pub fn policy_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy_arn = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::AttachRolePolicyOutput, super::AttachRolePolicyError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::AttachRolePolicyError::Unhandled(format!("AttachRolePolicy returned HTTP {}", status)));
                          }
-                         Ok(super::AttachRolePolicyOutput)
+                         Ok(super::AttachRolePolicyOutput{})
                      }
 }
 pub use Builder as AttachRolePolicyFluentBuilder;

@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn key_material_id(mut self, value: impl ::std::convert::Into<super::super::super::types::BackingKeyIdType>) -> Self { self.input.key_material_id = Some(value.into()); self }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn key_material_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_material_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::DeleteImportedKeyMaterialOutput, super::DeleteImportedKeyMaterialError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteImportedKeyMaterialError::Unhandled(format!("DeleteImportedKeyMaterial returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteImportedKeyMaterialOutput::default())
+                         Ok(super::_delete_imported_key_material_output::DeleteImportedKeyMaterialOutputBuilder::default().build())
                      }
 }
 pub use Builder as DeleteImportedKeyMaterialFluentBuilder;

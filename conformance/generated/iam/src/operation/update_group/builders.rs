@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn group_name(mut self, value: impl ::std::convert::Into<super::super::super::types::GroupNameType>) -> Self { self.input.group_name = Some(value.into()); self }
-    pub fn new_group_name(mut self, value: impl ::std::convert::Into<super::super::super::types::GroupNameType>) -> Self { self.input.new_group_name = Some(value.into()); self }
-    pub fn new_path(mut self, value: impl ::std::convert::Into<super::super::super::types::PathType>) -> Self { self.input.new_path = Some(value.into()); self }
+    pub fn group_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.group_name = Some(value.into()); self }
+    pub fn new_path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.new_path = Some(value.into()); self }
+    pub fn new_group_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.new_group_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UpdateGroupOutput, super::UpdateGroupError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateGroupError::Unhandled(format!("UpdateGroup returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateGroupOutput)
+                         Ok(super::UpdateGroupOutput{})
                      }
 }
 pub use Builder as UpdateGroupFluentBuilder;

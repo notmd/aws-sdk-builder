@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::DeleteTableOutput, super::DeleteTableError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteTableError::Unhandled(format!("DeleteTable returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteTableOutput::default())
+                         Ok(super::_delete_table_output::DeleteTableOutputBuilder::default().build())
                      }
 }
 pub use Builder as DeleteTableFluentBuilder;

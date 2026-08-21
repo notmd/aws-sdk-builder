@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListSamlProvidersError::Unhandled(format!("ListSamlProviders returned HTTP {}", status)));
                          }
-                         Ok(super::ListSamlProvidersOutput::default())
+                         Ok(super::_list_saml_providers_output::ListSamlProvidersOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListSamlProvidersFluentBuilder;

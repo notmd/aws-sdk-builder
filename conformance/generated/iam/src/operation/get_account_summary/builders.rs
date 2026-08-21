@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetAccountSummaryError::Unhandled(format!("GetAccountSummary returned HTTP {}", status)));
                          }
-                         Ok(super::GetAccountSummaryOutput::default())
+                         Ok(super::_get_account_summary_output::GetAccountSummaryOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetAccountSummaryFluentBuilder;

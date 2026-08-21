@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn primary_region(mut self, value: impl ::std::convert::Into<super::super::super::types::RegionType>) -> Self { self.input.primary_region = Some(value.into()); self }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn primary_region(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.primary_region = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UpdatePrimaryRegionOutput, super::UpdatePrimaryRegionError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdatePrimaryRegionError::Unhandled(format!("UpdatePrimaryRegion returned HTTP {}", status)));
                          }
-                         Ok(super::UpdatePrimaryRegionOutput)
+                         Ok(super::UpdatePrimaryRegionOutput{})
                      }
 }
 pub use Builder as UpdatePrimaryRegionFluentBuilder;

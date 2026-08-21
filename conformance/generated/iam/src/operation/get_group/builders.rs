@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn group_name(mut self, value: impl ::std::convert::Into<super::super::super::types::GroupNameType>) -> Self { self.input.group_name = Some(value.into()); self }
-    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
-    pub fn max_items(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.input.max_items = Some(value.into()); self }
+    pub fn group_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.group_name = Some(value.into()); self }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
+    pub fn max_items(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_items = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetGroupOutput, super::GetGroupError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetGroupError::Unhandled(format!("GetGroup returned HTTP {}", status)));
                          }
-                         Ok(super::GetGroupOutput::default())
+                         super::_get_group_output::GetGroupOutputBuilder::default().build().map_err(|error| super::GetGroupError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as GetGroupFluentBuilder;

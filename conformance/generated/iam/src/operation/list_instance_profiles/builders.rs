@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
-    pub fn max_items(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.input.max_items = Some(value.into()); self }
-    pub fn path_prefix(mut self, value: impl ::std::convert::Into<super::super::super::types::PathPrefixType>) -> Self { self.input.path_prefix = Some(value.into()); self }
+    pub fn path_prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.path_prefix = Some(value.into()); self }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
+    pub fn max_items(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_items = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListInstanceProfilesOutput, super::ListInstanceProfilesError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListInstanceProfilesError::Unhandled(format!("ListInstanceProfiles returned HTTP {}", status)));
                          }
-                         Ok(super::ListInstanceProfilesOutput::default())
+                         super::_list_instance_profiles_output::ListInstanceProfilesOutputBuilder::default().build().map_err(|error| super::ListInstanceProfilesError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as ListInstanceProfilesFluentBuilder;

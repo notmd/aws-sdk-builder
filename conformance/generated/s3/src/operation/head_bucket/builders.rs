@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::HeadBucketOutput, super::HeadBucketError> {
@@ -24,12 +24,12 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::HeadBucketError::Unhandled(format!("HeadBucket returned HTTP {}", status)));
                          }
-                         let mut output = super::HeadBucketOutput::default();
-                         output.access_point_alias = response.header("x-amz-access-point-alias").and_then(|value| value.parse().ok());
+                         let mut output = super::_head_bucket_output::HeadBucketOutputBuilder::default();
                          output.bucket_arn = response.header("x-amz-bucket-arn").map(str::to_owned);
                          output.bucket_location_name = response.header("x-amz-bucket-location-name").map(str::to_owned);
                          output.bucket_region = response.header("x-amz-bucket-region").map(str::to_owned);
-                         Ok(output)
+                         output.access_point_alias = response.header("x-amz-access-point-alias").and_then(|value| value.parse().ok());
+                         Ok(output.build())
                      }
 }
 pub use Builder as HeadBucketFluentBuilder;

@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn description(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleDescriptionType>) -> Self { self.input.description = Some(value.into()); self }
-    pub fn role_name(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.input.role_name = Some(value.into()); self }
+    pub fn role_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.role_name = Some(value.into()); self }
+    pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.description = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UpdateRoleDescriptionOutput, super::UpdateRoleDescriptionError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateRoleDescriptionError::Unhandled(format!("UpdateRoleDescription returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateRoleDescriptionOutput::default())
+                         Ok(super::_update_role_description_output::UpdateRoleDescriptionOutputBuilder::default().build())
                      }
 }
 pub use Builder as UpdateRoleDescriptionFluentBuilder;

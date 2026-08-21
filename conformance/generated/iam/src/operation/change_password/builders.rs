@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn new_password(mut self, value: impl ::std::convert::Into<super::super::super::types::PasswordType>) -> Self { self.input.new_password = Some(value.into()); self }
-    pub fn old_password(mut self, value: impl ::std::convert::Into<super::super::super::types::PasswordType>) -> Self { self.input.old_password = Some(value.into()); self }
+    pub fn old_password(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.old_password = Some(value.into()); self }
+    pub fn new_password(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.new_password = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ChangePasswordOutput, super::ChangePasswordError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ChangePasswordError::Unhandled(format!("ChangePassword returned HTTP {}", status)));
                          }
-                         Ok(super::ChangePasswordOutput)
+                         Ok(super::ChangePasswordOutput{})
                      }
 }
 pub use Builder as ChangePasswordFluentBuilder;

@@ -10,10 +10,10 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn custom_key_store_id(mut self, value: impl ::std::convert::Into<super::super::super::types::CustomKeyStoreIdType>) -> Self { self.input.custom_key_store_id = Some(value.into()); self }
-    pub fn custom_key_store_name(mut self, value: impl ::std::convert::Into<super::super::super::types::CustomKeyStoreNameType>) -> Self { self.input.custom_key_store_name = Some(value.into()); self }
-    pub fn limit(mut self, value: impl ::std::convert::Into<super::super::super::types::LimitType>) -> Self { self.input.limit = Some(value.into()); self }
-    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
+    pub fn custom_key_store_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.custom_key_store_id = Some(value.into()); self }
+    pub fn custom_key_store_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.custom_key_store_name = Some(value.into()); self }
+    pub fn limit(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.limit = Some(value.into()); self }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::DescribeCustomKeyStoresOutput, super::DescribeCustomKeyStoresError> {
@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DescribeCustomKeyStoresError::Unhandled(format!("DescribeCustomKeyStores returned HTTP {}", status)));
                          }
-                         Ok(super::DescribeCustomKeyStoresOutput::default())
+                         Ok(super::_describe_custom_key_stores_output::DescribeCustomKeyStoresOutputBuilder::default().build())
                      }
 }
 pub use Builder as DescribeCustomKeyStoresFluentBuilder;

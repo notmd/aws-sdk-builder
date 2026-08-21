@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn policy_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.policy_arn = Some(value.into()); self }
-    pub fn policy_document(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyDocumentType>) -> Self { self.input.policy_document = Some(value.into()); self }
-    pub fn set_as_default(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.input.set_as_default = Some(value.into()); self }
+    pub fn policy_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy_arn = Some(value.into()); self }
+    pub fn policy_document(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy_document = Some(value.into()); self }
+    pub fn set_as_default(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.set_as_default = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreatePolicyVersionOutput, super::CreatePolicyVersionError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreatePolicyVersionError::Unhandled(format!("CreatePolicyVersion returned HTTP {}", status)));
                          }
-                         Ok(super::CreatePolicyVersionOutput::default())
+                         Ok(super::_create_policy_version_output::CreatePolicyVersionOutputBuilder::default().build())
                      }
 }
 pub use Builder as CreatePolicyVersionFluentBuilder;

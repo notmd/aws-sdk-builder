@@ -10,12 +10,12 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bypass_policy_lockout_safety_check(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.input.bypass_policy_lockout_safety_check = Some(value.into()); self }
-    pub fn description(mut self, value: impl ::std::convert::Into<super::super::super::types::DescriptionType>) -> Self { self.input.description = Some(value.into()); self }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn policy(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyType>) -> Self { self.input.policy = Some(value.into()); self }
-    pub fn replica_region(mut self, value: impl ::std::convert::Into<super::super::super::types::RegionType>) -> Self { self.input.replica_region = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn replica_region(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.replica_region = Some(value.into()); self }
+    pub fn policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy = Some(value.into()); self }
+    pub fn bypass_policy_lockout_safety_check(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.bypass_policy_lockout_safety_check = Some(value.into()); self }
+    pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.description = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ReplicateKeyOutput, super::ReplicateKeyError> {
@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ReplicateKeyError::Unhandled(format!("ReplicateKey returned HTTP {}", status)));
                          }
-                         Ok(super::ReplicateKeyOutput::default())
+                         Ok(super::_replicate_key_output::ReplicateKeyOutputBuilder::default().build())
                      }
 }
 pub use Builder as ReplicateKeyFluentBuilder;

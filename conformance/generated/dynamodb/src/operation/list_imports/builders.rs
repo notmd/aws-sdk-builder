@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn next_token(mut self, value: impl ::std::convert::Into<super::super::super::types::ImportNextToken>) -> Self { self.input.next_token = Some(value.into()); self }
-    pub fn page_size(mut self, value: impl ::std::convert::Into<super::super::super::types::ListImportsMaxLimit>) -> Self { self.input.page_size = Some(value.into()); self }
-    pub fn table_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_arn = Some(value.into()); self }
+    pub fn table_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_arn = Some(value.into()); self }
+    pub fn page_size(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.page_size = Some(value.into()); self }
+    pub fn next_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.next_token = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListImportsOutput, super::ListImportsError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListImportsError::Unhandled(format!("ListImports returned HTTP {}", status)));
                          }
-                         Ok(super::ListImportsOutput::default())
+                         Ok(super::_list_imports_output::ListImportsOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListImportsFluentBuilder;

@@ -10,12 +10,12 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn grant_id(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantIdType>) -> Self { self.input.grant_id = Some(value.into()); self }
-    pub fn grantee_principal(mut self, value: impl ::std::convert::Into<super::super::super::types::PrincipalIdType>) -> Self { self.input.grantee_principal = Some(value.into()); self }
-    pub fn grantee_service_principal(mut self, value: impl ::std::convert::Into<super::super::super::types::ServicePrincipalType>) -> Self { self.input.grantee_service_principal = Some(value.into()); self }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn limit(mut self, value: impl ::std::convert::Into<super::super::super::types::LimitType>) -> Self { self.input.limit = Some(value.into()); self }
-    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
+    pub fn limit(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.limit = Some(value.into()); self }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn grant_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_id = Some(value.into()); self }
+    pub fn grantee_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grantee_principal = Some(value.into()); self }
+    pub fn grantee_service_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grantee_service_principal = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListGrantsOutput, super::ListGrantsError> {
@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListGrantsError::Unhandled(format!("ListGrants returned HTTP {}", status)));
                          }
-                         Ok(super::ListGrantsOutput::default())
+                         Ok(super::_list_grants_output::ListGrantsOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListGrantsFluentBuilder;

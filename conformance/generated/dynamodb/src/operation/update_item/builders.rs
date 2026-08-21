@@ -10,19 +10,19 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attribute_updates(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValueUpdate>>) -> Self { self.input.attribute_updates = Some(value.into()); self }
-    pub fn condition_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionExpression>) -> Self { self.input.condition_expression = Some(value.into()); self }
-    pub fn conditional_operator(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.input.conditional_operator = Some(value.into()); self }
-    pub fn expected(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>) -> Self { self.input.expected = Some(value.into()); self }
-    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
-    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
-    pub fn return_item_collection_metrics(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnItemCollectionMetrics>) -> Self { self.input.return_item_collection_metrics = Some(value.into()); self }
-    pub fn return_values(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnValue>) -> Self { self.input.return_values = Some(value.into()); self }
-    pub fn return_values_on_condition_check_failure(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnValuesOnConditionCheckFailure>) -> Self { self.input.return_values_on_condition_check_failure = Some(value.into()); self }
-    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
-    pub fn update_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::UpdateExpression>) -> Self { self.input.update_expression = Some(value.into()); self }
+    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.input.key = Some(value.into()); self }
+    pub fn attribute_updates(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValueUpdate>>) -> Self { self.input.attribute_updates = Some(value.into()); self }
+    pub fn expected(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>>) -> Self { self.input.expected = Some(value.into()); self }
+    pub fn conditional_operator(mut self, value: impl ::std::convert::Into<crate::types::ConditionalOperator>) -> Self { self.input.conditional_operator = Some(value.into()); self }
+    pub fn return_values(mut self, value: impl ::std::convert::Into<crate::types::ReturnValue>) -> Self { self.input.return_values = Some(value.into()); self }
+    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
+    pub fn return_item_collection_metrics(mut self, value: impl ::std::convert::Into<crate::types::ReturnItemCollectionMetrics>) -> Self { self.input.return_item_collection_metrics = Some(value.into()); self }
+    pub fn update_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.update_expression = Some(value.into()); self }
+    pub fn condition_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.condition_expression = Some(value.into()); self }
+    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
+    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
+    pub fn return_values_on_condition_check_failure(mut self, value: impl ::std::convert::Into<crate::types::ReturnValuesOnConditionCheckFailure>) -> Self { self.input.return_values_on_condition_check_failure = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UpdateItemOutput, super::UpdateItemError> {
@@ -34,7 +34,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateItemError::Unhandled(format!("UpdateItem returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateItemOutput::default())
+                         Ok(super::_update_item_output::UpdateItemOutputBuilder::default().build())
                      }
 }
 pub use Builder as UpdateItemFluentBuilder;

@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self { self.input.entries = Some(value.into()); self }
-    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
+    pub fn queue_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.queue_url = Some(value.into()); self }
+    pub fn entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self { self.input.entries = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ChangeMessageVisibilityBatchOutput, super::ChangeMessageVisibilityBatchError> {
@@ -23,18 +23,18 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ChangeMessageVisibilityBatchError::Unhandled(format!("ChangeMessageVisibilityBatch returned HTTP {}", status)));
                          }
-                         let mut output = super::ChangeMessageVisibilityBatchOutput::default();
+                         let mut output = super::_change_message_visibility_batch_output::ChangeMessageVisibilityBatchOutputBuilder::default();
                          let body = response.text().await.map_err(super::ChangeMessageVisibilityBatchError::Unhandled)?;
-                         let values = super::super::super::transport::xml_tags(&body, "BatchResultErrorEntry").into_iter().map(|value| { let mut item: super::super::super::types::BatchResultErrorEntry = ::std::default::Default::default(); item.code = super::super::super::transport::xml_first(&value, "Code").and_then(|value| value.parse().ok());
- item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
- item.message = super::super::super::transport::xml_first(&value, "Message").and_then(|value| value.parse().ok());
- item.sender_fault = super::super::super::transport::xml_first(&value, "SenderFault").and_then(|value| value.parse().ok());
- item }).collect();
-                         output.failed = Some(values);
-                         let values = super::super::super::transport::xml_tags(&body, "ChangeMessageVisibilityBatchResultEntry").into_iter().map(|value| { let mut item: super::super::super::types::ChangeMessageVisibilityBatchResultEntry = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
- item }).collect();
+                         let values = super::super::super::transport::xml_tags(&body, "ChangeMessageVisibilityBatchResultEntry").into_iter().filter_map(|value| { let mut item: crate::types::ChangeMessageVisibilityBatchResultEntryBuilder = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
+ item.build().ok() }).collect();
                          output.successful = Some(values);
-                         Ok(output)
+                         let values = super::super::super::transport::xml_tags(&body, "BatchResultErrorEntry").into_iter().filter_map(|value| { let mut item: crate::types::BatchResultErrorEntryBuilder = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
+ item.sender_fault = super::super::super::transport::xml_first(&value, "SenderFault").and_then(|value| value.parse().ok());
+ item.code = super::super::super::transport::xml_first(&value, "Code").and_then(|value| value.parse().ok());
+ item.message = super::super::super::transport::xml_first(&value, "Message").and_then(|value| value.parse().ok());
+ item.build().ok() }).collect();
+                         output.failed = Some(values);
+                         output.build().map_err(|error| super::ChangeMessageVisibilityBatchError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as ChangeMessageVisibilityBatchFluentBuilder;

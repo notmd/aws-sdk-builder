@@ -10,19 +10,19 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn action_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ActionNameType>>) -> Self { self.input.action_names = Some(value.into()); self }
-    pub fn caller_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceNameType>) -> Self { self.input.caller_arn = Some(value.into()); self }
-    pub fn context_entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ContextEntry>>) -> Self { self.input.context_entries = Some(value.into()); self }
-    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
-    pub fn max_items(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.input.max_items = Some(value.into()); self }
-    pub fn permissions_boundary_policy_input_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.input.permissions_boundary_policy_input_list = Some(value.into()); self }
-    pub fn policy_exclusion_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyIdentifier>>) -> Self { self.input.policy_exclusion_list = Some(value.into()); self }
-    pub fn policy_input_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.input.policy_input_list = Some(value.into()); self }
-    pub fn policy_source_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.policy_source_arn = Some(value.into()); self }
-    pub fn resource_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ResourceNameType>>) -> Self { self.input.resource_arns = Some(value.into()); self }
-    pub fn resource_handling_option(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceHandlingOptionType>) -> Self { self.input.resource_handling_option = Some(value.into()); self }
-    pub fn resource_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceNameType>) -> Self { self.input.resource_owner = Some(value.into()); self }
-    pub fn resource_policy(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyDocumentType>) -> Self { self.input.resource_policy = Some(value.into()); self }
+    pub fn policy_source_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy_source_arn = Some(value.into()); self }
+    pub fn policy_input_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.policy_input_list = Some(value.into()); self }
+    pub fn permissions_boundary_policy_input_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.permissions_boundary_policy_input_list = Some(value.into()); self }
+    pub fn policy_exclusion_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::PolicyIdentifier>>) -> Self { self.input.policy_exclusion_list = Some(value.into()); self }
+    pub fn action_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.action_names = Some(value.into()); self }
+    pub fn resource_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.resource_arns = Some(value.into()); self }
+    pub fn resource_policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.resource_policy = Some(value.into()); self }
+    pub fn resource_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.resource_owner = Some(value.into()); self }
+    pub fn caller_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.caller_arn = Some(value.into()); self }
+    pub fn context_entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ContextEntry>>) -> Self { self.input.context_entries = Some(value.into()); self }
+    pub fn resource_handling_option(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.resource_handling_option = Some(value.into()); self }
+    pub fn max_items(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_items = Some(value.into()); self }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::SimulatePrincipalPolicyOutput, super::SimulatePrincipalPolicyError> {
@@ -34,7 +34,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SimulatePrincipalPolicyError::Unhandled(format!("SimulatePrincipalPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::SimulatePrincipalPolicyOutput::default())
+                         Ok(super::_simulate_principal_policy_output::SimulatePrincipalPolicyOutputBuilder::default().build())
                      }
 }
 pub use Builder as SimulatePrincipalPolicyFluentBuilder;

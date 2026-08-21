@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.arn = Some(value.into()); self }
-    pub fn granularity(mut self, value: impl ::std::convert::Into<super::super::super::types::AccessAdvisorUsageGranularityType>) -> Self { self.input.granularity = Some(value.into()); self }
+    pub fn arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.arn = Some(value.into()); self }
+    pub fn granularity(mut self, value: impl ::std::convert::Into<crate::types::AccessAdvisorUsageGranularityType>) -> Self { self.input.granularity = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GenerateServiceLastAccessedDetailsOutput, super::GenerateServiceLastAccessedDetailsError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GenerateServiceLastAccessedDetailsError::Unhandled(format!("GenerateServiceLastAccessedDetails returned HTTP {}", status)));
                          }
-                         Ok(super::GenerateServiceLastAccessedDetailsOutput::default())
+                         Ok(super::_generate_service_last_accessed_details_output::GenerateServiceLastAccessedDetailsOutputBuilder::default().build())
                      }
 }
 pub use Builder as GenerateServiceLastAccessedDetailsFluentBuilder;

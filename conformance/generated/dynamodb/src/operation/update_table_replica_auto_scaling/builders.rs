@@ -10,10 +10,10 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn global_secondary_index_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdate>>) -> Self { self.input.global_secondary_index_updates = Some(value.into()); self }
-    pub fn provisioned_write_capacity_auto_scaling_update(mut self, value: impl ::std::convert::Into<super::super::super::types::AutoScalingSettingsUpdate>) -> Self { self.input.provisioned_write_capacity_auto_scaling_update = Some(value.into()); self }
-    pub fn replica_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaAutoScalingUpdate>>) -> Self { self.input.replica_updates = Some(value.into()); self }
-    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn global_secondary_index_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>>) -> Self { self.input.global_secondary_index_updates = Some(value.into()); self }
+    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn provisioned_write_capacity_auto_scaling_update(mut self, value: impl ::std::convert::Into<crate::types::AutoScalingSettingsUpdate>) -> Self { self.input.provisioned_write_capacity_auto_scaling_update = Some(value.into()); self }
+    pub fn replica_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ReplicaAutoScalingUpdate>>) -> Self { self.input.replica_updates = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UpdateTableReplicaAutoScalingOutput, super::UpdateTableReplicaAutoScalingError> {
@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateTableReplicaAutoScalingError::Unhandled(format!("UpdateTableReplicaAutoScaling returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateTableReplicaAutoScalingOutput::default())
+                         Ok(super::_update_table_replica_auto_scaling_output::UpdateTableReplicaAutoScalingOutputBuilder::default().build())
                      }
 }
 pub use Builder as UpdateTableReplicaAutoScalingFluentBuilder;

@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetCredentialReportError::Unhandled(format!("GetCredentialReport returned HTTP {}", status)));
                          }
-                         Ok(super::GetCredentialReportOutput::default())
+                         Ok(super::_get_credential_report_output::GetCredentialReportOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetCredentialReportFluentBuilder;

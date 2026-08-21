@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn language_code(mut self, value: impl ::std::convert::Into<super::super::super::types::LanguageCodeString>) -> Self { self.input.language_code = Some(value.into()); self }
-    pub fn phone_number(mut self, value: impl ::std::convert::Into<super::super::super::types::PhoneNumberString>) -> Self { self.input.phone_number = Some(value.into()); self }
+    pub fn phone_number(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.phone_number = Some(value.into()); self }
+    pub fn language_code(mut self, value: impl ::std::convert::Into<crate::types::LanguageCodeString>) -> Self { self.input.language_code = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateSmsSandboxPhoneNumberOutput, super::CreateSmsSandboxPhoneNumberError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateSmsSandboxPhoneNumberError::Unhandled(format!("CreateSmsSandboxPhoneNumber returned HTTP {}", status)));
                          }
-                         Ok(super::CreateSmsSandboxPhoneNumberOutput)
+                         Ok(super::CreateSmsSandboxPhoneNumberOutput{})
                      }
 }
 pub use Builder as CreateSmsSandboxPhoneNumberFluentBuilder;

@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn exclusive_start_global_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.exclusive_start_global_table_name = Some(value.into()); self }
-    pub fn limit(mut self, value: impl ::std::convert::Into<super::super::super::types::PositiveIntegerObject>) -> Self { self.input.limit = Some(value.into()); self }
-    pub fn region_name(mut self, value: impl ::std::convert::Into<super::super::super::types::RegionName>) -> Self { self.input.region_name = Some(value.into()); self }
+    pub fn exclusive_start_global_table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.exclusive_start_global_table_name = Some(value.into()); self }
+    pub fn limit(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.limit = Some(value.into()); self }
+    pub fn region_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.region_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListGlobalTablesOutput, super::ListGlobalTablesError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListGlobalTablesError::Unhandled(format!("ListGlobalTables returned HTTP {}", status)));
                          }
-                         Ok(super::ListGlobalTablesOutput::default())
+                         Ok(super::_list_global_tables_output::ListGlobalTablesOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListGlobalTablesFluentBuilder;

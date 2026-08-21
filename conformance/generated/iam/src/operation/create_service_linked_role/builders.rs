@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn aws_service_name(mut self, value: impl ::std::convert::Into<super::super::super::types::GroupNameType>) -> Self { self.input.aws_service_name = Some(value.into()); self }
-    pub fn custom_suffix(mut self, value: impl ::std::convert::Into<super::super::super::types::CustomSuffixType>) -> Self { self.input.custom_suffix = Some(value.into()); self }
-    pub fn description(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleDescriptionType>) -> Self { self.input.description = Some(value.into()); self }
+    pub fn aws_service_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.aws_service_name = Some(value.into()); self }
+    pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.description = Some(value.into()); self }
+    pub fn custom_suffix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.custom_suffix = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateServiceLinkedRoleOutput, super::CreateServiceLinkedRoleError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateServiceLinkedRoleError::Unhandled(format!("CreateServiceLinkedRole returned HTTP {}", status)));
                          }
-                         Ok(super::CreateServiceLinkedRoleOutput::default())
+                         Ok(super::_create_service_linked_role_output::CreateServiceLinkedRoleOutputBuilder::default().build())
                      }
 }
 pub use Builder as CreateServiceLinkedRoleFluentBuilder;

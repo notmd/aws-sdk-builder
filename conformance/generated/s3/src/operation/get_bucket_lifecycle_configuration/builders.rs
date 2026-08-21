@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetBucketLifecycleConfigurationOutput, super::GetBucketLifecycleConfigurationError> {
@@ -24,13 +24,13 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetBucketLifecycleConfigurationError::Unhandled(format!("GetBucketLifecycleConfiguration returned HTTP {}", status)));
                          }
-                         let mut output = super::GetBucketLifecycleConfigurationOutput::default();
+                         let mut output = super::_get_bucket_lifecycle_configuration_output::GetBucketLifecycleConfigurationOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketLifecycleConfigurationError::Unhandled)?;
-                         let values = super::super::super::transport::xml_tags(&body, "Rule").into_iter().map(|value| { let mut item: super::super::super::types::LifecycleRule = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "ID").and_then(|value| value.parse().ok());
+                         let values = super::super::super::transport::xml_tags(&body, "Rule").into_iter().filter_map(|value| { let mut item: crate::types::LifecycleRuleBuilder = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "ID").and_then(|value| value.parse().ok());
  item.prefix = super::super::super::transport::xml_first(&value, "Prefix").and_then(|value| value.parse().ok());
- item }).collect();
+ item.build().ok() }).collect();
                          output.rules = Some(values);
-                         Ok(output)
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetBucketLifecycleConfigurationFluentBuilder;

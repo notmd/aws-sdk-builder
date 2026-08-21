@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetBucketWebsiteOutput, super::GetBucketWebsiteError> {
@@ -24,16 +24,16 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetBucketWebsiteError::Unhandled(format!("GetBucketWebsite returned HTTP {}", status)));
                          }
-                         let mut output = super::GetBucketWebsiteOutput::default();
+                         let mut output = super::_get_bucket_website_output::GetBucketWebsiteOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketWebsiteError::Unhandled)?;
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "ErrorDocument") { let mut item: super::super::super::types::ErrorDocument = ::std::default::Default::default(); item.key = super::super::super::transport::xml_first(&value, "Key").and_then(|value| value.parse().ok());
- item; output.error_document = Some(item); }
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "IndexDocument") { let mut item: super::super::super::types::IndexDocument = ::std::default::Default::default(); item.suffix = super::super::super::transport::xml_first(&value, "Suffix").and_then(|value| value.parse().ok());
- item; output.index_document = Some(item); }
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "RedirectAllRequestsTo") { let mut item: super::super::super::types::RedirectAllRequestsTo = ::std::default::Default::default(); item.host_name = super::super::super::transport::xml_first(&value, "HostName").and_then(|value| value.parse().ok());
- item; output.redirect_all_requests_to = Some(item); }
+                         if let Some(value) = super::super::super::transport::xml_first(&body, "RedirectAllRequestsTo") { let mut item: crate::types::RedirectAllRequestsToBuilder = ::std::default::Default::default(); item.host_name = super::super::super::transport::xml_first(&value, "HostName").and_then(|value| value.parse().ok());
+ if let Ok(item) = item.build() { output.redirect_all_requests_to = Some(item); } }
+                         if let Some(value) = super::super::super::transport::xml_first(&body, "IndexDocument") { let mut item: crate::types::IndexDocumentBuilder = ::std::default::Default::default(); item.suffix = super::super::super::transport::xml_first(&value, "Suffix").and_then(|value| value.parse().ok());
+ if let Ok(item) = item.build() { output.index_document = Some(item); } }
+                         if let Some(value) = super::super::super::transport::xml_first(&body, "ErrorDocument") { let mut item: crate::types::ErrorDocumentBuilder = ::std::default::Default::default(); item.key = super::super::super::transport::xml_first(&value, "Key").and_then(|value| value.parse().ok());
+ if let Ok(item) = item.build() { output.error_document = Some(item); } }
                          output.routing_rules = Some(::std::vec::Vec::new());
-                         Ok(output)
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetBucketWebsiteFluentBuilder;

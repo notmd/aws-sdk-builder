@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn destination_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.destination_arn = Some(value.into()); self }
-    pub fn max_number_of_messages_per_second(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.input.max_number_of_messages_per_second = Some(value.into()); self }
-    pub fn source_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.source_arn = Some(value.into()); self }
+    pub fn source_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.source_arn = Some(value.into()); self }
+    pub fn destination_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.destination_arn = Some(value.into()); self }
+    pub fn max_number_of_messages_per_second(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_number_of_messages_per_second = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::StartMessageMoveTaskOutput, super::StartMessageMoveTaskError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::StartMessageMoveTaskError::Unhandled(format!("StartMessageMoveTask returned HTTP {}", status)));
                          }
-                         Ok(super::StartMessageMoveTaskOutput::default())
+                         Ok(super::_start_message_move_task_output::StartMessageMoveTaskOutputBuilder::default().build())
                      }
 }
 pub use Builder as StartMessageMoveTaskFluentBuilder;

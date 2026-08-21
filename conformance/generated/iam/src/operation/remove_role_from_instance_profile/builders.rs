@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn instance_profile_name(mut self, value: impl ::std::convert::Into<super::super::super::types::InstanceProfileNameType>) -> Self { self.input.instance_profile_name = Some(value.into()); self }
-    pub fn role_name(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.input.role_name = Some(value.into()); self }
+    pub fn instance_profile_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.instance_profile_name = Some(value.into()); self }
+    pub fn role_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.role_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::RemoveRoleFromInstanceProfileOutput, super::RemoveRoleFromInstanceProfileError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::RemoveRoleFromInstanceProfileError::Unhandled(format!("RemoveRoleFromInstanceProfile returned HTTP {}", status)));
                          }
-                         Ok(super::RemoveRoleFromInstanceProfileOutput)
+                         Ok(super::RemoveRoleFromInstanceProfileOutput{})
                      }
 }
 pub use Builder as RemoveRoleFromInstanceProfileFluentBuilder;

@@ -10,15 +10,15 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn delimiter(mut self, value: impl ::std::convert::Into<super::super::super::types::Delimiter>) -> Self { self.input.delimiter = Some(value.into()); self }
-    pub fn encoding_type(mut self, value: impl ::std::convert::Into<super::super::super::types::EncodingType>) -> Self { self.input.encoding_type = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::Marker>) -> Self { self.input.marker = Some(value.into()); self }
-    pub fn max_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxKeys>) -> Self { self.input.max_keys = Some(value.into()); self }
-    pub fn optional_object_attributes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>>) -> Self { self.input.optional_object_attributes = Some(value.into()); self }
-    pub fn prefix(mut self, value: impl ::std::convert::Into<super::super::super::types::Prefix>) -> Self { self.input.prefix = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn delimiter(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.delimiter = Some(value.into()); self }
+    pub fn encoding_type(mut self, value: impl ::std::convert::Into<crate::types::EncodingType>) -> Self { self.input.encoding_type = Some(value.into()); self }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
+    pub fn max_keys(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_keys = Some(value.into()); self }
+    pub fn prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.prefix = Some(value.into()); self }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn optional_object_attributes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::OptionalObjectAttributes>>) -> Self { self.input.optional_object_attributes = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListObjectsOutput, super::ListObjectsError> {
@@ -31,25 +31,25 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListObjectsError::Unhandled(format!("ListObjects returned HTTP {}", status)));
                          }
-                         let mut output = super::ListObjectsOutput::default();
+                         let mut output = super::_list_objects_output::ListObjectsOutputBuilder::default();
                          let body = response.text().await.map_err(super::ListObjectsError::Unhandled)?;
-                         let values = super::super::super::transport::xml_tags(&body, "CommonPrefixes").into_iter().map(|value| { let mut item: super::super::super::types::CommonPrefix = ::std::default::Default::default(); item.prefix = super::super::super::transport::xml_first(&value, "Prefix").and_then(|value| value.parse().ok());
- item }).collect();
-                         output.common_prefixes = Some(values);
-                         let values = super::super::super::transport::xml_tags(&body, "Contents").into_iter().map(|value| { let mut item: super::super::super::types::Object = ::std::default::Default::default(); item.e_tag = super::super::super::transport::xml_first(&value, "ETag").and_then(|value| value.parse().ok());
- item.key = super::super::super::transport::xml_first(&value, "Key").and_then(|value| value.parse().ok());
- item.size = super::super::super::transport::xml_first(&value, "Size").and_then(|value| value.parse().ok());
- item }).collect();
-                         output.contents = Some(values);
-                         output.delimiter = super::super::super::transport::xml_first(&body, "Delimiter").and_then(|value| value.parse().ok());
-                         output.encoding_type = super::super::super::transport::xml_first(&body, "EncodingType").and_then(|value| value.parse().ok());
                          output.is_truncated = super::super::super::transport::xml_first(&body, "IsTruncated").and_then(|value| value.parse().ok());
                          output.marker = super::super::super::transport::xml_first(&body, "Marker").and_then(|value| value.parse().ok());
-                         output.max_keys = super::super::super::transport::xml_first(&body, "MaxKeys").and_then(|value| value.parse().ok());
-                         output.name = super::super::super::transport::xml_first(&body, "Name").and_then(|value| value.parse().ok());
                          output.next_marker = super::super::super::transport::xml_first(&body, "NextMarker").and_then(|value| value.parse().ok());
+                         let values = super::super::super::transport::xml_tags(&body, "Contents").into_iter().map(|value| { let mut item: crate::types::ObjectBuilder = ::std::default::Default::default(); item.key = super::super::super::transport::xml_first(&value, "Key").and_then(|value| value.parse().ok());
+ item.e_tag = super::super::super::transport::xml_first(&value, "ETag").and_then(|value| value.parse().ok());
+ item.size = super::super::super::transport::xml_first(&value, "Size").and_then(|value| value.parse().ok());
+ item.build() }).collect();
+                         output.contents = Some(values);
+                         output.name = super::super::super::transport::xml_first(&body, "Name").and_then(|value| value.parse().ok());
                          output.prefix = super::super::super::transport::xml_first(&body, "Prefix").and_then(|value| value.parse().ok());
-                         Ok(output)
+                         output.delimiter = super::super::super::transport::xml_first(&body, "Delimiter").and_then(|value| value.parse().ok());
+                         output.max_keys = super::super::super::transport::xml_first(&body, "MaxKeys").and_then(|value| value.parse().ok());
+                         let values = super::super::super::transport::xml_tags(&body, "CommonPrefixes").into_iter().map(|value| { let mut item: crate::types::CommonPrefixBuilder = ::std::default::Default::default(); item.prefix = super::super::super::transport::xml_first(&value, "Prefix").and_then(|value| value.parse().ok());
+ item.build() }).collect();
+                         output.common_prefixes = Some(values);
+                         output.encoding_type = super::super::super::transport::xml_first(&body, "EncodingType").and_then(|value| value.parse().ok());
+                         Ok(output.build())
                      }
 }
 pub use Builder as ListObjectsFluentBuilder;

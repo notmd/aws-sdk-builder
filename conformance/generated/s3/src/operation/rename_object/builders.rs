@@ -10,18 +10,18 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn client_token(mut self, value: impl ::std::convert::Into<super::super::super::types::ClientToken>) -> Self { self.input.client_token = Some(value.into()); self }
-    pub fn destination_if_match(mut self, value: impl ::std::convert::Into<super::super::super::types::IfMatch>) -> Self { self.input.destination_if_match = Some(value.into()); self }
-    pub fn destination_if_modified_since(mut self, value: impl ::std::convert::Into<super::super::super::types::IfModifiedSince>) -> Self { self.input.destination_if_modified_since = Some(value.into()); self }
-    pub fn destination_if_none_match(mut self, value: impl ::std::convert::Into<super::super::super::types::IfNoneMatch>) -> Self { self.input.destination_if_none_match = Some(value.into()); self }
-    pub fn destination_if_unmodified_since(mut self, value: impl ::std::convert::Into<super::super::super::types::IfUnmodifiedSince>) -> Self { self.input.destination_if_unmodified_since = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectKey>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn rename_source(mut self, value: impl ::std::convert::Into<super::super::super::types::RenameSource>) -> Self { self.input.rename_source = Some(value.into()); self }
-    pub fn source_if_match(mut self, value: impl ::std::convert::Into<super::super::super::types::RenameSourceIfMatch>) -> Self { self.input.source_if_match = Some(value.into()); self }
-    pub fn source_if_modified_since(mut self, value: impl ::std::convert::Into<super::super::super::types::RenameSourceIfModifiedSince>) -> Self { self.input.source_if_modified_since = Some(value.into()); self }
-    pub fn source_if_none_match(mut self, value: impl ::std::convert::Into<super::super::super::types::RenameSourceIfNoneMatch>) -> Self { self.input.source_if_none_match = Some(value.into()); self }
-    pub fn source_if_unmodified_since(mut self, value: impl ::std::convert::Into<super::super::super::types::RenameSourceIfUnmodifiedSince>) -> Self { self.input.source_if_unmodified_since = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
+    pub fn rename_source(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.rename_source = Some(value.into()); self }
+    pub fn destination_if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.destination_if_match = Some(value.into()); self }
+    pub fn destination_if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.destination_if_none_match = Some(value.into()); self }
+    pub fn destination_if_modified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.destination_if_modified_since = Some(value.into()); self }
+    pub fn destination_if_unmodified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.destination_if_unmodified_since = Some(value.into()); self }
+    pub fn source_if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.source_if_match = Some(value.into()); self }
+    pub fn source_if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.source_if_none_match = Some(value.into()); self }
+    pub fn source_if_modified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.source_if_modified_since = Some(value.into()); self }
+    pub fn source_if_unmodified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.source_if_unmodified_since = Some(value.into()); self }
+    pub fn client_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.client_token = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::RenameObjectOutput, super::RenameObjectError> {
@@ -35,7 +35,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::RenameObjectError::Unhandled(format!("RenameObject returned HTTP {}", status)));
                          }
-                         Ok(super::RenameObjectOutput)
+                         Ok(super::RenameObjectOutput{})
                      }
 }
 pub use Builder as RenameObjectFluentBuilder;

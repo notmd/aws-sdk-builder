@@ -10,13 +10,13 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn consistent_read(mut self, value: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.input.consistent_read = Some(value.into()); self }
-    pub fn limit(mut self, value: impl ::std::convert::Into<super::super::super::types::PositiveIntegerObject>) -> Self { self.input.limit = Some(value.into()); self }
-    pub fn next_token(mut self, value: impl ::std::convert::Into<super::super::super::types::PartiQlNextToken>) -> Self { self.input.next_token = Some(value.into()); self }
-    pub fn parameters(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeValue>>) -> Self { self.input.parameters = Some(value.into()); self }
-    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
-    pub fn return_values_on_condition_check_failure(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnValuesOnConditionCheckFailure>) -> Self { self.input.return_values_on_condition_check_failure = Some(value.into()); self }
-    pub fn statement(mut self, value: impl ::std::convert::Into<super::super::super::types::PartiQlStatement>) -> Self { self.input.statement = Some(value.into()); self }
+    pub fn statement(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.statement = Some(value.into()); self }
+    pub fn parameters(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::AttributeValue>>) -> Self { self.input.parameters = Some(value.into()); self }
+    pub fn consistent_read(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.consistent_read = Some(value.into()); self }
+    pub fn next_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.next_token = Some(value.into()); self }
+    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
+    pub fn limit(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.limit = Some(value.into()); self }
+    pub fn return_values_on_condition_check_failure(mut self, value: impl ::std::convert::Into<crate::types::ReturnValuesOnConditionCheckFailure>) -> Self { self.input.return_values_on_condition_check_failure = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ExecuteStatementOutput, super::ExecuteStatementError> {
@@ -28,7 +28,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ExecuteStatementError::Unhandled(format!("ExecuteStatement returned HTTP {}", status)));
                          }
-                         Ok(super::ExecuteStatementOutput::default())
+                         Ok(super::_execute_statement_output::ExecuteStatementOutputBuilder::default().build())
                      }
 }
 pub use Builder as ExecuteStatementFluentBuilder;

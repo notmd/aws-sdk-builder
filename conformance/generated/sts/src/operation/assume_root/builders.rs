@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::RootDurationSecondsType>) -> Self { self.input.duration_seconds = Some(value.into()); self }
-    pub fn target_principal(mut self, value: impl ::std::convert::Into<super::super::super::types::TargetPrincipalType>) -> Self { self.input.target_principal = Some(value.into()); self }
-    pub fn task_policy_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorType>) -> Self { self.input.task_policy_arn = Some(value.into()); self }
+    pub fn target_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.target_principal = Some(value.into()); self }
+    pub fn task_policy_arn(mut self, value: impl ::std::convert::Into<crate::types::PolicyDescriptorType>) -> Self { self.input.task_policy_arn = Some(value.into()); self }
+    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.duration_seconds = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::AssumeRootOutput, super::AssumeRootError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::AssumeRootError::Unhandled(format!("AssumeRoot returned HTTP {}", status)));
                          }
-                         Ok(super::AssumeRootOutput::default())
+                         Ok(super::_assume_root_output::AssumeRootOutputBuilder::default().build())
                      }
 }
 pub use Builder as AssumeRootFluentBuilder;

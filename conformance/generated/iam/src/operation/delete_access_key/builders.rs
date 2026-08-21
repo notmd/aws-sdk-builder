@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn access_key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::AccessKeyIdType>) -> Self { self.input.access_key_id = Some(value.into()); self }
-    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ExistingUserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn access_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.access_key_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::DeleteAccessKeyOutput, super::DeleteAccessKeyError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteAccessKeyError::Unhandled(format!("DeleteAccessKey returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteAccessKeyOutput)
+                         Ok(super::DeleteAccessKeyOutput{})
                      }
 }
 pub use Builder as DeleteAccessKeyFluentBuilder;

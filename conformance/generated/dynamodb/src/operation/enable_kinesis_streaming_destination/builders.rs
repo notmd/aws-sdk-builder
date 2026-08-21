@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn enable_kinesis_streaming_configuration(mut self, value: impl ::std::convert::Into<super::super::super::types::EnableKinesisStreamingConfiguration>) -> Self { self.input.enable_kinesis_streaming_configuration = Some(value.into()); self }
-    pub fn stream_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::StreamArn>) -> Self { self.input.stream_arn = Some(value.into()); self }
-    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn stream_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.stream_arn = Some(value.into()); self }
+    pub fn enable_kinesis_streaming_configuration(mut self, value: impl ::std::convert::Into<crate::types::EnableKinesisStreamingConfiguration>) -> Self { self.input.enable_kinesis_streaming_configuration = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::EnableKinesisStreamingDestinationOutput, super::EnableKinesisStreamingDestinationError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::EnableKinesisStreamingDestinationError::Unhandled(format!("EnableKinesisStreamingDestination returned HTTP {}", status)));
                          }
-                         Ok(super::EnableKinesisStreamingDestinationOutput::default())
+                         Ok(super::_enable_kinesis_streaming_destination_output::EnableKinesisStreamingDestinationOutputBuilder::default().build())
                      }
 }
 pub use Builder as EnableKinesisStreamingDestinationFluentBuilder;

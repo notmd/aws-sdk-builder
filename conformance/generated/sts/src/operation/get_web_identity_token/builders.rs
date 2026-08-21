@@ -10,10 +10,10 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn audience(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::WebIdentityTokenAudienceStringType>>) -> Self { self.input.audience = Some(value.into()); self }
-    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::WebIdentityTokenDurationSecondsType>) -> Self { self.input.duration_seconds = Some(value.into()); self }
-    pub fn signing_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::JwtAlgorithmType>) -> Self { self.input.signing_algorithm = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn audience(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.audience = Some(value.into()); self }
+    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.duration_seconds = Some(value.into()); self }
+    pub fn signing_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.signing_algorithm = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetWebIdentityTokenOutput, super::GetWebIdentityTokenError> {
@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetWebIdentityTokenError::Unhandled(format!("GetWebIdentityToken returned HTTP {}", status)));
                          }
-                         Ok(super::GetWebIdentityTokenOutput::default())
+                         Ok(super::_get_web_identity_token_output::GetWebIdentityTokenOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetWebIdentityTokenFluentBuilder;

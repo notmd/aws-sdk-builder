@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
+    pub fn queue_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.queue_url = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::DeleteQueueOutput, super::DeleteQueueError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteQueueError::Unhandled(format!("DeleteQueue returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteQueueOutput)
+                         Ok(super::DeleteQueueOutput{})
                      }
 }
 pub use Builder as DeleteQueueFluentBuilder;

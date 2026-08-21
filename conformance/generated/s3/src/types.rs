@@ -2,7 +2,7 @@
 
 pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_abac_status.rs"));
-    pub type AbortDate = ::std::time::SystemTime;
+    pub type AbortDate = ::aws_smithy_types::DateTime;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_abort_incomplete_multipart_upload.rs"));
     pub type AbortRuleId = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_accelerate_configuration.rs"));
@@ -96,18 +96,18 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_copy_part_result.rs"));
     pub type CopySource = ::std::string::String;
     pub type CopySourceIfMatch = ::std::string::String;
-    pub type CopySourceIfModifiedSince = ::std::time::SystemTime;
+    pub type CopySourceIfModifiedSince = ::aws_smithy_types::DateTime;
     pub type CopySourceIfNoneMatch = ::std::string::String;
-    pub type CopySourceIfUnmodifiedSince = ::std::time::SystemTime;
+    pub type CopySourceIfUnmodifiedSince = ::aws_smithy_types::DateTime;
     pub type CopySourceRange = ::std::string::String;
     pub type CopySourceSseCustomerAlgorithm = ::std::string::String;
     pub type CopySourceSseCustomerKey = ::std::string::String;
     pub type CopySourceSseCustomerKeyMd5 = ::std::string::String;
     pub type CopySourceVersionId = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_create_bucket_configuration.rs"));
-    pub type CreationDate = ::std::time::SystemTime;
+    pub type CreationDate = ::aws_smithy_types::DateTime;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_data_redundancy.rs"));
-    pub type Date = ::std::time::SystemTime;
+    pub type Date = ::aws_smithy_types::DateTime;
     pub type Days = i32;
     pub type DaysAfterInitiation = i32;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_default_retention.rs"));
@@ -173,14 +173,14 @@ pub mod types {
     pub type HttpRedirectCode = ::std::string::String;
     pub type Id = ::std::string::String;
     pub type IfMatch = ::std::string::String;
-    pub type IfMatchInitiatedTime = ::std::time::SystemTime;
-    pub type IfMatchLastModifiedTime = ::std::time::SystemTime;
+    pub type IfMatchInitiatedTime = ::aws_smithy_types::DateTime;
+    pub type IfMatchLastModifiedTime = ::aws_smithy_types::DateTime;
     pub type IfMatchSize = i64;
-    pub type IfModifiedSince = ::std::time::SystemTime;
+    pub type IfModifiedSince = ::aws_smithy_types::DateTime;
     pub type IfNoneMatch = ::std::string::String;
-    pub type IfUnmodifiedSince = ::std::time::SystemTime;
+    pub type IfUnmodifiedSince = ::aws_smithy_types::DateTime;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_index_document.rs"));
-    pub type Initiated = ::std::time::SystemTime;
+    pub type Initiated = ::aws_smithy_types::DateTime;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_initiator.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_input_serialization.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_intelligent_tiering_access_tier.rs"));
@@ -223,8 +223,8 @@ pub mod types {
     pub type KmsKeyArn = ::std::string::String;
     pub type LambdaFunctionArn = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_lambda_function_configuration.rs"));
-    pub type LastModified = ::std::time::SystemTime;
-    pub type LastModifiedTime = ::std::time::SystemTime;
+    pub type LastModified = ::aws_smithy_types::DateTime;
+    pub type LastModifiedTime = ::aws_smithy_types::DateTime;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_lifecycle_expiration.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_lifecycle_rule.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_lifecycle_rule_and_operator.rs"));
@@ -292,7 +292,7 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_object_lock_legal_hold.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_object_lock_legal_hold_status.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_object_lock_mode.rs"));
-    pub type ObjectLockRetainUntilDate = ::std::time::SystemTime;
+    pub type ObjectLockRetainUntilDate = ::aws_smithy_types::DateTime;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_object_lock_retention.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_object_lock_retention_mode.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_object_lock_rule.rs"));
@@ -346,9 +346,9 @@ pub mod types {
     pub type Region = ::std::string::String;
     pub type RenameSource = ::std::string::String;
     pub type RenameSourceIfMatch = ::std::string::String;
-    pub type RenameSourceIfModifiedSince = ::std::time::SystemTime;
+    pub type RenameSourceIfModifiedSince = ::aws_smithy_types::DateTime;
     pub type RenameSourceIfNoneMatch = ::std::string::String;
-    pub type RenameSourceIfUnmodifiedSince = ::std::time::SystemTime;
+    pub type RenameSourceIfUnmodifiedSince = ::aws_smithy_types::DateTime;
     pub type ReplaceKeyPrefixWith = ::std::string::String;
     pub type ReplaceKeyWith = ::std::string::String;
     pub type ReplicaKmsKeyId = ::std::string::String;
@@ -374,9 +374,9 @@ pub mod types {
     pub type ResponseContentEncoding = ::std::string::String;
     pub type ResponseContentLanguage = ::std::string::String;
     pub type ResponseContentType = ::std::string::String;
-    pub type ResponseExpires = ::std::time::SystemTime;
+    pub type ResponseExpires = ::aws_smithy_types::DateTime;
     pub type Restore = ::std::string::String;
-    pub type RestoreExpiryDate = ::std::time::SystemTime;
+    pub type RestoreExpiryDate = ::aws_smithy_types::DateTime;
     pub type RestoreOutputPath = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_restore_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_restore_request_type.rs"));
@@ -410,7 +410,7 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_server_side_encryption_rule.rs"));
     pub type SessionCredentialValue = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_session_credentials.rs"));
-    pub type SessionExpiration = ::std::time::SystemTime;
+    pub type SessionExpiration = ::aws_smithy_types::DateTime;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_session_mode.rs"));
     pub type Setting = bool;
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types/_simple_prefix.rs"));

@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.input.attributes = Some(value.into()); self }
-    pub fn name(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.name = Some(value.into()); self }
-    pub fn platform(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.platform = Some(value.into()); self }
+    pub fn name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.name = Some(value.into()); self }
+    pub fn platform(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.platform = Some(value.into()); self }
+    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.input.attributes = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreatePlatformApplicationOutput, super::CreatePlatformApplicationError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreatePlatformApplicationError::Unhandled(format!("CreatePlatformApplication returned HTTP {}", status)));
                          }
-                         Ok(super::CreatePlatformApplicationOutput::default())
+                         Ok(super::_create_platform_application_output::CreatePlatformApplicationOutputBuilder::default().build())
                      }
 }
 pub use Builder as CreatePlatformApplicationFluentBuilder;

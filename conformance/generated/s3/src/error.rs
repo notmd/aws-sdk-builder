@@ -25,4 +25,16 @@ impl ::std::fmt::Display for UnknownVariantError {
 fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result { write!(f, "unknown enum variant: '{}'", self.value) }
 }
 impl ::std::error::Error for UnknownVariantError {}
-pub mod error { pub use super::{Error, ErrorMetadata, UnknownVariantError}; }
+pub mod error { pub use super::{BuildError, Error, ErrorMetadata, UnknownVariantError}; }
+
+#[derive(Clone, Debug)]
+pub struct BuildError { field: ::std::string::String, message: ::std::string::String }
+impl BuildError {
+pub fn missing_field(field: impl ::std::convert::Into<::std::string::String>, message: impl ::std::convert::Into<::std::string::String>) -> Self {
+Self { field: field.into(), message: message.into() }
+}
+}
+impl ::std::fmt::Display for BuildError {
+fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result { write!(f, "{}: {}", self.field, self.message) }
+}
+impl ::std::error::Error for BuildError {}

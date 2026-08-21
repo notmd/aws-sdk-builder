@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn certificate_id(mut self, value: impl ::std::convert::Into<super::super::super::types::CertificateIdType>) -> Self { self.input.certificate_id = Some(value.into()); self }
-    pub fn status(mut self, value: impl ::std::convert::Into<super::super::super::types::StatusType>) -> Self { self.input.status = Some(value.into()); self }
-    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ExistingUserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn certificate_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.certificate_id = Some(value.into()); self }
+    pub fn status(mut self, value: impl ::std::convert::Into<crate::types::StatusType>) -> Self { self.input.status = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UpdateSigningCertificateOutput, super::UpdateSigningCertificateError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateSigningCertificateError::Unhandled(format!("UpdateSigningCertificate returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateSigningCertificateOutput)
+                         Ok(super::UpdateSigningCertificateOutput{})
                      }
 }
 pub use Builder as UpdateSigningCertificateFluentBuilder;

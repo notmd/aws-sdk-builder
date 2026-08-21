@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
-    pub fn transact_items(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TransactGetItem>>) -> Self { self.input.transact_items = Some(value.into()); self }
+    pub fn transact_items(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::TransactGetItem>>) -> Self { self.input.transact_items = Some(value.into()); self }
+    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::TransactGetItemsOutput, super::TransactGetItemsError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::TransactGetItemsError::Unhandled(format!("TransactGetItems returned HTTP {}", status)));
                          }
-                         Ok(super::TransactGetItemsOutput::default())
+                         Ok(super::_transact_get_items_output::TransactGetItemsOutputBuilder::default().build())
                      }
 }
 pub use Builder as TransactGetItemsFluentBuilder;

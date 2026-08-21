@@ -10,10 +10,10 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
-    pub fn max_items(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.input.max_items = Some(value.into()); self }
-    pub fn path_prefix(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyPathType>) -> Self { self.input.path_prefix = Some(value.into()); self }
-    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::UserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn path_prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.path_prefix = Some(value.into()); self }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
+    pub fn max_items(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_items = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListAttachedUserPoliciesOutput, super::ListAttachedUserPoliciesError> {
@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListAttachedUserPoliciesError::Unhandled(format!("ListAttachedUserPolicies returned HTTP {}", status)));
                          }
-                         Ok(super::ListAttachedUserPoliciesOutput::default())
+                         Ok(super::_list_attached_user_policies_output::ListAttachedUserPoliciesOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListAttachedUserPoliciesFluentBuilder;

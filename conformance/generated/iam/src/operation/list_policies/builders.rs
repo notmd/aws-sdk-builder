@@ -10,12 +10,12 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
-    pub fn max_items(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.input.max_items = Some(value.into()); self }
-    pub fn only_attached(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.input.only_attached = Some(value.into()); self }
-    pub fn path_prefix(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyPathType>) -> Self { self.input.path_prefix = Some(value.into()); self }
-    pub fn policy_usage_filter(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyUsageType>) -> Self { self.input.policy_usage_filter = Some(value.into()); self }
-    pub fn scope(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyScopeType>) -> Self { self.input.scope = Some(value.into()); self }
+    pub fn scope(mut self, value: impl ::std::convert::Into<crate::types::PolicyScopeType>) -> Self { self.input.scope = Some(value.into()); self }
+    pub fn only_attached(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.only_attached = Some(value.into()); self }
+    pub fn path_prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.path_prefix = Some(value.into()); self }
+    pub fn policy_usage_filter(mut self, value: impl ::std::convert::Into<crate::types::PolicyUsageType>) -> Self { self.input.policy_usage_filter = Some(value.into()); self }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
+    pub fn max_items(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_items = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListPoliciesOutput, super::ListPoliciesError> {
@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListPoliciesError::Unhandled(format!("ListPolicies returned HTTP {}", status)));
                          }
-                         Ok(super::ListPoliciesOutput::default())
+                         Ok(super::_list_policies_output::ListPoliciesOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListPoliciesFluentBuilder;

@@ -129,7 +129,7 @@ pub mod types {
     pub type CredentialReportNotPresentExceptionMessage = ::std::string::String;
     pub type CredentialReportNotReadyExceptionMessage = ::std::string::String;
     pub type CustomSuffixType = ::std::string::String;
-    pub type DateType = ::std::time::SystemTime;
+    pub type DateType = ::aws_smithy_types::DateTime;
     pub type DelegationRequestDescriptionType = ::std::string::String;
     pub type DelegationRequestIdType = ::std::string::String;
     pub type DeleteConflictMessage = ::std::string::String;

@@ -10,11 +10,11 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn all_users(mut self, value: impl ::std::convert::Into<super::super::super::types::AllUsers>) -> Self { self.input.all_users = Some(value.into()); self }
-    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
-    pub fn max_items(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.input.max_items = Some(value.into()); self }
-    pub fn service_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ServiceName>) -> Self { self.input.service_name = Some(value.into()); self }
-    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::UserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn service_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.service_name = Some(value.into()); self }
+    pub fn all_users(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.all_users = Some(value.into()); self }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
+    pub fn max_items(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_items = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListServiceSpecificCredentialsOutput, super::ListServiceSpecificCredentialsError> {
@@ -26,7 +26,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListServiceSpecificCredentialsError::Unhandled(format!("ListServiceSpecificCredentials returned HTTP {}", status)));
                          }
-                         Ok(super::ListServiceSpecificCredentialsOutput::default())
+                         Ok(super::_list_service_specific_credentials_output::ListServiceSpecificCredentialsOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListServiceSpecificCredentialsFluentBuilder;

@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>) -> Self { self.input.attributes = Some(value.into()); self }
-    pub fn queue_name(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_name = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn queue_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.queue_name = Some(value.into()); self }
+    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>) -> Self { self.input.attributes = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.input.tags = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateQueueOutput, super::CreateQueueError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateQueueError::Unhandled(format!("CreateQueue returned HTTP {}", status)));
                          }
-                         Ok(super::CreateQueueOutput::default())
+                         Ok(super::_create_queue_output::CreateQueueOutputBuilder::default().build())
                      }
 }
 pub use Builder as CreateQueueFluentBuilder;

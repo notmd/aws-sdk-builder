@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn serial_number(mut self, value: impl ::std::convert::Into<super::super::super::types::SerialNumberType>) -> Self { self.input.serial_number = Some(value.into()); self }
-    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.input.tag_keys = Some(value.into()); self }
+    pub fn serial_number(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.serial_number = Some(value.into()); self }
+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.tag_keys = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UntagMfaDeviceOutput, super::UntagMfaDeviceError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UntagMfaDeviceError::Unhandled(format!("UntagMfaDevice returned HTTP {}", status)));
                          }
-                         Ok(super::UntagMfaDeviceOutput)
+                         Ok(super::UntagMfaDeviceOutput{})
                      }
 }
 pub use Builder as UntagMfaDeviceFluentBuilder;

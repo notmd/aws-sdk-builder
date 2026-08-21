@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetBucketMetadataTableConfigurationOutput, super::GetBucketMetadataTableConfigurationError> {
@@ -24,11 +24,11 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetBucketMetadataTableConfigurationError::Unhandled(format!("GetBucketMetadataTableConfiguration returned HTTP {}", status)));
                          }
-                         let mut output = super::GetBucketMetadataTableConfigurationOutput::default();
+                         let mut output = super::_get_bucket_metadata_table_configuration_output::GetBucketMetadataTableConfigurationOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketMetadataTableConfigurationError::Unhandled)?;
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "GetBucketMetadataTableConfigurationResult") { let mut item: super::super::super::types::GetBucketMetadataTableConfigurationResult = ::std::default::Default::default(); item.status = super::super::super::transport::xml_first(&value, "Status").and_then(|value| value.parse().ok());
- item; output.get_bucket_metadata_table_configuration_result = Some(item); }
-                         Ok(output)
+                         if let Some(value) = super::super::super::transport::xml_first(&body, "GetBucketMetadataTableConfigurationResult") { let mut item: crate::types::GetBucketMetadataTableConfigurationResultBuilder = ::std::default::Default::default(); item.status = super::super::super::transport::xml_first(&value, "Status").and_then(|value| value.parse().ok());
+ if let Ok(item) = item.build() { output.get_bucket_metadata_table_configuration_result = Some(item); } }
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetBucketMetadataTableConfigurationFluentBuilder;

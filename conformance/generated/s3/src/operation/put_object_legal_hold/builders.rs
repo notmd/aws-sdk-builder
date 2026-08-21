@@ -10,14 +10,14 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
-    pub fn content_md5(mut self, value: impl ::std::convert::Into<super::super::super::types::ContentMd5>) -> Self { self.input.content_md5 = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectKey>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn legal_hold(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockLegalHold>) -> Self { self.input.legal_hold = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn version_id(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectVersionId>) -> Self { self.input.version_id = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
+    pub fn legal_hold(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockLegalHold>) -> Self { self.input.legal_hold = Some(value.into()); self }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
+    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.version_id = Some(value.into()); self }
+    pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_md5 = Some(value.into()); self }
+    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::PutObjectLegalHoldOutput, super::PutObjectLegalHoldError> {
@@ -31,7 +31,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutObjectLegalHoldError::Unhandled(format!("PutObjectLegalHold returned HTTP {}", status)));
                          }
-                         Ok(super::PutObjectLegalHoldOutput::default())
+                         Ok(super::_put_object_legal_hold_output::PutObjectLegalHoldOutputBuilder::default().build())
                      }
 }
 pub use Builder as PutObjectLegalHoldFluentBuilder;

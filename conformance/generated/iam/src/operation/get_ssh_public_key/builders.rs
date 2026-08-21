@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn encoding(mut self, value: impl ::std::convert::Into<super::super::super::types::EncodingType>) -> Self { self.input.encoding = Some(value.into()); self }
-    pub fn ssh_public_key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::PublicKeyIdType>) -> Self { self.input.ssh_public_key_id = Some(value.into()); self }
-    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::UserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn ssh_public_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.ssh_public_key_id = Some(value.into()); self }
+    pub fn encoding(mut self, value: impl ::std::convert::Into<crate::types::EncodingType>) -> Self { self.input.encoding = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetSshPublicKeyOutput, super::GetSshPublicKeyError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetSshPublicKeyError::Unhandled(format!("GetSshPublicKey returned HTTP {}", status)));
                          }
-                         Ok(super::GetSshPublicKeyOutput::default())
+                         Ok(super::_get_ssh_public_key_output::GetSshPublicKeyOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetSshPublicKeyFluentBuilder;

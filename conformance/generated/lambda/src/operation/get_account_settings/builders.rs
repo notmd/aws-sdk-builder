@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetAccountSettingsError::Unhandled(format!("GetAccountSettings returned HTTP {}", status)));
                          }
-                         Ok(super::GetAccountSettingsOutput::default())
+                         Ok(super::_get_account_settings_output::GetAccountSettingsOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetAccountSettingsFluentBuilder;

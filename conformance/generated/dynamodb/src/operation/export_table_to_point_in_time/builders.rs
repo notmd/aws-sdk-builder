@@ -10,17 +10,17 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn client_token(mut self, value: impl ::std::convert::Into<super::super::super::types::ClientToken>) -> Self { self.input.client_token = Some(value.into()); self }
-    pub fn export_format(mut self, value: impl ::std::convert::Into<super::super::super::types::ExportFormat>) -> Self { self.input.export_format = Some(value.into()); self }
-    pub fn export_time(mut self, value: impl ::std::convert::Into<super::super::super::types::ExportTime>) -> Self { self.input.export_time = Some(value.into()); self }
-    pub fn export_type(mut self, value: impl ::std::convert::Into<super::super::super::types::ExportType>) -> Self { self.input.export_type = Some(value.into()); self }
-    pub fn incremental_export_specification(mut self, value: impl ::std::convert::Into<super::super::super::types::IncrementalExportSpecification>) -> Self { self.input.incremental_export_specification = Some(value.into()); self }
-    pub fn s3_bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::S3Bucket>) -> Self { self.input.s3_bucket = Some(value.into()); self }
-    pub fn s3_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::S3BucketOwner>) -> Self { self.input.s3_bucket_owner = Some(value.into()); self }
-    pub fn s3_prefix(mut self, value: impl ::std::convert::Into<super::super::super::types::S3Prefix>) -> Self { self.input.s3_prefix = Some(value.into()); self }
-    pub fn s3_sse_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::S3SseAlgorithm>) -> Self { self.input.s3_sse_algorithm = Some(value.into()); self }
-    pub fn s3_sse_kms_key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::S3SseKmsKeyId>) -> Self { self.input.s3_sse_kms_key_id = Some(value.into()); self }
-    pub fn table_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_arn = Some(value.into()); self }
+    pub fn table_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_arn = Some(value.into()); self }
+    pub fn export_time(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.export_time = Some(value.into()); self }
+    pub fn client_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.client_token = Some(value.into()); self }
+    pub fn s3_bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.s3_bucket = Some(value.into()); self }
+    pub fn s3_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.s3_bucket_owner = Some(value.into()); self }
+    pub fn s3_prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.s3_prefix = Some(value.into()); self }
+    pub fn s3_sse_algorithm(mut self, value: impl ::std::convert::Into<crate::types::S3SseAlgorithm>) -> Self { self.input.s3_sse_algorithm = Some(value.into()); self }
+    pub fn s3_sse_kms_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.s3_sse_kms_key_id = Some(value.into()); self }
+    pub fn export_format(mut self, value: impl ::std::convert::Into<crate::types::ExportFormat>) -> Self { self.input.export_format = Some(value.into()); self }
+    pub fn export_type(mut self, value: impl ::std::convert::Into<crate::types::ExportType>) -> Self { self.input.export_type = Some(value.into()); self }
+    pub fn incremental_export_specification(mut self, value: impl ::std::convert::Into<crate::types::IncrementalExportSpecification>) -> Self { self.input.incremental_export_specification = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ExportTableToPointInTimeOutput, super::ExportTableToPointInTimeError> {
@@ -32,7 +32,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ExportTableToPointInTimeError::Unhandled(format!("ExportTableToPointInTime returned HTTP {}", status)));
                          }
-                         Ok(super::ExportTableToPointInTimeOutput::default())
+                         Ok(super::_export_table_to_point_in_time_output::ExportTableToPointInTimeOutputBuilder::default().build())
                      }
 }
 pub use Builder as ExportTableToPointInTimeFluentBuilder;

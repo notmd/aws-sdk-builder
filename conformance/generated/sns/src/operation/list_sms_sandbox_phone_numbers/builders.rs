@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn max_results(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxItems>) -> Self { self.input.max_results = Some(value.into()); self }
-    pub fn next_token(mut self, value: impl ::std::convert::Into<super::super::super::types::NextToken>) -> Self { self.input.next_token = Some(value.into()); self }
+    pub fn next_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.next_token = Some(value.into()); self }
+    pub fn max_results(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_results = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListSmsSandboxPhoneNumbersOutput, super::ListSmsSandboxPhoneNumbersError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListSmsSandboxPhoneNumbersError::Unhandled(format!("ListSmsSandboxPhoneNumbers returned HTTP {}", status)));
                          }
-                         Ok(super::ListSmsSandboxPhoneNumbersOutput::default())
+                         super::_list_sms_sandbox_phone_numbers_output::ListSmsSandboxPhoneNumbersOutputBuilder::default().build().map_err(|error| super::ListSmsSandboxPhoneNumbersError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as ListSmsSandboxPhoneNumbersFluentBuilder;

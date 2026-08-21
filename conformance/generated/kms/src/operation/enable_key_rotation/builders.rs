@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn rotation_period_in_days(mut self, value: impl ::std::convert::Into<super::super::super::types::RotationPeriodInDaysType>) -> Self { self.input.rotation_period_in_days = Some(value.into()); self }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn rotation_period_in_days(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.rotation_period_in_days = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::EnableKeyRotationOutput, super::EnableKeyRotationError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::EnableKeyRotationError::Unhandled(format!("EnableKeyRotation returned HTTP {}", status)));
                          }
-                         Ok(super::EnableKeyRotationOutput)
+                         Ok(super::EnableKeyRotationOutput{})
                      }
 }
 pub use Builder as EnableKeyRotationFluentBuilder;

@@ -10,10 +10,10 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn group_name(mut self, value: impl ::std::convert::Into<super::super::super::types::GroupNameType>) -> Self { self.input.group_name = Some(value.into()); self }
-    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
-    pub fn max_items(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.input.max_items = Some(value.into()); self }
-    pub fn path_prefix(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyPathType>) -> Self { self.input.path_prefix = Some(value.into()); self }
+    pub fn group_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.group_name = Some(value.into()); self }
+    pub fn path_prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.path_prefix = Some(value.into()); self }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
+    pub fn max_items(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_items = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListAttachedGroupPoliciesOutput, super::ListAttachedGroupPoliciesError> {
@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListAttachedGroupPoliciesError::Unhandled(format!("ListAttachedGroupPolicies returned HTTP {}", status)));
                          }
-                         Ok(super::ListAttachedGroupPoliciesOutput::default())
+                         Ok(super::_list_attached_group_policies_output::ListAttachedGroupPoliciesOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListAttachedGroupPoliciesFluentBuilder;

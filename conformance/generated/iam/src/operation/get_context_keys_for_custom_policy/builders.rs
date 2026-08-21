@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn policy_input_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.input.policy_input_list = Some(value.into()); self }
+    pub fn policy_input_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.policy_input_list = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetContextKeysForCustomPolicyOutput, super::GetContextKeysForCustomPolicyError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetContextKeysForCustomPolicyError::Unhandled(format!("GetContextKeysForCustomPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::GetContextKeysForCustomPolicyOutput::default())
+                         Ok(super::_get_context_keys_for_custom_policy_output::GetContextKeysForCustomPolicyOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetContextKeysForCustomPolicyFluentBuilder;

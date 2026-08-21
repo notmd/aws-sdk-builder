@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn custom_key_store_id(mut self, value: impl ::std::convert::Into<super::super::super::types::CustomKeyStoreIdType>) -> Self { self.input.custom_key_store_id = Some(value.into()); self }
+    pub fn custom_key_store_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.custom_key_store_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::DeleteCustomKeyStoreOutput, super::DeleteCustomKeyStoreError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteCustomKeyStoreError::Unhandled(format!("DeleteCustomKeyStore returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteCustomKeyStoreOutput)
+                         Ok(super::DeleteCustomKeyStoreOutput{})
                      }
 }
 pub use Builder as DeleteCustomKeyStoreFluentBuilder;

@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListOrganizationsFeaturesError::Unhandled(format!("ListOrganizationsFeatures returned HTTP {}", status)));
                          }
-                         Ok(super::ListOrganizationsFeaturesOutput::default())
+                         Ok(super::_list_organizations_features_output::ListOrganizationsFeaturesOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListOrganizationsFeaturesFluentBuilder;

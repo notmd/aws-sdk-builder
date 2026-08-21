@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn wrapping_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::AlgorithmSpec>) -> Self { self.input.wrapping_algorithm = Some(value.into()); self }
-    pub fn wrapping_key_spec(mut self, value: impl ::std::convert::Into<super::super::super::types::WrappingKeySpec>) -> Self { self.input.wrapping_key_spec = Some(value.into()); self }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn wrapping_algorithm(mut self, value: impl ::std::convert::Into<crate::types::AlgorithmSpec>) -> Self { self.input.wrapping_algorithm = Some(value.into()); self }
+    pub fn wrapping_key_spec(mut self, value: impl ::std::convert::Into<crate::types::WrappingKeySpec>) -> Self { self.input.wrapping_key_spec = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetParametersForImportOutput, super::GetParametersForImportError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetParametersForImportError::Unhandled(format!("GetParametersForImport returned HTTP {}", status)));
                          }
-                         Ok(super::GetParametersForImportOutput::default())
+                         Ok(super::_get_parameters_for_import_output::GetParametersForImportOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetParametersForImportFluentBuilder;

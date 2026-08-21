@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetPublicAccessBlockOutput, super::GetPublicAccessBlockError> {
@@ -24,14 +24,14 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetPublicAccessBlockError::Unhandled(format!("GetPublicAccessBlock returned HTTP {}", status)));
                          }
-                         let mut output = super::GetPublicAccessBlockOutput::default();
+                         let mut output = super::_get_public_access_block_output::GetPublicAccessBlockOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetPublicAccessBlockError::Unhandled)?;
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "PublicAccessBlockConfiguration") { let mut item: super::super::super::types::PublicAccessBlockConfiguration = ::std::default::Default::default(); item.block_public_acls = super::super::super::transport::xml_first(&value, "BlockPublicAcls").and_then(|value| value.parse().ok());
- item.block_public_policy = super::super::super::transport::xml_first(&value, "BlockPublicPolicy").and_then(|value| value.parse().ok());
+                         if let Some(value) = super::super::super::transport::xml_first(&body, "PublicAccessBlockConfiguration") { let mut item: crate::types::PublicAccessBlockConfigurationBuilder = ::std::default::Default::default(); item.block_public_acls = super::super::super::transport::xml_first(&value, "BlockPublicAcls").and_then(|value| value.parse().ok());
  item.ignore_public_acls = super::super::super::transport::xml_first(&value, "IgnorePublicAcls").and_then(|value| value.parse().ok());
+ item.block_public_policy = super::super::super::transport::xml_first(&value, "BlockPublicPolicy").and_then(|value| value.parse().ok());
  item.restrict_public_buckets = super::super::super::transport::xml_first(&value, "RestrictPublicBuckets").and_then(|value| value.parse().ok());
- item; output.public_access_block_configuration = Some(item); }
-                         Ok(output)
+ let item = item.build(); output.public_access_block_configuration = Some(item); }
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetPublicAccessBlockFluentBuilder;

@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn function_name(mut self, value: impl ::std::convert::Into<super::super::super::types::NamespacedFunctionName>) -> Self { self.input.function_name = Some(value.into()); self }
-    pub fn qualifier(mut self, value: impl ::std::convert::Into<super::super::super::types::NumericLatestPublishedOrAliasQualifier>) -> Self { self.input.qualifier = Some(value.into()); self }
+    pub fn function_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.function_name = Some(value.into()); self }
+    pub fn qualifier(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.qualifier = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::DeleteFunctionEventInvokeConfigOutput, super::DeleteFunctionEventInvokeConfigError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteFunctionEventInvokeConfigError::Unhandled(format!("DeleteFunctionEventInvokeConfig returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteFunctionEventInvokeConfigOutput)
+                         Ok(super::DeleteFunctionEventInvokeConfigOutput{})
                      }
 }
 pub use Builder as DeleteFunctionEventInvokeConfigFluentBuilder;

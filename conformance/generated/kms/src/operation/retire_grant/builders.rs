@@ -10,10 +10,10 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-    pub fn grant_id(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantIdType>) -> Self { self.input.grant_id = Some(value.into()); self }
-    pub fn grant_token(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenType>) -> Self { self.input.grant_token = Some(value.into()); self }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn grant_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_token = Some(value.into()); self }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn grant_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_id = Some(value.into()); self }
+    pub fn dry_run(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.dry_run = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::RetireGrantOutput, super::RetireGrantError> {
@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::RetireGrantError::Unhandled(format!("RetireGrant returned HTTP {}", status)));
                          }
-                         Ok(super::RetireGrantOutput)
+                         Ok(super::RetireGrantOutput{})
                      }
 }
 pub use Builder as RetireGrantFluentBuilder;

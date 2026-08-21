@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetAccountPropertiesError::Unhandled(format!("GetAccountProperties returned HTTP {}", status)));
                          }
-                         Ok(super::GetAccountPropertiesOutput::default())
+                         Ok(super::_get_account_properties_output::GetAccountPropertiesOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetAccountPropertiesFluentBuilder;

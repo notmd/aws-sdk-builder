@@ -10,12 +10,12 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn backup_type(mut self, value: impl ::std::convert::Into<super::super::super::types::BackupTypeFilter>) -> Self { self.input.backup_type = Some(value.into()); self }
-    pub fn exclusive_start_backup_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::BackupArn>) -> Self { self.input.exclusive_start_backup_arn = Some(value.into()); self }
-    pub fn limit(mut self, value: impl ::std::convert::Into<super::super::super::types::BackupsInputLimit>) -> Self { self.input.limit = Some(value.into()); self }
-    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
-    pub fn time_range_lower_bound(mut self, value: impl ::std::convert::Into<super::super::super::types::TimeRangeLowerBound>) -> Self { self.input.time_range_lower_bound = Some(value.into()); self }
-    pub fn time_range_upper_bound(mut self, value: impl ::std::convert::Into<super::super::super::types::TimeRangeUpperBound>) -> Self { self.input.time_range_upper_bound = Some(value.into()); self }
+    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn limit(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.limit = Some(value.into()); self }
+    pub fn time_range_lower_bound(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.time_range_lower_bound = Some(value.into()); self }
+    pub fn time_range_upper_bound(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.time_range_upper_bound = Some(value.into()); self }
+    pub fn exclusive_start_backup_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.exclusive_start_backup_arn = Some(value.into()); self }
+    pub fn backup_type(mut self, value: impl ::std::convert::Into<crate::types::BackupTypeFilter>) -> Self { self.input.backup_type = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListBackupsOutput, super::ListBackupsError> {
@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListBackupsError::Unhandled(format!("ListBackups returned HTTP {}", status)));
                          }
-                         Ok(super::ListBackupsOutput::default())
+                         Ok(super::_list_backups_output::ListBackupsOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListBackupsFluentBuilder;

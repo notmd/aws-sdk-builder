@@ -10,13 +10,13 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn delay_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.input.delay_seconds = Some(value.into()); self }
-    pub fn message_attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>) -> Self { self.input.message_attributes = Some(value.into()); self }
-    pub fn message_body(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.message_body = Some(value.into()); self }
-    pub fn message_deduplication_id(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.message_deduplication_id = Some(value.into()); self }
-    pub fn message_group_id(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.message_group_id = Some(value.into()); self }
-    pub fn message_system_attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>>) -> Self { self.input.message_system_attributes = Some(value.into()); self }
-    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
+    pub fn queue_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.queue_url = Some(value.into()); self }
+    pub fn message_body(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.message_body = Some(value.into()); self }
+    pub fn delay_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.delay_seconds = Some(value.into()); self }
+    pub fn message_attributes(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::MessageAttributeValue>>) -> Self { self.input.message_attributes = Some(value.into()); self }
+    pub fn message_system_attributes(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<crate::types::MessageSystemAttributeNameForSends, crate::types::MessageSystemAttributeValue>>) -> Self { self.input.message_system_attributes = Some(value.into()); self }
+    pub fn message_deduplication_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.message_deduplication_id = Some(value.into()); self }
+    pub fn message_group_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.message_group_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::SendMessageOutput, super::SendMessageError> {
@@ -28,7 +28,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SendMessageError::Unhandled(format!("SendMessage returned HTTP {}", status)));
                          }
-                         Ok(super::SendMessageOutput::default())
+                         Ok(super::_send_message_output::SendMessageOutputBuilder::default().build())
                      }
 }
 pub use Builder as SendMessageFluentBuilder;

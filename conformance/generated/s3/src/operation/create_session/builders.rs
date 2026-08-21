@@ -10,12 +10,12 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn bucket_key_enabled(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketKeyEnabled>) -> Self { self.input.bucket_key_enabled = Some(value.into()); self }
-    pub fn ssekms_encryption_context(mut self, value: impl ::std::convert::Into<super::super::super::types::SsekmsEncryptionContext>) -> Self { self.input.ssekms_encryption_context = Some(value.into()); self }
-    pub fn ssekms_key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::SsekmsKeyId>) -> Self { self.input.ssekms_key_id = Some(value.into()); self }
-    pub fn server_side_encryption(mut self, value: impl ::std::convert::Into<super::super::super::types::ServerSideEncryption>) -> Self { self.input.server_side_encryption = Some(value.into()); self }
-    pub fn session_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::SessionMode>) -> Self { self.input.session_mode = Some(value.into()); self }
+    pub fn session_mode(mut self, value: impl ::std::convert::Into<crate::types::SessionMode>) -> Self { self.input.session_mode = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn server_side_encryption(mut self, value: impl ::std::convert::Into<crate::types::ServerSideEncryption>) -> Self { self.input.server_side_encryption = Some(value.into()); self }
+    pub fn ssekms_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.ssekms_key_id = Some(value.into()); self }
+    pub fn ssekms_encryption_context(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.ssekms_encryption_context = Some(value.into()); self }
+    pub fn bucket_key_enabled(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.bucket_key_enabled = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateSessionOutput, super::CreateSessionError> {
@@ -28,16 +28,16 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateSessionError::Unhandled(format!("CreateSession returned HTTP {}", status)));
                          }
-                         let mut output = super::CreateSessionOutput::default();
+                         let mut output = super::_create_session_output::CreateSessionOutputBuilder::default();
                          let body = response.text().await.map_err(super::CreateSessionError::Unhandled)?;
+                         output.ssekms_key_id = response.header("x-amz-server-side-encryption-aws-kms-key-id").map(str::to_owned);
+                         output.ssekms_encryption_context = response.header("x-amz-server-side-encryption-context").map(str::to_owned);
                          output.bucket_key_enabled = response.header("x-amz-server-side-encryption-bucket-key-enabled").and_then(|value| value.parse().ok());
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "Credentials") { let mut item: super::super::super::types::SessionCredentials = ::std::default::Default::default(); item.access_key_id = super::super::super::transport::xml_first(&value, "AccessKeyId").and_then(|value| value.parse().ok());
+                         if let Some(value) = super::super::super::transport::xml_first(&body, "Credentials") { let mut item: crate::types::SessionCredentialsBuilder = ::std::default::Default::default(); item.access_key_id = super::super::super::transport::xml_first(&value, "AccessKeyId").and_then(|value| value.parse().ok());
  item.secret_access_key = super::super::super::transport::xml_first(&value, "SecretAccessKey").and_then(|value| value.parse().ok());
  item.session_token = super::super::super::transport::xml_first(&value, "SessionToken").and_then(|value| value.parse().ok());
- item; output.credentials = Some(item); }
-                         output.ssekms_encryption_context = response.header("x-amz-server-side-encryption-context").map(str::to_owned);
-                         output.ssekms_key_id = response.header("x-amz-server-side-encryption-aws-kms-key-id").map(str::to_owned);
-                         Ok(output)
+ if let Ok(item) = item.build() { output.credentials = Some(item); } }
+                         Ok(output.build())
                      }
 }
 pub use Builder as CreateSessionFluentBuilder;

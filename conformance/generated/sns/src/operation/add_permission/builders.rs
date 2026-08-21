@@ -10,10 +10,10 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn aws_account_id(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Delegate>>) -> Self { self.input.aws_account_id = Some(value.into()); self }
-    pub fn action_name(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Action>>) -> Self { self.input.action_name = Some(value.into()); self }
-    pub fn label(mut self, value: impl ::std::convert::Into<super::super::super::types::Label>) -> Self { self.input.label = Some(value.into()); self }
-    pub fn topic_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicArn>) -> Self { self.input.topic_arn = Some(value.into()); self }
+    pub fn topic_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.topic_arn = Some(value.into()); self }
+    pub fn label(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.label = Some(value.into()); self }
+    pub fn aws_account_id(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.aws_account_id = Some(value.into()); self }
+    pub fn action_name(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.action_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::AddPermissionOutput, super::AddPermissionError> {
@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::AddPermissionError::Unhandled(format!("AddPermission returned HTTP {}", status)));
                          }
-                         Ok(super::AddPermissionOutput)
+                         Ok(super::AddPermissionOutput{})
                      }
 }
 pub use Builder as AddPermissionFluentBuilder;

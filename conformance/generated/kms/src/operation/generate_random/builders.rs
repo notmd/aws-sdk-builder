@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn custom_key_store_id(mut self, value: impl ::std::convert::Into<super::super::super::types::CustomKeyStoreIdType>) -> Self { self.input.custom_key_store_id = Some(value.into()); self }
-    pub fn number_of_bytes(mut self, value: impl ::std::convert::Into<super::super::super::types::NumberOfBytesType>) -> Self { self.input.number_of_bytes = Some(value.into()); self }
-    pub fn recipient(mut self, value: impl ::std::convert::Into<super::super::super::types::RecipientInfo>) -> Self { self.input.recipient = Some(value.into()); self }
+    pub fn number_of_bytes(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.number_of_bytes = Some(value.into()); self }
+    pub fn custom_key_store_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.custom_key_store_id = Some(value.into()); self }
+    pub fn recipient(mut self, value: impl ::std::convert::Into<crate::types::RecipientInfo>) -> Self { self.input.recipient = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GenerateRandomOutput, super::GenerateRandomError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GenerateRandomError::Unhandled(format!("GenerateRandom returned HTTP {}", status)));
                          }
-                         Ok(super::GenerateRandomOutput::default())
+                         Ok(super::_generate_random_output::GenerateRandomOutputBuilder::default().build())
                      }
 }
 pub use Builder as GenerateRandomFluentBuilder;

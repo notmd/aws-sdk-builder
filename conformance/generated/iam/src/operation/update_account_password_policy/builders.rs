@@ -10,15 +10,15 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn allow_users_to_change_password(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.input.allow_users_to_change_password = Some(value.into()); self }
-    pub fn hard_expiry(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanObjectType>) -> Self { self.input.hard_expiry = Some(value.into()); self }
-    pub fn max_password_age(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxPasswordAgeType>) -> Self { self.input.max_password_age = Some(value.into()); self }
-    pub fn minimum_password_length(mut self, value: impl ::std::convert::Into<super::super::super::types::MinimumPasswordLengthType>) -> Self { self.input.minimum_password_length = Some(value.into()); self }
-    pub fn password_reuse_prevention(mut self, value: impl ::std::convert::Into<super::super::super::types::PasswordReusePreventionType>) -> Self { self.input.password_reuse_prevention = Some(value.into()); self }
-    pub fn require_lowercase_characters(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.input.require_lowercase_characters = Some(value.into()); self }
-    pub fn require_numbers(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.input.require_numbers = Some(value.into()); self }
-    pub fn require_symbols(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.input.require_symbols = Some(value.into()); self }
-    pub fn require_uppercase_characters(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.input.require_uppercase_characters = Some(value.into()); self }
+    pub fn minimum_password_length(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.minimum_password_length = Some(value.into()); self }
+    pub fn require_symbols(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.require_symbols = Some(value.into()); self }
+    pub fn require_numbers(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.require_numbers = Some(value.into()); self }
+    pub fn require_uppercase_characters(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.require_uppercase_characters = Some(value.into()); self }
+    pub fn require_lowercase_characters(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.require_lowercase_characters = Some(value.into()); self }
+    pub fn allow_users_to_change_password(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.allow_users_to_change_password = Some(value.into()); self }
+    pub fn max_password_age(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_password_age = Some(value.into()); self }
+    pub fn password_reuse_prevention(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.password_reuse_prevention = Some(value.into()); self }
+    pub fn hard_expiry(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.hard_expiry = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UpdateAccountPasswordPolicyOutput, super::UpdateAccountPasswordPolicyError> {
@@ -30,7 +30,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateAccountPasswordPolicyError::Unhandled(format!("UpdateAccountPasswordPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateAccountPasswordPolicyOutput)
+                         Ok(super::UpdateAccountPasswordPolicyOutput{})
                      }
 }
 pub use Builder as UpdateAccountPasswordPolicyFluentBuilder;

@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DescribeEndpointsError::Unhandled(format!("DescribeEndpoints returned HTTP {}", status)));
                          }
-                         Ok(super::DescribeEndpointsOutput::default())
+                         super::_describe_endpoints_output::DescribeEndpointsOutputBuilder::default().build().map_err(|error| super::DescribeEndpointsError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as DescribeEndpointsFluentBuilder;

@@ -10,17 +10,17 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectKey>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn max_parts(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxParts>) -> Self { self.input.max_parts = Some(value.into()); self }
-    pub fn object_attributes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ObjectAttributes>>) -> Self { self.input.object_attributes = Some(value.into()); self }
-    pub fn part_number_marker(mut self, value: impl ::std::convert::Into<super::super::super::types::PartNumberMarker>) -> Self { self.input.part_number_marker = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerAlgorithm>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }
-    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerKey>) -> Self { self.input.sse_customer_key = Some(value.into()); self }
-    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerKeyMd5>) -> Self { self.input.sse_customer_key_md5 = Some(value.into()); self }
-    pub fn version_id(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectVersionId>) -> Self { self.input.version_id = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
+    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.version_id = Some(value.into()); self }
+    pub fn max_parts(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_parts = Some(value.into()); self }
+    pub fn part_number_marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.part_number_marker = Some(value.into()); self }
+    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }
+    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key = Some(value.into()); self }
+    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key_md5 = Some(value.into()); self }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn object_attributes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ObjectAttributes>>) -> Self { self.input.object_attributes = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetObjectAttributesOutput, super::GetObjectAttributesError> {
@@ -34,31 +34,31 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetObjectAttributesError::Unhandled(format!("GetObjectAttributes returned HTTP {}", status)));
                          }
-                         let mut output = super::GetObjectAttributesOutput::default();
+                         let mut output = super::_get_object_attributes_output::GetObjectAttributesOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetObjectAttributesError::Unhandled)?;
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "Checksum") { let mut item: super::super::super::types::Checksum = ::std::default::Default::default(); item.checksum_crc32 = super::super::super::transport::xml_first(&value, "ChecksumCRC32").and_then(|value| value.parse().ok());
+                         output.delete_marker = response.header("x-amz-delete-marker").and_then(|value| value.parse().ok());
+                         output.version_id = response.header("x-amz-version-id").map(str::to_owned);
+                         output.e_tag = super::super::super::transport::xml_first(&body, "ETag").and_then(|value| value.parse().ok());
+                         if let Some(value) = super::super::super::transport::xml_first(&body, "Checksum") { let mut item: crate::types::ChecksumBuilder = ::std::default::Default::default(); item.checksum_crc32 = super::super::super::transport::xml_first(&value, "ChecksumCRC32").and_then(|value| value.parse().ok());
  item.checksum_crc32_c = super::super::super::transport::xml_first(&value, "ChecksumCRC32C").and_then(|value| value.parse().ok());
  item.checksum_crc64_nvme = super::super::super::transport::xml_first(&value, "ChecksumCRC64NVME").and_then(|value| value.parse().ok());
- item.checksum_md5 = super::super::super::transport::xml_first(&value, "ChecksumMD5").and_then(|value| value.parse().ok());
  item.checksum_sha1 = super::super::super::transport::xml_first(&value, "ChecksumSHA1").and_then(|value| value.parse().ok());
  item.checksum_sha256 = super::super::super::transport::xml_first(&value, "ChecksumSHA256").and_then(|value| value.parse().ok());
  item.checksum_sha512 = super::super::super::transport::xml_first(&value, "ChecksumSHA512").and_then(|value| value.parse().ok());
- item.checksum_xxhash128 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH128").and_then(|value| value.parse().ok());
- item.checksum_xxhash3 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH3").and_then(|value| value.parse().ok());
+ item.checksum_md5 = super::super::super::transport::xml_first(&value, "ChecksumMD5").and_then(|value| value.parse().ok());
  item.checksum_xxhash64 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH64").and_then(|value| value.parse().ok());
- item; output.checksum = Some(item); }
-                         output.delete_marker = response.header("x-amz-delete-marker").and_then(|value| value.parse().ok());
-                         output.e_tag = super::super::super::transport::xml_first(&body, "ETag").and_then(|value| value.parse().ok());
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "ObjectParts") { let mut item: super::super::super::types::GetObjectAttributesParts = ::std::default::Default::default(); item.is_truncated = super::super::super::transport::xml_first(&value, "IsTruncated").and_then(|value| value.parse().ok());
- item.max_parts = super::super::super::transport::xml_first(&value, "MaxParts").and_then(|value| value.parse().ok());
- item.next_part_number_marker = super::super::super::transport::xml_first(&value, "NextPartNumberMarker").and_then(|value| value.parse().ok());
+ item.checksum_xxhash3 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH3").and_then(|value| value.parse().ok());
+ item.checksum_xxhash128 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH128").and_then(|value| value.parse().ok());
+ let item = item.build(); output.checksum = Some(item); }
+                         if let Some(value) = super::super::super::transport::xml_first(&body, "ObjectParts") { let mut item: crate::types::GetObjectAttributesPartsBuilder = ::std::default::Default::default(); item.total_parts_count = super::super::super::transport::xml_first(&value, "PartsCount").and_then(|value| value.parse().ok());
  item.part_number_marker = super::super::super::transport::xml_first(&value, "PartNumberMarker").and_then(|value| value.parse().ok());
- item.total_parts_count = super::super::super::transport::xml_first(&value, "PartsCount").and_then(|value| value.parse().ok());
- item; output.object_parts = Some(item); }
-                         output.object_size = super::super::super::transport::xml_first(&body, "ObjectSize").and_then(|value| value.parse().ok());
+ item.next_part_number_marker = super::super::super::transport::xml_first(&value, "NextPartNumberMarker").and_then(|value| value.parse().ok());
+ item.max_parts = super::super::super::transport::xml_first(&value, "MaxParts").and_then(|value| value.parse().ok());
+ item.is_truncated = super::super::super::transport::xml_first(&value, "IsTruncated").and_then(|value| value.parse().ok());
+ let item = item.build(); output.object_parts = Some(item); }
                          output.storage_class = super::super::super::transport::xml_first(&body, "StorageClass").and_then(|value| value.parse().ok());
-                         output.version_id = response.header("x-amz-version-id").map(str::to_owned);
-                         Ok(output)
+                         output.object_size = super::super::super::transport::xml_first(&body, "ObjectSize").and_then(|value| value.parse().ok());
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetObjectAttributesFluentBuilder;

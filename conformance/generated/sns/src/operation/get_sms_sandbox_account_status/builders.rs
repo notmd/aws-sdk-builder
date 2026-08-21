@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetSmsSandboxAccountStatusError::Unhandled(format!("GetSmsSandboxAccountStatus returned HTTP {}", status)));
                          }
-                         Ok(super::GetSmsSandboxAccountStatusOutput::default())
+                         super::_get_sms_sandbox_account_status_output::GetSmsSandboxAccountStatusOutputBuilder::default().build().map_err(|error| super::GetSmsSandboxAccountStatusError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as GetSmsSandboxAccountStatusFluentBuilder;

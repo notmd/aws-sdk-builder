@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::DurationSecondsType>) -> Self { self.input.duration_seconds = Some(value.into()); self }
-    pub fn serial_number(mut self, value: impl ::std::convert::Into<super::super::super::types::SerialNumberType>) -> Self { self.input.serial_number = Some(value.into()); self }
-    pub fn token_code(mut self, value: impl ::std::convert::Into<super::super::super::types::TokenCodeType>) -> Self { self.input.token_code = Some(value.into()); self }
+    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.duration_seconds = Some(value.into()); self }
+    pub fn serial_number(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.serial_number = Some(value.into()); self }
+    pub fn token_code(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.token_code = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetSessionTokenOutput, super::GetSessionTokenError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetSessionTokenError::Unhandled(format!("GetSessionToken returned HTTP {}", status)));
                          }
-                         Ok(super::GetSessionTokenOutput::default())
+                         Ok(super::_get_session_token_output::GetSessionTokenOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetSessionTokenFluentBuilder;

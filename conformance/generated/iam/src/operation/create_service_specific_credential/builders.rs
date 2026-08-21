@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn credential_age_days(mut self, value: impl ::std::convert::Into<super::super::super::types::CredentialAgeDays>) -> Self { self.input.credential_age_days = Some(value.into()); self }
-    pub fn service_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ServiceName>) -> Self { self.input.service_name = Some(value.into()); self }
-    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::UserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn service_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.service_name = Some(value.into()); self }
+    pub fn credential_age_days(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.credential_age_days = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateServiceSpecificCredentialOutput, super::CreateServiceSpecificCredentialError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateServiceSpecificCredentialError::Unhandled(format!("CreateServiceSpecificCredential returned HTTP {}", status)));
                          }
-                         Ok(super::CreateServiceSpecificCredentialOutput::default())
+                         Ok(super::_create_service_specific_credential_output::CreateServiceSpecificCredentialOutputBuilder::default().build())
                      }
 }
 pub use Builder as CreateServiceSpecificCredentialFluentBuilder;

@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn subscription_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::SubscriptionArn>) -> Self { self.input.subscription_arn = Some(value.into()); self }
+    pub fn subscription_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.subscription_arn = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UnsubscribeOutput, super::UnsubscribeError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UnsubscribeError::Unhandled(format!("Unsubscribe returned HTTP {}", status)));
                          }
-                         Ok(super::UnsubscribeOutput)
+                         Ok(super::UnsubscribeOutput{})
                      }
 }
 pub use Builder as UnsubscribeFluentBuilder;

@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn max_results(mut self, value: impl ::std::convert::Into<super::super::super::types::BoxedInteger>) -> Self { self.input.max_results = Some(value.into()); self }
-    pub fn next_token(mut self, value: impl ::std::convert::Into<super::super::super::types::Token>) -> Self { self.input.next_token = Some(value.into()); self }
-    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
+    pub fn queue_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.queue_url = Some(value.into()); self }
+    pub fn next_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.next_token = Some(value.into()); self }
+    pub fn max_results(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_results = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListDeadLetterSourceQueuesOutput, super::ListDeadLetterSourceQueuesError> {
@@ -24,11 +24,11 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListDeadLetterSourceQueuesError::Unhandled(format!("ListDeadLetterSourceQueues returned HTTP {}", status)));
                          }
-                         let mut output = super::ListDeadLetterSourceQueuesOutput::default();
+                         let mut output = super::_list_dead_letter_source_queues_output::ListDeadLetterSourceQueuesOutputBuilder::default();
                          let body = response.text().await.map_err(super::ListDeadLetterSourceQueuesError::Unhandled)?;
                          let values = super::super::super::transport::xml_tags(&body, "QueueUrl").into_iter().filter_map(|value| value.parse().ok()).collect();
                          output.queue_urls = Some(values);
-                         Ok(output)
+                         output.build().map_err(|error| super::ListDeadLetterSourceQueuesError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as ListDeadLetterSourceQueuesFluentBuilder;

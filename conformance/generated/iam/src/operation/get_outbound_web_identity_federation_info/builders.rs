@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetOutboundWebIdentityFederationInfoError::Unhandled(format!("GetOutboundWebIdentityFederationInfo returned HTTP {}", status)));
                          }
-                         Ok(super::GetOutboundWebIdentityFederationInfoOutput::default())
+                         Ok(super::_get_outbound_web_identity_federation_info_output::GetOutboundWebIdentityFederationInfoOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetOutboundWebIdentityFederationInfoFluentBuilder;

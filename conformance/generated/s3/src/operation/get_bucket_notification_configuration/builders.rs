@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetBucketNotificationConfigurationOutput, super::GetBucketNotificationConfigurationError> {
@@ -24,22 +24,22 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetBucketNotificationConfigurationError::Unhandled(format!("GetBucketNotificationConfiguration returned HTTP {}", status)));
                          }
-                         let mut output = super::GetBucketNotificationConfigurationOutput::default();
+                         let mut output = super::_get_bucket_notification_configuration_output::GetBucketNotificationConfigurationOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketNotificationConfigurationError::Unhandled)?;
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "EventBridgeConfiguration") { let mut item: super::super::super::types::EventBridgeConfiguration = ::std::default::Default::default(); item; output.event_bridge_configuration = Some(item); }
-                         let values = super::super::super::transport::xml_tags(&body, "CloudFunctionConfiguration").into_iter().map(|value| { let mut item: super::super::super::types::LambdaFunctionConfiguration = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
- item.lambda_function_arn = super::super::super::transport::xml_first(&value, "CloudFunction").and_then(|value| value.parse().ok());
- item }).collect();
-                         output.lambda_function_configurations = Some(values);
-                         let values = super::super::super::transport::xml_tags(&body, "QueueConfiguration").into_iter().map(|value| { let mut item: super::super::super::types::QueueConfiguration = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
- item.queue_arn = super::super::super::transport::xml_first(&value, "Queue").and_then(|value| value.parse().ok());
- item }).collect();
-                         output.queue_configurations = Some(values);
-                         let values = super::super::super::transport::xml_tags(&body, "TopicConfiguration").into_iter().map(|value| { let mut item: super::super::super::types::TopicConfiguration = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
+                         let values = super::super::super::transport::xml_tags(&body, "TopicConfiguration").into_iter().filter_map(|value| { let mut item: crate::types::TopicConfigurationBuilder = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
  item.topic_arn = super::super::super::transport::xml_first(&value, "Topic").and_then(|value| value.parse().ok());
- item }).collect();
+ item.build().ok() }).collect();
                          output.topic_configurations = Some(values);
-                         Ok(output)
+                         let values = super::super::super::transport::xml_tags(&body, "QueueConfiguration").into_iter().filter_map(|value| { let mut item: crate::types::QueueConfigurationBuilder = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
+ item.queue_arn = super::super::super::transport::xml_first(&value, "Queue").and_then(|value| value.parse().ok());
+ item.build().ok() }).collect();
+                         output.queue_configurations = Some(values);
+                         let values = super::super::super::transport::xml_tags(&body, "CloudFunctionConfiguration").into_iter().filter_map(|value| { let mut item: crate::types::LambdaFunctionConfigurationBuilder = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
+ item.lambda_function_arn = super::super::super::transport::xml_first(&value, "CloudFunction").and_then(|value| value.parse().ok());
+ item.build().ok() }).collect();
+                         output.lambda_function_configurations = Some(values);
+                         if let Some(value) = super::super::super::transport::xml_first(&body, "EventBridgeConfiguration") { let mut item: crate::types::EventBridgeConfigurationBuilder = ::std::default::Default::default(); let item = item.build(); output.event_bridge_configuration = Some(item); }
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetBucketNotificationConfigurationFluentBuilder;

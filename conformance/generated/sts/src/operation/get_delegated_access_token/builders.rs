@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn trade_in_token(mut self, value: impl ::std::convert::Into<super::super::super::types::TradeInTokenType>) -> Self { self.input.trade_in_token = Some(value.into()); self }
+    pub fn trade_in_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.trade_in_token = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetDelegatedAccessTokenOutput, super::GetDelegatedAccessTokenError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetDelegatedAccessTokenError::Unhandled(format!("GetDelegatedAccessToken returned HTTP {}", status)));
                          }
-                         Ok(super::GetDelegatedAccessTokenOutput::default())
+                         Ok(super::_get_delegated_access_token_output::GetDelegatedAccessTokenOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetDelegatedAccessTokenFluentBuilder;

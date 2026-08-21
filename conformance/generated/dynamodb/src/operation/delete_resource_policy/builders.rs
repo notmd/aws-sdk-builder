@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn expected_revision_id(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyRevisionId>) -> Self { self.input.expected_revision_id = Some(value.into()); self }
-    pub fn resource_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceArnString>) -> Self { self.input.resource_arn = Some(value.into()); self }
+    pub fn resource_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.resource_arn = Some(value.into()); self }
+    pub fn expected_revision_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_revision_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::DeleteResourcePolicyOutput, super::DeleteResourcePolicyError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteResourcePolicyError::Unhandled(format!("DeleteResourcePolicy returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteResourcePolicyOutput::default())
+                         Ok(super::_delete_resource_policy_output::DeleteResourcePolicyOutputBuilder::default().build())
                      }
 }
 pub use Builder as DeleteResourcePolicyFluentBuilder;

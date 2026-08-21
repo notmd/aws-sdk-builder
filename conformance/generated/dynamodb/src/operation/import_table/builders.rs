@@ -10,12 +10,12 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn client_token(mut self, value: impl ::std::convert::Into<super::super::super::types::ClientToken>) -> Self { self.input.client_token = Some(value.into()); self }
-    pub fn input_compression_type(mut self, value: impl ::std::convert::Into<super::super::super::types::InputCompressionType>) -> Self { self.input.input_compression_type = Some(value.into()); self }
-    pub fn input_format(mut self, value: impl ::std::convert::Into<super::super::super::types::InputFormat>) -> Self { self.input.input_format = Some(value.into()); self }
-    pub fn input_format_options(mut self, value: impl ::std::convert::Into<super::super::super::types::InputFormatOptions>) -> Self { self.input.input_format_options = Some(value.into()); self }
-    pub fn s3_bucket_source(mut self, value: impl ::std::convert::Into<super::super::super::types::S3BucketSource>) -> Self { self.input.s3_bucket_source = Some(value.into()); self }
-    pub fn table_creation_parameters(mut self, value: impl ::std::convert::Into<super::super::super::types::TableCreationParameters>) -> Self { self.input.table_creation_parameters = Some(value.into()); self }
+    pub fn client_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.client_token = Some(value.into()); self }
+    pub fn s3_bucket_source(mut self, value: impl ::std::convert::Into<crate::types::S3BucketSource>) -> Self { self.input.s3_bucket_source = Some(value.into()); self }
+    pub fn input_format(mut self, value: impl ::std::convert::Into<crate::types::InputFormat>) -> Self { self.input.input_format = Some(value.into()); self }
+    pub fn input_format_options(mut self, value: impl ::std::convert::Into<crate::types::InputFormatOptions>) -> Self { self.input.input_format_options = Some(value.into()); self }
+    pub fn input_compression_type(mut self, value: impl ::std::convert::Into<crate::types::InputCompressionType>) -> Self { self.input.input_compression_type = Some(value.into()); self }
+    pub fn table_creation_parameters(mut self, value: impl ::std::convert::Into<crate::types::TableCreationParameters>) -> Self { self.input.table_creation_parameters = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ImportTableOutput, super::ImportTableError> {
@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ImportTableError::Unhandled(format!("ImportTable returned HTTP {}", status)));
                          }
-                         Ok(super::ImportTableOutput::default())
+                         Ok(super::_import_table_output::ImportTableOutputBuilder::default().build())
                      }
 }
 pub use Builder as ImportTableFluentBuilder;

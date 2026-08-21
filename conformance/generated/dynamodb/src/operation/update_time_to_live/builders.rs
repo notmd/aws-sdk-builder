@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
-    pub fn time_to_live_specification(mut self, value: impl ::std::convert::Into<super::super::super::types::TimeToLiveSpecification>) -> Self { self.input.time_to_live_specification = Some(value.into()); self }
+    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn time_to_live_specification(mut self, value: impl ::std::convert::Into<crate::types::TimeToLiveSpecification>) -> Self { self.input.time_to_live_specification = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UpdateTimeToLiveOutput, super::UpdateTimeToLiveError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateTimeToLiveError::Unhandled(format!("UpdateTimeToLive returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateTimeToLiveOutput::default())
+                         Ok(super::_update_time_to_live_output::UpdateTimeToLiveOutputBuilder::default().build())
                      }
 }
 pub use Builder as UpdateTimeToLiveFluentBuilder;

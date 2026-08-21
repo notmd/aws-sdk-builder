@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn group_name(mut self, value: impl ::std::convert::Into<super::super::super::types::GroupNameType>) -> Self { self.input.group_name = Some(value.into()); self }
-    pub fn policy_name(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyNameType>) -> Self { self.input.policy_name = Some(value.into()); self }
+    pub fn group_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.group_name = Some(value.into()); self }
+    pub fn policy_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetGroupPolicyOutput, super::GetGroupPolicyError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetGroupPolicyError::Unhandled(format!("GetGroupPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::GetGroupPolicyOutput::default())
+                         super::_get_group_policy_output::GetGroupPolicyOutputBuilder::default().build().map_err(|error| super::GetGroupPolicyError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as GetGroupPolicyFluentBuilder;

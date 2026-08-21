@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn global_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.global_table_name = Some(value.into()); self }
+    pub fn global_table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.global_table_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::DescribeGlobalTableSettingsOutput, super::DescribeGlobalTableSettingsError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DescribeGlobalTableSettingsError::Unhandled(format!("DescribeGlobalTableSettings returned HTTP {}", status)));
                          }
-                         Ok(super::DescribeGlobalTableSettingsOutput::default())
+                         Ok(super::_describe_global_table_settings_output::DescribeGlobalTableSettingsOutputBuilder::default().build())
                      }
 }
 pub use Builder as DescribeGlobalTableSettingsFluentBuilder;

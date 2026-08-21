@@ -10,37 +10,37 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn acl(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectCannedAcl>) -> Self { self.input.acl = Some(value.into()); self }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn bucket_key_enabled(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketKeyEnabled>) -> Self { self.input.bucket_key_enabled = Some(value.into()); self }
-    pub fn cache_control(mut self, value: impl ::std::convert::Into<super::super::super::types::CacheControl>) -> Self { self.input.cache_control = Some(value.into()); self }
-    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
-    pub fn checksum_type(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumType>) -> Self { self.input.checksum_type = Some(value.into()); self }
-    pub fn content_disposition(mut self, value: impl ::std::convert::Into<super::super::super::types::ContentDisposition>) -> Self { self.input.content_disposition = Some(value.into()); self }
-    pub fn content_encoding(mut self, value: impl ::std::convert::Into<super::super::super::types::ContentEncoding>) -> Self { self.input.content_encoding = Some(value.into()); self }
-    pub fn content_language(mut self, value: impl ::std::convert::Into<super::super::super::types::ContentLanguage>) -> Self { self.input.content_language = Some(value.into()); self }
-    pub fn content_type(mut self, value: impl ::std::convert::Into<super::super::super::types::ContentType>) -> Self { self.input.content_type = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn expires(mut self, value: impl ::std::convert::Into<super::super::super::types::Expires>) -> Self { self.input.expires = Some(value.into()); self }
-    pub fn grant_full_control(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantFullControl>) -> Self { self.input.grant_full_control = Some(value.into()); self }
-    pub fn grant_read(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantRead>) -> Self { self.input.grant_read = Some(value.into()); self }
-    pub fn grant_read_acp(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantReadAcp>) -> Self { self.input.grant_read_acp = Some(value.into()); self }
-    pub fn grant_write_acp(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantWriteAcp>) -> Self { self.input.grant_write_acp = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectKey>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn metadata(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>>) -> Self { self.input.metadata = Some(value.into()); self }
-    pub fn object_lock_legal_hold_status(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockLegalHoldStatus>) -> Self { self.input.object_lock_legal_hold_status = Some(value.into()); self }
-    pub fn object_lock_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockMode>) -> Self { self.input.object_lock_mode = Some(value.into()); self }
-    pub fn object_lock_retain_until_date(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockRetainUntilDate>) -> Self { self.input.object_lock_retain_until_date = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerAlgorithm>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }
-    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerKey>) -> Self { self.input.sse_customer_key = Some(value.into()); self }
-    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerKeyMd5>) -> Self { self.input.sse_customer_key_md5 = Some(value.into()); self }
-    pub fn ssekms_encryption_context(mut self, value: impl ::std::convert::Into<super::super::super::types::SsekmsEncryptionContext>) -> Self { self.input.ssekms_encryption_context = Some(value.into()); self }
-    pub fn ssekms_key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::SsekmsKeyId>) -> Self { self.input.ssekms_key_id = Some(value.into()); self }
-    pub fn server_side_encryption(mut self, value: impl ::std::convert::Into<super::super::super::types::ServerSideEncryption>) -> Self { self.input.server_side_encryption = Some(value.into()); self }
-    pub fn storage_class(mut self, value: impl ::std::convert::Into<super::super::super::types::StorageClass>) -> Self { self.input.storage_class = Some(value.into()); self }
-    pub fn tagging(mut self, value: impl ::std::convert::Into<super::super::super::types::TaggingHeader>) -> Self { self.input.tagging = Some(value.into()); self }
-    pub fn website_redirect_location(mut self, value: impl ::std::convert::Into<super::super::super::types::WebsiteRedirectLocation>) -> Self { self.input.website_redirect_location = Some(value.into()); self }
+    pub fn acl(mut self, value: impl ::std::convert::Into<crate::types::ObjectCannedAcl>) -> Self { self.input.acl = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn cache_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.cache_control = Some(value.into()); self }
+    pub fn content_disposition(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_disposition = Some(value.into()); self }
+    pub fn content_encoding(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_encoding = Some(value.into()); self }
+    pub fn content_language(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_language = Some(value.into()); self }
+    pub fn content_type(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_type = Some(value.into()); self }
+    pub fn expires(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expires = Some(value.into()); self }
+    pub fn grant_full_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_full_control = Some(value.into()); self }
+    pub fn grant_read(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_read = Some(value.into()); self }
+    pub fn grant_read_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_read_acp = Some(value.into()); self }
+    pub fn grant_write_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.grant_write_acp = Some(value.into()); self }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
+    pub fn metadata(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.input.metadata = Some(value.into()); self }
+    pub fn server_side_encryption(mut self, value: impl ::std::convert::Into<crate::types::ServerSideEncryption>) -> Self { self.input.server_side_encryption = Some(value.into()); self }
+    pub fn storage_class(mut self, value: impl ::std::convert::Into<crate::types::StorageClass>) -> Self { self.input.storage_class = Some(value.into()); self }
+    pub fn website_redirect_location(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.website_redirect_location = Some(value.into()); self }
+    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }
+    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key = Some(value.into()); self }
+    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key_md5 = Some(value.into()); self }
+    pub fn ssekms_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.ssekms_key_id = Some(value.into()); self }
+    pub fn ssekms_encryption_context(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.ssekms_encryption_context = Some(value.into()); self }
+    pub fn bucket_key_enabled(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.bucket_key_enabled = Some(value.into()); self }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
+    pub fn tagging(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.tagging = Some(value.into()); self }
+    pub fn object_lock_mode(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockMode>) -> Self { self.input.object_lock_mode = Some(value.into()); self }
+    pub fn object_lock_retain_until_date(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.object_lock_retain_until_date = Some(value.into()); self }
+    pub fn object_lock_legal_hold_status(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockLegalHoldStatus>) -> Self { self.input.object_lock_legal_hold_status = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self { self.input.checksum_algorithm = Some(value.into()); self }
+    pub fn checksum_type(mut self, value: impl ::std::convert::Into<crate::types::ChecksumType>) -> Self { self.input.checksum_type = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateMultipartUploadOutput, super::CreateMultipartUploadError> {
@@ -54,18 +54,18 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateMultipartUploadError::Unhandled(format!("CreateMultipartUpload returned HTTP {}", status)));
                          }
-                         let mut output = super::CreateMultipartUploadOutput::default();
+                         let mut output = super::_create_multipart_upload_output::CreateMultipartUploadOutputBuilder::default();
                          let body = response.text().await.map_err(super::CreateMultipartUploadError::Unhandled)?;
                          output.abort_rule_id = response.header("x-amz-abort-rule-id").map(str::to_owned);
                          output.bucket = super::super::super::transport::xml_first(&body, "Bucket").and_then(|value| value.parse().ok());
-                         output.bucket_key_enabled = response.header("x-amz-server-side-encryption-bucket-key-enabled").and_then(|value| value.parse().ok());
                          output.key = super::super::super::transport::xml_first(&body, "Key").and_then(|value| value.parse().ok());
+                         output.upload_id = super::super::super::transport::xml_first(&body, "UploadId").and_then(|value| value.parse().ok());
                          output.sse_customer_algorithm = response.header("x-amz-server-side-encryption-customer-algorithm").map(str::to_owned);
                          output.sse_customer_key_md5 = response.header("x-amz-server-side-encryption-customer-key-MD5").map(str::to_owned);
-                         output.ssekms_encryption_context = response.header("x-amz-server-side-encryption-context").map(str::to_owned);
                          output.ssekms_key_id = response.header("x-amz-server-side-encryption-aws-kms-key-id").map(str::to_owned);
-                         output.upload_id = super::super::super::transport::xml_first(&body, "UploadId").and_then(|value| value.parse().ok());
-                         Ok(output)
+                         output.ssekms_encryption_context = response.header("x-amz-server-side-encryption-context").map(str::to_owned);
+                         output.bucket_key_enabled = response.header("x-amz-server-side-encryption-bucket-key-enabled").and_then(|value| value.parse().ok());
+                         Ok(output.build())
                      }
 }
 pub use Builder as CreateMultipartUploadFluentBuilder;

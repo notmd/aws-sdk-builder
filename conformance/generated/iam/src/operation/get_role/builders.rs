@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn role_name(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.input.role_name = Some(value.into()); self }
+    pub fn role_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.role_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetRoleOutput, super::GetRoleError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetRoleError::Unhandled(format!("GetRole returned HTTP {}", status)));
                          }
-                         Ok(super::GetRoleOutput::default())
+                         Ok(super::_get_role_output::GetRoleOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetRoleFluentBuilder;

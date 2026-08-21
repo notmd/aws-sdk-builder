@@ -27,7 +27,7 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_tag.rs"));
     pub type TagKey = ::std::string::String;
     pub type TagValue = ::std::string::String;
-    pub type Timestamp = ::std::time::SystemTime;
+    pub type Timestamp = ::aws_smithy_types::DateTime;
     include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_topic.rs"));
     pub type Account = ::std::string::String;
     pub type Action = ::std::string::String;

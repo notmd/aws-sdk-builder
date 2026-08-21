@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn ssh_public_key_body(mut self, value: impl ::std::convert::Into<super::super::super::types::PublicKeyMaterialType>) -> Self { self.input.ssh_public_key_body = Some(value.into()); self }
-    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::UserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn ssh_public_key_body(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.ssh_public_key_body = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UploadSshPublicKeyOutput, super::UploadSshPublicKeyError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UploadSshPublicKeyError::Unhandled(format!("UploadSshPublicKey returned HTTP {}", status)));
                          }
-                         Ok(super::UploadSshPublicKeyOutput::default())
+                         Ok(super::_upload_ssh_public_key_output::UploadSshPublicKeyOutputBuilder::default().build())
                      }
 }
 pub use Builder as UploadSshPublicKeyFluentBuilder;

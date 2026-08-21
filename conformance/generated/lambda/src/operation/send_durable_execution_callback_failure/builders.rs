@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn callback_id(mut self, value: impl ::std::convert::Into<super::super::super::types::CallbackId>) -> Self { self.input.callback_id = Some(value.into()); self }
-    pub fn error(mut self, value: impl ::std::convert::Into<super::super::super::types::ErrorObject>) -> Self { self.input.error = Some(value.into()); self }
+    pub fn callback_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.callback_id = Some(value.into()); self }
+    pub fn error(mut self, value: impl ::std::convert::Into<crate::types::ErrorObject>) -> Self { self.input.error = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::SendDurableExecutionCallbackFailureOutput, super::SendDurableExecutionCallbackFailureError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SendDurableExecutionCallbackFailureError::Unhandled(format!("SendDurableExecutionCallbackFailure returned HTTP {}", status)));
                          }
-                         Ok(super::SendDurableExecutionCallbackFailureOutput)
+                         Ok(super::SendDurableExecutionCallbackFailureOutput{})
                      }
 }
 pub use Builder as SendDurableExecutionCallbackFailureFluentBuilder;

@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn publish_batch_request_entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PublishBatchRequestEntry>>) -> Self { self.input.publish_batch_request_entries = Some(value.into()); self }
-    pub fn topic_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicArn>) -> Self { self.input.topic_arn = Some(value.into()); self }
+    pub fn topic_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.topic_arn = Some(value.into()); self }
+    pub fn publish_batch_request_entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::PublishBatchRequestEntry>>) -> Self { self.input.publish_batch_request_entries = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::PublishBatchOutput, super::PublishBatchError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PublishBatchError::Unhandled(format!("PublishBatch returned HTTP {}", status)));
                          }
-                         Ok(super::PublishBatchOutput::default())
+                         Ok(super::_publish_batch_output::PublishBatchOutputBuilder::default().build())
                      }
 }
 pub use Builder as PublishBatchFluentBuilder;

@@ -80,7 +80,7 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_create_function_url_config_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_create_function_url_config_response.rs"));
     pub type DatabaseName = ::std::string::String;
-    pub type Date = ::std::time::SystemTime;
+    pub type Date = ::aws_smithy_types::DateTime;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_dead_letter_config.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_delete_alias_request.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_delete_capacity_provider_request.rs"));
@@ -140,7 +140,7 @@ pub mod types {
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_execution_succeeded_details.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_execution_timed_out_details.rs"));
     pub type ExecutionTimeout = i32;
-    pub type ExecutionTimestamp = ::std::time::SystemTime;
+    pub type ExecutionTimestamp = ::aws_smithy_types::DateTime;
     pub type FileSystemArn = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_file_system_config.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_filter.rs"));

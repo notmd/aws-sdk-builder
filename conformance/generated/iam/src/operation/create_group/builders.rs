@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn group_name(mut self, value: impl ::std::convert::Into<super::super::super::types::GroupNameType>) -> Self { self.input.group_name = Some(value.into()); self }
-    pub fn path(mut self, value: impl ::std::convert::Into<super::super::super::types::PathType>) -> Self { self.input.path = Some(value.into()); self }
+    pub fn path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.path = Some(value.into()); self }
+    pub fn group_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.group_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateGroupOutput, super::CreateGroupError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateGroupError::Unhandled(format!("CreateGroup returned HTTP {}", status)));
                          }
-                         Ok(super::CreateGroupOutput::default())
+                         Ok(super::_create_group_output::CreateGroupOutputBuilder::default().build())
                      }
 }
 pub use Builder as CreateGroupFluentBuilder;

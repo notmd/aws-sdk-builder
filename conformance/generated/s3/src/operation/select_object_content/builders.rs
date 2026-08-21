@@ -10,18 +10,18 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn expression(mut self, value: impl ::std::convert::Into<super::super::super::types::Expression>) -> Self { self.input.expression = Some(value.into()); self }
-    pub fn expression_type(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionType>) -> Self { self.input.expression_type = Some(value.into()); self }
-    pub fn input_serialization(mut self, value: impl ::std::convert::Into<super::super::super::types::InputSerialization>) -> Self { self.input.input_serialization = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectKey>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn output_serialization(mut self, value: impl ::std::convert::Into<super::super::super::types::OutputSerialization>) -> Self { self.input.output_serialization = Some(value.into()); self }
-    pub fn request_progress(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestProgress>) -> Self { self.input.request_progress = Some(value.into()); self }
-    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerAlgorithm>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }
-    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerKey>) -> Self { self.input.sse_customer_key = Some(value.into()); self }
-    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerKeyMd5>) -> Self { self.input.sse_customer_key_md5 = Some(value.into()); self }
-    pub fn scan_range(mut self, value: impl ::std::convert::Into<super::super::super::types::ScanRange>) -> Self { self.input.scan_range = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
+    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }
+    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key = Some(value.into()); self }
+    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key_md5 = Some(value.into()); self }
+    pub fn expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expression = Some(value.into()); self }
+    pub fn expression_type(mut self, value: impl ::std::convert::Into<crate::types::ExpressionType>) -> Self { self.input.expression_type = Some(value.into()); self }
+    pub fn request_progress(mut self, value: impl ::std::convert::Into<crate::types::RequestProgress>) -> Self { self.input.request_progress = Some(value.into()); self }
+    pub fn input_serialization(mut self, value: impl ::std::convert::Into<crate::types::InputSerialization>) -> Self { self.input.input_serialization = Some(value.into()); self }
+    pub fn output_serialization(mut self, value: impl ::std::convert::Into<crate::types::OutputSerialization>) -> Self { self.input.output_serialization = Some(value.into()); self }
+    pub fn scan_range(mut self, value: impl ::std::convert::Into<crate::types::ScanRange>) -> Self { self.input.scan_range = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::SelectObjectContentOutput, super::SelectObjectContentError> {
@@ -35,9 +35,9 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SelectObjectContentError::Unhandled(format!("SelectObjectContent returned HTTP {}", status)));
                          }
-                         let mut output = super::SelectObjectContentOutput::default();
+                         let mut output = super::_select_object_content_output::SelectObjectContentOutputBuilder::default();
                          let body = response.text().await.map_err(super::SelectObjectContentError::Unhandled)?;
-                         Ok(output)
+                         Ok(output.build())
                      }
 }
 pub use Builder as SelectObjectContentFluentBuilder;

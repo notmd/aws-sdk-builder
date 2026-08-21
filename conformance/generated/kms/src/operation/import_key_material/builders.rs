@@ -10,14 +10,14 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn encrypted_key_material(mut self, value: impl ::std::convert::Into<super::super::super::types::CiphertextType>) -> Self { self.input.encrypted_key_material = Some(value.into()); self }
-    pub fn expiration_model(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpirationModelType>) -> Self { self.input.expiration_model = Some(value.into()); self }
-    pub fn import_token(mut self, value: impl ::std::convert::Into<super::super::super::types::CiphertextType>) -> Self { self.input.import_token = Some(value.into()); self }
-    pub fn import_type(mut self, value: impl ::std::convert::Into<super::super::super::types::ImportType>) -> Self { self.input.import_type = Some(value.into()); self }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn key_material_description(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyMaterialDescriptionType>) -> Self { self.input.key_material_description = Some(value.into()); self }
-    pub fn key_material_id(mut self, value: impl ::std::convert::Into<super::super::super::types::BackingKeyIdType>) -> Self { self.input.key_material_id = Some(value.into()); self }
-    pub fn valid_to(mut self, value: impl ::std::convert::Into<super::super::super::types::DateType>) -> Self { self.input.valid_to = Some(value.into()); self }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn import_token(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self { self.input.import_token = Some(value.into()); self }
+    pub fn encrypted_key_material(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self { self.input.encrypted_key_material = Some(value.into()); self }
+    pub fn valid_to(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.valid_to = Some(value.into()); self }
+    pub fn expiration_model(mut self, value: impl ::std::convert::Into<crate::types::ExpirationModelType>) -> Self { self.input.expiration_model = Some(value.into()); self }
+    pub fn import_type(mut self, value: impl ::std::convert::Into<crate::types::ImportType>) -> Self { self.input.import_type = Some(value.into()); self }
+    pub fn key_material_description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_material_description = Some(value.into()); self }
+    pub fn key_material_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_material_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ImportKeyMaterialOutput, super::ImportKeyMaterialError> {
@@ -29,7 +29,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ImportKeyMaterialError::Unhandled(format!("ImportKeyMaterial returned HTTP {}", status)));
                          }
-                         Ok(super::ImportKeyMaterialOutput::default())
+                         Ok(super::_import_key_material_output::ImportKeyMaterialOutputBuilder::default().build())
                      }
 }
 pub use Builder as ImportKeyMaterialFluentBuilder;

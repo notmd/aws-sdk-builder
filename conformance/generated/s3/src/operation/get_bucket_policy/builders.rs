@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetBucketPolicyOutput, super::GetBucketPolicyError> {
@@ -24,10 +24,10 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetBucketPolicyError::Unhandled(format!("GetBucketPolicy returned HTTP {}", status)));
                          }
-                         let mut output = super::GetBucketPolicyOutput::default();
+                         let mut output = super::_get_bucket_policy_output::GetBucketPolicyOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketPolicyError::Unhandled)?;
                          output.policy = super::super::super::transport::xml_first(&body, "Policy").and_then(|value| value.parse().ok());
-                         Ok(output)
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetBucketPolicyFluentBuilder;

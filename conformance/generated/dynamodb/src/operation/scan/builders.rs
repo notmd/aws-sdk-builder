@@ -10,22 +10,22 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.input.attributes_to_get = Some(value.into()); self }
-    pub fn conditional_operator(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.input.conditional_operator = Some(value.into()); self }
-    pub fn consistent_read(mut self, value: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.input.consistent_read = Some(value.into()); self }
-    pub fn exclusive_start_key(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.exclusive_start_key = Some(value.into()); self }
-    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
-    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
-    pub fn filter_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionExpression>) -> Self { self.input.filter_expression = Some(value.into()); self }
-    pub fn index_name(mut self, value: impl ::std::convert::Into<super::super::super::types::IndexName>) -> Self { self.input.index_name = Some(value.into()); self }
-    pub fn limit(mut self, value: impl ::std::convert::Into<super::super::super::types::PositiveIntegerObject>) -> Self { self.input.limit = Some(value.into()); self }
-    pub fn projection_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ProjectionExpression>) -> Self { self.input.projection_expression = Some(value.into()); self }
-    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
-    pub fn scan_filter(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>) -> Self { self.input.scan_filter = Some(value.into()); self }
-    pub fn segment(mut self, value: impl ::std::convert::Into<super::super::super::types::ScanSegment>) -> Self { self.input.segment = Some(value.into()); self }
-    pub fn select(mut self, value: impl ::std::convert::Into<super::super::super::types::Select>) -> Self { self.input.select = Some(value.into()); self }
-    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
-    pub fn total_segments(mut self, value: impl ::std::convert::Into<super::super::super::types::ScanTotalSegments>) -> Self { self.input.total_segments = Some(value.into()); self }
+    pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.table_name = Some(value.into()); self }
+    pub fn index_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.index_name = Some(value.into()); self }
+    pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.attributes_to_get = Some(value.into()); self }
+    pub fn limit(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.limit = Some(value.into()); self }
+    pub fn select(mut self, value: impl ::std::convert::Into<crate::types::Select>) -> Self { self.input.select = Some(value.into()); self }
+    pub fn scan_filter(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::Condition>>) -> Self { self.input.scan_filter = Some(value.into()); self }
+    pub fn conditional_operator(mut self, value: impl ::std::convert::Into<crate::types::ConditionalOperator>) -> Self { self.input.conditional_operator = Some(value.into()); self }
+    pub fn exclusive_start_key(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.input.exclusive_start_key = Some(value.into()); self }
+    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
+    pub fn total_segments(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.total_segments = Some(value.into()); self }
+    pub fn segment(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.segment = Some(value.into()); self }
+    pub fn projection_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.projection_expression = Some(value.into()); self }
+    pub fn filter_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.filter_expression = Some(value.into()); self }
+    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
+    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
+    pub fn consistent_read(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.consistent_read = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ScanOutput, super::ScanError> {
@@ -37,7 +37,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ScanError::Unhandled(format!("Scan returned HTTP {}", status)));
                          }
-                         Ok(super::ScanOutput::default())
+                         Ok(super::_scan_output::ScanOutputBuilder::default().build())
                      }
 }
 pub use Builder as ScanFluentBuilder;

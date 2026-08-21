@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn deletion_task_id(mut self, value: impl ::std::convert::Into<super::super::super::types::DeletionTaskIdType>) -> Self { self.input.deletion_task_id = Some(value.into()); self }
+    pub fn deletion_task_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.deletion_task_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetServiceLinkedRoleDeletionStatusOutput, super::GetServiceLinkedRoleDeletionStatusError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetServiceLinkedRoleDeletionStatusError::Unhandled(format!("GetServiceLinkedRoleDeletionStatus returned HTTP {}", status)));
                          }
-                         Ok(super::GetServiceLinkedRoleDeletionStatusOutput::default())
+                         super::_get_service_linked_role_deletion_status_output::GetServiceLinkedRoleDeletionStatusOutputBuilder::default().build().map_err(|error| super::GetServiceLinkedRoleDeletionStatusError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as GetServiceLinkedRoleDeletionStatusFluentBuilder;

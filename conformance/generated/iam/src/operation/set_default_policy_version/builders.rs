@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn policy_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.policy_arn = Some(value.into()); self }
-    pub fn version_id(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyVersionIdType>) -> Self { self.input.version_id = Some(value.into()); self }
+    pub fn policy_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy_arn = Some(value.into()); self }
+    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.version_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::SetDefaultPolicyVersionOutput, super::SetDefaultPolicyVersionError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SetDefaultPolicyVersionError::Unhandled(format!("SetDefaultPolicyVersion returned HTTP {}", status)));
                          }
-                         Ok(super::SetDefaultPolicyVersionOutput)
+                         Ok(super::SetDefaultPolicyVersionOutput{})
                      }
 }
 pub use Builder as SetDefaultPolicyVersionFluentBuilder;

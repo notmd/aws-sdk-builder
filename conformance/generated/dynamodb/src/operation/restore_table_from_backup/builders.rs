@@ -10,15 +10,15 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn backup_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::BackupArn>) -> Self { self.input.backup_arn = Some(value.into()); self }
-    pub fn billing_mode_override(mut self, value: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.input.billing_mode_override = Some(value.into()); self }
-    pub fn global_secondary_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.input.global_secondary_index_override = Some(value.into()); self }
-    pub fn local_secondary_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.input.local_secondary_index_override = Some(value.into()); self }
-    pub fn on_demand_throughput_override(mut self, value: impl ::std::convert::Into<super::super::super::types::OnDemandThroughput>) -> Self { self.input.on_demand_throughput_override = Some(value.into()); self }
-    pub fn provisioned_throughput_override(mut self, value: impl ::std::convert::Into<super::super::super::types::ProvisionedThroughput>) -> Self { self.input.provisioned_throughput_override = Some(value.into()); self }
-    pub fn sse_specification_override(mut self, value: impl ::std::convert::Into<super::super::super::types::SseSpecification>) -> Self { self.input.sse_specification_override = Some(value.into()); self }
-    pub fn target_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.target_table_name = Some(value.into()); self }
-    pub fn vector_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.input.vector_index_override = Some(value.into()); self }
+    pub fn target_table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.target_table_name = Some(value.into()); self }
+    pub fn backup_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.backup_arn = Some(value.into()); self }
+    pub fn billing_mode_override(mut self, value: impl ::std::convert::Into<crate::types::BillingMode>) -> Self { self.input.billing_mode_override = Some(value.into()); self }
+    pub fn global_secondary_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>) -> Self { self.input.global_secondary_index_override = Some(value.into()); self }
+    pub fn local_secondary_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::LocalSecondaryIndex>>) -> Self { self.input.local_secondary_index_override = Some(value.into()); self }
+    pub fn provisioned_throughput_override(mut self, value: impl ::std::convert::Into<crate::types::ProvisionedThroughput>) -> Self { self.input.provisioned_throughput_override = Some(value.into()); self }
+    pub fn on_demand_throughput_override(mut self, value: impl ::std::convert::Into<crate::types::OnDemandThroughput>) -> Self { self.input.on_demand_throughput_override = Some(value.into()); self }
+    pub fn sse_specification_override(mut self, value: impl ::std::convert::Into<crate::types::SseSpecification>) -> Self { self.input.sse_specification_override = Some(value.into()); self }
+    pub fn vector_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::VectorIndex>>) -> Self { self.input.vector_index_override = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::RestoreTableFromBackupOutput, super::RestoreTableFromBackupError> {
@@ -30,7 +30,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::RestoreTableFromBackupError::Unhandled(format!("RestoreTableFromBackup returned HTTP {}", status)));
                          }
-                         Ok(super::RestoreTableFromBackupOutput::default())
+                         Ok(super::_restore_table_from_backup_output::RestoreTableFromBackupOutputBuilder::default().build())
                      }
 }
 pub use Builder as RestoreTableFromBackupFluentBuilder;

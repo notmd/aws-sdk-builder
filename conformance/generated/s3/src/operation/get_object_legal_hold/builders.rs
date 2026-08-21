@@ -10,11 +10,11 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectKey>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn version_id(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectVersionId>) -> Self { self.input.version_id = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
+    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.version_id = Some(value.into()); self }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetObjectLegalHoldOutput, super::GetObjectLegalHoldError> {
@@ -28,10 +28,10 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetObjectLegalHoldError::Unhandled(format!("GetObjectLegalHold returned HTTP {}", status)));
                          }
-                         let mut output = super::GetObjectLegalHoldOutput::default();
+                         let mut output = super::_get_object_legal_hold_output::GetObjectLegalHoldOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetObjectLegalHoldError::Unhandled)?;
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "LegalHold") { let mut item: super::super::super::types::ObjectLockLegalHold = ::std::default::Default::default(); item; output.legal_hold = Some(item); }
-                         Ok(output)
+                         if let Some(value) = super::super::super::transport::xml_first(&body, "LegalHold") { let mut item: crate::types::ObjectLockLegalHoldBuilder = ::std::default::Default::default(); let item = item.build(); output.legal_hold = Some(item); }
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetObjectLegalHoldFluentBuilder;

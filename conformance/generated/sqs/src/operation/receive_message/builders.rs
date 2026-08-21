@@ -10,14 +10,14 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::QueueAttributeName>>) -> Self { self.input.attribute_names = Some(value.into()); self }
-    pub fn max_number_of_messages(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.input.max_number_of_messages = Some(value.into()); self }
-    pub fn message_attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::MessageAttributeName>>) -> Self { self.input.message_attribute_names = Some(value.into()); self }
-    pub fn message_system_attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>>) -> Self { self.input.message_system_attribute_names = Some(value.into()); self }
-    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
-    pub fn receive_request_attempt_id(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.receive_request_attempt_id = Some(value.into()); self }
-    pub fn visibility_timeout(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.input.visibility_timeout = Some(value.into()); self }
-    pub fn wait_time_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.input.wait_time_seconds = Some(value.into()); self }
+    pub fn queue_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.queue_url = Some(value.into()); self }
+    pub fn attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::QueueAttributeName>>) -> Self { self.input.attribute_names = Some(value.into()); self }
+    pub fn message_system_attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::MessageSystemAttributeName>>) -> Self { self.input.message_system_attribute_names = Some(value.into()); self }
+    pub fn message_attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.message_attribute_names = Some(value.into()); self }
+    pub fn max_number_of_messages(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_number_of_messages = Some(value.into()); self }
+    pub fn visibility_timeout(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.visibility_timeout = Some(value.into()); self }
+    pub fn wait_time_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.wait_time_seconds = Some(value.into()); self }
+    pub fn receive_request_attempt_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.receive_request_attempt_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ReceiveMessageOutput, super::ReceiveMessageError> {
@@ -29,16 +29,16 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ReceiveMessageError::Unhandled(format!("ReceiveMessage returned HTTP {}", status)));
                          }
-                         let mut output = super::ReceiveMessageOutput::default();
+                         let mut output = super::_receive_message_output::ReceiveMessageOutputBuilder::default();
                          let body = response.text().await.map_err(super::ReceiveMessageError::Unhandled)?;
-                         let values = super::super::super::transport::xml_tags(&body, "Message").into_iter().map(|value| { let mut item: super::super::super::types::Message = ::std::default::Default::default(); item.body = super::super::super::transport::xml_first(&value, "Body").and_then(|value| value.parse().ok());
- item.md5_of_body = super::super::super::transport::xml_first(&value, "MD5OfBody").and_then(|value| value.parse().ok());
- item.md5_of_message_attributes = super::super::super::transport::xml_first(&value, "MD5OfMessageAttributes").and_then(|value| value.parse().ok());
- item.message_id = super::super::super::transport::xml_first(&value, "MessageId").and_then(|value| value.parse().ok());
+                         let values = super::super::super::transport::xml_tags(&body, "Message").into_iter().map(|value| { let mut item: crate::types::MessageBuilder = ::std::default::Default::default(); item.message_id = super::super::super::transport::xml_first(&value, "MessageId").and_then(|value| value.parse().ok());
  item.receipt_handle = super::super::super::transport::xml_first(&value, "ReceiptHandle").and_then(|value| value.parse().ok());
- item }).collect();
+ item.md5_of_body = super::super::super::transport::xml_first(&value, "MD5OfBody").and_then(|value| value.parse().ok());
+ item.body = super::super::super::transport::xml_first(&value, "Body").and_then(|value| value.parse().ok());
+ item.md5_of_message_attributes = super::super::super::transport::xml_first(&value, "MD5OfMessageAttributes").and_then(|value| value.parse().ok());
+ item.build() }).collect();
                          output.messages = Some(values);
-                         Ok(output)
+                         Ok(output.build())
                      }
 }
 pub use Builder as ReceiveMessageFluentBuilder;

@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn access_key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::AccessKeyIdType>) -> Self { self.input.access_key_id = Some(value.into()); self }
+    pub fn access_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.access_key_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetAccessKeyLastUsedOutput, super::GetAccessKeyLastUsedError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetAccessKeyLastUsedError::Unhandled(format!("GetAccessKeyLastUsed returned HTTP {}", status)));
                          }
-                         Ok(super::GetAccessKeyLastUsedOutput::default())
+                         Ok(super::_get_access_key_last_used_output::GetAccessKeyLastUsedOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetAccessKeyLastUsedFluentBuilder;

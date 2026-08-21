@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn next_token(mut self, value: impl ::std::convert::Into<super::super::super::types::NextToken>) -> Self { self.input.next_token = Some(value.into()); self }
-    pub fn topic_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicArn>) -> Self { self.input.topic_arn = Some(value.into()); self }
+    pub fn topic_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.topic_arn = Some(value.into()); self }
+    pub fn next_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.next_token = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListSubscriptionsByTopicOutput, super::ListSubscriptionsByTopicError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListSubscriptionsByTopicError::Unhandled(format!("ListSubscriptionsByTopic returned HTTP {}", status)));
                          }
-                         Ok(super::ListSubscriptionsByTopicOutput::default())
+                         Ok(super::_list_subscriptions_by_topic_output::ListSubscriptionsByTopicOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListSubscriptionsByTopicFluentBuilder;

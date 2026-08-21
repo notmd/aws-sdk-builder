@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn assignment_status(mut self, value: impl ::std::convert::Into<super::super::super::types::AssignmentStatusType>) -> Self { self.input.assignment_status = Some(value.into()); self }
-    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
-    pub fn max_items(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.input.max_items = Some(value.into()); self }
+    pub fn assignment_status(mut self, value: impl ::std::convert::Into<crate::types::AssignmentStatusType>) -> Self { self.input.assignment_status = Some(value.into()); self }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
+    pub fn max_items(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_items = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListVirtualMfaDevicesOutput, super::ListVirtualMfaDevicesError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListVirtualMfaDevicesError::Unhandled(format!("ListVirtualMfaDevices returned HTTP {}", status)));
                          }
-                         Ok(super::ListVirtualMfaDevicesOutput::default())
+                         super::_list_virtual_mfa_devices_output::ListVirtualMfaDevicesOutputBuilder::default().build().map_err(|error| super::ListVirtualMfaDevicesError::Unhandled(error.to_string()))
                      }
 }
 pub use Builder as ListVirtualMfaDevicesFluentBuilder;

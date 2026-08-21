@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn continuation_token(mut self, value: impl ::std::convert::Into<super::super::super::types::Token>) -> Self { self.input.continuation_token = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn continuation_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.continuation_token = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListBucketMetricsConfigurationsOutput, super::ListBucketMetricsConfigurationsError> {
@@ -25,15 +25,15 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListBucketMetricsConfigurationsError::Unhandled(format!("ListBucketMetricsConfigurations returned HTTP {}", status)));
                          }
-                         let mut output = super::ListBucketMetricsConfigurationsOutput::default();
+                         let mut output = super::_list_bucket_metrics_configurations_output::ListBucketMetricsConfigurationsOutputBuilder::default();
                          let body = response.text().await.map_err(super::ListBucketMetricsConfigurationsError::Unhandled)?;
-                         output.continuation_token = super::super::super::transport::xml_first(&body, "ContinuationToken").and_then(|value| value.parse().ok());
                          output.is_truncated = super::super::super::transport::xml_first(&body, "IsTruncated").and_then(|value| value.parse().ok());
-                         let values = super::super::super::transport::xml_tags(&body, "MetricsConfiguration").into_iter().map(|value| { let mut item: super::super::super::types::MetricsConfiguration = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
- item }).collect();
-                         output.metrics_configuration_list = Some(values);
+                         output.continuation_token = super::super::super::transport::xml_first(&body, "ContinuationToken").and_then(|value| value.parse().ok());
                          output.next_continuation_token = super::super::super::transport::xml_first(&body, "NextContinuationToken").and_then(|value| value.parse().ok());
-                         Ok(output)
+                         let values = super::super::super::transport::xml_tags(&body, "MetricsConfiguration").into_iter().filter_map(|value| { let mut item: crate::types::MetricsConfigurationBuilder = ::std::default::Default::default(); item.id = super::super::super::transport::xml_first(&value, "Id").and_then(|value| value.parse().ok());
+ item.build().ok() }).collect();
+                         output.metrics_configuration_list = Some(values);
+                         Ok(output.build())
                      }
 }
 pub use Builder as ListBucketMetricsConfigurationsFluentBuilder;

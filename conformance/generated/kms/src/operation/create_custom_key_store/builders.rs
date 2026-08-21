@@ -10,17 +10,17 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn cloud_hsm_cluster_id(mut self, value: impl ::std::convert::Into<super::super::super::types::CloudHsmClusterIdType>) -> Self { self.input.cloud_hsm_cluster_id = Some(value.into()); self }
-    pub fn custom_key_store_name(mut self, value: impl ::std::convert::Into<super::super::super::types::CustomKeyStoreNameType>) -> Self { self.input.custom_key_store_name = Some(value.into()); self }
-    pub fn custom_key_store_type(mut self, value: impl ::std::convert::Into<super::super::super::types::CustomKeyStoreType>) -> Self { self.input.custom_key_store_type = Some(value.into()); self }
-    pub fn key_store_password(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyStorePasswordType>) -> Self { self.input.key_store_password = Some(value.into()); self }
-    pub fn trust_anchor_certificate(mut self, value: impl ::std::convert::Into<super::super::super::types::TrustAnchorCertificateType>) -> Self { self.input.trust_anchor_certificate = Some(value.into()); self }
-    pub fn xks_proxy_authentication_credential(mut self, value: impl ::std::convert::Into<super::super::super::types::XksProxyAuthenticationCredentialType>) -> Self { self.input.xks_proxy_authentication_credential = Some(value.into()); self }
-    pub fn xks_proxy_connectivity(mut self, value: impl ::std::convert::Into<super::super::super::types::XksProxyConnectivityType>) -> Self { self.input.xks_proxy_connectivity = Some(value.into()); self }
-    pub fn xks_proxy_uri_endpoint(mut self, value: impl ::std::convert::Into<super::super::super::types::XksProxyUriEndpointType>) -> Self { self.input.xks_proxy_uri_endpoint = Some(value.into()); self }
-    pub fn xks_proxy_uri_path(mut self, value: impl ::std::convert::Into<super::super::super::types::XksProxyUriPathType>) -> Self { self.input.xks_proxy_uri_path = Some(value.into()); self }
-    pub fn xks_proxy_vpc_endpoint_service_name(mut self, value: impl ::std::convert::Into<super::super::super::types::XksProxyVpcEndpointServiceNameType>) -> Self { self.input.xks_proxy_vpc_endpoint_service_name = Some(value.into()); self }
-    pub fn xks_proxy_vpc_endpoint_service_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountIdType>) -> Self { self.input.xks_proxy_vpc_endpoint_service_owner = Some(value.into()); self }
+    pub fn custom_key_store_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.custom_key_store_name = Some(value.into()); self }
+    pub fn cloud_hsm_cluster_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.cloud_hsm_cluster_id = Some(value.into()); self }
+    pub fn trust_anchor_certificate(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.trust_anchor_certificate = Some(value.into()); self }
+    pub fn key_store_password(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_store_password = Some(value.into()); self }
+    pub fn custom_key_store_type(mut self, value: impl ::std::convert::Into<crate::types::CustomKeyStoreType>) -> Self { self.input.custom_key_store_type = Some(value.into()); self }
+    pub fn xks_proxy_uri_endpoint(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.xks_proxy_uri_endpoint = Some(value.into()); self }
+    pub fn xks_proxy_uri_path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.xks_proxy_uri_path = Some(value.into()); self }
+    pub fn xks_proxy_vpc_endpoint_service_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.xks_proxy_vpc_endpoint_service_name = Some(value.into()); self }
+    pub fn xks_proxy_vpc_endpoint_service_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.xks_proxy_vpc_endpoint_service_owner = Some(value.into()); self }
+    pub fn xks_proxy_authentication_credential(mut self, value: impl ::std::convert::Into<crate::types::XksProxyAuthenticationCredentialType>) -> Self { self.input.xks_proxy_authentication_credential = Some(value.into()); self }
+    pub fn xks_proxy_connectivity(mut self, value: impl ::std::convert::Into<crate::types::XksProxyConnectivityType>) -> Self { self.input.xks_proxy_connectivity = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateCustomKeyStoreOutput, super::CreateCustomKeyStoreError> {
@@ -32,7 +32,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateCustomKeyStoreError::Unhandled(format!("CreateCustomKeyStore returned HTTP {}", status)));
                          }
-                         Ok(super::CreateCustomKeyStoreOutput::default())
+                         Ok(super::_create_custom_key_store_output::CreateCustomKeyStoreOutputBuilder::default().build())
                      }
 }
 pub use Builder as CreateCustomKeyStoreFluentBuilder;

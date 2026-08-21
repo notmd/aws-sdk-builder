@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn delegation_permission_check(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.input.delegation_permission_check = Some(value.into()); self }
-    pub fn delegation_request_id(mut self, value: impl ::std::convert::Into<super::super::super::types::DelegationRequestIdType>) -> Self { self.input.delegation_request_id = Some(value.into()); self }
+    pub fn delegation_request_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.delegation_request_id = Some(value.into()); self }
+    pub fn delegation_permission_check(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.delegation_permission_check = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetDelegationRequestOutput, super::GetDelegationRequestError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetDelegationRequestError::Unhandled(format!("GetDelegationRequest returned HTTP {}", status)));
                          }
-                         Ok(super::GetDelegationRequestOutput::default())
+                         Ok(super::_get_delegation_request_output::GetDelegationRequestOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetDelegationRequestFluentBuilder;

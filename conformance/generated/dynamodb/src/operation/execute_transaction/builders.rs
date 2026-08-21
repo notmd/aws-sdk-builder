@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn client_request_token(mut self, value: impl ::std::convert::Into<super::super::super::types::ClientRequestToken>) -> Self { self.input.client_request_token = Some(value.into()); self }
-    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
-    pub fn transact_statements(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ParameterizedStatement>>) -> Self { self.input.transact_statements = Some(value.into()); self }
+    pub fn transact_statements(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ParameterizedStatement>>) -> Self { self.input.transact_statements = Some(value.into()); self }
+    pub fn client_request_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.client_request_token = Some(value.into()); self }
+    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ExecuteTransactionOutput, super::ExecuteTransactionError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ExecuteTransactionError::Unhandled(format!("ExecuteTransaction returned HTTP {}", status)));
                          }
-                         Ok(super::ExecuteTransactionOutput::default())
+                         Ok(super::_execute_transaction_output::ExecuteTransactionOutputBuilder::default().build())
                      }
 }
 pub use Builder as ExecuteTransactionFluentBuilder;

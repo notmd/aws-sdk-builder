@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetAccountPasswordPolicyError::Unhandled(format!("GetAccountPasswordPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::GetAccountPasswordPolicyOutput::default())
+                         Ok(super::_get_account_password_policy_output::GetAccountPasswordPolicyOutputBuilder::default().build())
                      }
 }
 pub use Builder as GetAccountPasswordPolicyFluentBuilder;

@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn request_items(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>) -> Self { self.input.request_items = Some(value.into()); self }
-    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
-    pub fn return_item_collection_metrics(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnItemCollectionMetrics>) -> Self { self.input.return_item_collection_metrics = Some(value.into()); self }
+    pub fn request_items(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>>) -> Self { self.input.request_items = Some(value.into()); self }
+    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
+    pub fn return_item_collection_metrics(mut self, value: impl ::std::convert::Into<crate::types::ReturnItemCollectionMetrics>) -> Self { self.input.return_item_collection_metrics = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::BatchWriteItemOutput, super::BatchWriteItemError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::BatchWriteItemError::Unhandled(format!("BatchWriteItem returned HTTP {}", status)));
                          }
-                         Ok(super::BatchWriteItemOutput::default())
+                         Ok(super::_batch_write_item_output::BatchWriteItemOutputBuilder::default().build())
                      }
 }
 pub use Builder as BatchWriteItemFluentBuilder;

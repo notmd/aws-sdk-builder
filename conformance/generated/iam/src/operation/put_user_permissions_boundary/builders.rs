@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn permissions_boundary(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.permissions_boundary = Some(value.into()); self }
-    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::UserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn permissions_boundary(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.permissions_boundary = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::PutUserPermissionsBoundaryOutput, super::PutUserPermissionsBoundaryError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutUserPermissionsBoundaryError::Unhandled(format!("PutUserPermissionsBoundary returned HTTP {}", status)));
                          }
-                         Ok(super::PutUserPermissionsBoundaryOutput)
+                         Ok(super::PutUserPermissionsBoundaryOutput{})
                      }
 }
 pub use Builder as PutUserPermissionsBoundaryFluentBuilder;

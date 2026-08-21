@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn import_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ImportArn>) -> Self { self.input.import_arn = Some(value.into()); self }
+    pub fn import_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.import_arn = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::DescribeImportOutput, super::DescribeImportError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DescribeImportError::Unhandled(format!("DescribeImport returned HTTP {}", status)));
                          }
-                         Ok(super::DescribeImportOutput::default())
+                         Ok(super::_describe_import_output::DescribeImportOutputBuilder::default().build())
                      }
 }
 pub use Builder as DescribeImportFluentBuilder;

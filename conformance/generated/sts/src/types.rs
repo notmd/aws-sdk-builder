@@ -25,7 +25,7 @@ pub mod types {
     pub type AssumedRoleIdType = ::std::string::String;
     pub type ClientTokenType = ::std::string::String;
     pub type ContextAssertionType = ::std::string::String;
-    pub type DateType = ::std::time::SystemTime;
+    pub type DateType = ::aws_smithy_types::DateTime;
     pub type DecodedMessageType = ::std::string::String;
     pub type DurationSecondsType = i32;
     pub type EncodedMessageType = ::std::string::String;

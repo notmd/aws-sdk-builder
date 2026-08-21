@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DisableOrganizationsRootSessionsError::Unhandled(format!("DisableOrganizationsRootSessions returned HTTP {}", status)));
                          }
-                         Ok(super::DisableOrganizationsRootSessionsOutput::default())
+                         Ok(super::_disable_organizations_root_sessions_output::DisableOrganizationsRootSessionsOutputBuilder::default().build())
                      }
 }
 pub use Builder as DisableOrganizationsRootSessionsFluentBuilder;

@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn function_name(mut self, value: impl ::std::convert::Into<super::super::super::types::NamespacedFunctionName>) -> Self { self.input.function_name = Some(value.into()); self }
-    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.marker = Some(value.into()); self }
-    pub fn max_items(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxFunctionEventInvokeConfigListItems>) -> Self { self.input.max_items = Some(value.into()); self }
+    pub fn function_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.function_name = Some(value.into()); self }
+    pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.marker = Some(value.into()); self }
+    pub fn max_items(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.max_items = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListFunctionEventInvokeConfigsOutput, super::ListFunctionEventInvokeConfigsError> {
@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListFunctionEventInvokeConfigsError::Unhandled(format!("ListFunctionEventInvokeConfigs returned HTTP {}", status)));
                          }
-                         Ok(super::ListFunctionEventInvokeConfigsOutput::default())
+                         Ok(super::_list_function_event_invoke_configs_output::ListFunctionEventInvokeConfigsOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListFunctionEventInvokeConfigsFluentBuilder;

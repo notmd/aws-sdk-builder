@@ -10,12 +10,12 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn message(mut self, value: impl ::std::convert::Into<super::super::super::types::PlaintextType>) -> Self { self.input.message = Some(value.into()); self }
-    pub fn message_type(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageType>) -> Self { self.input.message_type = Some(value.into()); self }
-    pub fn signing_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::SigningAlgorithmSpec>) -> Self { self.input.signing_algorithm = Some(value.into()); self }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn message(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self { self.input.message = Some(value.into()); self }
+    pub fn message_type(mut self, value: impl ::std::convert::Into<crate::types::MessageType>) -> Self { self.input.message_type = Some(value.into()); self }
+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
+    pub fn signing_algorithm(mut self, value: impl ::std::convert::Into<crate::types::SigningAlgorithmSpec>) -> Self { self.input.signing_algorithm = Some(value.into()); self }
+    pub fn dry_run(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.dry_run = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::SignOutput, super::SignError> {
@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SignError::Unhandled(format!("Sign returned HTTP {}", status)));
                          }
-                         Ok(super::SignOutput::default())
+                         Ok(super::_sign_output::SignOutputBuilder::default().build())
                      }
 }
 pub use Builder as SignFluentBuilder;

@@ -10,13 +10,13 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-    pub fn encryption_context(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.input.encryption_context = Some(value.into()); self }
-    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
-    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
-    pub fn key_spec(mut self, value: impl ::std::convert::Into<super::super::super::types::DataKeySpec>) -> Self { self.input.key_spec = Some(value.into()); self }
-    pub fn number_of_bytes(mut self, value: impl ::std::convert::Into<super::super::super::types::NumberOfBytesType>) -> Self { self.input.number_of_bytes = Some(value.into()); self }
-    pub fn recipient(mut self, value: impl ::std::convert::Into<super::super::super::types::RecipientInfo>) -> Self { self.input.recipient = Some(value.into()); self }
+    pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key_id = Some(value.into()); self }
+    pub fn encryption_context(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.input.encryption_context = Some(value.into()); self }
+    pub fn number_of_bytes(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.number_of_bytes = Some(value.into()); self }
+    pub fn key_spec(mut self, value: impl ::std::convert::Into<crate::types::DataKeySpec>) -> Self { self.input.key_spec = Some(value.into()); self }
+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
+    pub fn recipient(mut self, value: impl ::std::convert::Into<crate::types::RecipientInfo>) -> Self { self.input.recipient = Some(value.into()); self }
+    pub fn dry_run(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.dry_run = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GenerateDataKeyOutput, super::GenerateDataKeyError> {
@@ -28,7 +28,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GenerateDataKeyError::Unhandled(format!("GenerateDataKey returned HTTP {}", status)));
                          }
-                         Ok(super::GenerateDataKeyOutput::default())
+                         Ok(super::_generate_data_key_output::GenerateDataKeyOutputBuilder::default().build())
                      }
 }
 pub use Builder as GenerateDataKeyFluentBuilder;

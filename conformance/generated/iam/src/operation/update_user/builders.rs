@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn new_path(mut self, value: impl ::std::convert::Into<super::super::super::types::PathType>) -> Self { self.input.new_path = Some(value.into()); self }
-    pub fn new_user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::UserNameType>) -> Self { self.input.new_user_name = Some(value.into()); self }
-    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ExistingUserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.user_name = Some(value.into()); self }
+    pub fn new_path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.new_path = Some(value.into()); self }
+    pub fn new_user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.new_user_name = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UpdateUserOutput, super::UpdateUserError> {
@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateUserError::Unhandled(format!("UpdateUser returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateUserOutput)
+                         Ok(super::UpdateUserOutput{})
                      }
 }
 pub use Builder as UpdateUserFluentBuilder;

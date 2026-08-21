@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn alias_name(mut self, value: impl ::std::convert::Into<super::super::super::types::AliasNameType>) -> Self { self.input.alias_name = Some(value.into()); self }
-    pub fn target_key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.target_key_id = Some(value.into()); self }
+    pub fn alias_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.alias_name = Some(value.into()); self }
+    pub fn target_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.target_key_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UpdateAliasOutput, super::UpdateAliasError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateAliasError::Unhandled(format!("UpdateAlias returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateAliasOutput)
+                         Ok(super::UpdateAliasOutput{})
                      }
 }
 pub use Builder as UpdateAliasFluentBuilder;

@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GetBucketPolicyStatusOutput, super::GetBucketPolicyStatusError> {
@@ -24,11 +24,11 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GetBucketPolicyStatusError::Unhandled(format!("GetBucketPolicyStatus returned HTTP {}", status)));
                          }
-                         let mut output = super::GetBucketPolicyStatusOutput::default();
+                         let mut output = super::_get_bucket_policy_status_output::GetBucketPolicyStatusOutputBuilder::default();
                          let body = response.text().await.map_err(super::GetBucketPolicyStatusError::Unhandled)?;
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "PolicyStatus") { let mut item: super::super::super::types::PolicyStatus = ::std::default::Default::default(); item.is_public = super::super::super::transport::xml_first(&value, "IsPublic").and_then(|value| value.parse().ok());
- item; output.policy_status = Some(item); }
-                         Ok(output)
+                         if let Some(value) = super::super::super::transport::xml_first(&body, "PolicyStatus") { let mut item: crate::types::PolicyStatusBuilder = ::std::default::Default::default(); item.is_public = super::super::super::transport::xml_first(&value, "IsPublic").and_then(|value| value.parse().ok());
+ let item = item.build(); output.policy_status = Some(item); }
+                         Ok(output.build())
                      }
 }
 pub use Builder as GetBucketPolicyStatusFluentBuilder;

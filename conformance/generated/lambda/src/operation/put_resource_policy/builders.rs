@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn policy(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourcePolicy>) -> Self { self.input.policy = Some(value.into()); self }
-    pub fn resource_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyResourceArn>) -> Self { self.input.resource_arn = Some(value.into()); self }
-    pub fn revision_id(mut self, value: impl ::std::convert::Into<super::super::super::types::RevisionId>) -> Self { self.input.revision_id = Some(value.into()); self }
+    pub fn resource_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.resource_arn = Some(value.into()); self }
+    pub fn policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.policy = Some(value.into()); self }
+    pub fn revision_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.revision_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::PutResourcePolicyOutput, super::PutResourcePolicyError> {
@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutResourcePolicyError::Unhandled(format!("PutResourcePolicy returned HTTP {}", status)));
                          }
-                         Ok(super::PutResourcePolicyOutput::default())
+                         Ok(super::_put_resource_policy_output::PutResourcePolicyOutputBuilder::default().build())
                      }
 }
 pub use Builder as PutResourcePolicyFluentBuilder;

@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DisableOrganizationsRootCredentialsManagementError::Unhandled(format!("DisableOrganizationsRootCredentialsManagement returned HTTP {}", status)));
                          }
-                         Ok(super::DisableOrganizationsRootCredentialsManagementOutput::default())
+                         Ok(super::_disable_organizations_root_credentials_management_output::DisableOrganizationsRootCredentialsManagementOutputBuilder::default().build())
                      }
 }
 pub use Builder as DisableOrganizationsRootCredentialsManagementFluentBuilder;

@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ListOpenIdConnectProvidersError::Unhandled(format!("ListOpenIdConnectProviders returned HTTP {}", status)));
                          }
-                         Ok(super::ListOpenIdConnectProvidersOutput::default())
+                         Ok(super::_list_open_id_connect_providers_output::ListOpenIdConnectProvidersOutputBuilder::default().build())
                      }
 }
 pub use Builder as ListOpenIdConnectProvidersFluentBuilder;

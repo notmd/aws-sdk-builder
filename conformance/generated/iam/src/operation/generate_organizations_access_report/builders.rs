@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn entity_path(mut self, value: impl ::std::convert::Into<super::super::super::types::OrganizationsEntityPathType>) -> Self { self.input.entity_path = Some(value.into()); self }
-    pub fn organizations_policy_id(mut self, value: impl ::std::convert::Into<super::super::super::types::OrganizationsPolicyIdType>) -> Self { self.input.organizations_policy_id = Some(value.into()); self }
+    pub fn entity_path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.entity_path = Some(value.into()); self }
+    pub fn organizations_policy_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.organizations_policy_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::GenerateOrganizationsAccessReportOutput, super::GenerateOrganizationsAccessReportError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::GenerateOrganizationsAccessReportError::Unhandled(format!("GenerateOrganizationsAccessReport returned HTTP {}", status)));
                          }
-                         Ok(super::GenerateOrganizationsAccessReportOutput::default())
+                         Ok(super::_generate_organizations_access_report_output::GenerateOrganizationsAccessReportOutputBuilder::default().build())
                      }
 }
 pub use Builder as GenerateOrganizationsAccessReportFluentBuilder;

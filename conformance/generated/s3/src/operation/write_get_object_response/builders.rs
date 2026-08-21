@@ -10,64 +10,64 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn accept_ranges(mut self, value: impl ::std::convert::Into<super::super::super::types::AcceptRanges>) -> Self { self.input.accept_ranges = Some(value.into()); self }
-    pub fn body(mut self, value: impl ::std::convert::Into<super::super::super::primitives::ByteStream>) -> Self { self.input.body = Some(value.into()); self }
-    pub fn bucket_key_enabled(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketKeyEnabled>) -> Self { self.input.bucket_key_enabled = Some(value.into()); self }
-    pub fn cache_control(mut self, value: impl ::std::convert::Into<super::super::super::types::CacheControl>) -> Self { self.input.cache_control = Some(value.into()); self }
-    pub fn checksum_crc32(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumCrc32>) -> Self { self.input.checksum_crc32 = Some(value.into()); self }
-    pub fn checksum_crc32_c(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumCrc32C>) -> Self { self.input.checksum_crc32_c = Some(value.into()); self }
-    pub fn checksum_crc64_nvme(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumCrc64Nvme>) -> Self { self.input.checksum_crc64_nvme = Some(value.into()); self }
-    pub fn checksum_md5(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumMd5>) -> Self { self.input.checksum_md5 = Some(value.into()); self }
-    pub fn checksum_sha1(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumSha1>) -> Self { self.input.checksum_sha1 = Some(value.into()); self }
-    pub fn checksum_sha256(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumSha256>) -> Self { self.input.checksum_sha256 = Some(value.into()); self }
-    pub fn checksum_sha512(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumSha512>) -> Self { self.input.checksum_sha512 = Some(value.into()); self }
-    pub fn checksum_xxhash128(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumXxhash128>) -> Self { self.input.checksum_xxhash128 = Some(value.into()); self }
-    pub fn checksum_xxhash3(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumXxhash3>) -> Self { self.input.checksum_xxhash3 = Some(value.into()); self }
-    pub fn checksum_xxhash64(mut self, value: impl ::std::convert::Into<super::super::super::types::ChecksumXxhash64>) -> Self { self.input.checksum_xxhash64 = Some(value.into()); self }
-    pub fn content_disposition(mut self, value: impl ::std::convert::Into<super::super::super::types::ContentDisposition>) -> Self { self.input.content_disposition = Some(value.into()); self }
-    pub fn content_encoding(mut self, value: impl ::std::convert::Into<super::super::super::types::ContentEncoding>) -> Self { self.input.content_encoding = Some(value.into()); self }
-    pub fn content_language(mut self, value: impl ::std::convert::Into<super::super::super::types::ContentLanguage>) -> Self { self.input.content_language = Some(value.into()); self }
-    pub fn content_length(mut self, value: impl ::std::convert::Into<super::super::super::types::ContentLength>) -> Self { self.input.content_length = Some(value.into()); self }
-    pub fn content_range(mut self, value: impl ::std::convert::Into<super::super::super::types::ContentRange>) -> Self { self.input.content_range = Some(value.into()); self }
-    pub fn content_type(mut self, value: impl ::std::convert::Into<super::super::super::types::ContentType>) -> Self { self.input.content_type = Some(value.into()); self }
-    pub fn delete_marker(mut self, value: impl ::std::convert::Into<super::super::super::types::DeleteMarker>) -> Self { self.input.delete_marker = Some(value.into()); self }
-    pub fn e_tag(mut self, value: impl ::std::convert::Into<super::super::super::types::ETag>) -> Self { self.input.e_tag = Some(value.into()); self }
-    pub fn error_code(mut self, value: impl ::std::convert::Into<super::super::super::types::ErrorCode>) -> Self { self.input.error_code = Some(value.into()); self }
-    pub fn error_message(mut self, value: impl ::std::convert::Into<super::super::super::types::ErrorMessage>) -> Self { self.input.error_message = Some(value.into()); self }
-    pub fn expiration(mut self, value: impl ::std::convert::Into<super::super::super::types::Expiration>) -> Self { self.input.expiration = Some(value.into()); self }
-    pub fn expires(mut self, value: impl ::std::convert::Into<super::super::super::types::Expires>) -> Self { self.input.expires = Some(value.into()); self }
-    pub fn last_modified(mut self, value: impl ::std::convert::Into<super::super::super::types::LastModified>) -> Self { self.input.last_modified = Some(value.into()); self }
-    pub fn metadata(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>>) -> Self { self.input.metadata = Some(value.into()); self }
-    pub fn missing_meta(mut self, value: impl ::std::convert::Into<super::super::super::types::MissingMeta>) -> Self { self.input.missing_meta = Some(value.into()); self }
-    pub fn object_lock_legal_hold_status(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockLegalHoldStatus>) -> Self { self.input.object_lock_legal_hold_status = Some(value.into()); self }
-    pub fn object_lock_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockMode>) -> Self { self.input.object_lock_mode = Some(value.into()); self }
-    pub fn object_lock_retain_until_date(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockRetainUntilDate>) -> Self { self.input.object_lock_retain_until_date = Some(value.into()); self }
-    pub fn parts_count(mut self, value: impl ::std::convert::Into<super::super::super::types::PartsCount>) -> Self { self.input.parts_count = Some(value.into()); self }
-    pub fn replication_status(mut self, value: impl ::std::convert::Into<super::super::super::types::ReplicationStatus>) -> Self { self.input.replication_status = Some(value.into()); self }
-    pub fn request_charged(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestCharged>) -> Self { self.input.request_charged = Some(value.into()); self }
-    pub fn request_route(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestRoute>) -> Self { self.input.request_route = Some(value.into()); self }
-    pub fn request_token(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestToken>) -> Self { self.input.request_token = Some(value.into()); self }
-    pub fn restore(mut self, value: impl ::std::convert::Into<super::super::super::types::Restore>) -> Self { self.input.restore = Some(value.into()); self }
-    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerAlgorithm>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }
-    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerKeyMd5>) -> Self { self.input.sse_customer_key_md5 = Some(value.into()); self }
-    pub fn ssekms_key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::SsekmsKeyId>) -> Self { self.input.ssekms_key_id = Some(value.into()); self }
-    pub fn server_side_encryption(mut self, value: impl ::std::convert::Into<super::super::super::types::ServerSideEncryption>) -> Self { self.input.server_side_encryption = Some(value.into()); self }
-    pub fn status_code(mut self, value: impl ::std::convert::Into<super::super::super::types::GetObjectResponseStatusCode>) -> Self { self.input.status_code = Some(value.into()); self }
-    pub fn storage_class(mut self, value: impl ::std::convert::Into<super::super::super::types::StorageClass>) -> Self { self.input.storage_class = Some(value.into()); self }
-    pub fn tag_count(mut self, value: impl ::std::convert::Into<super::super::super::types::TagCount>) -> Self { self.input.tag_count = Some(value.into()); self }
-    pub fn version_id(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectVersionId>) -> Self { self.input.version_id = Some(value.into()); self }
+    pub fn request_route(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.request_route = Some(value.into()); self }
+    pub fn request_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.request_token = Some(value.into()); self }
+    pub fn body(mut self, value: impl ::std::convert::Into<crate::primitives::ByteStream>) -> Self { self.input.body = value.into(); self }
+    pub fn status_code(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.status_code = Some(value.into()); self }
+    pub fn error_code(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.error_code = Some(value.into()); self }
+    pub fn error_message(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.error_message = Some(value.into()); self }
+    pub fn accept_ranges(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.accept_ranges = Some(value.into()); self }
+    pub fn cache_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.cache_control = Some(value.into()); self }
+    pub fn content_disposition(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_disposition = Some(value.into()); self }
+    pub fn content_encoding(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_encoding = Some(value.into()); self }
+    pub fn content_language(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_language = Some(value.into()); self }
+    pub fn content_length(mut self, value: impl ::std::convert::Into<i64>) -> Self { self.input.content_length = Some(value.into()); self }
+    pub fn content_range(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_range = Some(value.into()); self }
+    pub fn content_type(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.content_type = Some(value.into()); self }
+    pub fn checksum_crc32(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_crc32 = Some(value.into()); self }
+    pub fn checksum_crc32_c(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_crc32_c = Some(value.into()); self }
+    pub fn checksum_crc64_nvme(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_crc64_nvme = Some(value.into()); self }
+    pub fn checksum_sha1(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_sha1 = Some(value.into()); self }
+    pub fn checksum_sha256(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_sha256 = Some(value.into()); self }
+    pub fn checksum_sha512(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_sha512 = Some(value.into()); self }
+    pub fn checksum_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_md5 = Some(value.into()); self }
+    pub fn checksum_xxhash64(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_xxhash64 = Some(value.into()); self }
+    pub fn checksum_xxhash3(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_xxhash3 = Some(value.into()); self }
+    pub fn checksum_xxhash128(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.checksum_xxhash128 = Some(value.into()); self }
+    pub fn delete_marker(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.delete_marker = Some(value.into()); self }
+    pub fn e_tag(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.e_tag = Some(value.into()); self }
+    pub fn expires(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expires = Some(value.into()); self }
+    pub fn expiration(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expiration = Some(value.into()); self }
+    pub fn last_modified(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.last_modified = Some(value.into()); self }
+    pub fn missing_meta(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.missing_meta = Some(value.into()); self }
+    pub fn metadata(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self { self.input.metadata = Some(value.into()); self }
+    pub fn object_lock_mode(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockMode>) -> Self { self.input.object_lock_mode = Some(value.into()); self }
+    pub fn object_lock_legal_hold_status(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockLegalHoldStatus>) -> Self { self.input.object_lock_legal_hold_status = Some(value.into()); self }
+    pub fn object_lock_retain_until_date(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.object_lock_retain_until_date = Some(value.into()); self }
+    pub fn parts_count(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.parts_count = Some(value.into()); self }
+    pub fn replication_status(mut self, value: impl ::std::convert::Into<crate::types::ReplicationStatus>) -> Self { self.input.replication_status = Some(value.into()); self }
+    pub fn request_charged(mut self, value: impl ::std::convert::Into<crate::types::RequestCharged>) -> Self { self.input.request_charged = Some(value.into()); self }
+    pub fn restore(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.restore = Some(value.into()); self }
+    pub fn server_side_encryption(mut self, value: impl ::std::convert::Into<crate::types::ServerSideEncryption>) -> Self { self.input.server_side_encryption = Some(value.into()); self }
+    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }
+    pub fn ssekms_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.ssekms_key_id = Some(value.into()); self }
+    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key_md5 = Some(value.into()); self }
+    pub fn storage_class(mut self, value: impl ::std::convert::Into<crate::types::StorageClass>) -> Self { self.input.storage_class = Some(value.into()); self }
+    pub fn tag_count(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.tag_count = Some(value.into()); self }
+    pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.version_id = Some(value.into()); self }
+    pub fn bucket_key_enabled(mut self, value: impl ::std::convert::Into<bool>) -> Self { self.input.bucket_key_enabled = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::WriteGetObjectResponseOutput, super::WriteGetObjectResponseError> {
                          let path = "/WriteGetObjectResponse";
-                         let body = self.input.body.as_ref().map(|body| body.clone().into_inner()).unwrap_or_default();
+                         let body = self.input.body.clone().into_inner();
                          let headers = { let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new(); if let Some(value) = self.input.e_tag.as_deref() { headers.push(("x-amz-fwd-header-ETag", value)); } headers };
                          let response = self.client.request(super::super::super::transport::Method::Post, &path, &headers, &body).await.map_err(super::WriteGetObjectResponseError::Unhandled)?;
                          let status = response.status();
                          if !status.is_success() {
                              return Err(super::WriteGetObjectResponseError::Unhandled(format!("WriteGetObjectResponse returned HTTP {}", status)));
                          }
-                         Ok(super::WriteGetObjectResponseOutput)
+                         Ok(super::WriteGetObjectResponseOutput{})
                      }
 }
 pub use Builder as WriteGetObjectResponseFluentBuilder;

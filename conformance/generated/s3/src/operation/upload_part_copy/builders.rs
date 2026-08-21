@@ -10,25 +10,25 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn bucket(mut self, value: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.input.bucket = Some(value.into()); self }
-    pub fn copy_source(mut self, value: impl ::std::convert::Into<super::super::super::types::CopySource>) -> Self { self.input.copy_source = Some(value.into()); self }
-    pub fn copy_source_if_match(mut self, value: impl ::std::convert::Into<super::super::super::types::CopySourceIfMatch>) -> Self { self.input.copy_source_if_match = Some(value.into()); self }
-    pub fn copy_source_if_modified_since(mut self, value: impl ::std::convert::Into<super::super::super::types::CopySourceIfModifiedSince>) -> Self { self.input.copy_source_if_modified_since = Some(value.into()); self }
-    pub fn copy_source_if_none_match(mut self, value: impl ::std::convert::Into<super::super::super::types::CopySourceIfNoneMatch>) -> Self { self.input.copy_source_if_none_match = Some(value.into()); self }
-    pub fn copy_source_if_unmodified_since(mut self, value: impl ::std::convert::Into<super::super::super::types::CopySourceIfUnmodifiedSince>) -> Self { self.input.copy_source_if_unmodified_since = Some(value.into()); self }
-    pub fn copy_source_range(mut self, value: impl ::std::convert::Into<super::super::super::types::CopySourceRange>) -> Self { self.input.copy_source_range = Some(value.into()); self }
-    pub fn copy_source_sse_customer_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::CopySourceSseCustomerAlgorithm>) -> Self { self.input.copy_source_sse_customer_algorithm = Some(value.into()); self }
-    pub fn copy_source_sse_customer_key(mut self, value: impl ::std::convert::Into<super::super::super::types::CopySourceSseCustomerKey>) -> Self { self.input.copy_source_sse_customer_key = Some(value.into()); self }
-    pub fn copy_source_sse_customer_key_md5(mut self, value: impl ::std::convert::Into<super::super::super::types::CopySourceSseCustomerKeyMd5>) -> Self { self.input.copy_source_sse_customer_key_md5 = Some(value.into()); self }
-    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
-    pub fn expected_source_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_source_bucket_owner = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectKey>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn part_number(mut self, value: impl ::std::convert::Into<super::super::super::types::PartNumber>) -> Self { self.input.part_number = Some(value.into()); self }
-    pub fn request_payer(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
-    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerAlgorithm>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }
-    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerKey>) -> Self { self.input.sse_customer_key = Some(value.into()); self }
-    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerKeyMd5>) -> Self { self.input.sse_customer_key_md5 = Some(value.into()); self }
-    pub fn upload_id(mut self, value: impl ::std::convert::Into<super::super::super::types::MultipartUploadId>) -> Self { self.input.upload_id = Some(value.into()); self }
+    pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.bucket = Some(value.into()); self }
+    pub fn copy_source(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.copy_source = Some(value.into()); self }
+    pub fn copy_source_if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.copy_source_if_match = Some(value.into()); self }
+    pub fn copy_source_if_modified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.copy_source_if_modified_since = Some(value.into()); self }
+    pub fn copy_source_if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.copy_source_if_none_match = Some(value.into()); self }
+    pub fn copy_source_if_unmodified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self { self.input.copy_source_if_unmodified_since = Some(value.into()); self }
+    pub fn copy_source_range(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.copy_source_range = Some(value.into()); self }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.key = Some(value.into()); self }
+    pub fn part_number(mut self, value: impl ::std::convert::Into<i32>) -> Self { self.input.part_number = Some(value.into()); self }
+    pub fn upload_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.upload_id = Some(value.into()); self }
+    pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }
+    pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key = Some(value.into()); self }
+    pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.sse_customer_key_md5 = Some(value.into()); self }
+    pub fn copy_source_sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.copy_source_sse_customer_algorithm = Some(value.into()); self }
+    pub fn copy_source_sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.copy_source_sse_customer_key = Some(value.into()); self }
+    pub fn copy_source_sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.copy_source_sse_customer_key_md5 = Some(value.into()); self }
+    pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
+    pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
+    pub fn expected_source_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.expected_source_bucket_owner = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UploadPartCopyOutput, super::UploadPartCopyError> {
@@ -42,26 +42,26 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UploadPartCopyError::Unhandled(format!("UploadPartCopy returned HTTP {}", status)));
                          }
-                         let mut output = super::UploadPartCopyOutput::default();
+                         let mut output = super::_upload_part_copy_output::UploadPartCopyOutputBuilder::default();
                          let body = response.text().await.map_err(super::UploadPartCopyError::Unhandled)?;
-                         output.bucket_key_enabled = response.header("x-amz-server-side-encryption-bucket-key-enabled").and_then(|value| value.parse().ok());
-                         if let Some(value) = super::super::super::transport::xml_first(&body, "CopyPartResult") { let mut item: super::super::super::types::CopyPartResult = ::std::default::Default::default(); item.checksum_crc32 = super::super::super::transport::xml_first(&value, "ChecksumCRC32").and_then(|value| value.parse().ok());
+                         output.copy_source_version_id = response.header("x-amz-copy-source-version-id").map(str::to_owned);
+                         if let Some(value) = super::super::super::transport::xml_first(&body, "CopyPartResult") { let mut item: crate::types::CopyPartResultBuilder = ::std::default::Default::default(); item.e_tag = super::super::super::transport::xml_first(&value, "ETag").and_then(|value| value.parse().ok());
+ item.checksum_crc32 = super::super::super::transport::xml_first(&value, "ChecksumCRC32").and_then(|value| value.parse().ok());
  item.checksum_crc32_c = super::super::super::transport::xml_first(&value, "ChecksumCRC32C").and_then(|value| value.parse().ok());
  item.checksum_crc64_nvme = super::super::super::transport::xml_first(&value, "ChecksumCRC64NVME").and_then(|value| value.parse().ok());
- item.checksum_md5 = super::super::super::transport::xml_first(&value, "ChecksumMD5").and_then(|value| value.parse().ok());
  item.checksum_sha1 = super::super::super::transport::xml_first(&value, "ChecksumSHA1").and_then(|value| value.parse().ok());
  item.checksum_sha256 = super::super::super::transport::xml_first(&value, "ChecksumSHA256").and_then(|value| value.parse().ok());
  item.checksum_sha512 = super::super::super::transport::xml_first(&value, "ChecksumSHA512").and_then(|value| value.parse().ok());
- item.checksum_xxhash128 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH128").and_then(|value| value.parse().ok());
- item.checksum_xxhash3 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH3").and_then(|value| value.parse().ok());
+ item.checksum_md5 = super::super::super::transport::xml_first(&value, "ChecksumMD5").and_then(|value| value.parse().ok());
  item.checksum_xxhash64 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH64").and_then(|value| value.parse().ok());
- item.e_tag = super::super::super::transport::xml_first(&value, "ETag").and_then(|value| value.parse().ok());
- item; output.copy_part_result = Some(item); }
-                         output.copy_source_version_id = response.header("x-amz-copy-source-version-id").map(str::to_owned);
+ item.checksum_xxhash3 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH3").and_then(|value| value.parse().ok());
+ item.checksum_xxhash128 = super::super::super::transport::xml_first(&value, "ChecksumXXHASH128").and_then(|value| value.parse().ok());
+ let item = item.build(); output.copy_part_result = Some(item); }
                          output.sse_customer_algorithm = response.header("x-amz-server-side-encryption-customer-algorithm").map(str::to_owned);
                          output.sse_customer_key_md5 = response.header("x-amz-server-side-encryption-customer-key-MD5").map(str::to_owned);
                          output.ssekms_key_id = response.header("x-amz-server-side-encryption-aws-kms-key-id").map(str::to_owned);
-                         Ok(output)
+                         output.bucket_key_enabled = response.header("x-amz-server-side-encryption-bucket-key-enabled").and_then(|value| value.parse().ok());
+                         Ok(output.build())
                      }
 }
 pub use Builder as UploadPartCopyFluentBuilder;

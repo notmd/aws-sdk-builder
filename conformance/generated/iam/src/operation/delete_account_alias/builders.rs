@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn account_alias(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountAliasType>) -> Self { self.input.account_alias = Some(value.into()); self }
+    pub fn account_alias(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.account_alias = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::DeleteAccountAliasOutput, super::DeleteAccountAliasError> {
@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteAccountAliasError::Unhandled(format!("DeleteAccountAlias returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteAccountAliasOutput)
+                         Ok(super::DeleteAccountAliasOutput{})
                      }
 }
 pub use Builder as DeleteAccountAliasFluentBuilder;

@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn global_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.global_table_name = Some(value.into()); self }
-    pub fn replication_group(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Replica>>) -> Self { self.input.replication_group = Some(value.into()); self }
+    pub fn global_table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self { self.input.global_table_name = Some(value.into()); self }
+    pub fn replication_group(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Replica>>) -> Self { self.input.replication_group = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateGlobalTableOutput, super::CreateGlobalTableError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateGlobalTableError::Unhandled(format!("CreateGlobalTable returned HTTP {}", status)));
                          }
-                         Ok(super::CreateGlobalTableOutput::default())
+                         Ok(super::_create_global_table_output::CreateGlobalTableOutputBuilder::default().build())
                      }
 }
 pub use Builder as CreateGlobalTableFluentBuilder;
