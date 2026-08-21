@@ -1,0 +1,16 @@
+[package]
+name = "aws-sdk-conformance"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+description = "Deterministic Markdown source conformance reports for generated AWS SDKs."
+publish = false
+
+[dependencies]
+diffy = { version = "0.5.1", features = ["std"] }
+quote = "1"
+syn = { version = "2", features = ["full", "parsing"] }
+
+[dev-dependencies]
+tempfile = "3"

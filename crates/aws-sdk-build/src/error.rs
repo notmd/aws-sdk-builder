@@ -4,81 +4,44 @@ use thiserror::Error;
 
 #[derive(Debug, Error)]
 pub enum BuildError {
-    #[error("no Smithy model was configured")]
-    MissingModelConfiguration,
-    #[error("Smithy model path does not exist: {path}")]
-    MissingModel { path: PathBuf },
-    #[error("no Smithy service was configured")]
-    MissingService,
-    #[error("the operation selection cannot be empty")]
-    EmptyOperations,
-    #[error("no output directory was configured")]
-    MissingOutputDirectory,
-    #[error("failed to read Smithy model {path}: {source}")]
-    ModelRead {
-        path: PathBuf,
-        #[source]
-        source: io::Error,
+    #[error("no AWS services were selected; call add(service, operations) before compile()")]
+    NoServices,
+    #[error("Cargo did not provide {variable}; compile() must run from a Cargo build script")]
+    MissingCargoEnvironment { variable: &'static str },
+    #[error("unknown AWS service `{service}`; lookup used packaged registry {registry}")]
+    UnknownService { service: String, registry: String },
+    #[error(
+        "unknown operation `{operation}` for service `{service}`; lookup used packaged model {model}"
+    )]
+    UnknownOperation {
+        service: String,
+        operation: String,
+        model: String,
     },
-    #[error("failed to parse Smithy model {path}: {source}")]
+    #[error("invalid packaged model {model}: {message}")]
+    InvalidModel { model: String, message: String },
+    #[error("failed to parse packaged model {model}: {source}")]
     ModelParse {
-        path: PathBuf,
+        model: String,
         #[source]
         source: serde_json::Error,
     },
-    #[error("invalid Smithy model {path}: {message}")]
-    InvalidModel { path: PathBuf, message: String },
-    #[error("shape {shape} is defined more than once while loading {path}")]
-    DuplicateShape { path: PathBuf, shape: String },
-    #[error("failed to write pruned Smithy model {path}: {source}")]
-    ModelWrite {
-        path: PathBuf,
-        #[source]
-        source: io::Error,
-    },
-    #[error("Smithy service was not found: {service}")]
-    ServiceNotFound { service: String },
-    #[error("operation {operation} was not found on service {service}")]
-    OperationNotFound { service: String, operation: String },
-    #[error("shape {shape} referenced from {referenced_from} was not found in the model")]
+    #[error("shape {shape} referenced from {referenced_from} is not present in model {model}")]
     MissingShapeReference {
+        model: String,
         referenced_from: String,
         shape: String,
     },
-    #[error("Smithy executable was not found; searched: {searched:?}")]
-    SmithyExecutableNotFound { searched: Vec<String> },
-    #[error("failed to start Smithy command {command}: {source}")]
-    SmithySpawn {
-        command: String,
-        #[source]
-        source: io::Error,
-    },
-    #[error("Smithy command failed ({status}): {command}\nstdout:\n{stdout}\nstderr:\n{stderr}")]
-    SmithyToolFailed {
-        command: String,
-        status: String,
-        stdout: String,
-        stderr: String,
-    },
-    #[error("failed to read generated output {path}: {source}")]
-    OutputRead {
-        path: PathBuf,
-        #[source]
-        source: io::Error,
-    },
+    #[error("failed to create generator staging directory below {path}: {source}")]
+    StageCreate { path: PathBuf, source: io::Error },
+    #[error("failed to read generated source {path}: {source}")]
+    SourceRead { path: PathBuf, source: io::Error },
     #[error("failed to write generated output {path}: {source}")]
-    OutputWrite {
-        path: PathBuf,
-        #[source]
-        source: io::Error,
-    },
-    #[error("failed to copy generated output {path} to {destination}: {source}")]
-    OutputCopy {
-        path: PathBuf,
-        destination: PathBuf,
-        #[source]
-        source: io::Error,
-    },
-    #[error("generated Rust projection was not found below {path}")]
-    GeneratedOutputNotFound { path: PathBuf },
+    OutputWrite { path: PathBuf, source: io::Error },
+    #[error("generated Rust source {path} is invalid: {message}")]
+    InvalidGeneratedRust { path: PathBuf, message: String },
+    #[error("failed to install generated output {path}: {source}")]
+    Install { path: PathBuf, source: io::Error },
+    #[error("failed to serialize generated manifest: {source}")]
+    ManifestSerialize { source: serde_json::Error },
 }

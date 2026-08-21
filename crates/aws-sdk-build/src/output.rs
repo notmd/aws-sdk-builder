@@ -3,246 +3,233 @@ use std::{
     path::{Path, PathBuf},
 };
 
-use serde_json::json;
-use tempfile::Builder;
+use crate::{CompileReport, error::BuildError};
 
-use crate::{error::BuildError, CompileReport};
-
-pub fn install(
-    generated_dir: &Path,
-    out_dir: &Path,
-    service: &str,
-    operations: &[String],
-) -> Result<CompileReport, BuildError> {
-    fs::create_dir_all(out_dir).map_err(|source| BuildError::OutputWrite {
-        path: out_dir.to_path_buf(),
+pub(crate) fn install(stage: &Path, out_dir: &Path) -> Result<CompileReport, BuildError> {
+    let generated = stage.join("generated");
+    let manifest = stage.join("aws_sdk_build_manifest.json");
+    validate_tree(&generated)?;
+    validate_rust_file(&stage.join("aws_sdk.rs"))?;
+    let staged_manifest = fs::read(&manifest).map_err(|source| BuildError::SourceRead {
+        path: manifest.clone(),
         source,
     })?;
-    let projection =
-        find_projection(generated_dir)?.ok_or_else(|| BuildError::GeneratedOutputNotFound {
-            path: generated_dir.to_path_buf(),
-        })?;
-    let stage = Builder::new()
-        .prefix(".aws-sdk-build-")
-        .tempdir_in(out_dir)
-        .map_err(|source| BuildError::OutputWrite {
-            path: out_dir.to_path_buf(),
-            source,
-        })?;
-    let staged_generated = stage.path().join("generated");
-    copy_directory(&projection.join("src"), &staged_generated.join("src"))?;
-    sanitize_generated_lib(&staged_generated.join("src/lib.rs"))?;
-
-    let files = rust_files(&staged_generated)?;
-    let manifest = json!({
-        "service": service,
-        "operations": operations,
-        "files": files,
-    });
-    write_file(
-        &stage.path().join("aws_sdk.rs"),
-        "include!(concat!(env!(\"OUT_DIR\"), \"/generated/src/lib.rs\"));\n",
-    )?;
-    write_file(
-        &stage.path().join("aws_sdk_build_manifest.json"),
-        &serde_json::to_string_pretty(&manifest).map_err(|source| BuildError::OutputWrite {
-            path: stage.path().join("aws_sdk_build_manifest.json"),
-            source: std::io::Error::other(source),
-        })?,
-    )?;
-
-    let generated_root = out_dir.join("generated");
-    let include_root = out_dir.join("aws_sdk.rs");
-    let manifest_path = out_dir.join("aws_sdk_build_manifest.json");
-    let final_paths = [
-        generated_root.clone(),
-        include_root.clone(),
-        manifest_path.clone(),
-    ];
-    let backup = Builder::new()
-        .prefix(".aws-sdk-build-backup-")
-        .tempdir_in(out_dir)
-        .map_err(|source| BuildError::OutputWrite {
-            path: out_dir.to_path_buf(),
-            source,
-        })?;
-    let mut backed_up = Vec::new();
-    for (index, final_path) in final_paths.iter().enumerate() {
-        if final_path.exists() {
-            let backup_path = backup.path().join(index.to_string());
-            if let Err(source) = fs::rename(final_path, &backup_path) {
-                for (original, saved) in backed_up.iter().rev() {
-                    let _ = fs::rename(saved, original);
-                }
-                return Err(BuildError::OutputWrite {
-                    path: final_path.clone(),
-                    source,
-                });
-            }
-            backed_up.push((final_path.clone(), backup_path));
+    serde_json::from_slice::<serde_json::Value>(&staged_manifest).map_err(|source| {
+        BuildError::InvalidGeneratedRust {
+            path: manifest.clone(),
+            message: source.to_string(),
         }
-    }
+    })?;
 
-    let staged_paths = [
-        stage.path().join("generated"),
-        stage.path().join("aws_sdk.rs"),
-        stage.path().join("aws_sdk_build_manifest.json"),
-    ];
-    let mut installed: Vec<PathBuf> = Vec::new();
-    for (staged_path, final_path) in staged_paths.iter().zip(final_paths.iter()) {
-        if let Err(source) = fs::rename(staged_path, final_path) {
-            for installed_path in installed {
-                remove_path(&installed_path);
-            }
-            for (original, saved) in backed_up.iter().rev() {
-                let _ = fs::rename(saved, original);
-            }
-            return Err(BuildError::OutputWrite {
-                path: final_path.clone(),
+    fs::create_dir_all(out_dir).map_err(|source| BuildError::Install {
+        path: out_dir.to_owned(),
+        source,
+    })?;
+    let final_root = out_dir.join("generated");
+    let final_include = out_dir.join("aws_sdk.rs");
+    let final_manifest = out_dir.join("aws_sdk_build_manifest.json");
+    let install_root = out_dir.join(format!(".aws-sdk-build-install-{}", std::process::id()));
+    if install_root.exists() {
+        fs::remove_dir_all(&install_root).map_err(|source| BuildError::Install {
+            path: install_root.clone(),
+            source,
+        })?;
+    }
+    fs::create_dir_all(&install_root).map_err(|source| BuildError::Install {
+        path: install_root.clone(),
+        source,
+    })?;
+    copy_tree(&generated, &install_root.join("generated"))?;
+    copy_file(&stage.join("aws_sdk.rs"), &install_root.join("aws_sdk.rs"))?;
+    copy_file(&manifest, &install_root.join("aws_sdk_build_manifest.json"))?;
+
+    let backup = out_dir.join(format!(".aws-sdk-build-backup-{}", std::process::id()));
+    if backup.exists() {
+        fs::remove_dir_all(&backup).map_err(|source| BuildError::Install {
+            path: backup.clone(),
+            source,
+        })?;
+    }
+    fs::create_dir_all(&backup).map_err(|source| BuildError::Install {
+        path: backup.clone(),
+        source,
+    })?;
+    let finals: [&Path; 3] = [&final_root, &final_include, &final_manifest];
+    for (index, path) in finals.iter().enumerate() {
+        if path.exists()
+            && let Err(source) = fs::rename(path, backup.join(index.to_string()))
+        {
+            restore(&backup, &finals);
+            let _ = fs::remove_dir_all(&install_root);
+            let _ = fs::remove_dir_all(&backup);
+            return Err(BuildError::Install {
+                path: (*path).to_owned(),
                 source,
             });
         }
-        installed.push(final_path.clone());
     }
+    let staged = [
+        install_root.join("generated"),
+        install_root.join("aws_sdk.rs"),
+        install_root.join("aws_sdk_build_manifest.json"),
+    ];
+    for (index, (source, destination)) in staged.iter().zip(finals.iter()).enumerate() {
+        if let Err(source_error) = fs::rename(source, destination) {
+            for installed in finals.iter().take(index) {
+                remove_path(installed);
+            }
+            restore(&backup, &finals);
+            let _ = fs::remove_dir_all(&install_root);
+            let _ = fs::remove_dir_all(&backup);
+            return Err(BuildError::Install {
+                path: (*destination).to_owned(),
+                source: source_error,
+            });
+        }
+    }
+    let _ = fs::remove_dir_all(&install_root);
+    let _ = fs::remove_dir_all(&backup);
 
+    let manifest_value: serde_json::Value = serde_json::from_slice(&staged_manifest)
+        .map_err(|source| BuildError::ManifestSerialize { source })?;
+    let consumer_crate_name = manifest_value["consumer_crate_name"]
+        .as_str()
+        .unwrap_or_default()
+        .to_owned();
+    let operations = manifest_value["selected_operations"]
+        .as_array()
+        .map(|items| {
+            items
+                .iter()
+                .filter_map(|item| item.as_str().map(ToOwned::to_owned))
+                .collect()
+        })
+        .unwrap_or_default();
     Ok(CompileReport {
-        generated_root,
-        manifest: manifest_path,
-        operations: operations.to_vec(),
+        generated_root: final_root,
+        manifest: final_manifest,
+        consumer_crate_name,
+        operations,
     })
 }
 
-fn find_projection(root: &Path) -> Result<Option<PathBuf>, BuildError> {
-    if !root.is_dir() {
-        return Ok(None);
-    }
-    if root.join("src/lib.rs").is_file() {
-        return Ok(Some(root.to_path_buf()));
-    }
-    let entries = fs::read_dir(root).map_err(|source| BuildError::OutputRead {
-        path: root.to_path_buf(),
-        source,
-    })?;
-    let mut children = entries
-        .map(|entry| {
-            entry
-                .map(|entry| entry.path())
-                .map_err(|source| BuildError::OutputRead {
-                    path: root.to_path_buf(),
-                    source,
-                })
-        })
-        .collect::<Result<Vec<_>, _>>()?;
-    children.sort();
-    for child in children {
-        if child.is_dir() {
-            if let Some(projection) = find_projection(&child)? {
-                return Ok(Some(projection));
-            }
-        }
-    }
-    Ok(None)
-}
-
-fn copy_directory(source: &Path, destination: &Path) -> Result<(), BuildError> {
-    fs::create_dir_all(destination).map_err(|source_error| BuildError::OutputWrite {
-        path: destination.to_path_buf(),
-        source: source_error,
-    })?;
-    let mut entries = fs::read_dir(source)
-        .map_err(|source_error| BuildError::OutputRead {
-            path: source.to_path_buf(),
-            source: source_error,
-        })?
-        .map(|entry| {
-            entry
-                .map(|entry| entry.path())
-                .map_err(|source_error| BuildError::OutputRead {
-                    path: source.to_path_buf(),
-                    source: source_error,
-                })
-        })
-        .collect::<Result<Vec<_>, _>>()?;
-    entries.sort();
-    for entry in entries {
-        let target = destination.join(entry.file_name().expect("directory entries have names"));
-        if entry.is_dir() {
-            copy_directory(&entry, &target)?;
-        } else {
-            fs::copy(&entry, &target).map_err(|source_error| BuildError::OutputCopy {
-                path: entry.clone(),
-                destination: target,
-                source: source_error,
-            })?;
+fn validate_tree(root: &Path) -> Result<(), BuildError> {
+    let mut files = Vec::new();
+    collect_files(root, &mut files)?;
+    for path in files {
+        if path.extension().and_then(|extension| extension.to_str()) == Some("rs") {
+            validate_rust_file(&path)?;
         }
     }
     Ok(())
 }
 
-fn sanitize_generated_lib(path: &Path) -> Result<(), BuildError> {
-    let source = fs::read_to_string(path).map_err(|source| BuildError::OutputRead {
-        path: path.to_path_buf(),
+fn validate_rust_file(path: &Path) -> Result<(), BuildError> {
+    let source = fs::read_to_string(path).map_err(|source| BuildError::SourceRead {
+        path: path.to_owned(),
         source,
     })?;
-    let sanitized = source
-        .lines()
-        .filter(|line| {
-            let trimmed = line.trim_start();
-            !trimmed.starts_with("#![") && !trimmed.starts_with("//!")
-        })
-        .collect::<Vec<_>>()
-        .join("\n");
-    write_file(path, &format!("{sanitized}\n"))
+    syn::parse_file(&source).map_err(|error| BuildError::InvalidGeneratedRust {
+        path: path.to_owned(),
+        message: error.to_string(),
+    })?;
+    Ok(())
 }
 
-fn rust_files(root: &Path) -> Result<Vec<String>, BuildError> {
-    let mut files = Vec::new();
-    collect_rust_files(root, root, &mut files)?;
-    files.sort();
-    Ok(files)
-}
-
-fn collect_rust_files(
-    root: &Path,
-    directory: &Path,
-    files: &mut Vec<String>,
-) -> Result<(), BuildError> {
-    let entries = fs::read_dir(directory).map_err(|source| BuildError::OutputRead {
-        path: directory.to_path_buf(),
+fn collect_files(root: &Path, files: &mut Vec<PathBuf>) -> Result<(), BuildError> {
+    let entries = fs::read_dir(root).map_err(|source| BuildError::SourceRead {
+        path: root.to_owned(),
         source,
     })?;
     for entry in entries {
         let path = entry
-            .map_err(|source| BuildError::OutputRead {
-                path: directory.to_path_buf(),
+            .map_err(|source| BuildError::SourceRead {
+                path: root.to_owned(),
                 source,
             })?
             .path();
         if path.is_dir() {
-            collect_rust_files(root, &path, files)?;
-        } else if path.extension().and_then(|extension| extension.to_str()) == Some("rs") {
-            let relative = path
-                .strip_prefix(root)
-                .expect("collected file is below the root")
-                .to_string_lossy()
-                .replace(std::path::MAIN_SEPARATOR, "/");
-            files.push(relative);
+            collect_files(&path, files)?;
+        } else {
+            files.push(path);
         }
     }
     Ok(())
 }
 
-fn write_file(path: &Path, contents: &str) -> Result<(), BuildError> {
-    fs::write(path, contents).map_err(|source| BuildError::OutputWrite {
-        path: path.to_path_buf(),
+fn copy_tree(source: &Path, destination: &Path) -> Result<(), BuildError> {
+    fs::create_dir_all(destination).map_err(|source| BuildError::OutputWrite {
+        path: destination.to_owned(),
         source,
-    })
+    })?;
+    let entries = fs::read_dir(source).map_err(|source_error| BuildError::SourceRead {
+        path: source.to_owned(),
+        source: source_error,
+    })?;
+    for entry in entries {
+        let source_path = entry
+            .map_err(|source_error| BuildError::SourceRead {
+                path: source.to_owned(),
+                source: source_error,
+            })?
+            .path();
+        let destination_path =
+            destination.join(source_path.file_name().expect("directory entry has a name"));
+        if source_path.is_dir() {
+            copy_tree(&source_path, &destination_path)?;
+        } else {
+            copy_file(&source_path, &destination_path)?;
+        }
+    }
+    Ok(())
+}
+
+fn copy_file(source: &Path, destination: &Path) -> Result<(), BuildError> {
+    fs::copy(source, destination)
+        .map(|_| ())
+        .map_err(|source_error| BuildError::OutputWrite {
+            path: destination.to_owned(),
+            source: source_error,
+        })
+}
+
+fn restore(backup: &Path, finals: &[&Path]) {
+    for (index, destination) in finals.iter().enumerate() {
+        let saved = backup.join(index.to_string());
+        if saved.exists() {
+            let _ = fs::rename(saved, destination);
+        }
+    }
 }
 
 fn remove_path(path: &Path) {
     if path.is_dir() {
         let _ = fs::remove_dir_all(path);
-    } else {
+    } else if path.exists() {
         let _ = fs::remove_file(path);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use tempfile::tempdir;
+
+    #[test]
+    fn invalid_stage_does_not_touch_existing_output() {
+        let stage = tempdir().unwrap();
+        let output = tempdir().unwrap();
+        let include = output.path().join("aws_sdk.rs");
+        let manifest = output.path().join("aws_sdk_build_manifest.json");
+        let generated = output.path().join("generated");
+        fs::create_dir_all(&generated).unwrap();
+        fs::write(&include, "old include\n").unwrap();
+        fs::write(&manifest, "old manifest\n").unwrap();
+        fs::write(generated.join("old.rs"), "old source\n").unwrap();
+
+        assert!(install(stage.path(), output.path()).is_err());
+        assert_eq!(fs::read(include).unwrap(), b"old include\n");
+        assert_eq!(fs::read(manifest).unwrap(), b"old manifest\n");
+        assert_eq!(fs::read(generated.join("old.rs")).unwrap(), b"old source\n");
     }
 }

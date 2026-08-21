@@ -1,98 +1,139 @@
-use std::path::PathBuf;
+use crate::error::BuildError;
 
-use crate::{
-    error::BuildError,
-    model::{load, Selection},
-};
-
-pub(crate) const DEFAULT_RUST_CLIENT_CODEGEN: &str =
-    "software.amazon.smithy.rust:codegen-aws-sdk:0.1.24";
-
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Default)]
 pub struct Builder {
-    pub(crate) model: Option<PathBuf>,
-    pub(crate) service: Option<String>,
-    pub(crate) operations: Option<Vec<String>>,
-    pub(crate) out_dir: Option<PathBuf>,
-    pub(crate) smithy: Option<PathBuf>,
-    pub(crate) rust_client_codegen: String,
+    pub(crate) services: Vec<ServiceSelection>,
+}
+
+/// Operation-name collections accepted by [`Builder::add`].
+///
+/// The array implementation keeps the required `add("s3", [])` call
+/// unambiguous while the collection implementations support owned and borrowed
+/// operation names without making consumers annotate an iterator item type.
+pub trait OperationNames {
+    fn into_operation_names(self) -> Vec<String>;
+}
+
+impl<const N: usize> OperationNames for [&'static str; N] {
+    fn into_operation_names(self) -> Vec<String> {
+        self.into_iter().map(Into::into).collect()
+    }
+}
+
+impl<T> OperationNames for Vec<T>
+where
+    T: Into<String>,
+{
+    fn into_operation_names(self) -> Vec<String> {
+        self.into_iter().map(Into::into).collect()
+    }
+}
+
+impl<T> OperationNames for std::vec::IntoIter<T>
+where
+    T: Into<String>,
+{
+    fn into_operation_names(self) -> Vec<String> {
+        self.map(Into::into).collect()
+    }
+}
+
+impl<T> OperationNames for std::iter::Empty<T>
+where
+    T: Into<String>,
+{
+    fn into_operation_names(self) -> Vec<String> {
+        self.map(Into::into).collect()
+    }
 }
 
 #[derive(Debug, Clone)]
-pub(crate) struct ValidatedConfig {
-    pub(crate) model_path: PathBuf,
-    pub(crate) service: String,
-    pub(crate) selection: Selection,
-}
-
-impl Default for Builder {
-    fn default() -> Self {
-        Self {
-            model: None,
-            service: None,
-            operations: None,
-            out_dir: None,
-            smithy: None,
-            rust_client_codegen: DEFAULT_RUST_CLIENT_CODEGEN.to_owned(),
-        }
-    }
+pub(crate) struct ServiceSelection {
+    pub(crate) key: String,
+    pub(crate) operations: Vec<String>,
+    pub(crate) all_operations: bool,
 }
 
 impl Builder {
-    pub fn model<P: Into<PathBuf>>(mut self, path: P) -> Self {
-        self.model = Some(path.into());
-        self
-    }
-
-    pub fn service(mut self, service: impl Into<String>) -> Self {
-        self.service = Some(service.into());
-        self
-    }
-
-    pub fn operations<I, S>(mut self, operations: I) -> Self
+    /// Adds a service selection. An empty iterator selects every operation.
+    pub fn add<O>(mut self, service: impl Into<String>, operations: O) -> Self
     where
-        I: IntoIterator<Item = S>,
-        S: Into<String>,
+        O: OperationNames,
     {
-        self.operations = Some(operations.into_iter().map(Into::into).collect());
+        let operations = operations.into_operation_names();
+        self.services.push(ServiceSelection {
+            key: service.into(),
+            all_operations: operations.is_empty(),
+            operations,
+        });
         self
     }
 
-    pub fn out_dir<P: Into<PathBuf>>(mut self, path: P) -> Self {
-        self.out_dir = Some(path.into());
-        self
-    }
-
-    pub fn smithy<P: Into<PathBuf>>(mut self, path: P) -> Self {
-        self.smithy = Some(path.into());
-        self
-    }
-
-    pub fn rust_client_codegen(mut self, coordinate: impl Into<String>) -> Self {
-        self.rust_client_codegen = coordinate.into();
-        self
-    }
-
-    pub(crate) fn validate(&self) -> Result<ValidatedConfig, BuildError> {
-        let service = self.service.clone().ok_or(BuildError::MissingService)?;
-        if matches!(self.operations.as_deref(), Some([])) {
-            return Err(BuildError::EmptyOperations);
+    pub(crate) fn resolve(self) -> Result<Vec<ServiceSelection>, BuildError> {
+        if self.services.is_empty() {
+            return Err(BuildError::NoServices);
         }
-        let path = self
-            .model
-            .as_deref()
-            .ok_or(BuildError::MissingModelConfiguration)?;
-        if !path.exists() {
-            return Err(BuildError::MissingModel {
-                path: path.to_path_buf(),
-            });
+
+        let mut merged = std::collections::BTreeMap::<String, ServiceSelection>::new();
+        for selection in self.services {
+            let entry = merged
+                .entry(selection.key.clone())
+                .or_insert_with(|| ServiceSelection {
+                    key: selection.key.clone(),
+                    operations: Vec::new(),
+                    all_operations: false,
+                });
+            if selection.all_operations {
+                entry.all_operations = true;
+                entry.operations.clear();
+            } else if !entry.all_operations {
+                entry.operations.extend(selection.operations);
+                entry.operations.sort();
+                entry.operations.dedup();
+            }
         }
-        let model = load(path)?;
-        let selection = model.select(&service, self.operations.as_deref())?;
-        Ok(ValidatedConfig {
-            model_path: path.to_path_buf(),
-            service,
-            selection,
-        })
+        Ok(merged.into_values().collect())
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn repeated_entries_merge_deterministically() {
+        let selections = Builder::default()
+            .add("s3", ["PutObject", "GetObject", "GetObject"])
+            .add("s3", ["PutObject"])
+            .resolve()
+            .unwrap();
+        assert_eq!(selections[0].operations, ["GetObject", "PutObject"]);
+    }
+
+    #[test]
+    fn all_operations_wins_over_narrower_entries() {
+        let selections = Builder::default()
+            .add("s3", ["GetObject"])
+            .add("s3", std::iter::empty::<&str>())
+            .add("s3", ["PutObject"])
+            .resolve()
+            .unwrap();
+        assert!(selections[0].all_operations);
+        assert!(selections[0].operations.is_empty());
+    }
+
+    #[test]
+    fn an_untyped_empty_array_is_the_all_operations_form() {
+        let selections = Builder::default().add("s3", []).resolve().unwrap();
+        assert!(selections[0].all_operations);
+    }
+
+    #[test]
+    fn owned_operation_names_use_the_same_public_api() {
+        let selections = Builder::default()
+            .add("s3", vec![String::from("GetObject")])
+            .resolve()
+            .unwrap();
+        assert_eq!(selections[0].operations, ["GetObject"]);
     }
 }
