@@ -61,7 +61,7 @@ where
             path: parent.to_owned(),
             source,
         })?;
-    let generated = codegen::generate(stage.path(), "generated_snapshot", &selections)?;
+    let generated = codegen::generate(stage.path(), "generated_snapshot", false, &selections)?;
     output::validate_tree(&stage.path().join("generated"))?;
     output::install_snapshot(stage.path(), output_dir)?;
     Ok(generated.operations.len())
@@ -95,7 +95,7 @@ impl Builder {
                 path: out_dir.clone(),
                 source,
             })?;
-        let generated = codegen::generate(stage.path(), &crate_name, &selections)?;
+        let generated = codegen::generate(stage.path(), &crate_name, true, &selections)?;
         output::install(stage.path(), &out_dir).map(|mut report| {
             report.operations = generated.operations;
             report

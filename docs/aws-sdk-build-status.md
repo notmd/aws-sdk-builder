@@ -13,8 +13,9 @@ Updated 2026-08-21. Prompt.md is the project specification.
   checksums, and pinned snapshot SHAs in models-manifest.json.
 - M3: in progress. The Rust generator emits deterministic service/config/client,
   operation, builder, error, shape, enum, and union source, resolves Smithy
-  list/map shapes as inline `Vec<T>`/`BTreeMap<K, V>` expressions, and validates
-  generated syntax with syn. It is not yet AWS SDK semantic parity.
+  list/map shapes as inline `Vec<T>`/`BTreeMap<K, V>` expressions, ports the
+  Smithy forward-compatible enum wrapper and helpers, and validates generated
+  syntax with syn. It is not yet AWS SDK semantic parity.
 - M4: in progress. Generated services now co-locate the initial local HTTP
   transport with `src/client.rs` and declare `aws-runtime` as a normal downstream
   dependency for AWS runtime metadata. `aws-sdk-build` remains codegen-only; the generated
@@ -29,8 +30,8 @@ Updated 2026-08-21. Prompt.md is the project specification.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The current report
-  compares 6,584 files and has 16 exact matches (0.43% arithmetic average),
-  with 3,558 mismatches, 2,887 missing files, and 123 extra files. Both comparison
+  compares 6,584 files and has 204 exact matches (2.65% arithmetic average),
+  with 3,370 mismatches, 2,887 missing files, and 123 extra files. Both comparison
   trees are checked in under `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. The live
   `my_aws_sdk::tests::creates_then_heads_a_bucket` test passes against the
@@ -49,6 +50,31 @@ pinned `smithy-rs` commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d` and should 
 updated when the port adopts a new reusable abstraction.
 
 ## Evidence
+
+### Checkpoint: 2026-08-21 — Smithy-style enum compatibility
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now uses the Smithy generated
+  header, preserves the standalone type-file indentation, and emits forward-compatible
+  enums with the sealed unknown-value wrapper, `From<&str>`, `FromStr`, `as_str`,
+  `values`, `AsRef<str>`, `try_parse`, and `Display` behavior. It also emits the
+  Smithy enum documentation, derives, and unknown-variant deprecation. Consumer
+  generation uses relative service-module paths for the shared unknown-value/error
+  helpers and a consumer-only allowance for generated deprecation/Clippy lints;
+  standalone conformance snapshots retain the exact service-crate-root paths.
+- Evidence: `cargo fmt --all`, `cargo test -p aws-sdk-build`,
+  `cargo test --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
+  and `git diff --check` are passing. `just conformance` completed and intentionally
+  exits 1 because semantic parity remains incomplete.
+- Conformance: the previous `6584`-file checkpoint had `16` exact matches,
+  `3558` mismatches, `2887` missing, and `123` extra; this checkpoint has `204`
+  exact, `3370` mismatches, `2887` missing, and `123` extra. S3 improved from
+  `2` exact / `826` mismatches to `65` exact / `763` mismatches, with `516` missing
+  and `0` extra in both reports.
+- Blocker: operation source semantics, runtime/protocol behavior, endpoint/auth/retry/
+  checksum support, documentation, and many AWS-specific decorators remain incomplete.
+- Next action: port the next shared operation/protocol boundary from the pinned
+  Smithy reference while preserving the model-driven enum and collection rules.
 
 ### Checkpoint: 2026-08-21 — Smithy-style inline collection symbols
 
