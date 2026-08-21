@@ -323,6 +323,10 @@ silently falls back to a different model version.
 
 ## Rust codegen architecture
 
+Use [`docs/smithy-codegen-design.md`](docs/smithy-codegen-design.md) as the reusable
+architecture summary and targeted source map. Read the pinned `smithy-rs` files only
+when the summary identifies the specific abstraction that needs clarification.
+
 Port the behavior of the pinned
 [`aws/codegen-aws-sdk`](https://github.com/smithy-lang/smithy-rs/tree/f1b64a9c0dd001d4bac4277fec4041da59c1f48d/aws/codegen-aws-sdk)
 implementation to Rust. The Kotlin source is a behavioral reference, not a runtime

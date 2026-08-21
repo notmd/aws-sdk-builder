@@ -38,6 +38,15 @@ Updated 2026-08-21. Prompt.md is the project specification.
 - M8: stale Smithy CLI implementation/docs were removed and the user README was
   rewritten. A full audit remains open until the gates below pass.
 
+## Reusable design reference
+
+The distilled generic Smithy/Rust codegen architecture, reference source map, model
+transforms, closure rules, protocol abstractions, decorator model, and mismatch
+diagnosis workflow are documented in
+[`docs/smithy-codegen-design.md`](smithy-codegen-design.md). It is derived from the
+pinned `smithy-rs` commit `f1b64a9c0dd001d4bac4277fec4041da59c1f48d` and should be
+updated when the port adopts a new reusable abstraction.
+
 ## Evidence
 
 Passing checks:
