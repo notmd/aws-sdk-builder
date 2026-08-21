@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutKeyPolicyError::Unhandled(format!("PutKeyPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::PutKeyPolicyOutput::default())
+                         Ok(super::PutKeyPolicyOutput)
                      }
 }
 pub use Builder as PutKeyPolicyFluentBuilder;

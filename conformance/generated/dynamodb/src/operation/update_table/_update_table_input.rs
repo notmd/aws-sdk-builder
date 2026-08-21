@@ -2,21 +2,21 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct UpdateTableInput {
-    pub attribute_definitions: ::std::option::Option<super::super::super::types::AttributeDefinitions>,
+    pub attribute_definitions: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>,
     pub billing_mode: ::std::option::Option<super::super::super::types::BillingMode>,
     pub deletion_protection_enabled: ::std::option::Option<super::super::super::types::DeletionProtectionEnabled>,
-    pub global_secondary_index_updates: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexUpdateList>,
+    pub global_secondary_index_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexUpdate>>,
     pub global_table_settings_replication_mode: ::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode>,
-    pub global_table_witness_updates: ::std::option::Option<super::super::super::types::GlobalTableWitnessGroupUpdateList>,
+    pub global_table_witness_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableWitnessGroupUpdate>>,
     pub multi_region_consistency: ::std::option::Option<super::super::super::types::MultiRegionConsistency>,
     pub on_demand_throughput: ::std::option::Option<super::super::super::types::OnDemandThroughput>,
     pub provisioned_throughput: ::std::option::Option<super::super::super::types::ProvisionedThroughput>,
-    pub replica_updates: ::std::option::Option<super::super::super::types::ReplicationGroupUpdateList>,
+    pub replica_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicationGroupUpdate>>,
     pub sse_specification: ::std::option::Option<super::super::super::types::SseSpecification>,
     pub stream_specification: ::std::option::Option<super::super::super::types::StreamSpecification>,
     pub table_class: ::std::option::Option<super::super::super::types::TableClass>,
     pub table_name: ::std::option::Option<super::super::super::types::TableArn>,
-    pub vector_index_updates: ::std::option::Option<super::super::super::types::VectorIndexUpdateList>,
+    pub vector_index_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndexUpdate>>,
     pub warm_throughput: ::std::option::Option<super::super::super::types::WarmThroughput>,
 }
         impl UpdateTableInput {
@@ -42,42 +42,42 @@ impl UpdateTableInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct UpdateTableInputBuilder {
-    attribute_definitions: ::std::option::Option<super::super::super::types::AttributeDefinitions>,
+    attribute_definitions: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>,
     billing_mode: ::std::option::Option<super::super::super::types::BillingMode>,
     deletion_protection_enabled: ::std::option::Option<super::super::super::types::DeletionProtectionEnabled>,
-    global_secondary_index_updates: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexUpdateList>,
+    global_secondary_index_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexUpdate>>,
     global_table_settings_replication_mode: ::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode>,
-    global_table_witness_updates: ::std::option::Option<super::super::super::types::GlobalTableWitnessGroupUpdateList>,
+    global_table_witness_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableWitnessGroupUpdate>>,
     multi_region_consistency: ::std::option::Option<super::super::super::types::MultiRegionConsistency>,
     on_demand_throughput: ::std::option::Option<super::super::super::types::OnDemandThroughput>,
     provisioned_throughput: ::std::option::Option<super::super::super::types::ProvisionedThroughput>,
-    replica_updates: ::std::option::Option<super::super::super::types::ReplicationGroupUpdateList>,
+    replica_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicationGroupUpdate>>,
     sse_specification: ::std::option::Option<super::super::super::types::SseSpecification>,
     stream_specification: ::std::option::Option<super::super::super::types::StreamSpecification>,
     table_class: ::std::option::Option<super::super::super::types::TableClass>,
     table_name: ::std::option::Option<super::super::super::types::TableArn>,
-    vector_index_updates: ::std::option::Option<super::super::super::types::VectorIndexUpdateList>,
+    vector_index_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndexUpdate>>,
     warm_throughput: ::std::option::Option<super::super::super::types::WarmThroughput>,
 }
 impl UpdateTableInputBuilder {
-    pub fn attribute_definitions(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeDefinitions>) -> Self { self.attribute_definitions = Some(input.into()); self }
-    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<super::super::super::types::AttributeDefinitions>) -> Self { self.attribute_definitions = input; self }
-    pub fn get_attribute_definitions(&self) -> &::std::option::Option<super::super::super::types::AttributeDefinitions> { &self.attribute_definitions }
+    pub fn attribute_definitions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeDefinition>>) -> Self { self.attribute_definitions = Some(input.into()); self }
+    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>) -> Self { self.attribute_definitions = input; self }
+    pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>> { &self.attribute_definitions }
     pub fn billing_mode(mut self, input: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.billing_mode = Some(input.into()); self }
     pub fn set_billing_mode(mut self, input: ::std::option::Option<super::super::super::types::BillingMode>) -> Self { self.billing_mode = input; self }
     pub fn get_billing_mode(&self) -> &::std::option::Option<super::super::super::types::BillingMode> { &self.billing_mode }
     pub fn deletion_protection_enabled(mut self, input: impl ::std::convert::Into<super::super::super::types::DeletionProtectionEnabled>) -> Self { self.deletion_protection_enabled = Some(input.into()); self }
     pub fn set_deletion_protection_enabled(mut self, input: ::std::option::Option<super::super::super::types::DeletionProtectionEnabled>) -> Self { self.deletion_protection_enabled = input; self }
     pub fn get_deletion_protection_enabled(&self) -> &::std::option::Option<super::super::super::types::DeletionProtectionEnabled> { &self.deletion_protection_enabled }
-    pub fn global_secondary_index_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexUpdateList>) -> Self { self.global_secondary_index_updates = Some(input.into()); self }
-    pub fn set_global_secondary_index_updates(mut self, input: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexUpdateList>) -> Self { self.global_secondary_index_updates = input; self }
-    pub fn get_global_secondary_index_updates(&self) -> &::std::option::Option<super::super::super::types::GlobalSecondaryIndexUpdateList> { &self.global_secondary_index_updates }
+    pub fn global_secondary_index_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexUpdate>>) -> Self { self.global_secondary_index_updates = Some(input.into()); self }
+    pub fn set_global_secondary_index_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexUpdate>>) -> Self { self.global_secondary_index_updates = input; self }
+    pub fn get_global_secondary_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexUpdate>> { &self.global_secondary_index_updates }
     pub fn global_table_settings_replication_mode(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = Some(input.into()); self }
     pub fn set_global_table_settings_replication_mode(mut self, input: ::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = input; self }
     pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode> { &self.global_table_settings_replication_mode }
-    pub fn global_table_witness_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalTableWitnessGroupUpdateList>) -> Self { self.global_table_witness_updates = Some(input.into()); self }
-    pub fn set_global_table_witness_updates(mut self, input: ::std::option::Option<super::super::super::types::GlobalTableWitnessGroupUpdateList>) -> Self { self.global_table_witness_updates = input; self }
-    pub fn get_global_table_witness_updates(&self) -> &::std::option::Option<super::super::super::types::GlobalTableWitnessGroupUpdateList> { &self.global_table_witness_updates }
+    pub fn global_table_witness_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalTableWitnessGroupUpdate>>) -> Self { self.global_table_witness_updates = Some(input.into()); self }
+    pub fn set_global_table_witness_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableWitnessGroupUpdate>>) -> Self { self.global_table_witness_updates = input; self }
+    pub fn get_global_table_witness_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableWitnessGroupUpdate>> { &self.global_table_witness_updates }
     pub fn multi_region_consistency(mut self, input: impl ::std::convert::Into<super::super::super::types::MultiRegionConsistency>) -> Self { self.multi_region_consistency = Some(input.into()); self }
     pub fn set_multi_region_consistency(mut self, input: ::std::option::Option<super::super::super::types::MultiRegionConsistency>) -> Self { self.multi_region_consistency = input; self }
     pub fn get_multi_region_consistency(&self) -> &::std::option::Option<super::super::super::types::MultiRegionConsistency> { &self.multi_region_consistency }
@@ -87,9 +87,9 @@ impl UpdateTableInputBuilder {
     pub fn provisioned_throughput(mut self, input: impl ::std::convert::Into<super::super::super::types::ProvisionedThroughput>) -> Self { self.provisioned_throughput = Some(input.into()); self }
     pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<super::super::super::types::ProvisionedThroughput>) -> Self { self.provisioned_throughput = input; self }
     pub fn get_provisioned_throughput(&self) -> &::std::option::Option<super::super::super::types::ProvisionedThroughput> { &self.provisioned_throughput }
-    pub fn replica_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::ReplicationGroupUpdateList>) -> Self { self.replica_updates = Some(input.into()); self }
-    pub fn set_replica_updates(mut self, input: ::std::option::Option<super::super::super::types::ReplicationGroupUpdateList>) -> Self { self.replica_updates = input; self }
-    pub fn get_replica_updates(&self) -> &::std::option::Option<super::super::super::types::ReplicationGroupUpdateList> { &self.replica_updates }
+    pub fn replica_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicationGroupUpdate>>) -> Self { self.replica_updates = Some(input.into()); self }
+    pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicationGroupUpdate>>) -> Self { self.replica_updates = input; self }
+    pub fn get_replica_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicationGroupUpdate>> { &self.replica_updates }
     pub fn sse_specification(mut self, input: impl ::std::convert::Into<super::super::super::types::SseSpecification>) -> Self { self.sse_specification = Some(input.into()); self }
     pub fn set_sse_specification(mut self, input: ::std::option::Option<super::super::super::types::SseSpecification>) -> Self { self.sse_specification = input; self }
     pub fn get_sse_specification(&self) -> &::std::option::Option<super::super::super::types::SseSpecification> { &self.sse_specification }
@@ -102,9 +102,9 @@ impl UpdateTableInputBuilder {
     pub fn table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.table_name = Some(input.into()); self }
     pub fn set_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableArn>) -> Self { self.table_name = input; self }
     pub fn get_table_name(&self) -> &::std::option::Option<super::super::super::types::TableArn> { &self.table_name }
-    pub fn vector_index_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::VectorIndexUpdateList>) -> Self { self.vector_index_updates = Some(input.into()); self }
-    pub fn set_vector_index_updates(mut self, input: ::std::option::Option<super::super::super::types::VectorIndexUpdateList>) -> Self { self.vector_index_updates = input; self }
-    pub fn get_vector_index_updates(&self) -> &::std::option::Option<super::super::super::types::VectorIndexUpdateList> { &self.vector_index_updates }
+    pub fn vector_index_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndexUpdate>>) -> Self { self.vector_index_updates = Some(input.into()); self }
+    pub fn set_vector_index_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndexUpdate>>) -> Self { self.vector_index_updates = input; self }
+    pub fn get_vector_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndexUpdate>> { &self.vector_index_updates }
     pub fn warm_throughput(mut self, input: impl ::std::convert::Into<super::super::super::types::WarmThroughput>) -> Self { self.warm_throughput = Some(input.into()); self }
     pub fn set_warm_throughput(mut self, input: ::std::option::Option<super::super::super::types::WarmThroughput>) -> Self { self.warm_throughput = input; self }
     pub fn get_warm_throughput(&self) -> &::std::option::Option<super::super::super::types::WarmThroughput> { &self.warm_throughput }

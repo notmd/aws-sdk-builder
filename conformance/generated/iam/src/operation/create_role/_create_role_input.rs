@@ -8,7 +8,7 @@ pub struct CreateRoleInput {
     pub path: ::std::option::Option<super::super::super::types::PathType>,
     pub permissions_boundary: ::std::option::Option<super::super::super::types::ArnType>,
     pub role_name: ::std::option::Option<super::super::super::types::RoleNameType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl CreateRoleInput {
             pub fn assume_role_policy_document(&self) -> ::std::option::Option<&str> { self.assume_role_policy_document.as_deref() }
@@ -30,7 +30,7 @@ pub struct CreateRoleInputBuilder {
     path: ::std::option::Option<super::super::super::types::PathType>,
     permissions_boundary: ::std::option::Option<super::super::super::types::ArnType>,
     role_name: ::std::option::Option<super::super::super::types::RoleNameType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl CreateRoleInputBuilder {
     pub fn assume_role_policy_document(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyDocumentType>) -> Self { self.assume_role_policy_document = Some(input.into()); self }
@@ -51,9 +51,9 @@ impl CreateRoleInputBuilder {
     pub fn role_name(mut self, input: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.role_name = Some(input.into()); self }
     pub fn set_role_name(mut self, input: ::std::option::Option<super::super::super::types::RoleNameType>) -> Self { self.role_name = input; self }
     pub fn get_role_name(&self) -> &::std::option::Option<super::super::super::types::RoleNameType> { &self.role_name }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> CreateRoleInput { CreateRoleInput {
         assume_role_policy_document: self.assume_role_policy_document,
         description: self.description,

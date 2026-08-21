@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ConnectCustomKeyStoreError::Unhandled(format!("ConnectCustomKeyStore returned HTTP {}", status)));
                          }
-                         Ok(super::ConnectCustomKeyStoreOutput::default())
+                         Ok(super::ConnectCustomKeyStoreOutput)
                      }
 }
 pub use Builder as ConnectCustomKeyStoreFluentBuilder;

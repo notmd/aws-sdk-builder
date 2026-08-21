@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutRolePermissionsBoundaryError::Unhandled(format!("PutRolePermissionsBoundary returned HTTP {}", status)));
                          }
-                         Ok(super::PutRolePermissionsBoundaryOutput::default())
+                         Ok(super::PutRolePermissionsBoundaryOutput)
                      }
 }
 pub use Builder as PutRolePermissionsBoundaryFluentBuilder;

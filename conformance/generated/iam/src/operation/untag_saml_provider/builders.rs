@@ -11,7 +11,7 @@ impl Builder {
         Self { input: super::Input::default(), client }
     }
     pub fn saml_provider_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.saml_provider_arn = Some(value.into()); self }
-    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.input.tag_keys = Some(value.into()); self }
+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.input.tag_keys = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UntagSamlProviderOutput, super::UntagSamlProviderError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UntagSamlProviderError::Unhandled(format!("UntagSamlProvider returned HTTP {}", status)));
                          }
-                         Ok(super::UntagSamlProviderOutput::default())
+                         Ok(super::UntagSamlProviderOutput)
                      }
 }
 pub use Builder as UntagSamlProviderFluentBuilder;

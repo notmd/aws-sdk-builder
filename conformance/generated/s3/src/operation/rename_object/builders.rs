@@ -35,7 +35,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::RenameObjectError::Unhandled(format!("RenameObject returned HTTP {}", status)));
                          }
-                         Ok(super::RenameObjectOutput::default())
+                         Ok(super::RenameObjectOutput)
                      }
 }
 pub use Builder as RenameObjectFluentBuilder;

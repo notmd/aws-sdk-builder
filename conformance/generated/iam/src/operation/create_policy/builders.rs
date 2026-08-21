@@ -14,7 +14,7 @@ impl Builder {
     pub fn path(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyPathType>) -> Self { self.input.path = Some(value.into()); self }
     pub fn policy_document(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyDocumentType>) -> Self { self.input.policy_document = Some(value.into()); self }
     pub fn policy_name(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyNameType>) -> Self { self.input.policy_name = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreatePolicyOutput, super::CreatePolicyError> {

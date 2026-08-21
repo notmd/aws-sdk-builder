@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct SimulateCustomPolicyOutput {
-    pub evaluation_results: ::std::option::Option<super::super::super::types::EvaluationResultsListType>,
+    pub evaluation_results: ::std::option::Option<::std::vec::Vec<super::super::super::types::EvaluationResult>>,
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
@@ -16,14 +16,14 @@ impl SimulateCustomPolicyOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct SimulateCustomPolicyOutputBuilder {
-    evaluation_results: ::std::option::Option<super::super::super::types::EvaluationResultsListType>,
+    evaluation_results: ::std::option::Option<::std::vec::Vec<super::super::super::types::EvaluationResult>>,
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
 impl SimulateCustomPolicyOutputBuilder {
-    pub fn evaluation_results(mut self, input: impl ::std::convert::Into<super::super::super::types::EvaluationResultsListType>) -> Self { self.evaluation_results = Some(input.into()); self }
-    pub fn set_evaluation_results(mut self, input: ::std::option::Option<super::super::super::types::EvaluationResultsListType>) -> Self { self.evaluation_results = input; self }
-    pub fn get_evaluation_results(&self) -> &::std::option::Option<super::super::super::types::EvaluationResultsListType> { &self.evaluation_results }
+    pub fn evaluation_results(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::EvaluationResult>>) -> Self { self.evaluation_results = Some(input.into()); self }
+    pub fn set_evaluation_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EvaluationResult>>) -> Self { self.evaluation_results = input; self }
+    pub fn get_evaluation_results(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::EvaluationResult>> { &self.evaluation_results }
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
     pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
     pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }

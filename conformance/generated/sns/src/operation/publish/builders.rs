@@ -11,7 +11,7 @@ impl Builder {
         Self { input: super::Input::default(), client }
     }
     pub fn message(mut self, value: impl ::std::convert::Into<super::super::super::types::Message>) -> Self { self.input.message = Some(value.into()); self }
-    pub fn message_attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageAttributeMap>) -> Self { self.input.message_attributes = Some(value.into()); self }
+    pub fn message_attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>) -> Self { self.input.message_attributes = Some(value.into()); self }
     pub fn message_deduplication_id(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.message_deduplication_id = Some(value.into()); self }
     pub fn message_group_id(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.message_group_id = Some(value.into()); self }
     pub fn message_structure(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageStructure>) -> Self { self.input.message_structure = Some(value.into()); self }

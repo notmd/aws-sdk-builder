@@ -2,14 +2,14 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct CreateTableInput {
-    pub attribute_definitions: ::std::option::Option<super::super::super::types::AttributeDefinitions>,
+    pub attribute_definitions: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>,
     pub billing_mode: ::std::option::Option<super::super::super::types::BillingMode>,
     pub deletion_protection_enabled: ::std::option::Option<super::super::super::types::DeletionProtectionEnabled>,
-    pub global_secondary_indexes: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>,
+    pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>,
     pub global_table_settings_replication_mode: ::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode>,
     pub global_table_source_arn: ::std::option::Option<super::super::super::types::TableArn>,
-    pub key_schema: ::std::option::Option<super::super::super::types::KeySchema>,
-    pub local_secondary_indexes: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>,
+    pub key_schema: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeySchemaElement>>,
+    pub local_secondary_indexes: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>,
     pub on_demand_throughput: ::std::option::Option<super::super::super::types::OnDemandThroughput>,
     pub provisioned_throughput: ::std::option::Option<super::super::super::types::ProvisionedThroughput>,
     pub resource_policy: ::std::option::Option<super::super::super::types::ResourcePolicy>,
@@ -17,8 +17,8 @@ pub struct CreateTableInput {
     pub stream_specification: ::std::option::Option<super::super::super::types::StreamSpecification>,
     pub table_class: ::std::option::Option<super::super::super::types::TableClass>,
     pub table_name: ::std::option::Option<super::super::super::types::TableArn>,
-    pub tags: ::std::option::Option<super::super::super::types::TagList>,
-    pub vector_indexes: ::std::option::Option<super::super::super::types::VectorIndexList>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
+    pub vector_indexes: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>,
     pub warm_throughput: ::std::option::Option<super::super::super::types::WarmThroughput>,
 }
         impl CreateTableInput {
@@ -46,14 +46,14 @@ impl CreateTableInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct CreateTableInputBuilder {
-    attribute_definitions: ::std::option::Option<super::super::super::types::AttributeDefinitions>,
+    attribute_definitions: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>,
     billing_mode: ::std::option::Option<super::super::super::types::BillingMode>,
     deletion_protection_enabled: ::std::option::Option<super::super::super::types::DeletionProtectionEnabled>,
-    global_secondary_indexes: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>,
+    global_secondary_indexes: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>,
     global_table_settings_replication_mode: ::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode>,
     global_table_source_arn: ::std::option::Option<super::super::super::types::TableArn>,
-    key_schema: ::std::option::Option<super::super::super::types::KeySchema>,
-    local_secondary_indexes: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>,
+    key_schema: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeySchemaElement>>,
+    local_secondary_indexes: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>,
     on_demand_throughput: ::std::option::Option<super::super::super::types::OnDemandThroughput>,
     provisioned_throughput: ::std::option::Option<super::super::super::types::ProvisionedThroughput>,
     resource_policy: ::std::option::Option<super::super::super::types::ResourcePolicy>,
@@ -61,35 +61,35 @@ pub struct CreateTableInputBuilder {
     stream_specification: ::std::option::Option<super::super::super::types::StreamSpecification>,
     table_class: ::std::option::Option<super::super::super::types::TableClass>,
     table_name: ::std::option::Option<super::super::super::types::TableArn>,
-    tags: ::std::option::Option<super::super::super::types::TagList>,
-    vector_indexes: ::std::option::Option<super::super::super::types::VectorIndexList>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
+    vector_indexes: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>,
     warm_throughput: ::std::option::Option<super::super::super::types::WarmThroughput>,
 }
 impl CreateTableInputBuilder {
-    pub fn attribute_definitions(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeDefinitions>) -> Self { self.attribute_definitions = Some(input.into()); self }
-    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<super::super::super::types::AttributeDefinitions>) -> Self { self.attribute_definitions = input; self }
-    pub fn get_attribute_definitions(&self) -> &::std::option::Option<super::super::super::types::AttributeDefinitions> { &self.attribute_definitions }
+    pub fn attribute_definitions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeDefinition>>) -> Self { self.attribute_definitions = Some(input.into()); self }
+    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>) -> Self { self.attribute_definitions = input; self }
+    pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>> { &self.attribute_definitions }
     pub fn billing_mode(mut self, input: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.billing_mode = Some(input.into()); self }
     pub fn set_billing_mode(mut self, input: ::std::option::Option<super::super::super::types::BillingMode>) -> Self { self.billing_mode = input; self }
     pub fn get_billing_mode(&self) -> &::std::option::Option<super::super::super::types::BillingMode> { &self.billing_mode }
     pub fn deletion_protection_enabled(mut self, input: impl ::std::convert::Into<super::super::super::types::DeletionProtectionEnabled>) -> Self { self.deletion_protection_enabled = Some(input.into()); self }
     pub fn set_deletion_protection_enabled(mut self, input: ::std::option::Option<super::super::super::types::DeletionProtectionEnabled>) -> Self { self.deletion_protection_enabled = input; self }
     pub fn get_deletion_protection_enabled(&self) -> &::std::option::Option<super::super::super::types::DeletionProtectionEnabled> { &self.deletion_protection_enabled }
-    pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.global_secondary_indexes = input; self }
-    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<super::super::super::types::GlobalSecondaryIndexList> { &self.global_secondary_indexes }
+    pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
+    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.global_secondary_indexes = input; self }
+    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>> { &self.global_secondary_indexes }
     pub fn global_table_settings_replication_mode(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = Some(input.into()); self }
     pub fn set_global_table_settings_replication_mode(mut self, input: ::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = input; self }
     pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode> { &self.global_table_settings_replication_mode }
     pub fn global_table_source_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.global_table_source_arn = Some(input.into()); self }
     pub fn set_global_table_source_arn(mut self, input: ::std::option::Option<super::super::super::types::TableArn>) -> Self { self.global_table_source_arn = input; self }
     pub fn get_global_table_source_arn(&self) -> &::std::option::Option<super::super::super::types::TableArn> { &self.global_table_source_arn }
-    pub fn key_schema(mut self, input: impl ::std::convert::Into<super::super::super::types::KeySchema>) -> Self { self.key_schema = Some(input.into()); self }
-    pub fn set_key_schema(mut self, input: ::std::option::Option<super::super::super::types::KeySchema>) -> Self { self.key_schema = input; self }
-    pub fn get_key_schema(&self) -> &::std::option::Option<super::super::super::types::KeySchema> { &self.key_schema }
-    pub fn local_secondary_indexes(mut self, input: impl ::std::convert::Into<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.local_secondary_indexes = Some(input.into()); self }
-    pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.local_secondary_indexes = input; self }
-    pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<super::super::super::types::LocalSecondaryIndexList> { &self.local_secondary_indexes }
+    pub fn key_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::KeySchemaElement>>) -> Self { self.key_schema = Some(input.into()); self }
+    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeySchemaElement>>) -> Self { self.key_schema = input; self }
+    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::KeySchemaElement>> { &self.key_schema }
+    pub fn local_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.local_secondary_indexes = Some(input.into()); self }
+    pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.local_secondary_indexes = input; self }
+    pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>> { &self.local_secondary_indexes }
     pub fn on_demand_throughput(mut self, input: impl ::std::convert::Into<super::super::super::types::OnDemandThroughput>) -> Self { self.on_demand_throughput = Some(input.into()); self }
     pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<super::super::super::types::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
     pub fn get_on_demand_throughput(&self) -> &::std::option::Option<super::super::super::types::OnDemandThroughput> { &self.on_demand_throughput }
@@ -111,12 +111,12 @@ impl CreateTableInputBuilder {
     pub fn table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.table_name = Some(input.into()); self }
     pub fn set_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableArn>) -> Self { self.table_name = input; self }
     pub fn get_table_name(&self) -> &::std::option::Option<super::super::super::types::TableArn> { &self.table_name }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
-    pub fn vector_indexes(mut self, input: impl ::std::convert::Into<super::super::super::types::VectorIndexList>) -> Self { self.vector_indexes = Some(input.into()); self }
-    pub fn set_vector_indexes(mut self, input: ::std::option::Option<super::super::super::types::VectorIndexList>) -> Self { self.vector_indexes = input; self }
-    pub fn get_vector_indexes(&self) -> &::std::option::Option<super::super::super::types::VectorIndexList> { &self.vector_indexes }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
+    pub fn vector_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.vector_indexes = Some(input.into()); self }
+    pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.vector_indexes = input; self }
+    pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>> { &self.vector_indexes }
     pub fn warm_throughput(mut self, input: impl ::std::convert::Into<super::super::super::types::WarmThroughput>) -> Self { self.warm_throughput = Some(input.into()); self }
     pub fn set_warm_throughput(mut self, input: ::std::option::Option<super::super::super::types::WarmThroughput>) -> Self { self.warm_throughput = input; self }
     pub fn get_warm_throughput(&self) -> &::std::option::Option<super::super::super::types::WarmThroughput> { &self.warm_throughput }

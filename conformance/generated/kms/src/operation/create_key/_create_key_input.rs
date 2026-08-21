@@ -11,7 +11,7 @@ pub struct CreateKeyInput {
     pub multi_region: ::std::option::Option<super::super::super::types::NullableBooleanType>,
     pub origin: ::std::option::Option<super::super::super::types::OriginType>,
     pub policy: ::std::option::Option<super::super::super::types::PolicyType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagList>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     pub xks_key_id: ::std::option::Option<super::super::super::types::XksKeyIdType>,
 }
         impl CreateKeyInput {
@@ -41,7 +41,7 @@ pub struct CreateKeyInputBuilder {
     multi_region: ::std::option::Option<super::super::super::types::NullableBooleanType>,
     origin: ::std::option::Option<super::super::super::types::OriginType>,
     policy: ::std::option::Option<super::super::super::types::PolicyType>,
-    tags: ::std::option::Option<super::super::super::types::TagList>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     xks_key_id: ::std::option::Option<super::super::super::types::XksKeyIdType>,
 }
 impl CreateKeyInputBuilder {
@@ -72,9 +72,9 @@ impl CreateKeyInputBuilder {
     pub fn policy(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyType>) -> Self { self.policy = Some(input.into()); self }
     pub fn set_policy(mut self, input: ::std::option::Option<super::super::super::types::PolicyType>) -> Self { self.policy = input; self }
     pub fn get_policy(&self) -> &::std::option::Option<super::super::super::types::PolicyType> { &self.policy }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn xks_key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::XksKeyIdType>) -> Self { self.xks_key_id = Some(input.into()); self }
     pub fn set_xks_key_id(mut self, input: ::std::option::Option<super::super::super::types::XksKeyIdType>) -> Self { self.xks_key_id = input; self }
     pub fn get_xks_key_id(&self) -> &::std::option::Option<super::super::super::types::XksKeyIdType> { &self.xks_key_id }

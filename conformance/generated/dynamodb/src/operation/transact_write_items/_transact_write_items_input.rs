@@ -5,7 +5,7 @@ pub struct TransactWriteItemsInput {
     pub client_request_token: ::std::option::Option<super::super::super::types::ClientRequestToken>,
     pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     pub return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
-    pub transact_items: ::std::option::Option<super::super::super::types::TransactWriteItemList>,
+    pub transact_items: ::std::option::Option<::std::vec::Vec<super::super::super::types::TransactWriteItem>>,
 }
         impl TransactWriteItemsInput {
             pub fn client_request_token(&self) -> ::std::option::Option<&str> { self.client_request_token.as_deref() }
@@ -21,7 +21,7 @@ pub struct TransactWriteItemsInputBuilder {
     client_request_token: ::std::option::Option<super::super::super::types::ClientRequestToken>,
     return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
-    transact_items: ::std::option::Option<super::super::super::types::TransactWriteItemList>,
+    transact_items: ::std::option::Option<::std::vec::Vec<super::super::super::types::TransactWriteItem>>,
 }
 impl TransactWriteItemsInputBuilder {
     pub fn client_request_token(mut self, input: impl ::std::convert::Into<super::super::super::types::ClientRequestToken>) -> Self { self.client_request_token = Some(input.into()); self }
@@ -33,9 +33,9 @@ impl TransactWriteItemsInputBuilder {
     pub fn return_item_collection_metrics(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnItemCollectionMetrics>) -> Self { self.return_item_collection_metrics = Some(input.into()); self }
     pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>) -> Self { self.return_item_collection_metrics = input; self }
     pub fn get_return_item_collection_metrics(&self) -> &::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics> { &self.return_item_collection_metrics }
-    pub fn transact_items(mut self, input: impl ::std::convert::Into<super::super::super::types::TransactWriteItemList>) -> Self { self.transact_items = Some(input.into()); self }
-    pub fn set_transact_items(mut self, input: ::std::option::Option<super::super::super::types::TransactWriteItemList>) -> Self { self.transact_items = input; self }
-    pub fn get_transact_items(&self) -> &::std::option::Option<super::super::super::types::TransactWriteItemList> { &self.transact_items }
+    pub fn transact_items(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TransactWriteItem>>) -> Self { self.transact_items = Some(input.into()); self }
+    pub fn set_transact_items(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TransactWriteItem>>) -> Self { self.transact_items = input; self }
+    pub fn get_transact_items(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TransactWriteItem>> { &self.transact_items }
     pub fn build(self) -> TransactWriteItemsInput { TransactWriteItemsInput {
         client_request_token: self.client_request_token,
         return_consumed_capacity: self.return_consumed_capacity,

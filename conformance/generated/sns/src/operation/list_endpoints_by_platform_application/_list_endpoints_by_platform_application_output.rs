@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListEndpointsByPlatformApplicationOutput {
-    pub endpoints: ::std::option::Option<super::super::super::types::ListOfEndpoints>,
+    pub endpoints: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>,
     pub next_token: ::std::option::Option<super::super::super::types::String>,
 }
         impl ListEndpointsByPlatformApplicationOutput {
@@ -14,13 +14,13 @@ impl ListEndpointsByPlatformApplicationOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListEndpointsByPlatformApplicationOutputBuilder {
-    endpoints: ::std::option::Option<super::super::super::types::ListOfEndpoints>,
+    endpoints: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>,
     next_token: ::std::option::Option<super::super::super::types::String>,
 }
 impl ListEndpointsByPlatformApplicationOutputBuilder {
-    pub fn endpoints(mut self, input: impl ::std::convert::Into<super::super::super::types::ListOfEndpoints>) -> Self { self.endpoints = Some(input.into()); self }
-    pub fn set_endpoints(mut self, input: ::std::option::Option<super::super::super::types::ListOfEndpoints>) -> Self { self.endpoints = input; self }
-    pub fn get_endpoints(&self) -> &::std::option::Option<super::super::super::types::ListOfEndpoints> { &self.endpoints }
+    pub fn endpoints(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Endpoint>>) -> Self { self.endpoints = Some(input.into()); self }
+    pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>) -> Self { self.endpoints = input; self }
+    pub fn get_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>> { &self.endpoints }
     pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.next_token = Some(input.into()); self }
     pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.next_token = input; self }
     pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::String> { &self.next_token }

@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::RemovePermissionError::Unhandled(format!("RemovePermission returned HTTP {}", status)));
                          }
-                         Ok(super::RemovePermissionOutput::default())
+                         Ok(super::RemovePermissionOutput)
                      }
 }
 pub use Builder as RemovePermissionFluentBuilder;

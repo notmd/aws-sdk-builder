@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutGroupPolicyError::Unhandled(format!("PutGroupPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::PutGroupPolicyOutput::default())
+                         Ok(super::PutGroupPolicyOutput)
                      }
 }
 pub use Builder as PutGroupPolicyFluentBuilder;

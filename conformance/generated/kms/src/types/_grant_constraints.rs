@@ -2,31 +2,31 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct GrantConstraints {
-        pub encryption_context_equals: ::std::option::Option<self::EncryptionContextType>,
-        pub encryption_context_subset: ::std::option::Option<self::EncryptionContextType>,
+        pub encryption_context_equals: ::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>,
+        pub encryption_context_subset: ::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>,
         pub source_arn: ::std::option::Option<self::GrantConstraintSourceArnType>,
     }
     impl GrantConstraints {
         pub fn builder() -> GrantConstraintsBuilder { GrantConstraintsBuilder::default() }
-        pub fn encryption_context_equals(&self) -> &::std::option::Option<self::EncryptionContextType> { &self.encryption_context_equals }
-        pub fn encryption_context_subset(&self) -> &::std::option::Option<self::EncryptionContextType> { &self.encryption_context_subset }
+        pub fn encryption_context_equals(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>> { &self.encryption_context_equals }
+        pub fn encryption_context_subset(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>> { &self.encryption_context_subset }
         pub fn source_arn(&self) -> &::std::option::Option<self::GrantConstraintSourceArnType> { &self.source_arn }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct GrantConstraintsBuilder {
-        encryption_context_equals: ::std::option::Option<self::EncryptionContextType>,
-        encryption_context_subset: ::std::option::Option<self::EncryptionContextType>,
+        encryption_context_equals: ::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>,
+        encryption_context_subset: ::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>,
         source_arn: ::std::option::Option<self::GrantConstraintSourceArnType>,
     }
 
     impl GrantConstraintsBuilder {
-        pub fn encryption_context_equals(mut self, input: impl ::std::convert::Into<self::EncryptionContextType>) -> Self { self.encryption_context_equals = Some(input.into()); self }
-        pub fn set_encryption_context_equals(mut self, input: ::std::option::Option<self::EncryptionContextType>) -> Self { self.encryption_context_equals = input; self }
-        pub fn get_encryption_context_equals(&self) -> &::std::option::Option<self::EncryptionContextType> { &self.encryption_context_equals }
-        pub fn encryption_context_subset(mut self, input: impl ::std::convert::Into<self::EncryptionContextType>) -> Self { self.encryption_context_subset = Some(input.into()); self }
-        pub fn set_encryption_context_subset(mut self, input: ::std::option::Option<self::EncryptionContextType>) -> Self { self.encryption_context_subset = input; self }
-        pub fn get_encryption_context_subset(&self) -> &::std::option::Option<self::EncryptionContextType> { &self.encryption_context_subset }
+        pub fn encryption_context_equals(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>) -> Self { self.encryption_context_equals = Some(input.into()); self }
+        pub fn set_encryption_context_equals(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>) -> Self { self.encryption_context_equals = input; self }
+        pub fn get_encryption_context_equals(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>> { &self.encryption_context_equals }
+        pub fn encryption_context_subset(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>) -> Self { self.encryption_context_subset = Some(input.into()); self }
+        pub fn set_encryption_context_subset(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>) -> Self { self.encryption_context_subset = input; self }
+        pub fn get_encryption_context_subset(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>> { &self.encryption_context_subset }
         pub fn source_arn(mut self, input: impl ::std::convert::Into<self::GrantConstraintSourceArnType>) -> Self { self.source_arn = Some(input.into()); self }
         pub fn set_source_arn(mut self, input: ::std::option::Option<self::GrantConstraintSourceArnType>) -> Self { self.source_arn = input; self }
         pub fn get_source_arn(&self) -> &::std::option::Option<self::GrantConstraintSourceArnType> { &self.source_arn }

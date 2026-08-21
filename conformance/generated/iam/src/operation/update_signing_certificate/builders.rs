@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateSigningCertificateError::Unhandled(format!("UpdateSigningCertificate returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateSigningCertificateOutput::default())
+                         Ok(super::UpdateSigningCertificateOutput)
                      }
 }
 pub use Builder as UpdateSigningCertificateFluentBuilder;

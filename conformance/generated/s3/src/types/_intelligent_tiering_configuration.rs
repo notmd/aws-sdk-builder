@@ -5,14 +5,14 @@
         pub filter: ::std::option::Option<self::IntelligentTieringFilter>,
         pub id: ::std::option::Option<self::IntelligentTieringId>,
         pub status: ::std::option::Option<self::IntelligentTieringStatus>,
-        pub tierings: ::std::option::Option<self::TieringList>,
+        pub tierings: ::std::option::Option<::std::vec::Vec<self::Tiering>>,
     }
     impl IntelligentTieringConfiguration {
         pub fn builder() -> IntelligentTieringConfigurationBuilder { IntelligentTieringConfigurationBuilder::default() }
         pub fn filter(&self) -> &::std::option::Option<self::IntelligentTieringFilter> { &self.filter }
         pub fn id(&self) -> &::std::option::Option<self::IntelligentTieringId> { &self.id }
         pub fn status(&self) -> &::std::option::Option<self::IntelligentTieringStatus> { &self.status }
-        pub fn tierings(&self) -> &::std::option::Option<self::TieringList> { &self.tierings }
+        pub fn tierings(&self) -> &::std::option::Option<::std::vec::Vec<self::Tiering>> { &self.tierings }
     }
 
     #[derive(Clone, Debug, Default)]
@@ -20,7 +20,7 @@
         filter: ::std::option::Option<self::IntelligentTieringFilter>,
         id: ::std::option::Option<self::IntelligentTieringId>,
         status: ::std::option::Option<self::IntelligentTieringStatus>,
-        tierings: ::std::option::Option<self::TieringList>,
+        tierings: ::std::option::Option<::std::vec::Vec<self::Tiering>>,
     }
 
     impl IntelligentTieringConfigurationBuilder {
@@ -33,9 +33,9 @@
         pub fn status(mut self, input: impl ::std::convert::Into<self::IntelligentTieringStatus>) -> Self { self.status = Some(input.into()); self }
         pub fn set_status(mut self, input: ::std::option::Option<self::IntelligentTieringStatus>) -> Self { self.status = input; self }
         pub fn get_status(&self) -> &::std::option::Option<self::IntelligentTieringStatus> { &self.status }
-        pub fn tierings(mut self, input: impl ::std::convert::Into<self::TieringList>) -> Self { self.tierings = Some(input.into()); self }
-        pub fn set_tierings(mut self, input: ::std::option::Option<self::TieringList>) -> Self { self.tierings = input; self }
-        pub fn get_tierings(&self) -> &::std::option::Option<self::TieringList> { &self.tierings }
+        pub fn tierings(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tiering>>) -> Self { self.tierings = Some(input.into()); self }
+        pub fn set_tierings(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tiering>>) -> Self { self.tierings = input; self }
+        pub fn get_tierings(&self) -> &::std::option::Option<::std::vec::Vec<self::Tiering>> { &self.tierings }
         pub fn build(self) -> IntelligentTieringConfiguration {
             IntelligentTieringConfiguration {
                 filter: self.filter,

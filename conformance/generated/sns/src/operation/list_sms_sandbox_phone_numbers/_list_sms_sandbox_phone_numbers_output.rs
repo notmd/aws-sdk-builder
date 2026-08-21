@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct ListSmsSandboxPhoneNumbersOutput {
     pub next_token: ::std::option::Option<super::super::super::types::String>,
-    pub phone_numbers: ::std::option::Option<super::super::super::types::SmsSandboxPhoneNumberList>,
+    pub phone_numbers: ::std::option::Option<::std::vec::Vec<super::super::super::types::SmsSandboxPhoneNumber>>,
 }
         impl ListSmsSandboxPhoneNumbersOutput {
             pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -15,15 +15,15 @@ impl ListSmsSandboxPhoneNumbersOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ListSmsSandboxPhoneNumbersOutputBuilder {
     next_token: ::std::option::Option<super::super::super::types::String>,
-    phone_numbers: ::std::option::Option<super::super::super::types::SmsSandboxPhoneNumberList>,
+    phone_numbers: ::std::option::Option<::std::vec::Vec<super::super::super::types::SmsSandboxPhoneNumber>>,
 }
 impl ListSmsSandboxPhoneNumbersOutputBuilder {
     pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.next_token = Some(input.into()); self }
     pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.next_token = input; self }
     pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::String> { &self.next_token }
-    pub fn phone_numbers(mut self, input: impl ::std::convert::Into<super::super::super::types::SmsSandboxPhoneNumberList>) -> Self { self.phone_numbers = Some(input.into()); self }
-    pub fn set_phone_numbers(mut self, input: ::std::option::Option<super::super::super::types::SmsSandboxPhoneNumberList>) -> Self { self.phone_numbers = input; self }
-    pub fn get_phone_numbers(&self) -> &::std::option::Option<super::super::super::types::SmsSandboxPhoneNumberList> { &self.phone_numbers }
+    pub fn phone_numbers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SmsSandboxPhoneNumber>>) -> Self { self.phone_numbers = Some(input.into()); self }
+    pub fn set_phone_numbers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SmsSandboxPhoneNumber>>) -> Self { self.phone_numbers = input; self }
+    pub fn get_phone_numbers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SmsSandboxPhoneNumber>> { &self.phone_numbers }
     pub fn build(self) -> ListSmsSandboxPhoneNumbersOutput { ListSmsSandboxPhoneNumbersOutput {
         next_token: self.next_token,
         phone_numbers: self.phone_numbers,

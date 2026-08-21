@@ -4,7 +4,7 @@
 pub struct ListSshPublicKeysOutput {
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub ssh_public_keys: ::std::option::Option<super::super::super::types::SshPublicKeyListType>,
+    pub ssh_public_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::SshPublicKeyMetadata>>,
 }
         impl ListSshPublicKeysOutput {
             pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -18,7 +18,7 @@ impl ListSshPublicKeysOutput {
 pub struct ListSshPublicKeysOutputBuilder {
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    ssh_public_keys: ::std::option::Option<super::super::super::types::SshPublicKeyListType>,
+    ssh_public_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::SshPublicKeyMetadata>>,
 }
 impl ListSshPublicKeysOutputBuilder {
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
@@ -27,9 +27,9 @@ impl ListSshPublicKeysOutputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn ssh_public_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::SshPublicKeyListType>) -> Self { self.ssh_public_keys = Some(input.into()); self }
-    pub fn set_ssh_public_keys(mut self, input: ::std::option::Option<super::super::super::types::SshPublicKeyListType>) -> Self { self.ssh_public_keys = input; self }
-    pub fn get_ssh_public_keys(&self) -> &::std::option::Option<super::super::super::types::SshPublicKeyListType> { &self.ssh_public_keys }
+    pub fn ssh_public_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SshPublicKeyMetadata>>) -> Self { self.ssh_public_keys = Some(input.into()); self }
+    pub fn set_ssh_public_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SshPublicKeyMetadata>>) -> Self { self.ssh_public_keys = input; self }
+    pub fn get_ssh_public_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SshPublicKeyMetadata>> { &self.ssh_public_keys }
     pub fn build(self) -> ListSshPublicKeysOutput { ListSshPublicKeysOutput {
         is_truncated: self.is_truncated,
         marker: self.marker,

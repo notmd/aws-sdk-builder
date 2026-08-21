@@ -7,10 +7,10 @@
         pub filter: ::std::option::Option<self::LifecycleRuleFilter>,
         pub id: ::std::option::Option<self::Id>,
         pub noncurrent_version_expiration: ::std::option::Option<self::NoncurrentVersionExpiration>,
-        pub noncurrent_version_transitions: ::std::option::Option<self::NoncurrentVersionTransitionList>,
+        pub noncurrent_version_transitions: ::std::option::Option<::std::vec::Vec<self::NoncurrentVersionTransition>>,
         pub prefix: ::std::option::Option<self::Prefix>,
         pub status: ::std::option::Option<self::ExpirationStatus>,
-        pub transitions: ::std::option::Option<self::TransitionList>,
+        pub transitions: ::std::option::Option<::std::vec::Vec<self::Transition>>,
     }
     impl LifecycleRule {
         pub fn builder() -> LifecycleRuleBuilder { LifecycleRuleBuilder::default() }
@@ -19,10 +19,10 @@
         pub fn filter(&self) -> &::std::option::Option<self::LifecycleRuleFilter> { &self.filter }
         pub fn id(&self) -> &::std::option::Option<self::Id> { &self.id }
         pub fn noncurrent_version_expiration(&self) -> &::std::option::Option<self::NoncurrentVersionExpiration> { &self.noncurrent_version_expiration }
-        pub fn noncurrent_version_transitions(&self) -> &::std::option::Option<self::NoncurrentVersionTransitionList> { &self.noncurrent_version_transitions }
+        pub fn noncurrent_version_transitions(&self) -> &::std::option::Option<::std::vec::Vec<self::NoncurrentVersionTransition>> { &self.noncurrent_version_transitions }
         pub fn prefix(&self) -> &::std::option::Option<self::Prefix> { &self.prefix }
         pub fn status(&self) -> &::std::option::Option<self::ExpirationStatus> { &self.status }
-        pub fn transitions(&self) -> &::std::option::Option<self::TransitionList> { &self.transitions }
+        pub fn transitions(&self) -> &::std::option::Option<::std::vec::Vec<self::Transition>> { &self.transitions }
     }
 
     #[derive(Clone, Debug, Default)]
@@ -32,10 +32,10 @@
         filter: ::std::option::Option<self::LifecycleRuleFilter>,
         id: ::std::option::Option<self::Id>,
         noncurrent_version_expiration: ::std::option::Option<self::NoncurrentVersionExpiration>,
-        noncurrent_version_transitions: ::std::option::Option<self::NoncurrentVersionTransitionList>,
+        noncurrent_version_transitions: ::std::option::Option<::std::vec::Vec<self::NoncurrentVersionTransition>>,
         prefix: ::std::option::Option<self::Prefix>,
         status: ::std::option::Option<self::ExpirationStatus>,
-        transitions: ::std::option::Option<self::TransitionList>,
+        transitions: ::std::option::Option<::std::vec::Vec<self::Transition>>,
     }
 
     impl LifecycleRuleBuilder {
@@ -54,18 +54,18 @@
         pub fn noncurrent_version_expiration(mut self, input: impl ::std::convert::Into<self::NoncurrentVersionExpiration>) -> Self { self.noncurrent_version_expiration = Some(input.into()); self }
         pub fn set_noncurrent_version_expiration(mut self, input: ::std::option::Option<self::NoncurrentVersionExpiration>) -> Self { self.noncurrent_version_expiration = input; self }
         pub fn get_noncurrent_version_expiration(&self) -> &::std::option::Option<self::NoncurrentVersionExpiration> { &self.noncurrent_version_expiration }
-        pub fn noncurrent_version_transitions(mut self, input: impl ::std::convert::Into<self::NoncurrentVersionTransitionList>) -> Self { self.noncurrent_version_transitions = Some(input.into()); self }
-        pub fn set_noncurrent_version_transitions(mut self, input: ::std::option::Option<self::NoncurrentVersionTransitionList>) -> Self { self.noncurrent_version_transitions = input; self }
-        pub fn get_noncurrent_version_transitions(&self) -> &::std::option::Option<self::NoncurrentVersionTransitionList> { &self.noncurrent_version_transitions }
+        pub fn noncurrent_version_transitions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::NoncurrentVersionTransition>>) -> Self { self.noncurrent_version_transitions = Some(input.into()); self }
+        pub fn set_noncurrent_version_transitions(mut self, input: ::std::option::Option<::std::vec::Vec<self::NoncurrentVersionTransition>>) -> Self { self.noncurrent_version_transitions = input; self }
+        pub fn get_noncurrent_version_transitions(&self) -> &::std::option::Option<::std::vec::Vec<self::NoncurrentVersionTransition>> { &self.noncurrent_version_transitions }
         pub fn prefix(mut self, input: impl ::std::convert::Into<self::Prefix>) -> Self { self.prefix = Some(input.into()); self }
         pub fn set_prefix(mut self, input: ::std::option::Option<self::Prefix>) -> Self { self.prefix = input; self }
         pub fn get_prefix(&self) -> &::std::option::Option<self::Prefix> { &self.prefix }
         pub fn status(mut self, input: impl ::std::convert::Into<self::ExpirationStatus>) -> Self { self.status = Some(input.into()); self }
         pub fn set_status(mut self, input: ::std::option::Option<self::ExpirationStatus>) -> Self { self.status = input; self }
         pub fn get_status(&self) -> &::std::option::Option<self::ExpirationStatus> { &self.status }
-        pub fn transitions(mut self, input: impl ::std::convert::Into<self::TransitionList>) -> Self { self.transitions = Some(input.into()); self }
-        pub fn set_transitions(mut self, input: ::std::option::Option<self::TransitionList>) -> Self { self.transitions = input; self }
-        pub fn get_transitions(&self) -> &::std::option::Option<self::TransitionList> { &self.transitions }
+        pub fn transitions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Transition>>) -> Self { self.transitions = Some(input.into()); self }
+        pub fn set_transitions(mut self, input: ::std::option::Option<::std::vec::Vec<self::Transition>>) -> Self { self.transitions = input; self }
+        pub fn get_transitions(&self) -> &::std::option::Option<::std::vec::Vec<self::Transition>> { &self.transitions }
         pub fn build(self) -> LifecycleRule {
             LifecycleRule {
                 abort_incomplete_multipart_upload: self.abort_incomplete_multipart_upload,

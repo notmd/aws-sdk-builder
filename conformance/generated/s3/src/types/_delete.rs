@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct Delete {
-        pub objects: ::std::option::Option<self::ObjectIdentifierList>,
+        pub objects: ::std::option::Option<::std::vec::Vec<self::ObjectIdentifier>>,
         pub quiet: ::std::option::Option<self::Quiet>,
     }
     impl Delete {
         pub fn builder() -> DeleteBuilder { DeleteBuilder::default() }
-        pub fn objects(&self) -> &::std::option::Option<self::ObjectIdentifierList> { &self.objects }
+        pub fn objects(&self) -> &::std::option::Option<::std::vec::Vec<self::ObjectIdentifier>> { &self.objects }
         pub fn quiet(&self) -> &::std::option::Option<self::Quiet> { &self.quiet }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct DeleteBuilder {
-        objects: ::std::option::Option<self::ObjectIdentifierList>,
+        objects: ::std::option::Option<::std::vec::Vec<self::ObjectIdentifier>>,
         quiet: ::std::option::Option<self::Quiet>,
     }
 
     impl DeleteBuilder {
-        pub fn objects(mut self, input: impl ::std::convert::Into<self::ObjectIdentifierList>) -> Self { self.objects = Some(input.into()); self }
-        pub fn set_objects(mut self, input: ::std::option::Option<self::ObjectIdentifierList>) -> Self { self.objects = input; self }
-        pub fn get_objects(&self) -> &::std::option::Option<self::ObjectIdentifierList> { &self.objects }
+        pub fn objects(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ObjectIdentifier>>) -> Self { self.objects = Some(input.into()); self }
+        pub fn set_objects(mut self, input: ::std::option::Option<::std::vec::Vec<self::ObjectIdentifier>>) -> Self { self.objects = input; self }
+        pub fn get_objects(&self) -> &::std::option::Option<::std::vec::Vec<self::ObjectIdentifier>> { &self.objects }
         pub fn quiet(mut self, input: impl ::std::convert::Into<self::Quiet>) -> Self { self.quiet = Some(input.into()); self }
         pub fn set_quiet(mut self, input: ::std::option::Option<self::Quiet>) -> Self { self.quiet = input; self }
         pub fn get_quiet(&self) -> &::std::option::Option<self::Quiet> { &self.quiet }

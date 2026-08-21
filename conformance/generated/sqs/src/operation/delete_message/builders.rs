@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteMessageError::Unhandled(format!("DeleteMessage returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteMessageOutput::default())
+                         Ok(super::DeleteMessageOutput)
                      }
 }
 pub use Builder as DeleteMessageFluentBuilder;

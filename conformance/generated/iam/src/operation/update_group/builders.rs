@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateGroupError::Unhandled(format!("UpdateGroup returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateGroupOutput::default())
+                         Ok(super::UpdateGroupOutput)
                      }
 }
 pub use Builder as UpdateGroupFluentBuilder;

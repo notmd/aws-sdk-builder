@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ChangeMessageVisibilityError::Unhandled(format!("ChangeMessageVisibility returned HTTP {}", status)));
                          }
-                         Ok(super::ChangeMessageVisibilityOutput::default())
+                         Ok(super::ChangeMessageVisibilityOutput)
                      }
 }
 pub use Builder as ChangeMessageVisibilityFluentBuilder;

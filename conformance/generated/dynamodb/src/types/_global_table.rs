@@ -3,27 +3,27 @@
     #[derive(Clone, Debug, Default)]
     pub struct GlobalTable {
         pub global_table_name: ::std::option::Option<self::TableName>,
-        pub replication_group: ::std::option::Option<self::ReplicaList>,
+        pub replication_group: ::std::option::Option<::std::vec::Vec<self::Replica>>,
     }
     impl GlobalTable {
         pub fn builder() -> GlobalTableBuilder { GlobalTableBuilder::default() }
         pub fn global_table_name(&self) -> &::std::option::Option<self::TableName> { &self.global_table_name }
-        pub fn replication_group(&self) -> &::std::option::Option<self::ReplicaList> { &self.replication_group }
+        pub fn replication_group(&self) -> &::std::option::Option<::std::vec::Vec<self::Replica>> { &self.replication_group }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct GlobalTableBuilder {
         global_table_name: ::std::option::Option<self::TableName>,
-        replication_group: ::std::option::Option<self::ReplicaList>,
+        replication_group: ::std::option::Option<::std::vec::Vec<self::Replica>>,
     }
 
     impl GlobalTableBuilder {
         pub fn global_table_name(mut self, input: impl ::std::convert::Into<self::TableName>) -> Self { self.global_table_name = Some(input.into()); self }
         pub fn set_global_table_name(mut self, input: ::std::option::Option<self::TableName>) -> Self { self.global_table_name = input; self }
         pub fn get_global_table_name(&self) -> &::std::option::Option<self::TableName> { &self.global_table_name }
-        pub fn replication_group(mut self, input: impl ::std::convert::Into<self::ReplicaList>) -> Self { self.replication_group = Some(input.into()); self }
-        pub fn set_replication_group(mut self, input: ::std::option::Option<self::ReplicaList>) -> Self { self.replication_group = input; self }
-        pub fn get_replication_group(&self) -> &::std::option::Option<self::ReplicaList> { &self.replication_group }
+        pub fn replication_group(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Replica>>) -> Self { self.replication_group = Some(input.into()); self }
+        pub fn set_replication_group(mut self, input: ::std::option::Option<::std::vec::Vec<self::Replica>>) -> Self { self.replication_group = input; self }
+        pub fn get_replication_group(&self) -> &::std::option::Option<::std::vec::Vec<self::Replica>> { &self.replication_group }
         pub fn build(self) -> GlobalTable {
             GlobalTable {
                 global_table_name: self.global_table_name,

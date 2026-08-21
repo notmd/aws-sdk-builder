@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketAbacError::Unhandled(format!("PutBucketAbac returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketAbacOutput::default())
+                         Ok(super::PutBucketAbacOutput)
                      }
 }
 pub use Builder as PutBucketAbacFluentBuilder;

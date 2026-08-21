@@ -2,12 +2,12 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetAccountAuthorizationDetailsOutput {
-    pub group_detail_list: ::std::option::Option<super::super::super::types::GroupDetailListType>,
+    pub group_detail_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::GroupDetail>>,
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub policies: ::std::option::Option<super::super::super::types::ManagedPolicyDetailListType>,
-    pub role_detail_list: ::std::option::Option<super::super::super::types::RoleDetailListType>,
-    pub user_detail_list: ::std::option::Option<super::super::super::types::UserDetailListType>,
+    pub policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::ManagedPolicyDetail>>,
+    pub role_detail_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::RoleDetail>>,
+    pub user_detail_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserDetail>>,
 }
         impl GetAccountAuthorizationDetailsOutput {
             pub fn group_detail_list(&self) -> &[super::super::super::types::GroupDetail] { self.group_detail_list.as_deref().unwrap_or(&[]) }
@@ -22,32 +22,32 @@ impl GetAccountAuthorizationDetailsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetAccountAuthorizationDetailsOutputBuilder {
-    group_detail_list: ::std::option::Option<super::super::super::types::GroupDetailListType>,
+    group_detail_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::GroupDetail>>,
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    policies: ::std::option::Option<super::super::super::types::ManagedPolicyDetailListType>,
-    role_detail_list: ::std::option::Option<super::super::super::types::RoleDetailListType>,
-    user_detail_list: ::std::option::Option<super::super::super::types::UserDetailListType>,
+    policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::ManagedPolicyDetail>>,
+    role_detail_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::RoleDetail>>,
+    user_detail_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserDetail>>,
 }
 impl GetAccountAuthorizationDetailsOutputBuilder {
-    pub fn group_detail_list(mut self, input: impl ::std::convert::Into<super::super::super::types::GroupDetailListType>) -> Self { self.group_detail_list = Some(input.into()); self }
-    pub fn set_group_detail_list(mut self, input: ::std::option::Option<super::super::super::types::GroupDetailListType>) -> Self { self.group_detail_list = input; self }
-    pub fn get_group_detail_list(&self) -> &::std::option::Option<super::super::super::types::GroupDetailListType> { &self.group_detail_list }
+    pub fn group_detail_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GroupDetail>>) -> Self { self.group_detail_list = Some(input.into()); self }
+    pub fn set_group_detail_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GroupDetail>>) -> Self { self.group_detail_list = input; self }
+    pub fn get_group_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GroupDetail>> { &self.group_detail_list }
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
     pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
     pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn policies(mut self, input: impl ::std::convert::Into<super::super::super::types::ManagedPolicyDetailListType>) -> Self { self.policies = Some(input.into()); self }
-    pub fn set_policies(mut self, input: ::std::option::Option<super::super::super::types::ManagedPolicyDetailListType>) -> Self { self.policies = input; self }
-    pub fn get_policies(&self) -> &::std::option::Option<super::super::super::types::ManagedPolicyDetailListType> { &self.policies }
-    pub fn role_detail_list(mut self, input: impl ::std::convert::Into<super::super::super::types::RoleDetailListType>) -> Self { self.role_detail_list = Some(input.into()); self }
-    pub fn set_role_detail_list(mut self, input: ::std::option::Option<super::super::super::types::RoleDetailListType>) -> Self { self.role_detail_list = input; self }
-    pub fn get_role_detail_list(&self) -> &::std::option::Option<super::super::super::types::RoleDetailListType> { &self.role_detail_list }
-    pub fn user_detail_list(mut self, input: impl ::std::convert::Into<super::super::super::types::UserDetailListType>) -> Self { self.user_detail_list = Some(input.into()); self }
-    pub fn set_user_detail_list(mut self, input: ::std::option::Option<super::super::super::types::UserDetailListType>) -> Self { self.user_detail_list = input; self }
-    pub fn get_user_detail_list(&self) -> &::std::option::Option<super::super::super::types::UserDetailListType> { &self.user_detail_list }
+    pub fn policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ManagedPolicyDetail>>) -> Self { self.policies = Some(input.into()); self }
+    pub fn set_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ManagedPolicyDetail>>) -> Self { self.policies = input; self }
+    pub fn get_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ManagedPolicyDetail>> { &self.policies }
+    pub fn role_detail_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::RoleDetail>>) -> Self { self.role_detail_list = Some(input.into()); self }
+    pub fn set_role_detail_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RoleDetail>>) -> Self { self.role_detail_list = input; self }
+    pub fn get_role_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::RoleDetail>> { &self.role_detail_list }
+    pub fn user_detail_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::UserDetail>>) -> Self { self.user_detail_list = Some(input.into()); self }
+    pub fn set_user_detail_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserDetail>>) -> Self { self.user_detail_list = input; self }
+    pub fn get_user_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::UserDetail>> { &self.user_detail_list }
     pub fn build(self) -> GetAccountAuthorizationDetailsOutput { GetAccountAuthorizationDetailsOutput {
         group_detail_list: self.group_detail_list,
         is_truncated: self.is_truncated,

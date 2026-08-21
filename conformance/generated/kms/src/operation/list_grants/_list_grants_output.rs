@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListGrantsOutput {
-    pub grants: ::std::option::Option<super::super::super::types::GrantList>,
+    pub grants: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantListEntry>>,
     pub next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
     pub truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 }
@@ -16,14 +16,14 @@ impl ListGrantsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListGrantsOutputBuilder {
-    grants: ::std::option::Option<super::super::super::types::GrantList>,
+    grants: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantListEntry>>,
     next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
     truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 }
 impl ListGrantsOutputBuilder {
-    pub fn grants(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantList>) -> Self { self.grants = Some(input.into()); self }
-    pub fn set_grants(mut self, input: ::std::option::Option<super::super::super::types::GrantList>) -> Self { self.grants = input; self }
-    pub fn get_grants(&self) -> &::std::option::Option<super::super::super::types::GrantList> { &self.grants }
+    pub fn grants(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantListEntry>>) -> Self { self.grants = Some(input.into()); self }
+    pub fn set_grants(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantListEntry>>) -> Self { self.grants = input; self }
+    pub fn get_grants(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantListEntry>> { &self.grants }
     pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.next_marker = Some(input.into()); self }
     pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.next_marker = input; self }
     pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.next_marker }

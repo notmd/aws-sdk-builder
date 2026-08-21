@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `990/990` files compared · `2` matched · `501` mismatches · `400` missing · `87` extra · `0.20%` match (100.00% means fully matched)
+**Progress:** `904/904` files compared · `2` matched · `501` mismatches · `400` missing · `1` extra · `0.22%` match (100.00% means fully matched)
 
 ### `src/client/batch_execute_statement.rs`
 
@@ -4316,7 +4316,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.return_consumed_capacity.as_ref()
 -    }
 +    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-+    pub statements: ::std::option::Option<super::super::super::types::PartiQlBatchRequest>,
++    pub statements: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementRequest>>,
  }
 +        impl BatchExecuteStatementInput {
 +            pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
@@ -4338,7 +4338,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) statements: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementRequest>>,
 -    pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
 +    return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-+    statements: ::std::option::Option<super::super::super::types::PartiQlBatchRequest>,
++    statements: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementRequest>>,
  }
  impl BatchExecuteStatementInputBuilder {
 -    /// Appends an item to `statements`.
@@ -4415,9 +4415,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
 +    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
 +    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
-+    pub fn statements(mut self, input: impl ::std::convert::Into<super::super::super::types::PartiQlBatchRequest>) -> Self { self.statements = Some(input.into()); self }
-+    pub fn set_statements(mut self, input: ::std::option::Option<super::super::super::types::PartiQlBatchRequest>) -> Self { self.statements = input; self }
-+    pub fn get_statements(&self) -> &::std::option::Option<super::super::super::types::PartiQlBatchRequest> { &self.statements }
++    pub fn statements(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::BatchStatementRequest>>) -> Self { self.statements = Some(input.into()); self }
++    pub fn set_statements(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementRequest>>) -> Self { self.statements = input; self }
++    pub fn get_statements(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementRequest>> { &self.statements }
 +    pub fn build(self) -> BatchExecuteStatementInput { BatchExecuteStatementInput {
 +        return_consumed_capacity: self.return_consumed_capacity,
 +        statements: self.statements,
@@ -4444,8 +4444,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
 -    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
 -    _request_id: Option<String>,
-+    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-+    pub responses: ::std::option::Option<super::super::super::types::PartiQlBatchResponse>,
++    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
++    pub responses: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementResponse>>,
  }
 +        impl BatchExecuteStatementOutput {
 +            pub fn consumed_capacity(&self) -> &[super::super::super::types::ConsumedCapacity] { self.consumed_capacity.as_deref().unwrap_or(&[]) }
@@ -4486,8 +4486,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) responses: ::std::option::Option<::std::vec::Vec<crate::types::BatchStatementResponse>>,
 -    pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
 -    _request_id: Option<String>,
-+    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-+    responses: ::std::option::Option<super::super::super::types::PartiQlBatchResponse>,
++    consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
++    responses: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementResponse>>,
  }
  impl BatchExecuteStatementOutputBuilder {
 -    /// Appends an item to `responses`.
@@ -4547,12 +4547,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = Some(input.into()); self }
-+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = input; self }
-+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacityMultiple> { &self.consumed_capacity }
-+    pub fn responses(mut self, input: impl ::std::convert::Into<super::super::super::types::PartiQlBatchResponse>) -> Self { self.responses = Some(input.into()); self }
-+    pub fn set_responses(mut self, input: ::std::option::Option<super::super::super::types::PartiQlBatchResponse>) -> Self { self.responses = input; self }
-+    pub fn get_responses(&self) -> &::std::option::Option<super::super::super::types::PartiQlBatchResponse> { &self.responses }
++    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = Some(input.into()); self }
++    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = input; self }
++    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>> { &self.consumed_capacity }
++    pub fn responses(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::BatchStatementResponse>>) -> Self { self.responses = Some(input.into()); self }
++    pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementResponse>>) -> Self { self.responses = input; self }
++    pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementResponse>> { &self.responses }
 +    pub fn build(self) -> BatchExecuteStatementOutput { BatchExecuteStatementOutput {
 +        consumed_capacity: self.consumed_capacity,
 +        responses: self.responses,
@@ -4628,7 +4628,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
-+    pub fn statements(mut self, value: impl ::std::convert::Into<super::super::super::types::PartiQlBatchRequest>) -> Self { self.input.statements = Some(value.into()); self }
++    pub fn statements(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::BatchStatementRequest>>) -> Self { self.input.statements = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::BatchExecuteStatementOutput, super::BatchExecuteStatementError> {
@@ -5342,11 +5342,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn return_consumed_capacity(&self) -> ::std::option::Option<&crate::types::ReturnConsumedCapacity> {
 -        self.return_consumed_capacity.as_ref()
 -    }
-+    pub request_items: ::std::option::Option<super::super::super::types::BatchGetRequestMap>,
++    pub request_items: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>>,
 +    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
  }
 +        impl BatchGetItemInput {
-+            pub fn request_items(&self) -> ::std::option::Option<&super::super::super::types::BatchGetRequestMap> { self.request_items.as_ref() }
++            pub fn request_items(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>> { self.request_items.as_ref() }
 +            pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
 +        }
  impl BatchGetItemInput {
@@ -5364,7 +5364,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct BatchGetItemInputBuilder {
 -    pub(crate) request_items: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>>,
 -    pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
-+    request_items: ::std::option::Option<super::super::super::types::BatchGetRequestMap>,
++    request_items: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>>,
 +    return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
  }
  impl BatchGetItemInputBuilder {
@@ -5564,9 +5564,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            return_consumed_capacity: self.return_consumed_capacity,
 -        })
 -    }
-+    pub fn request_items(mut self, input: impl ::std::convert::Into<super::super::super::types::BatchGetRequestMap>) -> Self { self.request_items = Some(input.into()); self }
-+    pub fn set_request_items(mut self, input: ::std::option::Option<super::super::super::types::BatchGetRequestMap>) -> Self { self.request_items = input; self }
-+    pub fn get_request_items(&self) -> &::std::option::Option<super::super::super::types::BatchGetRequestMap> { &self.request_items }
++    pub fn request_items(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>>) -> Self { self.request_items = Some(input.into()); self }
++    pub fn set_request_items(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>>) -> Self { self.request_items = input; self }
++    pub fn get_request_items(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>> { &self.request_items }
 +    pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
 +    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
 +    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
@@ -5665,14 +5665,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-+    pub responses: ::std::option::Option<super::super::super::types::BatchGetResponseMap>,
-+    pub unprocessed_keys: ::std::option::Option<super::super::super::types::BatchGetRequestMap>,
++    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
++    pub responses: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>>,
++    pub unprocessed_keys: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>>,
  }
 +        impl BatchGetItemOutput {
 +            pub fn consumed_capacity(&self) -> &[super::super::super::types::ConsumedCapacity] { self.consumed_capacity.as_deref().unwrap_or(&[]) }
-+            pub fn responses(&self) -> ::std::option::Option<&super::super::super::types::BatchGetResponseMap> { self.responses.as_ref() }
-+            pub fn unprocessed_keys(&self) -> ::std::option::Option<&super::super::super::types::BatchGetRequestMap> { self.unprocessed_keys.as_ref() }
++            pub fn responses(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>> { self.responses.as_ref() }
++            pub fn unprocessed_keys(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>> { self.unprocessed_keys.as_ref() }
 +        }
  impl BatchGetItemOutput {
 -    /// Creates a new builder-style object to manufacture [`BatchGetItemOutput`](crate::operation::batch_get_item::BatchGetItemOutput).
@@ -5696,9 +5696,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) unprocessed_keys: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::KeysAndAttributes>>,
 -    pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
 -    _request_id: Option<String>,
-+    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-+    responses: ::std::option::Option<super::super::super::types::BatchGetResponseMap>,
-+    unprocessed_keys: ::std::option::Option<super::super::super::types::BatchGetRequestMap>,
++    consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
++    responses: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>>,
++    unprocessed_keys: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>>,
  }
  impl BatchGetItemOutputBuilder {
 -    /// Adds a key-value pair to `responses`.
@@ -5854,15 +5854,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = Some(input.into()); self }
-+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = input; self }
-+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacityMultiple> { &self.consumed_capacity }
-+    pub fn responses(mut self, input: impl ::std::convert::Into<super::super::super::types::BatchGetResponseMap>) -> Self { self.responses = Some(input.into()); self }
-+    pub fn set_responses(mut self, input: ::std::option::Option<super::super::super::types::BatchGetResponseMap>) -> Self { self.responses = input; self }
-+    pub fn get_responses(&self) -> &::std::option::Option<super::super::super::types::BatchGetResponseMap> { &self.responses }
-+    pub fn unprocessed_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::BatchGetRequestMap>) -> Self { self.unprocessed_keys = Some(input.into()); self }
-+    pub fn set_unprocessed_keys(mut self, input: ::std::option::Option<super::super::super::types::BatchGetRequestMap>) -> Self { self.unprocessed_keys = input; self }
-+    pub fn get_unprocessed_keys(&self) -> &::std::option::Option<super::super::super::types::BatchGetRequestMap> { &self.unprocessed_keys }
++    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = Some(input.into()); self }
++    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = input; self }
++    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>> { &self.consumed_capacity }
++    pub fn responses(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>>) -> Self { self.responses = Some(input.into()); self }
++    pub fn set_responses(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>>) -> Self { self.responses = input; self }
++    pub fn get_responses(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>> { &self.responses }
++    pub fn unprocessed_keys(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>>) -> Self { self.unprocessed_keys = Some(input.into()); self }
++    pub fn set_unprocessed_keys(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>>) -> Self { self.unprocessed_keys = input; self }
++    pub fn get_unprocessed_keys(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>> { &self.unprocessed_keys }
 +    pub fn build(self) -> BatchGetItemOutput { BatchGetItemOutput {
 +        consumed_capacity: self.consumed_capacity,
 +        responses: self.responses,
@@ -5948,7 +5948,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn request_items(mut self, value: impl ::std::convert::Into<super::super::super::types::BatchGetRequestMap>) -> Self { self.input.request_items = Some(value.into()); self }
++    pub fn request_items(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>>) -> Self { self.input.request_items = Some(value.into()); self }
 +    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -6787,12 +6787,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn return_item_collection_metrics(&self) -> ::std::option::Option<&crate::types::ReturnItemCollectionMetrics> {
 -        self.return_item_collection_metrics.as_ref()
 -    }
-+    pub request_items: ::std::option::Option<super::super::super::types::BatchWriteItemRequestMap>,
++    pub request_items: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>,
 +    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    pub return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
  }
 +        impl BatchWriteItemInput {
-+            pub fn request_items(&self) -> ::std::option::Option<&super::super::super::types::BatchWriteItemRequestMap> { self.request_items.as_ref() }
++            pub fn request_items(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>> { self.request_items.as_ref() }
 +            pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
 +            pub fn return_item_collection_metrics(&self) -> ::std::option::Option<&super::super::super::types::ReturnItemCollectionMetrics> { self.return_item_collection_metrics.as_ref() }
 +        }
@@ -6812,7 +6812,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) request_items: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::WriteRequest>>>,
 -    pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
 -    pub(crate) return_item_collection_metrics: ::std::option::Option<crate::types::ReturnItemCollectionMetrics>,
-+    request_items: ::std::option::Option<super::super::super::types::BatchWriteItemRequestMap>,
++    request_items: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>,
 +    return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
  }
@@ -6952,9 +6952,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            return_item_collection_metrics: self.return_item_collection_metrics,
 -        })
 -    }
-+    pub fn request_items(mut self, input: impl ::std::convert::Into<super::super::super::types::BatchWriteItemRequestMap>) -> Self { self.request_items = Some(input.into()); self }
-+    pub fn set_request_items(mut self, input: ::std::option::Option<super::super::super::types::BatchWriteItemRequestMap>) -> Self { self.request_items = input; self }
-+    pub fn get_request_items(&self) -> &::std::option::Option<super::super::super::types::BatchWriteItemRequestMap> { &self.request_items }
++    pub fn request_items(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>) -> Self { self.request_items = Some(input.into()); self }
++    pub fn set_request_items(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>) -> Self { self.request_items = input; self }
++    pub fn get_request_items(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>> { &self.request_items }
 +    pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
 +    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
 +    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
@@ -7077,9 +7077,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn consumed_capacity(&self) -> &[crate::types::ConsumedCapacity] {
 -        self.consumed_capacity.as_deref().unwrap_or_default()
 -    }
-+    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-+    pub item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable>,
-+    pub unprocessed_items: ::std::option::Option<super::super::super::types::BatchWriteItemRequestMap>,
++    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
++    pub item_collection_metrics: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>,
++    pub unprocessed_items: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>,
  }
 -impl ::aws_types::request_id::RequestId for BatchWriteItemOutput {
 -    fn request_id(&self) -> Option<&str> {
@@ -7088,8 +7088,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -}
 +        impl BatchWriteItemOutput {
 +            pub fn consumed_capacity(&self) -> &[super::super::super::types::ConsumedCapacity] { self.consumed_capacity.as_deref().unwrap_or(&[]) }
-+            pub fn item_collection_metrics(&self) -> ::std::option::Option<&super::super::super::types::ItemCollectionMetricsPerTable> { self.item_collection_metrics.as_ref() }
-+            pub fn unprocessed_items(&self) -> ::std::option::Option<&super::super::super::types::BatchWriteItemRequestMap> { self.unprocessed_items.as_ref() }
++            pub fn item_collection_metrics(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>> { self.item_collection_metrics.as_ref() }
++            pub fn unprocessed_items(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>> { self.unprocessed_items.as_ref() }
 +        }
  impl BatchWriteItemOutput {
 -    /// Creates a new builder-style object to manufacture [`BatchWriteItemOutput`](crate::operation::batch_write_item::BatchWriteItemOutput).
@@ -7110,9 +7110,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>>,
 -    pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
 -    _request_id: Option<String>,
-+    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-+    item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable>,
-+    unprocessed_items: ::std::option::Option<super::super::super::types::BatchWriteItemRequestMap>,
++    consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
++    item_collection_metrics: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>,
++    unprocessed_items: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>,
  }
  impl BatchWriteItemOutputBuilder {
 -    /// Adds a key-value pair to `unprocessed_items`.
@@ -7306,15 +7306,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = Some(input.into()); self }
-+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = input; self }
-+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacityMultiple> { &self.consumed_capacity }
-+    pub fn item_collection_metrics(mut self, input: impl ::std::convert::Into<super::super::super::types::ItemCollectionMetricsPerTable>) -> Self { self.item_collection_metrics = Some(input.into()); self }
-+    pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable>) -> Self { self.item_collection_metrics = input; self }
-+    pub fn get_item_collection_metrics(&self) -> &::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable> { &self.item_collection_metrics }
-+    pub fn unprocessed_items(mut self, input: impl ::std::convert::Into<super::super::super::types::BatchWriteItemRequestMap>) -> Self { self.unprocessed_items = Some(input.into()); self }
-+    pub fn set_unprocessed_items(mut self, input: ::std::option::Option<super::super::super::types::BatchWriteItemRequestMap>) -> Self { self.unprocessed_items = input; self }
-+    pub fn get_unprocessed_items(&self) -> &::std::option::Option<super::super::super::types::BatchWriteItemRequestMap> { &self.unprocessed_items }
++    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = Some(input.into()); self }
++    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = input; self }
++    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>> { &self.consumed_capacity }
++    pub fn item_collection_metrics(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>) -> Self { self.item_collection_metrics = Some(input.into()); self }
++    pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>) -> Self { self.item_collection_metrics = input; self }
++    pub fn get_item_collection_metrics(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>> { &self.item_collection_metrics }
++    pub fn unprocessed_items(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>) -> Self { self.unprocessed_items = Some(input.into()); self }
++    pub fn set_unprocessed_items(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>) -> Self { self.unprocessed_items = input; self }
++    pub fn get_unprocessed_items(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>> { &self.unprocessed_items }
 +    pub fn build(self) -> BatchWriteItemOutput { BatchWriteItemOutput {
 +        consumed_capacity: self.consumed_capacity,
 +        item_collection_metrics: self.item_collection_metrics,
@@ -7415,7 +7415,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn request_items(mut self, value: impl ::std::convert::Into<super::super::super::types::BatchWriteItemRequestMap>) -> Self { self.input.request_items = Some(value.into()); self }
++    pub fn request_items(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>) -> Self { self.input.request_items = Some(value.into()); self }
 +    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
 +    pub fn return_item_collection_metrics(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnItemCollectionMetrics>) -> Self { self.input.return_item_collection_metrics = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
@@ -9113,7 +9113,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.replication_group.as_deref().unwrap_or_default()
 -    }
 +    pub global_table_name: ::std::option::Option<super::super::super::types::TableName>,
-+    pub replication_group: ::std::option::Option<super::super::super::types::ReplicaList>,
++    pub replication_group: ::std::option::Option<::std::vec::Vec<super::super::super::types::Replica>>,
  }
 +        impl CreateGlobalTableInput {
 +            pub fn global_table_name(&self) -> ::std::option::Option<&str> { self.global_table_name.as_deref() }
@@ -9135,7 +9135,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) global_table_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) replication_group: ::std::option::Option<::std::vec::Vec<crate::types::Replica>>,
 +    global_table_name: ::std::option::Option<super::super::super::types::TableName>,
-+    replication_group: ::std::option::Option<super::super::super::types::ReplicaList>,
++    replication_group: ::std::option::Option<::std::vec::Vec<super::super::super::types::Replica>>,
  }
  impl CreateGlobalTableInputBuilder {
 -    /// <p>The global table name.</p>
@@ -9185,9 +9185,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn global_table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.global_table_name = Some(input.into()); self }
 +    pub fn set_global_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.global_table_name = input; self }
 +    pub fn get_global_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.global_table_name }
-+    pub fn replication_group(mut self, input: impl ::std::convert::Into<super::super::super::types::ReplicaList>) -> Self { self.replication_group = Some(input.into()); self }
-+    pub fn set_replication_group(mut self, input: ::std::option::Option<super::super::super::types::ReplicaList>) -> Self { self.replication_group = input; self }
-+    pub fn get_replication_group(&self) -> &::std::option::Option<super::super::super::types::ReplicaList> { &self.replication_group }
++    pub fn replication_group(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Replica>>) -> Self { self.replication_group = Some(input.into()); self }
++    pub fn set_replication_group(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Replica>>) -> Self { self.replication_group = input; self }
++    pub fn get_replication_group(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Replica>> { &self.replication_group }
 +    pub fn build(self) -> CreateGlobalTableInput { CreateGlobalTableInput {
 +        global_table_name: self.global_table_name,
 +        replication_group: self.replication_group,
@@ -9380,7 +9380,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn global_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.global_table_name = Some(value.into()); self }
-+    pub fn replication_group(mut self, value: impl ::std::convert::Into<super::super::super::types::ReplicaList>) -> Self { self.input.replication_group = Some(value.into()); self }
++    pub fn replication_group(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Replica>>) -> Self { self.input.replication_group = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::CreateGlobalTableOutput, super::CreateGlobalTableError> {
@@ -10184,14 +10184,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>SearchSchema</code> - (Optional) Defines the partition key (<code>HASH</code>) and inline filter (<code>INLINE_FILTER</code>) attributes for the vector index.</p></li>
 -    /// </ul>
 -    pub vector_indexes: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
-+    pub attribute_definitions: ::std::option::Option<super::super::super::types::AttributeDefinitions>,
++    pub attribute_definitions: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>,
 +    pub billing_mode: ::std::option::Option<super::super::super::types::BillingMode>,
 +    pub deletion_protection_enabled: ::std::option::Option<super::super::super::types::DeletionProtectionEnabled>,
-+    pub global_secondary_indexes: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>,
++    pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>,
 +    pub global_table_settings_replication_mode: ::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode>,
 +    pub global_table_source_arn: ::std::option::Option<super::super::super::types::TableArn>,
-+    pub key_schema: ::std::option::Option<super::super::super::types::KeySchema>,
-+    pub local_secondary_indexes: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>,
++    pub key_schema: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeySchemaElement>>,
++    pub local_secondary_indexes: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>,
 +    pub on_demand_throughput: ::std::option::Option<super::super::super::types::OnDemandThroughput>,
 +    pub provisioned_throughput: ::std::option::Option<super::super::super::types::ProvisionedThroughput>,
 +    pub resource_policy: ::std::option::Option<super::super::super::types::ResourcePolicy>,
@@ -10199,8 +10199,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub stream_specification: ::std::option::Option<super::super::super::types::StreamSpecification>,
 +    pub table_class: ::std::option::Option<super::super::super::types::TableClass>,
 +    pub table_name: ::std::option::Option<super::super::super::types::TableArn>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagList>,
-+    pub vector_indexes: ::std::option::Option<super::super::super::types::VectorIndexList>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
++    pub vector_indexes: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>,
 +    pub warm_throughput: ::std::option::Option<super::super::super::types::WarmThroughput>,
  }
 +        impl CreateTableInput {
@@ -10450,14 +10450,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) global_table_source_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) global_table_settings_replication_mode: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
 -    pub(crate) vector_indexes: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
-+    attribute_definitions: ::std::option::Option<super::super::super::types::AttributeDefinitions>,
++    attribute_definitions: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>,
 +    billing_mode: ::std::option::Option<super::super::super::types::BillingMode>,
 +    deletion_protection_enabled: ::std::option::Option<super::super::super::types::DeletionProtectionEnabled>,
-+    global_secondary_indexes: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>,
++    global_secondary_indexes: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>,
 +    global_table_settings_replication_mode: ::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode>,
 +    global_table_source_arn: ::std::option::Option<super::super::super::types::TableArn>,
-+    key_schema: ::std::option::Option<super::super::super::types::KeySchema>,
-+    local_secondary_indexes: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>,
++    key_schema: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeySchemaElement>>,
++    local_secondary_indexes: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>,
 +    on_demand_throughput: ::std::option::Option<super::super::super::types::OnDemandThroughput>,
 +    provisioned_throughput: ::std::option::Option<super::super::super::types::ProvisionedThroughput>,
 +    resource_policy: ::std::option::Option<super::super::super::types::ResourcePolicy>,
@@ -10465,8 +10465,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    stream_specification: ::std::option::Option<super::super::super::types::StreamSpecification>,
 +    table_class: ::std::option::Option<super::super::super::types::TableClass>,
 +    table_name: ::std::option::Option<super::super::super::types::TableArn>,
-+    tags: ::std::option::Option<super::super::super::types::TagList>,
-+    vector_indexes: ::std::option::Option<super::super::super::types::VectorIndexList>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
++    vector_indexes: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>,
 +    warm_throughput: ::std::option::Option<super::super::super::types::WarmThroughput>,
  }
  impl CreateTableInputBuilder {
@@ -11115,30 +11115,30 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            vector_indexes: self.vector_indexes,
 -        })
 -    }
-+    pub fn attribute_definitions(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeDefinitions>) -> Self { self.attribute_definitions = Some(input.into()); self }
-+    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<super::super::super::types::AttributeDefinitions>) -> Self { self.attribute_definitions = input; self }
-+    pub fn get_attribute_definitions(&self) -> &::std::option::Option<super::super::super::types::AttributeDefinitions> { &self.attribute_definitions }
++    pub fn attribute_definitions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeDefinition>>) -> Self { self.attribute_definitions = Some(input.into()); self }
++    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>) -> Self { self.attribute_definitions = input; self }
++    pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>> { &self.attribute_definitions }
 +    pub fn billing_mode(mut self, input: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.billing_mode = Some(input.into()); self }
 +    pub fn set_billing_mode(mut self, input: ::std::option::Option<super::super::super::types::BillingMode>) -> Self { self.billing_mode = input; self }
 +    pub fn get_billing_mode(&self) -> &::std::option::Option<super::super::super::types::BillingMode> { &self.billing_mode }
 +    pub fn deletion_protection_enabled(mut self, input: impl ::std::convert::Into<super::super::super::types::DeletionProtectionEnabled>) -> Self { self.deletion_protection_enabled = Some(input.into()); self }
 +    pub fn set_deletion_protection_enabled(mut self, input: ::std::option::Option<super::super::super::types::DeletionProtectionEnabled>) -> Self { self.deletion_protection_enabled = input; self }
 +    pub fn get_deletion_protection_enabled(&self) -> &::std::option::Option<super::super::super::types::DeletionProtectionEnabled> { &self.deletion_protection_enabled }
-+    pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-+    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.global_secondary_indexes = input; self }
-+    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<super::super::super::types::GlobalSecondaryIndexList> { &self.global_secondary_indexes }
++    pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
++    pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.global_secondary_indexes = input; self }
++    pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>> { &self.global_secondary_indexes }
 +    pub fn global_table_settings_replication_mode(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = Some(input.into()); self }
 +    pub fn set_global_table_settings_replication_mode(mut self, input: ::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = input; self }
 +    pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode> { &self.global_table_settings_replication_mode }
 +    pub fn global_table_source_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.global_table_source_arn = Some(input.into()); self }
 +    pub fn set_global_table_source_arn(mut self, input: ::std::option::Option<super::super::super::types::TableArn>) -> Self { self.global_table_source_arn = input; self }
 +    pub fn get_global_table_source_arn(&self) -> &::std::option::Option<super::super::super::types::TableArn> { &self.global_table_source_arn }
-+    pub fn key_schema(mut self, input: impl ::std::convert::Into<super::super::super::types::KeySchema>) -> Self { self.key_schema = Some(input.into()); self }
-+    pub fn set_key_schema(mut self, input: ::std::option::Option<super::super::super::types::KeySchema>) -> Self { self.key_schema = input; self }
-+    pub fn get_key_schema(&self) -> &::std::option::Option<super::super::super::types::KeySchema> { &self.key_schema }
-+    pub fn local_secondary_indexes(mut self, input: impl ::std::convert::Into<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.local_secondary_indexes = Some(input.into()); self }
-+    pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.local_secondary_indexes = input; self }
-+    pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<super::super::super::types::LocalSecondaryIndexList> { &self.local_secondary_indexes }
++    pub fn key_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::KeySchemaElement>>) -> Self { self.key_schema = Some(input.into()); self }
++    pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeySchemaElement>>) -> Self { self.key_schema = input; self }
++    pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::KeySchemaElement>> { &self.key_schema }
++    pub fn local_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.local_secondary_indexes = Some(input.into()); self }
++    pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.local_secondary_indexes = input; self }
++    pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>> { &self.local_secondary_indexes }
 +    pub fn on_demand_throughput(mut self, input: impl ::std::convert::Into<super::super::super::types::OnDemandThroughput>) -> Self { self.on_demand_throughput = Some(input.into()); self }
 +    pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<super::super::super::types::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
 +    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<super::super::super::types::OnDemandThroughput> { &self.on_demand_throughput }
@@ -11160,12 +11160,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.table_name = Some(input.into()); self }
 +    pub fn set_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableArn>) -> Self { self.table_name = input; self }
 +    pub fn get_table_name(&self) -> &::std::option::Option<super::super::super::types::TableArn> { &self.table_name }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
-+    pub fn vector_indexes(mut self, input: impl ::std::convert::Into<super::super::super::types::VectorIndexList>) -> Self { self.vector_indexes = Some(input.into()); self }
-+    pub fn set_vector_indexes(mut self, input: ::std::option::Option<super::super::super::types::VectorIndexList>) -> Self { self.vector_indexes = input; self }
-+    pub fn get_vector_indexes(&self) -> &::std::option::Option<super::super::super::types::VectorIndexList> { &self.vector_indexes }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
++    pub fn vector_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.vector_indexes = Some(input.into()); self }
++    pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.vector_indexes = input; self }
++    pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>> { &self.vector_indexes }
 +    pub fn warm_throughput(mut self, input: impl ::std::convert::Into<super::super::super::types::WarmThroughput>) -> Self { self.warm_throughput = Some(input.into()); self }
 +    pub fn set_warm_throughput(mut self, input: ::std::option::Option<super::super::super::types::WarmThroughput>) -> Self { self.warm_throughput = input; self }
 +    pub fn get_warm_throughput(&self) -> &::std::option::Option<super::super::super::types::WarmThroughput> { &self.warm_throughput }
@@ -11348,14 +11348,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn attribute_definitions(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeDefinitions>) -> Self { self.input.attribute_definitions = Some(value.into()); self }
++    pub fn attribute_definitions(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeDefinition>>) -> Self { self.input.attribute_definitions = Some(value.into()); self }
 +    pub fn billing_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.input.billing_mode = Some(value.into()); self }
 +    pub fn deletion_protection_enabled(mut self, value: impl ::std::convert::Into<super::super::super::types::DeletionProtectionEnabled>) -> Self { self.input.deletion_protection_enabled = Some(value.into()); self }
-+    pub fn global_secondary_indexes(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.input.global_secondary_indexes = Some(value.into()); self }
++    pub fn global_secondary_indexes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.input.global_secondary_indexes = Some(value.into()); self }
 +    pub fn global_table_settings_replication_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalTableSettingsReplicationMode>) -> Self { self.input.global_table_settings_replication_mode = Some(value.into()); self }
 +    pub fn global_table_source_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.global_table_source_arn = Some(value.into()); self }
-+    pub fn key_schema(mut self, value: impl ::std::convert::Into<super::super::super::types::KeySchema>) -> Self { self.input.key_schema = Some(value.into()); self }
-+    pub fn local_secondary_indexes(mut self, value: impl ::std::convert::Into<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.input.local_secondary_indexes = Some(value.into()); self }
++    pub fn key_schema(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::KeySchemaElement>>) -> Self { self.input.key_schema = Some(value.into()); self }
++    pub fn local_secondary_indexes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.input.local_secondary_indexes = Some(value.into()); self }
 +    pub fn on_demand_throughput(mut self, value: impl ::std::convert::Into<super::super::super::types::OnDemandThroughput>) -> Self { self.input.on_demand_throughput = Some(value.into()); self }
 +    pub fn provisioned_throughput(mut self, value: impl ::std::convert::Into<super::super::super::types::ProvisionedThroughput>) -> Self { self.input.provisioned_throughput = Some(value.into()); self }
 +    pub fn resource_policy(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourcePolicy>) -> Self { self.input.resource_policy = Some(value.into()); self }
@@ -11363,8 +11363,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn stream_specification(mut self, value: impl ::std::convert::Into<super::super::super::types::StreamSpecification>) -> Self { self.input.stream_specification = Some(value.into()); self }
 +    pub fn table_class(mut self, value: impl ::std::convert::Into<super::super::super::types::TableClass>) -> Self { self.input.table_class = Some(value.into()); self }
 +    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.input.tags = Some(value.into()); self }
-+    pub fn vector_indexes(mut self, value: impl ::std::convert::Into<super::super::super::types::VectorIndexList>) -> Self { self.input.vector_indexes = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn vector_indexes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.input.vector_indexes = Some(value.into()); self }
 +    pub fn warm_throughput(mut self, value: impl ::std::convert::Into<super::super::super::types::WarmThroughput>) -> Self { self.input.warm_throughput = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -13654,10 +13654,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub condition_expression: ::std::option::Option<super::super::super::types::ConditionExpression>,
 +    pub conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
-+    pub expected: ::std::option::Option<super::super::super::types::ExpectedAttributeMap>,
-+    pub expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-+    pub expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
-+    pub key: ::std::option::Option<super::super::super::types::Key>,
++    pub expected: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>,
++    pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
++    pub expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
++    pub key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    pub return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
 +    pub return_values: ::std::option::Option<super::super::super::types::ReturnValue>,
@@ -13667,10 +13667,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        impl DeleteItemInput {
 +            pub fn condition_expression(&self) -> ::std::option::Option<&str> { self.condition_expression.as_deref() }
 +            pub fn conditional_operator(&self) -> ::std::option::Option<&super::super::super::types::ConditionalOperator> { self.conditional_operator.as_ref() }
-+            pub fn expected(&self) -> ::std::option::Option<&super::super::super::types::ExpectedAttributeMap> { self.expected.as_ref() }
-+            pub fn expression_attribute_names(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeNameMap> { self.expression_attribute_names.as_ref() }
-+            pub fn expression_attribute_values(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeValueMap> { self.expression_attribute_values.as_ref() }
-+            pub fn key(&self) -> ::std::option::Option<&super::super::super::types::Key> { self.key.as_ref() }
++            pub fn expected(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>> { self.expected.as_ref() }
++            pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { self.expression_attribute_names.as_ref() }
++            pub fn expression_attribute_values(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { self.expression_attribute_values.as_ref() }
++            pub fn key(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.key.as_ref() }
 +            pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
 +            pub fn return_item_collection_metrics(&self) -> ::std::option::Option<&super::super::super::types::ReturnItemCollectionMetrics> { self.return_item_collection_metrics.as_ref() }
 +            pub fn return_values(&self) -> ::std::option::Option<&super::super::super::types::ReturnValue> { self.return_values.as_ref() }
@@ -13703,10 +13703,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
 +    condition_expression: ::std::option::Option<super::super::super::types::ConditionExpression>,
 +    conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
-+    expected: ::std::option::Option<super::super::super::types::ExpectedAttributeMap>,
-+    expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-+    expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
-+    key: ::std::option::Option<super::super::super::types::Key>,
++    expected: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>,
++    expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
++    expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
++    key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
 +    return_values: ::std::option::Option<super::super::super::types::ReturnValue>,
@@ -14127,18 +14127,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn conditional_operator(mut self, input: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.conditional_operator = Some(input.into()); self }
 +    pub fn set_conditional_operator(mut self, input: ::std::option::Option<super::super::super::types::ConditionalOperator>) -> Self { self.conditional_operator = input; self }
 +    pub fn get_conditional_operator(&self) -> &::std::option::Option<super::super::super::types::ConditionalOperator> { &self.conditional_operator }
-+    pub fn expected(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpectedAttributeMap>) -> Self { self.expected = Some(input.into()); self }
-+    pub fn set_expected(mut self, input: ::std::option::Option<super::super::super::types::ExpectedAttributeMap>) -> Self { self.expected = input; self }
-+    pub fn get_expected(&self) -> &::std::option::Option<super::super::super::types::ExpectedAttributeMap> { &self.expected }
-+    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-+    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-+    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = Some(input.into()); self }
-+    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = input; self }
-+    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeValueMap> { &self.expression_attribute_values }
-+    pub fn key(mut self, input: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.key = Some(input.into()); self }
-+    pub fn set_key(mut self, input: ::std::option::Option<super::super::super::types::Key>) -> Self { self.key = input; self }
-+    pub fn get_key(&self) -> &::std::option::Option<super::super::super::types::Key> { &self.key }
++    pub fn expected(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>) -> Self { self.expected = Some(input.into()); self }
++    pub fn set_expected(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>) -> Self { self.expected = input; self }
++    pub fn get_expected(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>> { &self.expected }
++    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
++    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
++    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { &self.expression_attribute_names }
++    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = Some(input.into()); self }
++    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
++    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { &self.expression_attribute_values }
++    pub fn key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.key = Some(input.into()); self }
++    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.key = input; self }
++    pub fn get_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.key }
 +    pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
 +    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
 +    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
@@ -14228,12 +14228,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub attributes: ::std::option::Option<super::super::super::types::AttributeMap>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
 +    pub item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetrics>,
  }
 +        impl DeleteItemOutput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::AttributeMap> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.attributes.as_ref() }
 +            pub fn consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ConsumedCapacity> { self.consumed_capacity.as_ref() }
 +            pub fn item_collection_metrics(&self) -> ::std::option::Option<&super::super::super::types::ItemCollectionMetrics> { self.item_collection_metrics.as_ref() }
 +        }
@@ -14254,7 +14254,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
 -    pub(crate) item_collection_metrics: ::std::option::Option<crate::types::ItemCollectionMetrics>,
 -    _request_id: Option<String>,
-+    attributes: ::std::option::Option<super::super::super::types::AttributeMap>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
 +    item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetrics>,
  }
@@ -14355,9 +14355,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeMap>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::AttributeMap>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::AttributeMap> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.attributes }
 +    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacity>) -> Self { self.consumed_capacity = Some(input.into()); self }
 +    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacity>) -> Self { self.consumed_capacity = input; self }
 +    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacity> { &self.consumed_capacity }
@@ -14440,10 +14440,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 +    pub fn condition_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionExpression>) -> Self { self.input.condition_expression = Some(value.into()); self }
 +    pub fn conditional_operator(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.input.conditional_operator = Some(value.into()); self }
-+    pub fn expected(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpectedAttributeMap>) -> Self { self.input.expected = Some(value.into()); self }
-+    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
-+    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
-+    pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.input.key = Some(value.into()); self }
++    pub fn expected(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>) -> Self { self.input.expected = Some(value.into()); self }
++    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
++    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
++    pub fn key(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.key = Some(value.into()); self }
 +    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
 +    pub fn return_item_collection_metrics(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnItemCollectionMetrics>) -> Self { self.input.return_item_collection_metrics = Some(value.into()); self }
 +    pub fn return_values(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnValue>) -> Self { self.input.return_values = Some(value.into()); self }
@@ -19109,7 +19109,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub contributor_insights_mode: ::std::option::Option<crate::types::ContributorInsightsMode>,
 -    _request_id: Option<String>,
 +    pub contributor_insights_mode: ::std::option::Option<super::super::super::types::ContributorInsightsMode>,
-+    pub contributor_insights_rule_list: ::std::option::Option<super::super::super::types::ContributorInsightsRuleList>,
++    pub contributor_insights_rule_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsRule>>,
 +    pub contributor_insights_status: ::std::option::Option<super::super::super::types::ContributorInsightsStatus>,
 +    pub failure_exception: ::std::option::Option<super::super::super::types::FailureException>,
 +    pub index_name: ::std::option::Option<super::super::super::types::IndexName>,
@@ -19195,7 +19195,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) contributor_insights_mode: ::std::option::Option<crate::types::ContributorInsightsMode>,
 -    _request_id: Option<String>,
 +    contributor_insights_mode: ::std::option::Option<super::super::super::types::ContributorInsightsMode>,
-+    contributor_insights_rule_list: ::std::option::Option<super::super::super::types::ContributorInsightsRuleList>,
++    contributor_insights_rule_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsRule>>,
 +    contributor_insights_status: ::std::option::Option<super::super::super::types::ContributorInsightsStatus>,
 +    failure_exception: ::std::option::Option<super::super::super::types::FailureException>,
 +    index_name: ::std::option::Option<super::super::super::types::IndexName>,
@@ -19365,9 +19365,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn contributor_insights_mode(mut self, input: impl ::std::convert::Into<super::super::super::types::ContributorInsightsMode>) -> Self { self.contributor_insights_mode = Some(input.into()); self }
 +    pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<super::super::super::types::ContributorInsightsMode>) -> Self { self.contributor_insights_mode = input; self }
 +    pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<super::super::super::types::ContributorInsightsMode> { &self.contributor_insights_mode }
-+    pub fn contributor_insights_rule_list(mut self, input: impl ::std::convert::Into<super::super::super::types::ContributorInsightsRuleList>) -> Self { self.contributor_insights_rule_list = Some(input.into()); self }
-+    pub fn set_contributor_insights_rule_list(mut self, input: ::std::option::Option<super::super::super::types::ContributorInsightsRuleList>) -> Self { self.contributor_insights_rule_list = input; self }
-+    pub fn get_contributor_insights_rule_list(&self) -> &::std::option::Option<super::super::super::types::ContributorInsightsRuleList> { &self.contributor_insights_rule_list }
++    pub fn contributor_insights_rule_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ContributorInsightsRule>>) -> Self { self.contributor_insights_rule_list = Some(input.into()); self }
++    pub fn set_contributor_insights_rule_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsRule>>) -> Self { self.contributor_insights_rule_list = input; self }
++    pub fn get_contributor_insights_rule_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsRule>> { &self.contributor_insights_rule_list }
 +    pub fn contributor_insights_status(mut self, input: impl ::std::convert::Into<super::super::super::types::ContributorInsightsStatus>) -> Self { self.contributor_insights_status = Some(input.into()); self }
 +    pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<super::super::super::types::ContributorInsightsStatus>) -> Self { self.contributor_insights_status = input; self }
 +    pub fn get_contributor_insights_status(&self) -> &::std::option::Option<super::super::super::types::ContributorInsightsStatus> { &self.contributor_insights_status }
@@ -20138,7 +20138,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub endpoints: ::std::option::Option<super::super::super::types::Endpoints>,
++    pub endpoints: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>,
  }
 +        impl DescribeEndpointsOutput {
 +            pub fn endpoints(&self) -> &[super::super::super::types::Endpoint] { self.endpoints.as_deref().unwrap_or(&[]) }
@@ -20158,7 +20158,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DescribeEndpointsOutputBuilder {
 -    pub(crate) endpoints: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>,
 -    _request_id: Option<String>,
-+    endpoints: ::std::option::Option<super::super::super::types::Endpoints>,
++    endpoints: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>,
  }
  impl DescribeEndpointsOutputBuilder {
 -    /// Appends an item to `endpoints`.
@@ -20206,9 +20206,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        })
 -    }
-+    pub fn endpoints(mut self, input: impl ::std::convert::Into<super::super::super::types::Endpoints>) -> Self { self.endpoints = Some(input.into()); self }
-+    pub fn set_endpoints(mut self, input: ::std::option::Option<super::super::super::types::Endpoints>) -> Self { self.endpoints = input; self }
-+    pub fn get_endpoints(&self) -> &::std::option::Option<super::super::super::types::Endpoints> { &self.endpoints }
++    pub fn endpoints(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Endpoint>>) -> Self { self.endpoints = Some(input.into()); self }
++    pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>) -> Self { self.endpoints = input; self }
++    pub fn get_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>> { &self.endpoints }
 +    pub fn build(self) -> DescribeEndpointsOutput { DescribeEndpointsOutput {
 +        endpoints: self.endpoints,
 +    } }
@@ -22510,7 +22510,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub replica_settings: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>,
 -    _request_id: Option<String>,
 +    pub global_table_name: ::std::option::Option<super::super::super::types::TableName>,
-+    pub replica_settings: ::std::option::Option<super::super::super::types::ReplicaSettingsDescriptionList>,
++    pub replica_settings: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>,
  }
 +        impl DescribeGlobalTableSettingsOutput {
 +            pub fn global_table_name(&self) -> ::std::option::Option<&str> { self.global_table_name.as_deref() }
@@ -22550,7 +22550,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) replica_settings: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>,
 -    _request_id: Option<String>,
 +    global_table_name: ::std::option::Option<super::super::super::types::TableName>,
-+    replica_settings: ::std::option::Option<super::super::super::types::ReplicaSettingsDescriptionList>,
++    replica_settings: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>,
  }
  impl DescribeGlobalTableSettingsOutputBuilder {
 -    /// <p>The name of the global table.</p>
@@ -22607,9 +22607,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn global_table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.global_table_name = Some(input.into()); self }
 +    pub fn set_global_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.global_table_name = input; self }
 +    pub fn get_global_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.global_table_name }
-+    pub fn replica_settings(mut self, input: impl ::std::convert::Into<super::super::super::types::ReplicaSettingsDescriptionList>) -> Self { self.replica_settings = Some(input.into()); self }
-+    pub fn set_replica_settings(mut self, input: ::std::option::Option<super::super::super::types::ReplicaSettingsDescriptionList>) -> Self { self.replica_settings = input; self }
-+    pub fn get_replica_settings(&self) -> &::std::option::Option<super::super::super::types::ReplicaSettingsDescriptionList> { &self.replica_settings }
++    pub fn replica_settings(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>) -> Self { self.replica_settings = Some(input.into()); self }
++    pub fn set_replica_settings(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>) -> Self { self.replica_settings = input; self }
++    pub fn get_replica_settings(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>> { &self.replica_settings }
 +    pub fn build(self) -> DescribeGlobalTableSettingsOutput { DescribeGlobalTableSettingsOutput {
 +        global_table_name: self.global_table_name,
 +        replica_settings: self.replica_settings,
@@ -24192,7 +24192,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub kinesis_data_stream_destinations: ::std::option::Option<super::super::super::types::KinesisDataStreamDestinations>,
++    pub kinesis_data_stream_destinations: ::std::option::Option<::std::vec::Vec<super::super::super::types::KinesisDataStreamDestination>>,
 +    pub table_name: ::std::option::Option<super::super::super::types::TableName>,
  }
 +        impl DescribeKinesisStreamingDestinationOutput {
@@ -24215,7 +24215,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) table_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) kinesis_data_stream_destinations: ::std::option::Option<::std::vec::Vec<crate::types::KinesisDataStreamDestination>>,
 -    _request_id: Option<String>,
-+    kinesis_data_stream_destinations: ::std::option::Option<super::super::super::types::KinesisDataStreamDestinations>,
++    kinesis_data_stream_destinations: ::std::option::Option<::std::vec::Vec<super::super::super::types::KinesisDataStreamDestination>>,
 +    table_name: ::std::option::Option<super::super::super::types::TableName>,
  }
  impl DescribeKinesisStreamingDestinationOutputBuilder {
@@ -24273,9 +24273,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn kinesis_data_stream_destinations(mut self, input: impl ::std::convert::Into<super::super::super::types::KinesisDataStreamDestinations>) -> Self { self.kinesis_data_stream_destinations = Some(input.into()); self }
-+    pub fn set_kinesis_data_stream_destinations(mut self, input: ::std::option::Option<super::super::super::types::KinesisDataStreamDestinations>) -> Self { self.kinesis_data_stream_destinations = input; self }
-+    pub fn get_kinesis_data_stream_destinations(&self) -> &::std::option::Option<super::super::super::types::KinesisDataStreamDestinations> { &self.kinesis_data_stream_destinations }
++    pub fn kinesis_data_stream_destinations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::KinesisDataStreamDestination>>) -> Self { self.kinesis_data_stream_destinations = Some(input.into()); self }
++    pub fn set_kinesis_data_stream_destinations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::KinesisDataStreamDestination>>) -> Self { self.kinesis_data_stream_destinations = input; self }
++    pub fn get_kinesis_data_stream_destinations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::KinesisDataStreamDestination>> { &self.kinesis_data_stream_destinations }
 +    pub fn table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.table_name = Some(input.into()); self }
 +    pub fn set_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.table_name = input; self }
 +    pub fn get_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.table_name }
@@ -30409,7 +30409,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub consistent_read: ::std::option::Option<super::super::super::types::ConsistentRead>,
 +    pub limit: ::std::option::Option<super::super::super::types::PositiveIntegerObject>,
 +    pub next_token: ::std::option::Option<super::super::super::types::PartiQlNextToken>,
-+    pub parameters: ::std::option::Option<super::super::super::types::PreparedStatementParameters>,
++    pub parameters: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>>,
 +    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    pub return_values_on_condition_check_failure: ::std::option::Option<super::super::super::types::ReturnValuesOnConditionCheckFailure>,
 +    pub statement: ::std::option::Option<super::super::super::types::PartiQlStatement>,
@@ -30488,7 +30488,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    consistent_read: ::std::option::Option<super::super::super::types::ConsistentRead>,
 +    limit: ::std::option::Option<super::super::super::types::PositiveIntegerObject>,
 +    next_token: ::std::option::Option<super::super::super::types::PartiQlNextToken>,
-+    parameters: ::std::option::Option<super::super::super::types::PreparedStatementParameters>,
++    parameters: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>>,
 +    return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    return_values_on_condition_check_failure: ::std::option::Option<super::super::super::types::ReturnValuesOnConditionCheckFailure>,
 +    statement: ::std::option::Option<super::super::super::types::PartiQlStatement>,
@@ -30655,9 +30655,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::PartiQlNextToken>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::PartiQlNextToken>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::PartiQlNextToken> { &self.next_token }
-+    pub fn parameters(mut self, input: impl ::std::convert::Into<super::super::super::types::PreparedStatementParameters>) -> Self { self.parameters = Some(input.into()); self }
-+    pub fn set_parameters(mut self, input: ::std::option::Option<super::super::super::types::PreparedStatementParameters>) -> Self { self.parameters = input; self }
-+    pub fn get_parameters(&self) -> &::std::option::Option<super::super::super::types::PreparedStatementParameters> { &self.parameters }
++    pub fn parameters(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeValue>>) -> Self { self.parameters = Some(input.into()); self }
++    pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>>) -> Self { self.parameters = input; self }
++    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>> { &self.parameters }
 +    pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
 +    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
 +    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
@@ -30703,14 +30703,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub last_evaluated_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
 -    _request_id: Option<String>,
 +    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
-+    pub items: ::std::option::Option<super::super::super::types::ItemList>,
-+    pub last_evaluated_key: ::std::option::Option<super::super::super::types::Key>,
++    pub items: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>,
++    pub last_evaluated_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    pub next_token: ::std::option::Option<super::super::super::types::PartiQlNextToken>,
  }
 +        impl ExecuteStatementOutput {
 +            pub fn consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ConsumedCapacity> { self.consumed_capacity.as_ref() }
-+            pub fn items(&self) -> &[super::super::super::types::AttributeMap] { self.items.as_deref().unwrap_or(&[]) }
-+            pub fn last_evaluated_key(&self) -> ::std::option::Option<&super::super::super::types::Key> { self.last_evaluated_key.as_ref() }
++            pub fn items(&self) -> &[::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>] { self.items.as_deref().unwrap_or(&[]) }
++            pub fn last_evaluated_key(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.last_evaluated_key.as_ref() }
 +            pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
 +        }
  impl ExecuteStatementOutput {
@@ -30757,8 +30757,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) last_evaluated_key: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
 -    _request_id: Option<String>,
 +    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
-+    items: ::std::option::Option<super::super::super::types::ItemList>,
-+    last_evaluated_key: ::std::option::Option<super::super::super::types::Key>,
++    items: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>,
++    last_evaluated_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    next_token: ::std::option::Option<super::super::super::types::PartiQlNextToken>,
  }
  impl ExecuteStatementOutputBuilder {
@@ -30860,12 +30860,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacity>) -> Self { self.consumed_capacity = Some(input.into()); self }
 +    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacity>) -> Self { self.consumed_capacity = input; self }
 +    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacity> { &self.consumed_capacity }
-+    pub fn items(mut self, input: impl ::std::convert::Into<super::super::super::types::ItemList>) -> Self { self.items = Some(input.into()); self }
-+    pub fn set_items(mut self, input: ::std::option::Option<super::super::super::types::ItemList>) -> Self { self.items = input; self }
-+    pub fn get_items(&self) -> &::std::option::Option<super::super::super::types::ItemList> { &self.items }
-+    pub fn last_evaluated_key(mut self, input: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.last_evaluated_key = Some(input.into()); self }
-+    pub fn set_last_evaluated_key(mut self, input: ::std::option::Option<super::super::super::types::Key>) -> Self { self.last_evaluated_key = input; self }
-+    pub fn get_last_evaluated_key(&self) -> &::std::option::Option<super::super::super::types::Key> { &self.last_evaluated_key }
++    pub fn items(mut self, input: impl ::std::convert::Into<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>) -> Self { self.items = Some(input.into()); self }
++    pub fn set_items(mut self, input: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>) -> Self { self.items = input; self }
++    pub fn get_items(&self) -> &::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>> { &self.items }
++    pub fn last_evaluated_key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.last_evaluated_key = Some(input.into()); self }
++    pub fn set_last_evaluated_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.last_evaluated_key = input; self }
++    pub fn get_last_evaluated_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.last_evaluated_key }
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::PartiQlNextToken>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::PartiQlNextToken>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::PartiQlNextToken> { &self.next_token }
@@ -31144,7 +31144,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn consistent_read(mut self, value: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.input.consistent_read = Some(value.into()); self }
 +    pub fn limit(mut self, value: impl ::std::convert::Into<super::super::super::types::PositiveIntegerObject>) -> Self { self.input.limit = Some(value.into()); self }
 +    pub fn next_token(mut self, value: impl ::std::convert::Into<super::super::super::types::PartiQlNextToken>) -> Self { self.input.next_token = Some(value.into()); self }
-+    pub fn parameters(mut self, value: impl ::std::convert::Into<super::super::super::types::PreparedStatementParameters>) -> Self { self.input.parameters = Some(value.into()); self }
++    pub fn parameters(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeValue>>) -> Self { self.input.parameters = Some(value.into()); self }
 +    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
 +    pub fn return_values_on_condition_check_failure(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnValuesOnConditionCheckFailure>) -> Self { self.input.return_values_on_condition_check_failure = Some(value.into()); self }
 +    pub fn statement(mut self, value: impl ::std::convert::Into<super::super::super::types::PartiQlStatement>) -> Self { self.input.statement = Some(value.into()); self }
@@ -31776,7 +31776,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub client_request_token: ::std::option::Option<super::super::super::types::ClientRequestToken>,
 +    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-+    pub transact_statements: ::std::option::Option<super::super::super::types::ParameterizedStatements>,
++    pub transact_statements: ::std::option::Option<::std::vec::Vec<super::super::super::types::ParameterizedStatement>>,
  }
 +        impl ExecuteTransactionInput {
 +            pub fn client_request_token(&self) -> ::std::option::Option<&str> { self.client_request_token.as_deref() }
@@ -31801,7 +31801,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
 +    client_request_token: ::std::option::Option<super::super::super::types::ClientRequestToken>,
 +    return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-+    transact_statements: ::std::option::Option<super::super::super::types::ParameterizedStatements>,
++    transact_statements: ::std::option::Option<::std::vec::Vec<super::super::super::types::ParameterizedStatement>>,
  }
  impl ExecuteTransactionInputBuilder {
 -    /// Appends an item to `transact_statements`.
@@ -31868,9 +31868,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
 +    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
 +    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
-+    pub fn transact_statements(mut self, input: impl ::std::convert::Into<super::super::super::types::ParameterizedStatements>) -> Self { self.transact_statements = Some(input.into()); self }
-+    pub fn set_transact_statements(mut self, input: ::std::option::Option<super::super::super::types::ParameterizedStatements>) -> Self { self.transact_statements = input; self }
-+    pub fn get_transact_statements(&self) -> &::std::option::Option<super::super::super::types::ParameterizedStatements> { &self.transact_statements }
++    pub fn transact_statements(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ParameterizedStatement>>) -> Self { self.transact_statements = Some(input.into()); self }
++    pub fn set_transact_statements(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ParameterizedStatement>>) -> Self { self.transact_statements = input; self }
++    pub fn get_transact_statements(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ParameterizedStatement>> { &self.transact_statements }
 +    pub fn build(self) -> ExecuteTransactionInput { ExecuteTransactionInput {
 +        client_request_token: self.client_request_token,
 +        return_consumed_capacity: self.return_consumed_capacity,
@@ -31898,8 +31898,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The capacity units consumed by the entire operation. The values of the list are ordered according to the ordering of the statements.</p>
 -    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
 -    _request_id: Option<String>,
-+    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-+    pub responses: ::std::option::Option<super::super::super::types::ItemResponseList>,
++    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
++    pub responses: ::std::option::Option<::std::vec::Vec<super::super::super::types::ItemResponse>>,
  }
 +        impl ExecuteTransactionOutput {
 +            pub fn consumed_capacity(&self) -> &[super::super::super::types::ConsumedCapacity] { self.consumed_capacity.as_deref().unwrap_or(&[]) }
@@ -31940,8 +31940,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) responses: ::std::option::Option<::std::vec::Vec<crate::types::ItemResponse>>,
 -    pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
 -    _request_id: Option<String>,
-+    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-+    responses: ::std::option::Option<super::super::super::types::ItemResponseList>,
++    consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
++    responses: ::std::option::Option<::std::vec::Vec<super::super::super::types::ItemResponse>>,
  }
  impl ExecuteTransactionOutputBuilder {
 -    /// Appends an item to `responses`.
@@ -32001,12 +32001,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = Some(input.into()); self }
-+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = input; self }
-+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacityMultiple> { &self.consumed_capacity }
-+    pub fn responses(mut self, input: impl ::std::convert::Into<super::super::super::types::ItemResponseList>) -> Self { self.responses = Some(input.into()); self }
-+    pub fn set_responses(mut self, input: ::std::option::Option<super::super::super::types::ItemResponseList>) -> Self { self.responses = input; self }
-+    pub fn get_responses(&self) -> &::std::option::Option<super::super::super::types::ItemResponseList> { &self.responses }
++    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = Some(input.into()); self }
++    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = input; self }
++    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>> { &self.consumed_capacity }
++    pub fn responses(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ItemResponse>>) -> Self { self.responses = Some(input.into()); self }
++    pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ItemResponse>>) -> Self { self.responses = input; self }
++    pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ItemResponse>> { &self.responses }
 +    pub fn build(self) -> ExecuteTransactionOutput { ExecuteTransactionOutput {
 +        consumed_capacity: self.consumed_capacity,
 +        responses: self.responses,
@@ -32081,7 +32081,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 +    pub fn client_request_token(mut self, value: impl ::std::convert::Into<super::super::super::types::ClientRequestToken>) -> Self { self.input.client_request_token = Some(value.into()); self }
 +    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
-+    pub fn transact_statements(mut self, value: impl ::std::convert::Into<super::super::super::types::ParameterizedStatements>) -> Self { self.input.transact_statements = Some(value.into()); self }
++    pub fn transact_statements(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ParameterizedStatement>>) -> Self { self.input.transact_statements = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::ExecuteTransactionOutput, super::ExecuteTransactionError> {
@@ -34492,10 +34492,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
 -        self.expression_attribute_names.as_ref()
 -    }
-+    pub attributes_to_get: ::std::option::Option<super::super::super::types::AttributeNameList>,
++    pub attributes_to_get: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>,
 +    pub consistent_read: ::std::option::Option<super::super::super::types::ConsistentRead>,
-+    pub expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-+    pub key: ::std::option::Option<super::super::super::types::Key>,
++    pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
++    pub key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    pub projection_expression: ::std::option::Option<super::super::super::types::ProjectionExpression>,
 +    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    pub table_name: ::std::option::Option<super::super::super::types::TableArn>,
@@ -34503,8 +34503,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        impl GetItemInput {
 +            pub fn attributes_to_get(&self) -> &[super::super::super::types::AttributeName] { self.attributes_to_get.as_deref().unwrap_or(&[]) }
 +            pub fn consistent_read(&self) -> ::std::option::Option<bool> { self.consistent_read }
-+            pub fn expression_attribute_names(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeNameMap> { self.expression_attribute_names.as_ref() }
-+            pub fn key(&self) -> ::std::option::Option<&super::super::super::types::Key> { self.key.as_ref() }
++            pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { self.expression_attribute_names.as_ref() }
++            pub fn key(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.key.as_ref() }
 +            pub fn projection_expression(&self) -> ::std::option::Option<&str> { self.projection_expression.as_deref() }
 +            pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
 +            pub fn table_name(&self) -> ::std::option::Option<&str> { self.table_name.as_deref() }
@@ -34529,10 +34529,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
 -    pub(crate) projection_expression: ::std::option::Option<::std::string::String>,
 -    pub(crate) expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-+    attributes_to_get: ::std::option::Option<super::super::super::types::AttributeNameList>,
++    attributes_to_get: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>,
 +    consistent_read: ::std::option::Option<super::super::super::types::ConsistentRead>,
-+    expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-+    key: ::std::option::Option<super::super::super::types::Key>,
++    expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
++    key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    projection_expression: ::std::option::Option<super::super::super::types::ProjectionExpression>,
 +    return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    table_name: ::std::option::Option<super::super::super::types::TableArn>,
@@ -34790,18 +34790,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            expression_attribute_names: self.expression_attribute_names,
 -        })
 -    }
-+    pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.attributes_to_get = Some(input.into()); self }
-+    pub fn set_attributes_to_get(mut self, input: ::std::option::Option<super::super::super::types::AttributeNameList>) -> Self { self.attributes_to_get = input; self }
-+    pub fn get_attributes_to_get(&self) -> &::std::option::Option<super::super::super::types::AttributeNameList> { &self.attributes_to_get }
++    pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.attributes_to_get = Some(input.into()); self }
++    pub fn set_attributes_to_get(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.attributes_to_get = input; self }
++    pub fn get_attributes_to_get(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>> { &self.attributes_to_get }
 +    pub fn consistent_read(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.consistent_read = Some(input.into()); self }
 +    pub fn set_consistent_read(mut self, input: ::std::option::Option<super::super::super::types::ConsistentRead>) -> Self { self.consistent_read = input; self }
 +    pub fn get_consistent_read(&self) -> &::std::option::Option<super::super::super::types::ConsistentRead> { &self.consistent_read }
-+    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-+    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-+    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+    pub fn key(mut self, input: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.key = Some(input.into()); self }
-+    pub fn set_key(mut self, input: ::std::option::Option<super::super::super::types::Key>) -> Self { self.key = input; self }
-+    pub fn get_key(&self) -> &::std::option::Option<super::super::super::types::Key> { &self.key }
++    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
++    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
++    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { &self.expression_attribute_names }
++    pub fn key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.key = Some(input.into()); self }
++    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.key = input; self }
++    pub fn get_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.key }
 +    pub fn projection_expression(mut self, input: impl ::std::convert::Into<super::super::super::types::ProjectionExpression>) -> Self { self.projection_expression = Some(input.into()); self }
 +    pub fn set_projection_expression(mut self, input: ::std::option::Option<super::super::super::types::ProjectionExpression>) -> Self { self.projection_expression = input; self }
 +    pub fn get_projection_expression(&self) -> &::std::option::Option<super::super::super::types::ProjectionExpression> { &self.projection_expression }
@@ -34843,11 +34843,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
 -    _request_id: Option<String>,
 +    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
-+    pub item: ::std::option::Option<super::super::super::types::AttributeMap>,
++    pub item: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
  }
 +        impl GetItemOutput {
 +            pub fn consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ConsumedCapacity> { self.consumed_capacity.as_ref() }
-+            pub fn item(&self) -> ::std::option::Option<&super::super::super::types::AttributeMap> { self.item.as_ref() }
++            pub fn item(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.item.as_ref() }
 +        }
  impl GetItemOutput {
 -    /// <p>A map of attribute names to <code>AttributeValue</code> objects, as specified by <code>ProjectionExpression</code>.</p>
@@ -34881,7 +34881,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
 -    _request_id: Option<String>,
 +    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
-+    item: ::std::option::Option<super::super::super::types::AttributeMap>,
++    item: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
  }
  impl GetItemOutputBuilder {
 -    /// Adds a key-value pair to `item`.
@@ -34941,9 +34941,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacity>) -> Self { self.consumed_capacity = Some(input.into()); self }
 +    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacity>) -> Self { self.consumed_capacity = input; self }
 +    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacity> { &self.consumed_capacity }
-+    pub fn item(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeMap>) -> Self { self.item = Some(input.into()); self }
-+    pub fn set_item(mut self, input: ::std::option::Option<super::super::super::types::AttributeMap>) -> Self { self.item = input; self }
-+    pub fn get_item(&self) -> &::std::option::Option<super::super::super::types::AttributeMap> { &self.item }
++    pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
++    pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.item = input; self }
++    pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.item }
 +    pub fn build(self) -> GetItemOutput { GetItemOutput {
 +        consumed_capacity: self.consumed_capacity,
 +        item: self.item,
@@ -35304,10 +35304,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
 -        self.inner.get_expression_attribute_names()
 -    }
-+    pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.input.attributes_to_get = Some(value.into()); self }
++    pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.input.attributes_to_get = Some(value.into()); self }
 +    pub fn consistent_read(mut self, value: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.input.consistent_read = Some(value.into()); self }
-+    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
-+    pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.input.key = Some(value.into()); self }
++    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
++    pub fn key(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.key = Some(value.into()); self }
 +    pub fn projection_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ProjectionExpression>) -> Self { self.input.projection_expression = Some(value.into()); self }
 +    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
 +    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
@@ -38114,7 +38114,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub backup_summaries: ::std::option::Option<super::super::super::types::BackupSummaries>,
++    pub backup_summaries: ::std::option::Option<::std::vec::Vec<super::super::super::types::BackupSummary>>,
 +    pub last_evaluated_backup_arn: ::std::option::Option<super::super::super::types::BackupArn>,
  }
 +        impl ListBackupsOutput {
@@ -38137,7 +38137,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) backup_summaries: ::std::option::Option<::std::vec::Vec<crate::types::BackupSummary>>,
 -    pub(crate) last_evaluated_backup_arn: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    backup_summaries: ::std::option::Option<super::super::super::types::BackupSummaries>,
++    backup_summaries: ::std::option::Option<::std::vec::Vec<super::super::super::types::BackupSummary>>,
 +    last_evaluated_backup_arn: ::std::option::Option<super::super::super::types::BackupArn>,
  }
  impl ListBackupsOutputBuilder {
@@ -38198,9 +38198,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn backup_summaries(mut self, input: impl ::std::convert::Into<super::super::super::types::BackupSummaries>) -> Self { self.backup_summaries = Some(input.into()); self }
-+    pub fn set_backup_summaries(mut self, input: ::std::option::Option<super::super::super::types::BackupSummaries>) -> Self { self.backup_summaries = input; self }
-+    pub fn get_backup_summaries(&self) -> &::std::option::Option<super::super::super::types::BackupSummaries> { &self.backup_summaries }
++    pub fn backup_summaries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::BackupSummary>>) -> Self { self.backup_summaries = Some(input.into()); self }
++    pub fn set_backup_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BackupSummary>>) -> Self { self.backup_summaries = input; self }
++    pub fn get_backup_summaries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::BackupSummary>> { &self.backup_summaries }
 +    pub fn last_evaluated_backup_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::BackupArn>) -> Self { self.last_evaluated_backup_arn = Some(input.into()); self }
 +    pub fn set_last_evaluated_backup_arn(mut self, input: ::std::option::Option<super::super::super::types::BackupArn>) -> Self { self.last_evaluated_backup_arn = input; self }
 +    pub fn get_last_evaluated_backup_arn(&self) -> &::std::option::Option<super::super::super::types::BackupArn> { &self.last_evaluated_backup_arn }
@@ -39125,7 +39125,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub contributor_insights_summaries: ::std::option::Option<super::super::super::types::ContributorInsightsSummaries>,
++    pub contributor_insights_summaries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsSummary>>,
 +    pub next_token: ::std::option::Option<super::super::super::types::NextTokenString>,
  }
 +        impl ListContributorInsightsOutput {
@@ -39148,7 +39148,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) contributor_insights_summaries: ::std::option::Option<::std::vec::Vec<crate::types::ContributorInsightsSummary>>,
 -    pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    contributor_insights_summaries: ::std::option::Option<super::super::super::types::ContributorInsightsSummaries>,
++    contributor_insights_summaries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsSummary>>,
 +    next_token: ::std::option::Option<super::super::super::types::NextTokenString>,
  }
  impl ListContributorInsightsOutputBuilder {
@@ -39206,9 +39206,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn contributor_insights_summaries(mut self, input: impl ::std::convert::Into<super::super::super::types::ContributorInsightsSummaries>) -> Self { self.contributor_insights_summaries = Some(input.into()); self }
-+    pub fn set_contributor_insights_summaries(mut self, input: ::std::option::Option<super::super::super::types::ContributorInsightsSummaries>) -> Self { self.contributor_insights_summaries = input; self }
-+    pub fn get_contributor_insights_summaries(&self) -> &::std::option::Option<super::super::super::types::ContributorInsightsSummaries> { &self.contributor_insights_summaries }
++    pub fn contributor_insights_summaries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ContributorInsightsSummary>>) -> Self { self.contributor_insights_summaries = Some(input.into()); self }
++    pub fn set_contributor_insights_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsSummary>>) -> Self { self.contributor_insights_summaries = input; self }
++    pub fn get_contributor_insights_summaries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsSummary>> { &self.contributor_insights_summaries }
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::NextTokenString>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::NextTokenString>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::NextTokenString> { &self.next_token }
@@ -40050,7 +40050,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListExports</code> again, with <code>NextToken</code> set to this value.</p>
 -    pub next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    pub export_summaries: ::std::option::Option<super::super::super::types::ExportSummaries>,
++    pub export_summaries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExportSummary>>,
 +    pub next_token: ::std::option::Option<super::super::super::types::ExportNextToken>,
  }
 +        impl ListExportsOutput {
@@ -40090,7 +40090,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) export_summaries: ::std::option::Option<::std::vec::Vec<crate::types::ExportSummary>>,
 -    pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    export_summaries: ::std::option::Option<super::super::super::types::ExportSummaries>,
++    export_summaries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExportSummary>>,
 +    next_token: ::std::option::Option<super::super::super::types::ExportNextToken>,
  }
  impl ListExportsOutputBuilder {
@@ -40145,9 +40145,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn export_summaries(mut self, input: impl ::std::convert::Into<super::super::super::types::ExportSummaries>) -> Self { self.export_summaries = Some(input.into()); self }
-+    pub fn set_export_summaries(mut self, input: ::std::option::Option<super::super::super::types::ExportSummaries>) -> Self { self.export_summaries = input; self }
-+    pub fn get_export_summaries(&self) -> &::std::option::Option<super::super::super::types::ExportSummaries> { &self.export_summaries }
++    pub fn export_summaries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ExportSummary>>) -> Self { self.export_summaries = Some(input.into()); self }
++    pub fn set_export_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExportSummary>>) -> Self { self.export_summaries = input; self }
++    pub fn get_export_summaries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ExportSummary>> { &self.export_summaries }
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::ExportNextToken>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::ExportNextToken>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::ExportNextToken> { &self.next_token }
@@ -40997,7 +40997,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Last evaluated global table name.</p>
 -    pub last_evaluated_global_table_name: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    pub global_tables: ::std::option::Option<super::super::super::types::GlobalTableList>,
++    pub global_tables: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTable>>,
 +    pub last_evaluated_global_table_name: ::std::option::Option<super::super::super::types::TableName>,
  }
 +        impl ListGlobalTablesOutput {
@@ -41037,7 +41037,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) global_tables: ::std::option::Option<::std::vec::Vec<crate::types::GlobalTable>>,
 -    pub(crate) last_evaluated_global_table_name: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    global_tables: ::std::option::Option<super::super::super::types::GlobalTableList>,
++    global_tables: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTable>>,
 +    last_evaluated_global_table_name: ::std::option::Option<super::super::super::types::TableName>,
  }
  impl ListGlobalTablesOutputBuilder {
@@ -41092,9 +41092,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn global_tables(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalTableList>) -> Self { self.global_tables = Some(input.into()); self }
-+    pub fn set_global_tables(mut self, input: ::std::option::Option<super::super::super::types::GlobalTableList>) -> Self { self.global_tables = input; self }
-+    pub fn get_global_tables(&self) -> &::std::option::Option<super::super::super::types::GlobalTableList> { &self.global_tables }
++    pub fn global_tables(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalTable>>) -> Self { self.global_tables = Some(input.into()); self }
++    pub fn set_global_tables(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTable>>) -> Self { self.global_tables = input; self }
++    pub fn get_global_tables(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTable>> { &self.global_tables }
 +    pub fn last_evaluated_global_table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.last_evaluated_global_table_name = Some(input.into()); self }
 +    pub fn set_last_evaluated_global_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.last_evaluated_global_table_name = input; self }
 +    pub fn get_last_evaluated_global_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.last_evaluated_global_table_name }
@@ -41930,7 +41930,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListImports</code> again, with <code>NextToken</code> set to this value.</p>
 -    pub next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    pub import_summary_list: ::std::option::Option<super::super::super::types::ImportSummaryList>,
++    pub import_summary_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ImportSummary>>,
 +    pub next_token: ::std::option::Option<super::super::super::types::ImportNextToken>,
  }
 +        impl ListImportsOutput {
@@ -41970,7 +41970,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) import_summary_list: ::std::option::Option<::std::vec::Vec<crate::types::ImportSummary>>,
 -    pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    import_summary_list: ::std::option::Option<super::super::super::types::ImportSummaryList>,
++    import_summary_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ImportSummary>>,
 +    next_token: ::std::option::Option<super::super::super::types::ImportNextToken>,
  }
  impl ListImportsOutputBuilder {
@@ -42025,9 +42025,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn import_summary_list(mut self, input: impl ::std::convert::Into<super::super::super::types::ImportSummaryList>) -> Self { self.import_summary_list = Some(input.into()); self }
-+    pub fn set_import_summary_list(mut self, input: ::std::option::Option<super::super::super::types::ImportSummaryList>) -> Self { self.import_summary_list = input; self }
-+    pub fn get_import_summary_list(&self) -> &::std::option::Option<super::super::super::types::ImportSummaryList> { &self.import_summary_list }
++    pub fn import_summary_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ImportSummary>>) -> Self { self.import_summary_list = Some(input.into()); self }
++    pub fn set_import_summary_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ImportSummary>>) -> Self { self.import_summary_list = input; self }
++    pub fn get_import_summary_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ImportSummary>> { &self.import_summary_list }
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::ImportNextToken>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::ImportNextToken>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::ImportNextToken> { &self.next_token }
@@ -42831,7 +42831,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub last_evaluated_table_name: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
 +    pub last_evaluated_table_name: ::std::option::Option<super::super::super::types::TableName>,
-+    pub table_names: ::std::option::Option<super::super::super::types::TableNameList>,
++    pub table_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::TableName>>,
  }
 +        impl ListTablesOutput {
 +            pub fn last_evaluated_table_name(&self) -> ::std::option::Option<&str> { self.last_evaluated_table_name.as_deref() }
@@ -42873,7 +42873,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) last_evaluated_table_name: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
 +    last_evaluated_table_name: ::std::option::Option<super::super::super::types::TableName>,
-+    table_names: ::std::option::Option<super::super::super::types::TableNameList>,
++    table_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::TableName>>,
  }
  impl ListTablesOutputBuilder {
 -    /// Appends an item to `table_names`.
@@ -42936,9 +42936,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn last_evaluated_table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.last_evaluated_table_name = Some(input.into()); self }
 +    pub fn set_last_evaluated_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.last_evaluated_table_name = input; self }
 +    pub fn get_last_evaluated_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.last_evaluated_table_name }
-+    pub fn table_names(mut self, input: impl ::std::convert::Into<super::super::super::types::TableNameList>) -> Self { self.table_names = Some(input.into()); self }
-+    pub fn set_table_names(mut self, input: ::std::option::Option<super::super::super::types::TableNameList>) -> Self { self.table_names = input; self }
-+    pub fn get_table_names(&self) -> &::std::option::Option<super::super::super::types::TableNameList> { &self.table_names }
++    pub fn table_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TableName>>) -> Self { self.table_names = Some(input.into()); self }
++    pub fn set_table_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TableName>>) -> Self { self.table_names = input; self }
++    pub fn get_table_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TableName>> { &self.table_names }
 +    pub fn build(self) -> ListTablesOutput { ListTablesOutput {
 +        last_evaluated_table_name: self.last_evaluated_table_name,
 +        table_names: self.table_names,
@@ -43725,7 +43725,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
 +    pub next_token: ::std::option::Option<super::super::super::types::NextTokenString>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagList>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl ListTagsOfResourceOutput {
 +            pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -43765,7 +43765,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
 +    next_token: ::std::option::Option<super::super::super::types::NextTokenString>,
-+    tags: ::std::option::Option<super::super::super::types::TagList>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl ListTagsOfResourceOutputBuilder {
 -    /// Appends an item to `tags`.
@@ -43822,9 +43822,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::NextTokenString>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::NextTokenString>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::NextTokenString> { &self.next_token }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> ListTagsOfResourceOutput { ListTagsOfResourceOutput {
 +        next_token: self.next_token,
 +        tags: self.tags,
@@ -44751,10 +44751,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub condition_expression: ::std::option::Option<super::super::super::types::ConditionExpression>,
 +    pub conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
-+    pub expected: ::std::option::Option<super::super::super::types::ExpectedAttributeMap>,
-+    pub expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-+    pub expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
-+    pub item: ::std::option::Option<super::super::super::types::PutItemInputAttributeMap>,
++    pub expected: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>,
++    pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
++    pub expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
++    pub item: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    pub return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
 +    pub return_values: ::std::option::Option<super::super::super::types::ReturnValue>,
@@ -44764,10 +44764,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        impl PutItemInput {
 +            pub fn condition_expression(&self) -> ::std::option::Option<&str> { self.condition_expression.as_deref() }
 +            pub fn conditional_operator(&self) -> ::std::option::Option<&super::super::super::types::ConditionalOperator> { self.conditional_operator.as_ref() }
-+            pub fn expected(&self) -> ::std::option::Option<&super::super::super::types::ExpectedAttributeMap> { self.expected.as_ref() }
-+            pub fn expression_attribute_names(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeNameMap> { self.expression_attribute_names.as_ref() }
-+            pub fn expression_attribute_values(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeValueMap> { self.expression_attribute_values.as_ref() }
-+            pub fn item(&self) -> ::std::option::Option<&super::super::super::types::PutItemInputAttributeMap> { self.item.as_ref() }
++            pub fn expected(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>> { self.expected.as_ref() }
++            pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { self.expression_attribute_names.as_ref() }
++            pub fn expression_attribute_values(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { self.expression_attribute_values.as_ref() }
++            pub fn item(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.item.as_ref() }
 +            pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
 +            pub fn return_item_collection_metrics(&self) -> ::std::option::Option<&super::super::super::types::ReturnItemCollectionMetrics> { self.return_item_collection_metrics.as_ref() }
 +            pub fn return_values(&self) -> ::std::option::Option<&super::super::super::types::ReturnValue> { self.return_values.as_ref() }
@@ -44800,10 +44800,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
 +    condition_expression: ::std::option::Option<super::super::super::types::ConditionExpression>,
 +    conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
-+    expected: ::std::option::Option<super::super::super::types::ExpectedAttributeMap>,
-+    expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-+    expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
-+    item: ::std::option::Option<super::super::super::types::PutItemInputAttributeMap>,
++    expected: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>,
++    expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
++    expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
++    item: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
 +    return_values: ::std::option::Option<super::super::super::types::ReturnValue>,
@@ -45269,18 +45269,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn conditional_operator(mut self, input: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.conditional_operator = Some(input.into()); self }
 +    pub fn set_conditional_operator(mut self, input: ::std::option::Option<super::super::super::types::ConditionalOperator>) -> Self { self.conditional_operator = input; self }
 +    pub fn get_conditional_operator(&self) -> &::std::option::Option<super::super::super::types::ConditionalOperator> { &self.conditional_operator }
-+    pub fn expected(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpectedAttributeMap>) -> Self { self.expected = Some(input.into()); self }
-+    pub fn set_expected(mut self, input: ::std::option::Option<super::super::super::types::ExpectedAttributeMap>) -> Self { self.expected = input; self }
-+    pub fn get_expected(&self) -> &::std::option::Option<super::super::super::types::ExpectedAttributeMap> { &self.expected }
-+    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-+    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-+    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = Some(input.into()); self }
-+    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = input; self }
-+    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeValueMap> { &self.expression_attribute_values }
-+    pub fn item(mut self, input: impl ::std::convert::Into<super::super::super::types::PutItemInputAttributeMap>) -> Self { self.item = Some(input.into()); self }
-+    pub fn set_item(mut self, input: ::std::option::Option<super::super::super::types::PutItemInputAttributeMap>) -> Self { self.item = input; self }
-+    pub fn get_item(&self) -> &::std::option::Option<super::super::super::types::PutItemInputAttributeMap> { &self.item }
++    pub fn expected(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>) -> Self { self.expected = Some(input.into()); self }
++    pub fn set_expected(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>) -> Self { self.expected = input; self }
++    pub fn get_expected(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>> { &self.expected }
++    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
++    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
++    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { &self.expression_attribute_names }
++    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = Some(input.into()); self }
++    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
++    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { &self.expression_attribute_values }
++    pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
++    pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.item = input; self }
++    pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.item }
 +    pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
 +    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
 +    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
@@ -45370,12 +45370,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub attributes: ::std::option::Option<super::super::super::types::AttributeMap>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
 +    pub item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetrics>,
  }
 +        impl PutItemOutput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::AttributeMap> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.attributes.as_ref() }
 +            pub fn consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ConsumedCapacity> { self.consumed_capacity.as_ref() }
 +            pub fn item_collection_metrics(&self) -> ::std::option::Option<&super::super::super::types::ItemCollectionMetrics> { self.item_collection_metrics.as_ref() }
 +        }
@@ -45396,7 +45396,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
 -    pub(crate) item_collection_metrics: ::std::option::Option<crate::types::ItemCollectionMetrics>,
 -    _request_id: Option<String>,
-+    attributes: ::std::option::Option<super::super::super::types::AttributeMap>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
 +    item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetrics>,
  }
@@ -45497,9 +45497,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeMap>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::AttributeMap>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::AttributeMap> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.attributes }
 +    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacity>) -> Self { self.consumed_capacity = Some(input.into()); self }
 +    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacity>) -> Self { self.consumed_capacity = input; self }
 +    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacity> { &self.consumed_capacity }
@@ -46071,10 +46071,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub fn condition_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionExpression>) -> Self { self.input.condition_expression = Some(value.into()); self }
 +    pub fn conditional_operator(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.input.conditional_operator = Some(value.into()); self }
-+    pub fn expected(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpectedAttributeMap>) -> Self { self.input.expected = Some(value.into()); self }
-+    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
-+    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
-+    pub fn item(mut self, value: impl ::std::convert::Into<super::super::super::types::PutItemInputAttributeMap>) -> Self { self.input.item = Some(value.into()); self }
++    pub fn expected(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>) -> Self { self.input.expected = Some(value.into()); self }
++    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
++    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
++    pub fn item(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.item = Some(value.into()); self }
 +    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
 +    pub fn return_item_collection_metrics(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnItemCollectionMetrics>) -> Self { self.input.return_item_collection_metrics = Some(value.into()); self }
 +    pub fn return_values(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnValue>) -> Self { self.input.return_values = Some(value.into()); self }
@@ -48121,19 +48121,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>> {
 -        self.expression_attribute_values.as_ref()
 -    }
-+    pub attributes_to_get: ::std::option::Option<super::super::super::types::AttributeNameList>,
++    pub attributes_to_get: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>,
 +    pub conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
 +    pub consistent_read: ::std::option::Option<super::super::super::types::ConsistentRead>,
-+    pub exclusive_start_key: ::std::option::Option<super::super::super::types::Key>,
-+    pub expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-+    pub expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
++    pub exclusive_start_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
++    pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
++    pub expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
 +    pub filter_expression: ::std::option::Option<super::super::super::types::ConditionExpression>,
 +    pub index_name: ::std::option::Option<super::super::super::types::IndexName>,
 +    pub key_condition_expression: ::std::option::Option<super::super::super::types::KeyExpression>,
-+    pub key_conditions: ::std::option::Option<super::super::super::types::KeyConditions>,
++    pub key_conditions: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>,
 +    pub limit: ::std::option::Option<super::super::super::types::PositiveIntegerObject>,
 +    pub projection_expression: ::std::option::Option<super::super::super::types::ProjectionExpression>,
-+    pub query_filter: ::std::option::Option<super::super::super::types::FilterConditionMap>,
++    pub query_filter: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>,
 +    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    pub scan_index_forward: ::std::option::Option<super::super::super::types::BooleanObject>,
 +    pub select: ::std::option::Option<super::super::super::types::Select>,
@@ -48143,16 +48143,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            pub fn attributes_to_get(&self) -> &[super::super::super::types::AttributeName] { self.attributes_to_get.as_deref().unwrap_or(&[]) }
 +            pub fn conditional_operator(&self) -> ::std::option::Option<&super::super::super::types::ConditionalOperator> { self.conditional_operator.as_ref() }
 +            pub fn consistent_read(&self) -> ::std::option::Option<bool> { self.consistent_read }
-+            pub fn exclusive_start_key(&self) -> ::std::option::Option<&super::super::super::types::Key> { self.exclusive_start_key.as_ref() }
-+            pub fn expression_attribute_names(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeNameMap> { self.expression_attribute_names.as_ref() }
-+            pub fn expression_attribute_values(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeValueMap> { self.expression_attribute_values.as_ref() }
++            pub fn exclusive_start_key(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.exclusive_start_key.as_ref() }
++            pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { self.expression_attribute_names.as_ref() }
++            pub fn expression_attribute_values(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { self.expression_attribute_values.as_ref() }
 +            pub fn filter_expression(&self) -> ::std::option::Option<&str> { self.filter_expression.as_deref() }
 +            pub fn index_name(&self) -> ::std::option::Option<&str> { self.index_name.as_deref() }
 +            pub fn key_condition_expression(&self) -> ::std::option::Option<&str> { self.key_condition_expression.as_deref() }
-+            pub fn key_conditions(&self) -> ::std::option::Option<&super::super::super::types::KeyConditions> { self.key_conditions.as_ref() }
++            pub fn key_conditions(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>> { self.key_conditions.as_ref() }
 +            pub fn limit(&self) -> ::std::option::Option<i32> { self.limit }
 +            pub fn projection_expression(&self) -> ::std::option::Option<&str> { self.projection_expression.as_deref() }
-+            pub fn query_filter(&self) -> ::std::option::Option<&super::super::super::types::FilterConditionMap> { self.query_filter.as_ref() }
++            pub fn query_filter(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>> { self.query_filter.as_ref() }
 +            pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
 +            pub fn scan_index_forward(&self) -> ::std::option::Option<bool> { self.scan_index_forward }
 +            pub fn select(&self) -> ::std::option::Option<&super::super::super::types::Select> { self.select.as_ref() }
@@ -48188,19 +48188,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) key_condition_expression: ::std::option::Option<::std::string::String>,
 -    pub(crate) expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    pub(crate) expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
-+    attributes_to_get: ::std::option::Option<super::super::super::types::AttributeNameList>,
++    attributes_to_get: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>,
 +    conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
 +    consistent_read: ::std::option::Option<super::super::super::types::ConsistentRead>,
-+    exclusive_start_key: ::std::option::Option<super::super::super::types::Key>,
-+    expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-+    expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
++    exclusive_start_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
++    expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
++    expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
 +    filter_expression: ::std::option::Option<super::super::super::types::ConditionExpression>,
 +    index_name: ::std::option::Option<super::super::super::types::IndexName>,
 +    key_condition_expression: ::std::option::Option<super::super::super::types::KeyExpression>,
-+    key_conditions: ::std::option::Option<super::super::super::types::KeyConditions>,
++    key_conditions: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>,
 +    limit: ::std::option::Option<super::super::super::types::PositiveIntegerObject>,
 +    projection_expression: ::std::option::Option<super::super::super::types::ProjectionExpression>,
-+    query_filter: ::std::option::Option<super::super::super::types::FilterConditionMap>,
++    query_filter: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>,
 +    return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    scan_index_forward: ::std::option::Option<super::super::super::types::BooleanObject>,
 +    select: ::std::option::Option<super::super::super::types::Select>,
@@ -48838,24 +48838,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            expression_attribute_values: self.expression_attribute_values,
 -        })
 -    }
-+    pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.attributes_to_get = Some(input.into()); self }
-+    pub fn set_attributes_to_get(mut self, input: ::std::option::Option<super::super::super::types::AttributeNameList>) -> Self { self.attributes_to_get = input; self }
-+    pub fn get_attributes_to_get(&self) -> &::std::option::Option<super::super::super::types::AttributeNameList> { &self.attributes_to_get }
++    pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.attributes_to_get = Some(input.into()); self }
++    pub fn set_attributes_to_get(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.attributes_to_get = input; self }
++    pub fn get_attributes_to_get(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>> { &self.attributes_to_get }
 +    pub fn conditional_operator(mut self, input: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.conditional_operator = Some(input.into()); self }
 +    pub fn set_conditional_operator(mut self, input: ::std::option::Option<super::super::super::types::ConditionalOperator>) -> Self { self.conditional_operator = input; self }
 +    pub fn get_conditional_operator(&self) -> &::std::option::Option<super::super::super::types::ConditionalOperator> { &self.conditional_operator }
 +    pub fn consistent_read(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.consistent_read = Some(input.into()); self }
 +    pub fn set_consistent_read(mut self, input: ::std::option::Option<super::super::super::types::ConsistentRead>) -> Self { self.consistent_read = input; self }
 +    pub fn get_consistent_read(&self) -> &::std::option::Option<super::super::super::types::ConsistentRead> { &self.consistent_read }
-+    pub fn exclusive_start_key(mut self, input: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.exclusive_start_key = Some(input.into()); self }
-+    pub fn set_exclusive_start_key(mut self, input: ::std::option::Option<super::super::super::types::Key>) -> Self { self.exclusive_start_key = input; self }
-+    pub fn get_exclusive_start_key(&self) -> &::std::option::Option<super::super::super::types::Key> { &self.exclusive_start_key }
-+    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-+    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-+    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = Some(input.into()); self }
-+    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = input; self }
-+    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeValueMap> { &self.expression_attribute_values }
++    pub fn exclusive_start_key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.exclusive_start_key = Some(input.into()); self }
++    pub fn set_exclusive_start_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.exclusive_start_key = input; self }
++    pub fn get_exclusive_start_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.exclusive_start_key }
++    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
++    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
++    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { &self.expression_attribute_names }
++    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = Some(input.into()); self }
++    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
++    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { &self.expression_attribute_values }
 +    pub fn filter_expression(mut self, input: impl ::std::convert::Into<super::super::super::types::ConditionExpression>) -> Self { self.filter_expression = Some(input.into()); self }
 +    pub fn set_filter_expression(mut self, input: ::std::option::Option<super::super::super::types::ConditionExpression>) -> Self { self.filter_expression = input; self }
 +    pub fn get_filter_expression(&self) -> &::std::option::Option<super::super::super::types::ConditionExpression> { &self.filter_expression }
@@ -48865,18 +48865,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn key_condition_expression(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyExpression>) -> Self { self.key_condition_expression = Some(input.into()); self }
 +    pub fn set_key_condition_expression(mut self, input: ::std::option::Option<super::super::super::types::KeyExpression>) -> Self { self.key_condition_expression = input; self }
 +    pub fn get_key_condition_expression(&self) -> &::std::option::Option<super::super::super::types::KeyExpression> { &self.key_condition_expression }
-+    pub fn key_conditions(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyConditions>) -> Self { self.key_conditions = Some(input.into()); self }
-+    pub fn set_key_conditions(mut self, input: ::std::option::Option<super::super::super::types::KeyConditions>) -> Self { self.key_conditions = input; self }
-+    pub fn get_key_conditions(&self) -> &::std::option::Option<super::super::super::types::KeyConditions> { &self.key_conditions }
++    pub fn key_conditions(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>) -> Self { self.key_conditions = Some(input.into()); self }
++    pub fn set_key_conditions(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>) -> Self { self.key_conditions = input; self }
++    pub fn get_key_conditions(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>> { &self.key_conditions }
 +    pub fn limit(mut self, input: impl ::std::convert::Into<super::super::super::types::PositiveIntegerObject>) -> Self { self.limit = Some(input.into()); self }
 +    pub fn set_limit(mut self, input: ::std::option::Option<super::super::super::types::PositiveIntegerObject>) -> Self { self.limit = input; self }
 +    pub fn get_limit(&self) -> &::std::option::Option<super::super::super::types::PositiveIntegerObject> { &self.limit }
 +    pub fn projection_expression(mut self, input: impl ::std::convert::Into<super::super::super::types::ProjectionExpression>) -> Self { self.projection_expression = Some(input.into()); self }
 +    pub fn set_projection_expression(mut self, input: ::std::option::Option<super::super::super::types::ProjectionExpression>) -> Self { self.projection_expression = input; self }
 +    pub fn get_projection_expression(&self) -> &::std::option::Option<super::super::super::types::ProjectionExpression> { &self.projection_expression }
-+    pub fn query_filter(mut self, input: impl ::std::convert::Into<super::super::super::types::FilterConditionMap>) -> Self { self.query_filter = Some(input.into()); self }
-+    pub fn set_query_filter(mut self, input: ::std::option::Option<super::super::super::types::FilterConditionMap>) -> Self { self.query_filter = input; self }
-+    pub fn get_query_filter(&self) -> &::std::option::Option<super::super::super::types::FilterConditionMap> { &self.query_filter }
++    pub fn query_filter(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>) -> Self { self.query_filter = Some(input.into()); self }
++    pub fn set_query_filter(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>) -> Self { self.query_filter = input; self }
++    pub fn get_query_filter(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>> { &self.query_filter }
 +    pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
 +    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
 +    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
@@ -48943,15 +48943,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
 +    pub count: ::std::option::Option<super::super::super::types::Integer>,
-+    pub items: ::std::option::Option<super::super::super::types::ItemList>,
-+    pub last_evaluated_key: ::std::option::Option<super::super::super::types::Key>,
++    pub items: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>,
++    pub last_evaluated_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    pub scanned_count: ::std::option::Option<super::super::super::types::Integer>,
  }
 +        impl QueryOutput {
 +            pub fn consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ConsumedCapacity> { self.consumed_capacity.as_ref() }
 +            pub fn count(&self) -> ::std::option::Option<i32> { self.count }
-+            pub fn items(&self) -> &[super::super::super::types::AttributeMap] { self.items.as_deref().unwrap_or(&[]) }
-+            pub fn last_evaluated_key(&self) -> ::std::option::Option<&super::super::super::types::Key> { self.last_evaluated_key.as_ref() }
++            pub fn items(&self) -> &[::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>] { self.items.as_deref().unwrap_or(&[]) }
++            pub fn last_evaluated_key(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.last_evaluated_key.as_ref() }
 +            pub fn scanned_count(&self) -> ::std::option::Option<i32> { self.scanned_count }
 +        }
  impl QueryOutput {
@@ -49009,8 +49009,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
 +    count: ::std::option::Option<super::super::super::types::Integer>,
-+    items: ::std::option::Option<super::super::super::types::ItemList>,
-+    last_evaluated_key: ::std::option::Option<super::super::super::types::Key>,
++    items: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>,
++    last_evaluated_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    scanned_count: ::std::option::Option<super::super::super::types::Integer>,
  }
  impl QueryOutputBuilder {
@@ -49145,12 +49145,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn count(mut self, input: impl ::std::convert::Into<super::super::super::types::Integer>) -> Self { self.count = Some(input.into()); self }
 +    pub fn set_count(mut self, input: ::std::option::Option<super::super::super::types::Integer>) -> Self { self.count = input; self }
 +    pub fn get_count(&self) -> &::std::option::Option<super::super::super::types::Integer> { &self.count }
-+    pub fn items(mut self, input: impl ::std::convert::Into<super::super::super::types::ItemList>) -> Self { self.items = Some(input.into()); self }
-+    pub fn set_items(mut self, input: ::std::option::Option<super::super::super::types::ItemList>) -> Self { self.items = input; self }
-+    pub fn get_items(&self) -> &::std::option::Option<super::super::super::types::ItemList> { &self.items }
-+    pub fn last_evaluated_key(mut self, input: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.last_evaluated_key = Some(input.into()); self }
-+    pub fn set_last_evaluated_key(mut self, input: ::std::option::Option<super::super::super::types::Key>) -> Self { self.last_evaluated_key = input; self }
-+    pub fn get_last_evaluated_key(&self) -> &::std::option::Option<super::super::super::types::Key> { &self.last_evaluated_key }
++    pub fn items(mut self, input: impl ::std::convert::Into<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>) -> Self { self.items = Some(input.into()); self }
++    pub fn set_items(mut self, input: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>) -> Self { self.items = input; self }
++    pub fn get_items(&self) -> &::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>> { &self.items }
++    pub fn last_evaluated_key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.last_evaluated_key = Some(input.into()); self }
++    pub fn set_last_evaluated_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.last_evaluated_key = input; self }
++    pub fn get_last_evaluated_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.last_evaluated_key }
 +    pub fn scanned_count(mut self, input: impl ::std::convert::Into<super::super::super::types::Integer>) -> Self { self.scanned_count = Some(input.into()); self }
 +    pub fn set_scanned_count(mut self, input: ::std::option::Option<super::super::super::types::Integer>) -> Self { self.scanned_count = input; self }
 +    pub fn get_scanned_count(&self) -> &::std::option::Option<super::super::super::types::Integer> { &self.scanned_count }
@@ -49231,19 +49231,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.input.attributes_to_get = Some(value.into()); self }
++    pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.input.attributes_to_get = Some(value.into()); self }
 +    pub fn conditional_operator(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.input.conditional_operator = Some(value.into()); self }
 +    pub fn consistent_read(mut self, value: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.input.consistent_read = Some(value.into()); self }
-+    pub fn exclusive_start_key(mut self, value: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.input.exclusive_start_key = Some(value.into()); self }
-+    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
-+    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
++    pub fn exclusive_start_key(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.exclusive_start_key = Some(value.into()); self }
++    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
++    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
 +    pub fn filter_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionExpression>) -> Self { self.input.filter_expression = Some(value.into()); self }
 +    pub fn index_name(mut self, value: impl ::std::convert::Into<super::super::super::types::IndexName>) -> Self { self.input.index_name = Some(value.into()); self }
 +    pub fn key_condition_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyExpression>) -> Self { self.input.key_condition_expression = Some(value.into()); self }
-+    pub fn key_conditions(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyConditions>) -> Self { self.input.key_conditions = Some(value.into()); self }
++    pub fn key_conditions(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>) -> Self { self.input.key_conditions = Some(value.into()); self }
 +    pub fn limit(mut self, value: impl ::std::convert::Into<super::super::super::types::PositiveIntegerObject>) -> Self { self.input.limit = Some(value.into()); self }
 +    pub fn projection_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ProjectionExpression>) -> Self { self.input.projection_expression = Some(value.into()); self }
-+    pub fn query_filter(mut self, value: impl ::std::convert::Into<super::super::super::types::FilterConditionMap>) -> Self { self.input.query_filter = Some(value.into()); self }
++    pub fn query_filter(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>) -> Self { self.input.query_filter = Some(value.into()); self }
 +    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
 +    pub fn scan_index_forward(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanObject>) -> Self { self.input.scan_index_forward = Some(value.into()); self }
 +    pub fn select(mut self, value: impl ::std::convert::Into<super::super::super::types::Select>) -> Self { self.input.select = Some(value.into()); self }
@@ -50504,13 +50504,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub vector_index_override: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
 +    pub backup_arn: ::std::option::Option<super::super::super::types::BackupArn>,
 +    pub billing_mode_override: ::std::option::Option<super::super::super::types::BillingMode>,
-+    pub global_secondary_index_override: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>,
-+    pub local_secondary_index_override: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>,
++    pub global_secondary_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>,
++    pub local_secondary_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>,
 +    pub on_demand_throughput_override: ::std::option::Option<super::super::super::types::OnDemandThroughput>,
 +    pub provisioned_throughput_override: ::std::option::Option<super::super::super::types::ProvisionedThroughput>,
 +    pub sse_specification_override: ::std::option::Option<super::super::super::types::SseSpecification>,
 +    pub target_table_name: ::std::option::Option<super::super::super::types::TableName>,
-+    pub vector_index_override: ::std::option::Option<super::super::super::types::VectorIndexList>,
++    pub vector_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>,
  }
 +        impl RestoreTableFromBackupInput {
 +            pub fn backup_arn(&self) -> ::std::option::Option<&str> { self.backup_arn.as_deref() }
@@ -50591,13 +50591,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) vector_index_override: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
 +    backup_arn: ::std::option::Option<super::super::super::types::BackupArn>,
 +    billing_mode_override: ::std::option::Option<super::super::super::types::BillingMode>,
-+    global_secondary_index_override: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>,
-+    local_secondary_index_override: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>,
++    global_secondary_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>,
++    local_secondary_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>,
 +    on_demand_throughput_override: ::std::option::Option<super::super::super::types::OnDemandThroughput>,
 +    provisioned_throughput_override: ::std::option::Option<super::super::super::types::ProvisionedThroughput>,
 +    sse_specification_override: ::std::option::Option<super::super::super::types::SseSpecification>,
 +    target_table_name: ::std::option::Option<super::super::super::types::TableName>,
-+    vector_index_override: ::std::option::Option<super::super::super::types::VectorIndexList>,
++    vector_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>,
  }
  impl RestoreTableFromBackupInputBuilder {
 -    /// <p>The name of the new table to which the backup must be restored.</p>
@@ -50771,12 +50771,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn billing_mode_override(mut self, input: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.billing_mode_override = Some(input.into()); self }
 +    pub fn set_billing_mode_override(mut self, input: ::std::option::Option<super::super::super::types::BillingMode>) -> Self { self.billing_mode_override = input; self }
 +    pub fn get_billing_mode_override(&self) -> &::std::option::Option<super::super::super::types::BillingMode> { &self.billing_mode_override }
-+    pub fn global_secondary_index_override(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.global_secondary_index_override = Some(input.into()); self }
-+    pub fn set_global_secondary_index_override(mut self, input: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.global_secondary_index_override = input; self }
-+    pub fn get_global_secondary_index_override(&self) -> &::std::option::Option<super::super::super::types::GlobalSecondaryIndexList> { &self.global_secondary_index_override }
-+    pub fn local_secondary_index_override(mut self, input: impl ::std::convert::Into<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.local_secondary_index_override = Some(input.into()); self }
-+    pub fn set_local_secondary_index_override(mut self, input: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.local_secondary_index_override = input; self }
-+    pub fn get_local_secondary_index_override(&self) -> &::std::option::Option<super::super::super::types::LocalSecondaryIndexList> { &self.local_secondary_index_override }
++    pub fn global_secondary_index_override(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.global_secondary_index_override = Some(input.into()); self }
++    pub fn set_global_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.global_secondary_index_override = input; self }
++    pub fn get_global_secondary_index_override(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>> { &self.global_secondary_index_override }
++    pub fn local_secondary_index_override(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.local_secondary_index_override = Some(input.into()); self }
++    pub fn set_local_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.local_secondary_index_override = input; self }
++    pub fn get_local_secondary_index_override(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>> { &self.local_secondary_index_override }
 +    pub fn on_demand_throughput_override(mut self, input: impl ::std::convert::Into<super::super::super::types::OnDemandThroughput>) -> Self { self.on_demand_throughput_override = Some(input.into()); self }
 +    pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<super::super::super::types::OnDemandThroughput>) -> Self { self.on_demand_throughput_override = input; self }
 +    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<super::super::super::types::OnDemandThroughput> { &self.on_demand_throughput_override }
@@ -50789,9 +50789,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn target_table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.target_table_name = Some(input.into()); self }
 +    pub fn set_target_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.target_table_name = input; self }
 +    pub fn get_target_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.target_table_name }
-+    pub fn vector_index_override(mut self, input: impl ::std::convert::Into<super::super::super::types::VectorIndexList>) -> Self { self.vector_index_override = Some(input.into()); self }
-+    pub fn set_vector_index_override(mut self, input: ::std::option::Option<super::super::super::types::VectorIndexList>) -> Self { self.vector_index_override = input; self }
-+    pub fn get_vector_index_override(&self) -> &::std::option::Option<super::super::super::types::VectorIndexList> { &self.vector_index_override }
++    pub fn vector_index_override(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.vector_index_override = Some(input.into()); self }
++    pub fn set_vector_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.vector_index_override = input; self }
++    pub fn get_vector_index_override(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>> { &self.vector_index_override }
 +    pub fn build(self) -> RestoreTableFromBackupInput { RestoreTableFromBackupInput {
 +        backup_arn: self.backup_arn,
 +        billing_mode_override: self.billing_mode_override,
@@ -50977,13 +50977,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 +    pub fn backup_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::BackupArn>) -> Self { self.input.backup_arn = Some(value.into()); self }
 +    pub fn billing_mode_override(mut self, value: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.input.billing_mode_override = Some(value.into()); self }
-+    pub fn global_secondary_index_override(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.input.global_secondary_index_override = Some(value.into()); self }
-+    pub fn local_secondary_index_override(mut self, value: impl ::std::convert::Into<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.input.local_secondary_index_override = Some(value.into()); self }
++    pub fn global_secondary_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.input.global_secondary_index_override = Some(value.into()); self }
++    pub fn local_secondary_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.input.local_secondary_index_override = Some(value.into()); self }
 +    pub fn on_demand_throughput_override(mut self, value: impl ::std::convert::Into<super::super::super::types::OnDemandThroughput>) -> Self { self.input.on_demand_throughput_override = Some(value.into()); self }
 +    pub fn provisioned_throughput_override(mut self, value: impl ::std::convert::Into<super::super::super::types::ProvisionedThroughput>) -> Self { self.input.provisioned_throughput_override = Some(value.into()); self }
 +    pub fn sse_specification_override(mut self, value: impl ::std::convert::Into<super::super::super::types::SseSpecification>) -> Self { self.input.sse_specification_override = Some(value.into()); self }
 +    pub fn target_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.target_table_name = Some(value.into()); self }
-+    pub fn vector_index_override(mut self, value: impl ::std::convert::Into<super::super::super::types::VectorIndexList>) -> Self { self.input.vector_index_override = Some(value.into()); self }
++    pub fn vector_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.input.vector_index_override = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::RestoreTableFromBackupOutput, super::RestoreTableFromBackupError> {
@@ -51808,8 +51808,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The vector indexes for the restored table. If not specified, all vector indexes from the source table are restored. The indexes provided must match existing vector indexes from the source table. You can choose to exclude some or all of the vector indexes at the time of restore.</p>
 -    pub vector_index_override: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
 +    pub billing_mode_override: ::std::option::Option<super::super::super::types::BillingMode>,
-+    pub global_secondary_index_override: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>,
-+    pub local_secondary_index_override: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>,
++    pub global_secondary_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>,
++    pub local_secondary_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>,
 +    pub on_demand_throughput_override: ::std::option::Option<super::super::super::types::OnDemandThroughput>,
 +    pub provisioned_throughput_override: ::std::option::Option<super::super::super::types::ProvisionedThroughput>,
 +    pub restore_date_time: ::std::option::Option<super::super::super::types::Date>,
@@ -51818,7 +51818,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub source_table_name: ::std::option::Option<super::super::super::types::TableName>,
 +    pub target_table_name: ::std::option::Option<super::super::super::types::TableName>,
 +    pub use_latest_restorable_time: ::std::option::Option<super::super::super::types::BooleanObject>,
-+    pub vector_index_override: ::std::option::Option<super::super::super::types::VectorIndexList>,
++    pub vector_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>,
  }
 +        impl RestoreTableToPointInTimeInput {
 +            pub fn billing_mode_override(&self) -> ::std::option::Option<&super::super::super::types::BillingMode> { self.billing_mode_override.as_ref() }
@@ -51917,8 +51917,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) sse_specification_override: ::std::option::Option<crate::types::SseSpecification>,
 -    pub(crate) vector_index_override: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndex>>,
 +    billing_mode_override: ::std::option::Option<super::super::super::types::BillingMode>,
-+    global_secondary_index_override: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>,
-+    local_secondary_index_override: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>,
++    global_secondary_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>,
++    local_secondary_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>,
 +    on_demand_throughput_override: ::std::option::Option<super::super::super::types::OnDemandThroughput>,
 +    provisioned_throughput_override: ::std::option::Option<super::super::super::types::ProvisionedThroughput>,
 +    restore_date_time: ::std::option::Option<super::super::super::types::Date>,
@@ -51927,7 +51927,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    source_table_name: ::std::option::Option<super::super::super::types::TableName>,
 +    target_table_name: ::std::option::Option<super::super::super::types::TableName>,
 +    use_latest_restorable_time: ::std::option::Option<super::super::super::types::BooleanObject>,
-+    vector_index_override: ::std::option::Option<super::super::super::types::VectorIndexList>,
++    vector_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>,
  }
  impl RestoreTableToPointInTimeInputBuilder {
 -    /// <p>The DynamoDB table that will be restored. This value is an Amazon Resource Name (ARN).</p>
@@ -52145,12 +52145,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn billing_mode_override(mut self, input: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.billing_mode_override = Some(input.into()); self }
 +    pub fn set_billing_mode_override(mut self, input: ::std::option::Option<super::super::super::types::BillingMode>) -> Self { self.billing_mode_override = input; self }
 +    pub fn get_billing_mode_override(&self) -> &::std::option::Option<super::super::super::types::BillingMode> { &self.billing_mode_override }
-+    pub fn global_secondary_index_override(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.global_secondary_index_override = Some(input.into()); self }
-+    pub fn set_global_secondary_index_override(mut self, input: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.global_secondary_index_override = input; self }
-+    pub fn get_global_secondary_index_override(&self) -> &::std::option::Option<super::super::super::types::GlobalSecondaryIndexList> { &self.global_secondary_index_override }
-+    pub fn local_secondary_index_override(mut self, input: impl ::std::convert::Into<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.local_secondary_index_override = Some(input.into()); self }
-+    pub fn set_local_secondary_index_override(mut self, input: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.local_secondary_index_override = input; self }
-+    pub fn get_local_secondary_index_override(&self) -> &::std::option::Option<super::super::super::types::LocalSecondaryIndexList> { &self.local_secondary_index_override }
++    pub fn global_secondary_index_override(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.global_secondary_index_override = Some(input.into()); self }
++    pub fn set_global_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.global_secondary_index_override = input; self }
++    pub fn get_global_secondary_index_override(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>> { &self.global_secondary_index_override }
++    pub fn local_secondary_index_override(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.local_secondary_index_override = Some(input.into()); self }
++    pub fn set_local_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.local_secondary_index_override = input; self }
++    pub fn get_local_secondary_index_override(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>> { &self.local_secondary_index_override }
 +    pub fn on_demand_throughput_override(mut self, input: impl ::std::convert::Into<super::super::super::types::OnDemandThroughput>) -> Self { self.on_demand_throughput_override = Some(input.into()); self }
 +    pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<super::super::super::types::OnDemandThroughput>) -> Self { self.on_demand_throughput_override = input; self }
 +    pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<super::super::super::types::OnDemandThroughput> { &self.on_demand_throughput_override }
@@ -52175,9 +52175,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn use_latest_restorable_time(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanObject>) -> Self { self.use_latest_restorable_time = Some(input.into()); self }
 +    pub fn set_use_latest_restorable_time(mut self, input: ::std::option::Option<super::super::super::types::BooleanObject>) -> Self { self.use_latest_restorable_time = input; self }
 +    pub fn get_use_latest_restorable_time(&self) -> &::std::option::Option<super::super::super::types::BooleanObject> { &self.use_latest_restorable_time }
-+    pub fn vector_index_override(mut self, input: impl ::std::convert::Into<super::super::super::types::VectorIndexList>) -> Self { self.vector_index_override = Some(input.into()); self }
-+    pub fn set_vector_index_override(mut self, input: ::std::option::Option<super::super::super::types::VectorIndexList>) -> Self { self.vector_index_override = input; self }
-+    pub fn get_vector_index_override(&self) -> &::std::option::Option<super::super::super::types::VectorIndexList> { &self.vector_index_override }
++    pub fn vector_index_override(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.vector_index_override = Some(input.into()); self }
++    pub fn set_vector_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.vector_index_override = input; self }
++    pub fn get_vector_index_override(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>> { &self.vector_index_override }
 +    pub fn build(self) -> RestoreTableToPointInTimeInput { RestoreTableToPointInTimeInput {
 +        billing_mode_override: self.billing_mode_override,
 +        global_secondary_index_override: self.global_secondary_index_override,
@@ -52628,8 +52628,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.inner.get_vector_index_override()
 -    }
 +    pub fn billing_mode_override(mut self, value: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.input.billing_mode_override = Some(value.into()); self }
-+    pub fn global_secondary_index_override(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.input.global_secondary_index_override = Some(value.into()); self }
-+    pub fn local_secondary_index_override(mut self, value: impl ::std::convert::Into<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.input.local_secondary_index_override = Some(value.into()); self }
++    pub fn global_secondary_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.input.global_secondary_index_override = Some(value.into()); self }
++    pub fn local_secondary_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.input.local_secondary_index_override = Some(value.into()); self }
 +    pub fn on_demand_throughput_override(mut self, value: impl ::std::convert::Into<super::super::super::types::OnDemandThroughput>) -> Self { self.input.on_demand_throughput_override = Some(value.into()); self }
 +    pub fn provisioned_throughput_override(mut self, value: impl ::std::convert::Into<super::super::super::types::ProvisionedThroughput>) -> Self { self.input.provisioned_throughput_override = Some(value.into()); self }
 +    pub fn restore_date_time(mut self, value: impl ::std::convert::Into<super::super::super::types::Date>) -> Self { self.input.restore_date_time = Some(value.into()); self }
@@ -52638,7 +52638,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn source_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.source_table_name = Some(value.into()); self }
 +    pub fn target_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.target_table_name = Some(value.into()); self }
 +    pub fn use_latest_restorable_time(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanObject>) -> Self { self.input.use_latest_restorable_time = Some(value.into()); self }
-+    pub fn vector_index_override(mut self, value: impl ::std::convert::Into<super::super::super::types::VectorIndexList>) -> Self { self.input.vector_index_override = Some(value.into()); self }
++    pub fn vector_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.input.vector_index_override = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::RestoreTableToPointInTimeOutput, super::RestoreTableToPointInTimeError> {
@@ -53369,18 +53369,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The default setting for <code>ConsistentRead</code> is <code>false</code>.</p>
 -    /// <p>The <code>ConsistentRead</code> parameter is not supported on global secondary indexes. If you scan a global secondary index with <code>ConsistentRead</code> set to true, you will receive a <code>ValidationException</code>.</p>
 -    pub consistent_read: ::std::option::Option<bool>,
-+    pub attributes_to_get: ::std::option::Option<super::super::super::types::AttributeNameList>,
++    pub attributes_to_get: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>,
 +    pub conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
 +    pub consistent_read: ::std::option::Option<super::super::super::types::ConsistentRead>,
-+    pub exclusive_start_key: ::std::option::Option<super::super::super::types::Key>,
-+    pub expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-+    pub expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
++    pub exclusive_start_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
++    pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
++    pub expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
 +    pub filter_expression: ::std::option::Option<super::super::super::types::ConditionExpression>,
 +    pub index_name: ::std::option::Option<super::super::super::types::IndexName>,
 +    pub limit: ::std::option::Option<super::super::super::types::PositiveIntegerObject>,
 +    pub projection_expression: ::std::option::Option<super::super::super::types::ProjectionExpression>,
 +    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-+    pub scan_filter: ::std::option::Option<super::super::super::types::FilterConditionMap>,
++    pub scan_filter: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>,
 +    pub segment: ::std::option::Option<super::super::super::types::ScanSegment>,
 +    pub select: ::std::option::Option<super::super::super::types::Select>,
 +    pub table_name: ::std::option::Option<super::super::super::types::TableArn>,
@@ -53390,15 +53390,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            pub fn attributes_to_get(&self) -> &[super::super::super::types::AttributeName] { self.attributes_to_get.as_deref().unwrap_or(&[]) }
 +            pub fn conditional_operator(&self) -> ::std::option::Option<&super::super::super::types::ConditionalOperator> { self.conditional_operator.as_ref() }
 +            pub fn consistent_read(&self) -> ::std::option::Option<bool> { self.consistent_read }
-+            pub fn exclusive_start_key(&self) -> ::std::option::Option<&super::super::super::types::Key> { self.exclusive_start_key.as_ref() }
-+            pub fn expression_attribute_names(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeNameMap> { self.expression_attribute_names.as_ref() }
-+            pub fn expression_attribute_values(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeValueMap> { self.expression_attribute_values.as_ref() }
++            pub fn exclusive_start_key(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.exclusive_start_key.as_ref() }
++            pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { self.expression_attribute_names.as_ref() }
++            pub fn expression_attribute_values(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { self.expression_attribute_values.as_ref() }
 +            pub fn filter_expression(&self) -> ::std::option::Option<&str> { self.filter_expression.as_deref() }
 +            pub fn index_name(&self) -> ::std::option::Option<&str> { self.index_name.as_deref() }
 +            pub fn limit(&self) -> ::std::option::Option<i32> { self.limit }
 +            pub fn projection_expression(&self) -> ::std::option::Option<&str> { self.projection_expression.as_deref() }
 +            pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
-+            pub fn scan_filter(&self) -> ::std::option::Option<&super::super::super::types::FilterConditionMap> { self.scan_filter.as_ref() }
++            pub fn scan_filter(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>> { self.scan_filter.as_ref() }
 +            pub fn segment(&self) -> ::std::option::Option<i32> { self.segment }
 +            pub fn select(&self) -> ::std::option::Option<&super::super::super::types::Select> { self.select.as_ref() }
 +            pub fn table_name(&self) -> ::std::option::Option<&str> { self.table_name.as_deref() }
@@ -53582,18 +53582,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    pub(crate) expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
 -    pub(crate) consistent_read: ::std::option::Option<bool>,
-+    attributes_to_get: ::std::option::Option<super::super::super::types::AttributeNameList>,
++    attributes_to_get: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>,
 +    conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
 +    consistent_read: ::std::option::Option<super::super::super::types::ConsistentRead>,
-+    exclusive_start_key: ::std::option::Option<super::super::super::types::Key>,
-+    expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-+    expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
++    exclusive_start_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
++    expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
++    expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
 +    filter_expression: ::std::option::Option<super::super::super::types::ConditionExpression>,
 +    index_name: ::std::option::Option<super::super::super::types::IndexName>,
 +    limit: ::std::option::Option<super::super::super::types::PositiveIntegerObject>,
 +    projection_expression: ::std::option::Option<super::super::super::types::ProjectionExpression>,
 +    return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-+    scan_filter: ::std::option::Option<super::super::super::types::FilterConditionMap>,
++    scan_filter: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>,
 +    segment: ::std::option::Option<super::super::super::types::ScanSegment>,
 +    select: ::std::option::Option<super::super::super::types::Select>,
 +    table_name: ::std::option::Option<super::super::super::types::TableArn>,
@@ -54135,24 +54135,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            consistent_read: self.consistent_read,
 -        })
 -    }
-+    pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.attributes_to_get = Some(input.into()); self }
-+    pub fn set_attributes_to_get(mut self, input: ::std::option::Option<super::super::super::types::AttributeNameList>) -> Self { self.attributes_to_get = input; self }
-+    pub fn get_attributes_to_get(&self) -> &::std::option::Option<super::super::super::types::AttributeNameList> { &self.attributes_to_get }
++    pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.attributes_to_get = Some(input.into()); self }
++    pub fn set_attributes_to_get(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.attributes_to_get = input; self }
++    pub fn get_attributes_to_get(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>> { &self.attributes_to_get }
 +    pub fn conditional_operator(mut self, input: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.conditional_operator = Some(input.into()); self }
 +    pub fn set_conditional_operator(mut self, input: ::std::option::Option<super::super::super::types::ConditionalOperator>) -> Self { self.conditional_operator = input; self }
 +    pub fn get_conditional_operator(&self) -> &::std::option::Option<super::super::super::types::ConditionalOperator> { &self.conditional_operator }
 +    pub fn consistent_read(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.consistent_read = Some(input.into()); self }
 +    pub fn set_consistent_read(mut self, input: ::std::option::Option<super::super::super::types::ConsistentRead>) -> Self { self.consistent_read = input; self }
 +    pub fn get_consistent_read(&self) -> &::std::option::Option<super::super::super::types::ConsistentRead> { &self.consistent_read }
-+    pub fn exclusive_start_key(mut self, input: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.exclusive_start_key = Some(input.into()); self }
-+    pub fn set_exclusive_start_key(mut self, input: ::std::option::Option<super::super::super::types::Key>) -> Self { self.exclusive_start_key = input; self }
-+    pub fn get_exclusive_start_key(&self) -> &::std::option::Option<super::super::super::types::Key> { &self.exclusive_start_key }
-+    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-+    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-+    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = Some(input.into()); self }
-+    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = input; self }
-+    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeValueMap> { &self.expression_attribute_values }
++    pub fn exclusive_start_key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.exclusive_start_key = Some(input.into()); self }
++    pub fn set_exclusive_start_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.exclusive_start_key = input; self }
++    pub fn get_exclusive_start_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.exclusive_start_key }
++    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
++    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
++    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { &self.expression_attribute_names }
++    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = Some(input.into()); self }
++    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
++    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { &self.expression_attribute_values }
 +    pub fn filter_expression(mut self, input: impl ::std::convert::Into<super::super::super::types::ConditionExpression>) -> Self { self.filter_expression = Some(input.into()); self }
 +    pub fn set_filter_expression(mut self, input: ::std::option::Option<super::super::super::types::ConditionExpression>) -> Self { self.filter_expression = input; self }
 +    pub fn get_filter_expression(&self) -> &::std::option::Option<super::super::super::types::ConditionExpression> { &self.filter_expression }
@@ -54168,9 +54168,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
 +    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
 +    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
-+    pub fn scan_filter(mut self, input: impl ::std::convert::Into<super::super::super::types::FilterConditionMap>) -> Self { self.scan_filter = Some(input.into()); self }
-+    pub fn set_scan_filter(mut self, input: ::std::option::Option<super::super::super::types::FilterConditionMap>) -> Self { self.scan_filter = input; self }
-+    pub fn get_scan_filter(&self) -> &::std::option::Option<super::super::super::types::FilterConditionMap> { &self.scan_filter }
++    pub fn scan_filter(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>) -> Self { self.scan_filter = Some(input.into()); self }
++    pub fn set_scan_filter(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>) -> Self { self.scan_filter = input; self }
++    pub fn get_scan_filter(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>> { &self.scan_filter }
 +    pub fn segment(mut self, input: impl ::std::convert::Into<super::super::super::types::ScanSegment>) -> Self { self.segment = Some(input.into()); self }
 +    pub fn set_segment(mut self, input: ::std::option::Option<super::super::super::types::ScanSegment>) -> Self { self.segment = input; self }
 +    pub fn get_segment(&self) -> &::std::option::Option<super::super::super::types::ScanSegment> { &self.segment }
@@ -54236,15 +54236,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
 +    pub count: ::std::option::Option<super::super::super::types::Integer>,
-+    pub items: ::std::option::Option<super::super::super::types::ItemList>,
-+    pub last_evaluated_key: ::std::option::Option<super::super::super::types::Key>,
++    pub items: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>,
++    pub last_evaluated_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    pub scanned_count: ::std::option::Option<super::super::super::types::Integer>,
  }
 +        impl ScanOutput {
 +            pub fn consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ConsumedCapacity> { self.consumed_capacity.as_ref() }
 +            pub fn count(&self) -> ::std::option::Option<i32> { self.count }
-+            pub fn items(&self) -> &[super::super::super::types::AttributeMap] { self.items.as_deref().unwrap_or(&[]) }
-+            pub fn last_evaluated_key(&self) -> ::std::option::Option<&super::super::super::types::Key> { self.last_evaluated_key.as_ref() }
++            pub fn items(&self) -> &[::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>] { self.items.as_deref().unwrap_or(&[]) }
++            pub fn last_evaluated_key(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.last_evaluated_key.as_ref() }
 +            pub fn scanned_count(&self) -> ::std::option::Option<i32> { self.scanned_count }
 +        }
  impl ScanOutput {
@@ -54302,8 +54302,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
 +    count: ::std::option::Option<super::super::super::types::Integer>,
-+    items: ::std::option::Option<super::super::super::types::ItemList>,
-+    last_evaluated_key: ::std::option::Option<super::super::super::types::Key>,
++    items: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>,
++    last_evaluated_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    scanned_count: ::std::option::Option<super::super::super::types::Integer>,
  }
  impl ScanOutputBuilder {
@@ -54438,12 +54438,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn count(mut self, input: impl ::std::convert::Into<super::super::super::types::Integer>) -> Self { self.count = Some(input.into()); self }
 +    pub fn set_count(mut self, input: ::std::option::Option<super::super::super::types::Integer>) -> Self { self.count = input; self }
 +    pub fn get_count(&self) -> &::std::option::Option<super::super::super::types::Integer> { &self.count }
-+    pub fn items(mut self, input: impl ::std::convert::Into<super::super::super::types::ItemList>) -> Self { self.items = Some(input.into()); self }
-+    pub fn set_items(mut self, input: ::std::option::Option<super::super::super::types::ItemList>) -> Self { self.items = input; self }
-+    pub fn get_items(&self) -> &::std::option::Option<super::super::super::types::ItemList> { &self.items }
-+    pub fn last_evaluated_key(mut self, input: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.last_evaluated_key = Some(input.into()); self }
-+    pub fn set_last_evaluated_key(mut self, input: ::std::option::Option<super::super::super::types::Key>) -> Self { self.last_evaluated_key = input; self }
-+    pub fn get_last_evaluated_key(&self) -> &::std::option::Option<super::super::super::types::Key> { &self.last_evaluated_key }
++    pub fn items(mut self, input: impl ::std::convert::Into<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>) -> Self { self.items = Some(input.into()); self }
++    pub fn set_items(mut self, input: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>) -> Self { self.items = input; self }
++    pub fn get_items(&self) -> &::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>> { &self.items }
++    pub fn last_evaluated_key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.last_evaluated_key = Some(input.into()); self }
++    pub fn set_last_evaluated_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.last_evaluated_key = input; self }
++    pub fn get_last_evaluated_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.last_evaluated_key }
 +    pub fn scanned_count(mut self, input: impl ::std::convert::Into<super::super::super::types::Integer>) -> Self { self.scanned_count = Some(input.into()); self }
 +    pub fn set_scanned_count(mut self, input: ::std::option::Option<super::super::super::types::Integer>) -> Self { self.scanned_count = input; self }
 +    pub fn get_scanned_count(&self) -> &::std::option::Option<super::super::super::types::Integer> { &self.scanned_count }
@@ -55091,18 +55091,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.input.attributes_to_get = Some(value.into()); self }
++    pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.input.attributes_to_get = Some(value.into()); self }
 +    pub fn conditional_operator(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.input.conditional_operator = Some(value.into()); self }
 +    pub fn consistent_read(mut self, value: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.input.consistent_read = Some(value.into()); self }
-+    pub fn exclusive_start_key(mut self, value: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.input.exclusive_start_key = Some(value.into()); self }
-+    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
-+    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
++    pub fn exclusive_start_key(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.exclusive_start_key = Some(value.into()); self }
++    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
++    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
 +    pub fn filter_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionExpression>) -> Self { self.input.filter_expression = Some(value.into()); self }
 +    pub fn index_name(mut self, value: impl ::std::convert::Into<super::super::super::types::IndexName>) -> Self { self.input.index_name = Some(value.into()); self }
 +    pub fn limit(mut self, value: impl ::std::convert::Into<super::super::super::types::PositiveIntegerObject>) -> Self { self.input.limit = Some(value.into()); self }
 +    pub fn projection_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ProjectionExpression>) -> Self { self.input.projection_expression = Some(value.into()); self }
 +    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
-+    pub fn scan_filter(mut self, value: impl ::std::convert::Into<super::super::super::types::FilterConditionMap>) -> Self { self.input.scan_filter = Some(value.into()); self }
++    pub fn scan_filter(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>) -> Self { self.input.scan_filter = Some(value.into()); self }
 +    pub fn segment(mut self, value: impl ::std::convert::Into<super::super::super::types::ScanSegment>) -> Self { self.input.segment = Some(value.into()); self }
 +    pub fn select(mut self, value: impl ::std::convert::Into<super::super::super::types::Select>) -> Self { self.input.select = Some(value.into()); self }
 +    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
@@ -55759,19 +55759,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn top_k(&self) -> ::std::option::Option<i32> {
 -        self.top_k
 -    }
-+    pub expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-+    pub expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
++    pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
++    pub expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
 +    pub index_name: ::std::option::Option<super::super::super::types::IndexName>,
 +    pub projection_expression: ::std::option::Option<super::super::super::types::ProjectionExpression>,
 +    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    pub search_condition_expression: ::std::option::Option<super::super::super::types::String>,
-+    pub search_vector: ::std::option::Option<super::super::super::types::SearchVectorList>,
++    pub search_vector: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>>,
 +    pub table_name: ::std::option::Option<super::super::super::types::TableArn>,
 +    pub top_k: ::std::option::Option<super::super::super::types::TopKInteger>,
  }
 +        impl SearchVectorsInput {
-+            pub fn expression_attribute_names(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeNameMap> { self.expression_attribute_names.as_ref() }
-+            pub fn expression_attribute_values(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeValueMap> { self.expression_attribute_values.as_ref() }
++            pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { self.expression_attribute_names.as_ref() }
++            pub fn expression_attribute_values(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { self.expression_attribute_values.as_ref() }
 +            pub fn index_name(&self) -> ::std::option::Option<&str> { self.index_name.as_deref() }
 +            pub fn projection_expression(&self) -> ::std::option::Option<&str> { self.projection_expression.as_deref() }
 +            pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
@@ -55802,13 +55802,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) search_vector: ::std::option::Option<::std::vec::Vec<crate::types::AttributeValue>>,
 -    pub(crate) search_condition_expression: ::std::option::Option<::std::string::String>,
 -    pub(crate) top_k: ::std::option::Option<i32>,
-+    expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-+    expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
++    expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
++    expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
 +    index_name: ::std::option::Option<super::super::super::types::IndexName>,
 +    projection_expression: ::std::option::Option<super::super::super::types::ProjectionExpression>,
 +    return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    search_condition_expression: ::std::option::Option<super::super::super::types::String>,
-+    search_vector: ::std::option::Option<super::super::super::types::SearchVectorList>,
++    search_vector: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>>,
 +    table_name: ::std::option::Option<super::super::super::types::TableArn>,
 +    top_k: ::std::option::Option<super::super::super::types::TopKInteger>,
  }
@@ -56026,12 +56026,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            top_k: self.top_k,
 -        })
 -    }
-+    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-+    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-+    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = Some(input.into()); self }
-+    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = input; self }
-+    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeValueMap> { &self.expression_attribute_values }
++    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
++    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
++    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { &self.expression_attribute_names }
++    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = Some(input.into()); self }
++    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
++    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { &self.expression_attribute_values }
 +    pub fn index_name(mut self, input: impl ::std::convert::Into<super::super::super::types::IndexName>) -> Self { self.index_name = Some(input.into()); self }
 +    pub fn set_index_name(mut self, input: ::std::option::Option<super::super::super::types::IndexName>) -> Self { self.index_name = input; self }
 +    pub fn get_index_name(&self) -> &::std::option::Option<super::super::super::types::IndexName> { &self.index_name }
@@ -56044,9 +56044,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn search_condition_expression(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.search_condition_expression = Some(input.into()); self }
 +    pub fn set_search_condition_expression(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.search_condition_expression = input; self }
 +    pub fn get_search_condition_expression(&self) -> &::std::option::Option<super::super::super::types::String> { &self.search_condition_expression }
-+    pub fn search_vector(mut self, input: impl ::std::convert::Into<super::super::super::types::SearchVectorList>) -> Self { self.search_vector = Some(input.into()); self }
-+    pub fn set_search_vector(mut self, input: ::std::option::Option<super::super::super::types::SearchVectorList>) -> Self { self.search_vector = input; self }
-+    pub fn get_search_vector(&self) -> &::std::option::Option<super::super::super::types::SearchVectorList> { &self.search_vector }
++    pub fn search_vector(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeValue>>) -> Self { self.search_vector = Some(input.into()); self }
++    pub fn set_search_vector(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>>) -> Self { self.search_vector = input; self }
++    pub fn get_search_vector(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>> { &self.search_vector }
 +    pub fn table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.table_name = Some(input.into()); self }
 +    pub fn set_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableArn>) -> Self { self.table_name = input; self }
 +    pub fn get_table_name(&self) -> &::std::option::Option<super::super::super::types::TableArn> { &self.table_name }
@@ -56087,7 +56087,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub search_results: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>>,
 -    _request_id: Option<String>,
 +    pub consumed_capacity: ::std::option::Option<super::super::super::types::VectorCapacity>,
-+    pub search_results: ::std::option::Option<super::super::super::types::SearchResultList>,
++    pub search_results: ::std::option::Option<::std::vec::Vec<super::super::super::types::SearchResultItem>>,
  }
 +        impl SearchVectorsOutput {
 +            pub fn consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::VectorCapacity> { self.consumed_capacity.as_ref() }
@@ -56127,7 +56127,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) search_results: ::std::option::Option<::std::vec::Vec<crate::types::SearchResultItem>>,
 -    _request_id: Option<String>,
 +    consumed_capacity: ::std::option::Option<super::super::super::types::VectorCapacity>,
-+    search_results: ::std::option::Option<super::super::super::types::SearchResultList>,
++    search_results: ::std::option::Option<::std::vec::Vec<super::super::super::types::SearchResultItem>>,
  }
  impl SearchVectorsOutputBuilder {
 -    /// <p>The capacity units consumed by the <code>SearchVectors</code> operation. Contains <code>VectorSearchRequestBytes</code>, which represents the vector search capacity consumed.</p>
@@ -56184,9 +56184,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::VectorCapacity>) -> Self { self.consumed_capacity = Some(input.into()); self }
 +    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::VectorCapacity>) -> Self { self.consumed_capacity = input; self }
 +    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::VectorCapacity> { &self.consumed_capacity }
-+    pub fn search_results(mut self, input: impl ::std::convert::Into<super::super::super::types::SearchResultList>) -> Self { self.search_results = Some(input.into()); self }
-+    pub fn set_search_results(mut self, input: ::std::option::Option<super::super::super::types::SearchResultList>) -> Self { self.search_results = input; self }
-+    pub fn get_search_results(&self) -> &::std::option::Option<super::super::super::types::SearchResultList> { &self.search_results }
++    pub fn search_results(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SearchResultItem>>) -> Self { self.search_results = Some(input.into()); self }
++    pub fn set_search_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SearchResultItem>>) -> Self { self.search_results = input; self }
++    pub fn get_search_results(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SearchResultItem>> { &self.search_results }
 +    pub fn build(self) -> SearchVectorsOutput { SearchVectorsOutput {
 +        consumed_capacity: self.consumed_capacity,
 +        search_results: self.search_results,
@@ -56519,13 +56519,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_top_k(&self) -> &::std::option::Option<i32> {
 -        self.inner.get_top_k()
 -    }
-+    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
-+    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
++    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
++    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
 +    pub fn index_name(mut self, value: impl ::std::convert::Into<super::super::super::types::IndexName>) -> Self { self.input.index_name = Some(value.into()); self }
 +    pub fn projection_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ProjectionExpression>) -> Self { self.input.projection_expression = Some(value.into()); self }
 +    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
 +    pub fn search_condition_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.search_condition_expression = Some(value.into()); self }
-+    pub fn search_vector(mut self, value: impl ::std::convert::Into<super::super::super::types::SearchVectorList>) -> Self { self.input.search_vector = Some(value.into()); self }
++    pub fn search_vector(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeValue>>) -> Self { self.input.search_vector = Some(value.into()); self }
 +    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
 +    pub fn top_k(mut self, value: impl ::std::convert::Into<super::super::super::types::TopKInteger>) -> Self { self.input.top_k = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
@@ -57087,7 +57087,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The tags to be assigned to the Amazon DynamoDB resource.</p>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    pub resource_arn: ::std::option::Option<super::super::super::types::ResourceArnString>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagList>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl TagResourceInput {
 +            pub fn resource_arn(&self) -> ::std::option::Option<&str> { self.resource_arn.as_deref() }
@@ -57121,7 +57121,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    resource_arn: ::std::option::Option<super::super::super::types::ResourceArnString>,
-+    tags: ::std::option::Option<super::super::super::types::TagList>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl TagResourceInputBuilder {
 -    /// <p>Identifies the Amazon DynamoDB resource to which tags should be added. This value is an Amazon Resource Name (ARN).</p>
@@ -57169,9 +57169,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn resource_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ResourceArnString>) -> Self { self.resource_arn = Some(input.into()); self }
 +    pub fn set_resource_arn(mut self, input: ::std::option::Option<super::super::super::types::ResourceArnString>) -> Self { self.resource_arn = input; self }
 +    pub fn get_resource_arn(&self) -> &::std::option::Option<super::super::super::types::ResourceArnString> { &self.resource_arn }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> TagResourceInput { TagResourceInput {
 +        resource_arn: self.resource_arn,
 +        tags: self.tags,
@@ -57303,7 +57303,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn resource_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceArnString>) -> Self { self.input.resource_arn = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::TagResourceOutput, super::TagResourceError> {
@@ -57315,7 +57315,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::TagResourceError::Unhandled(format!("TagResource returned HTTP {}", status)));
 +                         }
-+                         Ok(super::TagResourceOutput::default())
++                         Ok(super::TagResourceOutput)
 +                     }
  }
 -impl TagResourceFluentBuilder {
@@ -57970,7 +57970,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A value of <code>TOTAL</code> causes consumed capacity information to be returned, and a value of <code>NONE</code> prevents that information from being returned. No other value is valid.</p>
 -    pub return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
 +    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-+    pub transact_items: ::std::option::Option<super::super::super::types::TransactGetItemList>,
++    pub transact_items: ::std::option::Option<::std::vec::Vec<super::super::super::types::TransactGetItem>>,
  }
 +        impl TransactGetItemsInput {
 +            pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
@@ -58004,7 +58004,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) transact_items: ::std::option::Option<::std::vec::Vec<crate::types::TransactGetItem>>,
 -    pub(crate) return_consumed_capacity: ::std::option::Option<crate::types::ReturnConsumedCapacity>,
 +    return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-+    transact_items: ::std::option::Option<super::super::super::types::TransactGetItemList>,
++    transact_items: ::std::option::Option<::std::vec::Vec<super::super::super::types::TransactGetItem>>,
  }
  impl TransactGetItemsInputBuilder {
 -    /// Appends an item to `transact_items`.
@@ -58053,9 +58053,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
 +    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
 +    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
-+    pub fn transact_items(mut self, input: impl ::std::convert::Into<super::super::super::types::TransactGetItemList>) -> Self { self.transact_items = Some(input.into()); self }
-+    pub fn set_transact_items(mut self, input: ::std::option::Option<super::super::super::types::TransactGetItemList>) -> Self { self.transact_items = input; self }
-+    pub fn get_transact_items(&self) -> &::std::option::Option<super::super::super::types::TransactGetItemList> { &self.transact_items }
++    pub fn transact_items(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TransactGetItem>>) -> Self { self.transact_items = Some(input.into()); self }
++    pub fn set_transact_items(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TransactGetItem>>) -> Self { self.transact_items = input; self }
++    pub fn get_transact_items(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TransactGetItem>> { &self.transact_items }
 +    pub fn build(self) -> TransactGetItemsInput { TransactGetItemsInput {
 +        return_consumed_capacity: self.return_consumed_capacity,
 +        transact_items: self.transact_items,
@@ -58083,8 +58083,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>If a requested item could not be retrieved, the corresponding <code>ItemResponse</code> object is Null, or if the requested item has no projected attributes, the corresponding <code>ItemResponse</code> object is an empty Map.</p>
 -    pub responses: ::std::option::Option<::std::vec::Vec<crate::types::ItemResponse>>,
 -    _request_id: Option<String>,
-+    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-+    pub responses: ::std::option::Option<super::super::super::types::ItemResponseList>,
++    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
++    pub responses: ::std::option::Option<::std::vec::Vec<super::super::super::types::ItemResponse>>,
  }
 +        impl TransactGetItemsOutput {
 +            pub fn consumed_capacity(&self) -> &[super::super::super::types::ConsumedCapacity] { self.consumed_capacity.as_deref().unwrap_or(&[]) }
@@ -58126,8 +58126,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) consumed_capacity: ::std::option::Option<::std::vec::Vec<crate::types::ConsumedCapacity>>,
 -    pub(crate) responses: ::std::option::Option<::std::vec::Vec<crate::types::ItemResponse>>,
 -    _request_id: Option<String>,
-+    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-+    responses: ::std::option::Option<super::super::super::types::ItemResponseList>,
++    consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
++    responses: ::std::option::Option<::std::vec::Vec<super::super::super::types::ItemResponse>>,
  }
  impl TransactGetItemsOutputBuilder {
 -    /// Appends an item to `consumed_capacity`.
@@ -58190,12 +58190,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = Some(input.into()); self }
-+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = input; self }
-+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacityMultiple> { &self.consumed_capacity }
-+    pub fn responses(mut self, input: impl ::std::convert::Into<super::super::super::types::ItemResponseList>) -> Self { self.responses = Some(input.into()); self }
-+    pub fn set_responses(mut self, input: ::std::option::Option<super::super::super::types::ItemResponseList>) -> Self { self.responses = input; self }
-+    pub fn get_responses(&self) -> &::std::option::Option<super::super::super::types::ItemResponseList> { &self.responses }
++    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = Some(input.into()); self }
++    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = input; self }
++    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>> { &self.consumed_capacity }
++    pub fn responses(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ItemResponse>>) -> Self { self.responses = Some(input.into()); self }
++    pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ItemResponse>>) -> Self { self.responses = input; self }
++    pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ItemResponse>> { &self.responses }
 +    pub fn build(self) -> TransactGetItemsOutput { TransactGetItemsOutput {
 +        consumed_capacity: self.consumed_capacity,
 +        responses: self.responses,
@@ -58278,7 +58278,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
-+    pub fn transact_items(mut self, value: impl ::std::convert::Into<super::super::super::types::TransactGetItemList>) -> Self { self.input.transact_items = Some(value.into()); self }
++    pub fn transact_items(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TransactGetItem>>) -> Self { self.input.transact_items = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::TransactGetItemsOutput, super::TransactGetItemsError> {
@@ -59074,7 +59074,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub client_request_token: ::std::option::Option<super::super::super::types::ClientRequestToken>,
 +    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    pub return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
-+    pub transact_items: ::std::option::Option<super::super::super::types::TransactWriteItemList>,
++    pub transact_items: ::std::option::Option<::std::vec::Vec<super::super::super::types::TransactWriteItem>>,
  }
 +        impl TransactWriteItemsInput {
 +            pub fn client_request_token(&self) -> ::std::option::Option<&str> { self.client_request_token.as_deref() }
@@ -59134,7 +59134,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    client_request_token: ::std::option::Option<super::super::super::types::ClientRequestToken>,
 +    return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
-+    transact_items: ::std::option::Option<super::super::super::types::TransactWriteItemList>,
++    transact_items: ::std::option::Option<::std::vec::Vec<super::super::super::types::TransactWriteItem>>,
  }
  impl TransactWriteItemsInputBuilder {
 -    /// Appends an item to `transact_items`.
@@ -59256,9 +59256,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn return_item_collection_metrics(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnItemCollectionMetrics>) -> Self { self.return_item_collection_metrics = Some(input.into()); self }
 +    pub fn set_return_item_collection_metrics(mut self, input: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>) -> Self { self.return_item_collection_metrics = input; self }
 +    pub fn get_return_item_collection_metrics(&self) -> &::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics> { &self.return_item_collection_metrics }
-+    pub fn transact_items(mut self, input: impl ::std::convert::Into<super::super::super::types::TransactWriteItemList>) -> Self { self.transact_items = Some(input.into()); self }
-+    pub fn set_transact_items(mut self, input: ::std::option::Option<super::super::super::types::TransactWriteItemList>) -> Self { self.transact_items = input; self }
-+    pub fn get_transact_items(&self) -> &::std::option::Option<super::super::super::types::TransactWriteItemList> { &self.transact_items }
++    pub fn transact_items(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TransactWriteItem>>) -> Self { self.transact_items = Some(input.into()); self }
++    pub fn set_transact_items(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TransactWriteItem>>) -> Self { self.transact_items = input; self }
++    pub fn get_transact_items(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TransactWriteItem>> { &self.transact_items }
 +    pub fn build(self) -> TransactWriteItemsInput { TransactWriteItemsInput {
 +        client_request_token: self.client_request_token,
 +        return_consumed_capacity: self.return_consumed_capacity,
@@ -59289,12 +59289,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub item_collection_metrics:
 -        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>>,
 -    _request_id: Option<String>,
-+    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-+    pub item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable>,
++    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
++    pub item_collection_metrics: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>,
  }
 +        impl TransactWriteItemsOutput {
 +            pub fn consumed_capacity(&self) -> &[super::super::super::types::ConsumedCapacity] { self.consumed_capacity.as_deref().unwrap_or(&[]) }
-+            pub fn item_collection_metrics(&self) -> ::std::option::Option<&super::super::super::types::ItemCollectionMetricsPerTable> { self.item_collection_metrics.as_ref() }
++            pub fn item_collection_metrics(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>> { self.item_collection_metrics.as_ref() }
 +        }
  impl TransactWriteItemsOutput {
 -    /// <p>The capacity units consumed by the entire <code>TransactWriteItems</code> operation. The values of the list are ordered according to the ordering of the <code>TransactItems</code> request parameter.</p>
@@ -59333,8 +59333,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) item_collection_metrics:
 -        ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::vec::Vec<crate::types::ItemCollectionMetrics>>>,
 -    _request_id: Option<String>,
-+    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-+    item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable>,
++    consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
++    item_collection_metrics: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>,
  }
  impl TransactWriteItemsOutputBuilder {
 -    /// Appends an item to `consumed_capacity`.
@@ -59406,12 +59406,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = Some(input.into()); self }
-+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = input; self }
-+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacityMultiple> { &self.consumed_capacity }
-+    pub fn item_collection_metrics(mut self, input: impl ::std::convert::Into<super::super::super::types::ItemCollectionMetricsPerTable>) -> Self { self.item_collection_metrics = Some(input.into()); self }
-+    pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable>) -> Self { self.item_collection_metrics = input; self }
-+    pub fn get_item_collection_metrics(&self) -> &::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable> { &self.item_collection_metrics }
++    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = Some(input.into()); self }
++    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = input; self }
++    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>> { &self.consumed_capacity }
++    pub fn item_collection_metrics(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>) -> Self { self.item_collection_metrics = Some(input.into()); self }
++    pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>) -> Self { self.item_collection_metrics = input; self }
++    pub fn get_item_collection_metrics(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>> { &self.item_collection_metrics }
 +    pub fn build(self) -> TransactWriteItemsOutput { TransactWriteItemsOutput {
 +        consumed_capacity: self.consumed_capacity,
 +        item_collection_metrics: self.item_collection_metrics,
@@ -59670,7 +59670,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn client_request_token(mut self, value: impl ::std::convert::Into<super::super::super::types::ClientRequestToken>) -> Self { self.input.client_request_token = Some(value.into()); self }
 +    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
 +    pub fn return_item_collection_metrics(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnItemCollectionMetrics>) -> Self { self.input.return_item_collection_metrics = Some(value.into()); self }
-+    pub fn transact_items(mut self, value: impl ::std::convert::Into<super::super::super::types::TransactWriteItemList>) -> Self { self.input.transact_items = Some(value.into()); self }
++    pub fn transact_items(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TransactWriteItem>>) -> Self { self.input.transact_items = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::TransactWriteItemsOutput, super::TransactWriteItemsError> {
@@ -60485,7 +60485,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.tag_keys.as_deref().unwrap_or_default()
 -    }
 +    pub resource_arn: ::std::option::Option<super::super::super::types::ResourceArnString>,
-+    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyList>,
++    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyString>>,
  }
 +        impl UntagResourceInput {
 +            pub fn resource_arn(&self) -> ::std::option::Option<&str> { self.resource_arn.as_deref() }
@@ -60507,7 +60507,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    resource_arn: ::std::option::Option<super::super::super::types::ResourceArnString>,
-+    tag_keys: ::std::option::Option<super::super::super::types::TagKeyList>,
++    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyString>>,
  }
  impl UntagResourceInputBuilder {
 -    /// <p>The DynamoDB resource that the tags will be removed from. This value is an Amazon Resource Name (ARN).</p>
@@ -60557,9 +60557,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn resource_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ResourceArnString>) -> Self { self.resource_arn = Some(input.into()); self }
 +    pub fn set_resource_arn(mut self, input: ::std::option::Option<super::super::super::types::ResourceArnString>) -> Self { self.resource_arn = input; self }
 +    pub fn get_resource_arn(&self) -> &::std::option::Option<super::super::super::types::ResourceArnString> { &self.resource_arn }
-+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyList>) -> Self { self.tag_keys = Some(input.into()); self }
-+    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyList>) -> Self { self.tag_keys = input; self }
-+    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyList> { &self.tag_keys }
++    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyString>>) -> Self { self.tag_keys = Some(input.into()); self }
++    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyString>>) -> Self { self.tag_keys = input; self }
++    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyString>> { &self.tag_keys }
 +    pub fn build(self) -> UntagResourceInput { UntagResourceInput {
 +        resource_arn: self.resource_arn,
 +        tag_keys: self.tag_keys,
@@ -60691,7 +60691,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn resource_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceArnString>) -> Self { self.input.resource_arn = Some(value.into()); self }
-+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyList>) -> Self { self.input.tag_keys = Some(value.into()); self }
++    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyString>>) -> Self { self.input.tag_keys = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UntagResourceOutput, super::UntagResourceError> {
@@ -60703,7 +60703,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UntagResourceError::Unhandled(format!("UntagResource returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UntagResourceOutput::default())
++                         Ok(super::UntagResourceOutput)
 +                     }
  }
 -impl UntagResourceFluentBuilder {
@@ -63298,7 +63298,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.replica_updates.as_deref().unwrap_or_default()
 -    }
 +    pub global_table_name: ::std::option::Option<super::super::super::types::TableName>,
-+    pub replica_updates: ::std::option::Option<super::super::super::types::ReplicaUpdateList>,
++    pub replica_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaUpdate>>,
  }
 +        impl UpdateGlobalTableInput {
 +            pub fn global_table_name(&self) -> ::std::option::Option<&str> { self.global_table_name.as_deref() }
@@ -63320,7 +63320,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) global_table_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) replica_updates: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaUpdate>>,
 +    global_table_name: ::std::option::Option<super::super::super::types::TableName>,
-+    replica_updates: ::std::option::Option<super::super::super::types::ReplicaUpdateList>,
++    replica_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaUpdate>>,
  }
  impl UpdateGlobalTableInputBuilder {
 -    /// <p>The global table name.</p>
@@ -63370,9 +63370,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn global_table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.global_table_name = Some(input.into()); self }
 +    pub fn set_global_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.global_table_name = input; self }
 +    pub fn get_global_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.global_table_name }
-+    pub fn replica_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::ReplicaUpdateList>) -> Self { self.replica_updates = Some(input.into()); self }
-+    pub fn set_replica_updates(mut self, input: ::std::option::Option<super::super::super::types::ReplicaUpdateList>) -> Self { self.replica_updates = input; self }
-+    pub fn get_replica_updates(&self) -> &::std::option::Option<super::super::super::types::ReplicaUpdateList> { &self.replica_updates }
++    pub fn replica_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaUpdate>>) -> Self { self.replica_updates = Some(input.into()); self }
++    pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaUpdate>>) -> Self { self.replica_updates = input; self }
++    pub fn get_replica_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaUpdate>> { &self.replica_updates }
 +    pub fn build(self) -> UpdateGlobalTableInput { UpdateGlobalTableInput {
 +        global_table_name: self.global_table_name,
 +        replica_updates: self.replica_updates,
@@ -63549,7 +63549,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn global_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.global_table_name = Some(value.into()); self }
-+    pub fn replica_updates(mut self, value: impl ::std::convert::Into<super::super::super::types::ReplicaUpdateList>) -> Self { self.input.replica_updates = Some(value.into()); self }
++    pub fn replica_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaUpdate>>) -> Self { self.input.replica_updates = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UpdateGlobalTableOutput, super::UpdateGlobalTableError> {
@@ -64272,11 +64272,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.replica_settings_update.as_deref().unwrap_or_default()
 -    }
 +    pub global_table_billing_mode: ::std::option::Option<super::super::super::types::BillingMode>,
-+    pub global_table_global_secondary_index_settings_update: ::std::option::Option<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdateList>,
++    pub global_table_global_secondary_index_settings_update: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>,
 +    pub global_table_name: ::std::option::Option<super::super::super::types::TableName>,
 +    pub global_table_provisioned_write_capacity_auto_scaling_settings_update: ::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate>,
 +    pub global_table_provisioned_write_capacity_units: ::std::option::Option<super::super::super::types::PositiveLongObject>,
-+    pub replica_settings_update: ::std::option::Option<super::super::super::types::ReplicaSettingsUpdateList>,
++    pub replica_settings_update: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>,
  }
 +        impl UpdateGlobalTableSettingsInput {
 +            pub fn global_table_billing_mode(&self) -> ::std::option::Option<&super::super::super::types::BillingMode> { self.global_table_billing_mode.as_ref() }
@@ -64307,11 +64307,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        ::std::option::Option<::std::vec::Vec<crate::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>,
 -    pub(crate) replica_settings_update: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsUpdate>>,
 +    global_table_billing_mode: ::std::option::Option<super::super::super::types::BillingMode>,
-+    global_table_global_secondary_index_settings_update: ::std::option::Option<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdateList>,
++    global_table_global_secondary_index_settings_update: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>,
 +    global_table_name: ::std::option::Option<super::super::super::types::TableName>,
 +    global_table_provisioned_write_capacity_auto_scaling_settings_update: ::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate>,
 +    global_table_provisioned_write_capacity_units: ::std::option::Option<super::super::super::types::PositiveLongObject>,
-+    replica_settings_update: ::std::option::Option<super::super::super::types::ReplicaSettingsUpdateList>,
++    replica_settings_update: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>,
  }
  impl UpdateGlobalTableSettingsInputBuilder {
 -    /// <p>The name of the global table</p>
@@ -64459,9 +64459,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn global_table_billing_mode(mut self, input: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.global_table_billing_mode = Some(input.into()); self }
 +    pub fn set_global_table_billing_mode(mut self, input: ::std::option::Option<super::super::super::types::BillingMode>) -> Self { self.global_table_billing_mode = input; self }
 +    pub fn get_global_table_billing_mode(&self) -> &::std::option::Option<super::super::super::types::BillingMode> { &self.global_table_billing_mode }
-+    pub fn global_table_global_secondary_index_settings_update(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdateList>) -> Self { self.global_table_global_secondary_index_settings_update = Some(input.into()); self }
-+    pub fn set_global_table_global_secondary_index_settings_update(mut self, input: ::std::option::Option<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdateList>) -> Self { self.global_table_global_secondary_index_settings_update = input; self }
-+    pub fn get_global_table_global_secondary_index_settings_update(&self) -> &::std::option::Option<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdateList> { &self.global_table_global_secondary_index_settings_update }
++    pub fn global_table_global_secondary_index_settings_update(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>) -> Self { self.global_table_global_secondary_index_settings_update = Some(input.into()); self }
++    pub fn set_global_table_global_secondary_index_settings_update(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>) -> Self { self.global_table_global_secondary_index_settings_update = input; self }
++    pub fn get_global_table_global_secondary_index_settings_update(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>> { &self.global_table_global_secondary_index_settings_update }
 +    pub fn global_table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.global_table_name = Some(input.into()); self }
 +    pub fn set_global_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.global_table_name = input; self }
 +    pub fn get_global_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.global_table_name }
@@ -64471,9 +64471,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn global_table_provisioned_write_capacity_units(mut self, input: impl ::std::convert::Into<super::super::super::types::PositiveLongObject>) -> Self { self.global_table_provisioned_write_capacity_units = Some(input.into()); self }
 +    pub fn set_global_table_provisioned_write_capacity_units(mut self, input: ::std::option::Option<super::super::super::types::PositiveLongObject>) -> Self { self.global_table_provisioned_write_capacity_units = input; self }
 +    pub fn get_global_table_provisioned_write_capacity_units(&self) -> &::std::option::Option<super::super::super::types::PositiveLongObject> { &self.global_table_provisioned_write_capacity_units }
-+    pub fn replica_settings_update(mut self, input: impl ::std::convert::Into<super::super::super::types::ReplicaSettingsUpdateList>) -> Self { self.replica_settings_update = Some(input.into()); self }
-+    pub fn set_replica_settings_update(mut self, input: ::std::option::Option<super::super::super::types::ReplicaSettingsUpdateList>) -> Self { self.replica_settings_update = input; self }
-+    pub fn get_replica_settings_update(&self) -> &::std::option::Option<super::super::super::types::ReplicaSettingsUpdateList> { &self.replica_settings_update }
++    pub fn replica_settings_update(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>) -> Self { self.replica_settings_update = Some(input.into()); self }
++    pub fn set_replica_settings_update(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>) -> Self { self.replica_settings_update = input; self }
++    pub fn get_replica_settings_update(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>> { &self.replica_settings_update }
 +    pub fn build(self) -> UpdateGlobalTableSettingsInput { UpdateGlobalTableSettingsInput {
 +        global_table_billing_mode: self.global_table_billing_mode,
 +        global_table_global_secondary_index_settings_update: self.global_table_global_secondary_index_settings_update,
@@ -64505,7 +64505,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub replica_settings: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>,
 -    _request_id: Option<String>,
 +    pub global_table_name: ::std::option::Option<super::super::super::types::TableName>,
-+    pub replica_settings: ::std::option::Option<super::super::super::types::ReplicaSettingsDescriptionList>,
++    pub replica_settings: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>,
  }
 +        impl UpdateGlobalTableSettingsOutput {
 +            pub fn global_table_name(&self) -> ::std::option::Option<&str> { self.global_table_name.as_deref() }
@@ -64545,7 +64545,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) replica_settings: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaSettingsDescription>>,
 -    _request_id: Option<String>,
 +    global_table_name: ::std::option::Option<super::super::super::types::TableName>,
-+    replica_settings: ::std::option::Option<super::super::super::types::ReplicaSettingsDescriptionList>,
++    replica_settings: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>,
  }
  impl UpdateGlobalTableSettingsOutputBuilder {
 -    /// <p>The name of the global table.</p>
@@ -64602,9 +64602,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn global_table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.global_table_name = Some(input.into()); self }
 +    pub fn set_global_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.global_table_name = input; self }
 +    pub fn get_global_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.global_table_name }
-+    pub fn replica_settings(mut self, input: impl ::std::convert::Into<super::super::super::types::ReplicaSettingsDescriptionList>) -> Self { self.replica_settings = Some(input.into()); self }
-+    pub fn set_replica_settings(mut self, input: ::std::option::Option<super::super::super::types::ReplicaSettingsDescriptionList>) -> Self { self.replica_settings = input; self }
-+    pub fn get_replica_settings(&self) -> &::std::option::Option<super::super::super::types::ReplicaSettingsDescriptionList> { &self.replica_settings }
++    pub fn replica_settings(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>) -> Self { self.replica_settings = Some(input.into()); self }
++    pub fn set_replica_settings(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>) -> Self { self.replica_settings = input; self }
++    pub fn get_replica_settings(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>> { &self.replica_settings }
 +    pub fn build(self) -> UpdateGlobalTableSettingsOutput { UpdateGlobalTableSettingsOutput {
 +        global_table_name: self.global_table_name,
 +        replica_settings: self.replica_settings,
@@ -64863,11 +64863,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.inner.get_replica_settings_update()
 -    }
 +    pub fn global_table_billing_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.input.global_table_billing_mode = Some(value.into()); self }
-+    pub fn global_table_global_secondary_index_settings_update(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdateList>) -> Self { self.input.global_table_global_secondary_index_settings_update = Some(value.into()); self }
++    pub fn global_table_global_secondary_index_settings_update(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>) -> Self { self.input.global_table_global_secondary_index_settings_update = Some(value.into()); self }
 +    pub fn global_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.global_table_name = Some(value.into()); self }
 +    pub fn global_table_provisioned_write_capacity_auto_scaling_settings_update(mut self, value: impl ::std::convert::Into<super::super::super::types::AutoScalingSettingsUpdate>) -> Self { self.input.global_table_provisioned_write_capacity_auto_scaling_settings_update = Some(value.into()); self }
 +    pub fn global_table_provisioned_write_capacity_units(mut self, value: impl ::std::convert::Into<super::super::super::types::PositiveLongObject>) -> Self { self.input.global_table_provisioned_write_capacity_units = Some(value.into()); self }
-+    pub fn replica_settings_update(mut self, value: impl ::std::convert::Into<super::super::super::types::ReplicaSettingsUpdateList>) -> Self { self.input.replica_settings_update = Some(value.into()); self }
++    pub fn replica_settings_update(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>) -> Self { self.input.replica_settings_update = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UpdateGlobalTableSettingsOutput, super::UpdateGlobalTableSettingsError> {
@@ -65767,13 +65767,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn return_values_on_condition_check_failure(&self) -> ::std::option::Option<&crate::types::ReturnValuesOnConditionCheckFailure> {
 -        self.return_values_on_condition_check_failure.as_ref()
 -    }
-+    pub attribute_updates: ::std::option::Option<super::super::super::types::AttributeUpdates>,
++    pub attribute_updates: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValueUpdate>>,
 +    pub condition_expression: ::std::option::Option<super::super::super::types::ConditionExpression>,
 +    pub conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
-+    pub expected: ::std::option::Option<super::super::super::types::ExpectedAttributeMap>,
-+    pub expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-+    pub expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
-+    pub key: ::std::option::Option<super::super::super::types::Key>,
++    pub expected: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>,
++    pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
++    pub expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
++    pub key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    pub return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
 +    pub return_values: ::std::option::Option<super::super::super::types::ReturnValue>,
@@ -65782,13 +65782,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub update_expression: ::std::option::Option<super::super::super::types::UpdateExpression>,
  }
 +        impl UpdateItemInput {
-+            pub fn attribute_updates(&self) -> ::std::option::Option<&super::super::super::types::AttributeUpdates> { self.attribute_updates.as_ref() }
++            pub fn attribute_updates(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValueUpdate>> { self.attribute_updates.as_ref() }
 +            pub fn condition_expression(&self) -> ::std::option::Option<&str> { self.condition_expression.as_deref() }
 +            pub fn conditional_operator(&self) -> ::std::option::Option<&super::super::super::types::ConditionalOperator> { self.conditional_operator.as_ref() }
-+            pub fn expected(&self) -> ::std::option::Option<&super::super::super::types::ExpectedAttributeMap> { self.expected.as_ref() }
-+            pub fn expression_attribute_names(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeNameMap> { self.expression_attribute_names.as_ref() }
-+            pub fn expression_attribute_values(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeValueMap> { self.expression_attribute_values.as_ref() }
-+            pub fn key(&self) -> ::std::option::Option<&super::super::super::types::Key> { self.key.as_ref() }
++            pub fn expected(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>> { self.expected.as_ref() }
++            pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { self.expression_attribute_names.as_ref() }
++            pub fn expression_attribute_values(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { self.expression_attribute_values.as_ref() }
++            pub fn key(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.key.as_ref() }
 +            pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
 +            pub fn return_item_collection_metrics(&self) -> ::std::option::Option<&super::super::super::types::ReturnItemCollectionMetrics> { self.return_item_collection_metrics.as_ref() }
 +            pub fn return_values(&self) -> ::std::option::Option<&super::super::super::types::ReturnValue> { self.return_values.as_ref() }
@@ -65822,13 +65822,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) expression_attribute_names: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    pub(crate) expression_attribute_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
 -    pub(crate) return_values_on_condition_check_failure: ::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure>,
-+    attribute_updates: ::std::option::Option<super::super::super::types::AttributeUpdates>,
++    attribute_updates: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValueUpdate>>,
 +    condition_expression: ::std::option::Option<super::super::super::types::ConditionExpression>,
 +    conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
-+    expected: ::std::option::Option<super::super::super::types::ExpectedAttributeMap>,
-+    expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-+    expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
-+    key: ::std::option::Option<super::super::super::types::Key>,
++    expected: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>,
++    expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
++    expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
++    key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
 +    return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
 +    return_values: ::std::option::Option<super::super::super::types::ReturnValue>,
@@ -66408,27 +66408,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            return_values_on_condition_check_failure: self.return_values_on_condition_check_failure,
 -        })
 -    }
-+    pub fn attribute_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeUpdates>) -> Self { self.attribute_updates = Some(input.into()); self }
-+    pub fn set_attribute_updates(mut self, input: ::std::option::Option<super::super::super::types::AttributeUpdates>) -> Self { self.attribute_updates = input; self }
-+    pub fn get_attribute_updates(&self) -> &::std::option::Option<super::super::super::types::AttributeUpdates> { &self.attribute_updates }
++    pub fn attribute_updates(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValueUpdate>>) -> Self { self.attribute_updates = Some(input.into()); self }
++    pub fn set_attribute_updates(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValueUpdate>>) -> Self { self.attribute_updates = input; self }
++    pub fn get_attribute_updates(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValueUpdate>> { &self.attribute_updates }
 +    pub fn condition_expression(mut self, input: impl ::std::convert::Into<super::super::super::types::ConditionExpression>) -> Self { self.condition_expression = Some(input.into()); self }
 +    pub fn set_condition_expression(mut self, input: ::std::option::Option<super::super::super::types::ConditionExpression>) -> Self { self.condition_expression = input; self }
 +    pub fn get_condition_expression(&self) -> &::std::option::Option<super::super::super::types::ConditionExpression> { &self.condition_expression }
 +    pub fn conditional_operator(mut self, input: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.conditional_operator = Some(input.into()); self }
 +    pub fn set_conditional_operator(mut self, input: ::std::option::Option<super::super::super::types::ConditionalOperator>) -> Self { self.conditional_operator = input; self }
 +    pub fn get_conditional_operator(&self) -> &::std::option::Option<super::super::super::types::ConditionalOperator> { &self.conditional_operator }
-+    pub fn expected(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpectedAttributeMap>) -> Self { self.expected = Some(input.into()); self }
-+    pub fn set_expected(mut self, input: ::std::option::Option<super::super::super::types::ExpectedAttributeMap>) -> Self { self.expected = input; self }
-+    pub fn get_expected(&self) -> &::std::option::Option<super::super::super::types::ExpectedAttributeMap> { &self.expected }
-+    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-+    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-+    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = Some(input.into()); self }
-+    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = input; self }
-+    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeValueMap> { &self.expression_attribute_values }
-+    pub fn key(mut self, input: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.key = Some(input.into()); self }
-+    pub fn set_key(mut self, input: ::std::option::Option<super::super::super::types::Key>) -> Self { self.key = input; self }
-+    pub fn get_key(&self) -> &::std::option::Option<super::super::super::types::Key> { &self.key }
++    pub fn expected(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>) -> Self { self.expected = Some(input.into()); self }
++    pub fn set_expected(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>) -> Self { self.expected = input; self }
++    pub fn get_expected(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>> { &self.expected }
++    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
++    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
++    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { &self.expression_attribute_names }
++    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = Some(input.into()); self }
++    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
++    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { &self.expression_attribute_values }
++    pub fn key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.key = Some(input.into()); self }
++    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.key = input; self }
++    pub fn get_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.key }
 +    pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
 +    pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
 +    pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
@@ -66525,12 +66525,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub attributes: ::std::option::Option<super::super::super::types::AttributeMap>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
 +    pub item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetrics>,
  }
 +        impl UpdateItemOutput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::AttributeMap> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.attributes.as_ref() }
 +            pub fn consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ConsumedCapacity> { self.consumed_capacity.as_ref() }
 +            pub fn item_collection_metrics(&self) -> ::std::option::Option<&super::super::super::types::ItemCollectionMetrics> { self.item_collection_metrics.as_ref() }
 +        }
@@ -66551,7 +66551,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) consumed_capacity: ::std::option::Option<crate::types::ConsumedCapacity>,
 -    pub(crate) item_collection_metrics: ::std::option::Option<crate::types::ItemCollectionMetrics>,
 -    _request_id: Option<String>,
-+    attributes: ::std::option::Option<super::super::super::types::AttributeMap>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
 +    item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetrics>,
  }
@@ -66655,9 +66655,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeMap>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::AttributeMap>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::AttributeMap> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.attributes }
 +    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacity>) -> Self { self.consumed_capacity = Some(input.into()); self }
 +    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacity>) -> Self { self.consumed_capacity = input; self }
 +    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacity> { &self.consumed_capacity }
@@ -67345,13 +67345,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<crate::types::ReturnValuesOnConditionCheckFailure> {
 -        self.inner.get_return_values_on_condition_check_failure()
 -    }
-+    pub fn attribute_updates(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeUpdates>) -> Self { self.input.attribute_updates = Some(value.into()); self }
++    pub fn attribute_updates(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValueUpdate>>) -> Self { self.input.attribute_updates = Some(value.into()); self }
 +    pub fn condition_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionExpression>) -> Self { self.input.condition_expression = Some(value.into()); self }
 +    pub fn conditional_operator(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.input.conditional_operator = Some(value.into()); self }
-+    pub fn expected(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpectedAttributeMap>) -> Self { self.input.expected = Some(value.into()); self }
-+    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
-+    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
-+    pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.input.key = Some(value.into()); self }
++    pub fn expected(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>) -> Self { self.input.expected = Some(value.into()); self }
++    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
++    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
++    pub fn key(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.key = Some(value.into()); self }
 +    pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
 +    pub fn return_item_collection_metrics(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnItemCollectionMetrics>) -> Self { self.input.return_item_collection_metrics = Some(value.into()); self }
 +    pub fn return_values(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnValue>) -> Self { self.input.return_values = Some(value.into()); self }
@@ -69243,21 +69243,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn vector_index_updates(&self) -> &[crate::types::VectorIndexUpdate] {
 -        self.vector_index_updates.as_deref().unwrap_or_default()
 -    }
-+    pub attribute_definitions: ::std::option::Option<super::super::super::types::AttributeDefinitions>,
++    pub attribute_definitions: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>,
 +    pub billing_mode: ::std::option::Option<super::super::super::types::BillingMode>,
 +    pub deletion_protection_enabled: ::std::option::Option<super::super::super::types::DeletionProtectionEnabled>,
-+    pub global_secondary_index_updates: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexUpdateList>,
++    pub global_secondary_index_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexUpdate>>,
 +    pub global_table_settings_replication_mode: ::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode>,
-+    pub global_table_witness_updates: ::std::option::Option<super::super::super::types::GlobalTableWitnessGroupUpdateList>,
++    pub global_table_witness_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableWitnessGroupUpdate>>,
 +    pub multi_region_consistency: ::std::option::Option<super::super::super::types::MultiRegionConsistency>,
 +    pub on_demand_throughput: ::std::option::Option<super::super::super::types::OnDemandThroughput>,
 +    pub provisioned_throughput: ::std::option::Option<super::super::super::types::ProvisionedThroughput>,
-+    pub replica_updates: ::std::option::Option<super::super::super::types::ReplicationGroupUpdateList>,
++    pub replica_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicationGroupUpdate>>,
 +    pub sse_specification: ::std::option::Option<super::super::super::types::SseSpecification>,
 +    pub stream_specification: ::std::option::Option<super::super::super::types::StreamSpecification>,
 +    pub table_class: ::std::option::Option<super::super::super::types::TableClass>,
 +    pub table_name: ::std::option::Option<super::super::super::types::TableArn>,
-+    pub vector_index_updates: ::std::option::Option<super::super::super::types::VectorIndexUpdateList>,
++    pub vector_index_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndexUpdate>>,
 +    pub warm_throughput: ::std::option::Option<super::super::super::types::WarmThroughput>,
  }
 +        impl UpdateTableInput {
@@ -69307,21 +69307,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) warm_throughput: ::std::option::Option<crate::types::WarmThroughput>,
 -    pub(crate) global_table_settings_replication_mode: ::std::option::Option<crate::types::GlobalTableSettingsReplicationMode>,
 -    pub(crate) vector_index_updates: ::std::option::Option<::std::vec::Vec<crate::types::VectorIndexUpdate>>,
-+    attribute_definitions: ::std::option::Option<super::super::super::types::AttributeDefinitions>,
++    attribute_definitions: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>,
 +    billing_mode: ::std::option::Option<super::super::super::types::BillingMode>,
 +    deletion_protection_enabled: ::std::option::Option<super::super::super::types::DeletionProtectionEnabled>,
-+    global_secondary_index_updates: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexUpdateList>,
++    global_secondary_index_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexUpdate>>,
 +    global_table_settings_replication_mode: ::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode>,
-+    global_table_witness_updates: ::std::option::Option<super::super::super::types::GlobalTableWitnessGroupUpdateList>,
++    global_table_witness_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableWitnessGroupUpdate>>,
 +    multi_region_consistency: ::std::option::Option<super::super::super::types::MultiRegionConsistency>,
 +    on_demand_throughput: ::std::option::Option<super::super::super::types::OnDemandThroughput>,
 +    provisioned_throughput: ::std::option::Option<super::super::super::types::ProvisionedThroughput>,
-+    replica_updates: ::std::option::Option<super::super::super::types::ReplicationGroupUpdateList>,
++    replica_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicationGroupUpdate>>,
 +    sse_specification: ::std::option::Option<super::super::super::types::SseSpecification>,
 +    stream_specification: ::std::option::Option<super::super::super::types::StreamSpecification>,
 +    table_class: ::std::option::Option<super::super::super::types::TableClass>,
 +    table_name: ::std::option::Option<super::super::super::types::TableArn>,
-+    vector_index_updates: ::std::option::Option<super::super::super::types::VectorIndexUpdateList>,
++    vector_index_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndexUpdate>>,
 +    warm_throughput: ::std::option::Option<super::super::super::types::WarmThroughput>,
  }
  impl UpdateTableInputBuilder {
@@ -69733,24 +69733,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            vector_index_updates: self.vector_index_updates,
 -        })
 -    }
-+    pub fn attribute_definitions(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeDefinitions>) -> Self { self.attribute_definitions = Some(input.into()); self }
-+    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<super::super::super::types::AttributeDefinitions>) -> Self { self.attribute_definitions = input; self }
-+    pub fn get_attribute_definitions(&self) -> &::std::option::Option<super::super::super::types::AttributeDefinitions> { &self.attribute_definitions }
++    pub fn attribute_definitions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeDefinition>>) -> Self { self.attribute_definitions = Some(input.into()); self }
++    pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>>) -> Self { self.attribute_definitions = input; self }
++    pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeDefinition>> { &self.attribute_definitions }
 +    pub fn billing_mode(mut self, input: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.billing_mode = Some(input.into()); self }
 +    pub fn set_billing_mode(mut self, input: ::std::option::Option<super::super::super::types::BillingMode>) -> Self { self.billing_mode = input; self }
 +    pub fn get_billing_mode(&self) -> &::std::option::Option<super::super::super::types::BillingMode> { &self.billing_mode }
 +    pub fn deletion_protection_enabled(mut self, input: impl ::std::convert::Into<super::super::super::types::DeletionProtectionEnabled>) -> Self { self.deletion_protection_enabled = Some(input.into()); self }
 +    pub fn set_deletion_protection_enabled(mut self, input: ::std::option::Option<super::super::super::types::DeletionProtectionEnabled>) -> Self { self.deletion_protection_enabled = input; self }
 +    pub fn get_deletion_protection_enabled(&self) -> &::std::option::Option<super::super::super::types::DeletionProtectionEnabled> { &self.deletion_protection_enabled }
-+    pub fn global_secondary_index_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexUpdateList>) -> Self { self.global_secondary_index_updates = Some(input.into()); self }
-+    pub fn set_global_secondary_index_updates(mut self, input: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexUpdateList>) -> Self { self.global_secondary_index_updates = input; self }
-+    pub fn get_global_secondary_index_updates(&self) -> &::std::option::Option<super::super::super::types::GlobalSecondaryIndexUpdateList> { &self.global_secondary_index_updates }
++    pub fn global_secondary_index_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexUpdate>>) -> Self { self.global_secondary_index_updates = Some(input.into()); self }
++    pub fn set_global_secondary_index_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexUpdate>>) -> Self { self.global_secondary_index_updates = input; self }
++    pub fn get_global_secondary_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexUpdate>> { &self.global_secondary_index_updates }
 +    pub fn global_table_settings_replication_mode(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = Some(input.into()); self }
 +    pub fn set_global_table_settings_replication_mode(mut self, input: ::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = input; self }
 +    pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<super::super::super::types::GlobalTableSettingsReplicationMode> { &self.global_table_settings_replication_mode }
-+    pub fn global_table_witness_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalTableWitnessGroupUpdateList>) -> Self { self.global_table_witness_updates = Some(input.into()); self }
-+    pub fn set_global_table_witness_updates(mut self, input: ::std::option::Option<super::super::super::types::GlobalTableWitnessGroupUpdateList>) -> Self { self.global_table_witness_updates = input; self }
-+    pub fn get_global_table_witness_updates(&self) -> &::std::option::Option<super::super::super::types::GlobalTableWitnessGroupUpdateList> { &self.global_table_witness_updates }
++    pub fn global_table_witness_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalTableWitnessGroupUpdate>>) -> Self { self.global_table_witness_updates = Some(input.into()); self }
++    pub fn set_global_table_witness_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableWitnessGroupUpdate>>) -> Self { self.global_table_witness_updates = input; self }
++    pub fn get_global_table_witness_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableWitnessGroupUpdate>> { &self.global_table_witness_updates }
 +    pub fn multi_region_consistency(mut self, input: impl ::std::convert::Into<super::super::super::types::MultiRegionConsistency>) -> Self { self.multi_region_consistency = Some(input.into()); self }
 +    pub fn set_multi_region_consistency(mut self, input: ::std::option::Option<super::super::super::types::MultiRegionConsistency>) -> Self { self.multi_region_consistency = input; self }
 +    pub fn get_multi_region_consistency(&self) -> &::std::option::Option<super::super::super::types::MultiRegionConsistency> { &self.multi_region_consistency }
@@ -69760,9 +69760,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn provisioned_throughput(mut self, input: impl ::std::convert::Into<super::super::super::types::ProvisionedThroughput>) -> Self { self.provisioned_throughput = Some(input.into()); self }
 +    pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<super::super::super::types::ProvisionedThroughput>) -> Self { self.provisioned_throughput = input; self }
 +    pub fn get_provisioned_throughput(&self) -> &::std::option::Option<super::super::super::types::ProvisionedThroughput> { &self.provisioned_throughput }
-+    pub fn replica_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::ReplicationGroupUpdateList>) -> Self { self.replica_updates = Some(input.into()); self }
-+    pub fn set_replica_updates(mut self, input: ::std::option::Option<super::super::super::types::ReplicationGroupUpdateList>) -> Self { self.replica_updates = input; self }
-+    pub fn get_replica_updates(&self) -> &::std::option::Option<super::super::super::types::ReplicationGroupUpdateList> { &self.replica_updates }
++    pub fn replica_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicationGroupUpdate>>) -> Self { self.replica_updates = Some(input.into()); self }
++    pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicationGroupUpdate>>) -> Self { self.replica_updates = input; self }
++    pub fn get_replica_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicationGroupUpdate>> { &self.replica_updates }
 +    pub fn sse_specification(mut self, input: impl ::std::convert::Into<super::super::super::types::SseSpecification>) -> Self { self.sse_specification = Some(input.into()); self }
 +    pub fn set_sse_specification(mut self, input: ::std::option::Option<super::super::super::types::SseSpecification>) -> Self { self.sse_specification = input; self }
 +    pub fn get_sse_specification(&self) -> &::std::option::Option<super::super::super::types::SseSpecification> { &self.sse_specification }
@@ -69775,9 +69775,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.table_name = Some(input.into()); self }
 +    pub fn set_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableArn>) -> Self { self.table_name = input; self }
 +    pub fn get_table_name(&self) -> &::std::option::Option<super::super::super::types::TableArn> { &self.table_name }
-+    pub fn vector_index_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::VectorIndexUpdateList>) -> Self { self.vector_index_updates = Some(input.into()); self }
-+    pub fn set_vector_index_updates(mut self, input: ::std::option::Option<super::super::super::types::VectorIndexUpdateList>) -> Self { self.vector_index_updates = input; self }
-+    pub fn get_vector_index_updates(&self) -> &::std::option::Option<super::super::super::types::VectorIndexUpdateList> { &self.vector_index_updates }
++    pub fn vector_index_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndexUpdate>>) -> Self { self.vector_index_updates = Some(input.into()); self }
++    pub fn set_vector_index_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndexUpdate>>) -> Self { self.vector_index_updates = input; self }
++    pub fn get_vector_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndexUpdate>> { &self.vector_index_updates }
 +    pub fn warm_throughput(mut self, input: impl ::std::convert::Into<super::super::super::types::WarmThroughput>) -> Self { self.warm_throughput = Some(input.into()); self }
 +    pub fn set_warm_throughput(mut self, input: ::std::option::Option<super::super::super::types::WarmThroughput>) -> Self { self.warm_throughput = input; self }
 +    pub fn get_warm_throughput(&self) -> &::std::option::Option<super::super::super::types::WarmThroughput> { &self.warm_throughput }
@@ -70408,21 +70408,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_vector_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::VectorIndexUpdate>> {
 -        self.inner.get_vector_index_updates()
 -    }
-+    pub fn attribute_definitions(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeDefinitions>) -> Self { self.input.attribute_definitions = Some(value.into()); self }
++    pub fn attribute_definitions(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeDefinition>>) -> Self { self.input.attribute_definitions = Some(value.into()); self }
 +    pub fn billing_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.input.billing_mode = Some(value.into()); self }
 +    pub fn deletion_protection_enabled(mut self, value: impl ::std::convert::Into<super::super::super::types::DeletionProtectionEnabled>) -> Self { self.input.deletion_protection_enabled = Some(value.into()); self }
-+    pub fn global_secondary_index_updates(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexUpdateList>) -> Self { self.input.global_secondary_index_updates = Some(value.into()); self }
++    pub fn global_secondary_index_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexUpdate>>) -> Self { self.input.global_secondary_index_updates = Some(value.into()); self }
 +    pub fn global_table_settings_replication_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalTableSettingsReplicationMode>) -> Self { self.input.global_table_settings_replication_mode = Some(value.into()); self }
-+    pub fn global_table_witness_updates(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalTableWitnessGroupUpdateList>) -> Self { self.input.global_table_witness_updates = Some(value.into()); self }
++    pub fn global_table_witness_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalTableWitnessGroupUpdate>>) -> Self { self.input.global_table_witness_updates = Some(value.into()); self }
 +    pub fn multi_region_consistency(mut self, value: impl ::std::convert::Into<super::super::super::types::MultiRegionConsistency>) -> Self { self.input.multi_region_consistency = Some(value.into()); self }
 +    pub fn on_demand_throughput(mut self, value: impl ::std::convert::Into<super::super::super::types::OnDemandThroughput>) -> Self { self.input.on_demand_throughput = Some(value.into()); self }
 +    pub fn provisioned_throughput(mut self, value: impl ::std::convert::Into<super::super::super::types::ProvisionedThroughput>) -> Self { self.input.provisioned_throughput = Some(value.into()); self }
-+    pub fn replica_updates(mut self, value: impl ::std::convert::Into<super::super::super::types::ReplicationGroupUpdateList>) -> Self { self.input.replica_updates = Some(value.into()); self }
++    pub fn replica_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicationGroupUpdate>>) -> Self { self.input.replica_updates = Some(value.into()); self }
 +    pub fn sse_specification(mut self, value: impl ::std::convert::Into<super::super::super::types::SseSpecification>) -> Self { self.input.sse_specification = Some(value.into()); self }
 +    pub fn stream_specification(mut self, value: impl ::std::convert::Into<super::super::super::types::StreamSpecification>) -> Self { self.input.stream_specification = Some(value.into()); self }
 +    pub fn table_class(mut self, value: impl ::std::convert::Into<super::super::super::types::TableClass>) -> Self { self.input.table_class = Some(value.into()); self }
 +    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
-+    pub fn vector_index_updates(mut self, value: impl ::std::convert::Into<super::super::super::types::VectorIndexUpdateList>) -> Self { self.input.vector_index_updates = Some(value.into()); self }
++    pub fn vector_index_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndexUpdate>>) -> Self { self.input.vector_index_updates = Some(value.into()); self }
 +    pub fn warm_throughput(mut self, value: impl ::std::convert::Into<super::super::super::types::WarmThroughput>) -> Self { self.input.warm_throughput = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -70998,9 +70998,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub provisioned_write_capacity_auto_scaling_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
 -    /// <p>Represents the auto scaling settings of replicas of the table that will be modified.</p>
 -    pub replica_updates: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingUpdate>>,
-+    pub global_secondary_index_updates: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdateList>,
++    pub global_secondary_index_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdate>>,
 +    pub provisioned_write_capacity_auto_scaling_update: ::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate>,
-+    pub replica_updates: ::std::option::Option<super::super::super::types::ReplicaAutoScalingUpdateList>,
++    pub replica_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaAutoScalingUpdate>>,
 +    pub table_name: ::std::option::Option<super::super::super::types::TableArn>,
  }
 +        impl UpdateTableReplicaAutoScalingInput {
@@ -71048,9 +71048,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) table_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) provisioned_write_capacity_auto_scaling_update: ::std::option::Option<crate::types::AutoScalingSettingsUpdate>,
 -    pub(crate) replica_updates: ::std::option::Option<::std::vec::Vec<crate::types::ReplicaAutoScalingUpdate>>,
-+    global_secondary_index_updates: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdateList>,
++    global_secondary_index_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdate>>,
 +    provisioned_write_capacity_auto_scaling_update: ::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate>,
-+    replica_updates: ::std::option::Option<super::super::super::types::ReplicaAutoScalingUpdateList>,
++    replica_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaAutoScalingUpdate>>,
 +    table_name: ::std::option::Option<super::super::super::types::TableArn>,
  }
  impl UpdateTableReplicaAutoScalingInputBuilder {
@@ -71143,15 +71143,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            replica_updates: self.replica_updates,
 -        })
 -    }
-+    pub fn global_secondary_index_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdateList>) -> Self { self.global_secondary_index_updates = Some(input.into()); self }
-+    pub fn set_global_secondary_index_updates(mut self, input: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdateList>) -> Self { self.global_secondary_index_updates = input; self }
-+    pub fn get_global_secondary_index_updates(&self) -> &::std::option::Option<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdateList> { &self.global_secondary_index_updates }
++    pub fn global_secondary_index_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdate>>) -> Self { self.global_secondary_index_updates = Some(input.into()); self }
++    pub fn set_global_secondary_index_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdate>>) -> Self { self.global_secondary_index_updates = input; self }
++    pub fn get_global_secondary_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdate>> { &self.global_secondary_index_updates }
 +    pub fn provisioned_write_capacity_auto_scaling_update(mut self, input: impl ::std::convert::Into<super::super::super::types::AutoScalingSettingsUpdate>) -> Self { self.provisioned_write_capacity_auto_scaling_update = Some(input.into()); self }
 +    pub fn set_provisioned_write_capacity_auto_scaling_update(mut self, input: ::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate>) -> Self { self.provisioned_write_capacity_auto_scaling_update = input; self }
 +    pub fn get_provisioned_write_capacity_auto_scaling_update(&self) -> &::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate> { &self.provisioned_write_capacity_auto_scaling_update }
-+    pub fn replica_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::ReplicaAutoScalingUpdateList>) -> Self { self.replica_updates = Some(input.into()); self }
-+    pub fn set_replica_updates(mut self, input: ::std::option::Option<super::super::super::types::ReplicaAutoScalingUpdateList>) -> Self { self.replica_updates = input; self }
-+    pub fn get_replica_updates(&self) -> &::std::option::Option<super::super::super::types::ReplicaAutoScalingUpdateList> { &self.replica_updates }
++    pub fn replica_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaAutoScalingUpdate>>) -> Self { self.replica_updates = Some(input.into()); self }
++    pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaAutoScalingUpdate>>) -> Self { self.replica_updates = input; self }
++    pub fn get_replica_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaAutoScalingUpdate>> { &self.replica_updates }
 +    pub fn table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.table_name = Some(input.into()); self }
 +    pub fn set_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableArn>) -> Self { self.table_name = input; self }
 +    pub fn get_table_name(&self) -> &::std::option::Option<super::super::super::types::TableArn> { &self.table_name }
@@ -71317,9 +71317,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn global_secondary_index_updates(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdateList>) -> Self { self.input.global_secondary_index_updates = Some(value.into()); self }
++    pub fn global_secondary_index_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdate>>) -> Self { self.input.global_secondary_index_updates = Some(value.into()); self }
 +    pub fn provisioned_write_capacity_auto_scaling_update(mut self, value: impl ::std::convert::Into<super::super::super::types::AutoScalingSettingsUpdate>) -> Self { self.input.provisioned_write_capacity_auto_scaling_update = Some(value.into()); self }
-+    pub fn replica_updates(mut self, value: impl ::std::convert::Into<super::super::super::types::ReplicaAutoScalingUpdateList>) -> Self { self.input.replica_updates = Some(value.into()); self }
++    pub fn replica_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaAutoScalingUpdate>>) -> Self { self.input.replica_updates = Some(value.into()); self }
 +    pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -74681,7 +74681,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub auto_scaling_role_arn: ::std::option::Option<self::String>,
 +        pub maximum_units: ::std::option::Option<self::PositiveLongObject>,
 +        pub minimum_units: ::std::option::Option<self::PositiveLongObject>,
-+        pub scaling_policies: ::std::option::Option<self::AutoScalingPolicyDescriptionList>,
++        pub scaling_policies: ::std::option::Option<::std::vec::Vec<self::AutoScalingPolicyDescription>>,
      }
 -    /// <p>Information about the scaling policies.</p>
 -    ///
@@ -74694,7 +74694,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn auto_scaling_role_arn(&self) -> ::std::option::Option<&str> { self.auto_scaling_role_arn.as_deref() }
 +        pub fn maximum_units(&self) -> &::std::option::Option<self::PositiveLongObject> { &self.maximum_units }
 +        pub fn minimum_units(&self) -> &::std::option::Option<self::PositiveLongObject> { &self.minimum_units }
-+        pub fn scaling_policies(&self) -> &::std::option::Option<self::AutoScalingPolicyDescriptionList> { &self.scaling_policies }
++        pub fn scaling_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::AutoScalingPolicyDescription>> { &self.scaling_policies }
      }
 -}
 -impl AutoScalingSettingsDescription {
@@ -74708,7 +74708,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        auto_scaling_role_arn: ::std::option::Option<self::String>,
 +        maximum_units: ::std::option::Option<self::PositiveLongObject>,
 +        minimum_units: ::std::option::Option<self::PositiveLongObject>,
-+        scaling_policies: ::std::option::Option<self::AutoScalingPolicyDescriptionList>,
++        scaling_policies: ::std::option::Option<::std::vec::Vec<self::AutoScalingPolicyDescription>>,
      }
 -}
 
@@ -74820,9 +74820,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn minimum_units(mut self, input: impl ::std::convert::Into<self::PositiveLongObject>) -> Self { self.minimum_units = Some(input.into()); self }
 +        pub fn set_minimum_units(mut self, input: ::std::option::Option<self::PositiveLongObject>) -> Self { self.minimum_units = input; self }
 +        pub fn get_minimum_units(&self) -> &::std::option::Option<self::PositiveLongObject> { &self.minimum_units }
-+        pub fn scaling_policies(mut self, input: impl ::std::convert::Into<self::AutoScalingPolicyDescriptionList>) -> Self { self.scaling_policies = Some(input.into()); self }
-+        pub fn set_scaling_policies(mut self, input: ::std::option::Option<self::AutoScalingPolicyDescriptionList>) -> Self { self.scaling_policies = input; self }
-+        pub fn get_scaling_policies(&self) -> &::std::option::Option<self::AutoScalingPolicyDescriptionList> { &self.scaling_policies }
++        pub fn scaling_policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AutoScalingPolicyDescription>>) -> Self { self.scaling_policies = Some(input.into()); self }
++        pub fn set_scaling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<self::AutoScalingPolicyDescription>>) -> Self { self.scaling_policies = input; self }
++        pub fn get_scaling_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::AutoScalingPolicyDescription>> { &self.scaling_policies }
 +        pub fn build(self) -> AutoScalingSettingsDescription {
 +            AutoScalingSettingsDescription {
 +                auto_scaling_disabled: self.auto_scaling_disabled,
@@ -76704,7 +76704,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct BatchStatementError {
 +        pub code: ::std::option::Option<self::BatchStatementErrorCodeEnum>,
-+        pub item: ::std::option::Option<self::AttributeMap>,
++        pub item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        pub message: ::std::option::Option<self::String>,
      }
 -}
@@ -76715,7 +76715,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl BatchStatementError {
 +        pub fn builder() -> BatchStatementErrorBuilder { BatchStatementErrorBuilder::default() }
 +        pub fn code(&self) -> &::std::option::Option<self::BatchStatementErrorCodeEnum> { &self.code }
-+        pub fn item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
++        pub fn item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
 +        pub fn message(&self) -> ::std::option::Option<&str> { self.message.as_deref() }
      }
 -}
@@ -76750,7 +76750,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct BatchStatementErrorBuilder {
 +        code: ::std::option::Option<self::BatchStatementErrorCodeEnum>,
-+        item: ::std::option::Option<self::AttributeMap>,
++        item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        message: ::std::option::Option<self::String>,
      }
 -    /// <p>The error message associated with the PartiQL batch response.</p>
@@ -76796,9 +76796,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn code(mut self, input: impl ::std::convert::Into<self::BatchStatementErrorCodeEnum>) -> Self { self.code = Some(input.into()); self }
 +        pub fn set_code(mut self, input: ::std::option::Option<self::BatchStatementErrorCodeEnum>) -> Self { self.code = input; self }
 +        pub fn get_code(&self) -> &::std::option::Option<self::BatchStatementErrorCodeEnum> { &self.code }
-+        pub fn item(mut self, input: impl ::std::convert::Into<self::AttributeMap>) -> Self { self.item = Some(input.into()); self }
-+        pub fn set_item(mut self, input: ::std::option::Option<self::AttributeMap>) -> Self { self.item = input; self }
-+        pub fn get_item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
++        pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
++        pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = input; self }
++        pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
 +        pub fn message(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.message = Some(input.into()); self }
 +        pub fn set_message(mut self, input: ::std::option::Option<self::String>) -> Self { self.message = input; self }
 +        pub fn get_message(&self) -> &::std::option::Option<self::String> { &self.message }
@@ -77072,7 +77072,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct BatchStatementRequest {
 +        pub consistent_read: ::std::option::Option<self::ConsistentRead>,
-+        pub parameters: ::std::option::Option<self::PreparedStatementParameters>,
++        pub parameters: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>,
 +        pub return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
 +        pub statement: ::std::option::Option<self::PartiQlStatement>,
      }
@@ -77084,7 +77084,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl BatchStatementRequest {
 +        pub fn builder() -> BatchStatementRequestBuilder { BatchStatementRequestBuilder::default() }
 +        pub fn consistent_read(&self) -> &::std::option::Option<self::ConsistentRead> { &self.consistent_read }
-+        pub fn parameters(&self) -> &::std::option::Option<self::PreparedStatementParameters> { &self.parameters }
++        pub fn parameters(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeValue>> { &self.parameters }
 +        pub fn return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
 +        pub fn statement(&self) -> &::std::option::Option<self::PartiQlStatement> { &self.statement }
      }
@@ -77106,7 +77106,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct BatchStatementRequestBuilder {
 +        consistent_read: ::std::option::Option<self::ConsistentRead>,
-+        parameters: ::std::option::Option<self::PreparedStatementParameters>,
++        parameters: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>,
 +        return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
 +        statement: ::std::option::Option<self::PartiQlStatement>,
      }
@@ -77189,9 +77189,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn consistent_read(mut self, input: impl ::std::convert::Into<self::ConsistentRead>) -> Self { self.consistent_read = Some(input.into()); self }
 +        pub fn set_consistent_read(mut self, input: ::std::option::Option<self::ConsistentRead>) -> Self { self.consistent_read = input; self }
 +        pub fn get_consistent_read(&self) -> &::std::option::Option<self::ConsistentRead> { &self.consistent_read }
-+        pub fn parameters(mut self, input: impl ::std::convert::Into<self::PreparedStatementParameters>) -> Self { self.parameters = Some(input.into()); self }
-+        pub fn set_parameters(mut self, input: ::std::option::Option<self::PreparedStatementParameters>) -> Self { self.parameters = input; self }
-+        pub fn get_parameters(&self) -> &::std::option::Option<self::PreparedStatementParameters> { &self.parameters }
++        pub fn parameters(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttributeValue>>) -> Self { self.parameters = Some(input.into()); self }
++        pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>) -> Self { self.parameters = input; self }
++        pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeValue>> { &self.parameters }
 +        pub fn return_values_on_condition_check_failure(mut self, input: impl ::std::convert::Into<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = Some(input.into()); self }
 +        pub fn set_return_values_on_condition_check_failure(mut self, input: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = input; self }
 +        pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
@@ -77266,7 +77266,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct BatchStatementResponse {
 +        pub error: ::std::option::Option<self::BatchStatementError>,
-+        pub item: ::std::option::Option<self::AttributeMap>,
++        pub item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        pub table_name: ::std::option::Option<self::TableName>,
      }
 -}
@@ -77277,7 +77277,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl BatchStatementResponse {
 +        pub fn builder() -> BatchStatementResponseBuilder { BatchStatementResponseBuilder::default() }
 +        pub fn error(&self) -> &::std::option::Option<self::BatchStatementError> { &self.error }
-+        pub fn item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
++        pub fn item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
 +        pub fn table_name(&self) -> &::std::option::Option<self::TableName> { &self.table_name }
      }
 -}
@@ -77312,7 +77312,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct BatchStatementResponseBuilder {
 +        error: ::std::option::Option<self::BatchStatementError>,
-+        item: ::std::option::Option<self::AttributeMap>,
++        item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        table_name: ::std::option::Option<self::TableName>,
      }
 -    /// <p>The table name associated with a failed PartiQL batch statement.</p>
@@ -77358,9 +77358,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn error(mut self, input: impl ::std::convert::Into<self::BatchStatementError>) -> Self { self.error = Some(input.into()); self }
 +        pub fn set_error(mut self, input: ::std::option::Option<self::BatchStatementError>) -> Self { self.error = input; self }
 +        pub fn get_error(&self) -> &::std::option::Option<self::BatchStatementError> { &self.error }
-+        pub fn item(mut self, input: impl ::std::convert::Into<self::AttributeMap>) -> Self { self.item = Some(input.into()); self }
-+        pub fn set_item(mut self, input: ::std::option::Option<self::AttributeMap>) -> Self { self.item = input; self }
-+        pub fn get_item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
++        pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
++        pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = input; self }
++        pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
 +        pub fn table_name(mut self, input: impl ::std::convert::Into<self::TableName>) -> Self { self.table_name = Some(input.into()); self }
 +        pub fn set_table_name(mut self, input: ::std::option::Option<self::TableName>) -> Self { self.table_name = input; self }
 +        pub fn get_table_name(&self) -> &::std::option::Option<self::TableName> { &self.table_name }
@@ -77683,7 +77683,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct CancellationReason {
 +        pub code: ::std::option::Option<self::Code>,
-+        pub item: ::std::option::Option<self::AttributeMap>,
++        pub item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        pub message: ::std::option::Option<self::ErrorMessage>,
      }
 -}
@@ -77694,7 +77694,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl CancellationReason {
 +        pub fn builder() -> CancellationReasonBuilder { CancellationReasonBuilder::default() }
 +        pub fn code(&self) -> &::std::option::Option<self::Code> { &self.code }
-+        pub fn item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
++        pub fn item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
 +        pub fn message(&self) -> &::std::option::Option<self::ErrorMessage> { &self.message }
      }
 -}
@@ -77729,7 +77729,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct CancellationReasonBuilder {
 +        code: ::std::option::Option<self::Code>,
-+        item: ::std::option::Option<self::AttributeMap>,
++        item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        message: ::std::option::Option<self::ErrorMessage>,
      }
 -    /// <p>Item in the request which caused the transaction to get cancelled.</p>
@@ -77775,9 +77775,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn code(mut self, input: impl ::std::convert::Into<self::Code>) -> Self { self.code = Some(input.into()); self }
 +        pub fn set_code(mut self, input: ::std::option::Option<self::Code>) -> Self { self.code = input; self }
 +        pub fn get_code(&self) -> &::std::option::Option<self::Code> { &self.code }
-+        pub fn item(mut self, input: impl ::std::convert::Into<self::AttributeMap>) -> Self { self.item = Some(input.into()); self }
-+        pub fn set_item(mut self, input: ::std::option::Option<self::AttributeMap>) -> Self { self.item = input; self }
-+        pub fn get_item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
++        pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
++        pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = input; self }
++        pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
 +        pub fn message(mut self, input: impl ::std::convert::Into<self::ErrorMessage>) -> Self { self.message = Some(input.into()); self }
 +        pub fn set_message(mut self, input: ::std::option::Option<self::ErrorMessage>) -> Self { self.message = input; self }
 +        pub fn get_message(&self) -> &::std::option::Option<self::ErrorMessage> { &self.message }
@@ -78271,7 +78271,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.attribute_value_list.as_deref().unwrap_or_default()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct Condition {
-+        pub attribute_value_list: ::std::option::Option<self::AttributeValueList>,
++        pub attribute_value_list: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>,
 +        pub comparison_operator: ::std::option::Option<self::ComparisonOperator>,
      }
 -    /// <p>A comparator for evaluating attributes. For example, equals, greater than, less than, etc.</p>
@@ -78335,7 +78335,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.comparison_operator
 +    impl Condition {
 +        pub fn builder() -> ConditionBuilder { ConditionBuilder::default() }
-+        pub fn attribute_value_list(&self) -> &::std::option::Option<self::AttributeValueList> { &self.attribute_value_list }
++        pub fn attribute_value_list(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeValue>> { &self.attribute_value_list }
 +        pub fn comparison_operator(&self) -> &::std::option::Option<self::ComparisonOperator> { &self.comparison_operator }
      }
 -}
@@ -78369,7 +78369,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ConditionBuilder {
-+        attribute_value_list: ::std::option::Option<self::AttributeValueList>,
++        attribute_value_list: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>,
 +        comparison_operator: ::std::option::Option<self::ComparisonOperator>,
      }
 -    /// <p>One or more values to evaluate against the supplied attribute. The number of values in the list depends on the <code>ComparisonOperator</code> being used.</p>
@@ -78511,9 +78511,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +
 +    impl ConditionBuilder {
-+        pub fn attribute_value_list(mut self, input: impl ::std::convert::Into<self::AttributeValueList>) -> Self { self.attribute_value_list = Some(input.into()); self }
-+        pub fn set_attribute_value_list(mut self, input: ::std::option::Option<self::AttributeValueList>) -> Self { self.attribute_value_list = input; self }
-+        pub fn get_attribute_value_list(&self) -> &::std::option::Option<self::AttributeValueList> { &self.attribute_value_list }
++        pub fn attribute_value_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttributeValue>>) -> Self { self.attribute_value_list = Some(input.into()); self }
++        pub fn set_attribute_value_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>) -> Self { self.attribute_value_list = input; self }
++        pub fn get_attribute_value_list(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeValue>> { &self.attribute_value_list }
 +        pub fn comparison_operator(mut self, input: impl ::std::convert::Into<self::ComparisonOperator>) -> Self { self.comparison_operator = Some(input.into()); self }
 +        pub fn set_comparison_operator(mut self, input: ::std::option::Option<self::ComparisonOperator>) -> Self { self.comparison_operator = input; self }
 +        pub fn get_comparison_operator(&self) -> &::std::option::Option<self::ComparisonOperator> { &self.comparison_operator }
@@ -78634,9 +78634,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ConditionCheck {
 +        pub condition_expression: ::std::option::Option<self::ConditionExpression>,
-+        pub expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-+        pub expression_attribute_values: ::std::option::Option<self::ExpressionAttributeValueMap>,
-+        pub key: ::std::option::Option<self::Key>,
++        pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
++        pub expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>,
++        pub key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        pub return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
 +        pub table_name: ::std::option::Option<self::TableArn>,
      }
@@ -78672,9 +78672,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl ConditionCheck {
 +        pub fn builder() -> ConditionCheckBuilder { ConditionCheckBuilder::default() }
 +        pub fn condition_expression(&self) -> &::std::option::Option<self::ConditionExpression> { &self.condition_expression }
-+        pub fn expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+        pub fn expression_attribute_values(&self) -> &::std::option::Option<self::ExpressionAttributeValueMap> { &self.expression_attribute_values }
-+        pub fn key(&self) -> &::std::option::Option<self::Key> { &self.key }
++        pub fn expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
++        pub fn expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>> { &self.expression_attribute_values }
++        pub fn key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
 +        pub fn return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
 +        pub fn table_name(&self) -> &::std::option::Option<self::TableArn> { &self.table_name }
      }
@@ -78767,9 +78767,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ConditionCheckBuilder {
 +        condition_expression: ::std::option::Option<self::ConditionExpression>,
-+        expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-+        expression_attribute_values: ::std::option::Option<self::ExpressionAttributeValueMap>,
-+        key: ::std::option::Option<self::Key>,
++        expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
++        expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>,
++        key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
 +        table_name: ::std::option::Option<self::TableArn>,
      }
@@ -78808,15 +78808,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn condition_expression(mut self, input: impl ::std::convert::Into<self::ConditionExpression>) -> Self { self.condition_expression = Some(input.into()); self }
 +        pub fn set_condition_expression(mut self, input: ::std::option::Option<self::ConditionExpression>) -> Self { self.condition_expression = input; self }
 +        pub fn get_condition_expression(&self) -> &::std::option::Option<self::ConditionExpression> { &self.condition_expression }
-+        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-+        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-+        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+        pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<self::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = Some(input.into()); self }
-+        pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<self::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = input; self }
-+        pub fn get_expression_attribute_values(&self) -> &::std::option::Option<self::ExpressionAttributeValueMap> { &self.expression_attribute_values }
-+        pub fn key(mut self, input: impl ::std::convert::Into<self::Key>) -> Self { self.key = Some(input.into()); self }
-+        pub fn set_key(mut self, input: ::std::option::Option<self::Key>) -> Self { self.key = input; self }
-+        pub fn get_key(&self) -> &::std::option::Option<self::Key> { &self.key }
++        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
++        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
++        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
++        pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>) -> Self { self.expression_attribute_values = Some(input.into()); self }
++        pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
++        pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>> { &self.expression_attribute_values }
++        pub fn key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = Some(input.into()); self }
++        pub fn set_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = input; self }
++        pub fn get_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
 +        pub fn return_values_on_condition_check_failure(mut self, input: impl ::std::convert::Into<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = Some(input.into()); self }
 +        pub fn set_return_values_on_condition_check_failure(mut self, input: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = input; self }
 +        pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
@@ -79068,12 +79068,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ConsumedCapacity {
 +        pub capacity_units: ::std::option::Option<self::ConsumedCapacityUnits>,
-+        pub global_secondary_indexes: ::std::option::Option<self::SecondaryIndexesCapacityMap>,
-+        pub local_secondary_indexes: ::std::option::Option<self::SecondaryIndexesCapacityMap>,
++        pub global_secondary_indexes: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>>,
++        pub local_secondary_indexes: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>>,
 +        pub read_capacity_units: ::std::option::Option<self::ConsumedCapacityUnits>,
 +        pub table: ::std::option::Option<self::Capacity>,
 +        pub table_name: ::std::option::Option<self::TableArn>,
-+        pub vector_indexes: ::std::option::Option<self::VectorIndexesCapacityMap>,
++        pub vector_indexes: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::VectorCapacity>>,
 +        pub write_capacity_units: ::std::option::Option<self::ConsumedCapacityUnits>,
      }
 -    /// <p>The amount of throughput consumed on the table affected by the operation.</p>
@@ -79082,12 +79082,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl ConsumedCapacity {
 +        pub fn builder() -> ConsumedCapacityBuilder { ConsumedCapacityBuilder::default() }
 +        pub fn capacity_units(&self) -> &::std::option::Option<self::ConsumedCapacityUnits> { &self.capacity_units }
-+        pub fn global_secondary_indexes(&self) -> &::std::option::Option<self::SecondaryIndexesCapacityMap> { &self.global_secondary_indexes }
-+        pub fn local_secondary_indexes(&self) -> &::std::option::Option<self::SecondaryIndexesCapacityMap> { &self.local_secondary_indexes }
++        pub fn global_secondary_indexes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>> { &self.global_secondary_indexes }
++        pub fn local_secondary_indexes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>> { &self.local_secondary_indexes }
 +        pub fn read_capacity_units(&self) -> &::std::option::Option<self::ConsumedCapacityUnits> { &self.read_capacity_units }
 +        pub fn table(&self) -> &::std::option::Option<self::Capacity> { &self.table }
 +        pub fn table_name(&self) -> &::std::option::Option<self::TableArn> { &self.table_name }
-+        pub fn vector_indexes(&self) -> &::std::option::Option<self::VectorIndexesCapacityMap> { &self.vector_indexes }
++        pub fn vector_indexes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::VectorCapacity>> { &self.vector_indexes }
 +        pub fn write_capacity_units(&self) -> &::std::option::Option<self::ConsumedCapacityUnits> { &self.write_capacity_units }
      }
 -    /// <p>The amount of throughput consumed on each local index affected by the operation.</p>
@@ -79101,12 +79101,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ConsumedCapacityBuilder {
 +        capacity_units: ::std::option::Option<self::ConsumedCapacityUnits>,
-+        global_secondary_indexes: ::std::option::Option<self::SecondaryIndexesCapacityMap>,
-+        local_secondary_indexes: ::std::option::Option<self::SecondaryIndexesCapacityMap>,
++        global_secondary_indexes: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>>,
++        local_secondary_indexes: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>>,
 +        read_capacity_units: ::std::option::Option<self::ConsumedCapacityUnits>,
 +        table: ::std::option::Option<self::Capacity>,
 +        table_name: ::std::option::Option<self::TableArn>,
-+        vector_indexes: ::std::option::Option<self::VectorIndexesCapacityMap>,
++        vector_indexes: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::VectorCapacity>>,
 +        write_capacity_units: ::std::option::Option<self::ConsumedCapacityUnits>,
      }
 -    /// <p>The amount of throughput consumed on each vector index affected by the operation. Each entry contains <code>VectorWriteRequestBytes</code> (for write operations) or <code>VectorSearchRequestBytes</code> (for search operations).</p>
@@ -79289,12 +79289,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn capacity_units(mut self, input: impl ::std::convert::Into<self::ConsumedCapacityUnits>) -> Self { self.capacity_units = Some(input.into()); self }
 +        pub fn set_capacity_units(mut self, input: ::std::option::Option<self::ConsumedCapacityUnits>) -> Self { self.capacity_units = input; self }
 +        pub fn get_capacity_units(&self) -> &::std::option::Option<self::ConsumedCapacityUnits> { &self.capacity_units }
-+        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<self::SecondaryIndexesCapacityMap>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-+        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<self::SecondaryIndexesCapacityMap>) -> Self { self.global_secondary_indexes = input; self }
-+        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<self::SecondaryIndexesCapacityMap> { &self.global_secondary_indexes }
-+        pub fn local_secondary_indexes(mut self, input: impl ::std::convert::Into<self::SecondaryIndexesCapacityMap>) -> Self { self.local_secondary_indexes = Some(input.into()); self }
-+        pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<self::SecondaryIndexesCapacityMap>) -> Self { self.local_secondary_indexes = input; self }
-+        pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<self::SecondaryIndexesCapacityMap> { &self.local_secondary_indexes }
++        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::IndexName, self::Capacity>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
++        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>>) -> Self { self.global_secondary_indexes = input; self }
++        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>> { &self.global_secondary_indexes }
++        pub fn local_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::IndexName, self::Capacity>>) -> Self { self.local_secondary_indexes = Some(input.into()); self }
++        pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>>) -> Self { self.local_secondary_indexes = input; self }
++        pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>> { &self.local_secondary_indexes }
 +        pub fn read_capacity_units(mut self, input: impl ::std::convert::Into<self::ConsumedCapacityUnits>) -> Self { self.read_capacity_units = Some(input.into()); self }
 +        pub fn set_read_capacity_units(mut self, input: ::std::option::Option<self::ConsumedCapacityUnits>) -> Self { self.read_capacity_units = input; self }
 +        pub fn get_read_capacity_units(&self) -> &::std::option::Option<self::ConsumedCapacityUnits> { &self.read_capacity_units }
@@ -79304,9 +79304,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn table_name(mut self, input: impl ::std::convert::Into<self::TableArn>) -> Self { self.table_name = Some(input.into()); self }
 +        pub fn set_table_name(mut self, input: ::std::option::Option<self::TableArn>) -> Self { self.table_name = input; self }
 +        pub fn get_table_name(&self) -> &::std::option::Option<self::TableArn> { &self.table_name }
-+        pub fn vector_indexes(mut self, input: impl ::std::convert::Into<self::VectorIndexesCapacityMap>) -> Self { self.vector_indexes = Some(input.into()); self }
-+        pub fn set_vector_indexes(mut self, input: ::std::option::Option<self::VectorIndexesCapacityMap>) -> Self { self.vector_indexes = input; self }
-+        pub fn get_vector_indexes(&self) -> &::std::option::Option<self::VectorIndexesCapacityMap> { &self.vector_indexes }
++        pub fn vector_indexes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::IndexName, self::VectorCapacity>>) -> Self { self.vector_indexes = Some(input.into()); self }
++        pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::VectorCapacity>>) -> Self { self.vector_indexes = input; self }
++        pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::VectorCapacity>> { &self.vector_indexes }
 +        pub fn write_capacity_units(mut self, input: impl ::std::convert::Into<self::ConsumedCapacityUnits>) -> Self { self.write_capacity_units = Some(input.into()); self }
 +        pub fn set_write_capacity_units(mut self, input: ::std::option::Option<self::ConsumedCapacityUnits>) -> Self { self.write_capacity_units = input; self }
 +        pub fn get_write_capacity_units(&self) -> &::std::option::Option<self::ConsumedCapacityUnits> { &self.write_capacity_units }
@@ -80225,7 +80225,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct CreateGlobalSecondaryIndexAction {
 +        pub index_name: ::std::option::Option<self::IndexName>,
-+        pub key_schema: ::std::option::Option<self::KeySchema>,
++        pub key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        pub on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
 +        pub projection: ::std::option::Option<self::Projection>,
 +        pub provisioned_throughput: ::std::option::Option<self::ProvisionedThroughput>,
@@ -80243,7 +80243,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl CreateGlobalSecondaryIndexAction {
 +        pub fn builder() -> CreateGlobalSecondaryIndexActionBuilder { CreateGlobalSecondaryIndexActionBuilder::default() }
 +        pub fn index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
-+        pub fn key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
 +        pub fn projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
 +        pub fn provisioned_throughput(&self) -> &::std::option::Option<self::ProvisionedThroughput> { &self.provisioned_throughput }
@@ -80306,7 +80306,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct CreateGlobalSecondaryIndexActionBuilder {
 +        index_name: ::std::option::Option<self::IndexName>,
-+        key_schema: ::std::option::Option<self::KeySchema>,
++        key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
 +        projection: ::std::option::Option<self::Projection>,
 +        provisioned_throughput: ::std::option::Option<self::ProvisionedThroughput>,
@@ -80366,9 +80366,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn index_name(mut self, input: impl ::std::convert::Into<self::IndexName>) -> Self { self.index_name = Some(input.into()); self }
 +        pub fn set_index_name(mut self, input: ::std::option::Option<self::IndexName>) -> Self { self.index_name = input; self }
 +        pub fn get_index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
-+        pub fn key_schema(mut self, input: impl ::std::convert::Into<self::KeySchema>) -> Self { self.key_schema = Some(input.into()); self }
-+        pub fn set_key_schema(mut self, input: ::std::option::Option<self::KeySchema>) -> Self { self.key_schema = input; self }
-+        pub fn get_key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = Some(input.into()); self }
++        pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = input; self }
++        pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn on_demand_throughput(mut self, input: impl ::std::convert::Into<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = Some(input.into()); self }
 +        pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
 +        pub fn get_on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
@@ -80684,7 +80684,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.on_demand_throughput_override.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct CreateReplicationGroupMemberAction {
-+        pub global_secondary_indexes: ::std::option::Option<self::ReplicaGlobalSecondaryIndexList>,
++        pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>>,
 +        pub kms_master_key_id: ::std::option::Option<self::KmsMasterKeyId>,
 +        pub on_demand_throughput_override: ::std::option::Option<self::OnDemandThroughputOverride>,
 +        pub provisioned_throughput_override: ::std::option::Option<self::ProvisionedThroughputOverride>,
@@ -80702,7 +80702,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.table_class_override.as_ref()
 +    impl CreateReplicationGroupMemberAction {
 +        pub fn builder() -> CreateReplicationGroupMemberActionBuilder { CreateReplicationGroupMemberActionBuilder::default() }
-+        pub fn global_secondary_indexes(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexList> { &self.global_secondary_indexes }
++        pub fn global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>> { &self.global_secondary_indexes }
 +        pub fn kms_master_key_id(&self) -> &::std::option::Option<self::KmsMasterKeyId> { &self.kms_master_key_id }
 +        pub fn on_demand_throughput_override(&self) -> &::std::option::Option<self::OnDemandThroughputOverride> { &self.on_demand_throughput_override }
 +        pub fn provisioned_throughput_override(&self) -> &::std::option::Option<self::ProvisionedThroughputOverride> { &self.provisioned_throughput_override }
@@ -80717,7 +80717,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +    #[derive(Clone, Debug, Default)]
 +    pub struct CreateReplicationGroupMemberActionBuilder {
-+        global_secondary_indexes: ::std::option::Option<self::ReplicaGlobalSecondaryIndexList>,
++        global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>>,
 +        kms_master_key_id: ::std::option::Option<self::KmsMasterKeyId>,
 +        on_demand_throughput_override: ::std::option::Option<self::OnDemandThroughputOverride>,
 +        provisioned_throughput_override: ::std::option::Option<self::ProvisionedThroughputOverride>,
@@ -80744,9 +80744,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.region_name = ::std::option::Option::Some(input.into());
 -        self
 +    impl CreateReplicationGroupMemberActionBuilder {
-+        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<self::ReplicaGlobalSecondaryIndexList>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-+        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<self::ReplicaGlobalSecondaryIndexList>) -> Self { self.global_secondary_indexes = input; self }
-+        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexList> { &self.global_secondary_indexes }
++        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
++        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>>) -> Self { self.global_secondary_indexes = input; self }
++        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>> { &self.global_secondary_indexes }
 +        pub fn kms_master_key_id(mut self, input: impl ::std::convert::Into<self::KmsMasterKeyId>) -> Self { self.kms_master_key_id = Some(input.into()); self }
 +        pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<self::KmsMasterKeyId>) -> Self { self.kms_master_key_id = input; self }
 +        pub fn get_kms_master_key_id(&self) -> &::std::option::Option<self::KmsMasterKeyId> { &self.kms_master_key_id }
@@ -80934,7 +80934,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub distance_function: ::std::option::Option<self::VectorDistanceFunction>,
 +        pub index_name: ::std::option::Option<self::IndexName>,
 +        pub projection: ::std::option::Option<self::Projection>,
-+        pub search_schema: ::std::option::Option<self::SearchSchema>,
++        pub search_schema: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>,
 +        pub vector_attribute: ::std::option::Option<self::VectorAttributeDefinition>,
      }
 -    /// <p>The distance function used to calculate similarity. Valid values: <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p>
@@ -80946,7 +80946,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn distance_function(&self) -> &::std::option::Option<self::VectorDistanceFunction> { &self.distance_function }
 +        pub fn index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
 +        pub fn projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
-+        pub fn search_schema(&self) -> &::std::option::Option<self::SearchSchema> { &self.search_schema }
++        pub fn search_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>> { &self.search_schema }
 +        pub fn vector_attribute(&self) -> &::std::option::Option<self::VectorAttributeDefinition> { &self.vector_attribute }
      }
 -}
@@ -80961,7 +80961,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        distance_function: ::std::option::Option<self::VectorDistanceFunction>,
 +        index_name: ::std::option::Option<self::IndexName>,
 +        projection: ::std::option::Option<self::Projection>,
-+        search_schema: ::std::option::Option<self::SearchSchema>,
++        search_schema: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>,
 +        vector_attribute: ::std::option::Option<self::VectorAttributeDefinition>,
      }
 -}
@@ -81011,9 +81011,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn projection(mut self, input: impl ::std::convert::Into<self::Projection>) -> Self { self.projection = Some(input.into()); self }
 +        pub fn set_projection(mut self, input: ::std::option::Option<self::Projection>) -> Self { self.projection = input; self }
 +        pub fn get_projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
-+        pub fn search_schema(mut self, input: impl ::std::convert::Into<self::SearchSchema>) -> Self { self.search_schema = Some(input.into()); self }
-+        pub fn set_search_schema(mut self, input: ::std::option::Option<self::SearchSchema>) -> Self { self.search_schema = input; self }
-+        pub fn get_search_schema(&self) -> &::std::option::Option<self::SearchSchema> { &self.search_schema }
++        pub fn search_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SearchSchemaElement>>) -> Self { self.search_schema = Some(input.into()); self }
++        pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>) -> Self { self.search_schema = input; self }
++        pub fn get_search_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>> { &self.search_schema }
 +        pub fn vector_attribute(mut self, input: impl ::std::convert::Into<self::VectorAttributeDefinition>) -> Self { self.vector_attribute = Some(input.into()); self }
 +        pub fn set_vector_attribute(mut self, input: ::std::option::Option<self::VectorAttributeDefinition>) -> Self { self.vector_attribute = input; self }
 +        pub fn get_vector_attribute(&self) -> &::std::option::Option<self::VectorAttributeDefinition> { &self.vector_attribute }
@@ -81160,7 +81160,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct CsvOptions {
 +        pub delimiter: ::std::option::Option<self::CsvDelimiter>,
-+        pub header_list: ::std::option::Option<self::CsvHeaderList>,
++        pub header_list: ::std::option::Option<::std::vec::Vec<self::CsvHeader>>,
      }
 -    /// <p>List of the headers used to specify a common header for all source CSV files being imported. If this field is specified then the first line of each CSV file is treated as data instead of the header. If this field is not specified the the first line of each CSV file is treated as the header.</p>
 -    ///
@@ -81170,7 +81170,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl CsvOptions {
 +        pub fn builder() -> CsvOptionsBuilder { CsvOptionsBuilder::default() }
 +        pub fn delimiter(&self) -> &::std::option::Option<self::CsvDelimiter> { &self.delimiter }
-+        pub fn header_list(&self) -> &::std::option::Option<self::CsvHeaderList> { &self.header_list }
++        pub fn header_list(&self) -> &::std::option::Option<::std::vec::Vec<self::CsvHeader>> { &self.header_list }
      }
 -}
 -impl CsvOptions {
@@ -81224,7 +81224,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct CsvOptionsBuilder {
 +        delimiter: ::std::option::Option<self::CsvDelimiter>,
-+        header_list: ::std::option::Option<self::CsvHeaderList>,
++        header_list: ::std::option::Option<::std::vec::Vec<self::CsvHeader>>,
      }
 -    /// Consumes the builder and constructs a [`CsvOptions`](crate::types::CsvOptions).
 -    pub fn build(self) -> crate::types::CsvOptions {
@@ -81236,9 +81236,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn delimiter(mut self, input: impl ::std::convert::Into<self::CsvDelimiter>) -> Self { self.delimiter = Some(input.into()); self }
 +        pub fn set_delimiter(mut self, input: ::std::option::Option<self::CsvDelimiter>) -> Self { self.delimiter = input; self }
 +        pub fn get_delimiter(&self) -> &::std::option::Option<self::CsvDelimiter> { &self.delimiter }
-+        pub fn header_list(mut self, input: impl ::std::convert::Into<self::CsvHeaderList>) -> Self { self.header_list = Some(input.into()); self }
-+        pub fn set_header_list(mut self, input: ::std::option::Option<self::CsvHeaderList>) -> Self { self.header_list = input; self }
-+        pub fn get_header_list(&self) -> &::std::option::Option<self::CsvHeaderList> { &self.header_list }
++        pub fn header_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::CsvHeader>>) -> Self { self.header_list = Some(input.into()); self }
++        pub fn set_header_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::CsvHeader>>) -> Self { self.header_list = input; self }
++        pub fn get_header_list(&self) -> &::std::option::Option<::std::vec::Vec<self::CsvHeader>> { &self.header_list }
 +        pub fn build(self) -> CsvOptions {
 +            CsvOptions {
 +                delimiter: self.delimiter,
@@ -81282,9 +81282,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct Delete {
 +        pub condition_expression: ::std::option::Option<self::ConditionExpression>,
-+        pub expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-+        pub expression_attribute_values: ::std::option::Option<self::ExpressionAttributeValueMap>,
-+        pub key: ::std::option::Option<self::Key>,
++        pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
++        pub expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>,
++        pub key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        pub return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
 +        pub table_name: ::std::option::Option<self::TableArn>,
      }
@@ -81319,9 +81319,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl Delete {
 +        pub fn builder() -> DeleteBuilder { DeleteBuilder::default() }
 +        pub fn condition_expression(&self) -> &::std::option::Option<self::ConditionExpression> { &self.condition_expression }
-+        pub fn expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+        pub fn expression_attribute_values(&self) -> &::std::option::Option<self::ExpressionAttributeValueMap> { &self.expression_attribute_values }
-+        pub fn key(&self) -> &::std::option::Option<self::Key> { &self.key }
++        pub fn expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
++        pub fn expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>> { &self.expression_attribute_values }
++        pub fn key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
 +        pub fn return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
 +        pub fn table_name(&self) -> &::std::option::Option<self::TableArn> { &self.table_name }
      }
@@ -81419,9 +81419,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct DeleteBuilder {
 +        condition_expression: ::std::option::Option<self::ConditionExpression>,
-+        expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-+        expression_attribute_values: ::std::option::Option<self::ExpressionAttributeValueMap>,
-+        key: ::std::option::Option<self::Key>,
++        expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
++        expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>,
++        key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
 +        table_name: ::std::option::Option<self::TableArn>,
      }
@@ -81448,15 +81448,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn condition_expression(mut self, input: impl ::std::convert::Into<self::ConditionExpression>) -> Self { self.condition_expression = Some(input.into()); self }
 +        pub fn set_condition_expression(mut self, input: ::std::option::Option<self::ConditionExpression>) -> Self { self.condition_expression = input; self }
 +        pub fn get_condition_expression(&self) -> &::std::option::Option<self::ConditionExpression> { &self.condition_expression }
-+        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-+        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-+        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+        pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<self::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = Some(input.into()); self }
-+        pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<self::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = input; self }
-+        pub fn get_expression_attribute_values(&self) -> &::std::option::Option<self::ExpressionAttributeValueMap> { &self.expression_attribute_values }
-+        pub fn key(mut self, input: impl ::std::convert::Into<self::Key>) -> Self { self.key = Some(input.into()); self }
-+        pub fn set_key(mut self, input: ::std::option::Option<self::Key>) -> Self { self.key = input; self }
-+        pub fn get_key(&self) -> &::std::option::Option<self::Key> { &self.key }
++        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
++        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
++        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
++        pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>) -> Self { self.expression_attribute_values = Some(input.into()); self }
++        pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
++        pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>> { &self.expression_attribute_values }
++        pub fn key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = Some(input.into()); self }
++        pub fn set_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = input; self }
++        pub fn get_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
 +        pub fn return_values_on_condition_check_failure(mut self, input: impl ::std::convert::Into<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = Some(input.into()); self }
 +        pub fn set_return_values_on_condition_check_failure(mut self, input: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = input; self }
 +        pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
@@ -81896,7 +81896,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.key
 +    #[derive(Clone, Debug, Default)]
 +    pub struct DeleteRequest {
-+        pub key: ::std::option::Option<self::Key>,
++        pub key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
      }
 -}
 -impl DeleteRequest {
@@ -81905,7 +81905,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::DeleteRequestBuilder::default()
 +    impl DeleteRequest {
 +        pub fn builder() -> DeleteRequestBuilder { DeleteRequestBuilder::default() }
-+        pub fn key(&self) -> &::std::option::Option<self::Key> { &self.key }
++        pub fn key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
      }
 -}
 
@@ -81928,7 +81928,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct DeleteRequestBuilder {
-+        key: ::std::option::Option<self::Key>,
++        key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
      }
 -    /// <p>A map of attribute name to attribute values, representing the primary key of the item to delete. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema.</p>
 -    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
@@ -81940,9 +81940,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.key
 +
 +    impl DeleteRequestBuilder {
-+        pub fn key(mut self, input: impl ::std::convert::Into<self::Key>) -> Self { self.key = Some(input.into()); self }
-+        pub fn set_key(mut self, input: ::std::option::Option<self::Key>) -> Self { self.key = input; self }
-+        pub fn get_key(&self) -> &::std::option::Option<self::Key> { &self.key }
++        pub fn key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = Some(input.into()); self }
++        pub fn set_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = input; self }
++        pub fn get_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
 +        pub fn build(self) -> DeleteRequest {
 +            DeleteRequest {
 +                key: self.key,
@@ -82550,7 +82550,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.exists
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ExpectedAttributeValue {
-+        pub attribute_value_list: ::std::option::Option<self::AttributeValueList>,
++        pub attribute_value_list: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>,
 +        pub comparison_operator: ::std::option::Option<self::ComparisonOperator>,
 +        pub exists: ::std::option::Option<self::BooleanObject>,
 +        pub value: ::std::option::Option<self::AttributeValue>,
@@ -82615,7 +82615,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.comparison_operator.as_ref()
 +    impl ExpectedAttributeValue {
 +        pub fn builder() -> ExpectedAttributeValueBuilder { ExpectedAttributeValueBuilder::default() }
-+        pub fn attribute_value_list(&self) -> &::std::option::Option<self::AttributeValueList> { &self.attribute_value_list }
++        pub fn attribute_value_list(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeValue>> { &self.attribute_value_list }
 +        pub fn comparison_operator(&self) -> &::std::option::Option<self::ComparisonOperator> { &self.comparison_operator }
 +        pub fn exists(&self) -> &::std::option::Option<self::BooleanObject> { &self.exists }
 +        pub fn value(&self) -> &::std::option::Option<self::AttributeValue> { &self.value }
@@ -82845,7 +82845,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ExpectedAttributeValueBuilder {
-+        attribute_value_list: ::std::option::Option<self::AttributeValueList>,
++        attribute_value_list: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>,
 +        comparison_operator: ::std::option::Option<self::ComparisonOperator>,
 +        exists: ::std::option::Option<self::BooleanObject>,
 +        value: ::std::option::Option<self::AttributeValue>,
@@ -82950,9 +82950,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            attribute_value_list: self.attribute_value_list,
 +
 +    impl ExpectedAttributeValueBuilder {
-+        pub fn attribute_value_list(mut self, input: impl ::std::convert::Into<self::AttributeValueList>) -> Self { self.attribute_value_list = Some(input.into()); self }
-+        pub fn set_attribute_value_list(mut self, input: ::std::option::Option<self::AttributeValueList>) -> Self { self.attribute_value_list = input; self }
-+        pub fn get_attribute_value_list(&self) -> &::std::option::Option<self::AttributeValueList> { &self.attribute_value_list }
++        pub fn attribute_value_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttributeValue>>) -> Self { self.attribute_value_list = Some(input.into()); self }
++        pub fn set_attribute_value_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>) -> Self { self.attribute_value_list = input; self }
++        pub fn get_attribute_value_list(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeValue>> { &self.attribute_value_list }
 +        pub fn comparison_operator(mut self, input: impl ::std::convert::Into<self::ComparisonOperator>) -> Self { self.comparison_operator = Some(input.into()); self }
 +        pub fn set_comparison_operator(mut self, input: ::std::option::Option<self::ComparisonOperator>) -> Self { self.comparison_operator = input; self }
 +        pub fn get_comparison_operator(&self) -> &::std::option::Option<self::ComparisonOperator> { &self.comparison_operator }
@@ -84479,8 +84479,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.key
 +    #[derive(Clone, Debug, Default)]
 +    pub struct Get {
-+        pub expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-+        pub key: ::std::option::Option<self::Key>,
++        pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
++        pub key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        pub projection_expression: ::std::option::Option<self::ProjectionExpression>,
 +        pub table_name: ::std::option::Option<self::TableArn>,
      }
@@ -84494,8 +84494,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.projection_expression.as_deref()
 +    impl Get {
 +        pub fn builder() -> GetBuilder { GetBuilder::default() }
-+        pub fn expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+        pub fn key(&self) -> &::std::option::Option<self::Key> { &self.key }
++        pub fn expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
++        pub fn key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
 +        pub fn projection_expression(&self) -> &::std::option::Option<self::ProjectionExpression> { &self.projection_expression }
 +        pub fn table_name(&self) -> &::std::option::Option<self::TableArn> { &self.table_name }
      }
@@ -84511,8 +84511,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +    #[derive(Clone, Debug, Default)]
 +    pub struct GetBuilder {
-+        expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-+        key: ::std::option::Option<self::Key>,
++        expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
++        key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        projection_expression: ::std::option::Option<self::ProjectionExpression>,
 +        table_name: ::std::option::Option<self::TableArn>,
      }
@@ -84606,12 +84606,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
 -        &self.expression_attribute_names
 +    impl GetBuilder {
-+        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-+        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-+        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+        pub fn key(mut self, input: impl ::std::convert::Into<self::Key>) -> Self { self.key = Some(input.into()); self }
-+        pub fn set_key(mut self, input: ::std::option::Option<self::Key>) -> Self { self.key = input; self }
-+        pub fn get_key(&self) -> &::std::option::Option<self::Key> { &self.key }
++        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
++        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
++        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
++        pub fn key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = Some(input.into()); self }
++        pub fn set_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = input; self }
++        pub fn get_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
 +        pub fn projection_expression(mut self, input: impl ::std::convert::Into<self::ProjectionExpression>) -> Self { self.projection_expression = Some(input.into()); self }
 +        pub fn set_projection_expression(mut self, input: ::std::option::Option<self::ProjectionExpression>) -> Self { self.projection_expression = input; self }
 +        pub fn get_projection_expression(&self) -> &::std::option::Option<self::ProjectionExpression> { &self.projection_expression }
@@ -84720,7 +84720,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct GlobalSecondaryIndex {
 +        pub index_name: ::std::option::Option<self::IndexName>,
-+        pub key_schema: ::std::option::Option<self::KeySchema>,
++        pub key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        pub on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
 +        pub projection: ::std::option::Option<self::Projection>,
 +        pub provisioned_throughput: ::std::option::Option<self::ProvisionedThroughput>,
@@ -84732,7 +84732,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl GlobalSecondaryIndex {
 +        pub fn builder() -> GlobalSecondaryIndexBuilder { GlobalSecondaryIndexBuilder::default() }
 +        pub fn index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
-+        pub fn key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
 +        pub fn projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
 +        pub fn provisioned_throughput(&self) -> &::std::option::Option<self::ProvisionedThroughput> { &self.provisioned_throughput }
@@ -84747,7 +84747,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct GlobalSecondaryIndexBuilder {
 +        index_name: ::std::option::Option<self::IndexName>,
-+        key_schema: ::std::option::Option<self::KeySchema>,
++        key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
 +        projection: ::std::option::Option<self::Projection>,
 +        provisioned_throughput: ::std::option::Option<self::ProvisionedThroughput>,
@@ -84776,9 +84776,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn index_name(mut self, input: impl ::std::convert::Into<self::IndexName>) -> Self { self.index_name = Some(input.into()); self }
 +        pub fn set_index_name(mut self, input: ::std::option::Option<self::IndexName>) -> Self { self.index_name = input; self }
 +        pub fn get_index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
-+        pub fn key_schema(mut self, input: impl ::std::convert::Into<self::KeySchema>) -> Self { self.key_schema = Some(input.into()); self }
-+        pub fn set_key_schema(mut self, input: ::std::option::Option<self::KeySchema>) -> Self { self.key_schema = input; self }
-+        pub fn get_key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = Some(input.into()); self }
++        pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = input; self }
++        pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn on_demand_throughput(mut self, input: impl ::std::convert::Into<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = Some(input.into()); self }
 +        pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
 +        pub fn get_on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
@@ -85158,7 +85158,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub index_size_bytes: ::std::option::Option<self::LongObject>,
 +        pub index_status: ::std::option::Option<self::IndexStatus>,
 +        pub item_count: ::std::option::Option<self::LongObject>,
-+        pub key_schema: ::std::option::Option<self::KeySchema>,
++        pub key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        pub on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
 +        pub projection: ::std::option::Option<self::Projection>,
 +        pub provisioned_throughput: ::std::option::Option<self::ProvisionedThroughputDescription>,
@@ -85209,7 +85209,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn index_size_bytes(&self) -> &::std::option::Option<self::LongObject> { &self.index_size_bytes }
 +        pub fn index_status(&self) -> &::std::option::Option<self::IndexStatus> { &self.index_status }
 +        pub fn item_count(&self) -> &::std::option::Option<self::LongObject> { &self.item_count }
-+        pub fn key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
 +        pub fn projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
 +        pub fn provisioned_throughput(&self) -> &::std::option::Option<self::ProvisionedThroughputDescription> { &self.provisioned_throughput }
@@ -85433,7 +85433,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        index_size_bytes: ::std::option::Option<self::LongObject>,
 +        index_status: ::std::option::Option<self::IndexStatus>,
 +        item_count: ::std::option::Option<self::LongObject>,
-+        key_schema: ::std::option::Option<self::KeySchema>,
++        key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
 +        projection: ::std::option::Option<self::Projection>,
 +        provisioned_throughput: ::std::option::Option<self::ProvisionedThroughputDescription>,
@@ -85510,9 +85510,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn item_count(mut self, input: impl ::std::convert::Into<self::LongObject>) -> Self { self.item_count = Some(input.into()); self }
 +        pub fn set_item_count(mut self, input: ::std::option::Option<self::LongObject>) -> Self { self.item_count = input; self }
 +        pub fn get_item_count(&self) -> &::std::option::Option<self::LongObject> { &self.item_count }
-+        pub fn key_schema(mut self, input: impl ::std::convert::Into<self::KeySchema>) -> Self { self.key_schema = Some(input.into()); self }
-+        pub fn set_key_schema(mut self, input: ::std::option::Option<self::KeySchema>) -> Self { self.key_schema = input; self }
-+        pub fn get_key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = Some(input.into()); self }
++        pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = input; self }
++        pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn on_demand_throughput(mut self, input: impl ::std::convert::Into<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = Some(input.into()); self }
 +        pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
 +        pub fn get_on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
@@ -85584,7 +85584,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct GlobalSecondaryIndexInfo {
 +        pub index_name: ::std::option::Option<self::IndexName>,
-+        pub key_schema: ::std::option::Option<self::KeySchema>,
++        pub key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        pub on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
 +        pub projection: ::std::option::Option<self::Projection>,
 +        pub provisioned_throughput: ::std::option::Option<self::ProvisionedThroughput>,
@@ -85606,7 +85606,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl GlobalSecondaryIndexInfo {
 +        pub fn builder() -> GlobalSecondaryIndexInfoBuilder { GlobalSecondaryIndexInfoBuilder::default() }
 +        pub fn index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
-+        pub fn key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
 +        pub fn projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
 +        pub fn provisioned_throughput(&self) -> &::std::option::Option<self::ProvisionedThroughput> { &self.provisioned_throughput }
@@ -85747,7 +85747,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct GlobalSecondaryIndexInfoBuilder {
 +        index_name: ::std::option::Option<self::IndexName>,
-+        key_schema: ::std::option::Option<self::KeySchema>,
++        key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
 +        projection: ::std::option::Option<self::Projection>,
 +        provisioned_throughput: ::std::option::Option<self::ProvisionedThroughput>,
@@ -85765,9 +85765,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn index_name(mut self, input: impl ::std::convert::Into<self::IndexName>) -> Self { self.index_name = Some(input.into()); self }
 +        pub fn set_index_name(mut self, input: ::std::option::Option<self::IndexName>) -> Self { self.index_name = input; self }
 +        pub fn get_index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
-+        pub fn key_schema(mut self, input: impl ::std::convert::Into<self::KeySchema>) -> Self { self.key_schema = Some(input.into()); self }
-+        pub fn set_key_schema(mut self, input: ::std::option::Option<self::KeySchema>) -> Self { self.key_schema = input; self }
-+        pub fn get_key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = Some(input.into()); self }
++        pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = input; self }
++        pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn on_demand_throughput(mut self, input: impl ::std::convert::Into<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = Some(input.into()); self }
 +        pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
 +        pub fn get_on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
@@ -86153,7 +86153,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct GlobalTable {
 +        pub global_table_name: ::std::option::Option<self::TableName>,
-+        pub replication_group: ::std::option::Option<self::ReplicaList>,
++        pub replication_group: ::std::option::Option<::std::vec::Vec<self::Replica>>,
      }
 -    /// <p>The Regions where the global table has replicas.</p>
 -    ///
@@ -86163,7 +86163,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl GlobalTable {
 +        pub fn builder() -> GlobalTableBuilder { GlobalTableBuilder::default() }
 +        pub fn global_table_name(&self) -> &::std::option::Option<self::TableName> { &self.global_table_name }
-+        pub fn replication_group(&self) -> &::std::option::Option<self::ReplicaList> { &self.replication_group }
++        pub fn replication_group(&self) -> &::std::option::Option<::std::vec::Vec<self::Replica>> { &self.replication_group }
      }
 -}
 -impl GlobalTable {
@@ -86217,7 +86217,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct GlobalTableBuilder {
 +        global_table_name: ::std::option::Option<self::TableName>,
-+        replication_group: ::std::option::Option<self::ReplicaList>,
++        replication_group: ::std::option::Option<::std::vec::Vec<self::Replica>>,
      }
 -    /// Consumes the builder and constructs a [`GlobalTable`](crate::types::GlobalTable).
 -    pub fn build(self) -> crate::types::GlobalTable {
@@ -86229,9 +86229,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn global_table_name(mut self, input: impl ::std::convert::Into<self::TableName>) -> Self { self.global_table_name = Some(input.into()); self }
 +        pub fn set_global_table_name(mut self, input: ::std::option::Option<self::TableName>) -> Self { self.global_table_name = input; self }
 +        pub fn get_global_table_name(&self) -> &::std::option::Option<self::TableName> { &self.global_table_name }
-+        pub fn replication_group(mut self, input: impl ::std::convert::Into<self::ReplicaList>) -> Self { self.replication_group = Some(input.into()); self }
-+        pub fn set_replication_group(mut self, input: ::std::option::Option<self::ReplicaList>) -> Self { self.replication_group = input; self }
-+        pub fn get_replication_group(&self) -> &::std::option::Option<self::ReplicaList> { &self.replication_group }
++        pub fn replication_group(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Replica>>) -> Self { self.replication_group = Some(input.into()); self }
++        pub fn set_replication_group(mut self, input: ::std::option::Option<::std::vec::Vec<self::Replica>>) -> Self { self.replication_group = input; self }
++        pub fn get_replication_group(&self) -> &::std::option::Option<::std::vec::Vec<self::Replica>> { &self.replication_group }
 +        pub fn build(self) -> GlobalTable {
 +            GlobalTable {
 +                global_table_name: self.global_table_name,
@@ -86288,7 +86288,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub global_table_arn: ::std::option::Option<self::GlobalTableArnString>,
 +        pub global_table_name: ::std::option::Option<self::TableName>,
 +        pub global_table_status: ::std::option::Option<self::GlobalTableStatus>,
-+        pub replication_group: ::std::option::Option<self::ReplicaDescriptionList>,
++        pub replication_group: ::std::option::Option<::std::vec::Vec<self::ReplicaDescription>>,
      }
 -    /// <p>The unique identifier of the global table.</p>
 -    pub fn global_table_arn(&self) -> ::std::option::Option<&str> {
@@ -86299,7 +86299,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn global_table_arn(&self) -> &::std::option::Option<self::GlobalTableArnString> { &self.global_table_arn }
 +        pub fn global_table_name(&self) -> &::std::option::Option<self::TableName> { &self.global_table_name }
 +        pub fn global_table_status(&self) -> &::std::option::Option<self::GlobalTableStatus> { &self.global_table_status }
-+        pub fn replication_group(&self) -> &::std::option::Option<self::ReplicaDescriptionList> { &self.replication_group }
++        pub fn replication_group(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaDescription>> { &self.replication_group }
      }
 -    /// <p>The creation time of the global table.</p>
 -    pub fn creation_date_time(&self) -> ::std::option::Option<&::aws_smithy_types::DateTime> {
@@ -86329,7 +86329,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        global_table_arn: ::std::option::Option<self::GlobalTableArnString>,
 +        global_table_name: ::std::option::Option<self::TableName>,
 +        global_table_status: ::std::option::Option<self::GlobalTableStatus>,
-+        replication_group: ::std::option::Option<self::ReplicaDescriptionList>,
++        replication_group: ::std::option::Option<::std::vec::Vec<self::ReplicaDescription>>,
      }
 -}
 -impl GlobalTableDescription {
@@ -86477,9 +86477,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn global_table_status(mut self, input: impl ::std::convert::Into<self::GlobalTableStatus>) -> Self { self.global_table_status = Some(input.into()); self }
 +        pub fn set_global_table_status(mut self, input: ::std::option::Option<self::GlobalTableStatus>) -> Self { self.global_table_status = input; self }
 +        pub fn get_global_table_status(&self) -> &::std::option::Option<self::GlobalTableStatus> { &self.global_table_status }
-+        pub fn replication_group(mut self, input: impl ::std::convert::Into<self::ReplicaDescriptionList>) -> Self { self.replication_group = Some(input.into()); self }
-+        pub fn set_replication_group(mut self, input: ::std::option::Option<self::ReplicaDescriptionList>) -> Self { self.replication_group = input; self }
-+        pub fn get_replication_group(&self) -> &::std::option::Option<self::ReplicaDescriptionList> { &self.replication_group }
++        pub fn replication_group(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaDescription>>) -> Self { self.replication_group = Some(input.into()); self }
++        pub fn set_replication_group(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaDescription>>) -> Self { self.replication_group = input; self }
++        pub fn get_replication_group(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaDescription>> { &self.replication_group }
 +        pub fn build(self) -> GlobalTableDescription {
 +            GlobalTableDescription {
 +                creation_date_time: self.creation_date_time,
@@ -88882,8 +88882,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.item_collection_key.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ItemCollectionMetrics {
-+        pub item_collection_key: ::std::option::Option<self::ItemCollectionKeyAttributeMap>,
-+        pub size_estimate_range_gb: ::std::option::Option<self::ItemCollectionSizeEstimateRange>,
++        pub item_collection_key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
++        pub size_estimate_range_gb: ::std::option::Option<::std::vec::Vec<self::ItemCollectionSizeEstimateBound>>,
      }
 -    /// <p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
 -    /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
@@ -88899,8 +88899,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::ItemCollectionMetricsBuilder::default()
 +    impl ItemCollectionMetrics {
 +        pub fn builder() -> ItemCollectionMetricsBuilder { ItemCollectionMetricsBuilder::default() }
-+        pub fn item_collection_key(&self) -> &::std::option::Option<self::ItemCollectionKeyAttributeMap> { &self.item_collection_key }
-+        pub fn size_estimate_range_gb(&self) -> &::std::option::Option<self::ItemCollectionSizeEstimateRange> { &self.size_estimate_range_gb }
++        pub fn item_collection_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item_collection_key }
++        pub fn size_estimate_range_gb(&self) -> &::std::option::Option<::std::vec::Vec<self::ItemCollectionSizeEstimateBound>> { &self.size_estimate_range_gb }
      }
 -}
 
@@ -88956,8 +88956,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ItemCollectionMetricsBuilder {
-+        item_collection_key: ::std::option::Option<self::ItemCollectionKeyAttributeMap>,
-+        size_estimate_range_gb: ::std::option::Option<self::ItemCollectionSizeEstimateRange>,
++        item_collection_key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
++        size_estimate_range_gb: ::std::option::Option<::std::vec::Vec<self::ItemCollectionSizeEstimateBound>>,
      }
 -    /// <p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p>
 -    /// <p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
@@ -88971,12 +88971,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            size_estimate_range_gb: self.size_estimate_range_gb,
 +
 +    impl ItemCollectionMetricsBuilder {
-+        pub fn item_collection_key(mut self, input: impl ::std::convert::Into<self::ItemCollectionKeyAttributeMap>) -> Self { self.item_collection_key = Some(input.into()); self }
-+        pub fn set_item_collection_key(mut self, input: ::std::option::Option<self::ItemCollectionKeyAttributeMap>) -> Self { self.item_collection_key = input; self }
-+        pub fn get_item_collection_key(&self) -> &::std::option::Option<self::ItemCollectionKeyAttributeMap> { &self.item_collection_key }
-+        pub fn size_estimate_range_gb(mut self, input: impl ::std::convert::Into<self::ItemCollectionSizeEstimateRange>) -> Self { self.size_estimate_range_gb = Some(input.into()); self }
-+        pub fn set_size_estimate_range_gb(mut self, input: ::std::option::Option<self::ItemCollectionSizeEstimateRange>) -> Self { self.size_estimate_range_gb = input; self }
-+        pub fn get_size_estimate_range_gb(&self) -> &::std::option::Option<self::ItemCollectionSizeEstimateRange> { &self.size_estimate_range_gb }
++        pub fn item_collection_key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item_collection_key = Some(input.into()); self }
++        pub fn set_item_collection_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item_collection_key = input; self }
++        pub fn get_item_collection_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item_collection_key }
++        pub fn size_estimate_range_gb(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ItemCollectionSizeEstimateBound>>) -> Self { self.size_estimate_range_gb = Some(input.into()); self }
++        pub fn set_size_estimate_range_gb(mut self, input: ::std::option::Option<::std::vec::Vec<self::ItemCollectionSizeEstimateBound>>) -> Self { self.size_estimate_range_gb = input; self }
++        pub fn get_size_estimate_range_gb(&self) -> &::std::option::Option<::std::vec::Vec<self::ItemCollectionSizeEstimateBound>> { &self.size_estimate_range_gb }
 +        pub fn build(self) -> ItemCollectionMetrics {
 +            ItemCollectionMetrics {
 +                item_collection_key: self.item_collection_key,
@@ -89009,7 +89009,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.item.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ItemResponse {
-+        pub item: ::std::option::Option<self::AttributeMap>,
++        pub item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
      }
 -}
 -impl ItemResponse {
@@ -89018,7 +89018,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::ItemResponseBuilder::default()
 +    impl ItemResponse {
 +        pub fn builder() -> ItemResponseBuilder { ItemResponseBuilder::default() }
-+        pub fn item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
++        pub fn item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
      }
 -}
 
@@ -89053,16 +89053,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.item
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ItemResponseBuilder {
-+        item: ::std::option::Option<self::AttributeMap>,
++        item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
      }
 -    /// Consumes the builder and constructs a [`ItemResponse`](crate::types::ItemResponse).
 -    pub fn build(self) -> crate::types::ItemResponse {
 -        crate::types::ItemResponse { item: self.item }
 +
 +    impl ItemResponseBuilder {
-+        pub fn item(mut self, input: impl ::std::convert::Into<self::AttributeMap>) -> Self { self.item = Some(input.into()); self }
-+        pub fn set_item(mut self, input: ::std::option::Option<self::AttributeMap>) -> Self { self.item = input; self }
-+        pub fn get_item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
++        pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
++        pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = input; self }
++        pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
 +        pub fn build(self) -> ItemResponse {
 +            ItemResponse {
 +                item: self.item,
@@ -89453,10 +89453,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.projection_expression.as_deref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct KeysAndAttributes {
-+        pub attributes_to_get: ::std::option::Option<self::AttributeNameList>,
++        pub attributes_to_get: ::std::option::Option<::std::vec::Vec<self::AttributeName>>,
 +        pub consistent_read: ::std::option::Option<self::ConsistentRead>,
-+        pub expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-+        pub keys: ::std::option::Option<self::KeyList>,
++        pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
++        pub keys: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>>,
 +        pub projection_expression: ::std::option::Option<self::ProjectionExpression>,
      }
 -    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>
@@ -89496,10 +89496,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::KeysAndAttributesBuilder::default()
 +    impl KeysAndAttributes {
 +        pub fn builder() -> KeysAndAttributesBuilder { KeysAndAttributesBuilder::default() }
-+        pub fn attributes_to_get(&self) -> &::std::option::Option<self::AttributeNameList> { &self.attributes_to_get }
++        pub fn attributes_to_get(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeName>> { &self.attributes_to_get }
 +        pub fn consistent_read(&self) -> &::std::option::Option<self::ConsistentRead> { &self.consistent_read }
-+        pub fn expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+        pub fn keys(&self) -> &::std::option::Option<self::KeyList> { &self.keys }
++        pub fn expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
++        pub fn keys(&self) -> &::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>> { &self.keys }
 +        pub fn projection_expression(&self) -> &::std::option::Option<self::ProjectionExpression> { &self.projection_expression }
      }
 -}
@@ -89670,10 +89670,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct KeysAndAttributesBuilder {
-+        attributes_to_get: ::std::option::Option<self::AttributeNameList>,
++        attributes_to_get: ::std::option::Option<::std::vec::Vec<self::AttributeName>>,
 +        consistent_read: ::std::option::Option<self::ConsistentRead>,
-+        expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-+        keys: ::std::option::Option<self::KeyList>,
++        expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
++        keys: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>>,
 +        projection_expression: ::std::option::Option<self::ProjectionExpression>,
      }
 -    /// <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p>
@@ -89726,18 +89726,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        })
 +
 +    impl KeysAndAttributesBuilder {
-+        pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<self::AttributeNameList>) -> Self { self.attributes_to_get = Some(input.into()); self }
-+        pub fn set_attributes_to_get(mut self, input: ::std::option::Option<self::AttributeNameList>) -> Self { self.attributes_to_get = input; self }
-+        pub fn get_attributes_to_get(&self) -> &::std::option::Option<self::AttributeNameList> { &self.attributes_to_get }
++        pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttributeName>>) -> Self { self.attributes_to_get = Some(input.into()); self }
++        pub fn set_attributes_to_get(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttributeName>>) -> Self { self.attributes_to_get = input; self }
++        pub fn get_attributes_to_get(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeName>> { &self.attributes_to_get }
 +        pub fn consistent_read(mut self, input: impl ::std::convert::Into<self::ConsistentRead>) -> Self { self.consistent_read = Some(input.into()); self }
 +        pub fn set_consistent_read(mut self, input: ::std::option::Option<self::ConsistentRead>) -> Self { self.consistent_read = input; self }
 +        pub fn get_consistent_read(&self) -> &::std::option::Option<self::ConsistentRead> { &self.consistent_read }
-+        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-+        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-+        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+        pub fn keys(mut self, input: impl ::std::convert::Into<self::KeyList>) -> Self { self.keys = Some(input.into()); self }
-+        pub fn set_keys(mut self, input: ::std::option::Option<self::KeyList>) -> Self { self.keys = input; self }
-+        pub fn get_keys(&self) -> &::std::option::Option<self::KeyList> { &self.keys }
++        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
++        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
++        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
++        pub fn keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>>) -> Self { self.keys = Some(input.into()); self }
++        pub fn set_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>>) -> Self { self.keys = input; self }
++        pub fn get_keys(&self) -> &::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>> { &self.keys }
 +        pub fn projection_expression(mut self, input: impl ::std::convert::Into<self::ProjectionExpression>) -> Self { self.projection_expression = Some(input.into()); self }
 +        pub fn set_projection_expression(mut self, input: ::std::option::Option<self::ProjectionExpression>) -> Self { self.projection_expression = input; self }
 +        pub fn get_projection_expression(&self) -> &::std::option::Option<self::ProjectionExpression> { &self.projection_expression }
@@ -89972,7 +89972,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct LocalSecondaryIndex {
 +        pub index_name: ::std::option::Option<self::IndexName>,
-+        pub key_schema: ::std::option::Option<self::KeySchema>,
++        pub key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        pub projection: ::std::option::Option<self::Projection>,
      }
 -    /// <p>Represents attributes that are copied (projected) from the table into the local secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
@@ -89981,7 +89981,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl LocalSecondaryIndex {
 +        pub fn builder() -> LocalSecondaryIndexBuilder { LocalSecondaryIndexBuilder::default() }
 +        pub fn index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
-+        pub fn key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
      }
 -}
@@ -89993,7 +89993,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct LocalSecondaryIndexBuilder {
 +        index_name: ::std::option::Option<self::IndexName>,
-+        key_schema: ::std::option::Option<self::KeySchema>,
++        key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        projection: ::std::option::Option<self::Projection>,
      }
 -}
@@ -90059,9 +90059,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn index_name(mut self, input: impl ::std::convert::Into<self::IndexName>) -> Self { self.index_name = Some(input.into()); self }
 +        pub fn set_index_name(mut self, input: ::std::option::Option<self::IndexName>) -> Self { self.index_name = input; self }
 +        pub fn get_index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
-+        pub fn key_schema(mut self, input: impl ::std::convert::Into<self::KeySchema>) -> Self { self.key_schema = Some(input.into()); self }
-+        pub fn set_key_schema(mut self, input: ::std::option::Option<self::KeySchema>) -> Self { self.key_schema = input; self }
-+        pub fn get_key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = Some(input.into()); self }
++        pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = input; self }
++        pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn projection(mut self, input: impl ::std::convert::Into<self::Projection>) -> Self { self.projection = Some(input.into()); self }
 +        pub fn set_projection(mut self, input: ::std::option::Option<self::Projection>) -> Self { self.projection = input; self }
 +        pub fn get_projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
@@ -90170,7 +90170,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub index_name: ::std::option::Option<self::IndexName>,
 +        pub index_size_bytes: ::std::option::Option<self::LongObject>,
 +        pub item_count: ::std::option::Option<self::LongObject>,
-+        pub key_schema: ::std::option::Option<self::KeySchema>,
++        pub key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        pub projection: ::std::option::Option<self::Projection>,
      }
 -    /// <p>The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:</p>
@@ -90193,7 +90193,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
 +        pub fn index_size_bytes(&self) -> &::std::option::Option<self::LongObject> { &self.index_size_bytes }
 +        pub fn item_count(&self) -> &::std::option::Option<self::LongObject> { &self.item_count }
-+        pub fn key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
      }
 -    /// <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
@@ -90224,7 +90224,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        index_name: ::std::option::Option<self::IndexName>,
 +        index_size_bytes: ::std::option::Option<self::LongObject>,
 +        item_count: ::std::option::Option<self::LongObject>,
-+        key_schema: ::std::option::Option<self::KeySchema>,
++        key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        projection: ::std::option::Option<self::Projection>,
      }
 -}
@@ -90380,9 +90380,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn item_count(mut self, input: impl ::std::convert::Into<self::LongObject>) -> Self { self.item_count = Some(input.into()); self }
 +        pub fn set_item_count(mut self, input: ::std::option::Option<self::LongObject>) -> Self { self.item_count = input; self }
 +        pub fn get_item_count(&self) -> &::std::option::Option<self::LongObject> { &self.item_count }
-+        pub fn key_schema(mut self, input: impl ::std::convert::Into<self::KeySchema>) -> Self { self.key_schema = Some(input.into()); self }
-+        pub fn set_key_schema(mut self, input: ::std::option::Option<self::KeySchema>) -> Self { self.key_schema = input; self }
-+        pub fn get_key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = Some(input.into()); self }
++        pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = input; self }
++        pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn projection(mut self, input: impl ::std::convert::Into<self::Projection>) -> Self { self.projection = Some(input.into()); self }
 +        pub fn set_projection(mut self, input: ::std::option::Option<self::Projection>) -> Self { self.projection = input; self }
 +        pub fn get_projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
@@ -90455,7 +90455,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct LocalSecondaryIndexInfo {
 +        pub index_name: ::std::option::Option<self::IndexName>,
-+        pub key_schema: ::std::option::Option<self::KeySchema>,
++        pub key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        pub projection: ::std::option::Option<self::Projection>,
      }
 -}
@@ -90466,7 +90466,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl LocalSecondaryIndexInfo {
 +        pub fn builder() -> LocalSecondaryIndexInfoBuilder { LocalSecondaryIndexInfoBuilder::default() }
 +        pub fn index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
-+        pub fn key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
      }
 -}
@@ -90516,7 +90516,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct LocalSecondaryIndexInfoBuilder {
 +        index_name: ::std::option::Option<self::IndexName>,
-+        key_schema: ::std::option::Option<self::KeySchema>,
++        key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        projection: ::std::option::Option<self::Projection>,
      }
 -    /// <p>The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:</p>
@@ -90571,9 +90571,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn index_name(mut self, input: impl ::std::convert::Into<self::IndexName>) -> Self { self.index_name = Some(input.into()); self }
 +        pub fn set_index_name(mut self, input: ::std::option::Option<self::IndexName>) -> Self { self.index_name = input; self }
 +        pub fn get_index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
-+        pub fn key_schema(mut self, input: impl ::std::convert::Into<self::KeySchema>) -> Self { self.key_schema = Some(input.into()); self }
-+        pub fn set_key_schema(mut self, input: ::std::option::Option<self::KeySchema>) -> Self { self.key_schema = input; self }
-+        pub fn get_key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = Some(input.into()); self }
++        pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = input; self }
++        pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn projection(mut self, input: impl ::std::convert::Into<self::Projection>) -> Self { self.projection = Some(input.into()); self }
 +        pub fn set_projection(mut self, input: ::std::option::Option<self::Projection>) -> Self { self.projection = input; self }
 +        pub fn get_projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
@@ -90944,7 +90944,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.statement.deref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ParameterizedStatement {
-+        pub parameters: ::std::option::Option<self::PreparedStatementParameters>,
++        pub parameters: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>,
 +        pub return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
 +        pub statement: ::std::option::Option<self::PartiQlStatement>,
      }
@@ -90966,7 +90966,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::ParameterizedStatementBuilder::default()
 +    impl ParameterizedStatement {
 +        pub fn builder() -> ParameterizedStatementBuilder { ParameterizedStatementBuilder::default() }
-+        pub fn parameters(&self) -> &::std::option::Option<self::PreparedStatementParameters> { &self.parameters }
++        pub fn parameters(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeValue>> { &self.parameters }
 +        pub fn return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
 +        pub fn statement(&self) -> &::std::option::Option<self::PartiQlStatement> { &self.statement }
      }
@@ -91037,7 +91037,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.return_values_on_condition_check_failure
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ParameterizedStatementBuilder {
-+        parameters: ::std::option::Option<self::PreparedStatementParameters>,
++        parameters: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>,
 +        return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
 +        statement: ::std::option::Option<self::PartiQlStatement>,
      }
@@ -91057,9 +91057,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        })
 +
 +    impl ParameterizedStatementBuilder {
-+        pub fn parameters(mut self, input: impl ::std::convert::Into<self::PreparedStatementParameters>) -> Self { self.parameters = Some(input.into()); self }
-+        pub fn set_parameters(mut self, input: ::std::option::Option<self::PreparedStatementParameters>) -> Self { self.parameters = input; self }
-+        pub fn get_parameters(&self) -> &::std::option::Option<self::PreparedStatementParameters> { &self.parameters }
++        pub fn parameters(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttributeValue>>) -> Self { self.parameters = Some(input.into()); self }
++        pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>) -> Self { self.parameters = input; self }
++        pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeValue>> { &self.parameters }
 +        pub fn return_values_on_condition_check_failure(mut self, input: impl ::std::convert::Into<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = Some(input.into()); self }
 +        pub fn set_return_values_on_condition_check_failure(mut self, input: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = input; self }
 +        pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
@@ -91571,7 +91571,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.non_key_attributes.as_deref().unwrap_or_default()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct Projection {
-+        pub non_key_attributes: ::std::option::Option<self::NonKeyAttributeNameList>,
++        pub non_key_attributes: ::std::option::Option<::std::vec::Vec<self::NonKeyAttributeName>>,
 +        pub projection_type: ::std::option::Option<self::ProjectionType>,
      }
 -}
@@ -91581,7 +91581,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::ProjectionBuilder::default()
 +    impl Projection {
 +        pub fn builder() -> ProjectionBuilder { ProjectionBuilder::default() }
-+        pub fn non_key_attributes(&self) -> &::std::option::Option<self::NonKeyAttributeNameList> { &self.non_key_attributes }
++        pub fn non_key_attributes(&self) -> &::std::option::Option<::std::vec::Vec<self::NonKeyAttributeName>> { &self.non_key_attributes }
 +        pub fn projection_type(&self) -> &::std::option::Option<self::ProjectionType> { &self.projection_type }
      }
 -}
@@ -91623,7 +91623,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ProjectionBuilder {
-+        non_key_attributes: ::std::option::Option<self::NonKeyAttributeNameList>,
++        non_key_attributes: ::std::option::Option<::std::vec::Vec<self::NonKeyAttributeName>>,
 +        projection_type: ::std::option::Option<self::ProjectionType>,
      }
 -    /// <p>The set of attributes that are projected into the index:</p>
@@ -91669,9 +91669,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            non_key_attributes: self.non_key_attributes,
 +
 +    impl ProjectionBuilder {
-+        pub fn non_key_attributes(mut self, input: impl ::std::convert::Into<self::NonKeyAttributeNameList>) -> Self { self.non_key_attributes = Some(input.into()); self }
-+        pub fn set_non_key_attributes(mut self, input: ::std::option::Option<self::NonKeyAttributeNameList>) -> Self { self.non_key_attributes = input; self }
-+        pub fn get_non_key_attributes(&self) -> &::std::option::Option<self::NonKeyAttributeNameList> { &self.non_key_attributes }
++        pub fn non_key_attributes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::NonKeyAttributeName>>) -> Self { self.non_key_attributes = Some(input.into()); self }
++        pub fn set_non_key_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<self::NonKeyAttributeName>>) -> Self { self.non_key_attributes = input; self }
++        pub fn get_non_key_attributes(&self) -> &::std::option::Option<::std::vec::Vec<self::NonKeyAttributeName>> { &self.non_key_attributes }
 +        pub fn projection_type(mut self, input: impl ::std::convert::Into<self::ProjectionType>) -> Self { self.projection_type = Some(input.into()); self }
 +        pub fn set_projection_type(mut self, input: ::std::option::Option<self::ProjectionType>) -> Self { self.projection_type = input; self }
 +        pub fn get_projection_type(&self) -> &::std::option::Option<self::ProjectionType> { &self.projection_type }
@@ -92275,9 +92275,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct Put {
 +        pub condition_expression: ::std::option::Option<self::ConditionExpression>,
-+        pub expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-+        pub expression_attribute_values: ::std::option::Option<self::ExpressionAttributeValueMap>,
-+        pub item: ::std::option::Option<self::PutItemInputAttributeMap>,
++        pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
++        pub expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>,
++        pub item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        pub return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
 +        pub table_name: ::std::option::Option<self::TableArn>,
      }
@@ -92312,9 +92312,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl Put {
 +        pub fn builder() -> PutBuilder { PutBuilder::default() }
 +        pub fn condition_expression(&self) -> &::std::option::Option<self::ConditionExpression> { &self.condition_expression }
-+        pub fn expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+        pub fn expression_attribute_values(&self) -> &::std::option::Option<self::ExpressionAttributeValueMap> { &self.expression_attribute_values }
-+        pub fn item(&self) -> &::std::option::Option<self::PutItemInputAttributeMap> { &self.item }
++        pub fn expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
++        pub fn expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>> { &self.expression_attribute_values }
++        pub fn item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
 +        pub fn return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
 +        pub fn table_name(&self) -> &::std::option::Option<self::TableArn> { &self.table_name }
      }
@@ -92409,9 +92409,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct PutBuilder {
 +        condition_expression: ::std::option::Option<self::ConditionExpression>,
-+        expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-+        expression_attribute_values: ::std::option::Option<self::ExpressionAttributeValueMap>,
-+        item: ::std::option::Option<self::PutItemInputAttributeMap>,
++        expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
++        expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>,
++        item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
 +        table_name: ::std::option::Option<self::TableArn>,
      }
@@ -92425,15 +92425,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn condition_expression(mut self, input: impl ::std::convert::Into<self::ConditionExpression>) -> Self { self.condition_expression = Some(input.into()); self }
 +        pub fn set_condition_expression(mut self, input: ::std::option::Option<self::ConditionExpression>) -> Self { self.condition_expression = input; self }
 +        pub fn get_condition_expression(&self) -> &::std::option::Option<self::ConditionExpression> { &self.condition_expression }
-+        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-+        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-+        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+        pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<self::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = Some(input.into()); self }
-+        pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<self::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = input; self }
-+        pub fn get_expression_attribute_values(&self) -> &::std::option::Option<self::ExpressionAttributeValueMap> { &self.expression_attribute_values }
-+        pub fn item(mut self, input: impl ::std::convert::Into<self::PutItemInputAttributeMap>) -> Self { self.item = Some(input.into()); self }
-+        pub fn set_item(mut self, input: ::std::option::Option<self::PutItemInputAttributeMap>) -> Self { self.item = input; self }
-+        pub fn get_item(&self) -> &::std::option::Option<self::PutItemInputAttributeMap> { &self.item }
++        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
++        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
++        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
++        pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>) -> Self { self.expression_attribute_values = Some(input.into()); self }
++        pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
++        pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>> { &self.expression_attribute_values }
++        pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
++        pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = input; self }
++        pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
 +        pub fn return_values_on_condition_check_failure(mut self, input: impl ::std::convert::Into<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = Some(input.into()); self }
 +        pub fn set_return_values_on_condition_check_failure(mut self, input: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = input; self }
 +        pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
@@ -92539,7 +92539,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.item
 +    #[derive(Clone, Debug, Default)]
 +    pub struct PutRequest {
-+        pub item: ::std::option::Option<self::PutItemInputAttributeMap>,
++        pub item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
      }
 -}
 -impl PutRequest {
@@ -92548,7 +92548,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::PutRequestBuilder::default()
 +    impl PutRequest {
 +        pub fn builder() -> PutRequestBuilder { PutRequestBuilder::default() }
-+        pub fn item(&self) -> &::std::option::Option<self::PutItemInputAttributeMap> { &self.item }
++        pub fn item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
      }
 -}
 
@@ -92571,7 +92571,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct PutRequestBuilder {
-+        item: ::std::option::Option<self::PutItemInputAttributeMap>,
++        item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
      }
 -    /// <p>A map of attribute name to attribute values, representing the primary key of an item to be processed by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.</p>
 -    pub fn set_item(
@@ -92599,9 +92599,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        })
 +
 +    impl PutRequestBuilder {
-+        pub fn item(mut self, input: impl ::std::convert::Into<self::PutItemInputAttributeMap>) -> Self { self.item = Some(input.into()); self }
-+        pub fn set_item(mut self, input: ::std::option::Option<self::PutItemInputAttributeMap>) -> Self { self.item = input; self }
-+        pub fn get_item(&self) -> &::std::option::Option<self::PutItemInputAttributeMap> { &self.item }
++        pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
++        pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = input; self }
++        pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
 +        pub fn build(self) -> PutRequest {
 +            PutRequest {
 +                item: self.item,
@@ -92742,7 +92742,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.replica_provisioned_write_capacity_auto_scaling_settings.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ReplicaAutoScalingDescription {
-+        pub global_secondary_indexes: ::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList>,
++        pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingDescription>>,
 +        pub region_name: ::std::option::Option<self::RegionName>,
 +        pub replica_provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
 +        pub replica_provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
@@ -92769,7 +92769,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::ReplicaAutoScalingDescriptionBuilder::default()
 +    impl ReplicaAutoScalingDescription {
 +        pub fn builder() -> ReplicaAutoScalingDescriptionBuilder { ReplicaAutoScalingDescriptionBuilder::default() }
-+        pub fn global_secondary_indexes(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList> { &self.global_secondary_indexes }
++        pub fn global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingDescription>> { &self.global_secondary_indexes }
 +        pub fn region_name(&self) -> &::std::option::Option<self::RegionName> { &self.region_name }
 +        pub fn replica_provisioned_read_capacity_auto_scaling_settings(&self) -> &::std::option::Option<self::AutoScalingSettingsDescription> { &self.replica_provisioned_read_capacity_auto_scaling_settings }
 +        pub fn replica_provisioned_write_capacity_auto_scaling_settings(&self) -> &::std::option::Option<self::AutoScalingSettingsDescription> { &self.replica_provisioned_write_capacity_auto_scaling_settings }
@@ -92896,7 +92896,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ReplicaAutoScalingDescriptionBuilder {
-+        global_secondary_indexes: ::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList>,
++        global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingDescription>>,
 +        region_name: ::std::option::Option<self::RegionName>,
 +        replica_provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
 +        replica_provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
@@ -92926,9 +92926,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            replica_status: self.replica_status,
 +
 +    impl ReplicaAutoScalingDescriptionBuilder {
-+        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<self::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-+        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList>) -> Self { self.global_secondary_indexes = input; self }
-+        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList> { &self.global_secondary_indexes }
++        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingDescription>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
++        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingDescription>>) -> Self { self.global_secondary_indexes = input; self }
++        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingDescription>> { &self.global_secondary_indexes }
 +        pub fn region_name(mut self, input: impl ::std::convert::Into<self::RegionName>) -> Self { self.region_name = Some(input.into()); self }
 +        pub fn set_region_name(mut self, input: ::std::option::Option<self::RegionName>) -> Self { self.region_name = input; self }
 +        pub fn get_region_name(&self) -> &::std::option::Option<self::RegionName> { &self.region_name }
@@ -92982,7 +92982,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ReplicaAutoScalingUpdate {
 +        pub region_name: ::std::option::Option<self::RegionName>,
-+        pub replica_global_secondary_index_updates: ::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingUpdateList>,
++        pub replica_global_secondary_index_updates: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>,
 +        pub replica_provisioned_read_capacity_auto_scaling_update: ::std::option::Option<self::AutoScalingSettingsUpdate>,
      }
 -    /// <p>Represents the auto scaling settings of global secondary indexes that will be modified.</p>
@@ -92993,7 +92993,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl ReplicaAutoScalingUpdate {
 +        pub fn builder() -> ReplicaAutoScalingUpdateBuilder { ReplicaAutoScalingUpdateBuilder::default() }
 +        pub fn region_name(&self) -> &::std::option::Option<self::RegionName> { &self.region_name }
-+        pub fn replica_global_secondary_index_updates(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingUpdateList> { &self.replica_global_secondary_index_updates }
++        pub fn replica_global_secondary_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingUpdate>> { &self.replica_global_secondary_index_updates }
 +        pub fn replica_provisioned_read_capacity_auto_scaling_update(&self) -> &::std::option::Option<self::AutoScalingSettingsUpdate> { &self.replica_provisioned_read_capacity_auto_scaling_update }
      }
 -    /// <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
@@ -93009,7 +93009,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ReplicaAutoScalingUpdateBuilder {
 +        region_name: ::std::option::Option<self::RegionName>,
-+        replica_global_secondary_index_updates: ::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingUpdateList>,
++        replica_global_secondary_index_updates: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>,
 +        replica_provisioned_read_capacity_auto_scaling_update: ::std::option::Option<self::AutoScalingSettingsUpdate>,
      }
 -}
@@ -93072,9 +93072,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn region_name(mut self, input: impl ::std::convert::Into<self::RegionName>) -> Self { self.region_name = Some(input.into()); self }
 +        pub fn set_region_name(mut self, input: ::std::option::Option<self::RegionName>) -> Self { self.region_name = input; self }
 +        pub fn get_region_name(&self) -> &::std::option::Option<self::RegionName> { &self.region_name }
-+        pub fn replica_global_secondary_index_updates(mut self, input: impl ::std::convert::Into<self::ReplicaGlobalSecondaryIndexAutoScalingUpdateList>) -> Self { self.replica_global_secondary_index_updates = Some(input.into()); self }
-+        pub fn set_replica_global_secondary_index_updates(mut self, input: ::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingUpdateList>) -> Self { self.replica_global_secondary_index_updates = input; self }
-+        pub fn get_replica_global_secondary_index_updates(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingUpdateList> { &self.replica_global_secondary_index_updates }
++        pub fn replica_global_secondary_index_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>) -> Self { self.replica_global_secondary_index_updates = Some(input.into()); self }
++        pub fn set_replica_global_secondary_index_updates(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>) -> Self { self.replica_global_secondary_index_updates = input; self }
++        pub fn get_replica_global_secondary_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingUpdate>> { &self.replica_global_secondary_index_updates }
 +        pub fn replica_provisioned_read_capacity_auto_scaling_update(mut self, input: impl ::std::convert::Into<self::AutoScalingSettingsUpdate>) -> Self { self.replica_provisioned_read_capacity_auto_scaling_update = Some(input.into()); self }
 +        pub fn set_replica_provisioned_read_capacity_auto_scaling_update(mut self, input: ::std::option::Option<self::AutoScalingSettingsUpdate>) -> Self { self.replica_provisioned_read_capacity_auto_scaling_update = input; self }
 +        pub fn get_replica_provisioned_read_capacity_auto_scaling_update(&self) -> &::std::option::Option<self::AutoScalingSettingsUpdate> { &self.replica_provisioned_read_capacity_auto_scaling_update }
@@ -93264,7 +93264,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.global_table_settings_replication_mode.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ReplicaDescription {
-+        pub global_secondary_indexes: ::std::option::Option<self::ReplicaGlobalSecondaryIndexDescriptionList>,
++        pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexDescription>>,
 +        pub global_table_settings_replication_mode: ::std::option::Option<self::GlobalTableSettingsReplicationMode>,
 +        pub kms_master_key_id: ::std::option::Option<self::KmsMasterKeyId>,
 +        pub on_demand_throughput_override: ::std::option::Option<self::OnDemandThroughputOverride>,
@@ -93285,7 +93285,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::ReplicaDescriptionBuilder::default()
 +    impl ReplicaDescription {
 +        pub fn builder() -> ReplicaDescriptionBuilder { ReplicaDescriptionBuilder::default() }
-+        pub fn global_secondary_indexes(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexDescriptionList> { &self.global_secondary_indexes }
++        pub fn global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexDescription>> { &self.global_secondary_indexes }
 +        pub fn global_table_settings_replication_mode(&self) -> &::std::option::Option<self::GlobalTableSettingsReplicationMode> { &self.global_table_settings_replication_mode }
 +        pub fn kms_master_key_id(&self) -> &::std::option::Option<self::KmsMasterKeyId> { &self.kms_master_key_id }
 +        pub fn on_demand_throughput_override(&self) -> &::std::option::Option<self::OnDemandThroughputOverride> { &self.on_demand_throughput_override }
@@ -93331,7 +93331,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ReplicaDescriptionBuilder {
-+        global_secondary_indexes: ::std::option::Option<self::ReplicaGlobalSecondaryIndexDescriptionList>,
++        global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexDescription>>,
 +        global_table_settings_replication_mode: ::std::option::Option<self::GlobalTableSettingsReplicationMode>,
 +        kms_master_key_id: ::std::option::Option<self::KmsMasterKeyId>,
 +        on_demand_throughput_override: ::std::option::Option<self::OnDemandThroughputOverride>,
@@ -93625,9 +93625,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            global_table_settings_replication_mode: self.global_table_settings_replication_mode,
 +
 +    impl ReplicaDescriptionBuilder {
-+        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<self::ReplicaGlobalSecondaryIndexDescriptionList>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-+        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<self::ReplicaGlobalSecondaryIndexDescriptionList>) -> Self { self.global_secondary_indexes = input; self }
-+        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexDescriptionList> { &self.global_secondary_indexes }
++        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexDescription>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
++        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexDescription>>) -> Self { self.global_secondary_indexes = input; self }
++        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexDescription>> { &self.global_secondary_indexes }
 +        pub fn global_table_settings_replication_mode(mut self, input: impl ::std::convert::Into<self::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = Some(input.into()); self }
 +        pub fn set_global_table_settings_replication_mode(mut self, input: ::std::option::Option<self::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = input; self }
 +        pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<self::GlobalTableSettingsReplicationMode> { &self.global_table_settings_replication_mode }
@@ -94844,7 +94844,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct ReplicaSettingsDescription {
 +        pub region_name: ::std::option::Option<self::RegionName>,
 +        pub replica_billing_mode_summary: ::std::option::Option<self::BillingModeSummary>,
-+        pub replica_global_secondary_index_settings: ::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsDescriptionList>,
++        pub replica_global_secondary_index_settings: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsDescription>>,
 +        pub replica_provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
 +        pub replica_provisioned_read_capacity_units: ::std::option::Option<self::NonNegativeLongObject>,
 +        pub replica_provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
@@ -94859,7 +94859,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn builder() -> ReplicaSettingsDescriptionBuilder { ReplicaSettingsDescriptionBuilder::default() }
 +        pub fn region_name(&self) -> &::std::option::Option<self::RegionName> { &self.region_name }
 +        pub fn replica_billing_mode_summary(&self) -> &::std::option::Option<self::BillingModeSummary> { &self.replica_billing_mode_summary }
-+        pub fn replica_global_secondary_index_settings(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsDescriptionList> { &self.replica_global_secondary_index_settings }
++        pub fn replica_global_secondary_index_settings(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsDescription>> { &self.replica_global_secondary_index_settings }
 +        pub fn replica_provisioned_read_capacity_auto_scaling_settings(&self) -> &::std::option::Option<self::AutoScalingSettingsDescription> { &self.replica_provisioned_read_capacity_auto_scaling_settings }
 +        pub fn replica_provisioned_read_capacity_units(&self) -> &::std::option::Option<self::NonNegativeLongObject> { &self.replica_provisioned_read_capacity_units }
 +        pub fn replica_provisioned_write_capacity_auto_scaling_settings(&self) -> &::std::option::Option<self::AutoScalingSettingsDescription> { &self.replica_provisioned_write_capacity_auto_scaling_settings }
@@ -95062,7 +95062,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct ReplicaSettingsDescriptionBuilder {
 +        region_name: ::std::option::Option<self::RegionName>,
 +        replica_billing_mode_summary: ::std::option::Option<self::BillingModeSummary>,
-+        replica_global_secondary_index_settings: ::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsDescriptionList>,
++        replica_global_secondary_index_settings: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsDescription>>,
 +        replica_provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
 +        replica_provisioned_read_capacity_units: ::std::option::Option<self::NonNegativeLongObject>,
 +        replica_provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
@@ -95118,9 +95118,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn replica_billing_mode_summary(mut self, input: impl ::std::convert::Into<self::BillingModeSummary>) -> Self { self.replica_billing_mode_summary = Some(input.into()); self }
 +        pub fn set_replica_billing_mode_summary(mut self, input: ::std::option::Option<self::BillingModeSummary>) -> Self { self.replica_billing_mode_summary = input; self }
 +        pub fn get_replica_billing_mode_summary(&self) -> &::std::option::Option<self::BillingModeSummary> { &self.replica_billing_mode_summary }
-+        pub fn replica_global_secondary_index_settings(mut self, input: impl ::std::convert::Into<self::ReplicaGlobalSecondaryIndexSettingsDescriptionList>) -> Self { self.replica_global_secondary_index_settings = Some(input.into()); self }
-+        pub fn set_replica_global_secondary_index_settings(mut self, input: ::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsDescriptionList>) -> Self { self.replica_global_secondary_index_settings = input; self }
-+        pub fn get_replica_global_secondary_index_settings(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsDescriptionList> { &self.replica_global_secondary_index_settings }
++        pub fn replica_global_secondary_index_settings(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsDescription>>) -> Self { self.replica_global_secondary_index_settings = Some(input.into()); self }
++        pub fn set_replica_global_secondary_index_settings(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsDescription>>) -> Self { self.replica_global_secondary_index_settings = input; self }
++        pub fn get_replica_global_secondary_index_settings(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsDescription>> { &self.replica_global_secondary_index_settings }
 +        pub fn replica_provisioned_read_capacity_auto_scaling_settings(mut self, input: impl ::std::convert::Into<self::AutoScalingSettingsDescription>) -> Self { self.replica_provisioned_read_capacity_auto_scaling_settings = Some(input.into()); self }
 +        pub fn set_replica_provisioned_read_capacity_auto_scaling_settings(mut self, input: ::std::option::Option<self::AutoScalingSettingsDescription>) -> Self { self.replica_provisioned_read_capacity_auto_scaling_settings = input; self }
 +        pub fn get_replica_provisioned_read_capacity_auto_scaling_settings(&self) -> &::std::option::Option<self::AutoScalingSettingsDescription> { &self.replica_provisioned_read_capacity_auto_scaling_settings }
@@ -95203,7 +95203,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ReplicaSettingsUpdate {
 +        pub region_name: ::std::option::Option<self::RegionName>,
-+        pub replica_global_secondary_index_settings_update: ::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsUpdateList>,
++        pub replica_global_secondary_index_settings_update: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsUpdate>>,
 +        pub replica_provisioned_read_capacity_auto_scaling_settings_update: ::std::option::Option<self::AutoScalingSettingsUpdate>,
 +        pub replica_provisioned_read_capacity_units: ::std::option::Option<self::PositiveLongObject>,
 +        pub replica_table_class: ::std::option::Option<self::TableClass>,
@@ -95220,7 +95220,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl ReplicaSettingsUpdate {
 +        pub fn builder() -> ReplicaSettingsUpdateBuilder { ReplicaSettingsUpdateBuilder::default() }
 +        pub fn region_name(&self) -> &::std::option::Option<self::RegionName> { &self.region_name }
-+        pub fn replica_global_secondary_index_settings_update(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsUpdateList> { &self.replica_global_secondary_index_settings_update }
++        pub fn replica_global_secondary_index_settings_update(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsUpdate>> { &self.replica_global_secondary_index_settings_update }
 +        pub fn replica_provisioned_read_capacity_auto_scaling_settings_update(&self) -> &::std::option::Option<self::AutoScalingSettingsUpdate> { &self.replica_provisioned_read_capacity_auto_scaling_settings_update }
 +        pub fn replica_provisioned_read_capacity_units(&self) -> &::std::option::Option<self::PositiveLongObject> { &self.replica_provisioned_read_capacity_units }
 +        pub fn replica_table_class(&self) -> &::std::option::Option<self::TableClass> { &self.replica_table_class }
@@ -95275,7 +95275,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ReplicaSettingsUpdateBuilder {
 +        region_name: ::std::option::Option<self::RegionName>,
-+        replica_global_secondary_index_settings_update: ::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsUpdateList>,
++        replica_global_secondary_index_settings_update: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsUpdate>>,
 +        replica_provisioned_read_capacity_auto_scaling_settings_update: ::std::option::Option<self::AutoScalingSettingsUpdate>,
 +        replica_provisioned_read_capacity_units: ::std::option::Option<self::PositiveLongObject>,
 +        replica_table_class: ::std::option::Option<self::TableClass>,
@@ -95354,9 +95354,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn region_name(mut self, input: impl ::std::convert::Into<self::RegionName>) -> Self { self.region_name = Some(input.into()); self }
 +        pub fn set_region_name(mut self, input: ::std::option::Option<self::RegionName>) -> Self { self.region_name = input; self }
 +        pub fn get_region_name(&self) -> &::std::option::Option<self::RegionName> { &self.region_name }
-+        pub fn replica_global_secondary_index_settings_update(mut self, input: impl ::std::convert::Into<self::ReplicaGlobalSecondaryIndexSettingsUpdateList>) -> Self { self.replica_global_secondary_index_settings_update = Some(input.into()); self }
-+        pub fn set_replica_global_secondary_index_settings_update(mut self, input: ::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsUpdateList>) -> Self { self.replica_global_secondary_index_settings_update = input; self }
-+        pub fn get_replica_global_secondary_index_settings_update(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsUpdateList> { &self.replica_global_secondary_index_settings_update }
++        pub fn replica_global_secondary_index_settings_update(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsUpdate>>) -> Self { self.replica_global_secondary_index_settings_update = Some(input.into()); self }
++        pub fn set_replica_global_secondary_index_settings_update(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsUpdate>>) -> Self { self.replica_global_secondary_index_settings_update = input; self }
++        pub fn get_replica_global_secondary_index_settings_update(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsUpdate>> { &self.replica_global_secondary_index_settings_update }
 +        pub fn replica_provisioned_read_capacity_auto_scaling_settings_update(mut self, input: impl ::std::convert::Into<self::AutoScalingSettingsUpdate>) -> Self { self.replica_provisioned_read_capacity_auto_scaling_settings_update = Some(input.into()); self }
 +        pub fn set_replica_provisioned_read_capacity_auto_scaling_settings_update(mut self, input: ::std::option::Option<self::AutoScalingSettingsUpdate>) -> Self { self.replica_provisioned_read_capacity_auto_scaling_settings_update = input; self }
 +        pub fn get_replica_provisioned_read_capacity_auto_scaling_settings_update(&self) -> &::std::option::Option<self::AutoScalingSettingsUpdate> { &self.replica_provisioned_read_capacity_auto_scaling_settings_update }
@@ -97084,7 +97084,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.item.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct SearchResultItem {
-+        pub item: ::std::option::Option<self::AttributeMap>,
++        pub item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        pub score: ::std::option::Option<self::ScoreNumber>,
      }
 -    /// <p>The similarity score for this item relative to the search vector. The interpretation depends on the distance function configured for the vector index.</p>
@@ -97092,7 +97092,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.score
 +    impl SearchResultItem {
 +        pub fn builder() -> SearchResultItemBuilder { SearchResultItemBuilder::default() }
-+        pub fn item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
++        pub fn item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
 +        pub fn score(&self) -> &::std::option::Option<self::ScoreNumber> { &self.score }
      }
 -}
@@ -97103,7 +97103,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +    #[derive(Clone, Debug, Default)]
 +    pub struct SearchResultItemBuilder {
-+        item: ::std::option::Option<self::AttributeMap>,
++        item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        score: ::std::option::Option<self::ScoreNumber>,
      }
 -}
@@ -97159,9 +97159,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            item: self.item,
 -            score: self.score.unwrap_or_default(),
 +    impl SearchResultItemBuilder {
-+        pub fn item(mut self, input: impl ::std::convert::Into<self::AttributeMap>) -> Self { self.item = Some(input.into()); self }
-+        pub fn set_item(mut self, input: ::std::option::Option<self::AttributeMap>) -> Self { self.item = input; self }
-+        pub fn get_item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
++        pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
++        pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = input; self }
++        pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
 +        pub fn score(mut self, input: impl ::std::convert::Into<self::ScoreNumber>) -> Self { self.score = Some(input.into()); self }
 +        pub fn set_score(mut self, input: ::std::option::Option<self::ScoreNumber>) -> Self { self.score = input; self }
 +        pub fn get_score(&self) -> &::std::option::Option<self::ScoreNumber> { &self.score }
@@ -97709,7 +97709,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct SourceTableDetails {
 +        pub billing_mode: ::std::option::Option<self::BillingMode>,
 +        pub item_count: ::std::option::Option<self::ItemCount>,
-+        pub key_schema: ::std::option::Option<self::KeySchema>,
++        pub key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        pub on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
 +        pub provisioned_throughput: ::std::option::Option<self::ProvisionedThroughput>,
 +        pub table_arn: ::std::option::Option<self::TableArn>,
@@ -97727,7 +97727,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn builder() -> SourceTableDetailsBuilder { SourceTableDetailsBuilder::default() }
 +        pub fn billing_mode(&self) -> &::std::option::Option<self::BillingMode> { &self.billing_mode }
 +        pub fn item_count(&self) -> &::std::option::Option<self::ItemCount> { &self.item_count }
-+        pub fn key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
 +        pub fn provisioned_throughput(&self) -> &::std::option::Option<self::ProvisionedThroughput> { &self.provisioned_throughput }
 +        pub fn table_arn(&self) -> &::std::option::Option<self::TableArn> { &self.table_arn }
@@ -97856,7 +97856,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct SourceTableDetailsBuilder {
 +        billing_mode: ::std::option::Option<self::BillingMode>,
 +        item_count: ::std::option::Option<self::ItemCount>,
-+        key_schema: ::std::option::Option<self::KeySchema>,
++        key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
 +        provisioned_throughput: ::std::option::Option<self::ProvisionedThroughput>,
 +        table_arn: ::std::option::Option<self::TableArn>,
@@ -97941,9 +97941,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn item_count(mut self, input: impl ::std::convert::Into<self::ItemCount>) -> Self { self.item_count = Some(input.into()); self }
 +        pub fn set_item_count(mut self, input: ::std::option::Option<self::ItemCount>) -> Self { self.item_count = input; self }
 +        pub fn get_item_count(&self) -> &::std::option::Option<self::ItemCount> { &self.item_count }
-+        pub fn key_schema(mut self, input: impl ::std::convert::Into<self::KeySchema>) -> Self { self.key_schema = Some(input.into()); self }
-+        pub fn set_key_schema(mut self, input: ::std::option::Option<self::KeySchema>) -> Self { self.key_schema = input; self }
-+        pub fn get_key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = Some(input.into()); self }
++        pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = input; self }
++        pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn on_demand_throughput(mut self, input: impl ::std::convert::Into<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = Some(input.into()); self }
 +        pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
 +        pub fn get_on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
@@ -98057,12 +98057,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.local_secondary_indexes.as_deref().unwrap_or_default()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct SourceTableFeatureDetails {
-+        pub global_secondary_indexes: ::std::option::Option<self::GlobalSecondaryIndexes>,
-+        pub local_secondary_indexes: ::std::option::Option<self::LocalSecondaryIndexes>,
++        pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexInfo>>,
++        pub local_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexInfo>>,
 +        pub sse_description: ::std::option::Option<self::SseDescription>,
 +        pub stream_description: ::std::option::Option<self::StreamSpecification>,
 +        pub time_to_live_description: ::std::option::Option<self::TimeToLiveDescription>,
-+        pub vector_indexes: ::std::option::Option<self::VectorIndexes>,
++        pub vector_indexes: ::std::option::Option<::std::vec::Vec<self::VectorIndexInfo>>,
      }
 -    /// <p>Represents the GSI properties for the table when the backup was created. It includes the IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at the time of backup.</p>
 -    ///
@@ -98083,12 +98083,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.sse_description.as_ref()
 +    impl SourceTableFeatureDetails {
 +        pub fn builder() -> SourceTableFeatureDetailsBuilder { SourceTableFeatureDetailsBuilder::default() }
-+        pub fn global_secondary_indexes(&self) -> &::std::option::Option<self::GlobalSecondaryIndexes> { &self.global_secondary_indexes }
-+        pub fn local_secondary_indexes(&self) -> &::std::option::Option<self::LocalSecondaryIndexes> { &self.local_secondary_indexes }
++        pub fn global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexInfo>> { &self.global_secondary_indexes }
++        pub fn local_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexInfo>> { &self.local_secondary_indexes }
 +        pub fn sse_description(&self) -> &::std::option::Option<self::SseDescription> { &self.sse_description }
 +        pub fn stream_description(&self) -> &::std::option::Option<self::StreamSpecification> { &self.stream_description }
 +        pub fn time_to_live_description(&self) -> &::std::option::Option<self::TimeToLiveDescription> { &self.time_to_live_description }
-+        pub fn vector_indexes(&self) -> &::std::option::Option<self::VectorIndexes> { &self.vector_indexes }
++        pub fn vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::VectorIndexInfo>> { &self.vector_indexes }
      }
 -    /// <p>The vector index properties for the table at the time the backup was created, including the index name, vector attribute, dimensions, distance function, search schema, and projection.</p>
 -    ///
@@ -98219,12 +98219,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.vector_indexes
 +    #[derive(Clone, Debug, Default)]
 +    pub struct SourceTableFeatureDetailsBuilder {
-+        global_secondary_indexes: ::std::option::Option<self::GlobalSecondaryIndexes>,
-+        local_secondary_indexes: ::std::option::Option<self::LocalSecondaryIndexes>,
++        global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexInfo>>,
++        local_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexInfo>>,
 +        sse_description: ::std::option::Option<self::SseDescription>,
 +        stream_description: ::std::option::Option<self::StreamSpecification>,
 +        time_to_live_description: ::std::option::Option<self::TimeToLiveDescription>,
-+        vector_indexes: ::std::option::Option<self::VectorIndexes>,
++        vector_indexes: ::std::option::Option<::std::vec::Vec<self::VectorIndexInfo>>,
      }
 -    /// Consumes the builder and constructs a [`SourceTableFeatureDetails`](crate::types::SourceTableFeatureDetails).
 -    pub fn build(self) -> crate::types::SourceTableFeatureDetails {
@@ -98237,12 +98237,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            vector_indexes: self.vector_indexes,
 +
 +    impl SourceTableFeatureDetailsBuilder {
-+        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<self::GlobalSecondaryIndexes>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-+        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<self::GlobalSecondaryIndexes>) -> Self { self.global_secondary_indexes = input; self }
-+        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<self::GlobalSecondaryIndexes> { &self.global_secondary_indexes }
-+        pub fn local_secondary_indexes(mut self, input: impl ::std::convert::Into<self::LocalSecondaryIndexes>) -> Self { self.local_secondary_indexes = Some(input.into()); self }
-+        pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<self::LocalSecondaryIndexes>) -> Self { self.local_secondary_indexes = input; self }
-+        pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<self::LocalSecondaryIndexes> { &self.local_secondary_indexes }
++        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::GlobalSecondaryIndexInfo>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
++        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexInfo>>) -> Self { self.global_secondary_indexes = input; self }
++        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexInfo>> { &self.global_secondary_indexes }
++        pub fn local_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::LocalSecondaryIndexInfo>>) -> Self { self.local_secondary_indexes = Some(input.into()); self }
++        pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexInfo>>) -> Self { self.local_secondary_indexes = input; self }
++        pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexInfo>> { &self.local_secondary_indexes }
 +        pub fn sse_description(mut self, input: impl ::std::convert::Into<self::SseDescription>) -> Self { self.sse_description = Some(input.into()); self }
 +        pub fn set_sse_description(mut self, input: ::std::option::Option<self::SseDescription>) -> Self { self.sse_description = input; self }
 +        pub fn get_sse_description(&self) -> &::std::option::Option<self::SseDescription> { &self.sse_description }
@@ -98252,9 +98252,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn time_to_live_description(mut self, input: impl ::std::convert::Into<self::TimeToLiveDescription>) -> Self { self.time_to_live_description = Some(input.into()); self }
 +        pub fn set_time_to_live_description(mut self, input: ::std::option::Option<self::TimeToLiveDescription>) -> Self { self.time_to_live_description = input; self }
 +        pub fn get_time_to_live_description(&self) -> &::std::option::Option<self::TimeToLiveDescription> { &self.time_to_live_description }
-+        pub fn vector_indexes(mut self, input: impl ::std::convert::Into<self::VectorIndexes>) -> Self { self.vector_indexes = Some(input.into()); self }
-+        pub fn set_vector_indexes(mut self, input: ::std::option::Option<self::VectorIndexes>) -> Self { self.vector_indexes = input; self }
-+        pub fn get_vector_indexes(&self) -> &::std::option::Option<self::VectorIndexes> { &self.vector_indexes }
++        pub fn vector_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::VectorIndexInfo>>) -> Self { self.vector_indexes = Some(input.into()); self }
++        pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::VectorIndexInfo>>) -> Self { self.vector_indexes = input; self }
++        pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::VectorIndexInfo>> { &self.vector_indexes }
 +        pub fn build(self) -> SourceTableFeatureDetails {
 +            SourceTableFeatureDetails {
 +                global_secondary_indexes: self.global_secondary_indexes,
@@ -99303,7 +99303,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.table_status.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct TableAutoScalingDescription {
-+        pub replicas: ::std::option::Option<self::ReplicaAutoScalingDescriptionList>,
++        pub replicas: ::std::option::Option<::std::vec::Vec<self::ReplicaAutoScalingDescription>>,
 +        pub table_name: ::std::option::Option<self::TableName>,
 +        pub table_status: ::std::option::Option<self::TableStatus>,
      }
@@ -99314,7 +99314,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.replicas.as_deref().unwrap_or_default()
 +    impl TableAutoScalingDescription {
 +        pub fn builder() -> TableAutoScalingDescriptionBuilder { TableAutoScalingDescriptionBuilder::default() }
-+        pub fn replicas(&self) -> &::std::option::Option<self::ReplicaAutoScalingDescriptionList> { &self.replicas }
++        pub fn replicas(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaAutoScalingDescription>> { &self.replicas }
 +        pub fn table_name(&self) -> &::std::option::Option<self::TableName> { &self.table_name }
 +        pub fn table_status(&self) -> &::std::option::Option<self::TableStatus> { &self.table_status }
      }
@@ -99326,7 +99326,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +    #[derive(Clone, Debug, Default)]
 +    pub struct TableAutoScalingDescriptionBuilder {
-+        replicas: ::std::option::Option<self::ReplicaAutoScalingDescriptionList>,
++        replicas: ::std::option::Option<::std::vec::Vec<self::ReplicaAutoScalingDescription>>,
 +        table_name: ::std::option::Option<self::TableName>,
 +        table_status: ::std::option::Option<self::TableStatus>,
      }
@@ -99426,9 +99426,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            table_status: self.table_status,
 -            replicas: self.replicas,
 +    impl TableAutoScalingDescriptionBuilder {
-+        pub fn replicas(mut self, input: impl ::std::convert::Into<self::ReplicaAutoScalingDescriptionList>) -> Self { self.replicas = Some(input.into()); self }
-+        pub fn set_replicas(mut self, input: ::std::option::Option<self::ReplicaAutoScalingDescriptionList>) -> Self { self.replicas = input; self }
-+        pub fn get_replicas(&self) -> &::std::option::Option<self::ReplicaAutoScalingDescriptionList> { &self.replicas }
++        pub fn replicas(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaAutoScalingDescription>>) -> Self { self.replicas = Some(input.into()); self }
++        pub fn set_replicas(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaAutoScalingDescription>>) -> Self { self.replicas = input; self }
++        pub fn get_replicas(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaAutoScalingDescription>> { &self.replicas }
 +        pub fn table_name(mut self, input: impl ::std::convert::Into<self::TableName>) -> Self { self.table_name = Some(input.into()); self }
 +        pub fn set_table_name(mut self, input: ::std::option::Option<self::TableName>) -> Self { self.table_name = input; self }
 +        pub fn get_table_name(&self) -> &::std::option::Option<self::TableName> { &self.table_name }
@@ -99727,15 +99727,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.table_name.deref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct TableCreationParameters {
-+        pub attribute_definitions: ::std::option::Option<self::AttributeDefinitions>,
++        pub attribute_definitions: ::std::option::Option<::std::vec::Vec<self::AttributeDefinition>>,
 +        pub billing_mode: ::std::option::Option<self::BillingMode>,
-+        pub global_secondary_indexes: ::std::option::Option<self::GlobalSecondaryIndexList>,
-+        pub key_schema: ::std::option::Option<self::KeySchema>,
++        pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndex>>,
++        pub key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        pub on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
 +        pub provisioned_throughput: ::std::option::Option<self::ProvisionedThroughput>,
 +        pub sse_specification: ::std::option::Option<self::SseSpecification>,
 +        pub table_name: ::std::option::Option<self::TableName>,
-+        pub vector_indexes: ::std::option::Option<self::VectorIndexList>,
++        pub vector_indexes: ::std::option::Option<::std::vec::Vec<self::VectorIndex>>,
      }
 -    /// <p>The attributes of the table created as part of the import operation.</p>
 -    pub fn attribute_definitions(&self) -> &[crate::types::AttributeDefinition] {
@@ -99743,15 +99743,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.attribute_definitions.deref()
 +    impl TableCreationParameters {
 +        pub fn builder() -> TableCreationParametersBuilder { TableCreationParametersBuilder::default() }
-+        pub fn attribute_definitions(&self) -> &::std::option::Option<self::AttributeDefinitions> { &self.attribute_definitions }
++        pub fn attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeDefinition>> { &self.attribute_definitions }
 +        pub fn billing_mode(&self) -> &::std::option::Option<self::BillingMode> { &self.billing_mode }
-+        pub fn global_secondary_indexes(&self) -> &::std::option::Option<self::GlobalSecondaryIndexList> { &self.global_secondary_indexes }
-+        pub fn key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndex>> { &self.global_secondary_indexes }
++        pub fn key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
 +        pub fn provisioned_throughput(&self) -> &::std::option::Option<self::ProvisionedThroughput> { &self.provisioned_throughput }
 +        pub fn sse_specification(&self) -> &::std::option::Option<self::SseSpecification> { &self.sse_specification }
 +        pub fn table_name(&self) -> &::std::option::Option<self::TableName> { &self.table_name }
-+        pub fn vector_indexes(&self) -> &::std::option::Option<self::VectorIndexList> { &self.vector_indexes }
++        pub fn vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::VectorIndex>> { &self.vector_indexes }
      }
 -    /// <p>The primary key and option sort key of the table created as part of the import operation.</p>
 -    pub fn key_schema(&self) -> &[crate::types::KeySchemaElement] {
@@ -99789,15 +99789,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +    #[derive(Clone, Debug, Default)]
 +    pub struct TableCreationParametersBuilder {
-+        attribute_definitions: ::std::option::Option<self::AttributeDefinitions>,
++        attribute_definitions: ::std::option::Option<::std::vec::Vec<self::AttributeDefinition>>,
 +        billing_mode: ::std::option::Option<self::BillingMode>,
-+        global_secondary_indexes: ::std::option::Option<self::GlobalSecondaryIndexList>,
-+        key_schema: ::std::option::Option<self::KeySchema>,
++        global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndex>>,
++        key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
 +        provisioned_throughput: ::std::option::Option<self::ProvisionedThroughput>,
 +        sse_specification: ::std::option::Option<self::SseSpecification>,
 +        table_name: ::std::option::Option<self::TableName>,
-+        vector_indexes: ::std::option::Option<self::VectorIndexList>,
++        vector_indexes: ::std::option::Option<::std::vec::Vec<self::VectorIndex>>,
      }
 -}
 -impl TableCreationParameters {
@@ -99922,18 +99922,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_on_demand_throughput(&self) -> &::std::option::Option<crate::types::OnDemandThroughput> {
 -        &self.on_demand_throughput
 +    impl TableCreationParametersBuilder {
-+        pub fn attribute_definitions(mut self, input: impl ::std::convert::Into<self::AttributeDefinitions>) -> Self { self.attribute_definitions = Some(input.into()); self }
-+        pub fn set_attribute_definitions(mut self, input: ::std::option::Option<self::AttributeDefinitions>) -> Self { self.attribute_definitions = input; self }
-+        pub fn get_attribute_definitions(&self) -> &::std::option::Option<self::AttributeDefinitions> { &self.attribute_definitions }
++        pub fn attribute_definitions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttributeDefinition>>) -> Self { self.attribute_definitions = Some(input.into()); self }
++        pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttributeDefinition>>) -> Self { self.attribute_definitions = input; self }
++        pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeDefinition>> { &self.attribute_definitions }
 +        pub fn billing_mode(mut self, input: impl ::std::convert::Into<self::BillingMode>) -> Self { self.billing_mode = Some(input.into()); self }
 +        pub fn set_billing_mode(mut self, input: ::std::option::Option<self::BillingMode>) -> Self { self.billing_mode = input; self }
 +        pub fn get_billing_mode(&self) -> &::std::option::Option<self::BillingMode> { &self.billing_mode }
-+        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<self::GlobalSecondaryIndexList>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-+        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<self::GlobalSecondaryIndexList>) -> Self { self.global_secondary_indexes = input; self }
-+        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<self::GlobalSecondaryIndexList> { &self.global_secondary_indexes }
-+        pub fn key_schema(mut self, input: impl ::std::convert::Into<self::KeySchema>) -> Self { self.key_schema = Some(input.into()); self }
-+        pub fn set_key_schema(mut self, input: ::std::option::Option<self::KeySchema>) -> Self { self.key_schema = input; self }
-+        pub fn get_key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::GlobalSecondaryIndex>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
++        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndex>>) -> Self { self.global_secondary_indexes = input; self }
++        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndex>> { &self.global_secondary_indexes }
++        pub fn key_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = Some(input.into()); self }
++        pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = input; self }
++        pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn on_demand_throughput(mut self, input: impl ::std::convert::Into<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = Some(input.into()); self }
 +        pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
 +        pub fn get_on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
@@ -99946,9 +99946,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn table_name(mut self, input: impl ::std::convert::Into<self::TableName>) -> Self { self.table_name = Some(input.into()); self }
 +        pub fn set_table_name(mut self, input: ::std::option::Option<self::TableName>) -> Self { self.table_name = input; self }
 +        pub fn get_table_name(&self) -> &::std::option::Option<self::TableName> { &self.table_name }
-+        pub fn vector_indexes(mut self, input: impl ::std::convert::Into<self::VectorIndexList>) -> Self { self.vector_indexes = Some(input.into()); self }
-+        pub fn set_vector_indexes(mut self, input: ::std::option::Option<self::VectorIndexList>) -> Self { self.vector_indexes = input; self }
-+        pub fn get_vector_indexes(&self) -> &::std::option::Option<self::VectorIndexList> { &self.vector_indexes }
++        pub fn vector_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::VectorIndex>>) -> Self { self.vector_indexes = Some(input.into()); self }
++        pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::VectorIndex>>) -> Self { self.vector_indexes = input; self }
++        pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::VectorIndex>> { &self.vector_indexes }
 +        pub fn build(self) -> TableCreationParameters {
 +            TableCreationParameters {
 +                attribute_definitions: self.attribute_definitions,
@@ -100505,23 +100505,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct TableDescription {
 +        pub archival_summary: ::std::option::Option<self::ArchivalSummary>,
-+        pub attribute_definitions: ::std::option::Option<self::AttributeDefinitions>,
++        pub attribute_definitions: ::std::option::Option<::std::vec::Vec<self::AttributeDefinition>>,
 +        pub billing_mode_summary: ::std::option::Option<self::BillingModeSummary>,
 +        pub creation_date_time: ::std::option::Option<self::Date>,
 +        pub deletion_protection_enabled: ::std::option::Option<self::DeletionProtectionEnabled>,
-+        pub global_secondary_indexes: ::std::option::Option<self::GlobalSecondaryIndexDescriptionList>,
++        pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexDescription>>,
 +        pub global_table_settings_replication_mode: ::std::option::Option<self::GlobalTableSettingsReplicationMode>,
 +        pub global_table_version: ::std::option::Option<self::String>,
-+        pub global_table_witnesses: ::std::option::Option<self::GlobalTableWitnessDescriptionList>,
++        pub global_table_witnesses: ::std::option::Option<::std::vec::Vec<self::GlobalTableWitnessDescription>>,
 +        pub item_count: ::std::option::Option<self::LongObject>,
-+        pub key_schema: ::std::option::Option<self::KeySchema>,
++        pub key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        pub latest_stream_arn: ::std::option::Option<self::StreamArn>,
 +        pub latest_stream_label: ::std::option::Option<self::String>,
-+        pub local_secondary_indexes: ::std::option::Option<self::LocalSecondaryIndexDescriptionList>,
++        pub local_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexDescription>>,
 +        pub multi_region_consistency: ::std::option::Option<self::MultiRegionConsistency>,
 +        pub on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
 +        pub provisioned_throughput: ::std::option::Option<self::ProvisionedThroughputDescription>,
-+        pub replicas: ::std::option::Option<self::ReplicaDescriptionList>,
++        pub replicas: ::std::option::Option<::std::vec::Vec<self::ReplicaDescription>>,
 +        pub restore_summary: ::std::option::Option<self::RestoreSummary>,
 +        pub sse_description: ::std::option::Option<self::SseDescription>,
 +        pub stream_specification: ::std::option::Option<self::StreamSpecification>,
@@ -100531,7 +100531,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub table_name: ::std::option::Option<self::TableName>,
 +        pub table_size_bytes: ::std::option::Option<self::LongObject>,
 +        pub table_status: ::std::option::Option<self::TableStatus>,
-+        pub vector_indexes: ::std::option::Option<self::VectorIndexDescriptionList>,
++        pub vector_indexes: ::std::option::Option<::std::vec::Vec<self::VectorIndexDescription>>,
 +        pub warm_throughput: ::std::option::Option<self::TableWarmThroughputDescription>,
      }
 -    /// <p>Contains details for the restore.</p>
@@ -100611,23 +100611,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl TableDescription {
 +        pub fn builder() -> TableDescriptionBuilder { TableDescriptionBuilder::default() }
 +        pub fn archival_summary(&self) -> &::std::option::Option<self::ArchivalSummary> { &self.archival_summary }
-+        pub fn attribute_definitions(&self) -> &::std::option::Option<self::AttributeDefinitions> { &self.attribute_definitions }
++        pub fn attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeDefinition>> { &self.attribute_definitions }
 +        pub fn billing_mode_summary(&self) -> &::std::option::Option<self::BillingModeSummary> { &self.billing_mode_summary }
 +        pub fn creation_date_time(&self) -> &::std::option::Option<self::Date> { &self.creation_date_time }
 +        pub fn deletion_protection_enabled(&self) -> &::std::option::Option<self::DeletionProtectionEnabled> { &self.deletion_protection_enabled }
-+        pub fn global_secondary_indexes(&self) -> &::std::option::Option<self::GlobalSecondaryIndexDescriptionList> { &self.global_secondary_indexes }
++        pub fn global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexDescription>> { &self.global_secondary_indexes }
 +        pub fn global_table_settings_replication_mode(&self) -> &::std::option::Option<self::GlobalTableSettingsReplicationMode> { &self.global_table_settings_replication_mode }
 +        pub fn global_table_version(&self) -> ::std::option::Option<&str> { self.global_table_version.as_deref() }
-+        pub fn global_table_witnesses(&self) -> &::std::option::Option<self::GlobalTableWitnessDescriptionList> { &self.global_table_witnesses }
++        pub fn global_table_witnesses(&self) -> &::std::option::Option<::std::vec::Vec<self::GlobalTableWitnessDescription>> { &self.global_table_witnesses }
 +        pub fn item_count(&self) -> &::std::option::Option<self::LongObject> { &self.item_count }
-+        pub fn key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn latest_stream_arn(&self) -> &::std::option::Option<self::StreamArn> { &self.latest_stream_arn }
 +        pub fn latest_stream_label(&self) -> ::std::option::Option<&str> { self.latest_stream_label.as_deref() }
-+        pub fn local_secondary_indexes(&self) -> &::std::option::Option<self::LocalSecondaryIndexDescriptionList> { &self.local_secondary_indexes }
++        pub fn local_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexDescription>> { &self.local_secondary_indexes }
 +        pub fn multi_region_consistency(&self) -> &::std::option::Option<self::MultiRegionConsistency> { &self.multi_region_consistency }
 +        pub fn on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
 +        pub fn provisioned_throughput(&self) -> &::std::option::Option<self::ProvisionedThroughputDescription> { &self.provisioned_throughput }
-+        pub fn replicas(&self) -> &::std::option::Option<self::ReplicaDescriptionList> { &self.replicas }
++        pub fn replicas(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaDescription>> { &self.replicas }
 +        pub fn restore_summary(&self) -> &::std::option::Option<self::RestoreSummary> { &self.restore_summary }
 +        pub fn sse_description(&self) -> &::std::option::Option<self::SseDescription> { &self.sse_description }
 +        pub fn stream_specification(&self) -> &::std::option::Option<self::StreamSpecification> { &self.stream_specification }
@@ -100637,7 +100637,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn table_name(&self) -> &::std::option::Option<self::TableName> { &self.table_name }
 +        pub fn table_size_bytes(&self) -> &::std::option::Option<self::LongObject> { &self.table_size_bytes }
 +        pub fn table_status(&self) -> &::std::option::Option<self::TableStatus> { &self.table_status }
-+        pub fn vector_indexes(&self) -> &::std::option::Option<self::VectorIndexDescriptionList> { &self.vector_indexes }
++        pub fn vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::VectorIndexDescription>> { &self.vector_indexes }
 +        pub fn warm_throughput(&self) -> &::std::option::Option<self::TableWarmThroughputDescription> { &self.warm_throughput }
      }
 -}
@@ -100934,23 +100934,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct TableDescriptionBuilder {
 +        archival_summary: ::std::option::Option<self::ArchivalSummary>,
-+        attribute_definitions: ::std::option::Option<self::AttributeDefinitions>,
++        attribute_definitions: ::std::option::Option<::std::vec::Vec<self::AttributeDefinition>>,
 +        billing_mode_summary: ::std::option::Option<self::BillingModeSummary>,
 +        creation_date_time: ::std::option::Option<self::Date>,
 +        deletion_protection_enabled: ::std::option::Option<self::DeletionProtectionEnabled>,
-+        global_secondary_indexes: ::std::option::Option<self::GlobalSecondaryIndexDescriptionList>,
++        global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexDescription>>,
 +        global_table_settings_replication_mode: ::std::option::Option<self::GlobalTableSettingsReplicationMode>,
 +        global_table_version: ::std::option::Option<self::String>,
-+        global_table_witnesses: ::std::option::Option<self::GlobalTableWitnessDescriptionList>,
++        global_table_witnesses: ::std::option::Option<::std::vec::Vec<self::GlobalTableWitnessDescription>>,
 +        item_count: ::std::option::Option<self::LongObject>,
-+        key_schema: ::std::option::Option<self::KeySchema>,
++        key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
 +        latest_stream_arn: ::std::option::Option<self::StreamArn>,
 +        latest_stream_label: ::std::option::Option<self::String>,
-+        local_secondary_indexes: ::std::option::Option<self::LocalSecondaryIndexDescriptionList>,
++        local_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexDescription>>,
 +        multi_region_consistency: ::std::option::Option<self::MultiRegionConsistency>,
 +        on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
 +        provisioned_throughput: ::std::option::Option<self::ProvisionedThroughputDescription>,
-+        replicas: ::std::option::Option<self::ReplicaDescriptionList>,
++        replicas: ::std::option::Option<::std::vec::Vec<self::ReplicaDescription>>,
 +        restore_summary: ::std::option::Option<self::RestoreSummary>,
 +        sse_description: ::std::option::Option<self::SseDescription>,
 +        stream_specification: ::std::option::Option<self::StreamSpecification>,
@@ -100960,7 +100960,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        table_name: ::std::option::Option<self::TableName>,
 +        table_size_bytes: ::std::option::Option<self::LongObject>,
 +        table_status: ::std::option::Option<self::TableStatus>,
-+        vector_indexes: ::std::option::Option<self::VectorIndexDescriptionList>,
++        vector_indexes: ::std::option::Option<::std::vec::Vec<self::VectorIndexDescription>>,
 +        warm_throughput: ::std::option::Option<self::TableWarmThroughputDescription>,
      }
 -    /// <p>A unique identifier for the table, in UUID format, generated by DynamoDB when the table is created.</p>
@@ -101676,9 +101676,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn archival_summary(mut self, input: impl ::std::convert::Into<self::ArchivalSummary>) -> Self { self.archival_summary = Some(input.into()); self }
 +        pub fn set_archival_summary(mut self, input: ::std::option::Option<self::ArchivalSummary>) -> Self { self.archival_summary = input; self }
 +        pub fn get_archival_summary(&self) -> &::std::option::Option<self::ArchivalSummary> { &self.archival_summary }
-+        pub fn attribute_definitions(mut self, input: impl ::std::convert::Into<self::AttributeDefinitions>) -> Self { self.attribute_definitions = Some(input.into()); self }
-+        pub fn set_attribute_definitions(mut self, input: ::std::option::Option<self::AttributeDefinitions>) -> Self { self.attribute_definitions = input; self }
-+        pub fn get_attribute_definitions(&self) -> &::std::option::Option<self::AttributeDefinitions> { &self.attribute_definitions }
++        pub fn attribute_definitions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttributeDefinition>>) -> Self { self.attribute_definitions = Some(input.into()); self }
++        pub fn set_attribute_definitions(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttributeDefinition>>) -> Self { self.attribute_definitions = input; self }
++        pub fn get_attribute_definitions(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeDefinition>> { &self.attribute_definitions }
 +        pub fn billing_mode_summary(mut self, input: impl ::std::convert::Into<self::BillingModeSummary>) -> Self { self.billing_mode_summary = Some(input.into()); self }
 +        pub fn set_billing_mode_summary(mut self, input: ::std::option::Option<self::BillingModeSummary>) -> Self { self.billing_mode_summary = input; self }
 +        pub fn get_billing_mode_summary(&self) -> &::std::option::Option<self::BillingModeSummary> { &self.billing_mode_summary }
@@ -101688,33 +101688,33 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn deletion_protection_enabled(mut self, input: impl ::std::convert::Into<self::DeletionProtectionEnabled>) -> Self { self.deletion_protection_enabled = Some(input.into()); self }
 +        pub fn set_deletion_protection_enabled(mut self, input: ::std::option::Option<self::DeletionProtectionEnabled>) -> Self { self.deletion_protection_enabled = input; self }
 +        pub fn get_deletion_protection_enabled(&self) -> &::std::option::Option<self::DeletionProtectionEnabled> { &self.deletion_protection_enabled }
-+        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<self::GlobalSecondaryIndexDescriptionList>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-+        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<self::GlobalSecondaryIndexDescriptionList>) -> Self { self.global_secondary_indexes = input; self }
-+        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<self::GlobalSecondaryIndexDescriptionList> { &self.global_secondary_indexes }
++        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::GlobalSecondaryIndexDescription>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
++        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexDescription>>) -> Self { self.global_secondary_indexes = input; self }
++        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexDescription>> { &self.global_secondary_indexes }
 +        pub fn global_table_settings_replication_mode(mut self, input: impl ::std::convert::Into<self::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = Some(input.into()); self }
 +        pub fn set_global_table_settings_replication_mode(mut self, input: ::std::option::Option<self::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = input; self }
 +        pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<self::GlobalTableSettingsReplicationMode> { &self.global_table_settings_replication_mode }
 +        pub fn global_table_version(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.global_table_version = Some(input.into()); self }
 +        pub fn set_global_table_version(mut self, input: ::std::option::Option<self::String>) -> Self { self.global_table_version = input; self }
 +        pub fn get_global_table_version(&self) -> &::std::option::Option<self::String> { &self.global_table_version }
-+        pub fn global_table_witnesses(mut self, input: impl ::std::convert::Into<self::GlobalTableWitnessDescriptionList>) -> Self { self.global_table_witnesses = Some(input.into()); self }
-+        pub fn set_global_table_witnesses(mut self, input: ::std::option::Option<self::GlobalTableWitnessDescriptionList>) -> Self { self.global_table_witnesses = input; self }
-+        pub fn get_global_table_witnesses(&self) -> &::std::option::Option<self::GlobalTableWitnessDescriptionList> { &self.global_table_witnesses }
++        pub fn global_table_witnesses(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::GlobalTableWitnessDescription>>) -> Self { self.global_table_witnesses = Some(input.into()); self }
++        pub fn set_global_table_witnesses(mut self, input: ::std::option::Option<::std::vec::Vec<self::GlobalTableWitnessDescription>>) -> Self { self.global_table_witnesses = input; self }
++        pub fn get_global_table_witnesses(&self) -> &::std::option::Option<::std::vec::Vec<self::GlobalTableWitnessDescription>> { &self.global_table_witnesses }
 +        pub fn item_count(mut self, input: impl ::std::convert::Into<self::LongObject>) -> Self { self.item_count = Some(input.into()); self }
 +        pub fn set_item_count(mut self, input: ::std::option::Option<self::LongObject>) -> Self { self.item_count = input; self }
 +        pub fn get_item_count(&self) -> &::std::option::Option<self::LongObject> { &self.item_count }
-+        pub fn key_schema(mut self, input: impl ::std::convert::Into<self::KeySchema>) -> Self { self.key_schema = Some(input.into()); self }
-+        pub fn set_key_schema(mut self, input: ::std::option::Option<self::KeySchema>) -> Self { self.key_schema = input; self }
-+        pub fn get_key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
++        pub fn key_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = Some(input.into()); self }
++        pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = input; self }
++        pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
 +        pub fn latest_stream_arn(mut self, input: impl ::std::convert::Into<self::StreamArn>) -> Self { self.latest_stream_arn = Some(input.into()); self }
 +        pub fn set_latest_stream_arn(mut self, input: ::std::option::Option<self::StreamArn>) -> Self { self.latest_stream_arn = input; self }
 +        pub fn get_latest_stream_arn(&self) -> &::std::option::Option<self::StreamArn> { &self.latest_stream_arn }
 +        pub fn latest_stream_label(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.latest_stream_label = Some(input.into()); self }
 +        pub fn set_latest_stream_label(mut self, input: ::std::option::Option<self::String>) -> Self { self.latest_stream_label = input; self }
 +        pub fn get_latest_stream_label(&self) -> &::std::option::Option<self::String> { &self.latest_stream_label }
-+        pub fn local_secondary_indexes(mut self, input: impl ::std::convert::Into<self::LocalSecondaryIndexDescriptionList>) -> Self { self.local_secondary_indexes = Some(input.into()); self }
-+        pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<self::LocalSecondaryIndexDescriptionList>) -> Self { self.local_secondary_indexes = input; self }
-+        pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<self::LocalSecondaryIndexDescriptionList> { &self.local_secondary_indexes }
++        pub fn local_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::LocalSecondaryIndexDescription>>) -> Self { self.local_secondary_indexes = Some(input.into()); self }
++        pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexDescription>>) -> Self { self.local_secondary_indexes = input; self }
++        pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexDescription>> { &self.local_secondary_indexes }
 +        pub fn multi_region_consistency(mut self, input: impl ::std::convert::Into<self::MultiRegionConsistency>) -> Self { self.multi_region_consistency = Some(input.into()); self }
 +        pub fn set_multi_region_consistency(mut self, input: ::std::option::Option<self::MultiRegionConsistency>) -> Self { self.multi_region_consistency = input; self }
 +        pub fn get_multi_region_consistency(&self) -> &::std::option::Option<self::MultiRegionConsistency> { &self.multi_region_consistency }
@@ -101724,9 +101724,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn provisioned_throughput(mut self, input: impl ::std::convert::Into<self::ProvisionedThroughputDescription>) -> Self { self.provisioned_throughput = Some(input.into()); self }
 +        pub fn set_provisioned_throughput(mut self, input: ::std::option::Option<self::ProvisionedThroughputDescription>) -> Self { self.provisioned_throughput = input; self }
 +        pub fn get_provisioned_throughput(&self) -> &::std::option::Option<self::ProvisionedThroughputDescription> { &self.provisioned_throughput }
-+        pub fn replicas(mut self, input: impl ::std::convert::Into<self::ReplicaDescriptionList>) -> Self { self.replicas = Some(input.into()); self }
-+        pub fn set_replicas(mut self, input: ::std::option::Option<self::ReplicaDescriptionList>) -> Self { self.replicas = input; self }
-+        pub fn get_replicas(&self) -> &::std::option::Option<self::ReplicaDescriptionList> { &self.replicas }
++        pub fn replicas(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaDescription>>) -> Self { self.replicas = Some(input.into()); self }
++        pub fn set_replicas(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaDescription>>) -> Self { self.replicas = input; self }
++        pub fn get_replicas(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaDescription>> { &self.replicas }
 +        pub fn restore_summary(mut self, input: impl ::std::convert::Into<self::RestoreSummary>) -> Self { self.restore_summary = Some(input.into()); self }
 +        pub fn set_restore_summary(mut self, input: ::std::option::Option<self::RestoreSummary>) -> Self { self.restore_summary = input; self }
 +        pub fn get_restore_summary(&self) -> &::std::option::Option<self::RestoreSummary> { &self.restore_summary }
@@ -101754,9 +101754,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn table_status(mut self, input: impl ::std::convert::Into<self::TableStatus>) -> Self { self.table_status = Some(input.into()); self }
 +        pub fn set_table_status(mut self, input: ::std::option::Option<self::TableStatus>) -> Self { self.table_status = input; self }
 +        pub fn get_table_status(&self) -> &::std::option::Option<self::TableStatus> { &self.table_status }
-+        pub fn vector_indexes(mut self, input: impl ::std::convert::Into<self::VectorIndexDescriptionList>) -> Self { self.vector_indexes = Some(input.into()); self }
-+        pub fn set_vector_indexes(mut self, input: ::std::option::Option<self::VectorIndexDescriptionList>) -> Self { self.vector_indexes = input; self }
-+        pub fn get_vector_indexes(&self) -> &::std::option::Option<self::VectorIndexDescriptionList> { &self.vector_indexes }
++        pub fn vector_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::VectorIndexDescription>>) -> Self { self.vector_indexes = Some(input.into()); self }
++        pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::VectorIndexDescription>>) -> Self { self.vector_indexes = input; self }
++        pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::VectorIndexDescription>> { &self.vector_indexes }
 +        pub fn warm_throughput(mut self, input: impl ::std::convert::Into<self::TableWarmThroughputDescription>) -> Self { self.warm_throughput = Some(input.into()); self }
 +        pub fn set_warm_throughput(mut self, input: ::std::option::Option<self::TableWarmThroughputDescription>) -> Self { self.warm_throughput = input; self }
 +        pub fn get_warm_throughput(&self) -> &::std::option::Option<self::TableWarmThroughputDescription> { &self.warm_throughput }
@@ -103175,9 +103175,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct Update {
 +        pub condition_expression: ::std::option::Option<self::ConditionExpression>,
-+        pub expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-+        pub expression_attribute_values: ::std::option::Option<self::ExpressionAttributeValueMap>,
-+        pub key: ::std::option::Option<self::Key>,
++        pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
++        pub expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>,
++        pub key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        pub return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
 +        pub table_name: ::std::option::Option<self::TableArn>,
 +        pub update_expression: ::std::option::Option<self::UpdateExpression>,
@@ -103190,9 +103190,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl Update {
 +        pub fn builder() -> UpdateBuilder { UpdateBuilder::default() }
 +        pub fn condition_expression(&self) -> &::std::option::Option<self::ConditionExpression> { &self.condition_expression }
-+        pub fn expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+        pub fn expression_attribute_values(&self) -> &::std::option::Option<self::ExpressionAttributeValueMap> { &self.expression_attribute_values }
-+        pub fn key(&self) -> &::std::option::Option<self::Key> { &self.key }
++        pub fn expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
++        pub fn expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>> { &self.expression_attribute_values }
++        pub fn key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
 +        pub fn return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
 +        pub fn table_name(&self) -> &::std::option::Option<self::TableArn> { &self.table_name }
 +        pub fn update_expression(&self) -> &::std::option::Option<self::UpdateExpression> { &self.update_expression }
@@ -103225,9 +103225,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct UpdateBuilder {
 +        condition_expression: ::std::option::Option<self::ConditionExpression>,
-+        expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-+        expression_attribute_values: ::std::option::Option<self::ExpressionAttributeValueMap>,
-+        key: ::std::option::Option<self::Key>,
++        expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
++        expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>,
++        key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
 +        return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
 +        table_name: ::std::option::Option<self::TableArn>,
 +        update_expression: ::std::option::Option<self::UpdateExpression>,
@@ -103318,15 +103318,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn condition_expression(mut self, input: impl ::std::convert::Into<self::ConditionExpression>) -> Self { self.condition_expression = Some(input.into()); self }
 +        pub fn set_condition_expression(mut self, input: ::std::option::Option<self::ConditionExpression>) -> Self { self.condition_expression = input; self }
 +        pub fn get_condition_expression(&self) -> &::std::option::Option<self::ConditionExpression> { &self.condition_expression }
-+        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-+        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-+        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-+        pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<self::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = Some(input.into()); self }
-+        pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<self::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = input; self }
-+        pub fn get_expression_attribute_values(&self) -> &::std::option::Option<self::ExpressionAttributeValueMap> { &self.expression_attribute_values }
-+        pub fn key(mut self, input: impl ::std::convert::Into<self::Key>) -> Self { self.key = Some(input.into()); self }
-+        pub fn set_key(mut self, input: ::std::option::Option<self::Key>) -> Self { self.key = input; self }
-+        pub fn get_key(&self) -> &::std::option::Option<self::Key> { &self.key }
++        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
++        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
++        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
++        pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>) -> Self { self.expression_attribute_values = Some(input.into()); self }
++        pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
++        pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>> { &self.expression_attribute_values }
++        pub fn key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = Some(input.into()); self }
++        pub fn set_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = input; self }
++        pub fn get_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
 +        pub fn return_values_on_condition_check_failure(mut self, input: impl ::std::convert::Into<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = Some(input.into()); self }
 +        pub fn set_return_values_on_condition_check_failure(mut self, input: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = input; self }
 +        pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
@@ -103728,7 +103728,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.on_demand_throughput_override.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct UpdateReplicationGroupMemberAction {
-+        pub global_secondary_indexes: ::std::option::Option<self::ReplicaGlobalSecondaryIndexList>,
++        pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>>,
 +        pub kms_master_key_id: ::std::option::Option<self::KmsMasterKeyId>,
 +        pub on_demand_throughput_override: ::std::option::Option<self::OnDemandThroughputOverride>,
 +        pub provisioned_throughput_override: ::std::option::Option<self::ProvisionedThroughputOverride>,
@@ -103746,7 +103746,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.table_class_override.as_ref()
 +    impl UpdateReplicationGroupMemberAction {
 +        pub fn builder() -> UpdateReplicationGroupMemberActionBuilder { UpdateReplicationGroupMemberActionBuilder::default() }
-+        pub fn global_secondary_indexes(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexList> { &self.global_secondary_indexes }
++        pub fn global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>> { &self.global_secondary_indexes }
 +        pub fn kms_master_key_id(&self) -> &::std::option::Option<self::KmsMasterKeyId> { &self.kms_master_key_id }
 +        pub fn on_demand_throughput_override(&self) -> &::std::option::Option<self::OnDemandThroughputOverride> { &self.on_demand_throughput_override }
 +        pub fn provisioned_throughput_override(&self) -> &::std::option::Option<self::ProvisionedThroughputOverride> { &self.provisioned_throughput_override }
@@ -103761,7 +103761,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +    #[derive(Clone, Debug, Default)]
 +    pub struct UpdateReplicationGroupMemberActionBuilder {
-+        global_secondary_indexes: ::std::option::Option<self::ReplicaGlobalSecondaryIndexList>,
++        global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>>,
 +        kms_master_key_id: ::std::option::Option<self::KmsMasterKeyId>,
 +        on_demand_throughput_override: ::std::option::Option<self::OnDemandThroughputOverride>,
 +        provisioned_throughput_override: ::std::option::Option<self::ProvisionedThroughputOverride>,
@@ -103788,9 +103788,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.region_name = ::std::option::Option::Some(input.into());
 -        self
 +    impl UpdateReplicationGroupMemberActionBuilder {
-+        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<self::ReplicaGlobalSecondaryIndexList>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-+        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<self::ReplicaGlobalSecondaryIndexList>) -> Self { self.global_secondary_indexes = input; self }
-+        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexList> { &self.global_secondary_indexes }
++        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
++        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>>) -> Self { self.global_secondary_indexes = input; self }
++        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>> { &self.global_secondary_indexes }
 +        pub fn kms_master_key_id(mut self, input: impl ::std::convert::Into<self::KmsMasterKeyId>) -> Self { self.kms_master_key_id = Some(input.into()); self }
 +        pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<self::KmsMasterKeyId>) -> Self { self.kms_master_key_id = input; self }
 +        pub fn get_kms_master_key_id(&self) -> &::std::option::Option<self::KmsMasterKeyId> { &self.kms_master_key_id }
@@ -104315,7 +104315,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub distance_function: ::std::option::Option<self::VectorDistanceFunction>,
 +        pub index_name: ::std::option::Option<self::IndexName>,
 +        pub projection: ::std::option::Option<self::Projection>,
-+        pub search_schema: ::std::option::Option<self::SearchSchema>,
++        pub search_schema: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>,
 +        pub vector_attribute: ::std::option::Option<self::VectorAttributeDefinition>,
      }
 -    /// <p>The distance function used to calculate similarity between vectors. Valid values: <code>COSINE</code>, <code>EUCLIDEAN</code>, <code>DOT_PRODUCT</code>.</p>
@@ -104327,7 +104327,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn distance_function(&self) -> &::std::option::Option<self::VectorDistanceFunction> { &self.distance_function }
 +        pub fn index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
 +        pub fn projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
-+        pub fn search_schema(&self) -> &::std::option::Option<self::SearchSchema> { &self.search_schema }
++        pub fn search_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>> { &self.search_schema }
 +        pub fn vector_attribute(&self) -> &::std::option::Option<self::VectorAttributeDefinition> { &self.vector_attribute }
      }
 -}
@@ -104342,7 +104342,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        distance_function: ::std::option::Option<self::VectorDistanceFunction>,
 +        index_name: ::std::option::Option<self::IndexName>,
 +        projection: ::std::option::Option<self::Projection>,
-+        search_schema: ::std::option::Option<self::SearchSchema>,
++        search_schema: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>,
 +        vector_attribute: ::std::option::Option<self::VectorAttributeDefinition>,
      }
 -}
@@ -104392,9 +104392,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn projection(mut self, input: impl ::std::convert::Into<self::Projection>) -> Self { self.projection = Some(input.into()); self }
 +        pub fn set_projection(mut self, input: ::std::option::Option<self::Projection>) -> Self { self.projection = input; self }
 +        pub fn get_projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
-+        pub fn search_schema(mut self, input: impl ::std::convert::Into<self::SearchSchema>) -> Self { self.search_schema = Some(input.into()); self }
-+        pub fn set_search_schema(mut self, input: ::std::option::Option<self::SearchSchema>) -> Self { self.search_schema = input; self }
-+        pub fn get_search_schema(&self) -> &::std::option::Option<self::SearchSchema> { &self.search_schema }
++        pub fn search_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SearchSchemaElement>>) -> Self { self.search_schema = Some(input.into()); self }
++        pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>) -> Self { self.search_schema = input; self }
++        pub fn get_search_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>> { &self.search_schema }
 +        pub fn vector_attribute(mut self, input: impl ::std::convert::Into<self::VectorAttributeDefinition>) -> Self { self.vector_attribute = Some(input.into()); self }
 +        pub fn set_vector_attribute(mut self, input: ::std::option::Option<self::VectorAttributeDefinition>) -> Self { self.vector_attribute = input; self }
 +        pub fn get_vector_attribute(&self) -> &::std::option::Option<self::VectorAttributeDefinition> { &self.vector_attribute }
@@ -104575,7 +104575,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub index_status: ::std::option::Option<self::IndexStatus>,
 +        pub item_count: ::std::option::Option<self::LongObject>,
 +        pub projection: ::std::option::Option<self::Projection>,
-+        pub search_schema: ::std::option::Option<self::SearchSchema>,
++        pub search_schema: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>,
 +        pub vector_attribute: ::std::option::Option<self::VectorAttributeDefinition>,
      }
 -    /// <p>The search schema that defines partition key and inline filter attributes for the vector index.</p>
@@ -104594,7 +104594,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn index_status(&self) -> &::std::option::Option<self::IndexStatus> { &self.index_status }
 +        pub fn item_count(&self) -> &::std::option::Option<self::LongObject> { &self.item_count }
 +        pub fn projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
-+        pub fn search_schema(&self) -> &::std::option::Option<self::SearchSchema> { &self.search_schema }
++        pub fn search_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>> { &self.search_schema }
 +        pub fn vector_attribute(&self) -> &::std::option::Option<self::VectorAttributeDefinition> { &self.vector_attribute }
      }
 -    /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
@@ -104648,7 +104648,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        index_status: ::std::option::Option<self::IndexStatus>,
 +        item_count: ::std::option::Option<self::LongObject>,
 +        projection: ::std::option::Option<self::Projection>,
-+        search_schema: ::std::option::Option<self::SearchSchema>,
++        search_schema: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>,
 +        vector_attribute: ::std::option::Option<self::VectorAttributeDefinition>,
      }
 -    /// <p>The Amazon Resource Name (ARN) that uniquely identifies the vector index.</p>
@@ -104906,9 +104906,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn projection(mut self, input: impl ::std::convert::Into<self::Projection>) -> Self { self.projection = Some(input.into()); self }
 +        pub fn set_projection(mut self, input: ::std::option::Option<self::Projection>) -> Self { self.projection = input; self }
 +        pub fn get_projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
-+        pub fn search_schema(mut self, input: impl ::std::convert::Into<self::SearchSchema>) -> Self { self.search_schema = Some(input.into()); self }
-+        pub fn set_search_schema(mut self, input: ::std::option::Option<self::SearchSchema>) -> Self { self.search_schema = input; self }
-+        pub fn get_search_schema(&self) -> &::std::option::Option<self::SearchSchema> { &self.search_schema }
++        pub fn search_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SearchSchemaElement>>) -> Self { self.search_schema = Some(input.into()); self }
++        pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>) -> Self { self.search_schema = input; self }
++        pub fn get_search_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>> { &self.search_schema }
 +        pub fn vector_attribute(mut self, input: impl ::std::convert::Into<self::VectorAttributeDefinition>) -> Self { self.vector_attribute = Some(input.into()); self }
 +        pub fn set_vector_attribute(mut self, input: ::std::option::Option<self::VectorAttributeDefinition>) -> Self { self.vector_attribute = input; self }
 +        pub fn get_vector_attribute(&self) -> &::std::option::Option<self::VectorAttributeDefinition> { &self.vector_attribute }
@@ -104981,7 +104981,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub distance_function: ::std::option::Option<self::VectorDistanceFunction>,
 +        pub index_name: ::std::option::Option<self::IndexName>,
 +        pub projection: ::std::option::Option<self::Projection>,
-+        pub search_schema: ::std::option::Option<self::SearchSchema>,
++        pub search_schema: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>,
 +        pub vector_attribute: ::std::option::Option<self::VectorAttributeDefinition>,
      }
 -    /// <p>The number of dimensions in each vector.</p>
@@ -105003,7 +105003,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn distance_function(&self) -> &::std::option::Option<self::VectorDistanceFunction> { &self.distance_function }
 +        pub fn index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
 +        pub fn projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
-+        pub fn search_schema(&self) -> &::std::option::Option<self::SearchSchema> { &self.search_schema }
++        pub fn search_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>> { &self.search_schema }
 +        pub fn vector_attribute(&self) -> &::std::option::Option<self::VectorAttributeDefinition> { &self.vector_attribute }
      }
 -}
@@ -105115,7 +105115,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        distance_function: ::std::option::Option<self::VectorDistanceFunction>,
 +        index_name: ::std::option::Option<self::IndexName>,
 +        projection: ::std::option::Option<self::Projection>,
-+        search_schema: ::std::option::Option<self::SearchSchema>,
++        search_schema: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>,
 +        vector_attribute: ::std::option::Option<self::VectorAttributeDefinition>,
      }
 -    /// Consumes the builder and constructs a [`VectorIndexInfo`](crate::types::VectorIndexInfo).
@@ -105141,9 +105141,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn projection(mut self, input: impl ::std::convert::Into<self::Projection>) -> Self { self.projection = Some(input.into()); self }
 +        pub fn set_projection(mut self, input: ::std::option::Option<self::Projection>) -> Self { self.projection = input; self }
 +        pub fn get_projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
-+        pub fn search_schema(mut self, input: impl ::std::convert::Into<self::SearchSchema>) -> Self { self.search_schema = Some(input.into()); self }
-+        pub fn set_search_schema(mut self, input: ::std::option::Option<self::SearchSchema>) -> Self { self.search_schema = input; self }
-+        pub fn get_search_schema(&self) -> &::std::option::Option<self::SearchSchema> { &self.search_schema }
++        pub fn search_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SearchSchemaElement>>) -> Self { self.search_schema = Some(input.into()); self }
++        pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>) -> Self { self.search_schema = input; self }
++        pub fn get_search_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>> { &self.search_schema }
 +        pub fn vector_attribute(mut self, input: impl ::std::convert::Into<self::VectorAttributeDefinition>) -> Self { self.vector_attribute = Some(input.into()); self }
 +        pub fn set_vector_attribute(mut self, input: ::std::option::Option<self::VectorAttributeDefinition>) -> Self { self.vector_attribute = input; self }
 +        pub fn get_vector_attribute(&self) -> &::std::option::Option<self::VectorAttributeDefinition> { &self.vector_attribute }
@@ -105900,7 +105900,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.meta().request_id()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ConditionalCheckFailedException {
-+        pub item: ::std::option::Option<super::super::types::AttributeMap>,
++        pub item: ::std::option::Option<::std::collections::BTreeMap<super::super::types::AttributeName, super::super::types::AttributeValue>>,
 +        pub message: ::std::option::Option<super::super::types::ErrorMessage>,
      }
 -}
@@ -105909,7 +105909,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.meta
 +    impl ConditionalCheckFailedException {
 +        pub fn builder() -> ConditionalCheckFailedExceptionBuilder { ConditionalCheckFailedExceptionBuilder::default() }
-+        pub fn item(&self) -> &::std::option::Option<super::super::types::AttributeMap> { &self.item }
++        pub fn item(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::types::AttributeName, super::super::types::AttributeValue>> { &self.item }
 +        pub fn message(&self) -> &::std::option::Option<super::super::types::ErrorMessage> { &self.message }
      }
 -}
@@ -105972,7 +105972,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ConditionalCheckFailedExceptionBuilder {
-+        item: ::std::option::Option<super::super::types::AttributeMap>,
++        item: ::std::option::Option<::std::collections::BTreeMap<super::super::types::AttributeName, super::super::types::AttributeValue>>,
 +        message: ::std::option::Option<super::super::types::ErrorMessage>,
      }
 
@@ -105988,9 +105988,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            item: self.item,
 -            meta: self.meta.unwrap_or_default(),
 +    impl ConditionalCheckFailedExceptionBuilder {
-+        pub fn item(mut self, input: impl ::std::convert::Into<super::super::types::AttributeMap>) -> Self { self.item = Some(input.into()); self }
-+        pub fn set_item(mut self, input: ::std::option::Option<super::super::types::AttributeMap>) -> Self { self.item = input; self }
-+        pub fn get_item(&self) -> &::std::option::Option<super::super::types::AttributeMap> { &self.item }
++        pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::types::AttributeName, super::super::types::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
++        pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::types::AttributeName, super::super::types::AttributeValue>>) -> Self { self.item = input; self }
++        pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::types::AttributeName, super::super::types::AttributeValue>> { &self.item }
 +        pub fn message(mut self, input: impl ::std::convert::Into<super::super::types::ErrorMessage>) -> Self { self.message = Some(input.into()); self }
 +        pub fn set_message(mut self, input: ::std::option::Option<super::super::types::ErrorMessage>) -> Self { self.message = input; self }
 +        pub fn get_message(&self) -> &::std::option::Option<super::super::types::ErrorMessage> { &self.message }
@@ -108115,7 +108115,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.meta().request_id()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ProvisionedThroughputExceededException {
-+        pub throttling_reasons: ::std::option::Option<super::super::types::ThrottlingReasonList>,
++        pub throttling_reasons: ::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>>,
 +        pub message: ::std::option::Option<super::super::types::ErrorMessage>,
      }
 -}
@@ -108124,7 +108124,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.meta
 +    impl ProvisionedThroughputExceededException {
 +        pub fn builder() -> ProvisionedThroughputExceededExceptionBuilder { ProvisionedThroughputExceededExceptionBuilder::default() }
-+        pub fn throttling_reasons(&self) -> &::std::option::Option<super::super::types::ThrottlingReasonList> { &self.throttling_reasons }
++        pub fn throttling_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>> { &self.throttling_reasons }
 +        pub fn message(&self) -> &::std::option::Option<super::super::types::ErrorMessage> { &self.message }
      }
 -}
@@ -108184,7 +108184,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ProvisionedThroughputExceededExceptionBuilder {
-+        throttling_reasons: ::std::option::Option<super::super::types::ThrottlingReasonList>,
++        throttling_reasons: ::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>>,
 +        message: ::std::option::Option<super::super::types::ErrorMessage>,
      }
 
@@ -108200,9 +108200,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            throttling_reasons: self.throttling_reasons,
 -            meta: self.meta.unwrap_or_default(),
 +    impl ProvisionedThroughputExceededExceptionBuilder {
-+        pub fn throttling_reasons(mut self, input: impl ::std::convert::Into<super::super::types::ThrottlingReasonList>) -> Self { self.throttling_reasons = Some(input.into()); self }
-+        pub fn set_throttling_reasons(mut self, input: ::std::option::Option<super::super::types::ThrottlingReasonList>) -> Self { self.throttling_reasons = input; self }
-+        pub fn get_throttling_reasons(&self) -> &::std::option::Option<super::super::types::ThrottlingReasonList> { &self.throttling_reasons }
++        pub fn throttling_reasons(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::types::ThrottlingReason>>) -> Self { self.throttling_reasons = Some(input.into()); self }
++        pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>>) -> Self { self.throttling_reasons = input; self }
++        pub fn get_throttling_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>> { &self.throttling_reasons }
 +        pub fn message(mut self, input: impl ::std::convert::Into<super::super::types::ErrorMessage>) -> Self { self.message = Some(input.into()); self }
 +        pub fn set_message(mut self, input: ::std::option::Option<super::super::types::ErrorMessage>) -> Self { self.message = input; self }
 +        pub fn get_message(&self) -> &::std::option::Option<super::super::types::ErrorMessage> { &self.message }
@@ -108614,7 +108614,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.meta().request_id()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct RequestLimitExceeded {
-+        pub throttling_reasons: ::std::option::Option<super::super::types::ThrottlingReasonList>,
++        pub throttling_reasons: ::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>>,
 +        pub message: ::std::option::Option<super::super::types::ErrorMessage>,
      }
 -}
@@ -108623,7 +108623,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.meta
 +    impl RequestLimitExceeded {
 +        pub fn builder() -> RequestLimitExceededBuilder { RequestLimitExceededBuilder::default() }
-+        pub fn throttling_reasons(&self) -> &::std::option::Option<super::super::types::ThrottlingReasonList> { &self.throttling_reasons }
++        pub fn throttling_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>> { &self.throttling_reasons }
 +        pub fn message(&self) -> &::std::option::Option<super::super::types::ErrorMessage> { &self.message }
      }
 -}
@@ -108683,7 +108683,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct RequestLimitExceededBuilder {
-+        throttling_reasons: ::std::option::Option<super::super::types::ThrottlingReasonList>,
++        throttling_reasons: ::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>>,
 +        message: ::std::option::Option<super::super::types::ErrorMessage>,
      }
 
@@ -108699,9 +108699,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            throttling_reasons: self.throttling_reasons,
 -            meta: self.meta.unwrap_or_default(),
 +    impl RequestLimitExceededBuilder {
-+        pub fn throttling_reasons(mut self, input: impl ::std::convert::Into<super::super::types::ThrottlingReasonList>) -> Self { self.throttling_reasons = Some(input.into()); self }
-+        pub fn set_throttling_reasons(mut self, input: ::std::option::Option<super::super::types::ThrottlingReasonList>) -> Self { self.throttling_reasons = input; self }
-+        pub fn get_throttling_reasons(&self) -> &::std::option::Option<super::super::types::ThrottlingReasonList> { &self.throttling_reasons }
++        pub fn throttling_reasons(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::types::ThrottlingReason>>) -> Self { self.throttling_reasons = Some(input.into()); self }
++        pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>>) -> Self { self.throttling_reasons = input; self }
++        pub fn get_throttling_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>> { &self.throttling_reasons }
 +        pub fn message(mut self, input: impl ::std::convert::Into<super::super::types::ErrorMessage>) -> Self { self.message = Some(input.into()); self }
 +        pub fn set_message(mut self, input: ::std::option::Option<super::super::types::ErrorMessage>) -> Self { self.message = input; self }
 +        pub fn get_message(&self) -> &::std::option::Option<super::super::types::ErrorMessage> { &self.message }
@@ -109347,7 +109347,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ThrottlingException {
 +        pub message: ::std::option::Option<super::super::types::AvailabilityErrorMessage>,
-+        pub throttling_reasons: ::std::option::Option<super::super::types::ThrottlingReasonList>,
++        pub throttling_reasons: ::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>>,
      }
 -}
 -impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ThrottlingException {
@@ -109356,7 +109356,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl ThrottlingException {
 +        pub fn builder() -> ThrottlingExceptionBuilder { ThrottlingExceptionBuilder::default() }
 +        pub fn message(&self) -> &::std::option::Option<super::super::types::AvailabilityErrorMessage> { &self.message }
-+        pub fn throttling_reasons(&self) -> &::std::option::Option<super::super::types::ThrottlingReasonList> { &self.throttling_reasons }
++        pub fn throttling_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>> { &self.throttling_reasons }
      }
 -}
 -impl ThrottlingException {
@@ -109416,7 +109416,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ThrottlingExceptionBuilder {
 +        message: ::std::option::Option<super::super::types::AvailabilityErrorMessage>,
-+        throttling_reasons: ::std::option::Option<super::super::types::ThrottlingReasonList>,
++        throttling_reasons: ::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>>,
      }
 
 -    /// Sets error metadata
@@ -109434,9 +109434,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn message(mut self, input: impl ::std::convert::Into<super::super::types::AvailabilityErrorMessage>) -> Self { self.message = Some(input.into()); self }
 +        pub fn set_message(mut self, input: ::std::option::Option<super::super::types::AvailabilityErrorMessage>) -> Self { self.message = input; self }
 +        pub fn get_message(&self) -> &::std::option::Option<super::super::types::AvailabilityErrorMessage> { &self.message }
-+        pub fn throttling_reasons(mut self, input: impl ::std::convert::Into<super::super::types::ThrottlingReasonList>) -> Self { self.throttling_reasons = Some(input.into()); self }
-+        pub fn set_throttling_reasons(mut self, input: ::std::option::Option<super::super::types::ThrottlingReasonList>) -> Self { self.throttling_reasons = input; self }
-+        pub fn get_throttling_reasons(&self) -> &::std::option::Option<super::super::types::ThrottlingReasonList> { &self.throttling_reasons }
++        pub fn throttling_reasons(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::types::ThrottlingReason>>) -> Self { self.throttling_reasons = Some(input.into()); self }
++        pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>>) -> Self { self.throttling_reasons = input; self }
++        pub fn get_throttling_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>> { &self.throttling_reasons }
 +        pub fn build(self) -> ThrottlingException {
 +            ThrottlingException {
 +                message: self.message,
@@ -109606,7 +109606,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.cancellation_reasons.as_deref().unwrap_or_default()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct TransactionCanceledException {
-+        pub cancellation_reasons: ::std::option::Option<super::super::types::CancellationReasonList>,
++        pub cancellation_reasons: ::std::option::Option<::std::vec::Vec<super::super::types::CancellationReason>>,
 +        pub message: ::std::option::Option<super::super::types::ErrorMessage>,
      }
 -}
@@ -109645,7 +109645,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::error::builders::TransactionCanceledExceptionBuilder::default()
 +    impl TransactionCanceledException {
 +        pub fn builder() -> TransactionCanceledExceptionBuilder { TransactionCanceledExceptionBuilder::default() }
-+        pub fn cancellation_reasons(&self) -> &::std::option::Option<super::super::types::CancellationReasonList> { &self.cancellation_reasons }
++        pub fn cancellation_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::CancellationReason>> { &self.cancellation_reasons }
 +        pub fn message(&self) -> &::std::option::Option<super::super::types::ErrorMessage> { &self.message }
      }
 -}
@@ -109674,7 +109674,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.message
 +    #[derive(Clone, Debug, Default)]
 +    pub struct TransactionCanceledExceptionBuilder {
-+        cancellation_reasons: ::std::option::Option<super::super::types::CancellationReasonList>,
++        cancellation_reasons: ::std::option::Option<::std::vec::Vec<super::super::types::CancellationReason>>,
 +        message: ::std::option::Option<super::super::types::ErrorMessage>,
      }
 -    /// Appends an item to `cancellation_reasons`.
@@ -109715,9 +109715,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            cancellation_reasons: self.cancellation_reasons,
 -            meta: self.meta.unwrap_or_default(),
 +    impl TransactionCanceledExceptionBuilder {
-+        pub fn cancellation_reasons(mut self, input: impl ::std::convert::Into<super::super::types::CancellationReasonList>) -> Self { self.cancellation_reasons = Some(input.into()); self }
-+        pub fn set_cancellation_reasons(mut self, input: ::std::option::Option<super::super::types::CancellationReasonList>) -> Self { self.cancellation_reasons = input; self }
-+        pub fn get_cancellation_reasons(&self) -> &::std::option::Option<super::super::types::CancellationReasonList> { &self.cancellation_reasons }
++        pub fn cancellation_reasons(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::types::CancellationReason>>) -> Self { self.cancellation_reasons = Some(input.into()); self }
++        pub fn set_cancellation_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::CancellationReason>>) -> Self { self.cancellation_reasons = input; self }
++        pub fn get_cancellation_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::CancellationReason>> { &self.cancellation_reasons }
 +        pub fn message(mut self, input: impl ::std::convert::Into<super::super::types::ErrorMessage>) -> Self { self.message = Some(input.into()); self }
 +        pub fn set_message(mut self, input: ::std::option::Option<super::super::types::ErrorMessage>) -> Self { self.message = input; self }
 +        pub fn get_message(&self) -> &::std::option::Option<super::super::types::ErrorMessage> { &self.message }
@@ -109996,7 +109996,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types.rs
 +++ generated/src/types.rs
-@@ -1,682 +1,409 @@
+@@ -1,682 +1,323 @@
 -// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub use crate::types::_return_consumed_capacity::ReturnConsumedCapacity;
 -
@@ -110543,8 +110543,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -mod _provisioned_throughput_description;
 -
 -mod _provisioned_throughput_override;
-+// Generated by aws-sdk-build aws-sdk-build-rust-native-0.2.0. DO NOT EDIT.
-
+-
 -mod _put;
 -
 -mod _put_request;
@@ -110674,7 +110673,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -mod _witness_status;
 -
 -mod _write_request;
--
++// Generated by aws-sdk-build aws-sdk-build-rust-native-0.2.0. DO NOT EDIT.
+
 -/// Builders
 -pub mod builders;
 -
@@ -110686,16 +110686,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_archival_summary.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_attribute_action.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_attribute_definition.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_attribute_definitions.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_attribute_map.rs"));
 +    pub type AttributeName = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_attribute_name_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_attribute_updates.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_attribute_value.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_attribute_value_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_attribute_value_update.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_auto_scaling_policy_description.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_auto_scaling_policy_description_list.rs"));
 +    pub type AutoScalingPolicyName = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_auto_scaling_policy_update.rs"));
 +    pub type AutoScalingRoleArn = ::std::string::String;
@@ -110712,27 +110706,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type BackupName = ::std::string::String;
 +    pub type BackupSizeBytes = i64;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_backup_status.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_backup_summaries.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_backup_summary.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_backup_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_backup_type_filter.rs"));
 +    pub type BackupsInputLimit = i32;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_batch_get_request_map.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_batch_get_response_map.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_batch_statement_error.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_batch_statement_error_code_enum.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_batch_statement_request.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_batch_statement_response.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_batch_write_item_request_map.rs"));
 +    pub type BilledSizeBytes = i64;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_billing_mode.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_billing_mode_summary.rs"));
 +    pub type BinaryAttributeValue = ::std::vec::Vec<u8>;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_binary_set_attribute_value.rs"));
 +    pub type BooleanAttributeValue = bool;
 +    pub type BooleanObject = bool;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_cancellation_reason.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_cancellation_reason_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_capacity.rs"));
 +    pub type ClientRequestToken = ::std::string::String;
 +    pub type ClientToken = ::std::string::String;
@@ -110746,16 +110734,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type ConfirmRemoveSelfResourceAccess = bool;
 +    pub type ConsistentRead = bool;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_consumed_capacity.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_consumed_capacity_multiple.rs"));
 +    pub type ConsumedCapacityUnits = f64;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_continuous_backups_description.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_continuous_backups_status.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_contributor_insights_action.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_contributor_insights_mode.rs"));
 +    pub type ContributorInsightsRule = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_contributor_insights_rule_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_contributor_insights_status.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_contributor_insights_summaries.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_contributor_insights_summary.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_create_global_secondary_index_action.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_create_global_table_witness_group_member_action.rs"));
@@ -110764,7 +110749,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_create_vector_index_action.rs"));
 +    pub type CsvDelimiter = ::std::string::String;
 +    pub type CsvHeader = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_csv_header_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_csv_options.rs"));
 +    pub type Date = ::std::time::SystemTime;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_delete.rs"));
@@ -110779,12 +110763,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type DoubleObject = f64;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_enable_kinesis_streaming_configuration.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_endpoint.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_endpoints.rs"));
 +    pub type ErrorCount = i64;
 +    pub type ErrorMessage = ::std::string::String;
 +    pub type ExceptionDescription = ::std::string::String;
 +    pub type ExceptionName = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_expected_attribute_map.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_expected_attribute_value.rs"));
 +    pub type ExportArn = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_export_description.rs"));
@@ -110795,51 +110777,37 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type ExportNextToken = ::std::string::String;
 +    pub type ExportStartTime = ::std::time::SystemTime;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_export_status.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_export_summaries.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_export_summary.rs"));
 +    pub type ExportTime = ::std::time::SystemTime;
 +    pub type ExportToTime = ::std::time::SystemTime;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_export_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_export_view_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_expression_attribute_name_map.rs"));
 +    pub type ExpressionAttributeNameVariable = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_expression_attribute_value_map.rs"));
 +    pub type ExpressionAttributeValueVariable = ::std::string::String;
 +    pub type FailureCode = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_failure_exception.rs"));
 +    pub type FailureMessage = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_filter_condition_map.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_get.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_secondary_index.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_secondary_index_auto_scaling_update.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_secondary_index_auto_scaling_update_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_secondary_index_description.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_secondary_index_description_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_secondary_index_info.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_secondary_index_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_secondary_index_update.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_secondary_index_update_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_secondary_index_warm_throughput_description.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_secondary_indexes.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_table.rs"));
 +    pub type GlobalTableArnString = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_table_description.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_table_global_secondary_index_settings_update.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_table_global_secondary_index_settings_update_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_table_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_table_settings_replication_mode.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_table_status.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_table_witness_description.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_table_witness_description_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_table_witness_group_update.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_global_table_witness_group_update_list.rs"));
 +    pub type ImportArn = ::std::string::String;
 +    pub type ImportEndTime = ::std::time::SystemTime;
 +    pub type ImportNextToken = ::std::string::String;
 +    pub type ImportStartTime = ::std::time::SystemTime;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_import_status.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_import_summary.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_import_summary_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_import_table_description.rs"));
 +    pub type ImportedItemCount = i64;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_incremental_export_specification.rs"));
@@ -110850,58 +110818,37 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_input_format_options.rs"));
 +    pub type Integer = i32;
 +    pub type IntegerObject = i32;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_item_collection_key_attribute_map.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_item_collection_metrics.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_item_collection_metrics_multiple.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_item_collection_metrics_per_table.rs"));
 +    pub type ItemCollectionSizeEstimateBound = f64;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_item_collection_size_estimate_range.rs"));
 +    pub type ItemCount = i64;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_item_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_item_response.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_item_response_list.rs"));
 +    pub type KmsMasterKeyArn = ::std::string::String;
 +    pub type KmsMasterKeyId = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_key.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_key_conditions.rs"));
 +    pub type KeyExpression = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_key_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_key_schema.rs"));
 +    pub type KeySchemaAttributeName = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_key_schema_element.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_key_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_keys_and_attributes.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_kinesis_data_stream_destination.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_kinesis_data_stream_destinations.rs"));
 +    pub type LastUpdateDateTime = ::std::time::SystemTime;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_list_attribute_value.rs"));
 +    pub type ListContributorInsightsLimit = i32;
 +    pub type ListExportsMaxLimit = i32;
 +    pub type ListImportsMaxLimit = i32;
 +    pub type ListTablesInputLimit = i32;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_local_secondary_index.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_local_secondary_index_description.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_local_secondary_index_description_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_local_secondary_index_info.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_local_secondary_index_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_local_secondary_indexes.rs"));
 +    pub type Long = i64;
 +    pub type LongObject = i64;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_map_attribute_value.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_multi_region_consistency.rs"));
 +    pub type NextTokenString = ::std::string::String;
 +    pub type NonKeyAttributeName = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_non_key_attribute_name_list.rs"));
 +    pub type NonNegativeLongObject = i64;
 +    pub type NullAttributeValue = bool;
 +    pub type NumberAttributeValue = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_number_set_attribute_value.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_on_demand_throughput.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_on_demand_throughput_override.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_parameterized_statement.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_parameterized_statements.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_parti_ql_batch_request.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_parti_ql_batch_response.rs"));
 +    pub type PartiQlNextToken = ::std::string::String;
 +    pub type PartiQlStatement = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_point_in_time_recovery_description.rs"));
@@ -110910,7 +110857,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type PolicyRevisionId = ::std::string::String;
 +    pub type PositiveIntegerObject = i32;
 +    pub type PositiveLongObject = i64;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_prepared_statement_parameters.rs"));
 +    pub type ProcessedItemCount = i64;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_projection.rs"));
 +    pub type ProjectionExpression = ::std::string::String;
@@ -110919,42 +110865,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_provisioned_throughput_description.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_provisioned_throughput_override.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_put.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_put_item_input_attribute_map.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_put_request.rs"));
 +    pub type Reason = ::std::string::String;
 +    pub type RecoveryPeriodInDays = i32;
 +    pub type RegionName = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_auto_scaling_description.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_auto_scaling_description_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_auto_scaling_update.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_auto_scaling_update_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_description.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_description_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_global_secondary_index.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_global_secondary_index_auto_scaling_description.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_global_secondary_index_auto_scaling_description_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_global_secondary_index_auto_scaling_update.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_global_secondary_index_auto_scaling_update_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_global_secondary_index_description.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_global_secondary_index_description_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_global_secondary_index_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_global_secondary_index_settings_description.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_global_secondary_index_settings_description_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_global_secondary_index_settings_update.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_global_secondary_index_settings_update_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_settings_description.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_settings_description_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_settings_update.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_settings_update_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_status.rs"));
 +    pub type ReplicaStatusDescription = ::std::string::String;
 +    pub type ReplicaStatusPercentProgress = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_update.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replica_update_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replication_group_update.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_replication_group_update_list.rs"));
 +    pub type Resource = ::std::string::String;
 +    pub type ResourceArnString = ::std::string::String;
 +    pub type ResourcePolicy = ::std::string::String;
@@ -110980,12 +110911,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type ScanTotalSegments = i32;
 +    pub type ScoreNumber = f64;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_search_result_item.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_search_result_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_search_schema.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_search_schema_element.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_search_schema_element_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_search_vector_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_secondary_indexes_capacity_map.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_select.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_source_table_details.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_source_table_feature_details.rs"));
@@ -110995,7 +110922,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_stream_view_type.rs"));
 +    pub type String = ::std::string::String;
 +    pub type StringAttributeValue = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_string_set_attribute_value.rs"));
 +    pub type TableArn = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_table_auto_scaling_description.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_table_class.rs"));
@@ -111005,16 +110931,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_table_description.rs"));
 +    pub type TableId = ::std::string::String;
 +    pub type TableName = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_table_name_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_table_status.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_table_warm_throughput_description.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_tag.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_tag_key_list.rs"));
 +    pub type TagKeyString = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_tag_list.rs"));
 +    pub type TagValueString = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_throttling_reason.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_throttling_reason_list.rs"));
 +    pub type TimeRangeLowerBound = ::std::time::SystemTime;
 +    pub type TimeRangeUpperBound = ::std::time::SystemTime;
 +    pub type TimeToLiveAttributeName = ::std::string::String;
@@ -111024,9 +110946,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_time_to_live_status.rs"));
 +    pub type TopKInteger = i32;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_transact_get_item.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_transact_get_item_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_transact_write_item.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_transact_write_item_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_update.rs"));
 +    pub type UpdateExpression = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_update_global_secondary_index_action.rs"));
@@ -111038,17 +110958,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_vector_distance_function.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_vector_index.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_vector_index_description.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_vector_index_description_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_vector_index_info.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_vector_index_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_vector_index_update.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_vector_index_update_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_vector_indexes.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_vector_indexes_capacity_map.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_warm_throughput.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_witness_status.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_write_request.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/_write_requests.rs"));
 +    pub mod error {
 +        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/error/_backup_in_use_exception.rs"));
 +        include!(concat!(env!("OUT_DIR"), "/generated/dynamodb/src/types/error/_backup_not_found_exception.rs"));
@@ -111495,92 +111409,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ### Unexpected generated files
 
 - `src/aws_runtime.rs`
-- `src/types/_attribute_definitions.rs`
-- `src/types/_attribute_map.rs`
-- `src/types/_attribute_name_list.rs`
-- `src/types/_attribute_updates.rs`
-- `src/types/_attribute_value_list.rs`
-- `src/types/_auto_scaling_policy_description_list.rs`
-- `src/types/_backup_summaries.rs`
-- `src/types/_batch_get_request_map.rs`
-- `src/types/_batch_get_response_map.rs`
-- `src/types/_batch_write_item_request_map.rs`
-- `src/types/_binary_set_attribute_value.rs`
-- `src/types/_cancellation_reason_list.rs`
-- `src/types/_consumed_capacity_multiple.rs`
-- `src/types/_contributor_insights_rule_list.rs`
-- `src/types/_contributor_insights_summaries.rs`
-- `src/types/_csv_header_list.rs`
-- `src/types/_endpoints.rs`
-- `src/types/_expected_attribute_map.rs`
-- `src/types/_export_summaries.rs`
-- `src/types/_expression_attribute_name_map.rs`
-- `src/types/_expression_attribute_value_map.rs`
-- `src/types/_filter_condition_map.rs`
-- `src/types/_global_secondary_index_auto_scaling_update_list.rs`
-- `src/types/_global_secondary_index_description_list.rs`
-- `src/types/_global_secondary_index_list.rs`
-- `src/types/_global_secondary_index_update_list.rs`
-- `src/types/_global_secondary_indexes.rs`
-- `src/types/_global_table_global_secondary_index_settings_update_list.rs`
-- `src/types/_global_table_list.rs`
-- `src/types/_global_table_witness_description_list.rs`
-- `src/types/_global_table_witness_group_update_list.rs`
-- `src/types/_import_summary_list.rs`
-- `src/types/_item_collection_key_attribute_map.rs`
-- `src/types/_item_collection_metrics_multiple.rs`
-- `src/types/_item_collection_metrics_per_table.rs`
-- `src/types/_item_collection_size_estimate_range.rs`
-- `src/types/_item_list.rs`
-- `src/types/_item_response_list.rs`
-- `src/types/_key.rs`
-- `src/types/_key_conditions.rs`
-- `src/types/_key_list.rs`
-- `src/types/_key_schema.rs`
-- `src/types/_kinesis_data_stream_destinations.rs`
-- `src/types/_list_attribute_value.rs`
-- `src/types/_local_secondary_index_description_list.rs`
-- `src/types/_local_secondary_index_list.rs`
-- `src/types/_local_secondary_indexes.rs`
-- `src/types/_map_attribute_value.rs`
-- `src/types/_non_key_attribute_name_list.rs`
-- `src/types/_number_set_attribute_value.rs`
-- `src/types/_parameterized_statements.rs`
-- `src/types/_parti_ql_batch_request.rs`
-- `src/types/_parti_ql_batch_response.rs`
-- `src/types/_prepared_statement_parameters.rs`
-- `src/types/_put_item_input_attribute_map.rs`
-- `src/types/_replica_auto_scaling_description_list.rs`
-- `src/types/_replica_auto_scaling_update_list.rs`
-- `src/types/_replica_description_list.rs`
-- `src/types/_replica_global_secondary_index_auto_scaling_description_list.rs`
-- `src/types/_replica_global_secondary_index_auto_scaling_update_list.rs`
-- `src/types/_replica_global_secondary_index_description_list.rs`
-- `src/types/_replica_global_secondary_index_list.rs`
-- `src/types/_replica_global_secondary_index_settings_description_list.rs`
-- `src/types/_replica_global_secondary_index_settings_update_list.rs`
-- `src/types/_replica_list.rs`
-- `src/types/_replica_settings_description_list.rs`
-- `src/types/_replica_settings_update_list.rs`
-- `src/types/_replica_update_list.rs`
-- `src/types/_replication_group_update_list.rs`
-- `src/types/_search_result_list.rs`
-- `src/types/_search_schema.rs`
-- `src/types/_search_vector_list.rs`
-- `src/types/_secondary_indexes_capacity_map.rs`
-- `src/types/_string_set_attribute_value.rs`
-- `src/types/_table_name_list.rs`
-- `src/types/_tag_key_list.rs`
-- `src/types/_tag_list.rs`
-- `src/types/_throttling_reason_list.rs`
-- `src/types/_transact_get_item_list.rs`
-- `src/types/_transact_write_item_list.rs`
-- `src/types/_vector_index_description_list.rs`
-- `src/types/_vector_index_list.rs`
-- `src/types/_vector_index_update_list.rs`
-- `src/types/_vector_indexes.rs`
-- `src/types/_vector_indexes_capacity_map.rs`
-- `src/types/_write_requests.rs`
 
 ### Rust token differences
 

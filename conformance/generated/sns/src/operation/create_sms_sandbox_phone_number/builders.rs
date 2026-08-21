@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateSmsSandboxPhoneNumberError::Unhandled(format!("CreateSmsSandboxPhoneNumber returned HTTP {}", status)));
                          }
-                         Ok(super::CreateSmsSandboxPhoneNumberOutput::default())
+                         Ok(super::CreateSmsSandboxPhoneNumberOutput)
                      }
 }
 pub use Builder as CreateSmsSandboxPhoneNumberFluentBuilder;

@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ListFunctionUrlConfigsResponse {
-        pub function_url_configs: ::std::option::Option<self::FunctionUrlConfigList>,
+        pub function_url_configs: ::std::option::Option<::std::vec::Vec<self::FunctionUrlConfig>>,
         pub next_marker: ::std::option::Option<self::String>,
     }
     impl ListFunctionUrlConfigsResponse {
         pub fn builder() -> ListFunctionUrlConfigsResponseBuilder { ListFunctionUrlConfigsResponseBuilder::default() }
-        pub fn function_url_configs(&self) -> &::std::option::Option<self::FunctionUrlConfigList> { &self.function_url_configs }
+        pub fn function_url_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::FunctionUrlConfig>> { &self.function_url_configs }
         pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ListFunctionUrlConfigsResponseBuilder {
-        function_url_configs: ::std::option::Option<self::FunctionUrlConfigList>,
+        function_url_configs: ::std::option::Option<::std::vec::Vec<self::FunctionUrlConfig>>,
         next_marker: ::std::option::Option<self::String>,
     }
 
     impl ListFunctionUrlConfigsResponseBuilder {
-        pub fn function_url_configs(mut self, input: impl ::std::convert::Into<self::FunctionUrlConfigList>) -> Self { self.function_url_configs = Some(input.into()); self }
-        pub fn set_function_url_configs(mut self, input: ::std::option::Option<self::FunctionUrlConfigList>) -> Self { self.function_url_configs = input; self }
-        pub fn get_function_url_configs(&self) -> &::std::option::Option<self::FunctionUrlConfigList> { &self.function_url_configs }
+        pub fn function_url_configs(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::FunctionUrlConfig>>) -> Self { self.function_url_configs = Some(input.into()); self }
+        pub fn set_function_url_configs(mut self, input: ::std::option::Option<::std::vec::Vec<self::FunctionUrlConfig>>) -> Self { self.function_url_configs = input; self }
+        pub fn get_function_url_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::FunctionUrlConfig>> { &self.function_url_configs }
         pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
         pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
         pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }

@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct ListTagsOfResourceOutput {
     pub next_token: ::std::option::Option<super::super::super::types::NextTokenString>,
-    pub tags: ::std::option::Option<super::super::super::types::TagList>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl ListTagsOfResourceOutput {
             pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -15,15 +15,15 @@ impl ListTagsOfResourceOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ListTagsOfResourceOutputBuilder {
     next_token: ::std::option::Option<super::super::super::types::NextTokenString>,
-    tags: ::std::option::Option<super::super::super::types::TagList>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl ListTagsOfResourceOutputBuilder {
     pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::NextTokenString>) -> Self { self.next_token = Some(input.into()); self }
     pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::NextTokenString>) -> Self { self.next_token = input; self }
     pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::NextTokenString> { &self.next_token }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> ListTagsOfResourceOutput { ListTagsOfResourceOutput {
         next_token: self.next_token,
         tags: self.tags,

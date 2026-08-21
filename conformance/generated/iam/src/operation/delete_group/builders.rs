@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteGroupError::Unhandled(format!("DeleteGroup returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteGroupOutput::default())
+                         Ok(super::DeleteGroupOutput)
                      }
 }
 pub use Builder as DeleteGroupFluentBuilder;

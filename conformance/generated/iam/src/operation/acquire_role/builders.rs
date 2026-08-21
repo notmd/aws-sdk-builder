@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn replacement_values(mut self, value: impl ::std::convert::Into<super::super::super::types::MapStringReplacementValueEntry>) -> Self { self.input.replacement_values = Some(value.into()); self }
+    pub fn replacement_values(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::StringType, super::super::super::types::ReplacementValueEntry>>) -> Self { self.input.replacement_values = Some(value.into()); self }
     pub fn template_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.template_arn = Some(value.into()); self }
     pub fn template_minor_version(mut self, value: impl ::std::convert::Into<super::super::super::types::IntegerType>) -> Self { self.input.template_minor_version = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }

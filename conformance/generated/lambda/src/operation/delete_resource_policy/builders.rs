@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteResourcePolicyError::Unhandled(format!("DeleteResourcePolicy returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteResourcePolicyOutput::default())
+                         Ok(super::DeleteResourcePolicyOutput)
                      }
 }
 pub use Builder as DeleteResourcePolicyFluentBuilder;

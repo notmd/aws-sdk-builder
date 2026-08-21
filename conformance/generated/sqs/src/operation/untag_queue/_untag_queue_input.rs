@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct UntagQueueInput {
     pub queue_url: ::std::option::Option<super::super::super::types::String>,
-    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyList>,
+    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>,
 }
         impl UntagQueueInput {
             pub fn queue_url(&self) -> ::std::option::Option<&str> { self.queue_url.as_deref() }
@@ -15,15 +15,15 @@ impl UntagQueueInput {
 #[derive(Clone, Debug, Default)]
 pub struct UntagQueueInputBuilder {
     queue_url: ::std::option::Option<super::super::super::types::String>,
-    tag_keys: ::std::option::Option<super::super::super::types::TagKeyList>,
+    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>,
 }
 impl UntagQueueInputBuilder {
     pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
     pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
     pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }
-    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyList>) -> Self { self.tag_keys = Some(input.into()); self }
-    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyList>) -> Self { self.tag_keys = input; self }
-    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyList> { &self.tag_keys }
+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKey>>) -> Self { self.tag_keys = Some(input.into()); self }
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>) -> Self { self.tag_keys = input; self }
+    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>> { &self.tag_keys }
     pub fn build(self) -> UntagQueueInput { UntagQueueInput {
         queue_url: self.queue_url,
         tag_keys: self.tag_keys,

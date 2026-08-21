@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListAttachedRolePoliciesOutput {
-    pub attached_policies: ::std::option::Option<super::super::super::types::AttachedPoliciesListType>,
+    pub attached_policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>>,
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
@@ -16,14 +16,14 @@ impl ListAttachedRolePoliciesOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListAttachedRolePoliciesOutputBuilder {
-    attached_policies: ::std::option::Option<super::super::super::types::AttachedPoliciesListType>,
+    attached_policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>>,
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
 impl ListAttachedRolePoliciesOutputBuilder {
-    pub fn attached_policies(mut self, input: impl ::std::convert::Into<super::super::super::types::AttachedPoliciesListType>) -> Self { self.attached_policies = Some(input.into()); self }
-    pub fn set_attached_policies(mut self, input: ::std::option::Option<super::super::super::types::AttachedPoliciesListType>) -> Self { self.attached_policies = input; self }
-    pub fn get_attached_policies(&self) -> &::std::option::Option<super::super::super::types::AttachedPoliciesListType> { &self.attached_policies }
+    pub fn attached_policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttachedPolicy>>) -> Self { self.attached_policies = Some(input.into()); self }
+    pub fn set_attached_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>>) -> Self { self.attached_policies = input; self }
+    pub fn get_attached_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>> { &self.attached_policies }
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
     pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
     pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }

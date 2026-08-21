@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct BatchExecuteStatementInput {
     pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-    pub statements: ::std::option::Option<super::super::super::types::PartiQlBatchRequest>,
+    pub statements: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementRequest>>,
 }
         impl BatchExecuteStatementInput {
             pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
@@ -15,15 +15,15 @@ impl BatchExecuteStatementInput {
 #[derive(Clone, Debug, Default)]
 pub struct BatchExecuteStatementInputBuilder {
     return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-    statements: ::std::option::Option<super::super::super::types::PartiQlBatchRequest>,
+    statements: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementRequest>>,
 }
 impl BatchExecuteStatementInputBuilder {
     pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
     pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
     pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
-    pub fn statements(mut self, input: impl ::std::convert::Into<super::super::super::types::PartiQlBatchRequest>) -> Self { self.statements = Some(input.into()); self }
-    pub fn set_statements(mut self, input: ::std::option::Option<super::super::super::types::PartiQlBatchRequest>) -> Self { self.statements = input; self }
-    pub fn get_statements(&self) -> &::std::option::Option<super::super::super::types::PartiQlBatchRequest> { &self.statements }
+    pub fn statements(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::BatchStatementRequest>>) -> Self { self.statements = Some(input.into()); self }
+    pub fn set_statements(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementRequest>>) -> Self { self.statements = input; self }
+    pub fn get_statements(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementRequest>> { &self.statements }
     pub fn build(self) -> BatchExecuteStatementInput { BatchExecuteStatementInput {
         return_consumed_capacity: self.return_consumed_capacity,
         statements: self.statements,

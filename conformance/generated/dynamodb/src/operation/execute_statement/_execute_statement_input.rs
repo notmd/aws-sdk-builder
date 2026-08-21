@@ -5,7 +5,7 @@ pub struct ExecuteStatementInput {
     pub consistent_read: ::std::option::Option<super::super::super::types::ConsistentRead>,
     pub limit: ::std::option::Option<super::super::super::types::PositiveIntegerObject>,
     pub next_token: ::std::option::Option<super::super::super::types::PartiQlNextToken>,
-    pub parameters: ::std::option::Option<super::super::super::types::PreparedStatementParameters>,
+    pub parameters: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>>,
     pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     pub return_values_on_condition_check_failure: ::std::option::Option<super::super::super::types::ReturnValuesOnConditionCheckFailure>,
     pub statement: ::std::option::Option<super::super::super::types::PartiQlStatement>,
@@ -27,7 +27,7 @@ pub struct ExecuteStatementInputBuilder {
     consistent_read: ::std::option::Option<super::super::super::types::ConsistentRead>,
     limit: ::std::option::Option<super::super::super::types::PositiveIntegerObject>,
     next_token: ::std::option::Option<super::super::super::types::PartiQlNextToken>,
-    parameters: ::std::option::Option<super::super::super::types::PreparedStatementParameters>,
+    parameters: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>>,
     return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     return_values_on_condition_check_failure: ::std::option::Option<super::super::super::types::ReturnValuesOnConditionCheckFailure>,
     statement: ::std::option::Option<super::super::super::types::PartiQlStatement>,
@@ -42,9 +42,9 @@ impl ExecuteStatementInputBuilder {
     pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::PartiQlNextToken>) -> Self { self.next_token = Some(input.into()); self }
     pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::PartiQlNextToken>) -> Self { self.next_token = input; self }
     pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::PartiQlNextToken> { &self.next_token }
-    pub fn parameters(mut self, input: impl ::std::convert::Into<super::super::super::types::PreparedStatementParameters>) -> Self { self.parameters = Some(input.into()); self }
-    pub fn set_parameters(mut self, input: ::std::option::Option<super::super::super::types::PreparedStatementParameters>) -> Self { self.parameters = input; self }
-    pub fn get_parameters(&self) -> &::std::option::Option<super::super::super::types::PreparedStatementParameters> { &self.parameters }
+    pub fn parameters(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeValue>>) -> Self { self.parameters = Some(input.into()); self }
+    pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>>) -> Self { self.parameters = input; self }
+    pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>> { &self.parameters }
     pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
     pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
     pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }

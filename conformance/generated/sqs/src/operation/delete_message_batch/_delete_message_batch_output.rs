@@ -2,8 +2,8 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct DeleteMessageBatchOutput {
-    pub failed: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>,
-    pub successful: ::std::option::Option<super::super::super::types::DeleteMessageBatchResultEntryList>,
+    pub failed: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>,
+    pub successful: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchResultEntry>>,
 }
         impl DeleteMessageBatchOutput {
             pub fn failed(&self) -> &[super::super::super::types::BatchResultErrorEntry] { self.failed.as_deref().unwrap_or(&[]) }
@@ -14,16 +14,16 @@ impl DeleteMessageBatchOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct DeleteMessageBatchOutputBuilder {
-    failed: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>,
-    successful: ::std::option::Option<super::super::super::types::DeleteMessageBatchResultEntryList>,
+    failed: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>,
+    successful: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchResultEntry>>,
 }
 impl DeleteMessageBatchOutputBuilder {
-    pub fn failed(mut self, input: impl ::std::convert::Into<super::super::super::types::BatchResultErrorEntryList>) -> Self { self.failed = Some(input.into()); self }
-    pub fn set_failed(mut self, input: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>) -> Self { self.failed = input; self }
-    pub fn get_failed(&self) -> &::std::option::Option<super::super::super::types::BatchResultErrorEntryList> { &self.failed }
-    pub fn successful(mut self, input: impl ::std::convert::Into<super::super::super::types::DeleteMessageBatchResultEntryList>) -> Self { self.successful = Some(input.into()); self }
-    pub fn set_successful(mut self, input: ::std::option::Option<super::super::super::types::DeleteMessageBatchResultEntryList>) -> Self { self.successful = input; self }
-    pub fn get_successful(&self) -> &::std::option::Option<super::super::super::types::DeleteMessageBatchResultEntryList> { &self.successful }
+    pub fn failed(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>) -> Self { self.failed = Some(input.into()); self }
+    pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>) -> Self { self.failed = input; self }
+    pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>> { &self.failed }
+    pub fn successful(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DeleteMessageBatchResultEntry>>) -> Self { self.successful = Some(input.into()); self }
+    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchResultEntry>>) -> Self { self.successful = input; self }
+    pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchResultEntry>> { &self.successful }
     pub fn build(self) -> DeleteMessageBatchOutput { DeleteMessageBatchOutput {
         failed: self.failed,
         successful: self.successful,

@@ -3,20 +3,20 @@
     #[derive(Clone, Debug, Default)]
     pub struct ListFunctionVersionsByCapacityProviderResponse {
         pub capacity_provider_arn: ::std::option::Option<self::CapacityProviderArn>,
-        pub function_versions: ::std::option::Option<self::FunctionVersionsByCapacityProviderList>,
+        pub function_versions: ::std::option::Option<::std::vec::Vec<self::FunctionVersionsByCapacityProviderListItem>>,
         pub next_marker: ::std::option::Option<self::String>,
     }
     impl ListFunctionVersionsByCapacityProviderResponse {
         pub fn builder() -> ListFunctionVersionsByCapacityProviderResponseBuilder { ListFunctionVersionsByCapacityProviderResponseBuilder::default() }
         pub fn capacity_provider_arn(&self) -> &::std::option::Option<self::CapacityProviderArn> { &self.capacity_provider_arn }
-        pub fn function_versions(&self) -> &::std::option::Option<self::FunctionVersionsByCapacityProviderList> { &self.function_versions }
+        pub fn function_versions(&self) -> &::std::option::Option<::std::vec::Vec<self::FunctionVersionsByCapacityProviderListItem>> { &self.function_versions }
         pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ListFunctionVersionsByCapacityProviderResponseBuilder {
         capacity_provider_arn: ::std::option::Option<self::CapacityProviderArn>,
-        function_versions: ::std::option::Option<self::FunctionVersionsByCapacityProviderList>,
+        function_versions: ::std::option::Option<::std::vec::Vec<self::FunctionVersionsByCapacityProviderListItem>>,
         next_marker: ::std::option::Option<self::String>,
     }
 
@@ -24,9 +24,9 @@
         pub fn capacity_provider_arn(mut self, input: impl ::std::convert::Into<self::CapacityProviderArn>) -> Self { self.capacity_provider_arn = Some(input.into()); self }
         pub fn set_capacity_provider_arn(mut self, input: ::std::option::Option<self::CapacityProviderArn>) -> Self { self.capacity_provider_arn = input; self }
         pub fn get_capacity_provider_arn(&self) -> &::std::option::Option<self::CapacityProviderArn> { &self.capacity_provider_arn }
-        pub fn function_versions(mut self, input: impl ::std::convert::Into<self::FunctionVersionsByCapacityProviderList>) -> Self { self.function_versions = Some(input.into()); self }
-        pub fn set_function_versions(mut self, input: ::std::option::Option<self::FunctionVersionsByCapacityProviderList>) -> Self { self.function_versions = input; self }
-        pub fn get_function_versions(&self) -> &::std::option::Option<self::FunctionVersionsByCapacityProviderList> { &self.function_versions }
+        pub fn function_versions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::FunctionVersionsByCapacityProviderListItem>>) -> Self { self.function_versions = Some(input.into()); self }
+        pub fn set_function_versions(mut self, input: ::std::option::Option<::std::vec::Vec<self::FunctionVersionsByCapacityProviderListItem>>) -> Self { self.function_versions = input; self }
+        pub fn get_function_versions(&self) -> &::std::option::Option<::std::vec::Vec<self::FunctionVersionsByCapacityProviderListItem>> { &self.function_versions }
         pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
         pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
         pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }

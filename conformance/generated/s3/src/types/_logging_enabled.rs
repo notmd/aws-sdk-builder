@@ -3,14 +3,14 @@
     #[derive(Clone, Debug, Default)]
     pub struct LoggingEnabled {
         pub target_bucket: ::std::option::Option<self::TargetBucket>,
-        pub target_grants: ::std::option::Option<self::TargetGrants>,
+        pub target_grants: ::std::option::Option<::std::vec::Vec<self::TargetGrant>>,
         pub target_object_key_format: ::std::option::Option<self::TargetObjectKeyFormat>,
         pub target_prefix: ::std::option::Option<self::TargetPrefix>,
     }
     impl LoggingEnabled {
         pub fn builder() -> LoggingEnabledBuilder { LoggingEnabledBuilder::default() }
         pub fn target_bucket(&self) -> &::std::option::Option<self::TargetBucket> { &self.target_bucket }
-        pub fn target_grants(&self) -> &::std::option::Option<self::TargetGrants> { &self.target_grants }
+        pub fn target_grants(&self) -> &::std::option::Option<::std::vec::Vec<self::TargetGrant>> { &self.target_grants }
         pub fn target_object_key_format(&self) -> &::std::option::Option<self::TargetObjectKeyFormat> { &self.target_object_key_format }
         pub fn target_prefix(&self) -> &::std::option::Option<self::TargetPrefix> { &self.target_prefix }
     }
@@ -18,7 +18,7 @@
     #[derive(Clone, Debug, Default)]
     pub struct LoggingEnabledBuilder {
         target_bucket: ::std::option::Option<self::TargetBucket>,
-        target_grants: ::std::option::Option<self::TargetGrants>,
+        target_grants: ::std::option::Option<::std::vec::Vec<self::TargetGrant>>,
         target_object_key_format: ::std::option::Option<self::TargetObjectKeyFormat>,
         target_prefix: ::std::option::Option<self::TargetPrefix>,
     }
@@ -27,9 +27,9 @@
         pub fn target_bucket(mut self, input: impl ::std::convert::Into<self::TargetBucket>) -> Self { self.target_bucket = Some(input.into()); self }
         pub fn set_target_bucket(mut self, input: ::std::option::Option<self::TargetBucket>) -> Self { self.target_bucket = input; self }
         pub fn get_target_bucket(&self) -> &::std::option::Option<self::TargetBucket> { &self.target_bucket }
-        pub fn target_grants(mut self, input: impl ::std::convert::Into<self::TargetGrants>) -> Self { self.target_grants = Some(input.into()); self }
-        pub fn set_target_grants(mut self, input: ::std::option::Option<self::TargetGrants>) -> Self { self.target_grants = input; self }
-        pub fn get_target_grants(&self) -> &::std::option::Option<self::TargetGrants> { &self.target_grants }
+        pub fn target_grants(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::TargetGrant>>) -> Self { self.target_grants = Some(input.into()); self }
+        pub fn set_target_grants(mut self, input: ::std::option::Option<::std::vec::Vec<self::TargetGrant>>) -> Self { self.target_grants = input; self }
+        pub fn get_target_grants(&self) -> &::std::option::Option<::std::vec::Vec<self::TargetGrant>> { &self.target_grants }
         pub fn target_object_key_format(mut self, input: impl ::std::convert::Into<self::TargetObjectKeyFormat>) -> Self { self.target_object_key_format = Some(input.into()); self }
         pub fn set_target_object_key_format(mut self, input: ::std::option::Option<self::TargetObjectKeyFormat>) -> Self { self.target_object_key_format = input; self }
         pub fn get_target_object_key_format(&self) -> &::std::option::Option<self::TargetObjectKeyFormat> { &self.target_object_key_format }

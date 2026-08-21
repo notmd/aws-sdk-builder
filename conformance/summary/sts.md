@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sts
-**Progress:** `158/158` files compared · `2` matched · `80` mismatches · `70` missing · `6` extra · `1.27%` match (100.00% means fully matched)
+**Progress:** `153/153` files compared · `2` matched · `80` mismatches · `70` missing · `1` extra · `1.31%` match (100.00% means fully matched)
 
 ### `src/client/assume_role.rs`
 
@@ -2671,15 +2671,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub duration_seconds: ::std::option::Option<super::super::super::types::RoleDurationSecondsType>,
 +    pub external_id: ::std::option::Option<super::super::super::types::ExternalIdType>,
 +    pub policy: ::std::option::Option<super::super::super::types::UnrestrictedSessionPolicyDocumentType>,
-+    pub policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
-+    pub provided_contexts: ::std::option::Option<super::super::super::types::ProvidedContextsListType>,
++    pub policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
++    pub provided_contexts: ::std::option::Option<::std::vec::Vec<super::super::super::types::ProvidedContext>>,
 +    pub role_arn: ::std::option::Option<super::super::super::types::ArnType>,
 +    pub role_session_name: ::std::option::Option<super::super::super::types::RoleSessionNameType>,
 +    pub serial_number: ::std::option::Option<super::super::super::types::SerialNumberType>,
 +    pub source_identity: ::std::option::Option<super::super::super::types::SourceIdentityType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 +    pub token_code: ::std::option::Option<super::super::super::types::TokenCodeType>,
-+    pub transitive_tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    pub transitive_tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
 +        impl AssumeRoleInput {
 +            pub fn duration_seconds(&self) -> ::std::option::Option<i32> { self.duration_seconds }
@@ -2723,15 +2723,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    duration_seconds: ::std::option::Option<super::super::super::types::RoleDurationSecondsType>,
 +    external_id: ::std::option::Option<super::super::super::types::ExternalIdType>,
 +    policy: ::std::option::Option<super::super::super::types::UnrestrictedSessionPolicyDocumentType>,
-+    policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
-+    provided_contexts: ::std::option::Option<super::super::super::types::ProvidedContextsListType>,
++    policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
++    provided_contexts: ::std::option::Option<::std::vec::Vec<super::super::super::types::ProvidedContext>>,
 +    role_arn: ::std::option::Option<super::super::super::types::ArnType>,
 +    role_session_name: ::std::option::Option<super::super::super::types::RoleSessionNameType>,
 +    serial_number: ::std::option::Option<super::super::super::types::SerialNumberType>,
 +    source_identity: ::std::option::Option<super::super::super::types::SourceIdentityType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 +    token_code: ::std::option::Option<super::super::super::types::TokenCodeType>,
-+    transitive_tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    transitive_tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
  impl AssumeRoleInputBuilder {
 -    /// <p>The Amazon Resource Name (ARN) of the role to assume.</p>
@@ -3047,12 +3047,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn policy(mut self, input: impl ::std::convert::Into<super::super::super::types::UnrestrictedSessionPolicyDocumentType>) -> Self { self.policy = Some(input.into()); self }
 +    pub fn set_policy(mut self, input: ::std::option::Option<super::super::super::types::UnrestrictedSessionPolicyDocumentType>) -> Self { self.policy = input; self }
 +    pub fn get_policy(&self) -> &::std::option::Option<super::super::super::types::UnrestrictedSessionPolicyDocumentType> { &self.policy }
-+    pub fn policy_arns(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = Some(input.into()); self }
-+    pub fn set_policy_arns(mut self, input: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = input; self }
-+    pub fn get_policy_arns(&self) -> &::std::option::Option<super::super::super::types::PolicyDescriptorListType> { &self.policy_arns }
-+    pub fn provided_contexts(mut self, input: impl ::std::convert::Into<super::super::super::types::ProvidedContextsListType>) -> Self { self.provided_contexts = Some(input.into()); self }
-+    pub fn set_provided_contexts(mut self, input: ::std::option::Option<super::super::super::types::ProvidedContextsListType>) -> Self { self.provided_contexts = input; self }
-+    pub fn get_provided_contexts(&self) -> &::std::option::Option<super::super::super::types::ProvidedContextsListType> { &self.provided_contexts }
++    pub fn policy_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = Some(input.into()); self }
++    pub fn set_policy_arns(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = input; self }
++    pub fn get_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>> { &self.policy_arns }
++    pub fn provided_contexts(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ProvidedContext>>) -> Self { self.provided_contexts = Some(input.into()); self }
++    pub fn set_provided_contexts(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ProvidedContext>>) -> Self { self.provided_contexts = input; self }
++    pub fn get_provided_contexts(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ProvidedContext>> { &self.provided_contexts }
 +    pub fn role_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.role_arn = Some(input.into()); self }
 +    pub fn set_role_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.role_arn = input; self }
 +    pub fn get_role_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.role_arn }
@@ -3065,15 +3065,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn source_identity(mut self, input: impl ::std::convert::Into<super::super::super::types::SourceIdentityType>) -> Self { self.source_identity = Some(input.into()); self }
 +    pub fn set_source_identity(mut self, input: ::std::option::Option<super::super::super::types::SourceIdentityType>) -> Self { self.source_identity = input; self }
 +    pub fn get_source_identity(&self) -> &::std::option::Option<super::super::super::types::SourceIdentityType> { &self.source_identity }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn token_code(mut self, input: impl ::std::convert::Into<super::super::super::types::TokenCodeType>) -> Self { self.token_code = Some(input.into()); self }
 +    pub fn set_token_code(mut self, input: ::std::option::Option<super::super::super::types::TokenCodeType>) -> Self { self.token_code = input; self }
 +    pub fn get_token_code(&self) -> &::std::option::Option<super::super::super::types::TokenCodeType> { &self.token_code }
-+    pub fn transitive_tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.transitive_tag_keys = Some(input.into()); self }
-+    pub fn set_transitive_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.transitive_tag_keys = input; self }
-+    pub fn get_transitive_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.transitive_tag_keys }
++    pub fn transitive_tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.transitive_tag_keys = Some(input.into()); self }
++    pub fn set_transitive_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.transitive_tag_keys = input; self }
++    pub fn get_transitive_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.transitive_tag_keys }
 +    pub fn build(self) -> AssumeRoleInput { AssumeRoleInput {
 +        duration_seconds: self.duration_seconds,
 +        external_id: self.external_id,
@@ -3399,15 +3399,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleDurationSecondsType>) -> Self { self.input.duration_seconds = Some(value.into()); self }
 +    pub fn external_id(mut self, value: impl ::std::convert::Into<super::super::super::types::ExternalIdType>) -> Self { self.input.external_id = Some(value.into()); self }
 +    pub fn policy(mut self, value: impl ::std::convert::Into<super::super::super::types::UnrestrictedSessionPolicyDocumentType>) -> Self { self.input.policy = Some(value.into()); self }
-+    pub fn policy_arns(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorListType>) -> Self { self.input.policy_arns = Some(value.into()); self }
-+    pub fn provided_contexts(mut self, value: impl ::std::convert::Into<super::super::super::types::ProvidedContextsListType>) -> Self { self.input.provided_contexts = Some(value.into()); self }
++    pub fn policy_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.input.policy_arns = Some(value.into()); self }
++    pub fn provided_contexts(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ProvidedContext>>) -> Self { self.input.provided_contexts = Some(value.into()); self }
 +    pub fn role_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.role_arn = Some(value.into()); self }
 +    pub fn role_session_name(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleSessionNameType>) -> Self { self.input.role_session_name = Some(value.into()); self }
 +    pub fn serial_number(mut self, value: impl ::std::convert::Into<super::super::super::types::SerialNumberType>) -> Self { self.input.serial_number = Some(value.into()); self }
 +    pub fn source_identity(mut self, value: impl ::std::convert::Into<super::super::super::types::SourceIdentityType>) -> Self { self.input.source_identity = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn token_code(mut self, value: impl ::std::convert::Into<super::super::super::types::TokenCodeType>) -> Self { self.input.token_code = Some(value.into()); self }
-+    pub fn transitive_tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.input.transitive_tag_keys = Some(value.into()); self }
++    pub fn transitive_tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.input.transitive_tag_keys = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::AssumeRoleOutput, super::AssumeRoleError> {
@@ -4389,7 +4389,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub duration_seconds: ::std::option::Option<super::super::super::types::RoleDurationSecondsType>,
 +    pub policy: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>,
-+    pub policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
++    pub policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
 +    pub principal_arn: ::std::option::Option<super::super::super::types::ArnType>,
 +    pub role_arn: ::std::option::Option<super::super::super::types::ArnType>,
 +    pub saml_assertion: ::std::option::Option<super::super::super::types::SamlAssertionType>,
@@ -4423,7 +4423,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) duration_seconds: ::std::option::Option<i32>,
 +    duration_seconds: ::std::option::Option<super::super::super::types::RoleDurationSecondsType>,
 +    policy: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>,
-+    policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
++    policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
 +    principal_arn: ::std::option::Option<super::super::super::types::ArnType>,
 +    role_arn: ::std::option::Option<super::super::super::types::ArnType>,
 +    saml_assertion: ::std::option::Option<super::super::super::types::SamlAssertionType>,
@@ -4593,9 +4593,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn policy(mut self, input: impl ::std::convert::Into<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.policy = Some(input.into()); self }
 +    pub fn set_policy(mut self, input: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.policy = input; self }
 +    pub fn get_policy(&self) -> &::std::option::Option<super::super::super::types::SessionPolicyDocumentType> { &self.policy }
-+    pub fn policy_arns(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = Some(input.into()); self }
-+    pub fn set_policy_arns(mut self, input: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = input; self }
-+    pub fn get_policy_arns(&self) -> &::std::option::Option<super::super::super::types::PolicyDescriptorListType> { &self.policy_arns }
++    pub fn policy_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = Some(input.into()); self }
++    pub fn set_policy_arns(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = input; self }
++    pub fn get_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>> { &self.policy_arns }
 +    pub fn principal_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.principal_arn = Some(input.into()); self }
 +    pub fn set_principal_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.principal_arn = input; self }
 +    pub fn get_principal_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.principal_arn }
@@ -5149,7 +5149,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 +    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleDurationSecondsType>) -> Self { self.input.duration_seconds = Some(value.into()); self }
 +    pub fn policy(mut self, value: impl ::std::convert::Into<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.input.policy = Some(value.into()); self }
-+    pub fn policy_arns(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorListType>) -> Self { self.input.policy_arns = Some(value.into()); self }
++    pub fn policy_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.input.policy_arns = Some(value.into()); self }
 +    pub fn principal_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.principal_arn = Some(value.into()); self }
 +    pub fn role_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.role_arn = Some(value.into()); self }
 +    pub fn saml_assertion(mut self, value: impl ::std::convert::Into<super::super::super::types::SamlAssertionType>) -> Self { self.input.saml_assertion = Some(value.into()); self }
@@ -5921,7 +5921,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub duration_seconds: ::std::option::Option<i32>,
 +    pub duration_seconds: ::std::option::Option<super::super::super::types::RoleDurationSecondsType>,
 +    pub policy: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>,
-+    pub policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
++    pub policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
 +    pub provider_id: ::std::option::Option<super::super::super::types::UrlType>,
 +    pub role_arn: ::std::option::Option<super::super::super::types::ArnType>,
 +    pub role_session_name: ::std::option::Option<super::super::super::types::RoleSessionNameType>,
@@ -6021,7 +6021,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) duration_seconds: ::std::option::Option<i32>,
 +    duration_seconds: ::std::option::Option<super::super::super::types::RoleDurationSecondsType>,
 +    policy: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>,
-+    policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
++    policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
 +    provider_id: ::std::option::Option<super::super::super::types::UrlType>,
 +    role_arn: ::std::option::Option<super::super::super::types::ArnType>,
 +    role_session_name: ::std::option::Option<super::super::super::types::RoleSessionNameType>,
@@ -6225,9 +6225,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn policy(mut self, input: impl ::std::convert::Into<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.policy = Some(input.into()); self }
 +    pub fn set_policy(mut self, input: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.policy = input; self }
 +    pub fn get_policy(&self) -> &::std::option::Option<super::super::super::types::SessionPolicyDocumentType> { &self.policy }
-+    pub fn policy_arns(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = Some(input.into()); self }
-+    pub fn set_policy_arns(mut self, input: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = input; self }
-+    pub fn get_policy_arns(&self) -> &::std::option::Option<super::super::super::types::PolicyDescriptorListType> { &self.policy_arns }
++    pub fn policy_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = Some(input.into()); self }
++    pub fn set_policy_arns(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = input; self }
++    pub fn get_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>> { &self.policy_arns }
 +    pub fn provider_id(mut self, input: impl ::std::convert::Into<super::super::super::types::UrlType>) -> Self { self.provider_id = Some(input.into()); self }
 +    pub fn set_provider_id(mut self, input: ::std::option::Option<super::super::super::types::UrlType>) -> Self { self.provider_id = input; self }
 +    pub fn get_provider_id(&self) -> &::std::option::Option<super::super::super::types::UrlType> { &self.provider_id }
@@ -6877,7 +6877,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleDurationSecondsType>) -> Self { self.input.duration_seconds = Some(value.into()); self }
 +    pub fn policy(mut self, value: impl ::std::convert::Into<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.input.policy = Some(value.into()); self }
-+    pub fn policy_arns(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorListType>) -> Self { self.input.policy_arns = Some(value.into()); self }
++    pub fn policy_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.input.policy_arns = Some(value.into()); self }
 +    pub fn provider_id(mut self, value: impl ::std::convert::Into<super::super::super::types::UrlType>) -> Self { self.input.provider_id = Some(value.into()); self }
 +    pub fn role_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.role_arn = Some(value.into()); self }
 +    pub fn role_session_name(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleSessionNameType>) -> Self { self.input.role_session_name = Some(value.into()); self }
@@ -11728,8 +11728,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub duration_seconds: ::std::option::Option<super::super::super::types::DurationSecondsType>,
 +    pub name: ::std::option::Option<super::super::super::types::UserNameType>,
 +    pub policy: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>,
-+    pub policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl GetFederationTokenInput {
 +            pub fn duration_seconds(&self) -> ::std::option::Option<i32> { self.duration_seconds }
@@ -11804,8 +11804,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    duration_seconds: ::std::option::Option<super::super::super::types::DurationSecondsType>,
 +    name: ::std::option::Option<super::super::super::types::UserNameType>,
 +    policy: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>,
-+    policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl GetFederationTokenInputBuilder {
 -    /// <p>The name of the federated user. The name is used as an identifier for the temporary security credentials (such as <code>Bob</code>). For example, you can reference the federated user name in a resource-based policy, such as in an Amazon S3 bucket policy.</p>
@@ -11970,12 +11970,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn policy(mut self, input: impl ::std::convert::Into<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.policy = Some(input.into()); self }
 +    pub fn set_policy(mut self, input: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.policy = input; self }
 +    pub fn get_policy(&self) -> &::std::option::Option<super::super::super::types::SessionPolicyDocumentType> { &self.policy }
-+    pub fn policy_arns(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = Some(input.into()); self }
-+    pub fn set_policy_arns(mut self, input: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = input; self }
-+    pub fn get_policy_arns(&self) -> &::std::option::Option<super::super::super::types::PolicyDescriptorListType> { &self.policy_arns }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn policy_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = Some(input.into()); self }
++    pub fn set_policy_arns(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = input; self }
++    pub fn get_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>> { &self.policy_arns }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> GetFederationTokenInput { GetFederationTokenInput {
 +        duration_seconds: self.duration_seconds,
 +        name: self.name,
@@ -12254,8 +12254,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::DurationSecondsType>) -> Self { self.input.duration_seconds = Some(value.into()); self }
 +    pub fn name(mut self, value: impl ::std::convert::Into<super::super::super::types::UserNameType>) -> Self { self.input.name = Some(value.into()); self }
 +    pub fn policy(mut self, value: impl ::std::convert::Into<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.input.policy = Some(value.into()); self }
-+    pub fn policy_arns(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorListType>) -> Self { self.input.policy_arns = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn policy_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.input.policy_arns = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::GetFederationTokenOutput, super::GetFederationTokenError> {
@@ -13906,10 +13906,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub signing_algorithm: ::std::option::Option<::std::string::String>,
 -    /// <p>An optional list of tags to include in the JSON Web Token (JWT). These tags are added as custom claims to the JWT and can be used by the downstream service for authorization decisions.</p>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub audience: ::std::option::Option<super::super::super::types::WebIdentityTokenAudienceListType>,
++    pub audience: ::std::option::Option<::std::vec::Vec<super::super::super::types::WebIdentityTokenAudienceStringType>>,
 +    pub duration_seconds: ::std::option::Option<super::super::super::types::WebIdentityTokenDurationSecondsType>,
 +    pub signing_algorithm: ::std::option::Option<super::super::super::types::JwtAlgorithmType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl GetWebIdentityTokenInput {
 +            pub fn audience(&self) -> &[super::super::super::types::WebIdentityTokenAudienceStringType] { self.audience.as_deref().unwrap_or(&[]) }
@@ -13956,10 +13956,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) duration_seconds: ::std::option::Option<i32>,
 -    pub(crate) signing_algorithm: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    audience: ::std::option::Option<super::super::super::types::WebIdentityTokenAudienceListType>,
++    audience: ::std::option::Option<::std::vec::Vec<super::super::super::types::WebIdentityTokenAudienceStringType>>,
 +    duration_seconds: ::std::option::Option<super::super::super::types::WebIdentityTokenDurationSecondsType>,
 +    signing_algorithm: ::std::option::Option<super::super::super::types::JwtAlgorithmType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl GetWebIdentityTokenInputBuilder {
 -    /// Appends an item to `audience`.
@@ -14043,18 +14043,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            tags: self.tags,
 -        })
 -    }
-+    pub fn audience(mut self, input: impl ::std::convert::Into<super::super::super::types::WebIdentityTokenAudienceListType>) -> Self { self.audience = Some(input.into()); self }
-+    pub fn set_audience(mut self, input: ::std::option::Option<super::super::super::types::WebIdentityTokenAudienceListType>) -> Self { self.audience = input; self }
-+    pub fn get_audience(&self) -> &::std::option::Option<super::super::super::types::WebIdentityTokenAudienceListType> { &self.audience }
++    pub fn audience(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::WebIdentityTokenAudienceStringType>>) -> Self { self.audience = Some(input.into()); self }
++    pub fn set_audience(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::WebIdentityTokenAudienceStringType>>) -> Self { self.audience = input; self }
++    pub fn get_audience(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::WebIdentityTokenAudienceStringType>> { &self.audience }
 +    pub fn duration_seconds(mut self, input: impl ::std::convert::Into<super::super::super::types::WebIdentityTokenDurationSecondsType>) -> Self { self.duration_seconds = Some(input.into()); self }
 +    pub fn set_duration_seconds(mut self, input: ::std::option::Option<super::super::super::types::WebIdentityTokenDurationSecondsType>) -> Self { self.duration_seconds = input; self }
 +    pub fn get_duration_seconds(&self) -> &::std::option::Option<super::super::super::types::WebIdentityTokenDurationSecondsType> { &self.duration_seconds }
 +    pub fn signing_algorithm(mut self, input: impl ::std::convert::Into<super::super::super::types::JwtAlgorithmType>) -> Self { self.signing_algorithm = Some(input.into()); self }
 +    pub fn set_signing_algorithm(mut self, input: ::std::option::Option<super::super::super::types::JwtAlgorithmType>) -> Self { self.signing_algorithm = input; self }
 +    pub fn get_signing_algorithm(&self) -> &::std::option::Option<super::super::super::types::JwtAlgorithmType> { &self.signing_algorithm }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> GetWebIdentityTokenInput { GetWebIdentityTokenInput {
 +        audience: self.audience,
 +        duration_seconds: self.duration_seconds,
@@ -14264,10 +14264,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn audience(mut self, value: impl ::std::convert::Into<super::super::super::types::WebIdentityTokenAudienceListType>) -> Self { self.input.audience = Some(value.into()); self }
++    pub fn audience(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::WebIdentityTokenAudienceStringType>>) -> Self { self.input.audience = Some(value.into()); self }
 +    pub fn duration_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::WebIdentityTokenDurationSecondsType>) -> Self { self.input.duration_seconds = Some(value.into()); self }
 +    pub fn signing_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::JwtAlgorithmType>) -> Self { self.input.signing_algorithm = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::GetWebIdentityTokenOutput, super::GetWebIdentityTokenError> {
@@ -17167,7 +17167,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types.rs
 +++ generated/src/types.rs
-@@ -1,30 +1,82 @@
+@@ -1,30 +1,77 @@
 -// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub use crate::types::_credentials::Credentials;
 -
@@ -17176,8 +17176,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub use crate::types::_policy_descriptor_type::PolicyDescriptorType;
 -
 -pub use crate::types::_federated_user::FederatedUser;
-+// Generated by aws-sdk-build aws-sdk-build-rust-native-0.2.0. DO NOT EDIT.
-
+-
 -pub use crate::types::_tag::Tag;
 -
 -pub use crate::types::_provided_context::ProvidedContext;
@@ -17196,7 +17195,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -/// Builders
 -pub mod builders;
--
++// Generated by aws-sdk-build aws-sdk-build-rust-native-0.2.0. DO NOT EDIT.
+
 -/// Error types that AWS Security Token Service can respond with.
 -pub mod error;
 +pub mod types {
@@ -17210,7 +17210,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type OutboundWebIdentityFederationDisabledException2 = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/_policy_descriptor_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/_provided_context.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/_provided_contexts_list_type.rs"));
 +    pub type RootDurationSecondsType = i32;
 +    pub type SamlAssertionType = ::std::string::String;
 +    pub type SessionDurationEscalationException2 = ::std::string::String;
@@ -17241,16 +17240,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type MalformedPolicyDocumentMessage = ::std::string::String;
 +    pub type NonNegativeIntegerType = i32;
 +    pub type PackedPolicyTooLargeMessage = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/_policy_descriptor_list_type.rs"));
 +    pub type RegionDisabledMessage = ::std::string::String;
 +    pub type RoleDurationSecondsType = i32;
 +    pub type RoleSessionNameType = ::std::string::String;
 +    pub type SerialNumberType = ::std::string::String;
 +    pub type SessionPolicyDocumentType = ::std::string::String;
 +    pub type SourceIdentityType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/_tag_key_list_type.rs"));
 +    pub type TagKeyType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/_tag_list_type.rs"));
 +    pub type TagValueType = ::std::string::String;
 +    pub type TokenCodeType = ::std::string::String;
 +    pub type TokenType = ::std::string::String;
@@ -17260,7 +17256,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type UserIdType = ::std::string::String;
 +    pub type UserNameType = ::std::string::String;
 +    pub type WebIdentitySubjectType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/_web_identity_token_audience_list_type.rs"));
 +    pub type WebIdentityTokenAudienceStringType = ::std::string::String;
 +    pub type WebIdentityTokenDurationSecondsType = i32;
 +    pub type WebIdentityTokenType = ::std::string::String;
@@ -17357,11 +17352,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ### Unexpected generated files
 
 - `src/aws_runtime.rs`
-- `src/types/_policy_descriptor_list_type.rs`
-- `src/types/_provided_contexts_list_type.rs`
-- `src/types/_tag_key_list_type.rs`
-- `src/types/_tag_list_type.rs`
-- `src/types/_web_identity_token_audience_list_type.rs`
 
 ### Rust token differences
 

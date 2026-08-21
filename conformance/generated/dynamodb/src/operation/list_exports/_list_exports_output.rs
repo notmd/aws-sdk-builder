@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListExportsOutput {
-    pub export_summaries: ::std::option::Option<super::super::super::types::ExportSummaries>,
+    pub export_summaries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExportSummary>>,
     pub next_token: ::std::option::Option<super::super::super::types::ExportNextToken>,
 }
         impl ListExportsOutput {
@@ -14,13 +14,13 @@ impl ListExportsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListExportsOutputBuilder {
-    export_summaries: ::std::option::Option<super::super::super::types::ExportSummaries>,
+    export_summaries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExportSummary>>,
     next_token: ::std::option::Option<super::super::super::types::ExportNextToken>,
 }
 impl ListExportsOutputBuilder {
-    pub fn export_summaries(mut self, input: impl ::std::convert::Into<super::super::super::types::ExportSummaries>) -> Self { self.export_summaries = Some(input.into()); self }
-    pub fn set_export_summaries(mut self, input: ::std::option::Option<super::super::super::types::ExportSummaries>) -> Self { self.export_summaries = input; self }
-    pub fn get_export_summaries(&self) -> &::std::option::Option<super::super::super::types::ExportSummaries> { &self.export_summaries }
+    pub fn export_summaries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ExportSummary>>) -> Self { self.export_summaries = Some(input.into()); self }
+    pub fn set_export_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ExportSummary>>) -> Self { self.export_summaries = input; self }
+    pub fn get_export_summaries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ExportSummary>> { &self.export_summaries }
     pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::ExportNextToken>) -> Self { self.next_token = Some(input.into()); self }
     pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::ExportNextToken>) -> Self { self.next_token = input; self }
     pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::ExportNextToken> { &self.next_token }

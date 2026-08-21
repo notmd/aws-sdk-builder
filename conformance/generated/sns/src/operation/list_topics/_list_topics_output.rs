@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct ListTopicsOutput {
     pub next_token: ::std::option::Option<super::super::super::types::NextToken>,
-    pub topics: ::std::option::Option<super::super::super::types::TopicsList>,
+    pub topics: ::std::option::Option<::std::vec::Vec<super::super::super::types::Topic>>,
 }
         impl ListTopicsOutput {
             pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -15,15 +15,15 @@ impl ListTopicsOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ListTopicsOutputBuilder {
     next_token: ::std::option::Option<super::super::super::types::NextToken>,
-    topics: ::std::option::Option<super::super::super::types::TopicsList>,
+    topics: ::std::option::Option<::std::vec::Vec<super::super::super::types::Topic>>,
 }
 impl ListTopicsOutputBuilder {
     pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::NextToken>) -> Self { self.next_token = Some(input.into()); self }
     pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::NextToken>) -> Self { self.next_token = input; self }
     pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::NextToken> { &self.next_token }
-    pub fn topics(mut self, input: impl ::std::convert::Into<super::super::super::types::TopicsList>) -> Self { self.topics = Some(input.into()); self }
-    pub fn set_topics(mut self, input: ::std::option::Option<super::super::super::types::TopicsList>) -> Self { self.topics = input; self }
-    pub fn get_topics(&self) -> &::std::option::Option<super::super::super::types::TopicsList> { &self.topics }
+    pub fn topics(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Topic>>) -> Self { self.topics = Some(input.into()); self }
+    pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Topic>>) -> Self { self.topics = input; self }
+    pub fn get_topics(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Topic>> { &self.topics }
     pub fn build(self) -> ListTopicsOutput { ListTopicsOutput {
         next_token: self.next_token,
         topics: self.topics,

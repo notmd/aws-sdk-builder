@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct UpdateGlobalTableInput {
     pub global_table_name: ::std::option::Option<super::super::super::types::TableName>,
-    pub replica_updates: ::std::option::Option<super::super::super::types::ReplicaUpdateList>,
+    pub replica_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaUpdate>>,
 }
         impl UpdateGlobalTableInput {
             pub fn global_table_name(&self) -> ::std::option::Option<&str> { self.global_table_name.as_deref() }
@@ -15,15 +15,15 @@ impl UpdateGlobalTableInput {
 #[derive(Clone, Debug, Default)]
 pub struct UpdateGlobalTableInputBuilder {
     global_table_name: ::std::option::Option<super::super::super::types::TableName>,
-    replica_updates: ::std::option::Option<super::super::super::types::ReplicaUpdateList>,
+    replica_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaUpdate>>,
 }
 impl UpdateGlobalTableInputBuilder {
     pub fn global_table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.global_table_name = Some(input.into()); self }
     pub fn set_global_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.global_table_name = input; self }
     pub fn get_global_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.global_table_name }
-    pub fn replica_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::ReplicaUpdateList>) -> Self { self.replica_updates = Some(input.into()); self }
-    pub fn set_replica_updates(mut self, input: ::std::option::Option<super::super::super::types::ReplicaUpdateList>) -> Self { self.replica_updates = input; self }
-    pub fn get_replica_updates(&self) -> &::std::option::Option<super::super::super::types::ReplicaUpdateList> { &self.replica_updates }
+    pub fn replica_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaUpdate>>) -> Self { self.replica_updates = Some(input.into()); self }
+    pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaUpdate>>) -> Self { self.replica_updates = input; self }
+    pub fn get_replica_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaUpdate>> { &self.replica_updates }
     pub fn build(self) -> UpdateGlobalTableInput { UpdateGlobalTableInput {
         global_table_name: self.global_table_name,
         replica_updates: self.replica_updates,

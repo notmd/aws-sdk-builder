@@ -11,7 +11,7 @@ impl Builder {
         Self { input: super::Input::default(), client }
     }
     pub fn role_name(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.input.role_name = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::TagRoleOutput, super::TagRoleError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::TagRoleError::Unhandled(format!("TagRole returned HTTP {}", status)));
                          }
-                         Ok(super::TagRoleOutput::default())
+                         Ok(super::TagRoleOutput)
                      }
 }
 pub use Builder as TagRoleFluentBuilder;

@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteGroupPolicyError::Unhandled(format!("DeleteGroupPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteGroupPolicyOutput::default())
+                         Ok(super::DeleteGroupPolicyOutput)
                      }
 }
 pub use Builder as DeleteGroupPolicyFluentBuilder;

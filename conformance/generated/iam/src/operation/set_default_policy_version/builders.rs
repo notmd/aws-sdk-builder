@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SetDefaultPolicyVersionError::Unhandled(format!("SetDefaultPolicyVersion returned HTTP {}", status)));
                          }
-                         Ok(super::SetDefaultPolicyVersionOutput::default())
+                         Ok(super::SetDefaultPolicyVersionOutput)
                      }
 }
 pub use Builder as SetDefaultPolicyVersionFluentBuilder;

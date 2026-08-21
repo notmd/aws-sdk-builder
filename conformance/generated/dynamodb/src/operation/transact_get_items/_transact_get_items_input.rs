@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct TransactGetItemsInput {
     pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-    pub transact_items: ::std::option::Option<super::super::super::types::TransactGetItemList>,
+    pub transact_items: ::std::option::Option<::std::vec::Vec<super::super::super::types::TransactGetItem>>,
 }
         impl TransactGetItemsInput {
             pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
@@ -15,15 +15,15 @@ impl TransactGetItemsInput {
 #[derive(Clone, Debug, Default)]
 pub struct TransactGetItemsInputBuilder {
     return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-    transact_items: ::std::option::Option<super::super::super::types::TransactGetItemList>,
+    transact_items: ::std::option::Option<::std::vec::Vec<super::super::super::types::TransactGetItem>>,
 }
 impl TransactGetItemsInputBuilder {
     pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
     pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
     pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
-    pub fn transact_items(mut self, input: impl ::std::convert::Into<super::super::super::types::TransactGetItemList>) -> Self { self.transact_items = Some(input.into()); self }
-    pub fn set_transact_items(mut self, input: ::std::option::Option<super::super::super::types::TransactGetItemList>) -> Self { self.transact_items = input; self }
-    pub fn get_transact_items(&self) -> &::std::option::Option<super::super::super::types::TransactGetItemList> { &self.transact_items }
+    pub fn transact_items(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TransactGetItem>>) -> Self { self.transact_items = Some(input.into()); self }
+    pub fn set_transact_items(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TransactGetItem>>) -> Self { self.transact_items = input; self }
+    pub fn get_transact_items(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TransactGetItem>> { &self.transact_items }
     pub fn build(self) -> TransactGetItemsInput { TransactGetItemsInput {
         return_consumed_capacity: self.return_consumed_capacity,
         transact_items: self.transact_items,

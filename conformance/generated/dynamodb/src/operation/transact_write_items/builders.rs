@@ -13,7 +13,7 @@ impl Builder {
     pub fn client_request_token(mut self, value: impl ::std::convert::Into<super::super::super::types::ClientRequestToken>) -> Self { self.input.client_request_token = Some(value.into()); self }
     pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
     pub fn return_item_collection_metrics(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnItemCollectionMetrics>) -> Self { self.input.return_item_collection_metrics = Some(value.into()); self }
-    pub fn transact_items(mut self, value: impl ::std::convert::Into<super::super::super::types::TransactWriteItemList>) -> Self { self.input.transact_items = Some(value.into()); self }
+    pub fn transact_items(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TransactWriteItem>>) -> Self { self.input.transact_items = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::TransactWriteItemsOutput, super::TransactWriteItemsError> {

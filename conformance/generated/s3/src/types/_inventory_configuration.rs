@@ -7,7 +7,7 @@
         pub id: ::std::option::Option<self::InventoryId>,
         pub included_object_versions: ::std::option::Option<self::InventoryIncludedObjectVersions>,
         pub is_enabled: ::std::option::Option<self::IsEnabled>,
-        pub optional_fields: ::std::option::Option<self::InventoryOptionalFields>,
+        pub optional_fields: ::std::option::Option<::std::vec::Vec<self::InventoryOptionalField>>,
         pub schedule: ::std::option::Option<self::InventorySchedule>,
     }
     impl InventoryConfiguration {
@@ -17,7 +17,7 @@
         pub fn id(&self) -> &::std::option::Option<self::InventoryId> { &self.id }
         pub fn included_object_versions(&self) -> &::std::option::Option<self::InventoryIncludedObjectVersions> { &self.included_object_versions }
         pub fn is_enabled(&self) -> &::std::option::Option<self::IsEnabled> { &self.is_enabled }
-        pub fn optional_fields(&self) -> &::std::option::Option<self::InventoryOptionalFields> { &self.optional_fields }
+        pub fn optional_fields(&self) -> &::std::option::Option<::std::vec::Vec<self::InventoryOptionalField>> { &self.optional_fields }
         pub fn schedule(&self) -> &::std::option::Option<self::InventorySchedule> { &self.schedule }
     }
 
@@ -28,7 +28,7 @@
         id: ::std::option::Option<self::InventoryId>,
         included_object_versions: ::std::option::Option<self::InventoryIncludedObjectVersions>,
         is_enabled: ::std::option::Option<self::IsEnabled>,
-        optional_fields: ::std::option::Option<self::InventoryOptionalFields>,
+        optional_fields: ::std::option::Option<::std::vec::Vec<self::InventoryOptionalField>>,
         schedule: ::std::option::Option<self::InventorySchedule>,
     }
 
@@ -48,9 +48,9 @@
         pub fn is_enabled(mut self, input: impl ::std::convert::Into<self::IsEnabled>) -> Self { self.is_enabled = Some(input.into()); self }
         pub fn set_is_enabled(mut self, input: ::std::option::Option<self::IsEnabled>) -> Self { self.is_enabled = input; self }
         pub fn get_is_enabled(&self) -> &::std::option::Option<self::IsEnabled> { &self.is_enabled }
-        pub fn optional_fields(mut self, input: impl ::std::convert::Into<self::InventoryOptionalFields>) -> Self { self.optional_fields = Some(input.into()); self }
-        pub fn set_optional_fields(mut self, input: ::std::option::Option<self::InventoryOptionalFields>) -> Self { self.optional_fields = input; self }
-        pub fn get_optional_fields(&self) -> &::std::option::Option<self::InventoryOptionalFields> { &self.optional_fields }
+        pub fn optional_fields(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::InventoryOptionalField>>) -> Self { self.optional_fields = Some(input.into()); self }
+        pub fn set_optional_fields(mut self, input: ::std::option::Option<::std::vec::Vec<self::InventoryOptionalField>>) -> Self { self.optional_fields = input; self }
+        pub fn get_optional_fields(&self) -> &::std::option::Option<::std::vec::Vec<self::InventoryOptionalField>> { &self.optional_fields }
         pub fn schedule(mut self, input: impl ::std::convert::Into<self::InventorySchedule>) -> Self { self.schedule = Some(input.into()); self }
         pub fn set_schedule(mut self, input: ::std::option::Option<self::InventorySchedule>) -> Self { self.schedule = input; self }
         pub fn get_schedule(&self) -> &::std::option::Option<self::InventorySchedule> { &self.schedule }

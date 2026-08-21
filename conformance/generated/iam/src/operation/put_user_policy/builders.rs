@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutUserPolicyError::Unhandled(format!("PutUserPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::PutUserPolicyOutput::default())
+                         Ok(super::PutUserPolicyOutput)
                      }
 }
 pub use Builder as PutUserPolicyFluentBuilder;

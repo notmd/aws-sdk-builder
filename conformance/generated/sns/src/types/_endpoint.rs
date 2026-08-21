@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct Endpoint {
-        pub attributes: ::std::option::Option<self::MapStringToString>,
+        pub attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::String>>,
         pub endpoint_arn: ::std::option::Option<self::String>,
     }
     impl Endpoint {
         pub fn builder() -> EndpointBuilder { EndpointBuilder::default() }
-        pub fn attributes(&self) -> &::std::option::Option<self::MapStringToString> { &self.attributes }
+        pub fn attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::String>> { &self.attributes }
         pub fn endpoint_arn(&self) -> ::std::option::Option<&str> { self.endpoint_arn.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct EndpointBuilder {
-        attributes: ::std::option::Option<self::MapStringToString>,
+        attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::String>>,
         endpoint_arn: ::std::option::Option<self::String>,
     }
 
     impl EndpointBuilder {
-        pub fn attributes(mut self, input: impl ::std::convert::Into<self::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-        pub fn set_attributes(mut self, input: ::std::option::Option<self::MapStringToString>) -> Self { self.attributes = input; self }
-        pub fn get_attributes(&self) -> &::std::option::Option<self::MapStringToString> { &self.attributes }
+        pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::String, self::String>>) -> Self { self.attributes = Some(input.into()); self }
+        pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::String, self::String>>) -> Self { self.attributes = input; self }
+        pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::String>> { &self.attributes }
         pub fn endpoint_arn(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.endpoint_arn = Some(input.into()); self }
         pub fn set_endpoint_arn(mut self, input: ::std::option::Option<self::String>) -> Self { self.endpoint_arn = input; self }
         pub fn get_endpoint_arn(&self) -> &::std::option::Option<self::String> { &self.endpoint_arn }

@@ -11,8 +11,8 @@ impl Builder {
         Self { input: super::Input::default(), client }
     }
     pub fn billing_mode_override(mut self, value: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.input.billing_mode_override = Some(value.into()); self }
-    pub fn global_secondary_index_override(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.input.global_secondary_index_override = Some(value.into()); self }
-    pub fn local_secondary_index_override(mut self, value: impl ::std::convert::Into<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.input.local_secondary_index_override = Some(value.into()); self }
+    pub fn global_secondary_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.input.global_secondary_index_override = Some(value.into()); self }
+    pub fn local_secondary_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.input.local_secondary_index_override = Some(value.into()); self }
     pub fn on_demand_throughput_override(mut self, value: impl ::std::convert::Into<super::super::super::types::OnDemandThroughput>) -> Self { self.input.on_demand_throughput_override = Some(value.into()); self }
     pub fn provisioned_throughput_override(mut self, value: impl ::std::convert::Into<super::super::super::types::ProvisionedThroughput>) -> Self { self.input.provisioned_throughput_override = Some(value.into()); self }
     pub fn restore_date_time(mut self, value: impl ::std::convert::Into<super::super::super::types::Date>) -> Self { self.input.restore_date_time = Some(value.into()); self }
@@ -21,7 +21,7 @@ impl Builder {
     pub fn source_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.source_table_name = Some(value.into()); self }
     pub fn target_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.target_table_name = Some(value.into()); self }
     pub fn use_latest_restorable_time(mut self, value: impl ::std::convert::Into<super::super::super::types::BooleanObject>) -> Self { self.input.use_latest_restorable_time = Some(value.into()); self }
-    pub fn vector_index_override(mut self, value: impl ::std::convert::Into<super::super::super::types::VectorIndexList>) -> Self { self.input.vector_index_override = Some(value.into()); self }
+    pub fn vector_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.input.vector_index_override = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::RestoreTableToPointInTimeOutput, super::RestoreTableToPointInTimeError> {

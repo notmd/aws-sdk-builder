@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListMessageMoveTasksOutput {
-    pub results: ::std::option::Option<super::super::super::types::ListMessageMoveTasksResultEntryList>,
+    pub results: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListMessageMoveTasksResultEntry>>,
 }
         impl ListMessageMoveTasksOutput {
             pub fn results(&self) -> &[super::super::super::types::ListMessageMoveTasksResultEntry] { self.results.as_deref().unwrap_or(&[]) }
@@ -12,12 +12,12 @@ impl ListMessageMoveTasksOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListMessageMoveTasksOutputBuilder {
-    results: ::std::option::Option<super::super::super::types::ListMessageMoveTasksResultEntryList>,
+    results: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListMessageMoveTasksResultEntry>>,
 }
 impl ListMessageMoveTasksOutputBuilder {
-    pub fn results(mut self, input: impl ::std::convert::Into<super::super::super::types::ListMessageMoveTasksResultEntryList>) -> Self { self.results = Some(input.into()); self }
-    pub fn set_results(mut self, input: ::std::option::Option<super::super::super::types::ListMessageMoveTasksResultEntryList>) -> Self { self.results = input; self }
-    pub fn get_results(&self) -> &::std::option::Option<super::super::super::types::ListMessageMoveTasksResultEntryList> { &self.results }
+    pub fn results(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ListMessageMoveTasksResultEntry>>) -> Self { self.results = Some(input.into()); self }
+    pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListMessageMoveTasksResultEntry>>) -> Self { self.results = input; self }
+    pub fn get_results(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ListMessageMoveTasksResultEntry>> { &self.results }
     pub fn build(self) -> ListMessageMoveTasksOutput { ListMessageMoveTasksOutput {
         results: self.results,
     } }

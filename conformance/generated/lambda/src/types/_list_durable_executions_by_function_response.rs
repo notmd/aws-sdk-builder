@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ListDurableExecutionsByFunctionResponse {
-        pub durable_executions: ::std::option::Option<self::DurableExecutions>,
+        pub durable_executions: ::std::option::Option<::std::vec::Vec<self::Execution>>,
         pub next_marker: ::std::option::Option<self::String>,
     }
     impl ListDurableExecutionsByFunctionResponse {
         pub fn builder() -> ListDurableExecutionsByFunctionResponseBuilder { ListDurableExecutionsByFunctionResponseBuilder::default() }
-        pub fn durable_executions(&self) -> &::std::option::Option<self::DurableExecutions> { &self.durable_executions }
+        pub fn durable_executions(&self) -> &::std::option::Option<::std::vec::Vec<self::Execution>> { &self.durable_executions }
         pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ListDurableExecutionsByFunctionResponseBuilder {
-        durable_executions: ::std::option::Option<self::DurableExecutions>,
+        durable_executions: ::std::option::Option<::std::vec::Vec<self::Execution>>,
         next_marker: ::std::option::Option<self::String>,
     }
 
     impl ListDurableExecutionsByFunctionResponseBuilder {
-        pub fn durable_executions(mut self, input: impl ::std::convert::Into<self::DurableExecutions>) -> Self { self.durable_executions = Some(input.into()); self }
-        pub fn set_durable_executions(mut self, input: ::std::option::Option<self::DurableExecutions>) -> Self { self.durable_executions = input; self }
-        pub fn get_durable_executions(&self) -> &::std::option::Option<self::DurableExecutions> { &self.durable_executions }
+        pub fn durable_executions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Execution>>) -> Self { self.durable_executions = Some(input.into()); self }
+        pub fn set_durable_executions(mut self, input: ::std::option::Option<::std::vec::Vec<self::Execution>>) -> Self { self.durable_executions = input; self }
+        pub fn get_durable_executions(&self) -> &::std::option::Option<::std::vec::Vec<self::Execution>> { &self.durable_executions }
         pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
         pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
         pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }

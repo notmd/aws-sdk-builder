@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListKeysOutput {
-    pub keys: ::std::option::Option<super::super::super::types::KeyList>,
+    pub keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeyListEntry>>,
     pub next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
     pub truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 }
@@ -16,14 +16,14 @@ impl ListKeysOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListKeysOutputBuilder {
-    keys: ::std::option::Option<super::super::super::types::KeyList>,
+    keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeyListEntry>>,
     next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
     truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 }
 impl ListKeysOutputBuilder {
-    pub fn keys(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyList>) -> Self { self.keys = Some(input.into()); self }
-    pub fn set_keys(mut self, input: ::std::option::Option<super::super::super::types::KeyList>) -> Self { self.keys = input; self }
-    pub fn get_keys(&self) -> &::std::option::Option<super::super::super::types::KeyList> { &self.keys }
+    pub fn keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::KeyListEntry>>) -> Self { self.keys = Some(input.into()); self }
+    pub fn set_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeyListEntry>>) -> Self { self.keys = input; self }
+    pub fn get_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::KeyListEntry>> { &self.keys }
     pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.next_marker = Some(input.into()); self }
     pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.next_marker = input; self }
     pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.next_marker }

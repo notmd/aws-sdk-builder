@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteQueueError::Unhandled(format!("DeleteQueue returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteQueueOutput::default())
+                         Ok(super::DeleteQueueOutput)
                      }
 }
 pub use Builder as DeleteQueueFluentBuilder;

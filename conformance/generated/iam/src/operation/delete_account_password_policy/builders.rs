@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteAccountPasswordPolicyError::Unhandled(format!("DeleteAccountPasswordPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteAccountPasswordPolicyOutput::default())
+                         Ok(super::DeleteAccountPasswordPolicyOutput)
                      }
 }
 pub use Builder as DeleteAccountPasswordPolicyFluentBuilder;

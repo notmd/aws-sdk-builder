@@ -3,20 +3,20 @@
 #[derive(Clone, Debug, Default)]
 pub struct SendMessageInput {
     pub delay_seconds: ::std::option::Option<super::super::super::types::NullableInteger>,
-    pub message_attributes: ::std::option::Option<super::super::super::types::MessageBodyAttributeMap>,
+    pub message_attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>,
     pub message_body: ::std::option::Option<super::super::super::types::String>,
     pub message_deduplication_id: ::std::option::Option<super::super::super::types::String>,
     pub message_group_id: ::std::option::Option<super::super::super::types::String>,
-    pub message_system_attributes: ::std::option::Option<super::super::super::types::MessageBodySystemAttributeMap>,
+    pub message_system_attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>>,
     pub queue_url: ::std::option::Option<super::super::super::types::String>,
 }
         impl SendMessageInput {
             pub fn delay_seconds(&self) -> ::std::option::Option<i32> { self.delay_seconds }
-            pub fn message_attributes(&self) -> ::std::option::Option<&super::super::super::types::MessageBodyAttributeMap> { self.message_attributes.as_ref() }
+            pub fn message_attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>> { self.message_attributes.as_ref() }
             pub fn message_body(&self) -> ::std::option::Option<&str> { self.message_body.as_deref() }
             pub fn message_deduplication_id(&self) -> ::std::option::Option<&str> { self.message_deduplication_id.as_deref() }
             pub fn message_group_id(&self) -> ::std::option::Option<&str> { self.message_group_id.as_deref() }
-            pub fn message_system_attributes(&self) -> ::std::option::Option<&super::super::super::types::MessageBodySystemAttributeMap> { self.message_system_attributes.as_ref() }
+            pub fn message_system_attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>> { self.message_system_attributes.as_ref() }
             pub fn queue_url(&self) -> ::std::option::Option<&str> { self.queue_url.as_deref() }
         }
 impl SendMessageInput {
@@ -25,20 +25,20 @@ impl SendMessageInput {
 #[derive(Clone, Debug, Default)]
 pub struct SendMessageInputBuilder {
     delay_seconds: ::std::option::Option<super::super::super::types::NullableInteger>,
-    message_attributes: ::std::option::Option<super::super::super::types::MessageBodyAttributeMap>,
+    message_attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>,
     message_body: ::std::option::Option<super::super::super::types::String>,
     message_deduplication_id: ::std::option::Option<super::super::super::types::String>,
     message_group_id: ::std::option::Option<super::super::super::types::String>,
-    message_system_attributes: ::std::option::Option<super::super::super::types::MessageBodySystemAttributeMap>,
+    message_system_attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>>,
     queue_url: ::std::option::Option<super::super::super::types::String>,
 }
 impl SendMessageInputBuilder {
     pub fn delay_seconds(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.delay_seconds = Some(input.into()); self }
     pub fn set_delay_seconds(mut self, input: ::std::option::Option<super::super::super::types::NullableInteger>) -> Self { self.delay_seconds = input; self }
     pub fn get_delay_seconds(&self) -> &::std::option::Option<super::super::super::types::NullableInteger> { &self.delay_seconds }
-    pub fn message_attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MessageBodyAttributeMap>) -> Self { self.message_attributes = Some(input.into()); self }
-    pub fn set_message_attributes(mut self, input: ::std::option::Option<super::super::super::types::MessageBodyAttributeMap>) -> Self { self.message_attributes = input; self }
-    pub fn get_message_attributes(&self) -> &::std::option::Option<super::super::super::types::MessageBodyAttributeMap> { &self.message_attributes }
+    pub fn message_attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>) -> Self { self.message_attributes = Some(input.into()); self }
+    pub fn set_message_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>) -> Self { self.message_attributes = input; self }
+    pub fn get_message_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>> { &self.message_attributes }
     pub fn message_body(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.message_body = Some(input.into()); self }
     pub fn set_message_body(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.message_body = input; self }
     pub fn get_message_body(&self) -> &::std::option::Option<super::super::super::types::String> { &self.message_body }
@@ -48,9 +48,9 @@ impl SendMessageInputBuilder {
     pub fn message_group_id(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.message_group_id = Some(input.into()); self }
     pub fn set_message_group_id(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.message_group_id = input; self }
     pub fn get_message_group_id(&self) -> &::std::option::Option<super::super::super::types::String> { &self.message_group_id }
-    pub fn message_system_attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MessageBodySystemAttributeMap>) -> Self { self.message_system_attributes = Some(input.into()); self }
-    pub fn set_message_system_attributes(mut self, input: ::std::option::Option<super::super::super::types::MessageBodySystemAttributeMap>) -> Self { self.message_system_attributes = input; self }
-    pub fn get_message_system_attributes(&self) -> &::std::option::Option<super::super::super::types::MessageBodySystemAttributeMap> { &self.message_system_attributes }
+    pub fn message_system_attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>>) -> Self { self.message_system_attributes = Some(input.into()); self }
+    pub fn set_message_system_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>>) -> Self { self.message_system_attributes = input; self }
+    pub fn get_message_system_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>> { &self.message_system_attributes }
     pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
     pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
     pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }

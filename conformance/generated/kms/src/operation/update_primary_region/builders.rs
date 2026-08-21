@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdatePrimaryRegionError::Unhandled(format!("UpdatePrimaryRegion returned HTTP {}", status)));
                          }
-                         Ok(super::UpdatePrimaryRegionOutput::default())
+                         Ok(super::UpdatePrimaryRegionOutput)
                      }
 }
 pub use Builder as UpdatePrimaryRegionFluentBuilder;

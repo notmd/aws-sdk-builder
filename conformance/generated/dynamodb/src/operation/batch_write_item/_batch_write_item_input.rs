@@ -2,12 +2,12 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct BatchWriteItemInput {
-    pub request_items: ::std::option::Option<super::super::super::types::BatchWriteItemRequestMap>,
+    pub request_items: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>,
     pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     pub return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
 }
         impl BatchWriteItemInput {
-            pub fn request_items(&self) -> ::std::option::Option<&super::super::super::types::BatchWriteItemRequestMap> { self.request_items.as_ref() }
+            pub fn request_items(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>> { self.request_items.as_ref() }
             pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
             pub fn return_item_collection_metrics(&self) -> ::std::option::Option<&super::super::super::types::ReturnItemCollectionMetrics> { self.return_item_collection_metrics.as_ref() }
         }
@@ -16,14 +16,14 @@ impl BatchWriteItemInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct BatchWriteItemInputBuilder {
-    request_items: ::std::option::Option<super::super::super::types::BatchWriteItemRequestMap>,
+    request_items: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>,
     return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
 }
 impl BatchWriteItemInputBuilder {
-    pub fn request_items(mut self, input: impl ::std::convert::Into<super::super::super::types::BatchWriteItemRequestMap>) -> Self { self.request_items = Some(input.into()); self }
-    pub fn set_request_items(mut self, input: ::std::option::Option<super::super::super::types::BatchWriteItemRequestMap>) -> Self { self.request_items = input; self }
-    pub fn get_request_items(&self) -> &::std::option::Option<super::super::super::types::BatchWriteItemRequestMap> { &self.request_items }
+    pub fn request_items(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>) -> Self { self.request_items = Some(input.into()); self }
+    pub fn set_request_items(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>) -> Self { self.request_items = input; self }
+    pub fn get_request_items(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>> { &self.request_items }
     pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
     pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
     pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }

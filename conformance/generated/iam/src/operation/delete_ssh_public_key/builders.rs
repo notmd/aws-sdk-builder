@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteSshPublicKeyError::Unhandled(format!("DeleteSshPublicKey returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteSshPublicKeyOutput::default())
+                         Ok(super::DeleteSshPublicKeyOutput)
                      }
 }
 pub use Builder as DeleteSshPublicKeyFluentBuilder;

@@ -2,7 +2,7 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ReplicaDescription {
-        pub global_secondary_indexes: ::std::option::Option<self::ReplicaGlobalSecondaryIndexDescriptionList>,
+        pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexDescription>>,
         pub global_table_settings_replication_mode: ::std::option::Option<self::GlobalTableSettingsReplicationMode>,
         pub kms_master_key_id: ::std::option::Option<self::KmsMasterKeyId>,
         pub on_demand_throughput_override: ::std::option::Option<self::OnDemandThroughputOverride>,
@@ -18,7 +18,7 @@
     }
     impl ReplicaDescription {
         pub fn builder() -> ReplicaDescriptionBuilder { ReplicaDescriptionBuilder::default() }
-        pub fn global_secondary_indexes(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexDescriptionList> { &self.global_secondary_indexes }
+        pub fn global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexDescription>> { &self.global_secondary_indexes }
         pub fn global_table_settings_replication_mode(&self) -> &::std::option::Option<self::GlobalTableSettingsReplicationMode> { &self.global_table_settings_replication_mode }
         pub fn kms_master_key_id(&self) -> &::std::option::Option<self::KmsMasterKeyId> { &self.kms_master_key_id }
         pub fn on_demand_throughput_override(&self) -> &::std::option::Option<self::OnDemandThroughputOverride> { &self.on_demand_throughput_override }
@@ -35,7 +35,7 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ReplicaDescriptionBuilder {
-        global_secondary_indexes: ::std::option::Option<self::ReplicaGlobalSecondaryIndexDescriptionList>,
+        global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexDescription>>,
         global_table_settings_replication_mode: ::std::option::Option<self::GlobalTableSettingsReplicationMode>,
         kms_master_key_id: ::std::option::Option<self::KmsMasterKeyId>,
         on_demand_throughput_override: ::std::option::Option<self::OnDemandThroughputOverride>,
@@ -51,9 +51,9 @@
     }
 
     impl ReplicaDescriptionBuilder {
-        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<self::ReplicaGlobalSecondaryIndexDescriptionList>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<self::ReplicaGlobalSecondaryIndexDescriptionList>) -> Self { self.global_secondary_indexes = input; self }
-        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexDescriptionList> { &self.global_secondary_indexes }
+        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexDescription>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
+        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexDescription>>) -> Self { self.global_secondary_indexes = input; self }
+        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexDescription>> { &self.global_secondary_indexes }
         pub fn global_table_settings_replication_mode(mut self, input: impl ::std::convert::Into<self::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = Some(input.into()); self }
         pub fn set_global_table_settings_replication_mode(mut self, input: ::std::option::Option<self::GlobalTableSettingsReplicationMode>) -> Self { self.global_table_settings_replication_mode = input; self }
         pub fn get_global_table_settings_replication_mode(&self) -> &::std::option::Option<self::GlobalTableSettingsReplicationMode> { &self.global_table_settings_replication_mode }

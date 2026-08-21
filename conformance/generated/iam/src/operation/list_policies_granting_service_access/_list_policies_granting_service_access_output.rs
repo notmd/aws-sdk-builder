@@ -4,7 +4,7 @@
 pub struct ListPoliciesGrantingServiceAccessOutput {
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub policies_granting_service_access: ::std::option::Option<super::super::super::types::ListPolicyGrantingServiceAccessResponseListType>,
+    pub policies_granting_service_access: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListPoliciesGrantingServiceAccessEntry>>,
 }
         impl ListPoliciesGrantingServiceAccessOutput {
             pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -18,7 +18,7 @@ impl ListPoliciesGrantingServiceAccessOutput {
 pub struct ListPoliciesGrantingServiceAccessOutputBuilder {
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    policies_granting_service_access: ::std::option::Option<super::super::super::types::ListPolicyGrantingServiceAccessResponseListType>,
+    policies_granting_service_access: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListPoliciesGrantingServiceAccessEntry>>,
 }
 impl ListPoliciesGrantingServiceAccessOutputBuilder {
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
@@ -27,9 +27,9 @@ impl ListPoliciesGrantingServiceAccessOutputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn policies_granting_service_access(mut self, input: impl ::std::convert::Into<super::super::super::types::ListPolicyGrantingServiceAccessResponseListType>) -> Self { self.policies_granting_service_access = Some(input.into()); self }
-    pub fn set_policies_granting_service_access(mut self, input: ::std::option::Option<super::super::super::types::ListPolicyGrantingServiceAccessResponseListType>) -> Self { self.policies_granting_service_access = input; self }
-    pub fn get_policies_granting_service_access(&self) -> &::std::option::Option<super::super::super::types::ListPolicyGrantingServiceAccessResponseListType> { &self.policies_granting_service_access }
+    pub fn policies_granting_service_access(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ListPoliciesGrantingServiceAccessEntry>>) -> Self { self.policies_granting_service_access = Some(input.into()); self }
+    pub fn set_policies_granting_service_access(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListPoliciesGrantingServiceAccessEntry>>) -> Self { self.policies_granting_service_access = input; self }
+    pub fn get_policies_granting_service_access(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ListPoliciesGrantingServiceAccessEntry>> { &self.policies_granting_service_access }
     pub fn build(self) -> ListPoliciesGrantingServiceAccessOutput { ListPoliciesGrantingServiceAccessOutput {
         is_truncated: self.is_truncated,
         marker: self.marker,

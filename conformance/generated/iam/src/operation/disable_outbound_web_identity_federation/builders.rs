@@ -21,7 +21,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DisableOutboundWebIdentityFederationError::Unhandled(format!("DisableOutboundWebIdentityFederation returned HTTP {}", status)));
                          }
-                         Ok(super::DisableOutboundWebIdentityFederationOutput::default())
+                         Ok(super::DisableOutboundWebIdentityFederationOutput)
                      }
 }
 pub use Builder as DisableOutboundWebIdentityFederationFluentBuilder;

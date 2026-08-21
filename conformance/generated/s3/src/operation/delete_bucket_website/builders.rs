@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteBucketWebsiteError::Unhandled(format!("DeleteBucketWebsite returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteBucketWebsiteOutput::default())
+                         Ok(super::DeleteBucketWebsiteOutput)
                      }
 }
 pub use Builder as DeleteBucketWebsiteFluentBuilder;

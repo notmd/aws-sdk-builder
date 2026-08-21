@@ -3,11 +3,11 @@
 #[derive(Clone, Debug, Default)]
 pub struct UpdateGlobalTableSettingsInput {
     pub global_table_billing_mode: ::std::option::Option<super::super::super::types::BillingMode>,
-    pub global_table_global_secondary_index_settings_update: ::std::option::Option<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdateList>,
+    pub global_table_global_secondary_index_settings_update: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>,
     pub global_table_name: ::std::option::Option<super::super::super::types::TableName>,
     pub global_table_provisioned_write_capacity_auto_scaling_settings_update: ::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate>,
     pub global_table_provisioned_write_capacity_units: ::std::option::Option<super::super::super::types::PositiveLongObject>,
-    pub replica_settings_update: ::std::option::Option<super::super::super::types::ReplicaSettingsUpdateList>,
+    pub replica_settings_update: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>,
 }
         impl UpdateGlobalTableSettingsInput {
             pub fn global_table_billing_mode(&self) -> ::std::option::Option<&super::super::super::types::BillingMode> { self.global_table_billing_mode.as_ref() }
@@ -23,19 +23,19 @@ impl UpdateGlobalTableSettingsInput {
 #[derive(Clone, Debug, Default)]
 pub struct UpdateGlobalTableSettingsInputBuilder {
     global_table_billing_mode: ::std::option::Option<super::super::super::types::BillingMode>,
-    global_table_global_secondary_index_settings_update: ::std::option::Option<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdateList>,
+    global_table_global_secondary_index_settings_update: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>,
     global_table_name: ::std::option::Option<super::super::super::types::TableName>,
     global_table_provisioned_write_capacity_auto_scaling_settings_update: ::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate>,
     global_table_provisioned_write_capacity_units: ::std::option::Option<super::super::super::types::PositiveLongObject>,
-    replica_settings_update: ::std::option::Option<super::super::super::types::ReplicaSettingsUpdateList>,
+    replica_settings_update: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>,
 }
 impl UpdateGlobalTableSettingsInputBuilder {
     pub fn global_table_billing_mode(mut self, input: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.global_table_billing_mode = Some(input.into()); self }
     pub fn set_global_table_billing_mode(mut self, input: ::std::option::Option<super::super::super::types::BillingMode>) -> Self { self.global_table_billing_mode = input; self }
     pub fn get_global_table_billing_mode(&self) -> &::std::option::Option<super::super::super::types::BillingMode> { &self.global_table_billing_mode }
-    pub fn global_table_global_secondary_index_settings_update(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdateList>) -> Self { self.global_table_global_secondary_index_settings_update = Some(input.into()); self }
-    pub fn set_global_table_global_secondary_index_settings_update(mut self, input: ::std::option::Option<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdateList>) -> Self { self.global_table_global_secondary_index_settings_update = input; self }
-    pub fn get_global_table_global_secondary_index_settings_update(&self) -> &::std::option::Option<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdateList> { &self.global_table_global_secondary_index_settings_update }
+    pub fn global_table_global_secondary_index_settings_update(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>) -> Self { self.global_table_global_secondary_index_settings_update = Some(input.into()); self }
+    pub fn set_global_table_global_secondary_index_settings_update(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>) -> Self { self.global_table_global_secondary_index_settings_update = input; self }
+    pub fn get_global_table_global_secondary_index_settings_update(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>> { &self.global_table_global_secondary_index_settings_update }
     pub fn global_table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.global_table_name = Some(input.into()); self }
     pub fn set_global_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.global_table_name = input; self }
     pub fn get_global_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.global_table_name }
@@ -45,9 +45,9 @@ impl UpdateGlobalTableSettingsInputBuilder {
     pub fn global_table_provisioned_write_capacity_units(mut self, input: impl ::std::convert::Into<super::super::super::types::PositiveLongObject>) -> Self { self.global_table_provisioned_write_capacity_units = Some(input.into()); self }
     pub fn set_global_table_provisioned_write_capacity_units(mut self, input: ::std::option::Option<super::super::super::types::PositiveLongObject>) -> Self { self.global_table_provisioned_write_capacity_units = input; self }
     pub fn get_global_table_provisioned_write_capacity_units(&self) -> &::std::option::Option<super::super::super::types::PositiveLongObject> { &self.global_table_provisioned_write_capacity_units }
-    pub fn replica_settings_update(mut self, input: impl ::std::convert::Into<super::super::super::types::ReplicaSettingsUpdateList>) -> Self { self.replica_settings_update = Some(input.into()); self }
-    pub fn set_replica_settings_update(mut self, input: ::std::option::Option<super::super::super::types::ReplicaSettingsUpdateList>) -> Self { self.replica_settings_update = input; self }
-    pub fn get_replica_settings_update(&self) -> &::std::option::Option<super::super::super::types::ReplicaSettingsUpdateList> { &self.replica_settings_update }
+    pub fn replica_settings_update(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>) -> Self { self.replica_settings_update = Some(input.into()); self }
+    pub fn set_replica_settings_update(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>) -> Self { self.replica_settings_update = input; self }
+    pub fn get_replica_settings_update(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>> { &self.replica_settings_update }
     pub fn build(self) -> UpdateGlobalTableSettingsInput { UpdateGlobalTableSettingsInput {
         global_table_billing_mode: self.global_table_billing_mode,
         global_table_global_secondary_index_settings_update: self.global_table_global_secondary_index_settings_update,

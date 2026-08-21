@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketTaggingError::Unhandled(format!("PutBucketTagging returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketTaggingOutput::default())
+                         Ok(super::PutBucketTaggingOutput)
                      }
 }
 pub use Builder as PutBucketTaggingFluentBuilder;

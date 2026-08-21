@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateServiceSpecificCredentialError::Unhandled(format!("UpdateServiceSpecificCredential returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateServiceSpecificCredentialOutput::default())
+                         Ok(super::UpdateServiceSpecificCredentialOutput)
                      }
 }
 pub use Builder as UpdateServiceSpecificCredentialFluentBuilder;

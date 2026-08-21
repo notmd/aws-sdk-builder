@@ -26,7 +26,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketIntelligentTieringConfigurationError::Unhandled(format!("PutBucketIntelligentTieringConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketIntelligentTieringConfigurationOutput::default())
+                         Ok(super::PutBucketIntelligentTieringConfigurationOutput)
                      }
 }
 pub use Builder as PutBucketIntelligentTieringConfigurationFluentBuilder;

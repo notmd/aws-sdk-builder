@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListAccessKeysOutput {
-    pub access_key_metadata: ::std::option::Option<super::super::super::types::AccessKeyMetadataListType>,
+    pub access_key_metadata: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessKeyMetadata>>,
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
@@ -16,14 +16,14 @@ impl ListAccessKeysOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListAccessKeysOutputBuilder {
-    access_key_metadata: ::std::option::Option<super::super::super::types::AccessKeyMetadataListType>,
+    access_key_metadata: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessKeyMetadata>>,
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
 impl ListAccessKeysOutputBuilder {
-    pub fn access_key_metadata(mut self, input: impl ::std::convert::Into<super::super::super::types::AccessKeyMetadataListType>) -> Self { self.access_key_metadata = Some(input.into()); self }
-    pub fn set_access_key_metadata(mut self, input: ::std::option::Option<super::super::super::types::AccessKeyMetadataListType>) -> Self { self.access_key_metadata = input; self }
-    pub fn get_access_key_metadata(&self) -> &::std::option::Option<super::super::super::types::AccessKeyMetadataListType> { &self.access_key_metadata }
+    pub fn access_key_metadata(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AccessKeyMetadata>>) -> Self { self.access_key_metadata = Some(input.into()); self }
+    pub fn set_access_key_metadata(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessKeyMetadata>>) -> Self { self.access_key_metadata = input; self }
+    pub fn get_access_key_metadata(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AccessKeyMetadata>> { &self.access_key_metadata }
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
     pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
     pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }

@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListImportsOutput {
-    pub import_summary_list: ::std::option::Option<super::super::super::types::ImportSummaryList>,
+    pub import_summary_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ImportSummary>>,
     pub next_token: ::std::option::Option<super::super::super::types::ImportNextToken>,
 }
         impl ListImportsOutput {
@@ -14,13 +14,13 @@ impl ListImportsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListImportsOutputBuilder {
-    import_summary_list: ::std::option::Option<super::super::super::types::ImportSummaryList>,
+    import_summary_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ImportSummary>>,
     next_token: ::std::option::Option<super::super::super::types::ImportNextToken>,
 }
 impl ListImportsOutputBuilder {
-    pub fn import_summary_list(mut self, input: impl ::std::convert::Into<super::super::super::types::ImportSummaryList>) -> Self { self.import_summary_list = Some(input.into()); self }
-    pub fn set_import_summary_list(mut self, input: ::std::option::Option<super::super::super::types::ImportSummaryList>) -> Self { self.import_summary_list = input; self }
-    pub fn get_import_summary_list(&self) -> &::std::option::Option<super::super::super::types::ImportSummaryList> { &self.import_summary_list }
+    pub fn import_summary_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ImportSummary>>) -> Self { self.import_summary_list = Some(input.into()); self }
+    pub fn set_import_summary_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ImportSummary>>) -> Self { self.import_summary_list = input; self }
+    pub fn get_import_summary_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ImportSummary>> { &self.import_summary_list }
     pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::ImportNextToken>) -> Self { self.next_token = Some(input.into()); self }
     pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::ImportNextToken>) -> Self { self.next_token = input; self }
     pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::ImportNextToken> { &self.next_token }

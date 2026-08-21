@@ -2,10 +2,10 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetItemInput {
-    pub attributes_to_get: ::std::option::Option<super::super::super::types::AttributeNameList>,
+    pub attributes_to_get: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>,
     pub consistent_read: ::std::option::Option<super::super::super::types::ConsistentRead>,
-    pub expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-    pub key: ::std::option::Option<super::super::super::types::Key>,
+    pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
+    pub key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
     pub projection_expression: ::std::option::Option<super::super::super::types::ProjectionExpression>,
     pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     pub table_name: ::std::option::Option<super::super::super::types::TableArn>,
@@ -13,8 +13,8 @@ pub struct GetItemInput {
         impl GetItemInput {
             pub fn attributes_to_get(&self) -> &[super::super::super::types::AttributeName] { self.attributes_to_get.as_deref().unwrap_or(&[]) }
             pub fn consistent_read(&self) -> ::std::option::Option<bool> { self.consistent_read }
-            pub fn expression_attribute_names(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeNameMap> { self.expression_attribute_names.as_ref() }
-            pub fn key(&self) -> ::std::option::Option<&super::super::super::types::Key> { self.key.as_ref() }
+            pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { self.expression_attribute_names.as_ref() }
+            pub fn key(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.key.as_ref() }
             pub fn projection_expression(&self) -> ::std::option::Option<&str> { self.projection_expression.as_deref() }
             pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
             pub fn table_name(&self) -> ::std::option::Option<&str> { self.table_name.as_deref() }
@@ -24,27 +24,27 @@ impl GetItemInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetItemInputBuilder {
-    attributes_to_get: ::std::option::Option<super::super::super::types::AttributeNameList>,
+    attributes_to_get: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>,
     consistent_read: ::std::option::Option<super::super::super::types::ConsistentRead>,
-    expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-    key: ::std::option::Option<super::super::super::types::Key>,
+    expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
+    key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
     projection_expression: ::std::option::Option<super::super::super::types::ProjectionExpression>,
     return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     table_name: ::std::option::Option<super::super::super::types::TableArn>,
 }
 impl GetItemInputBuilder {
-    pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.attributes_to_get = Some(input.into()); self }
-    pub fn set_attributes_to_get(mut self, input: ::std::option::Option<super::super::super::types::AttributeNameList>) -> Self { self.attributes_to_get = input; self }
-    pub fn get_attributes_to_get(&self) -> &::std::option::Option<super::super::super::types::AttributeNameList> { &self.attributes_to_get }
+    pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.attributes_to_get = Some(input.into()); self }
+    pub fn set_attributes_to_get(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.attributes_to_get = input; self }
+    pub fn get_attributes_to_get(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>> { &self.attributes_to_get }
     pub fn consistent_read(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.consistent_read = Some(input.into()); self }
     pub fn set_consistent_read(mut self, input: ::std::option::Option<super::super::super::types::ConsistentRead>) -> Self { self.consistent_read = input; self }
     pub fn get_consistent_read(&self) -> &::std::option::Option<super::super::super::types::ConsistentRead> { &self.consistent_read }
-    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-    pub fn key(mut self, input: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.key = Some(input.into()); self }
-    pub fn set_key(mut self, input: ::std::option::Option<super::super::super::types::Key>) -> Self { self.key = input; self }
-    pub fn get_key(&self) -> &::std::option::Option<super::super::super::types::Key> { &self.key }
+    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
+    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
+    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { &self.expression_attribute_names }
+    pub fn key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.key = Some(input.into()); self }
+    pub fn set_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.key = input; self }
+    pub fn get_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.key }
     pub fn projection_expression(mut self, input: impl ::std::convert::Into<super::super::super::types::ProjectionExpression>) -> Self { self.projection_expression = Some(input.into()); self }
     pub fn set_projection_expression(mut self, input: ::std::option::Option<super::super::super::types::ProjectionExpression>) -> Self { self.projection_expression = input; self }
     pub fn get_projection_expression(&self) -> &::std::option::Option<super::super::super::types::ProjectionExpression> { &self.projection_expression }

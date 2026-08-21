@@ -26,7 +26,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketMetricsConfigurationError::Unhandled(format!("PutBucketMetricsConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketMetricsConfigurationOutput::default())
+                         Ok(super::PutBucketMetricsConfigurationOutput)
                      }
 }
 pub use Builder as PutBucketMetricsConfigurationFluentBuilder;

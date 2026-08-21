@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct CompletedMultipartUpload {
-        pub parts: ::std::option::Option<self::CompletedPartList>,
+        pub parts: ::std::option::Option<::std::vec::Vec<self::CompletedPart>>,
     }
     impl CompletedMultipartUpload {
         pub fn builder() -> CompletedMultipartUploadBuilder { CompletedMultipartUploadBuilder::default() }
-        pub fn parts(&self) -> &::std::option::Option<self::CompletedPartList> { &self.parts }
+        pub fn parts(&self) -> &::std::option::Option<::std::vec::Vec<self::CompletedPart>> { &self.parts }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct CompletedMultipartUploadBuilder {
-        parts: ::std::option::Option<self::CompletedPartList>,
+        parts: ::std::option::Option<::std::vec::Vec<self::CompletedPart>>,
     }
 
     impl CompletedMultipartUploadBuilder {
-        pub fn parts(mut self, input: impl ::std::convert::Into<self::CompletedPartList>) -> Self { self.parts = Some(input.into()); self }
-        pub fn set_parts(mut self, input: ::std::option::Option<self::CompletedPartList>) -> Self { self.parts = input; self }
-        pub fn get_parts(&self) -> &::std::option::Option<self::CompletedPartList> { &self.parts }
+        pub fn parts(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::CompletedPart>>) -> Self { self.parts = Some(input.into()); self }
+        pub fn set_parts(mut self, input: ::std::option::Option<::std::vec::Vec<self::CompletedPart>>) -> Self { self.parts = input; self }
+        pub fn get_parts(&self) -> &::std::option::Option<::std::vec::Vec<self::CompletedPart>> { &self.parts }
         pub fn build(self) -> CompletedMultipartUpload {
             CompletedMultipartUpload {
                 parts: self.parts,

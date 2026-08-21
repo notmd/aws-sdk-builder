@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct PropagateTags {
-        pub explicit_tags: ::std::option::Option<self::Tags>,
+        pub explicit_tags: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>,
         pub mode: ::std::option::Option<self::PropagateTagsMode>,
     }
     impl PropagateTags {
         pub fn builder() -> PropagateTagsBuilder { PropagateTagsBuilder::default() }
-        pub fn explicit_tags(&self) -> &::std::option::Option<self::Tags> { &self.explicit_tags }
+        pub fn explicit_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>> { &self.explicit_tags }
         pub fn mode(&self) -> &::std::option::Option<self::PropagateTagsMode> { &self.mode }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct PropagateTagsBuilder {
-        explicit_tags: ::std::option::Option<self::Tags>,
+        explicit_tags: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>,
         mode: ::std::option::Option<self::PropagateTagsMode>,
     }
 
     impl PropagateTagsBuilder {
-        pub fn explicit_tags(mut self, input: impl ::std::convert::Into<self::Tags>) -> Self { self.explicit_tags = Some(input.into()); self }
-        pub fn set_explicit_tags(mut self, input: ::std::option::Option<self::Tags>) -> Self { self.explicit_tags = input; self }
-        pub fn get_explicit_tags(&self) -> &::std::option::Option<self::Tags> { &self.explicit_tags }
+        pub fn explicit_tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::TagKey, self::TagValue>>) -> Self { self.explicit_tags = Some(input.into()); self }
+        pub fn set_explicit_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>) -> Self { self.explicit_tags = input; self }
+        pub fn get_explicit_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>> { &self.explicit_tags }
         pub fn mode(mut self, input: impl ::std::convert::Into<self::PropagateTagsMode>) -> Self { self.mode = Some(input.into()); self }
         pub fn set_mode(mut self, input: ::std::option::Option<self::PropagateTagsMode>) -> Self { self.mode = input; self }
         pub fn get_mode(&self) -> &::std::option::Option<self::PropagateTagsMode> { &self.mode }

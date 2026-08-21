@@ -14,7 +14,7 @@ pub struct ListPartsOutput {
     pub next_part_number_marker: ::std::option::Option<super::super::super::types::NextPartNumberMarker>,
     pub owner: ::std::option::Option<super::super::super::types::Owner>,
     pub part_number_marker: ::std::option::Option<super::super::super::types::PartNumberMarker>,
-    pub parts: ::std::option::Option<super::super::super::types::Parts>,
+    pub parts: ::std::option::Option<::std::vec::Vec<super::super::super::types::Part>>,
     pub request_charged: ::std::option::Option<super::super::super::types::RequestCharged>,
     pub storage_class: ::std::option::Option<super::super::super::types::StorageClass>,
     pub upload_id: ::std::option::Option<super::super::super::types::MultipartUploadId>,
@@ -54,7 +54,7 @@ pub struct ListPartsOutputBuilder {
     next_part_number_marker: ::std::option::Option<super::super::super::types::NextPartNumberMarker>,
     owner: ::std::option::Option<super::super::super::types::Owner>,
     part_number_marker: ::std::option::Option<super::super::super::types::PartNumberMarker>,
-    parts: ::std::option::Option<super::super::super::types::Parts>,
+    parts: ::std::option::Option<::std::vec::Vec<super::super::super::types::Part>>,
     request_charged: ::std::option::Option<super::super::super::types::RequestCharged>,
     storage_class: ::std::option::Option<super::super::super::types::StorageClass>,
     upload_id: ::std::option::Option<super::super::super::types::MultipartUploadId>,
@@ -96,9 +96,9 @@ impl ListPartsOutputBuilder {
     pub fn part_number_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::PartNumberMarker>) -> Self { self.part_number_marker = Some(input.into()); self }
     pub fn set_part_number_marker(mut self, input: ::std::option::Option<super::super::super::types::PartNumberMarker>) -> Self { self.part_number_marker = input; self }
     pub fn get_part_number_marker(&self) -> &::std::option::Option<super::super::super::types::PartNumberMarker> { &self.part_number_marker }
-    pub fn parts(mut self, input: impl ::std::convert::Into<super::super::super::types::Parts>) -> Self { self.parts = Some(input.into()); self }
-    pub fn set_parts(mut self, input: ::std::option::Option<super::super::super::types::Parts>) -> Self { self.parts = input; self }
-    pub fn get_parts(&self) -> &::std::option::Option<super::super::super::types::Parts> { &self.parts }
+    pub fn parts(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Part>>) -> Self { self.parts = Some(input.into()); self }
+    pub fn set_parts(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Part>>) -> Self { self.parts = input; self }
+    pub fn get_parts(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Part>> { &self.parts }
     pub fn request_charged(mut self, input: impl ::std::convert::Into<super::super::super::types::RequestCharged>) -> Self { self.request_charged = Some(input.into()); self }
     pub fn set_request_charged(mut self, input: ::std::option::Option<super::super::super::types::RequestCharged>) -> Self { self.request_charged = input; self }
     pub fn get_request_charged(&self) -> &::std::option::Option<super::super::super::types::RequestCharged> { &self.request_charged }

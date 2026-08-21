@@ -2,12 +2,12 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct CreatePlatformApplicationInput {
-    pub attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
+    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
     pub name: ::std::option::Option<super::super::super::types::String>,
     pub platform: ::std::option::Option<super::super::super::types::String>,
 }
         impl CreatePlatformApplicationInput {
-            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::MapStringToString> { self.attributes.as_ref() }
+            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { self.attributes.as_ref() }
             pub fn name(&self) -> ::std::option::Option<&str> { self.name.as_deref() }
             pub fn platform(&self) -> ::std::option::Option<&str> { self.platform.as_deref() }
         }
@@ -16,14 +16,14 @@ impl CreatePlatformApplicationInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct CreatePlatformApplicationInputBuilder {
-    attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
+    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
     name: ::std::option::Option<super::super::super::types::String>,
     platform: ::std::option::Option<super::super::super::types::String>,
 }
 impl CreatePlatformApplicationInputBuilder {
-    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::MapStringToString>) -> Self { self.attributes = input; self }
-    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::MapStringToString> { &self.attributes }
+    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = input; self }
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { &self.attributes }
     pub fn name(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.name = Some(input.into()); self }
     pub fn set_name(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.name = input; self }
     pub fn get_name(&self) -> &::std::option::Option<super::super::super::types::String> { &self.name }

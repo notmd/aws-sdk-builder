@@ -4,7 +4,7 @@
 pub struct ListUserTagsOutput {
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl ListUserTagsOutput {
             pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -18,7 +18,7 @@ impl ListUserTagsOutput {
 pub struct ListUserTagsOutputBuilder {
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl ListUserTagsOutputBuilder {
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
@@ -27,9 +27,9 @@ impl ListUserTagsOutputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> ListUserTagsOutput { ListUserTagsOutput {
         is_truncated: self.is_truncated,
         marker: self.marker,

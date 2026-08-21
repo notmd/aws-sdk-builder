@@ -8,7 +8,7 @@
         pub kms_key_arn: ::std::option::Option<self::KmsKeyArnNonEmpty>,
         pub permissions_config: ::std::option::Option<self::CapacityProviderPermissionsConfig>,
         pub propagate_tags: ::std::option::Option<self::PropagateTags>,
-        pub tags: ::std::option::Option<self::Tags>,
+        pub tags: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>,
         pub telemetry_config: ::std::option::Option<self::CapacityProviderTelemetryConfig>,
         pub vpc_config: ::std::option::Option<self::CapacityProviderVpcConfig>,
     }
@@ -20,7 +20,7 @@
         pub fn kms_key_arn(&self) -> &::std::option::Option<self::KmsKeyArnNonEmpty> { &self.kms_key_arn }
         pub fn permissions_config(&self) -> &::std::option::Option<self::CapacityProviderPermissionsConfig> { &self.permissions_config }
         pub fn propagate_tags(&self) -> &::std::option::Option<self::PropagateTags> { &self.propagate_tags }
-        pub fn tags(&self) -> &::std::option::Option<self::Tags> { &self.tags }
+        pub fn tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>> { &self.tags }
         pub fn telemetry_config(&self) -> &::std::option::Option<self::CapacityProviderTelemetryConfig> { &self.telemetry_config }
         pub fn vpc_config(&self) -> &::std::option::Option<self::CapacityProviderVpcConfig> { &self.vpc_config }
     }
@@ -33,7 +33,7 @@
         kms_key_arn: ::std::option::Option<self::KmsKeyArnNonEmpty>,
         permissions_config: ::std::option::Option<self::CapacityProviderPermissionsConfig>,
         propagate_tags: ::std::option::Option<self::PropagateTags>,
-        tags: ::std::option::Option<self::Tags>,
+        tags: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>,
         telemetry_config: ::std::option::Option<self::CapacityProviderTelemetryConfig>,
         vpc_config: ::std::option::Option<self::CapacityProviderVpcConfig>,
     }
@@ -57,9 +57,9 @@
         pub fn propagate_tags(mut self, input: impl ::std::convert::Into<self::PropagateTags>) -> Self { self.propagate_tags = Some(input.into()); self }
         pub fn set_propagate_tags(mut self, input: ::std::option::Option<self::PropagateTags>) -> Self { self.propagate_tags = input; self }
         pub fn get_propagate_tags(&self) -> &::std::option::Option<self::PropagateTags> { &self.propagate_tags }
-        pub fn tags(mut self, input: impl ::std::convert::Into<self::Tags>) -> Self { self.tags = Some(input.into()); self }
-        pub fn set_tags(mut self, input: ::std::option::Option<self::Tags>) -> Self { self.tags = input; self }
-        pub fn get_tags(&self) -> &::std::option::Option<self::Tags> { &self.tags }
+        pub fn tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::TagKey, self::TagValue>>) -> Self { self.tags = Some(input.into()); self }
+        pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>) -> Self { self.tags = input; self }
+        pub fn get_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>> { &self.tags }
         pub fn telemetry_config(mut self, input: impl ::std::convert::Into<self::CapacityProviderTelemetryConfig>) -> Self { self.telemetry_config = Some(input.into()); self }
         pub fn set_telemetry_config(mut self, input: ::std::option::Option<self::CapacityProviderTelemetryConfig>) -> Self { self.telemetry_config = input; self }
         pub fn get_telemetry_config(&self) -> &::std::option::Option<self::CapacityProviderTelemetryConfig> { &self.telemetry_config }

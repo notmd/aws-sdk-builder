@@ -12,10 +12,10 @@ impl Builder {
     }
     pub fn condition_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionExpression>) -> Self { self.input.condition_expression = Some(value.into()); self }
     pub fn conditional_operator(mut self, value: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.input.conditional_operator = Some(value.into()); self }
-    pub fn expected(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpectedAttributeMap>) -> Self { self.input.expected = Some(value.into()); self }
-    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
-    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.input.key = Some(value.into()); self }
+    pub fn expected(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>) -> Self { self.input.expected = Some(value.into()); self }
+    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
+    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.key = Some(value.into()); self }
     pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
     pub fn return_item_collection_metrics(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnItemCollectionMetrics>) -> Self { self.input.return_item_collection_metrics = Some(value.into()); self }
     pub fn return_values(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnValue>) -> Self { self.input.return_values = Some(value.into()); self }

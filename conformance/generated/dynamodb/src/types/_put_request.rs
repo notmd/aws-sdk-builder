@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct PutRequest {
-        pub item: ::std::option::Option<self::PutItemInputAttributeMap>,
+        pub item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
     }
     impl PutRequest {
         pub fn builder() -> PutRequestBuilder { PutRequestBuilder::default() }
-        pub fn item(&self) -> &::std::option::Option<self::PutItemInputAttributeMap> { &self.item }
+        pub fn item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct PutRequestBuilder {
-        item: ::std::option::Option<self::PutItemInputAttributeMap>,
+        item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
     }
 
     impl PutRequestBuilder {
-        pub fn item(mut self, input: impl ::std::convert::Into<self::PutItemInputAttributeMap>) -> Self { self.item = Some(input.into()); self }
-        pub fn set_item(mut self, input: ::std::option::Option<self::PutItemInputAttributeMap>) -> Self { self.item = input; self }
-        pub fn get_item(&self) -> &::std::option::Option<self::PutItemInputAttributeMap> { &self.item }
+        pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
+        pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = input; self }
+        pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
         pub fn build(self) -> PutRequest {
             PutRequest {
                 item: self.item,

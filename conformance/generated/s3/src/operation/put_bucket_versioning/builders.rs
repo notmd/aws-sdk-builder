@@ -28,7 +28,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketVersioningError::Unhandled(format!("PutBucketVersioning returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketVersioningOutput::default())
+                         Ok(super::PutBucketVersioningOutput)
                      }
 }
 pub use Builder as PutBucketVersioningFluentBuilder;

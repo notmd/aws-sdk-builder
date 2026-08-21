@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteAccessKeyError::Unhandled(format!("DeleteAccessKey returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteAccessKeyOutput::default())
+                         Ok(super::DeleteAccessKeyOutput)
                      }
 }
 pub use Builder as DeleteAccessKeyFluentBuilder;

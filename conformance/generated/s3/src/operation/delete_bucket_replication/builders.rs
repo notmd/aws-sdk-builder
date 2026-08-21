@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteBucketReplicationError::Unhandled(format!("DeleteBucketReplication returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteBucketReplicationOutput::default())
+                         Ok(super::DeleteBucketReplicationOutput)
                      }
 }
 pub use Builder as DeleteBucketReplicationFluentBuilder;

@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetObjectTaggingOutput {
-    pub tag_set: ::std::option::Option<super::super::super::types::TagSet>,
+    pub tag_set: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     pub version_id: ::std::option::Option<super::super::super::types::ObjectVersionId>,
 }
         impl GetObjectTaggingOutput {
@@ -14,13 +14,13 @@ impl GetObjectTaggingOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetObjectTaggingOutputBuilder {
-    tag_set: ::std::option::Option<super::super::super::types::TagSet>,
+    tag_set: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     version_id: ::std::option::Option<super::super::super::types::ObjectVersionId>,
 }
 impl GetObjectTaggingOutputBuilder {
-    pub fn tag_set(mut self, input: impl ::std::convert::Into<super::super::super::types::TagSet>) -> Self { self.tag_set = Some(input.into()); self }
-    pub fn set_tag_set(mut self, input: ::std::option::Option<super::super::super::types::TagSet>) -> Self { self.tag_set = input; self }
-    pub fn get_tag_set(&self) -> &::std::option::Option<super::super::super::types::TagSet> { &self.tag_set }
+    pub fn tag_set(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tag_set = Some(input.into()); self }
+    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tag_set = input; self }
+    pub fn get_tag_set(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tag_set }
     pub fn version_id(mut self, input: impl ::std::convert::Into<super::super::super::types::ObjectVersionId>) -> Self { self.version_id = Some(input.into()); self }
     pub fn set_version_id(mut self, input: ::std::option::Option<super::super::super::types::ObjectVersionId>) -> Self { self.version_id = input; self }
     pub fn get_version_id(&self) -> &::std::option::Option<super::super::super::types::ObjectVersionId> { &self.version_id }

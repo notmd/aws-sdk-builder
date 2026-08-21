@@ -12,7 +12,7 @@
         pub permissions_boundary_usage_count: ::std::option::Option<self::AttachmentCountType>,
         pub policy_id: ::std::option::Option<self::IdType>,
         pub policy_name: ::std::option::Option<self::PolicyNameType>,
-        pub tags: ::std::option::Option<self::TagListType>,
+        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
         pub update_date: ::std::option::Option<self::DateType>,
     }
     impl Policy {
@@ -27,7 +27,7 @@
         pub fn permissions_boundary_usage_count(&self) -> &::std::option::Option<self::AttachmentCountType> { &self.permissions_boundary_usage_count }
         pub fn policy_id(&self) -> &::std::option::Option<self::IdType> { &self.policy_id }
         pub fn policy_name(&self) -> &::std::option::Option<self::PolicyNameType> { &self.policy_name }
-        pub fn tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
+        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
         pub fn update_date(&self) -> &::std::option::Option<self::DateType> { &self.update_date }
     }
 
@@ -43,7 +43,7 @@
         permissions_boundary_usage_count: ::std::option::Option<self::AttachmentCountType>,
         policy_id: ::std::option::Option<self::IdType>,
         policy_name: ::std::option::Option<self::PolicyNameType>,
-        tags: ::std::option::Option<self::TagListType>,
+        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
         update_date: ::std::option::Option<self::DateType>,
     }
 
@@ -78,9 +78,9 @@
         pub fn policy_name(mut self, input: impl ::std::convert::Into<self::PolicyNameType>) -> Self { self.policy_name = Some(input.into()); self }
         pub fn set_policy_name(mut self, input: ::std::option::Option<self::PolicyNameType>) -> Self { self.policy_name = input; self }
         pub fn get_policy_name(&self) -> &::std::option::Option<self::PolicyNameType> { &self.policy_name }
-        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagListType>) -> Self { self.tags = Some(input.into()); self }
-        pub fn set_tags(mut self, input: ::std::option::Option<self::TagListType>) -> Self { self.tags = input; self }
-        pub fn get_tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
+        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
+        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
+        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
         pub fn update_date(mut self, input: impl ::std::convert::Into<self::DateType>) -> Self { self.update_date = Some(input.into()); self }
         pub fn set_update_date(mut self, input: ::std::option::Option<self::DateType>) -> Self { self.update_date = input; self }
         pub fn get_update_date(&self) -> &::std::option::Option<self::DateType> { &self.update_date }

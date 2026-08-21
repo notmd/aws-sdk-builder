@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteBucketIntelligentTieringConfigurationError::Unhandled(format!("DeleteBucketIntelligentTieringConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteBucketIntelligentTieringConfigurationOutput::default())
+                         Ok(super::DeleteBucketIntelligentTieringConfigurationOutput)
                      }
 }
 pub use Builder as DeleteBucketIntelligentTieringConfigurationFluentBuilder;

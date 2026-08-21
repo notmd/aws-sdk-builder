@@ -5,14 +5,14 @@
         pub error_data: ::std::option::Option<self::ErrorData>,
         pub error_message: ::std::option::Option<self::ErrorMessage>,
         pub error_type: ::std::option::Option<self::ErrorType>,
-        pub stack_trace: ::std::option::Option<self::StackTraceEntries>,
+        pub stack_trace: ::std::option::Option<::std::vec::Vec<self::StackTraceEntry>>,
     }
     impl ErrorObject {
         pub fn builder() -> ErrorObjectBuilder { ErrorObjectBuilder::default() }
         pub fn error_data(&self) -> &::std::option::Option<self::ErrorData> { &self.error_data }
         pub fn error_message(&self) -> &::std::option::Option<self::ErrorMessage> { &self.error_message }
         pub fn error_type(&self) -> &::std::option::Option<self::ErrorType> { &self.error_type }
-        pub fn stack_trace(&self) -> &::std::option::Option<self::StackTraceEntries> { &self.stack_trace }
+        pub fn stack_trace(&self) -> &::std::option::Option<::std::vec::Vec<self::StackTraceEntry>> { &self.stack_trace }
     }
 
     #[derive(Clone, Debug, Default)]
@@ -20,7 +20,7 @@
         error_data: ::std::option::Option<self::ErrorData>,
         error_message: ::std::option::Option<self::ErrorMessage>,
         error_type: ::std::option::Option<self::ErrorType>,
-        stack_trace: ::std::option::Option<self::StackTraceEntries>,
+        stack_trace: ::std::option::Option<::std::vec::Vec<self::StackTraceEntry>>,
     }
 
     impl ErrorObjectBuilder {
@@ -33,9 +33,9 @@
         pub fn error_type(mut self, input: impl ::std::convert::Into<self::ErrorType>) -> Self { self.error_type = Some(input.into()); self }
         pub fn set_error_type(mut self, input: ::std::option::Option<self::ErrorType>) -> Self { self.error_type = input; self }
         pub fn get_error_type(&self) -> &::std::option::Option<self::ErrorType> { &self.error_type }
-        pub fn stack_trace(mut self, input: impl ::std::convert::Into<self::StackTraceEntries>) -> Self { self.stack_trace = Some(input.into()); self }
-        pub fn set_stack_trace(mut self, input: ::std::option::Option<self::StackTraceEntries>) -> Self { self.stack_trace = input; self }
-        pub fn get_stack_trace(&self) -> &::std::option::Option<self::StackTraceEntries> { &self.stack_trace }
+        pub fn stack_trace(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::StackTraceEntry>>) -> Self { self.stack_trace = Some(input.into()); self }
+        pub fn set_stack_trace(mut self, input: ::std::option::Option<::std::vec::Vec<self::StackTraceEntry>>) -> Self { self.stack_trace = input; self }
+        pub fn get_stack_trace(&self) -> &::std::option::Option<::std::vec::Vec<self::StackTraceEntry>> { &self.stack_trace }
         pub fn build(self) -> ErrorObject {
             ErrorObject {
                 error_data: self.error_data,

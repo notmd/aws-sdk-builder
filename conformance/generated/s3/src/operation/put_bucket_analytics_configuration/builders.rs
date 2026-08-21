@@ -26,7 +26,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketAnalyticsConfigurationError::Unhandled(format!("PutBucketAnalyticsConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketAnalyticsConfigurationOutput::default())
+                         Ok(super::PutBucketAnalyticsConfigurationOutput)
                      }
 }
 pub use Builder as PutBucketAnalyticsConfigurationFluentBuilder;

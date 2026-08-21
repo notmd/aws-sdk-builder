@@ -2,28 +2,28 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct CapacityProviderVpcConfig {
-        pub security_group_ids: ::std::option::Option<self::CapacityProviderSecurityGroupIds>,
-        pub subnet_ids: ::std::option::Option<self::CapacityProviderSubnetIds>,
+        pub security_group_ids: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>,
+        pub subnet_ids: ::std::option::Option<::std::vec::Vec<self::SubnetId>>,
     }
     impl CapacityProviderVpcConfig {
         pub fn builder() -> CapacityProviderVpcConfigBuilder { CapacityProviderVpcConfigBuilder::default() }
-        pub fn security_group_ids(&self) -> &::std::option::Option<self::CapacityProviderSecurityGroupIds> { &self.security_group_ids }
-        pub fn subnet_ids(&self) -> &::std::option::Option<self::CapacityProviderSubnetIds> { &self.subnet_ids }
+        pub fn security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SecurityGroupId>> { &self.security_group_ids }
+        pub fn subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SubnetId>> { &self.subnet_ids }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct CapacityProviderVpcConfigBuilder {
-        security_group_ids: ::std::option::Option<self::CapacityProviderSecurityGroupIds>,
-        subnet_ids: ::std::option::Option<self::CapacityProviderSubnetIds>,
+        security_group_ids: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>,
+        subnet_ids: ::std::option::Option<::std::vec::Vec<self::SubnetId>>,
     }
 
     impl CapacityProviderVpcConfigBuilder {
-        pub fn security_group_ids(mut self, input: impl ::std::convert::Into<self::CapacityProviderSecurityGroupIds>) -> Self { self.security_group_ids = Some(input.into()); self }
-        pub fn set_security_group_ids(mut self, input: ::std::option::Option<self::CapacityProviderSecurityGroupIds>) -> Self { self.security_group_ids = input; self }
-        pub fn get_security_group_ids(&self) -> &::std::option::Option<self::CapacityProviderSecurityGroupIds> { &self.security_group_ids }
-        pub fn subnet_ids(mut self, input: impl ::std::convert::Into<self::CapacityProviderSubnetIds>) -> Self { self.subnet_ids = Some(input.into()); self }
-        pub fn set_subnet_ids(mut self, input: ::std::option::Option<self::CapacityProviderSubnetIds>) -> Self { self.subnet_ids = input; self }
-        pub fn get_subnet_ids(&self) -> &::std::option::Option<self::CapacityProviderSubnetIds> { &self.subnet_ids }
+        pub fn security_group_ids(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SecurityGroupId>>) -> Self { self.security_group_ids = Some(input.into()); self }
+        pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>) -> Self { self.security_group_ids = input; self }
+        pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SecurityGroupId>> { &self.security_group_ids }
+        pub fn subnet_ids(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SubnetId>>) -> Self { self.subnet_ids = Some(input.into()); self }
+        pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<self::SubnetId>>) -> Self { self.subnet_ids = input; self }
+        pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SubnetId>> { &self.subnet_ids }
         pub fn build(self) -> CapacityProviderVpcConfig {
             CapacityProviderVpcConfig {
                 security_group_ids: self.security_group_ids,

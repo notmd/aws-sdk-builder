@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ResyncMfaDeviceError::Unhandled(format!("ResyncMfaDevice returned HTTP {}", status)));
                          }
-                         Ok(super::ResyncMfaDeviceOutput::default())
+                         Ok(super::ResyncMfaDeviceOutput)
                      }
 }
 pub use Builder as ResyncMfaDeviceFluentBuilder;

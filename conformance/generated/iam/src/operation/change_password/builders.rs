@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::ChangePasswordError::Unhandled(format!("ChangePassword returned HTTP {}", status)));
                          }
-                         Ok(super::ChangePasswordOutput::default())
+                         Ok(super::ChangePasswordOutput)
                      }
 }
 pub use Builder as ChangePasswordFluentBuilder;

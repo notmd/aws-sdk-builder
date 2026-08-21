@@ -2,28 +2,28 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ItemCollectionMetrics {
-        pub item_collection_key: ::std::option::Option<self::ItemCollectionKeyAttributeMap>,
-        pub size_estimate_range_gb: ::std::option::Option<self::ItemCollectionSizeEstimateRange>,
+        pub item_collection_key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
+        pub size_estimate_range_gb: ::std::option::Option<::std::vec::Vec<self::ItemCollectionSizeEstimateBound>>,
     }
     impl ItemCollectionMetrics {
         pub fn builder() -> ItemCollectionMetricsBuilder { ItemCollectionMetricsBuilder::default() }
-        pub fn item_collection_key(&self) -> &::std::option::Option<self::ItemCollectionKeyAttributeMap> { &self.item_collection_key }
-        pub fn size_estimate_range_gb(&self) -> &::std::option::Option<self::ItemCollectionSizeEstimateRange> { &self.size_estimate_range_gb }
+        pub fn item_collection_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item_collection_key }
+        pub fn size_estimate_range_gb(&self) -> &::std::option::Option<::std::vec::Vec<self::ItemCollectionSizeEstimateBound>> { &self.size_estimate_range_gb }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ItemCollectionMetricsBuilder {
-        item_collection_key: ::std::option::Option<self::ItemCollectionKeyAttributeMap>,
-        size_estimate_range_gb: ::std::option::Option<self::ItemCollectionSizeEstimateRange>,
+        item_collection_key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
+        size_estimate_range_gb: ::std::option::Option<::std::vec::Vec<self::ItemCollectionSizeEstimateBound>>,
     }
 
     impl ItemCollectionMetricsBuilder {
-        pub fn item_collection_key(mut self, input: impl ::std::convert::Into<self::ItemCollectionKeyAttributeMap>) -> Self { self.item_collection_key = Some(input.into()); self }
-        pub fn set_item_collection_key(mut self, input: ::std::option::Option<self::ItemCollectionKeyAttributeMap>) -> Self { self.item_collection_key = input; self }
-        pub fn get_item_collection_key(&self) -> &::std::option::Option<self::ItemCollectionKeyAttributeMap> { &self.item_collection_key }
-        pub fn size_estimate_range_gb(mut self, input: impl ::std::convert::Into<self::ItemCollectionSizeEstimateRange>) -> Self { self.size_estimate_range_gb = Some(input.into()); self }
-        pub fn set_size_estimate_range_gb(mut self, input: ::std::option::Option<self::ItemCollectionSizeEstimateRange>) -> Self { self.size_estimate_range_gb = input; self }
-        pub fn get_size_estimate_range_gb(&self) -> &::std::option::Option<self::ItemCollectionSizeEstimateRange> { &self.size_estimate_range_gb }
+        pub fn item_collection_key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item_collection_key = Some(input.into()); self }
+        pub fn set_item_collection_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item_collection_key = input; self }
+        pub fn get_item_collection_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item_collection_key }
+        pub fn size_estimate_range_gb(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ItemCollectionSizeEstimateBound>>) -> Self { self.size_estimate_range_gb = Some(input.into()); self }
+        pub fn set_size_estimate_range_gb(mut self, input: ::std::option::Option<::std::vec::Vec<self::ItemCollectionSizeEstimateBound>>) -> Self { self.size_estimate_range_gb = input; self }
+        pub fn get_size_estimate_range_gb(&self) -> &::std::option::Option<::std::vec::Vec<self::ItemCollectionSizeEstimateBound>> { &self.size_estimate_range_gb }
         pub fn build(self) -> ItemCollectionMetrics {
             ItemCollectionMetrics {
                 item_collection_key: self.item_collection_key,

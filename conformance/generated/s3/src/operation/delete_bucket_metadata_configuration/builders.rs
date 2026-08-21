@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteBucketMetadataConfigurationError::Unhandled(format!("DeleteBucketMetadataConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteBucketMetadataConfigurationOutput::default())
+                         Ok(super::DeleteBucketMetadataConfigurationOutput)
                      }
 }
 pub use Builder as DeleteBucketMetadataConfigurationFluentBuilder;

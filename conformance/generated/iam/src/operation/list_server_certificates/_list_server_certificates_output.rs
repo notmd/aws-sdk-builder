@@ -4,7 +4,7 @@
 pub struct ListServerCertificatesOutput {
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub server_certificate_metadata_list: ::std::option::Option<super::super::super::types::ServerCertificateMetadataListType>,
+    pub server_certificate_metadata_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServerCertificateMetadata>>,
 }
         impl ListServerCertificatesOutput {
             pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -18,7 +18,7 @@ impl ListServerCertificatesOutput {
 pub struct ListServerCertificatesOutputBuilder {
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    server_certificate_metadata_list: ::std::option::Option<super::super::super::types::ServerCertificateMetadataListType>,
+    server_certificate_metadata_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServerCertificateMetadata>>,
 }
 impl ListServerCertificatesOutputBuilder {
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
@@ -27,9 +27,9 @@ impl ListServerCertificatesOutputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn server_certificate_metadata_list(mut self, input: impl ::std::convert::Into<super::super::super::types::ServerCertificateMetadataListType>) -> Self { self.server_certificate_metadata_list = Some(input.into()); self }
-    pub fn set_server_certificate_metadata_list(mut self, input: ::std::option::Option<super::super::super::types::ServerCertificateMetadataListType>) -> Self { self.server_certificate_metadata_list = input; self }
-    pub fn get_server_certificate_metadata_list(&self) -> &::std::option::Option<super::super::super::types::ServerCertificateMetadataListType> { &self.server_certificate_metadata_list }
+    pub fn server_certificate_metadata_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ServerCertificateMetadata>>) -> Self { self.server_certificate_metadata_list = Some(input.into()); self }
+    pub fn set_server_certificate_metadata_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServerCertificateMetadata>>) -> Self { self.server_certificate_metadata_list = input; self }
+    pub fn get_server_certificate_metadata_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServerCertificateMetadata>> { &self.server_certificate_metadata_list }
     pub fn build(self) -> ListServerCertificatesOutput { ListServerCertificatesOutput {
         is_truncated: self.is_truncated,
         marker: self.marker,

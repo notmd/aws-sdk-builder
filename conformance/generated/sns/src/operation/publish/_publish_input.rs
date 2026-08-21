@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct PublishInput {
     pub message: ::std::option::Option<super::super::super::types::Message>,
-    pub message_attributes: ::std::option::Option<super::super::super::types::MessageAttributeMap>,
+    pub message_attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>,
     pub message_deduplication_id: ::std::option::Option<super::super::super::types::String>,
     pub message_group_id: ::std::option::Option<super::super::super::types::String>,
     pub message_structure: ::std::option::Option<super::super::super::types::MessageStructure>,
@@ -14,7 +14,7 @@ pub struct PublishInput {
 }
         impl PublishInput {
             pub fn message(&self) -> ::std::option::Option<&str> { self.message.as_deref() }
-            pub fn message_attributes(&self) -> ::std::option::Option<&super::super::super::types::MessageAttributeMap> { self.message_attributes.as_ref() }
+            pub fn message_attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>> { self.message_attributes.as_ref() }
             pub fn message_deduplication_id(&self) -> ::std::option::Option<&str> { self.message_deduplication_id.as_deref() }
             pub fn message_group_id(&self) -> ::std::option::Option<&str> { self.message_group_id.as_deref() }
             pub fn message_structure(&self) -> ::std::option::Option<&str> { self.message_structure.as_deref() }
@@ -29,7 +29,7 @@ impl PublishInput {
 #[derive(Clone, Debug, Default)]
 pub struct PublishInputBuilder {
     message: ::std::option::Option<super::super::super::types::Message>,
-    message_attributes: ::std::option::Option<super::super::super::types::MessageAttributeMap>,
+    message_attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>,
     message_deduplication_id: ::std::option::Option<super::super::super::types::String>,
     message_group_id: ::std::option::Option<super::super::super::types::String>,
     message_structure: ::std::option::Option<super::super::super::types::MessageStructure>,
@@ -42,9 +42,9 @@ impl PublishInputBuilder {
     pub fn message(mut self, input: impl ::std::convert::Into<super::super::super::types::Message>) -> Self { self.message = Some(input.into()); self }
     pub fn set_message(mut self, input: ::std::option::Option<super::super::super::types::Message>) -> Self { self.message = input; self }
     pub fn get_message(&self) -> &::std::option::Option<super::super::super::types::Message> { &self.message }
-    pub fn message_attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MessageAttributeMap>) -> Self { self.message_attributes = Some(input.into()); self }
-    pub fn set_message_attributes(mut self, input: ::std::option::Option<super::super::super::types::MessageAttributeMap>) -> Self { self.message_attributes = input; self }
-    pub fn get_message_attributes(&self) -> &::std::option::Option<super::super::super::types::MessageAttributeMap> { &self.message_attributes }
+    pub fn message_attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>) -> Self { self.message_attributes = Some(input.into()); self }
+    pub fn set_message_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>) -> Self { self.message_attributes = input; self }
+    pub fn get_message_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>> { &self.message_attributes }
     pub fn message_deduplication_id(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.message_deduplication_id = Some(input.into()); self }
     pub fn set_message_deduplication_id(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.message_deduplication_id = input; self }
     pub fn get_message_deduplication_id(&self) -> &::std::option::Option<super::super::super::types::String> { &self.message_deduplication_id }

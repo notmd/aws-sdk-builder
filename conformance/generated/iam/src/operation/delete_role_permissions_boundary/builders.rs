@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteRolePermissionsBoundaryError::Unhandled(format!("DeleteRolePermissionsBoundary returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteRolePermissionsBoundaryOutput::default())
+                         Ok(super::DeleteRolePermissionsBoundaryOutput)
                      }
 }
 pub use Builder as DeleteRolePermissionsBoundaryFluentBuilder;

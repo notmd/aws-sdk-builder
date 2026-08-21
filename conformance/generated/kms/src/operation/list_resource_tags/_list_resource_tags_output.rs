@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct ListResourceTagsOutput {
     pub next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagList>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     pub truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 }
         impl ListResourceTagsOutput {
@@ -17,16 +17,16 @@ impl ListResourceTagsOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ListResourceTagsOutputBuilder {
     next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
-    tags: ::std::option::Option<super::super::super::types::TagList>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 }
 impl ListResourceTagsOutputBuilder {
     pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.next_marker = Some(input.into()); self }
     pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.next_marker = input; self }
     pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.next_marker }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.truncated = Some(input.into()); self }
     pub fn set_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.truncated = input; self }
     pub fn get_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.truncated }

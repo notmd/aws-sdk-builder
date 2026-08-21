@@ -12,7 +12,7 @@ impl Builder {
     }
     pub fn duration_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleDurationSecondsType>) -> Self { self.input.duration_seconds = Some(value.into()); self }
     pub fn policy(mut self, value: impl ::std::convert::Into<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.input.policy = Some(value.into()); self }
-    pub fn policy_arns(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorListType>) -> Self { self.input.policy_arns = Some(value.into()); self }
+    pub fn policy_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.input.policy_arns = Some(value.into()); self }
     pub fn principal_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.principal_arn = Some(value.into()); self }
     pub fn role_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.role_arn = Some(value.into()); self }
     pub fn saml_assertion(mut self, value: impl ::std::convert::Into<super::super::super::types::SamlAssertionType>) -> Self { self.input.saml_assertion = Some(value.into()); self }

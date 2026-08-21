@@ -2,40 +2,40 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct SourceTableFeatureDetails {
-        pub global_secondary_indexes: ::std::option::Option<self::GlobalSecondaryIndexes>,
-        pub local_secondary_indexes: ::std::option::Option<self::LocalSecondaryIndexes>,
+        pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexInfo>>,
+        pub local_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexInfo>>,
         pub sse_description: ::std::option::Option<self::SseDescription>,
         pub stream_description: ::std::option::Option<self::StreamSpecification>,
         pub time_to_live_description: ::std::option::Option<self::TimeToLiveDescription>,
-        pub vector_indexes: ::std::option::Option<self::VectorIndexes>,
+        pub vector_indexes: ::std::option::Option<::std::vec::Vec<self::VectorIndexInfo>>,
     }
     impl SourceTableFeatureDetails {
         pub fn builder() -> SourceTableFeatureDetailsBuilder { SourceTableFeatureDetailsBuilder::default() }
-        pub fn global_secondary_indexes(&self) -> &::std::option::Option<self::GlobalSecondaryIndexes> { &self.global_secondary_indexes }
-        pub fn local_secondary_indexes(&self) -> &::std::option::Option<self::LocalSecondaryIndexes> { &self.local_secondary_indexes }
+        pub fn global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexInfo>> { &self.global_secondary_indexes }
+        pub fn local_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexInfo>> { &self.local_secondary_indexes }
         pub fn sse_description(&self) -> &::std::option::Option<self::SseDescription> { &self.sse_description }
         pub fn stream_description(&self) -> &::std::option::Option<self::StreamSpecification> { &self.stream_description }
         pub fn time_to_live_description(&self) -> &::std::option::Option<self::TimeToLiveDescription> { &self.time_to_live_description }
-        pub fn vector_indexes(&self) -> &::std::option::Option<self::VectorIndexes> { &self.vector_indexes }
+        pub fn vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::VectorIndexInfo>> { &self.vector_indexes }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct SourceTableFeatureDetailsBuilder {
-        global_secondary_indexes: ::std::option::Option<self::GlobalSecondaryIndexes>,
-        local_secondary_indexes: ::std::option::Option<self::LocalSecondaryIndexes>,
+        global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexInfo>>,
+        local_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexInfo>>,
         sse_description: ::std::option::Option<self::SseDescription>,
         stream_description: ::std::option::Option<self::StreamSpecification>,
         time_to_live_description: ::std::option::Option<self::TimeToLiveDescription>,
-        vector_indexes: ::std::option::Option<self::VectorIndexes>,
+        vector_indexes: ::std::option::Option<::std::vec::Vec<self::VectorIndexInfo>>,
     }
 
     impl SourceTableFeatureDetailsBuilder {
-        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<self::GlobalSecondaryIndexes>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<self::GlobalSecondaryIndexes>) -> Self { self.global_secondary_indexes = input; self }
-        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<self::GlobalSecondaryIndexes> { &self.global_secondary_indexes }
-        pub fn local_secondary_indexes(mut self, input: impl ::std::convert::Into<self::LocalSecondaryIndexes>) -> Self { self.local_secondary_indexes = Some(input.into()); self }
-        pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<self::LocalSecondaryIndexes>) -> Self { self.local_secondary_indexes = input; self }
-        pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<self::LocalSecondaryIndexes> { &self.local_secondary_indexes }
+        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::GlobalSecondaryIndexInfo>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
+        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexInfo>>) -> Self { self.global_secondary_indexes = input; self }
+        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::GlobalSecondaryIndexInfo>> { &self.global_secondary_indexes }
+        pub fn local_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::LocalSecondaryIndexInfo>>) -> Self { self.local_secondary_indexes = Some(input.into()); self }
+        pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexInfo>>) -> Self { self.local_secondary_indexes = input; self }
+        pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::LocalSecondaryIndexInfo>> { &self.local_secondary_indexes }
         pub fn sse_description(mut self, input: impl ::std::convert::Into<self::SseDescription>) -> Self { self.sse_description = Some(input.into()); self }
         pub fn set_sse_description(mut self, input: ::std::option::Option<self::SseDescription>) -> Self { self.sse_description = input; self }
         pub fn get_sse_description(&self) -> &::std::option::Option<self::SseDescription> { &self.sse_description }
@@ -45,9 +45,9 @@
         pub fn time_to_live_description(mut self, input: impl ::std::convert::Into<self::TimeToLiveDescription>) -> Self { self.time_to_live_description = Some(input.into()); self }
         pub fn set_time_to_live_description(mut self, input: ::std::option::Option<self::TimeToLiveDescription>) -> Self { self.time_to_live_description = input; self }
         pub fn get_time_to_live_description(&self) -> &::std::option::Option<self::TimeToLiveDescription> { &self.time_to_live_description }
-        pub fn vector_indexes(mut self, input: impl ::std::convert::Into<self::VectorIndexes>) -> Self { self.vector_indexes = Some(input.into()); self }
-        pub fn set_vector_indexes(mut self, input: ::std::option::Option<self::VectorIndexes>) -> Self { self.vector_indexes = input; self }
-        pub fn get_vector_indexes(&self) -> &::std::option::Option<self::VectorIndexes> { &self.vector_indexes }
+        pub fn vector_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::VectorIndexInfo>>) -> Self { self.vector_indexes = Some(input.into()); self }
+        pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::VectorIndexInfo>>) -> Self { self.vector_indexes = input; self }
+        pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::VectorIndexInfo>> { &self.vector_indexes }
         pub fn build(self) -> SourceTableFeatureDetails {
             SourceTableFeatureDetails {
                 global_secondary_indexes: self.global_secondary_indexes,

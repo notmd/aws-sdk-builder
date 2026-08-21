@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListGlobalTablesOutput {
-    pub global_tables: ::std::option::Option<super::super::super::types::GlobalTableList>,
+    pub global_tables: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTable>>,
     pub last_evaluated_global_table_name: ::std::option::Option<super::super::super::types::TableName>,
 }
         impl ListGlobalTablesOutput {
@@ -14,13 +14,13 @@ impl ListGlobalTablesOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListGlobalTablesOutputBuilder {
-    global_tables: ::std::option::Option<super::super::super::types::GlobalTableList>,
+    global_tables: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTable>>,
     last_evaluated_global_table_name: ::std::option::Option<super::super::super::types::TableName>,
 }
 impl ListGlobalTablesOutputBuilder {
-    pub fn global_tables(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalTableList>) -> Self { self.global_tables = Some(input.into()); self }
-    pub fn set_global_tables(mut self, input: ::std::option::Option<super::super::super::types::GlobalTableList>) -> Self { self.global_tables = input; self }
-    pub fn get_global_tables(&self) -> &::std::option::Option<super::super::super::types::GlobalTableList> { &self.global_tables }
+    pub fn global_tables(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalTable>>) -> Self { self.global_tables = Some(input.into()); self }
+    pub fn set_global_tables(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTable>>) -> Self { self.global_tables = input; self }
+    pub fn get_global_tables(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalTable>> { &self.global_tables }
     pub fn last_evaluated_global_table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.last_evaluated_global_table_name = Some(input.into()); self }
     pub fn set_last_evaluated_global_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.last_evaluated_global_table_name = input; self }
     pub fn get_last_evaluated_global_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.last_evaluated_global_table_name }

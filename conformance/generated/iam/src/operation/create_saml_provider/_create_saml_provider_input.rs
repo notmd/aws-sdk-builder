@@ -6,7 +6,7 @@ pub struct CreateSamlProviderInput {
     pub assertion_encryption_mode: ::std::option::Option<super::super::super::types::AssertionEncryptionModeType>,
     pub name: ::std::option::Option<super::super::super::types::SamlProviderNameType>,
     pub saml_metadata_document: ::std::option::Option<super::super::super::types::SamlMetadataDocumentType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl CreateSamlProviderInput {
             pub fn add_private_key(&self) -> ::std::option::Option<&str> { self.add_private_key.as_deref() }
@@ -24,7 +24,7 @@ pub struct CreateSamlProviderInputBuilder {
     assertion_encryption_mode: ::std::option::Option<super::super::super::types::AssertionEncryptionModeType>,
     name: ::std::option::Option<super::super::super::types::SamlProviderNameType>,
     saml_metadata_document: ::std::option::Option<super::super::super::types::SamlMetadataDocumentType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl CreateSamlProviderInputBuilder {
     pub fn add_private_key(mut self, input: impl ::std::convert::Into<super::super::super::types::PrivateKeyType>) -> Self { self.add_private_key = Some(input.into()); self }
@@ -39,9 +39,9 @@ impl CreateSamlProviderInputBuilder {
     pub fn saml_metadata_document(mut self, input: impl ::std::convert::Into<super::super::super::types::SamlMetadataDocumentType>) -> Self { self.saml_metadata_document = Some(input.into()); self }
     pub fn set_saml_metadata_document(mut self, input: ::std::option::Option<super::super::super::types::SamlMetadataDocumentType>) -> Self { self.saml_metadata_document = input; self }
     pub fn get_saml_metadata_document(&self) -> &::std::option::Option<super::super::super::types::SamlMetadataDocumentType> { &self.saml_metadata_document }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> CreateSamlProviderInput { CreateSamlProviderInput {
         add_private_key: self.add_private_key,
         assertion_encryption_mode: self.assertion_encryption_mode,

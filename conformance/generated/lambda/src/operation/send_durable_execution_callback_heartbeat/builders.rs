@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SendDurableExecutionCallbackHeartbeatError::Unhandled(format!("SendDurableExecutionCallbackHeartbeat returned HTTP {}", status)));
                          }
-                         Ok(super::SendDurableExecutionCallbackHeartbeatOutput::default())
+                         Ok(super::SendDurableExecutionCallbackHeartbeatOutput)
                      }
 }
 pub use Builder as SendDurableExecutionCallbackHeartbeatFluentBuilder;

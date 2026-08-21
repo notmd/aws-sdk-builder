@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketCorsError::Unhandled(format!("PutBucketCors returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketCorsOutput::default())
+                         Ok(super::PutBucketCorsOutput)
                      }
 }
 pub use Builder as PutBucketCorsFluentBuilder;

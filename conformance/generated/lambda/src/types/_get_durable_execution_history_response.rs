@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct GetDurableExecutionHistoryResponse {
-        pub events: ::std::option::Option<self::Events>,
+        pub events: ::std::option::Option<::std::vec::Vec<self::Event>>,
         pub next_marker: ::std::option::Option<self::String>,
     }
     impl GetDurableExecutionHistoryResponse {
         pub fn builder() -> GetDurableExecutionHistoryResponseBuilder { GetDurableExecutionHistoryResponseBuilder::default() }
-        pub fn events(&self) -> &::std::option::Option<self::Events> { &self.events }
+        pub fn events(&self) -> &::std::option::Option<::std::vec::Vec<self::Event>> { &self.events }
         pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct GetDurableExecutionHistoryResponseBuilder {
-        events: ::std::option::Option<self::Events>,
+        events: ::std::option::Option<::std::vec::Vec<self::Event>>,
         next_marker: ::std::option::Option<self::String>,
     }
 
     impl GetDurableExecutionHistoryResponseBuilder {
-        pub fn events(mut self, input: impl ::std::convert::Into<self::Events>) -> Self { self.events = Some(input.into()); self }
-        pub fn set_events(mut self, input: ::std::option::Option<self::Events>) -> Self { self.events = input; self }
-        pub fn get_events(&self) -> &::std::option::Option<self::Events> { &self.events }
+        pub fn events(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Event>>) -> Self { self.events = Some(input.into()); self }
+        pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<self::Event>>) -> Self { self.events = input; self }
+        pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<self::Event>> { &self.events }
         pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
         pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
         pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }

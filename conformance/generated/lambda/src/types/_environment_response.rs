@@ -3,27 +3,27 @@
     #[derive(Clone, Debug, Default)]
     pub struct EnvironmentResponse {
         pub error: ::std::option::Option<self::EnvironmentError>,
-        pub variables: ::std::option::Option<self::EnvironmentVariables>,
+        pub variables: ::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>,
     }
     impl EnvironmentResponse {
         pub fn builder() -> EnvironmentResponseBuilder { EnvironmentResponseBuilder::default() }
         pub fn error(&self) -> &::std::option::Option<self::EnvironmentError> { &self.error }
-        pub fn variables(&self) -> &::std::option::Option<self::EnvironmentVariables> { &self.variables }
+        pub fn variables(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>> { &self.variables }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct EnvironmentResponseBuilder {
         error: ::std::option::Option<self::EnvironmentError>,
-        variables: ::std::option::Option<self::EnvironmentVariables>,
+        variables: ::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>,
     }
 
     impl EnvironmentResponseBuilder {
         pub fn error(mut self, input: impl ::std::convert::Into<self::EnvironmentError>) -> Self { self.error = Some(input.into()); self }
         pub fn set_error(mut self, input: ::std::option::Option<self::EnvironmentError>) -> Self { self.error = input; self }
         pub fn get_error(&self) -> &::std::option::Option<self::EnvironmentError> { &self.error }
-        pub fn variables(mut self, input: impl ::std::convert::Into<self::EnvironmentVariables>) -> Self { self.variables = Some(input.into()); self }
-        pub fn set_variables(mut self, input: ::std::option::Option<self::EnvironmentVariables>) -> Self { self.variables = input; self }
-        pub fn get_variables(&self) -> &::std::option::Option<self::EnvironmentVariables> { &self.variables }
+        pub fn variables(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>) -> Self { self.variables = Some(input.into()); self }
+        pub fn set_variables(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>) -> Self { self.variables = input; self }
+        pub fn get_variables(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>> { &self.variables }
         pub fn build(self) -> EnvironmentResponse {
             EnvironmentResponse {
                 error: self.error,

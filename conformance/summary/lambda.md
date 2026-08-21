@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1256/1256` files compared · `2` matched · `312` mismatches · `770` missing · `172` extra · `0.16%` match (100.00% means fully matched)
+**Progress:** `1207/1207` files compared · `2` matched · `312` mismatches · `770` missing · `123` extra · `0.17%` match (100.00% means fully matched)
 
 ### `src/client/delete_function.rs`
 
@@ -4260,7 +4260,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteFunctionEventInvokeConfigError::Unhandled(format!("DeleteFunctionEventInvokeConfig returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteFunctionEventInvokeConfigOutput::default())
++                         Ok(super::DeleteFunctionEventInvokeConfigOutput)
 +                     }
  }
 -impl DeleteFunctionEventInvokeConfigFluentBuilder {
@@ -5255,7 +5255,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteResourcePolicyError::Unhandled(format!("DeleteResourcePolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteResourcePolicyOutput::default())
++                         Ok(super::DeleteResourcePolicyOutput)
 +                     }
  }
 +pub use Builder as DeleteResourcePolicyFluentBuilder;
@@ -8781,7 +8781,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub function_event_invoke_configs: ::std::option::Option<super::super::super::types::FunctionEventInvokeConfigList>,
++    pub function_event_invoke_configs: ::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionEventInvokeConfig>>,
 +    pub next_marker: ::std::option::Option<super::super::super::types::String>,
  }
 +        impl ListFunctionEventInvokeConfigsOutput {
@@ -8804,7 +8804,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) function_event_invoke_configs: ::std::option::Option<::std::vec::Vec<crate::types::FunctionEventInvokeConfig>>,
 -    pub(crate) next_marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    function_event_invoke_configs: ::std::option::Option<super::super::super::types::FunctionEventInvokeConfigList>,
++    function_event_invoke_configs: ::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionEventInvokeConfig>>,
 +    next_marker: ::std::option::Option<super::super::super::types::String>,
  }
  impl ListFunctionEventInvokeConfigsOutputBuilder {
@@ -8862,9 +8862,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn function_event_invoke_configs(mut self, input: impl ::std::convert::Into<super::super::super::types::FunctionEventInvokeConfigList>) -> Self { self.function_event_invoke_configs = Some(input.into()); self }
-+    pub fn set_function_event_invoke_configs(mut self, input: ::std::option::Option<super::super::super::types::FunctionEventInvokeConfigList>) -> Self { self.function_event_invoke_configs = input; self }
-+    pub fn get_function_event_invoke_configs(&self) -> &::std::option::Option<super::super::super::types::FunctionEventInvokeConfigList> { &self.function_event_invoke_configs }
++    pub fn function_event_invoke_configs(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::FunctionEventInvokeConfig>>) -> Self { self.function_event_invoke_configs = Some(input.into()); self }
++    pub fn set_function_event_invoke_configs(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionEventInvokeConfig>>) -> Self { self.function_event_invoke_configs = input; self }
++    pub fn get_function_event_invoke_configs(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionEventInvokeConfig>> { &self.function_event_invoke_configs }
 +    pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.next_marker = Some(input.into()); self }
 +    pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.next_marker = input; self }
 +    pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::String> { &self.next_marker }
@@ -9727,10 +9727,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The function's tags.</p>
 -    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    pub tags: ::std::option::Option<super::super::super::types::Tags>,
++    pub tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
  }
 +        impl ListTagsOutput {
-+            pub fn tags(&self) -> ::std::option::Option<&super::super::super::types::Tags> { self.tags.as_ref() }
++            pub fn tags(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { self.tags.as_ref() }
 +        }
  impl ListTagsOutput {
 -    /// <p>The function's tags.</p>
@@ -9758,7 +9758,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListTagsOutputBuilder {
 -    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    tags: ::std::option::Option<super::super::super::types::Tags>,
++    tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
  }
  impl ListTagsOutputBuilder {
 -    /// Adds a key-value pair to `tags`.
@@ -9797,9 +9797,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::Tags>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::Tags>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::Tags> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { &self.tags }
 +    pub fn build(self) -> ListTagsOutput { ListTagsOutput {
 +        tags: self.tags,
 +    } }
@@ -13159,7 +13159,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::SendDurableExecutionCallbackFailureError::Unhandled(format!("SendDurableExecutionCallbackFailure returned HTTP {}", status)));
 +                         }
-+                         Ok(super::SendDurableExecutionCallbackFailureOutput::default())
++                         Ok(super::SendDurableExecutionCallbackFailureOutput)
 +                     }
  }
 -impl SendDurableExecutionCallbackFailureFluentBuilder {
@@ -14136,7 +14136,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::SendDurableExecutionCallbackHeartbeatError::Unhandled(format!("SendDurableExecutionCallbackHeartbeat returned HTTP {}", status)));
 +                         }
-+                         Ok(super::SendDurableExecutionCallbackHeartbeatOutput::default())
++                         Ok(super::SendDurableExecutionCallbackHeartbeatOutput)
 +                     }
  }
 +pub use Builder as SendDurableExecutionCallbackHeartbeatFluentBuilder;
@@ -14931,7 +14931,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::SendDurableExecutionCallbackSuccessError::Unhandled(format!("SendDurableExecutionCallbackSuccess returned HTTP {}", status)));
 +                         }
-+                         Ok(super::SendDurableExecutionCallbackSuccessOutput::default())
++                         Ok(super::SendDurableExecutionCallbackSuccessOutput)
 +                     }
  }
 -impl SendDurableExecutionCallbackSuccessFluentBuilder {
@@ -15632,11 +15632,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A list of tags to apply to the resource.</p>
 -    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 +    pub resource: ::std::option::Option<super::super::super::types::TaggableResource>,
-+    pub tags: ::std::option::Option<super::super::super::types::Tags>,
++    pub tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
  }
 +        impl TagResourceInput {
 +            pub fn resource(&self) -> ::std::option::Option<&str> { self.resource.as_deref() }
-+            pub fn tags(&self) -> ::std::option::Option<&super::super::super::types::Tags> { self.tags.as_ref() }
++            pub fn tags(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { self.tags.as_ref() }
 +        }
  impl TagResourceInput {
 -    /// <p>The resource's Amazon Resource Name (ARN).</p>
@@ -15664,7 +15664,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) resource: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 +    resource: ::std::option::Option<super::super::super::types::TaggableResource>,
-+    tags: ::std::option::Option<super::super::super::types::Tags>,
++    tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
  }
  impl TagResourceInputBuilder {
 -    /// <p>The resource's Amazon Resource Name (ARN).</p>
@@ -15712,9 +15712,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn resource(mut self, input: impl ::std::convert::Into<super::super::super::types::TaggableResource>) -> Self { self.resource = Some(input.into()); self }
 +    pub fn set_resource(mut self, input: ::std::option::Option<super::super::super::types::TaggableResource>) -> Self { self.resource = input; self }
 +    pub fn get_resource(&self) -> &::std::option::Option<super::super::super::types::TaggableResource> { &self.resource }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::Tags>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::Tags>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::Tags> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { &self.tags }
 +    pub fn build(self) -> TagResourceInput { TagResourceInput {
 +        resource: self.resource,
 +        tags: self.tags,
@@ -15839,7 +15839,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn resource(mut self, value: impl ::std::convert::Into<super::super::super::types::TaggableResource>) -> Self { self.input.resource = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::Tags>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::TagResourceOutput, super::TagResourceError> {
@@ -15852,7 +15852,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::TagResourceError::Unhandled(format!("TagResource returned HTTP {}", status)));
 +                         }
-+                         Ok(super::TagResourceOutput::default())
++                         Ok(super::TagResourceOutput)
 +                     }
  }
 -impl TagResourceFluentBuilder {
@@ -16497,7 +16497,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.tag_keys.as_deref().unwrap_or_default()
 -    }
 +    pub resource: ::std::option::Option<super::super::super::types::TaggableResource>,
-+    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyList>,
++    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>,
  }
 +        impl UntagResourceInput {
 +            pub fn resource(&self) -> ::std::option::Option<&str> { self.resource.as_deref() }
@@ -16519,7 +16519,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) resource: ::std::option::Option<::std::string::String>,
 -    pub(crate) tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    resource: ::std::option::Option<super::super::super::types::TaggableResource>,
-+    tag_keys: ::std::option::Option<super::super::super::types::TagKeyList>,
++    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>,
  }
  impl UntagResourceInputBuilder {
 -    /// <p>The resource's Amazon Resource Name (ARN).</p>
@@ -16569,9 +16569,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn resource(mut self, input: impl ::std::convert::Into<super::super::super::types::TaggableResource>) -> Self { self.resource = Some(input.into()); self }
 +    pub fn set_resource(mut self, input: ::std::option::Option<super::super::super::types::TaggableResource>) -> Self { self.resource = input; self }
 +    pub fn get_resource(&self) -> &::std::option::Option<super::super::super::types::TaggableResource> { &self.resource }
-+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyList>) -> Self { self.tag_keys = Some(input.into()); self }
-+    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyList>) -> Self { self.tag_keys = input; self }
-+    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyList> { &self.tag_keys }
++    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKey>>) -> Self { self.tag_keys = Some(input.into()); self }
++    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>) -> Self { self.tag_keys = input; self }
++    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>> { &self.tag_keys }
 +    pub fn build(self) -> UntagResourceInput { UntagResourceInput {
 +        resource: self.resource,
 +        tag_keys: self.tag_keys,
@@ -16696,7 +16696,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn resource(mut self, value: impl ::std::convert::Into<super::super::super::types::TaggableResource>) -> Self { self.input.resource = Some(value.into()); self }
-+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyList>) -> Self { self.input.tag_keys = Some(value.into()); self }
++    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKey>>) -> Self { self.input.tag_keys = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UntagResourceOutput, super::UntagResourceError> {
@@ -16709,7 +16709,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UntagResourceError::Unhandled(format!("UntagResource returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UntagResourceOutput::default())
++                         Ok(super::UntagResourceOutput)
 +                     }
  }
 -impl UntagResourceFluentBuilder {
@@ -19701,7 +19701,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.additional_version_weights.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct AliasRoutingConfiguration {
-+        pub additional_version_weights: ::std::option::Option<self::AdditionalVersionWeights>,
++        pub additional_version_weights: ::std::option::Option<::std::collections::BTreeMap<self::AdditionalVersion, self::Weight>>,
      }
 -}
 -impl AliasRoutingConfiguration {
@@ -19710,7 +19710,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::AliasRoutingConfigurationBuilder::default()
 +    impl AliasRoutingConfiguration {
 +        pub fn builder() -> AliasRoutingConfigurationBuilder { AliasRoutingConfigurationBuilder::default() }
-+        pub fn additional_version_weights(&self) -> &::std::option::Option<self::AdditionalVersionWeights> { &self.additional_version_weights }
++        pub fn additional_version_weights(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AdditionalVersion, self::Weight>> { &self.additional_version_weights }
      }
 -}
 
@@ -19742,7 +19742,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.additional_version_weights
 +    #[derive(Clone, Debug, Default)]
 +    pub struct AliasRoutingConfigurationBuilder {
-+        additional_version_weights: ::std::option::Option<self::AdditionalVersionWeights>,
++        additional_version_weights: ::std::option::Option<::std::collections::BTreeMap<self::AdditionalVersion, self::Weight>>,
      }
 -    /// Consumes the builder and constructs a [`AliasRoutingConfiguration`](crate::types::AliasRoutingConfiguration).
 -    pub fn build(self) -> crate::types::AliasRoutingConfiguration {
@@ -19750,9 +19750,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            additional_version_weights: self.additional_version_weights,
 +
 +    impl AliasRoutingConfigurationBuilder {
-+        pub fn additional_version_weights(mut self, input: impl ::std::convert::Into<self::AdditionalVersionWeights>) -> Self { self.additional_version_weights = Some(input.into()); self }
-+        pub fn set_additional_version_weights(mut self, input: ::std::option::Option<self::AdditionalVersionWeights>) -> Self { self.additional_version_weights = input; self }
-+        pub fn get_additional_version_weights(&self) -> &::std::option::Option<self::AdditionalVersionWeights> { &self.additional_version_weights }
++        pub fn additional_version_weights(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AdditionalVersion, self::Weight>>) -> Self { self.additional_version_weights = Some(input.into()); self }
++        pub fn set_additional_version_weights(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AdditionalVersion, self::Weight>>) -> Self { self.additional_version_weights = input; self }
++        pub fn get_additional_version_weights(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AdditionalVersion, self::Weight>> { &self.additional_version_weights }
 +        pub fn build(self) -> AliasRoutingConfiguration {
 +            AliasRoutingConfiguration {
 +                additional_version_weights: self.additional_version_weights,
@@ -19785,7 +19785,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.signing_profile_version_arns.deref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct AllowedPublishers {
-+        pub signing_profile_version_arns: ::std::option::Option<self::SigningProfileVersionArns>,
++        pub signing_profile_version_arns: ::std::option::Option<::std::vec::Vec<self::Arn>>,
      }
 -}
 -impl AllowedPublishers {
@@ -19794,7 +19794,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::AllowedPublishersBuilder::default()
 +    impl AllowedPublishers {
 +        pub fn builder() -> AllowedPublishersBuilder { AllowedPublishersBuilder::default() }
-+        pub fn signing_profile_version_arns(&self) -> &::std::option::Option<self::SigningProfileVersionArns> { &self.signing_profile_version_arns }
++        pub fn signing_profile_version_arns(&self) -> &::std::option::Option<::std::vec::Vec<self::Arn>> { &self.signing_profile_version_arns }
      }
 -}
 
@@ -19826,7 +19826,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.signing_profile_version_arns
 +    #[derive(Clone, Debug, Default)]
 +    pub struct AllowedPublishersBuilder {
-+        signing_profile_version_arns: ::std::option::Option<self::SigningProfileVersionArns>,
++        signing_profile_version_arns: ::std::option::Option<::std::vec::Vec<self::Arn>>,
      }
 -    /// Consumes the builder and constructs a [`AllowedPublishers`](crate::types::AllowedPublishers).
 -    /// This method will fail if any of the following fields are not set:
@@ -19842,9 +19842,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        })
 +
 +    impl AllowedPublishersBuilder {
-+        pub fn signing_profile_version_arns(mut self, input: impl ::std::convert::Into<self::SigningProfileVersionArns>) -> Self { self.signing_profile_version_arns = Some(input.into()); self }
-+        pub fn set_signing_profile_version_arns(mut self, input: ::std::option::Option<self::SigningProfileVersionArns>) -> Self { self.signing_profile_version_arns = input; self }
-+        pub fn get_signing_profile_version_arns(&self) -> &::std::option::Option<self::SigningProfileVersionArns> { &self.signing_profile_version_arns }
++        pub fn signing_profile_version_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Arn>>) -> Self { self.signing_profile_version_arns = Some(input.into()); self }
++        pub fn set_signing_profile_version_arns(mut self, input: ::std::option::Option<::std::vec::Vec<self::Arn>>) -> Self { self.signing_profile_version_arns = input; self }
++        pub fn get_signing_profile_version_arns(&self) -> &::std::option::Option<::std::vec::Vec<self::Arn>> { &self.signing_profile_version_arns }
 +        pub fn build(self) -> AllowedPublishers {
 +            AllowedPublishers {
 +                signing_profile_version_arns: self.signing_profile_version_arns,
@@ -21691,7 +21691,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct CapacityProviderScalingConfig {
 +        pub max_v_cpu_count: ::std::option::Option<self::CapacityProviderMaxVCpuCount>,
 +        pub scaling_mode: ::std::option::Option<self::CapacityProviderScalingMode>,
-+        pub scaling_policies: ::std::option::Option<self::CapacityProviderScalingPoliciesList>,
++        pub scaling_policies: ::std::option::Option<::std::vec::Vec<self::TargetTrackingScalingPolicy>>,
      }
 -    /// <p>The scaling mode that determines how the capacity provider responds to changes in demand.</p>
 -    pub fn scaling_mode(&self) -> ::std::option::Option<&crate::types::CapacityProviderScalingMode> {
@@ -21700,7 +21700,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn builder() -> CapacityProviderScalingConfigBuilder { CapacityProviderScalingConfigBuilder::default() }
 +        pub fn max_v_cpu_count(&self) -> &::std::option::Option<self::CapacityProviderMaxVCpuCount> { &self.max_v_cpu_count }
 +        pub fn scaling_mode(&self) -> &::std::option::Option<self::CapacityProviderScalingMode> { &self.scaling_mode }
-+        pub fn scaling_policies(&self) -> &::std::option::Option<self::CapacityProviderScalingPoliciesList> { &self.scaling_policies }
++        pub fn scaling_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::TargetTrackingScalingPolicy>> { &self.scaling_policies }
      }
 -    /// <p>A list of scaling policies that define how the capacity provider scales compute instances based on metrics and thresholds.</p>
 -    ///
@@ -21718,7 +21718,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct CapacityProviderScalingConfigBuilder {
 +        max_v_cpu_count: ::std::option::Option<self::CapacityProviderMaxVCpuCount>,
 +        scaling_mode: ::std::option::Option<self::CapacityProviderScalingMode>,
-+        scaling_policies: ::std::option::Option<self::CapacityProviderScalingPoliciesList>,
++        scaling_policies: ::std::option::Option<::std::vec::Vec<self::TargetTrackingScalingPolicy>>,
      }
 -}
 
@@ -21792,9 +21792,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn scaling_mode(mut self, input: impl ::std::convert::Into<self::CapacityProviderScalingMode>) -> Self { self.scaling_mode = Some(input.into()); self }
 +        pub fn set_scaling_mode(mut self, input: ::std::option::Option<self::CapacityProviderScalingMode>) -> Self { self.scaling_mode = input; self }
 +        pub fn get_scaling_mode(&self) -> &::std::option::Option<self::CapacityProviderScalingMode> { &self.scaling_mode }
-+        pub fn scaling_policies(mut self, input: impl ::std::convert::Into<self::CapacityProviderScalingPoliciesList>) -> Self { self.scaling_policies = Some(input.into()); self }
-+        pub fn set_scaling_policies(mut self, input: ::std::option::Option<self::CapacityProviderScalingPoliciesList>) -> Self { self.scaling_policies = input; self }
-+        pub fn get_scaling_policies(&self) -> &::std::option::Option<self::CapacityProviderScalingPoliciesList> { &self.scaling_policies }
++        pub fn scaling_policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::TargetTrackingScalingPolicy>>) -> Self { self.scaling_policies = Some(input.into()); self }
++        pub fn set_scaling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<self::TargetTrackingScalingPolicy>>) -> Self { self.scaling_policies = input; self }
++        pub fn get_scaling_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::TargetTrackingScalingPolicy>> { &self.scaling_policies }
 +        pub fn build(self) -> CapacityProviderScalingConfig {
 +            CapacityProviderScalingConfig {
 +                max_v_cpu_count: self.max_v_cpu_count,
@@ -22196,8 +22196,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.subnet_ids.deref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct CapacityProviderVpcConfig {
-+        pub security_group_ids: ::std::option::Option<self::CapacityProviderSecurityGroupIds>,
-+        pub subnet_ids: ::std::option::Option<self::CapacityProviderSubnetIds>,
++        pub security_group_ids: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>,
++        pub subnet_ids: ::std::option::Option<::std::vec::Vec<self::SubnetId>>,
      }
 -    /// <p>A list of security group IDs that control network access for compute instances managed by the capacity provider.</p>
 -    pub fn security_group_ids(&self) -> &[::std::string::String] {
@@ -22205,8 +22205,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.security_group_ids.deref()
 +    impl CapacityProviderVpcConfig {
 +        pub fn builder() -> CapacityProviderVpcConfigBuilder { CapacityProviderVpcConfigBuilder::default() }
-+        pub fn security_group_ids(&self) -> &::std::option::Option<self::CapacityProviderSecurityGroupIds> { &self.security_group_ids }
-+        pub fn subnet_ids(&self) -> &::std::option::Option<self::CapacityProviderSubnetIds> { &self.subnet_ids }
++        pub fn security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SecurityGroupId>> { &self.security_group_ids }
++        pub fn subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SubnetId>> { &self.subnet_ids }
      }
 -}
 -impl CapacityProviderVpcConfig {
@@ -22216,8 +22216,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +    #[derive(Clone, Debug, Default)]
 +    pub struct CapacityProviderVpcConfigBuilder {
-+        security_group_ids: ::std::option::Option<self::CapacityProviderSecurityGroupIds>,
-+        subnet_ids: ::std::option::Option<self::CapacityProviderSubnetIds>,
++        security_group_ids: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>,
++        subnet_ids: ::std::option::Option<::std::vec::Vec<self::SubnetId>>,
      }
 -}
 
@@ -22260,12 +22260,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.security_group_ids = ::std::option::Option::Some(v);
 -        self
 +    impl CapacityProviderVpcConfigBuilder {
-+        pub fn security_group_ids(mut self, input: impl ::std::convert::Into<self::CapacityProviderSecurityGroupIds>) -> Self { self.security_group_ids = Some(input.into()); self }
-+        pub fn set_security_group_ids(mut self, input: ::std::option::Option<self::CapacityProviderSecurityGroupIds>) -> Self { self.security_group_ids = input; self }
-+        pub fn get_security_group_ids(&self) -> &::std::option::Option<self::CapacityProviderSecurityGroupIds> { &self.security_group_ids }
-+        pub fn subnet_ids(mut self, input: impl ::std::convert::Into<self::CapacityProviderSubnetIds>) -> Self { self.subnet_ids = Some(input.into()); self }
-+        pub fn set_subnet_ids(mut self, input: ::std::option::Option<self::CapacityProviderSubnetIds>) -> Self { self.subnet_ids = input; self }
-+        pub fn get_subnet_ids(&self) -> &::std::option::Option<self::CapacityProviderSubnetIds> { &self.subnet_ids }
++        pub fn security_group_ids(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SecurityGroupId>>) -> Self { self.security_group_ids = Some(input.into()); self }
++        pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>) -> Self { self.security_group_ids = input; self }
++        pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SecurityGroupId>> { &self.security_group_ids }
++        pub fn subnet_ids(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SubnetId>>) -> Self { self.subnet_ids = Some(input.into()); self }
++        pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<self::SubnetId>>) -> Self { self.subnet_ids = input; self }
++        pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SubnetId>> { &self.subnet_ids }
 +        pub fn build(self) -> CapacityProviderVpcConfig {
 +            CapacityProviderVpcConfig {
 +                security_group_ids: self.security_group_ids,
@@ -23081,7 +23081,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct CheckpointUpdatedExecutionState {
 +        pub next_marker: ::std::option::Option<self::String>,
-+        pub operations: ::std::option::Option<self::Operations>,
++        pub operations: ::std::option::Option<::std::vec::Vec<self::Operation>>,
      }
 -    /// <p>Indicates that more results are available. Use this value in a subsequent call to retrieve the next page of results.</p>
 -    pub fn next_marker(&self) -> ::std::option::Option<&str> {
@@ -23089,7 +23089,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl CheckpointUpdatedExecutionState {
 +        pub fn builder() -> CheckpointUpdatedExecutionStateBuilder { CheckpointUpdatedExecutionStateBuilder::default() }
 +        pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
-+        pub fn operations(&self) -> &::std::option::Option<self::Operations> { &self.operations }
++        pub fn operations(&self) -> &::std::option::Option<::std::vec::Vec<self::Operation>> { &self.operations }
      }
 -}
 -impl CheckpointUpdatedExecutionState {
@@ -23143,7 +23143,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct CheckpointUpdatedExecutionStateBuilder {
 +        next_marker: ::std::option::Option<self::String>,
-+        operations: ::std::option::Option<self::Operations>,
++        operations: ::std::option::Option<::std::vec::Vec<self::Operation>>,
      }
 -    /// Consumes the builder and constructs a [`CheckpointUpdatedExecutionState`](crate::types::CheckpointUpdatedExecutionState).
 -    pub fn build(self) -> crate::types::CheckpointUpdatedExecutionState {
@@ -23155,9 +23155,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
 +        pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
 +        pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }
-+        pub fn operations(mut self, input: impl ::std::convert::Into<self::Operations>) -> Self { self.operations = Some(input.into()); self }
-+        pub fn set_operations(mut self, input: ::std::option::Option<self::Operations>) -> Self { self.operations = input; self }
-+        pub fn get_operations(&self) -> &::std::option::Option<self::Operations> { &self.operations }
++        pub fn operations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Operation>>) -> Self { self.operations = Some(input.into()); self }
++        pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<self::Operation>>) -> Self { self.operations = input; self }
++        pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<self::Operation>> { &self.operations }
 +        pub fn build(self) -> CheckpointUpdatedExecutionState {
 +            CheckpointUpdatedExecutionState {
 +                next_marker: self.next_marker,
@@ -24182,10 +24182,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct Cors {
 +        pub allow_credentials: ::std::option::Option<self::AllowCredentials>,
-+        pub allow_headers: ::std::option::Option<self::HeadersList>,
-+        pub allow_methods: ::std::option::Option<self::AllowMethodsList>,
-+        pub allow_origins: ::std::option::Option<self::AllowOriginsList>,
-+        pub expose_headers: ::std::option::Option<self::HeadersList>,
++        pub allow_headers: ::std::option::Option<::std::vec::Vec<self::Header>>,
++        pub allow_methods: ::std::option::Option<::std::vec::Vec<self::Method>>,
++        pub allow_origins: ::std::option::Option<::std::vec::Vec<self::Origin>>,
++        pub expose_headers: ::std::option::Option<::std::vec::Vec<self::Header>>,
 +        pub max_age: ::std::option::Option<self::MaxAge>,
      }
 -    /// <p>The HTTP methods that are allowed when calling your function URL. For example: <code>GET</code>, <code>POST</code>, <code>DELETE</code>, or the wildcard character (<code>*</code>).</p>
@@ -24196,10 +24196,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl Cors {
 +        pub fn builder() -> CorsBuilder { CorsBuilder::default() }
 +        pub fn allow_credentials(&self) -> &::std::option::Option<self::AllowCredentials> { &self.allow_credentials }
-+        pub fn allow_headers(&self) -> &::std::option::Option<self::HeadersList> { &self.allow_headers }
-+        pub fn allow_methods(&self) -> &::std::option::Option<self::AllowMethodsList> { &self.allow_methods }
-+        pub fn allow_origins(&self) -> &::std::option::Option<self::AllowOriginsList> { &self.allow_origins }
-+        pub fn expose_headers(&self) -> &::std::option::Option<self::HeadersList> { &self.expose_headers }
++        pub fn allow_headers(&self) -> &::std::option::Option<::std::vec::Vec<self::Header>> { &self.allow_headers }
++        pub fn allow_methods(&self) -> &::std::option::Option<::std::vec::Vec<self::Method>> { &self.allow_methods }
++        pub fn allow_origins(&self) -> &::std::option::Option<::std::vec::Vec<self::Origin>> { &self.allow_origins }
++        pub fn expose_headers(&self) -> &::std::option::Option<::std::vec::Vec<self::Header>> { &self.expose_headers }
 +        pub fn max_age(&self) -> &::std::option::Option<self::MaxAge> { &self.max_age }
      }
 -    /// <p>The origins that can access your function URL. You can list any number of specific origins, separated by a comma. For example: <code>https://www.example.com</code>, <code>http://localhost:60905</code>.</p>
@@ -24222,10 +24222,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct CorsBuilder {
 +        allow_credentials: ::std::option::Option<self::AllowCredentials>,
-+        allow_headers: ::std::option::Option<self::HeadersList>,
-+        allow_methods: ::std::option::Option<self::AllowMethodsList>,
-+        allow_origins: ::std::option::Option<self::AllowOriginsList>,
-+        expose_headers: ::std::option::Option<self::HeadersList>,
++        allow_headers: ::std::option::Option<::std::vec::Vec<self::Header>>,
++        allow_methods: ::std::option::Option<::std::vec::Vec<self::Method>>,
++        allow_origins: ::std::option::Option<::std::vec::Vec<self::Origin>>,
++        expose_headers: ::std::option::Option<::std::vec::Vec<self::Header>>,
 +        max_age: ::std::option::Option<self::MaxAge>,
      }
 -}
@@ -24372,18 +24372,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn allow_credentials(mut self, input: impl ::std::convert::Into<self::AllowCredentials>) -> Self { self.allow_credentials = Some(input.into()); self }
 +        pub fn set_allow_credentials(mut self, input: ::std::option::Option<self::AllowCredentials>) -> Self { self.allow_credentials = input; self }
 +        pub fn get_allow_credentials(&self) -> &::std::option::Option<self::AllowCredentials> { &self.allow_credentials }
-+        pub fn allow_headers(mut self, input: impl ::std::convert::Into<self::HeadersList>) -> Self { self.allow_headers = Some(input.into()); self }
-+        pub fn set_allow_headers(mut self, input: ::std::option::Option<self::HeadersList>) -> Self { self.allow_headers = input; self }
-+        pub fn get_allow_headers(&self) -> &::std::option::Option<self::HeadersList> { &self.allow_headers }
-+        pub fn allow_methods(mut self, input: impl ::std::convert::Into<self::AllowMethodsList>) -> Self { self.allow_methods = Some(input.into()); self }
-+        pub fn set_allow_methods(mut self, input: ::std::option::Option<self::AllowMethodsList>) -> Self { self.allow_methods = input; self }
-+        pub fn get_allow_methods(&self) -> &::std::option::Option<self::AllowMethodsList> { &self.allow_methods }
-+        pub fn allow_origins(mut self, input: impl ::std::convert::Into<self::AllowOriginsList>) -> Self { self.allow_origins = Some(input.into()); self }
-+        pub fn set_allow_origins(mut self, input: ::std::option::Option<self::AllowOriginsList>) -> Self { self.allow_origins = input; self }
-+        pub fn get_allow_origins(&self) -> &::std::option::Option<self::AllowOriginsList> { &self.allow_origins }
-+        pub fn expose_headers(mut self, input: impl ::std::convert::Into<self::HeadersList>) -> Self { self.expose_headers = Some(input.into()); self }
-+        pub fn set_expose_headers(mut self, input: ::std::option::Option<self::HeadersList>) -> Self { self.expose_headers = input; self }
-+        pub fn get_expose_headers(&self) -> &::std::option::Option<self::HeadersList> { &self.expose_headers }
++        pub fn allow_headers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Header>>) -> Self { self.allow_headers = Some(input.into()); self }
++        pub fn set_allow_headers(mut self, input: ::std::option::Option<::std::vec::Vec<self::Header>>) -> Self { self.allow_headers = input; self }
++        pub fn get_allow_headers(&self) -> &::std::option::Option<::std::vec::Vec<self::Header>> { &self.allow_headers }
++        pub fn allow_methods(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Method>>) -> Self { self.allow_methods = Some(input.into()); self }
++        pub fn set_allow_methods(mut self, input: ::std::option::Option<::std::vec::Vec<self::Method>>) -> Self { self.allow_methods = input; self }
++        pub fn get_allow_methods(&self) -> &::std::option::Option<::std::vec::Vec<self::Method>> { &self.allow_methods }
++        pub fn allow_origins(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Origin>>) -> Self { self.allow_origins = Some(input.into()); self }
++        pub fn set_allow_origins(mut self, input: ::std::option::Option<::std::vec::Vec<self::Origin>>) -> Self { self.allow_origins = input; self }
++        pub fn get_allow_origins(&self) -> &::std::option::Option<::std::vec::Vec<self::Origin>> { &self.allow_origins }
++        pub fn expose_headers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Header>>) -> Self { self.expose_headers = Some(input.into()); self }
++        pub fn set_expose_headers(mut self, input: ::std::option::Option<::std::vec::Vec<self::Header>>) -> Self { self.expose_headers = input; self }
++        pub fn get_expose_headers(&self) -> &::std::option::Option<::std::vec::Vec<self::Header>> { &self.expose_headers }
 +        pub fn max_age(mut self, input: impl ::std::convert::Into<self::MaxAge>) -> Self { self.max_age = Some(input.into()); self }
 +        pub fn set_max_age(mut self, input: ::std::option::Option<self::MaxAge>) -> Self { self.max_age = input; self }
 +        pub fn get_max_age(&self) -> &::std::option::Option<self::MaxAge> { &self.max_age }
@@ -25001,7 +25001,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.variables.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct Environment {
-+        pub variables: ::std::option::Option<self::EnvironmentVariables>,
++        pub variables: ::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>,
      }
 -}
 -impl ::std::fmt::Debug for Environment {
@@ -25011,7 +25011,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        formatter.finish()
 +    impl Environment {
 +        pub fn builder() -> EnvironmentBuilder { EnvironmentBuilder::default() }
-+        pub fn variables(&self) -> &::std::option::Option<self::EnvironmentVariables> { &self.variables }
++        pub fn variables(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>> { &self.variables }
      }
 -}
 -impl Environment {
@@ -25021,7 +25021,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +    #[derive(Clone, Debug, Default)]
 +    pub struct EnvironmentBuilder {
-+        variables: ::std::option::Option<self::EnvironmentVariables>,
++        variables: ::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>,
      }
 -}
 
@@ -25063,9 +25063,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        formatter.field("variables", &"*** Sensitive Data Redacted ***");
 -        formatter.finish()
 +    impl EnvironmentBuilder {
-+        pub fn variables(mut self, input: impl ::std::convert::Into<self::EnvironmentVariables>) -> Self { self.variables = Some(input.into()); self }
-+        pub fn set_variables(mut self, input: ::std::option::Option<self::EnvironmentVariables>) -> Self { self.variables = input; self }
-+        pub fn get_variables(&self) -> &::std::option::Option<self::EnvironmentVariables> { &self.variables }
++        pub fn variables(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>) -> Self { self.variables = Some(input.into()); self }
++        pub fn set_variables(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>) -> Self { self.variables = input; self }
++        pub fn get_variables(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>> { &self.variables }
 +        pub fn build(self) -> Environment {
 +            Environment {
 +                variables: self.variables,
@@ -25234,7 +25234,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct EnvironmentResponse {
 +        pub error: ::std::option::Option<self::EnvironmentError>,
-+        pub variables: ::std::option::Option<self::EnvironmentVariables>,
++        pub variables: ::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>,
      }
 -}
 -impl EnvironmentResponse {
@@ -25244,7 +25244,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl EnvironmentResponse {
 +        pub fn builder() -> EnvironmentResponseBuilder { EnvironmentResponseBuilder::default() }
 +        pub fn error(&self) -> &::std::option::Option<self::EnvironmentError> { &self.error }
-+        pub fn variables(&self) -> &::std::option::Option<self::EnvironmentVariables> { &self.variables }
++        pub fn variables(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>> { &self.variables }
      }
 -}
 
@@ -25269,7 +25269,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct EnvironmentResponseBuilder {
 +        error: ::std::option::Option<self::EnvironmentError>,
-+        variables: ::std::option::Option<self::EnvironmentVariables>,
++        variables: ::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>,
      }
 -    /// <p>Environment variable key-value pairs. Omitted from CloudTrail logs.</p>
 -    pub fn set_variables(mut self, input: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
@@ -25304,9 +25304,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn error(mut self, input: impl ::std::convert::Into<self::EnvironmentError>) -> Self { self.error = Some(input.into()); self }
 +        pub fn set_error(mut self, input: ::std::option::Option<self::EnvironmentError>) -> Self { self.error = input; self }
 +        pub fn get_error(&self) -> &::std::option::Option<self::EnvironmentError> { &self.error }
-+        pub fn variables(mut self, input: impl ::std::convert::Into<self::EnvironmentVariables>) -> Self { self.variables = Some(input.into()); self }
-+        pub fn set_variables(mut self, input: ::std::option::Option<self::EnvironmentVariables>) -> Self { self.variables = input; self }
-+        pub fn get_variables(&self) -> &::std::option::Option<self::EnvironmentVariables> { &self.variables }
++        pub fn variables(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>) -> Self { self.variables = Some(input.into()); self }
++        pub fn set_variables(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>) -> Self { self.variables = input; self }
++        pub fn get_variables(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>> { &self.variables }
 +        pub fn build(self) -> EnvironmentResponse {
 +            EnvironmentResponse {
 +                error: self.error,
@@ -25466,7 +25466,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub error_data: ::std::option::Option<self::ErrorData>,
 +        pub error_message: ::std::option::Option<self::ErrorMessage>,
 +        pub error_type: ::std::option::Option<self::ErrorType>,
-+        pub stack_trace: ::std::option::Option<self::StackTraceEntries>,
++        pub stack_trace: ::std::option::Option<::std::vec::Vec<self::StackTraceEntry>>,
      }
 -}
 -impl ErrorObject {
@@ -25478,7 +25478,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn error_data(&self) -> &::std::option::Option<self::ErrorData> { &self.error_data }
 +        pub fn error_message(&self) -> &::std::option::Option<self::ErrorMessage> { &self.error_message }
 +        pub fn error_type(&self) -> &::std::option::Option<self::ErrorType> { &self.error_type }
-+        pub fn stack_trace(&self) -> &::std::option::Option<self::StackTraceEntries> { &self.stack_trace }
++        pub fn stack_trace(&self) -> &::std::option::Option<::std::vec::Vec<self::StackTraceEntry>> { &self.stack_trace }
      }
 -}
 
@@ -25515,7 +25515,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        error_data: ::std::option::Option<self::ErrorData>,
 +        error_message: ::std::option::Option<self::ErrorMessage>,
 +        error_type: ::std::option::Option<self::ErrorType>,
-+        stack_trace: ::std::option::Option<self::StackTraceEntries>,
++        stack_trace: ::std::option::Option<::std::vec::Vec<self::StackTraceEntry>>,
      }
 -    /// <p>The error type.</p>
 -    pub fn set_error_type(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
@@ -25578,9 +25578,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn error_type(mut self, input: impl ::std::convert::Into<self::ErrorType>) -> Self { self.error_type = Some(input.into()); self }
 +        pub fn set_error_type(mut self, input: ::std::option::Option<self::ErrorType>) -> Self { self.error_type = input; self }
 +        pub fn get_error_type(&self) -> &::std::option::Option<self::ErrorType> { &self.error_type }
-+        pub fn stack_trace(mut self, input: impl ::std::convert::Into<self::StackTraceEntries>) -> Self { self.stack_trace = Some(input.into()); self }
-+        pub fn set_stack_trace(mut self, input: ::std::option::Option<self::StackTraceEntries>) -> Self { self.stack_trace = input; self }
-+        pub fn get_stack_trace(&self) -> &::std::option::Option<self::StackTraceEntries> { &self.stack_trace }
++        pub fn stack_trace(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::StackTraceEntry>>) -> Self { self.stack_trace = Some(input.into()); self }
++        pub fn set_stack_trace(mut self, input: ::std::option::Option<::std::vec::Vec<self::StackTraceEntry>>) -> Self { self.stack_trace = input; self }
++        pub fn get_stack_trace(&self) -> &::std::option::Option<::std::vec::Vec<self::StackTraceEntry>> { &self.stack_trace }
 +        pub fn build(self) -> ErrorObject {
 +            ErrorObject {
 +                error_data: self.error_data,
@@ -27146,7 +27146,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub filter_criteria: ::std::option::Option<self::FilterCriteria>,
 +        pub filter_criteria_error: ::std::option::Option<self::FilterCriteriaError>,
 +        pub function_arn: ::std::option::Option<self::FunctionArn>,
-+        pub function_response_types: ::std::option::Option<self::FunctionResponseTypeList>,
++        pub function_response_types: ::std::option::Option<::std::vec::Vec<self::FunctionResponseType>>,
 +        pub kms_key_arn: ::std::option::Option<self::KmsKeyArn>,
 +        pub last_modified: ::std::option::Option<self::Date>,
 +        pub last_processing_result: ::std::option::Option<self::String>,
@@ -27157,16 +27157,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub metrics_config: ::std::option::Option<self::EventSourceMappingMetricsConfig>,
 +        pub parallelization_factor: ::std::option::Option<self::ParallelizationFactor>,
 +        pub provisioned_poller_config: ::std::option::Option<self::ProvisionedPollerConfig>,
-+        pub queues: ::std::option::Option<self::Queues>,
++        pub queues: ::std::option::Option<::std::vec::Vec<self::Queue>>,
 +        pub scaling_config: ::std::option::Option<self::ScalingConfig>,
 +        pub self_managed_event_source: ::std::option::Option<self::SelfManagedEventSource>,
 +        pub self_managed_kafka_event_source_config: ::std::option::Option<self::SelfManagedKafkaEventSourceConfig>,
-+        pub source_access_configurations: ::std::option::Option<self::SourceAccessConfigurations>,
++        pub source_access_configurations: ::std::option::Option<::std::vec::Vec<self::SourceAccessConfiguration>>,
 +        pub starting_position: ::std::option::Option<self::EventSourcePosition>,
 +        pub starting_position_timestamp: ::std::option::Option<self::Date>,
 +        pub state: ::std::option::Option<self::String>,
 +        pub state_transition_reason: ::std::option::Option<self::String>,
-+        pub topics: ::std::option::Option<self::Topics>,
++        pub topics: ::std::option::Option<::std::vec::Vec<self::Topic>>,
 +        pub tumbling_window_in_seconds: ::std::option::Option<self::TumblingWindowInSeconds>,
 +        pub uuid: ::std::option::Option<self::UuidString>,
      }
@@ -27187,7 +27187,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn filter_criteria(&self) -> &::std::option::Option<self::FilterCriteria> { &self.filter_criteria }
 +        pub fn filter_criteria_error(&self) -> &::std::option::Option<self::FilterCriteriaError> { &self.filter_criteria_error }
 +        pub fn function_arn(&self) -> &::std::option::Option<self::FunctionArn> { &self.function_arn }
-+        pub fn function_response_types(&self) -> &::std::option::Option<self::FunctionResponseTypeList> { &self.function_response_types }
++        pub fn function_response_types(&self) -> &::std::option::Option<::std::vec::Vec<self::FunctionResponseType>> { &self.function_response_types }
 +        pub fn kms_key_arn(&self) -> &::std::option::Option<self::KmsKeyArn> { &self.kms_key_arn }
 +        pub fn last_modified(&self) -> &::std::option::Option<self::Date> { &self.last_modified }
 +        pub fn last_processing_result(&self) -> ::std::option::Option<&str> { self.last_processing_result.as_deref() }
@@ -27198,16 +27198,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn metrics_config(&self) -> &::std::option::Option<self::EventSourceMappingMetricsConfig> { &self.metrics_config }
 +        pub fn parallelization_factor(&self) -> &::std::option::Option<self::ParallelizationFactor> { &self.parallelization_factor }
 +        pub fn provisioned_poller_config(&self) -> &::std::option::Option<self::ProvisionedPollerConfig> { &self.provisioned_poller_config }
-+        pub fn queues(&self) -> &::std::option::Option<self::Queues> { &self.queues }
++        pub fn queues(&self) -> &::std::option::Option<::std::vec::Vec<self::Queue>> { &self.queues }
 +        pub fn scaling_config(&self) -> &::std::option::Option<self::ScalingConfig> { &self.scaling_config }
 +        pub fn self_managed_event_source(&self) -> &::std::option::Option<self::SelfManagedEventSource> { &self.self_managed_event_source }
 +        pub fn self_managed_kafka_event_source_config(&self) -> &::std::option::Option<self::SelfManagedKafkaEventSourceConfig> { &self.self_managed_kafka_event_source_config }
-+        pub fn source_access_configurations(&self) -> &::std::option::Option<self::SourceAccessConfigurations> { &self.source_access_configurations }
++        pub fn source_access_configurations(&self) -> &::std::option::Option<::std::vec::Vec<self::SourceAccessConfiguration>> { &self.source_access_configurations }
 +        pub fn starting_position(&self) -> &::std::option::Option<self::EventSourcePosition> { &self.starting_position }
 +        pub fn starting_position_timestamp(&self) -> &::std::option::Option<self::Date> { &self.starting_position_timestamp }
 +        pub fn state(&self) -> ::std::option::Option<&str> { self.state.as_deref() }
 +        pub fn state_transition_reason(&self) -> ::std::option::Option<&str> { self.state_transition_reason.as_deref() }
-+        pub fn topics(&self) -> &::std::option::Option<self::Topics> { &self.topics }
++        pub fn topics(&self) -> &::std::option::Option<::std::vec::Vec<self::Topic>> { &self.topics }
 +        pub fn tumbling_window_in_seconds(&self) -> &::std::option::Option<self::TumblingWindowInSeconds> { &self.tumbling_window_in_seconds }
 +        pub fn uuid(&self) -> &::std::option::Option<self::UuidString> { &self.uuid }
      }
@@ -27277,7 +27277,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        filter_criteria: ::std::option::Option<self::FilterCriteria>,
 +        filter_criteria_error: ::std::option::Option<self::FilterCriteriaError>,
 +        function_arn: ::std::option::Option<self::FunctionArn>,
-+        function_response_types: ::std::option::Option<self::FunctionResponseTypeList>,
++        function_response_types: ::std::option::Option<::std::vec::Vec<self::FunctionResponseType>>,
 +        kms_key_arn: ::std::option::Option<self::KmsKeyArn>,
 +        last_modified: ::std::option::Option<self::Date>,
 +        last_processing_result: ::std::option::Option<self::String>,
@@ -27288,16 +27288,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        metrics_config: ::std::option::Option<self::EventSourceMappingMetricsConfig>,
 +        parallelization_factor: ::std::option::Option<self::ParallelizationFactor>,
 +        provisioned_poller_config: ::std::option::Option<self::ProvisionedPollerConfig>,
-+        queues: ::std::option::Option<self::Queues>,
++        queues: ::std::option::Option<::std::vec::Vec<self::Queue>>,
 +        scaling_config: ::std::option::Option<self::ScalingConfig>,
 +        self_managed_event_source: ::std::option::Option<self::SelfManagedEventSource>,
 +        self_managed_kafka_event_source_config: ::std::option::Option<self::SelfManagedKafkaEventSourceConfig>,
-+        source_access_configurations: ::std::option::Option<self::SourceAccessConfigurations>,
++        source_access_configurations: ::std::option::Option<::std::vec::Vec<self::SourceAccessConfiguration>>,
 +        starting_position: ::std::option::Option<self::EventSourcePosition>,
 +        starting_position_timestamp: ::std::option::Option<self::Date>,
 +        state: ::std::option::Option<self::String>,
 +        state_transition_reason: ::std::option::Option<self::String>,
-+        topics: ::std::option::Option<self::Topics>,
++        topics: ::std::option::Option<::std::vec::Vec<self::Topic>>,
 +        tumbling_window_in_seconds: ::std::option::Option<self::TumblingWindowInSeconds>,
 +        uuid: ::std::option::Option<self::UuidString>,
      }
@@ -27871,9 +27871,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn function_arn(mut self, input: impl ::std::convert::Into<self::FunctionArn>) -> Self { self.function_arn = Some(input.into()); self }
 +        pub fn set_function_arn(mut self, input: ::std::option::Option<self::FunctionArn>) -> Self { self.function_arn = input; self }
 +        pub fn get_function_arn(&self) -> &::std::option::Option<self::FunctionArn> { &self.function_arn }
-+        pub fn function_response_types(mut self, input: impl ::std::convert::Into<self::FunctionResponseTypeList>) -> Self { self.function_response_types = Some(input.into()); self }
-+        pub fn set_function_response_types(mut self, input: ::std::option::Option<self::FunctionResponseTypeList>) -> Self { self.function_response_types = input; self }
-+        pub fn get_function_response_types(&self) -> &::std::option::Option<self::FunctionResponseTypeList> { &self.function_response_types }
++        pub fn function_response_types(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::FunctionResponseType>>) -> Self { self.function_response_types = Some(input.into()); self }
++        pub fn set_function_response_types(mut self, input: ::std::option::Option<::std::vec::Vec<self::FunctionResponseType>>) -> Self { self.function_response_types = input; self }
++        pub fn get_function_response_types(&self) -> &::std::option::Option<::std::vec::Vec<self::FunctionResponseType>> { &self.function_response_types }
 +        pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<self::KmsKeyArn>) -> Self { self.kms_key_arn = Some(input.into()); self }
 +        pub fn set_kms_key_arn(mut self, input: ::std::option::Option<self::KmsKeyArn>) -> Self { self.kms_key_arn = input; self }
 +        pub fn get_kms_key_arn(&self) -> &::std::option::Option<self::KmsKeyArn> { &self.kms_key_arn }
@@ -27904,9 +27904,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn provisioned_poller_config(mut self, input: impl ::std::convert::Into<self::ProvisionedPollerConfig>) -> Self { self.provisioned_poller_config = Some(input.into()); self }
 +        pub fn set_provisioned_poller_config(mut self, input: ::std::option::Option<self::ProvisionedPollerConfig>) -> Self { self.provisioned_poller_config = input; self }
 +        pub fn get_provisioned_poller_config(&self) -> &::std::option::Option<self::ProvisionedPollerConfig> { &self.provisioned_poller_config }
-+        pub fn queues(mut self, input: impl ::std::convert::Into<self::Queues>) -> Self { self.queues = Some(input.into()); self }
-+        pub fn set_queues(mut self, input: ::std::option::Option<self::Queues>) -> Self { self.queues = input; self }
-+        pub fn get_queues(&self) -> &::std::option::Option<self::Queues> { &self.queues }
++        pub fn queues(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Queue>>) -> Self { self.queues = Some(input.into()); self }
++        pub fn set_queues(mut self, input: ::std::option::Option<::std::vec::Vec<self::Queue>>) -> Self { self.queues = input; self }
++        pub fn get_queues(&self) -> &::std::option::Option<::std::vec::Vec<self::Queue>> { &self.queues }
 +        pub fn scaling_config(mut self, input: impl ::std::convert::Into<self::ScalingConfig>) -> Self { self.scaling_config = Some(input.into()); self }
 +        pub fn set_scaling_config(mut self, input: ::std::option::Option<self::ScalingConfig>) -> Self { self.scaling_config = input; self }
 +        pub fn get_scaling_config(&self) -> &::std::option::Option<self::ScalingConfig> { &self.scaling_config }
@@ -27916,9 +27916,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn self_managed_kafka_event_source_config(mut self, input: impl ::std::convert::Into<self::SelfManagedKafkaEventSourceConfig>) -> Self { self.self_managed_kafka_event_source_config = Some(input.into()); self }
 +        pub fn set_self_managed_kafka_event_source_config(mut self, input: ::std::option::Option<self::SelfManagedKafkaEventSourceConfig>) -> Self { self.self_managed_kafka_event_source_config = input; self }
 +        pub fn get_self_managed_kafka_event_source_config(&self) -> &::std::option::Option<self::SelfManagedKafkaEventSourceConfig> { &self.self_managed_kafka_event_source_config }
-+        pub fn source_access_configurations(mut self, input: impl ::std::convert::Into<self::SourceAccessConfigurations>) -> Self { self.source_access_configurations = Some(input.into()); self }
-+        pub fn set_source_access_configurations(mut self, input: ::std::option::Option<self::SourceAccessConfigurations>) -> Self { self.source_access_configurations = input; self }
-+        pub fn get_source_access_configurations(&self) -> &::std::option::Option<self::SourceAccessConfigurations> { &self.source_access_configurations }
++        pub fn source_access_configurations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SourceAccessConfiguration>>) -> Self { self.source_access_configurations = Some(input.into()); self }
++        pub fn set_source_access_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<self::SourceAccessConfiguration>>) -> Self { self.source_access_configurations = input; self }
++        pub fn get_source_access_configurations(&self) -> &::std::option::Option<::std::vec::Vec<self::SourceAccessConfiguration>> { &self.source_access_configurations }
 +        pub fn starting_position(mut self, input: impl ::std::convert::Into<self::EventSourcePosition>) -> Self { self.starting_position = Some(input.into()); self }
 +        pub fn set_starting_position(mut self, input: ::std::option::Option<self::EventSourcePosition>) -> Self { self.starting_position = input; self }
 +        pub fn get_starting_position(&self) -> &::std::option::Option<self::EventSourcePosition> { &self.starting_position }
@@ -27931,9 +27931,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn state_transition_reason(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.state_transition_reason = Some(input.into()); self }
 +        pub fn set_state_transition_reason(mut self, input: ::std::option::Option<self::String>) -> Self { self.state_transition_reason = input; self }
 +        pub fn get_state_transition_reason(&self) -> &::std::option::Option<self::String> { &self.state_transition_reason }
-+        pub fn topics(mut self, input: impl ::std::convert::Into<self::Topics>) -> Self { self.topics = Some(input.into()); self }
-+        pub fn set_topics(mut self, input: ::std::option::Option<self::Topics>) -> Self { self.topics = input; self }
-+        pub fn get_topics(&self) -> &::std::option::Option<self::Topics> { &self.topics }
++        pub fn topics(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Topic>>) -> Self { self.topics = Some(input.into()); self }
++        pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<self::Topic>>) -> Self { self.topics = input; self }
++        pub fn get_topics(&self) -> &::std::option::Option<::std::vec::Vec<self::Topic>> { &self.topics }
 +        pub fn tumbling_window_in_seconds(mut self, input: impl ::std::convert::Into<self::TumblingWindowInSeconds>) -> Self { self.tumbling_window_in_seconds = Some(input.into()); self }
 +        pub fn set_tumbling_window_in_seconds(mut self, input: ::std::option::Option<self::TumblingWindowInSeconds>) -> Self { self.tumbling_window_in_seconds = input; self }
 +        pub fn get_tumbling_window_in_seconds(&self) -> &::std::option::Option<self::TumblingWindowInSeconds> { &self.tumbling_window_in_seconds }
@@ -28244,7 +28244,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.metrics.as_deref().unwrap_or_default()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct EventSourceMappingMetricsConfig {
-+        pub metrics: ::std::option::Option<self::EventSourceMappingMetricList>,
++        pub metrics: ::std::option::Option<::std::vec::Vec<self::EventSourceMappingMetric>>,
      }
 -}
 -impl EventSourceMappingMetricsConfig {
@@ -28253,7 +28253,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::EventSourceMappingMetricsConfigBuilder::default()
 +    impl EventSourceMappingMetricsConfig {
 +        pub fn builder() -> EventSourceMappingMetricsConfigBuilder { EventSourceMappingMetricsConfigBuilder::default() }
-+        pub fn metrics(&self) -> &::std::option::Option<self::EventSourceMappingMetricList> { &self.metrics }
++        pub fn metrics(&self) -> &::std::option::Option<::std::vec::Vec<self::EventSourceMappingMetric>> { &self.metrics }
      }
 -}
 
@@ -28312,16 +28312,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.metrics
 +    #[derive(Clone, Debug, Default)]
 +    pub struct EventSourceMappingMetricsConfigBuilder {
-+        metrics: ::std::option::Option<self::EventSourceMappingMetricList>,
++        metrics: ::std::option::Option<::std::vec::Vec<self::EventSourceMappingMetric>>,
      }
 -    /// Consumes the builder and constructs a [`EventSourceMappingMetricsConfig`](crate::types::EventSourceMappingMetricsConfig).
 -    pub fn build(self) -> crate::types::EventSourceMappingMetricsConfig {
 -        crate::types::EventSourceMappingMetricsConfig { metrics: self.metrics }
 +
 +    impl EventSourceMappingMetricsConfigBuilder {
-+        pub fn metrics(mut self, input: impl ::std::convert::Into<self::EventSourceMappingMetricList>) -> Self { self.metrics = Some(input.into()); self }
-+        pub fn set_metrics(mut self, input: ::std::option::Option<self::EventSourceMappingMetricList>) -> Self { self.metrics = input; self }
-+        pub fn get_metrics(&self) -> &::std::option::Option<self::EventSourceMappingMetricList> { &self.metrics }
++        pub fn metrics(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::EventSourceMappingMetric>>) -> Self { self.metrics = Some(input.into()); self }
++        pub fn set_metrics(mut self, input: ::std::option::Option<::std::vec::Vec<self::EventSourceMappingMetric>>) -> Self { self.metrics = input; self }
++        pub fn get_metrics(&self) -> &::std::option::Option<::std::vec::Vec<self::EventSourceMappingMetric>> { &self.metrics }
 +        pub fn build(self) -> EventSourceMappingMetricsConfig {
 +            EventSourceMappingMetricsConfig {
 +                metrics: self.metrics,
@@ -30168,7 +30168,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.filters.as_deref().unwrap_or_default()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct FilterCriteria {
-+        pub filters: ::std::option::Option<self::FilterList>,
++        pub filters: ::std::option::Option<::std::vec::Vec<self::Filter>>,
      }
 -}
 -impl FilterCriteria {
@@ -30177,7 +30177,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::FilterCriteriaBuilder::default()
 +    impl FilterCriteria {
 +        pub fn builder() -> FilterCriteriaBuilder { FilterCriteriaBuilder::default() }
-+        pub fn filters(&self) -> &::std::option::Option<self::FilterList> { &self.filters }
++        pub fn filters(&self) -> &::std::option::Option<::std::vec::Vec<self::Filter>> { &self.filters }
      }
 -}
 
@@ -30200,7 +30200,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct FilterCriteriaBuilder {
-+        filters: ::std::option::Option<self::FilterList>,
++        filters: ::std::option::Option<::std::vec::Vec<self::Filter>>,
      }
 -    /// <p>A list of filters.</p>
 -    pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<crate::types::Filter>>) -> Self {
@@ -30216,9 +30216,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::FilterCriteria { filters: self.filters }
 +
 +    impl FilterCriteriaBuilder {
-+        pub fn filters(mut self, input: impl ::std::convert::Into<self::FilterList>) -> Self { self.filters = Some(input.into()); self }
-+        pub fn set_filters(mut self, input: ::std::option::Option<self::FilterList>) -> Self { self.filters = input; self }
-+        pub fn get_filters(&self) -> &::std::option::Option<self::FilterList> { &self.filters }
++        pub fn filters(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Filter>>) -> Self { self.filters = Some(input.into()); self }
++        pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<self::Filter>>) -> Self { self.filters = input; self }
++        pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<self::Filter>> { &self.filters }
 +        pub fn build(self) -> FilterCriteria {
 +            FilterCriteria {
 +                filters: self.filters,
@@ -31437,7 +31437,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.durable_config.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct FunctionConfiguration {
-+        pub architectures: ::std::option::Option<self::ArchitecturesList>,
++        pub architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
 +        pub capacity_provider_config: ::std::option::Option<self::CapacityProviderConfig>,
 +        pub code_sha256: ::std::option::Option<self::String>,
 +        pub code_size: ::std::option::Option<self::Long>,
@@ -31447,7 +31447,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub durable_config: ::std::option::Option<self::DurableConfig>,
 +        pub environment: ::std::option::Option<self::EnvironmentResponse>,
 +        pub ephemeral_storage: ::std::option::Option<self::EphemeralStorage>,
-+        pub file_system_configs: ::std::option::Option<self::FileSystemConfigList>,
++        pub file_system_configs: ::std::option::Option<::std::vec::Vec<self::FileSystemConfig>>,
 +        pub function_arn: ::std::option::Option<self::NameSpacedFunctionArn>,
 +        pub function_name: ::std::option::Option<self::NamespacedFunctionName>,
 +        pub handler: ::std::option::Option<self::Handler>,
@@ -31457,7 +31457,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub last_update_status: ::std::option::Option<self::LastUpdateStatus>,
 +        pub last_update_status_reason: ::std::option::Option<self::LastUpdateStatusReason>,
 +        pub last_update_status_reason_code: ::std::option::Option<self::LastUpdateStatusReasonCode>,
-+        pub layers: ::std::option::Option<self::LayersReferenceList>,
++        pub layers: ::std::option::Option<::std::vec::Vec<self::Layer>>,
 +        pub logging_config: ::std::option::Option<self::LoggingConfig>,
 +        pub master_arn: ::std::option::Option<self::FunctionArn>,
 +        pub memory_size: ::std::option::Option<self::MemorySize>,
@@ -31485,7 +31485,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::FunctionConfigurationBuilder::default()
 +    impl FunctionConfiguration {
 +        pub fn builder() -> FunctionConfigurationBuilder { FunctionConfigurationBuilder::default() }
-+        pub fn architectures(&self) -> &::std::option::Option<self::ArchitecturesList> { &self.architectures }
++        pub fn architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.architectures }
 +        pub fn capacity_provider_config(&self) -> &::std::option::Option<self::CapacityProviderConfig> { &self.capacity_provider_config }
 +        pub fn code_sha256(&self) -> ::std::option::Option<&str> { self.code_sha256.as_deref() }
 +        pub fn code_size(&self) -> &::std::option::Option<self::Long> { &self.code_size }
@@ -31495,7 +31495,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn durable_config(&self) -> &::std::option::Option<self::DurableConfig> { &self.durable_config }
 +        pub fn environment(&self) -> &::std::option::Option<self::EnvironmentResponse> { &self.environment }
 +        pub fn ephemeral_storage(&self) -> &::std::option::Option<self::EphemeralStorage> { &self.ephemeral_storage }
-+        pub fn file_system_configs(&self) -> &::std::option::Option<self::FileSystemConfigList> { &self.file_system_configs }
++        pub fn file_system_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::FileSystemConfig>> { &self.file_system_configs }
 +        pub fn function_arn(&self) -> &::std::option::Option<self::NameSpacedFunctionArn> { &self.function_arn }
 +        pub fn function_name(&self) -> &::std::option::Option<self::NamespacedFunctionName> { &self.function_name }
 +        pub fn handler(&self) -> &::std::option::Option<self::Handler> { &self.handler }
@@ -31505,7 +31505,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn last_update_status(&self) -> &::std::option::Option<self::LastUpdateStatus> { &self.last_update_status }
 +        pub fn last_update_status_reason(&self) -> &::std::option::Option<self::LastUpdateStatusReason> { &self.last_update_status_reason }
 +        pub fn last_update_status_reason_code(&self) -> &::std::option::Option<self::LastUpdateStatusReasonCode> { &self.last_update_status_reason_code }
-+        pub fn layers(&self) -> &::std::option::Option<self::LayersReferenceList> { &self.layers }
++        pub fn layers(&self) -> &::std::option::Option<::std::vec::Vec<self::Layer>> { &self.layers }
 +        pub fn logging_config(&self) -> &::std::option::Option<self::LoggingConfig> { &self.logging_config }
 +        pub fn master_arn(&self) -> &::std::option::Option<self::FunctionArn> { &self.master_arn }
 +        pub fn memory_size(&self) -> &::std::option::Option<self::MemorySize> { &self.memory_size }
@@ -31585,7 +31585,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct FunctionConfigurationBuilder {
-+        architectures: ::std::option::Option<self::ArchitecturesList>,
++        architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
 +        capacity_provider_config: ::std::option::Option<self::CapacityProviderConfig>,
 +        code_sha256: ::std::option::Option<self::String>,
 +        code_size: ::std::option::Option<self::Long>,
@@ -31595,7 +31595,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        durable_config: ::std::option::Option<self::DurableConfig>,
 +        environment: ::std::option::Option<self::EnvironmentResponse>,
 +        ephemeral_storage: ::std::option::Option<self::EphemeralStorage>,
-+        file_system_configs: ::std::option::Option<self::FileSystemConfigList>,
++        file_system_configs: ::std::option::Option<::std::vec::Vec<self::FileSystemConfig>>,
 +        function_arn: ::std::option::Option<self::NameSpacedFunctionArn>,
 +        function_name: ::std::option::Option<self::NamespacedFunctionName>,
 +        handler: ::std::option::Option<self::Handler>,
@@ -31605,7 +31605,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        last_update_status: ::std::option::Option<self::LastUpdateStatus>,
 +        last_update_status_reason: ::std::option::Option<self::LastUpdateStatusReason>,
 +        last_update_status_reason_code: ::std::option::Option<self::LastUpdateStatusReasonCode>,
-+        layers: ::std::option::Option<self::LayersReferenceList>,
++        layers: ::std::option::Option<::std::vec::Vec<self::Layer>>,
 +        logging_config: ::std::option::Option<self::LoggingConfig>,
 +        master_arn: ::std::option::Option<self::FunctionArn>,
 +        memory_size: ::std::option::Option<self::MemorySize>,
@@ -32278,9 +32278,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            durable_config: self.durable_config,
 +
 +    impl FunctionConfigurationBuilder {
-+        pub fn architectures(mut self, input: impl ::std::convert::Into<self::ArchitecturesList>) -> Self { self.architectures = Some(input.into()); self }
-+        pub fn set_architectures(mut self, input: ::std::option::Option<self::ArchitecturesList>) -> Self { self.architectures = input; self }
-+        pub fn get_architectures(&self) -> &::std::option::Option<self::ArchitecturesList> { &self.architectures }
++        pub fn architectures(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Architecture>>) -> Self { self.architectures = Some(input.into()); self }
++        pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<self::Architecture>>) -> Self { self.architectures = input; self }
++        pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.architectures }
 +        pub fn capacity_provider_config(mut self, input: impl ::std::convert::Into<self::CapacityProviderConfig>) -> Self { self.capacity_provider_config = Some(input.into()); self }
 +        pub fn set_capacity_provider_config(mut self, input: ::std::option::Option<self::CapacityProviderConfig>) -> Self { self.capacity_provider_config = input; self }
 +        pub fn get_capacity_provider_config(&self) -> &::std::option::Option<self::CapacityProviderConfig> { &self.capacity_provider_config }
@@ -32308,9 +32308,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn ephemeral_storage(mut self, input: impl ::std::convert::Into<self::EphemeralStorage>) -> Self { self.ephemeral_storage = Some(input.into()); self }
 +        pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<self::EphemeralStorage>) -> Self { self.ephemeral_storage = input; self }
 +        pub fn get_ephemeral_storage(&self) -> &::std::option::Option<self::EphemeralStorage> { &self.ephemeral_storage }
-+        pub fn file_system_configs(mut self, input: impl ::std::convert::Into<self::FileSystemConfigList>) -> Self { self.file_system_configs = Some(input.into()); self }
-+        pub fn set_file_system_configs(mut self, input: ::std::option::Option<self::FileSystemConfigList>) -> Self { self.file_system_configs = input; self }
-+        pub fn get_file_system_configs(&self) -> &::std::option::Option<self::FileSystemConfigList> { &self.file_system_configs }
++        pub fn file_system_configs(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::FileSystemConfig>>) -> Self { self.file_system_configs = Some(input.into()); self }
++        pub fn set_file_system_configs(mut self, input: ::std::option::Option<::std::vec::Vec<self::FileSystemConfig>>) -> Self { self.file_system_configs = input; self }
++        pub fn get_file_system_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::FileSystemConfig>> { &self.file_system_configs }
 +        pub fn function_arn(mut self, input: impl ::std::convert::Into<self::NameSpacedFunctionArn>) -> Self { self.function_arn = Some(input.into()); self }
 +        pub fn set_function_arn(mut self, input: ::std::option::Option<self::NameSpacedFunctionArn>) -> Self { self.function_arn = input; self }
 +        pub fn get_function_arn(&self) -> &::std::option::Option<self::NameSpacedFunctionArn> { &self.function_arn }
@@ -32338,9 +32338,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn last_update_status_reason_code(mut self, input: impl ::std::convert::Into<self::LastUpdateStatusReasonCode>) -> Self { self.last_update_status_reason_code = Some(input.into()); self }
 +        pub fn set_last_update_status_reason_code(mut self, input: ::std::option::Option<self::LastUpdateStatusReasonCode>) -> Self { self.last_update_status_reason_code = input; self }
 +        pub fn get_last_update_status_reason_code(&self) -> &::std::option::Option<self::LastUpdateStatusReasonCode> { &self.last_update_status_reason_code }
-+        pub fn layers(mut self, input: impl ::std::convert::Into<self::LayersReferenceList>) -> Self { self.layers = Some(input.into()); self }
-+        pub fn set_layers(mut self, input: ::std::option::Option<self::LayersReferenceList>) -> Self { self.layers = input; self }
-+        pub fn get_layers(&self) -> &::std::option::Option<self::LayersReferenceList> { &self.layers }
++        pub fn layers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Layer>>) -> Self { self.layers = Some(input.into()); self }
++        pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<self::Layer>>) -> Self { self.layers = input; self }
++        pub fn get_layers(&self) -> &::std::option::Option<::std::vec::Vec<self::Layer>> { &self.layers }
 +        pub fn logging_config(mut self, input: impl ::std::convert::Into<self::LoggingConfig>) -> Self { self.logging_config = Some(input.into()); self }
 +        pub fn set_logging_config(mut self, input: ::std::option::Option<self::LoggingConfig>) -> Self { self.logging_config = input; self }
 +        pub fn get_logging_config(&self) -> &::std::option::Option<self::LoggingConfig> { &self.logging_config }
@@ -33540,8 +33540,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.entry_point.as_deref().unwrap_or_default()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ImageConfig {
-+        pub command: ::std::option::Option<self::StringList>,
-+        pub entry_point: ::std::option::Option<self::StringList>,
++        pub command: ::std::option::Option<::std::vec::Vec<self::String>>,
++        pub entry_point: ::std::option::Option<::std::vec::Vec<self::String>>,
 +        pub working_directory: ::std::option::Option<self::WorkingDirectory>,
      }
 -    /// <p>Specifies parameters that you want to pass in with ENTRYPOINT.</p>
@@ -33551,8 +33551,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.command.as_deref().unwrap_or_default()
 +    impl ImageConfig {
 +        pub fn builder() -> ImageConfigBuilder { ImageConfigBuilder::default() }
-+        pub fn command(&self) -> &::std::option::Option<self::StringList> { &self.command }
-+        pub fn entry_point(&self) -> &::std::option::Option<self::StringList> { &self.entry_point }
++        pub fn command(&self) -> &::std::option::Option<::std::vec::Vec<self::String>> { &self.command }
++        pub fn entry_point(&self) -> &::std::option::Option<::std::vec::Vec<self::String>> { &self.entry_point }
 +        pub fn working_directory(&self) -> &::std::option::Option<self::WorkingDirectory> { &self.working_directory }
      }
 -    /// <p>Specifies the working directory.</p>
@@ -33567,8 +33567,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ImageConfigBuilder {
-+        command: ::std::option::Option<self::StringList>,
-+        entry_point: ::std::option::Option<self::StringList>,
++        command: ::std::option::Option<::std::vec::Vec<self::String>>,
++        entry_point: ::std::option::Option<::std::vec::Vec<self::String>>,
 +        working_directory: ::std::option::Option<self::WorkingDirectory>,
      }
 -}
@@ -33643,12 +33643,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            command: self.command,
 -            working_directory: self.working_directory,
 +    impl ImageConfigBuilder {
-+        pub fn command(mut self, input: impl ::std::convert::Into<self::StringList>) -> Self { self.command = Some(input.into()); self }
-+        pub fn set_command(mut self, input: ::std::option::Option<self::StringList>) -> Self { self.command = input; self }
-+        pub fn get_command(&self) -> &::std::option::Option<self::StringList> { &self.command }
-+        pub fn entry_point(mut self, input: impl ::std::convert::Into<self::StringList>) -> Self { self.entry_point = Some(input.into()); self }
-+        pub fn set_entry_point(mut self, input: ::std::option::Option<self::StringList>) -> Self { self.entry_point = input; self }
-+        pub fn get_entry_point(&self) -> &::std::option::Option<self::StringList> { &self.entry_point }
++        pub fn command(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::String>>) -> Self { self.command = Some(input.into()); self }
++        pub fn set_command(mut self, input: ::std::option::Option<::std::vec::Vec<self::String>>) -> Self { self.command = input; self }
++        pub fn get_command(&self) -> &::std::option::Option<::std::vec::Vec<self::String>> { &self.command }
++        pub fn entry_point(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::String>>) -> Self { self.entry_point = Some(input.into()); self }
++        pub fn set_entry_point(mut self, input: ::std::option::Option<::std::vec::Vec<self::String>>) -> Self { self.entry_point = input; self }
++        pub fn get_entry_point(&self) -> &::std::option::Option<::std::vec::Vec<self::String>> { &self.entry_point }
 +        pub fn working_directory(mut self, input: impl ::std::convert::Into<self::WorkingDirectory>) -> Self { self.working_directory = Some(input.into()); self }
 +        pub fn set_working_directory(mut self, input: ::std::option::Option<self::WorkingDirectory>) -> Self { self.working_directory = input; self }
 +        pub fn get_working_directory(&self) -> &::std::option::Option<self::WorkingDirectory> { &self.working_directory }
@@ -33919,9 +33919,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.architectures.as_deref().unwrap_or_default()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct InstanceRequirements {
-+        pub allowed_instance_types: ::std::option::Option<self::InstanceTypeSet>,
-+        pub architectures: ::std::option::Option<self::ArchitecturesList>,
-+        pub excluded_instance_types: ::std::option::Option<self::InstanceTypeSet>,
++        pub allowed_instance_types: ::std::option::Option<::std::vec::Vec<self::InstanceType>>,
++        pub architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
++        pub excluded_instance_types: ::std::option::Option<::std::vec::Vec<self::InstanceType>>,
      }
 -    /// <p>A list of EC2 instance types that the capacity provider is allowed to use. If not specified, all compatible instance types are allowed.</p>
 -    ///
@@ -33930,9 +33930,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.allowed_instance_types.as_deref().unwrap_or_default()
 +    impl InstanceRequirements {
 +        pub fn builder() -> InstanceRequirementsBuilder { InstanceRequirementsBuilder::default() }
-+        pub fn allowed_instance_types(&self) -> &::std::option::Option<self::InstanceTypeSet> { &self.allowed_instance_types }
-+        pub fn architectures(&self) -> &::std::option::Option<self::ArchitecturesList> { &self.architectures }
-+        pub fn excluded_instance_types(&self) -> &::std::option::Option<self::InstanceTypeSet> { &self.excluded_instance_types }
++        pub fn allowed_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<self::InstanceType>> { &self.allowed_instance_types }
++        pub fn architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.architectures }
++        pub fn excluded_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<self::InstanceType>> { &self.excluded_instance_types }
      }
 -    /// <p>A list of EC2 instance types that the capacity provider should not use, even if they meet other requirements.</p>
 -    ///
@@ -33942,9 +33942,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +    #[derive(Clone, Debug, Default)]
 +    pub struct InstanceRequirementsBuilder {
-+        allowed_instance_types: ::std::option::Option<self::InstanceTypeSet>,
-+        architectures: ::std::option::Option<self::ArchitecturesList>,
-+        excluded_instance_types: ::std::option::Option<self::InstanceTypeSet>,
++        allowed_instance_types: ::std::option::Option<::std::vec::Vec<self::InstanceType>>,
++        architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
++        excluded_instance_types: ::std::option::Option<::std::vec::Vec<self::InstanceType>>,
      }
 -}
 -impl InstanceRequirements {
@@ -34030,15 +34030,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            allowed_instance_types: self.allowed_instance_types,
 -            excluded_instance_types: self.excluded_instance_types,
 +    impl InstanceRequirementsBuilder {
-+        pub fn allowed_instance_types(mut self, input: impl ::std::convert::Into<self::InstanceTypeSet>) -> Self { self.allowed_instance_types = Some(input.into()); self }
-+        pub fn set_allowed_instance_types(mut self, input: ::std::option::Option<self::InstanceTypeSet>) -> Self { self.allowed_instance_types = input; self }
-+        pub fn get_allowed_instance_types(&self) -> &::std::option::Option<self::InstanceTypeSet> { &self.allowed_instance_types }
-+        pub fn architectures(mut self, input: impl ::std::convert::Into<self::ArchitecturesList>) -> Self { self.architectures = Some(input.into()); self }
-+        pub fn set_architectures(mut self, input: ::std::option::Option<self::ArchitecturesList>) -> Self { self.architectures = input; self }
-+        pub fn get_architectures(&self) -> &::std::option::Option<self::ArchitecturesList> { &self.architectures }
-+        pub fn excluded_instance_types(mut self, input: impl ::std::convert::Into<self::InstanceTypeSet>) -> Self { self.excluded_instance_types = Some(input.into()); self }
-+        pub fn set_excluded_instance_types(mut self, input: ::std::option::Option<self::InstanceTypeSet>) -> Self { self.excluded_instance_types = input; self }
-+        pub fn get_excluded_instance_types(&self) -> &::std::option::Option<self::InstanceTypeSet> { &self.excluded_instance_types }
++        pub fn allowed_instance_types(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::InstanceType>>) -> Self { self.allowed_instance_types = Some(input.into()); self }
++        pub fn set_allowed_instance_types(mut self, input: ::std::option::Option<::std::vec::Vec<self::InstanceType>>) -> Self { self.allowed_instance_types = input; self }
++        pub fn get_allowed_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<self::InstanceType>> { &self.allowed_instance_types }
++        pub fn architectures(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Architecture>>) -> Self { self.architectures = Some(input.into()); self }
++        pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<self::Architecture>>) -> Self { self.architectures = input; self }
++        pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.architectures }
++        pub fn excluded_instance_types(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::InstanceType>>) -> Self { self.excluded_instance_types = Some(input.into()); self }
++        pub fn set_excluded_instance_types(mut self, input: ::std::option::Option<::std::vec::Vec<self::InstanceType>>) -> Self { self.excluded_instance_types = input; self }
++        pub fn get_excluded_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<self::InstanceType>> { &self.excluded_instance_types }
 +        pub fn build(self) -> InstanceRequirements {
 +            InstanceRequirements {
 +                allowed_instance_types: self.allowed_instance_types,
@@ -35128,10 +35128,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.schema_validation_configs.as_deref().unwrap_or_default()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct KafkaSchemaRegistryConfig {
-+        pub access_configs: ::std::option::Option<self::KafkaSchemaRegistryAccessConfigList>,
++        pub access_configs: ::std::option::Option<::std::vec::Vec<self::KafkaSchemaRegistryAccessConfig>>,
 +        pub event_record_format: ::std::option::Option<self::SchemaRegistryEventRecordFormat>,
 +        pub schema_registry_uri: ::std::option::Option<self::SchemaRegistryUri>,
-+        pub schema_validation_configs: ::std::option::Option<self::KafkaSchemaValidationConfigList>,
++        pub schema_validation_configs: ::std::option::Option<::std::vec::Vec<self::KafkaSchemaValidationConfig>>,
      }
 -}
 -impl KafkaSchemaRegistryConfig {
@@ -35140,10 +35140,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::KafkaSchemaRegistryConfigBuilder::default()
 +    impl KafkaSchemaRegistryConfig {
 +        pub fn builder() -> KafkaSchemaRegistryConfigBuilder { KafkaSchemaRegistryConfigBuilder::default() }
-+        pub fn access_configs(&self) -> &::std::option::Option<self::KafkaSchemaRegistryAccessConfigList> { &self.access_configs }
++        pub fn access_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::KafkaSchemaRegistryAccessConfig>> { &self.access_configs }
 +        pub fn event_record_format(&self) -> &::std::option::Option<self::SchemaRegistryEventRecordFormat> { &self.event_record_format }
 +        pub fn schema_registry_uri(&self) -> &::std::option::Option<self::SchemaRegistryUri> { &self.schema_registry_uri }
-+        pub fn schema_validation_configs(&self) -> &::std::option::Option<self::KafkaSchemaValidationConfigList> { &self.schema_validation_configs }
++        pub fn schema_validation_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::KafkaSchemaValidationConfig>> { &self.schema_validation_configs }
      }
 -}
 
@@ -35190,10 +35190,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.schema_registry_uri
 +    #[derive(Clone, Debug, Default)]
 +    pub struct KafkaSchemaRegistryConfigBuilder {
-+        access_configs: ::std::option::Option<self::KafkaSchemaRegistryAccessConfigList>,
++        access_configs: ::std::option::Option<::std::vec::Vec<self::KafkaSchemaRegistryAccessConfig>>,
 +        event_record_format: ::std::option::Option<self::SchemaRegistryEventRecordFormat>,
 +        schema_registry_uri: ::std::option::Option<self::SchemaRegistryUri>,
-+        schema_validation_configs: ::std::option::Option<self::KafkaSchemaValidationConfigList>,
++        schema_validation_configs: ::std::option::Option<::std::vec::Vec<self::KafkaSchemaValidationConfig>>,
      }
 -    /// <p>The record format that Lambda delivers to your function after schema validation.</p>
 -    /// <ul>
@@ -35276,18 +35276,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            schema_validation_configs: self.schema_validation_configs,
 +
 +    impl KafkaSchemaRegistryConfigBuilder {
-+        pub fn access_configs(mut self, input: impl ::std::convert::Into<self::KafkaSchemaRegistryAccessConfigList>) -> Self { self.access_configs = Some(input.into()); self }
-+        pub fn set_access_configs(mut self, input: ::std::option::Option<self::KafkaSchemaRegistryAccessConfigList>) -> Self { self.access_configs = input; self }
-+        pub fn get_access_configs(&self) -> &::std::option::Option<self::KafkaSchemaRegistryAccessConfigList> { &self.access_configs }
++        pub fn access_configs(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KafkaSchemaRegistryAccessConfig>>) -> Self { self.access_configs = Some(input.into()); self }
++        pub fn set_access_configs(mut self, input: ::std::option::Option<::std::vec::Vec<self::KafkaSchemaRegistryAccessConfig>>) -> Self { self.access_configs = input; self }
++        pub fn get_access_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::KafkaSchemaRegistryAccessConfig>> { &self.access_configs }
 +        pub fn event_record_format(mut self, input: impl ::std::convert::Into<self::SchemaRegistryEventRecordFormat>) -> Self { self.event_record_format = Some(input.into()); self }
 +        pub fn set_event_record_format(mut self, input: ::std::option::Option<self::SchemaRegistryEventRecordFormat>) -> Self { self.event_record_format = input; self }
 +        pub fn get_event_record_format(&self) -> &::std::option::Option<self::SchemaRegistryEventRecordFormat> { &self.event_record_format }
 +        pub fn schema_registry_uri(mut self, input: impl ::std::convert::Into<self::SchemaRegistryUri>) -> Self { self.schema_registry_uri = Some(input.into()); self }
 +        pub fn set_schema_registry_uri(mut self, input: ::std::option::Option<self::SchemaRegistryUri>) -> Self { self.schema_registry_uri = input; self }
 +        pub fn get_schema_registry_uri(&self) -> &::std::option::Option<self::SchemaRegistryUri> { &self.schema_registry_uri }
-+        pub fn schema_validation_configs(mut self, input: impl ::std::convert::Into<self::KafkaSchemaValidationConfigList>) -> Self { self.schema_validation_configs = Some(input.into()); self }
-+        pub fn set_schema_validation_configs(mut self, input: ::std::option::Option<self::KafkaSchemaValidationConfigList>) -> Self { self.schema_validation_configs = input; self }
-+        pub fn get_schema_validation_configs(&self) -> &::std::option::Option<self::KafkaSchemaValidationConfigList> { &self.schema_validation_configs }
++        pub fn schema_validation_configs(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KafkaSchemaValidationConfig>>) -> Self { self.schema_validation_configs = Some(input.into()); self }
++        pub fn set_schema_validation_configs(mut self, input: ::std::option::Option<::std::vec::Vec<self::KafkaSchemaValidationConfig>>) -> Self { self.schema_validation_configs = input; self }
++        pub fn get_schema_validation_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::KafkaSchemaValidationConfig>> { &self.schema_validation_configs }
 +        pub fn build(self) -> KafkaSchemaRegistryConfig {
 +            KafkaSchemaRegistryConfig {
 +                access_configs: self.access_configs,
@@ -36947,8 +36947,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.layer_version_arn.as_deref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct LayerVersionsListItem {
-+        pub compatible_architectures: ::std::option::Option<self::CompatibleArchitectures>,
-+        pub compatible_runtimes: ::std::option::Option<self::CompatibleRuntimes>,
++        pub compatible_architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
++        pub compatible_runtimes: ::std::option::Option<::std::vec::Vec<self::Runtime>>,
 +        pub created_date: ::std::option::Option<self::Timestamp>,
 +        pub description: ::std::option::Option<self::Description>,
 +        pub layer_version_arn: ::std::option::Option<self::LayerVersionArn>,
@@ -36986,8 +36986,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.license_info.as_deref()
 +    impl LayerVersionsListItem {
 +        pub fn builder() -> LayerVersionsListItemBuilder { LayerVersionsListItemBuilder::default() }
-+        pub fn compatible_architectures(&self) -> &::std::option::Option<self::CompatibleArchitectures> { &self.compatible_architectures }
-+        pub fn compatible_runtimes(&self) -> &::std::option::Option<self::CompatibleRuntimes> { &self.compatible_runtimes }
++        pub fn compatible_architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.compatible_architectures }
++        pub fn compatible_runtimes(&self) -> &::std::option::Option<::std::vec::Vec<self::Runtime>> { &self.compatible_runtimes }
 +        pub fn created_date(&self) -> &::std::option::Option<self::Timestamp> { &self.created_date }
 +        pub fn description(&self) -> &::std::option::Option<self::Description> { &self.description }
 +        pub fn layer_version_arn(&self) -> &::std::option::Option<self::LayerVersionArn> { &self.layer_version_arn }
@@ -37002,8 +37002,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +    #[derive(Clone, Debug, Default)]
 +    pub struct LayerVersionsListItemBuilder {
-+        compatible_architectures: ::std::option::Option<self::CompatibleArchitectures>,
-+        compatible_runtimes: ::std::option::Option<self::CompatibleRuntimes>,
++        compatible_architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
++        compatible_runtimes: ::std::option::Option<::std::vec::Vec<self::Runtime>>,
 +        created_date: ::std::option::Option<self::Timestamp>,
 +        description: ::std::option::Option<self::Description>,
 +        layer_version_arn: ::std::option::Option<self::LayerVersionArn>,
@@ -37152,12 +37152,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            compatible_runtimes: self.compatible_runtimes,
 -            license_info: self.license_info,
 +    impl LayerVersionsListItemBuilder {
-+        pub fn compatible_architectures(mut self, input: impl ::std::convert::Into<self::CompatibleArchitectures>) -> Self { self.compatible_architectures = Some(input.into()); self }
-+        pub fn set_compatible_architectures(mut self, input: ::std::option::Option<self::CompatibleArchitectures>) -> Self { self.compatible_architectures = input; self }
-+        pub fn get_compatible_architectures(&self) -> &::std::option::Option<self::CompatibleArchitectures> { &self.compatible_architectures }
-+        pub fn compatible_runtimes(mut self, input: impl ::std::convert::Into<self::CompatibleRuntimes>) -> Self { self.compatible_runtimes = Some(input.into()); self }
-+        pub fn set_compatible_runtimes(mut self, input: ::std::option::Option<self::CompatibleRuntimes>) -> Self { self.compatible_runtimes = input; self }
-+        pub fn get_compatible_runtimes(&self) -> &::std::option::Option<self::CompatibleRuntimes> { &self.compatible_runtimes }
++        pub fn compatible_architectures(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Architecture>>) -> Self { self.compatible_architectures = Some(input.into()); self }
++        pub fn set_compatible_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<self::Architecture>>) -> Self { self.compatible_architectures = input; self }
++        pub fn get_compatible_architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.compatible_architectures }
++        pub fn compatible_runtimes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Runtime>>) -> Self { self.compatible_runtimes = Some(input.into()); self }
++        pub fn set_compatible_runtimes(mut self, input: ::std::option::Option<::std::vec::Vec<self::Runtime>>) -> Self { self.compatible_runtimes = input; self }
++        pub fn get_compatible_runtimes(&self) -> &::std::option::Option<::std::vec::Vec<self::Runtime>> { &self.compatible_runtimes }
 +        pub fn created_date(mut self, input: impl ::std::convert::Into<self::Timestamp>) -> Self { self.created_date = Some(input.into()); self }
 +        pub fn set_created_date(mut self, input: ::std::option::Option<self::Timestamp>) -> Self { self.created_date = input; self }
 +        pub fn get_created_date(&self) -> &::std::option::Option<self::Timestamp> { &self.created_date }
@@ -39597,7 +39597,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.mode.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct PropagateTags {
-+        pub explicit_tags: ::std::option::Option<self::Tags>,
++        pub explicit_tags: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>,
 +        pub mode: ::std::option::Option<self::PropagateTagsMode>,
      }
 -    /// <p>A list of tags to apply to managed resources when <code>Mode</code> is set to <code>Explicit</code>. You can specify up to 40 tags.</p>
@@ -39605,7 +39605,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.explicit_tags.as_ref()
 +    impl PropagateTags {
 +        pub fn builder() -> PropagateTagsBuilder { PropagateTagsBuilder::default() }
-+        pub fn explicit_tags(&self) -> &::std::option::Option<self::Tags> { &self.explicit_tags }
++        pub fn explicit_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>> { &self.explicit_tags }
 +        pub fn mode(&self) -> &::std::option::Option<self::PropagateTagsMode> { &self.mode }
      }
 -}
@@ -39616,7 +39616,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +    #[derive(Clone, Debug, Default)]
 +    pub struct PropagateTagsBuilder {
-+        explicit_tags: ::std::option::Option<self::Tags>,
++        explicit_tags: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>,
 +        mode: ::std::option::Option<self::PropagateTagsMode>,
      }
 -}
@@ -39672,9 +39672,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            mode: self.mode,
 -            explicit_tags: self.explicit_tags,
 +    impl PropagateTagsBuilder {
-+        pub fn explicit_tags(mut self, input: impl ::std::convert::Into<self::Tags>) -> Self { self.explicit_tags = Some(input.into()); self }
-+        pub fn set_explicit_tags(mut self, input: ::std::option::Option<self::Tags>) -> Self { self.explicit_tags = input; self }
-+        pub fn get_explicit_tags(&self) -> &::std::option::Option<self::Tags> { &self.explicit_tags }
++        pub fn explicit_tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::TagKey, self::TagValue>>) -> Self { self.explicit_tags = Some(input.into()); self }
++        pub fn set_explicit_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>) -> Self { self.explicit_tags = input; self }
++        pub fn get_explicit_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>> { &self.explicit_tags }
 +        pub fn mode(mut self, input: impl ::std::convert::Into<self::PropagateTagsMode>) -> Self { self.mode = Some(input.into()); self }
 +        pub fn set_mode(mut self, input: ::std::option::Option<self::PropagateTagsMode>) -> Self { self.mode = input; self }
 +        pub fn get_mode(&self) -> &::std::option::Option<self::PropagateTagsMode> { &self.mode }
@@ -42091,7 +42091,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.endpoints.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct SelfManagedEventSource {
-+        pub endpoints: ::std::option::Option<self::Endpoints>,
++        pub endpoints: ::std::option::Option<::std::collections::BTreeMap<self::EndPointType, ::std::vec::Vec<self::Endpoint>>>,
      }
 -}
 -impl SelfManagedEventSource {
@@ -42100,7 +42100,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::SelfManagedEventSourceBuilder::default()
 +    impl SelfManagedEventSource {
 +        pub fn builder() -> SelfManagedEventSourceBuilder { SelfManagedEventSourceBuilder::default() }
-+        pub fn endpoints(&self) -> &::std::option::Option<self::Endpoints> { &self.endpoints }
++        pub fn endpoints(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EndPointType, ::std::vec::Vec<self::Endpoint>>> { &self.endpoints }
      }
 -}
 
@@ -42137,16 +42137,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.endpoints
 +    #[derive(Clone, Debug, Default)]
 +    pub struct SelfManagedEventSourceBuilder {
-+        endpoints: ::std::option::Option<self::Endpoints>,
++        endpoints: ::std::option::Option<::std::collections::BTreeMap<self::EndPointType, ::std::vec::Vec<self::Endpoint>>>,
      }
 -    /// Consumes the builder and constructs a [`SelfManagedEventSource`](crate::types::SelfManagedEventSource).
 -    pub fn build(self) -> crate::types::SelfManagedEventSource {
 -        crate::types::SelfManagedEventSource { endpoints: self.endpoints }
 +
 +    impl SelfManagedEventSourceBuilder {
-+        pub fn endpoints(mut self, input: impl ::std::convert::Into<self::Endpoints>) -> Self { self.endpoints = Some(input.into()); self }
-+        pub fn set_endpoints(mut self, input: ::std::option::Option<self::Endpoints>) -> Self { self.endpoints = input; self }
-+        pub fn get_endpoints(&self) -> &::std::option::Option<self::Endpoints> { &self.endpoints }
++        pub fn endpoints(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::EndPointType, ::std::vec::Vec<self::Endpoint>>>) -> Self { self.endpoints = Some(input.into()); self }
++        pub fn set_endpoints(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::EndPointType, ::std::vec::Vec<self::Endpoint>>>) -> Self { self.endpoints = input; self }
++        pub fn get_endpoints(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EndPointType, ::std::vec::Vec<self::Endpoint>>> { &self.endpoints }
 +        pub fn build(self) -> SelfManagedEventSource {
 +            SelfManagedEventSource {
 +                endpoints: self.endpoints,
@@ -45674,8 +45674,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct VpcConfig {
 +        pub ipv6_allowed_for_dual_stack: ::std::option::Option<self::NullableBoolean>,
-+        pub security_group_ids: ::std::option::Option<self::SecurityGroupIds>,
-+        pub subnet_ids: ::std::option::Option<self::SubnetIds>,
++        pub security_group_ids: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>,
++        pub subnet_ids: ::std::option::Option<::std::vec::Vec<self::SubnetId>>,
      }
 -    /// <p>A list of VPC security group IDs.</p>
 -    ///
@@ -45685,8 +45685,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl VpcConfig {
 +        pub fn builder() -> VpcConfigBuilder { VpcConfigBuilder::default() }
 +        pub fn ipv6_allowed_for_dual_stack(&self) -> &::std::option::Option<self::NullableBoolean> { &self.ipv6_allowed_for_dual_stack }
-+        pub fn security_group_ids(&self) -> &::std::option::Option<self::SecurityGroupIds> { &self.security_group_ids }
-+        pub fn subnet_ids(&self) -> &::std::option::Option<self::SubnetIds> { &self.subnet_ids }
++        pub fn security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SecurityGroupId>> { &self.security_group_ids }
++        pub fn subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SubnetId>> { &self.subnet_ids }
      }
 -    /// <p>Allows outbound IPv6 traffic on VPC functions that are connected to dual-stack subnets.</p>
 -    pub fn ipv6_allowed_for_dual_stack(&self) -> ::std::option::Option<bool> {
@@ -45701,8 +45701,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct VpcConfigBuilder {
 +        ipv6_allowed_for_dual_stack: ::std::option::Option<self::NullableBoolean>,
-+        security_group_ids: ::std::option::Option<self::SecurityGroupIds>,
-+        subnet_ids: ::std::option::Option<self::SubnetIds>,
++        security_group_ids: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>,
++        subnet_ids: ::std::option::Option<::std::vec::Vec<self::SubnetId>>,
      }
 -}
 
@@ -45779,12 +45779,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn ipv6_allowed_for_dual_stack(mut self, input: impl ::std::convert::Into<self::NullableBoolean>) -> Self { self.ipv6_allowed_for_dual_stack = Some(input.into()); self }
 +        pub fn set_ipv6_allowed_for_dual_stack(mut self, input: ::std::option::Option<self::NullableBoolean>) -> Self { self.ipv6_allowed_for_dual_stack = input; self }
 +        pub fn get_ipv6_allowed_for_dual_stack(&self) -> &::std::option::Option<self::NullableBoolean> { &self.ipv6_allowed_for_dual_stack }
-+        pub fn security_group_ids(mut self, input: impl ::std::convert::Into<self::SecurityGroupIds>) -> Self { self.security_group_ids = Some(input.into()); self }
-+        pub fn set_security_group_ids(mut self, input: ::std::option::Option<self::SecurityGroupIds>) -> Self { self.security_group_ids = input; self }
-+        pub fn get_security_group_ids(&self) -> &::std::option::Option<self::SecurityGroupIds> { &self.security_group_ids }
-+        pub fn subnet_ids(mut self, input: impl ::std::convert::Into<self::SubnetIds>) -> Self { self.subnet_ids = Some(input.into()); self }
-+        pub fn set_subnet_ids(mut self, input: ::std::option::Option<self::SubnetIds>) -> Self { self.subnet_ids = input; self }
-+        pub fn get_subnet_ids(&self) -> &::std::option::Option<self::SubnetIds> { &self.subnet_ids }
++        pub fn security_group_ids(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SecurityGroupId>>) -> Self { self.security_group_ids = Some(input.into()); self }
++        pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>) -> Self { self.security_group_ids = input; self }
++        pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SecurityGroupId>> { &self.security_group_ids }
++        pub fn subnet_ids(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SubnetId>>) -> Self { self.subnet_ids = Some(input.into()); self }
++        pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<self::SubnetId>>) -> Self { self.subnet_ids = input; self }
++        pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SubnetId>> { &self.subnet_ids }
 +        pub fn build(self) -> VpcConfig {
 +            VpcConfig {
 +                ipv6_allowed_for_dual_stack: self.ipv6_allowed_for_dual_stack,
@@ -45827,8 +45827,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct VpcConfigResponse {
 +        pub ipv6_allowed_for_dual_stack: ::std::option::Option<self::NullableBoolean>,
-+        pub security_group_ids: ::std::option::Option<self::SecurityGroupIds>,
-+        pub subnet_ids: ::std::option::Option<self::SubnetIds>,
++        pub security_group_ids: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>,
++        pub subnet_ids: ::std::option::Option<::std::vec::Vec<self::SubnetId>>,
 +        pub vpc_id: ::std::option::Option<self::VpcId>,
      }
 -    /// <p>A list of VPC security group IDs.</p>
@@ -45853,8 +45853,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl VpcConfigResponse {
 +        pub fn builder() -> VpcConfigResponseBuilder { VpcConfigResponseBuilder::default() }
 +        pub fn ipv6_allowed_for_dual_stack(&self) -> &::std::option::Option<self::NullableBoolean> { &self.ipv6_allowed_for_dual_stack }
-+        pub fn security_group_ids(&self) -> &::std::option::Option<self::SecurityGroupIds> { &self.security_group_ids }
-+        pub fn subnet_ids(&self) -> &::std::option::Option<self::SubnetIds> { &self.subnet_ids }
++        pub fn security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SecurityGroupId>> { &self.security_group_ids }
++        pub fn subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SubnetId>> { &self.subnet_ids }
 +        pub fn vpc_id(&self) -> &::std::option::Option<self::VpcId> { &self.vpc_id }
      }
 -}
@@ -45902,8 +45902,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct VpcConfigResponseBuilder {
 +        ipv6_allowed_for_dual_stack: ::std::option::Option<self::NullableBoolean>,
-+        security_group_ids: ::std::option::Option<self::SecurityGroupIds>,
-+        subnet_ids: ::std::option::Option<self::SubnetIds>,
++        security_group_ids: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>,
++        subnet_ids: ::std::option::Option<::std::vec::Vec<self::SubnetId>>,
 +        vpc_id: ::std::option::Option<self::VpcId>,
      }
 -    /// <p>A list of VPC security group IDs.</p>
@@ -45955,12 +45955,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn ipv6_allowed_for_dual_stack(mut self, input: impl ::std::convert::Into<self::NullableBoolean>) -> Self { self.ipv6_allowed_for_dual_stack = Some(input.into()); self }
 +        pub fn set_ipv6_allowed_for_dual_stack(mut self, input: ::std::option::Option<self::NullableBoolean>) -> Self { self.ipv6_allowed_for_dual_stack = input; self }
 +        pub fn get_ipv6_allowed_for_dual_stack(&self) -> &::std::option::Option<self::NullableBoolean> { &self.ipv6_allowed_for_dual_stack }
-+        pub fn security_group_ids(mut self, input: impl ::std::convert::Into<self::SecurityGroupIds>) -> Self { self.security_group_ids = Some(input.into()); self }
-+        pub fn set_security_group_ids(mut self, input: ::std::option::Option<self::SecurityGroupIds>) -> Self { self.security_group_ids = input; self }
-+        pub fn get_security_group_ids(&self) -> &::std::option::Option<self::SecurityGroupIds> { &self.security_group_ids }
-+        pub fn subnet_ids(mut self, input: impl ::std::convert::Into<self::SubnetIds>) -> Self { self.subnet_ids = Some(input.into()); self }
-+        pub fn set_subnet_ids(mut self, input: ::std::option::Option<self::SubnetIds>) -> Self { self.subnet_ids = input; self }
-+        pub fn get_subnet_ids(&self) -> &::std::option::Option<self::SubnetIds> { &self.subnet_ids }
++        pub fn security_group_ids(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SecurityGroupId>>) -> Self { self.security_group_ids = Some(input.into()); self }
++        pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>) -> Self { self.security_group_ids = input; self }
++        pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SecurityGroupId>> { &self.security_group_ids }
++        pub fn subnet_ids(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SubnetId>>) -> Self { self.subnet_ids = Some(input.into()); self }
++        pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<self::SubnetId>>) -> Self { self.subnet_ids = input; self }
++        pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SubnetId>> { &self.subnet_ids }
 +        pub fn vpc_id(mut self, input: impl ::std::convert::Into<self::VpcId>) -> Self { self.vpc_id = Some(input.into()); self }
 +        pub fn set_vpc_id(mut self, input: ::std::option::Option<self::VpcId>) -> Self { self.vpc_id = input; self }
 +        pub fn get_vpc_id(&self) -> &::std::option::Option<self::VpcId> { &self.vpc_id }
@@ -54622,7 +54622,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types.rs
 +++ generated/src/types.rs
-@@ -1,686 +1,562 @@
+@@ -1,686 +1,513 @@
 -// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub use crate::types::_throttle_reason::ThrottleReason;
 -
@@ -54645,8 +54645,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub use crate::types::_capacity_provider_scaling_config::CapacityProviderScalingConfig;
 -
 -pub use crate::types::_propagate_tags::PropagateTags;
-+// Generated by aws-sdk-build aws-sdk-build-rust-native-0.2.0. DO NOT EDIT.
-
+-
 -pub use crate::types::_capacity_provider_telemetry_config::CapacityProviderTelemetryConfig;
 -
 -pub use crate::types::_capacity_provider::CapacityProvider;
@@ -55234,7 +55233,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -mod _runtime_version_error;
 -
 -mod _s3_object_storage_mode;
--
++// Generated by aws-sdk-build aws-sdk-build-rust-native-0.2.0. DO NOT EDIT.
+
 -mod _scaling_config;
 -
 -mod _schema_registry_event_record_format;
@@ -55319,19 +55319,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_add_permission_request.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_add_permission_response.rs"));
 +    pub type AdditionalVersion = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_additional_version_weights.rs"));
 +    pub type Alias = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_alias_configuration.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_alias_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_alias_routing_configuration.rs"));
 +    pub type AllowCredentials = bool;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_allow_methods_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_allow_origins_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_allowed_publishers.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_amazon_managed_kafka_event_source_config.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_application_log_level.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_architecture.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_architectures_list.rs"));
 +    pub type Arn = ::std::string::String;
 +    pub type AttemptCount = i32;
 +    pub type BatchSize = i32;
@@ -55357,13 +55352,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_predefined_metric_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_scaling_config.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_scaling_mode.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_scaling_policies_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_security_group_ids.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_state.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_subnet_ids.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_telemetry_config.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_provider_vpc_config.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_capacity_providers_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_chained_invoke_details.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_chained_invoke_failed_details.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_chained_invoke_options.rs"));
@@ -55379,12 +55370,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_code_signing_config.rs"));
 +    pub type CodeSigningConfigArn = ::std::string::String;
 +    pub type CodeSigningConfigId = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_code_signing_config_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_code_signing_policies.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_code_signing_policy.rs"));
 +    pub type CollectionName = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_compatible_architectures.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_compatible_runtimes.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_concurrency.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_context_details.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_context_failed_details.rs"));
@@ -55422,19 +55410,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_durable_config.rs"));
 +    pub type DurableExecutionArn = ::std::string::String;
 +    pub type DurableExecutionName = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_durable_executions.rs"));
 +    pub type DurationSeconds = i32;
 +    pub type Enabled = bool;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_end_point_type.rs"));
 +    pub type Endpoint = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_endpoint_lists.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_endpoints.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_environment.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_environment_error.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_environment_response.rs"));
 +    pub type EnvironmentVariableName = ::std::string::String;
 +    pub type EnvironmentVariableValue = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_environment_variables.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_ephemeral_storage.rs"));
 +    pub type EphemeralStorageSize = i32;
 +    pub type ErrorData = ::std::string::String;
@@ -55450,14 +55434,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_source_mapping_configuration.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_source_mapping_logging_config.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_source_mapping_metric.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_source_mapping_metric_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_source_mapping_metrics_config.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_source_mapping_system_log_level.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_source_mappings_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_source_position.rs"));
 +    pub type EventSourceToken = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_event_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_events.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_execution.rs"));
 +    pub type ExecutionDataIncluded = bool;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_execution_details.rs"));
@@ -55465,7 +55446,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_execution_failed_details.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_execution_started_details.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_execution_status.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_execution_status_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_execution_stopped_details.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_execution_succeeded_details.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_execution_timed_out_details.rs"));
@@ -55473,36 +55453,28 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type ExecutionTimestamp = ::std::time::SystemTime;
 +    pub type FileSystemArn = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_file_system_config.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_file_system_config_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_filter.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_filter_criteria.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_filter_criteria_error.rs"));
 +    pub type FilterCriteriaErrorCode = ::std::string::String;
 +    pub type FilterCriteriaErrorMessage = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_filter_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_full_document.rs"));
 +    pub type FunctionArn = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_arn_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_code.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_code_location.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_code_location_error.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_configuration.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_event_invoke_config_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_list.rs"));
 +    pub type FunctionName = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_response_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_response_type_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_scaling_config.rs"));
 +    pub type FunctionScalingConfigExecutionEnvironments = i32;
 +    pub type FunctionUrl = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_url_auth_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_url_config.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_url_config_list.rs"));
 +    pub type FunctionUrlFunctionName = ::std::string::String;
 +    pub type FunctionUrlQualifier = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_version.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_version_latest_published.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_versions_by_capacity_provider_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_function_versions_by_capacity_provider_list_item.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_alias_request.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_capacity_provider_request.rs"));
@@ -55542,7 +55514,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_get_runtime_management_config_response.rs"));
 +    pub type Handler = ::std::string::String;
 +    pub type Header = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_headers_list.rs"));
 +    pub type HttpStatus = i32;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_image_config.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_image_config_error.rs"));
@@ -55551,7 +55522,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type InputPayload = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_instance_requirements.rs"));
 +    pub type InstanceType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_instance_type_set.rs"));
 +    pub type Integer = i32;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_invocation_completed_details.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_invocation_request.rs"));
@@ -55570,19 +55540,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type KmsKeyArn = ::std::string::String;
 +    pub type KmsKeyArnNonEmpty = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_kafka_schema_registry_access_config.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_kafka_schema_registry_access_config_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_kafka_schema_registry_auth_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_kafka_schema_registry_config.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_kafka_schema_validation_attribute.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_kafka_schema_validation_config.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_kafka_schema_validation_config_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_lambda_managed_instances_capacity_provider_config.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_last_update_status.rs"));
 +    pub type LastUpdateStatusReason = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_last_update_status_reason_code.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_layer.rs"));
 +    pub type LayerArn = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_layer_list.rs"));
 +    pub type LayerName = ::std::string::String;
 +    pub type LayerPermissionAllowedAction = ::std::string::String;
 +    pub type LayerPermissionAllowedPrincipal = ::std::string::String;
@@ -55590,11 +55557,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_layer_version_content_input.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_layer_version_content_output.rs"));
 +    pub type LayerVersionNumber = i64;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_layer_versions_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_layer_versions_list_item.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_layers_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_layers_list_item.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_layers_reference_list.rs"));
 +    pub type LicenseInfo = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_aliases_request.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_list_aliases_response.rs"));
@@ -55664,8 +55628,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type OperationSubType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_operation_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_operation_update.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_operation_updates.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_operations.rs"));
 +    pub type OrganizationId = ::std::string::String;
 +    pub type Origin = ::std::string::String;
 +    pub type OutputPayload = ::std::string::String;
@@ -55679,7 +55641,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type PrincipalOrgId = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_propagate_tags.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_propagate_tags_mode.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_provisioned_concurrency_config_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_provisioned_concurrency_config_list_item.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_provisioned_concurrency_status_enum.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_provisioned_poller_config.rs"));
@@ -55701,7 +55662,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_put_runtime_management_config_response.rs"));
 +    pub type Qualifier = ::std::string::String;
 +    pub type Queue = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_queues.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_recursive_loop.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_remove_layer_version_permission_request.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_remove_permission_request.rs"));
@@ -55728,21 +55688,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_schema_registry_event_record_format.rs"));
 +    pub type SchemaRegistryUri = ::std::string::String;
 +    pub type SecurityGroupId = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_security_group_ids.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_self_managed_event_source.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_self_managed_kafka_event_source_config.rs"));
 +    pub type SensitiveString = ::std::string::String;
 +    pub type SensitiveStringOnServerOnly = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_signing_profile_version_arns.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_snap_start.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_snap_start_apply_on.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_snap_start_optimization_status.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_snap_start_response.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_source_access_configuration.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_source_access_configurations.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_source_access_type.rs"));
 +    pub type SourceOwner = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_stack_trace_entries.rs"));
 +    pub type StackTraceEntry = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_state.rs"));
 +    pub type StateReason = ::std::string::String;
@@ -55756,15 +55712,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_stop_durable_execution_request.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_stop_durable_execution_response.rs"));
 +    pub type String = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_string_list.rs"));
 +    pub type SubnetId = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_subnet_ids.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_system_log_level.rs"));
 +    pub type TagKey = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_tag_key_list.rs"));
 +    pub type TagValue = ::std::string::String;
 +    pub type TaggableResource = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_tags.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_tags_error.rs"));
 +    pub type TagsErrorCode = ::std::string::String;
 +    pub type TagsErrorMessage = ::std::string::String;
@@ -55776,7 +55728,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type Timeout = i32;
 +    pub type Timestamp = ::std::string::String;
 +    pub type Topic = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_topics.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_trace_header.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_tracing_config.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types/_tracing_config_response.rs"));
@@ -56652,20 +56603,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_add_layer_version_permission_response.rs`
 - `src/types/_add_permission_request.rs`
 - `src/types/_add_permission_response.rs`
-- `src/types/_additional_version_weights.rs`
-- `src/types/_alias_list.rs`
-- `src/types/_allow_methods_list.rs`
-- `src/types/_allow_origins_list.rs`
-- `src/types/_architectures_list.rs`
-- `src/types/_capacity_provider_scaling_policies_list.rs`
-- `src/types/_capacity_provider_security_group_ids.rs`
-- `src/types/_capacity_provider_subnet_ids.rs`
-- `src/types/_capacity_providers_list.rs`
 - `src/types/_checkpoint_durable_execution_request.rs`
 - `src/types/_checkpoint_durable_execution_response.rs`
-- `src/types/_code_signing_config_list.rs`
-- `src/types/_compatible_architectures.rs`
-- `src/types/_compatible_runtimes.rs`
 - `src/types/_create_alias_request.rs`
 - `src/types/_create_capacity_provider_request.rs`
 - `src/types/_create_capacity_provider_response.rs`
@@ -56686,22 +56625,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_delete_function_url_config_request.rs`
 - `src/types/_delete_layer_version_request.rs`
 - `src/types/_delete_provisioned_concurrency_config_request.rs`
-- `src/types/_durable_executions.rs`
-- `src/types/_endpoint_lists.rs`
-- `src/types/_endpoints.rs`
-- `src/types/_environment_variables.rs`
-- `src/types/_event_source_mapping_metric_list.rs`
-- `src/types/_event_source_mappings_list.rs`
-- `src/types/_events.rs`
-- `src/types/_execution_status_list.rs`
-- `src/types/_file_system_config_list.rs`
-- `src/types/_filter_list.rs`
-- `src/types/_function_arn_list.rs`
-- `src/types/_function_event_invoke_config_list.rs`
-- `src/types/_function_list.rs`
-- `src/types/_function_response_type_list.rs`
-- `src/types/_function_url_config_list.rs`
-- `src/types/_function_versions_by_capacity_provider_list.rs`
 - `src/types/_get_alias_request.rs`
 - `src/types/_get_capacity_provider_request.rs`
 - `src/types/_get_capacity_provider_response.rs`
@@ -56738,20 +56661,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_get_provisioned_concurrency_config_response.rs`
 - `src/types/_get_runtime_management_config_request.rs`
 - `src/types/_get_runtime_management_config_response.rs`
-- `src/types/_headers_list.rs`
-- `src/types/_instance_type_set.rs`
 - `src/types/_invocation_request.rs`
 - `src/types/_invocation_response.rs`
 - `src/types/_invoke_async_request.rs`
 - `src/types/_invoke_async_response.rs`
 - `src/types/_invoke_with_response_stream_request.rs`
 - `src/types/_invoke_with_response_stream_response.rs`
-- `src/types/_kafka_schema_registry_access_config_list.rs`
-- `src/types/_kafka_schema_validation_config_list.rs`
-- `src/types/_layer_list.rs`
-- `src/types/_layer_versions_list.rs`
-- `src/types/_layers_list.rs`
-- `src/types/_layers_reference_list.rs`
 - `src/types/_list_aliases_request.rs`
 - `src/types/_list_aliases_response.rs`
 - `src/types/_list_capacity_providers_request.rs`
@@ -56778,9 +56693,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_list_provisioned_concurrency_configs_response.rs`
 - `src/types/_list_versions_by_function_request.rs`
 - `src/types/_list_versions_by_function_response.rs`
-- `src/types/_operation_updates.rs`
-- `src/types/_operations.rs`
-- `src/types/_provisioned_concurrency_config_list.rs`
 - `src/types/_publish_layer_version_request.rs`
 - `src/types/_publish_layer_version_response.rs`
 - `src/types/_publish_version_request.rs`
@@ -56795,20 +56707,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_put_provisioned_concurrency_config_response.rs`
 - `src/types/_put_runtime_management_config_request.rs`
 - `src/types/_put_runtime_management_config_response.rs`
-- `src/types/_queues.rs`
 - `src/types/_remove_layer_version_permission_request.rs`
 - `src/types/_remove_permission_request.rs`
-- `src/types/_security_group_ids.rs`
-- `src/types/_signing_profile_version_arns.rs`
-- `src/types/_source_access_configurations.rs`
-- `src/types/_stack_trace_entries.rs`
 - `src/types/_stop_durable_execution_request.rs`
 - `src/types/_stop_durable_execution_response.rs`
-- `src/types/_string_list.rs`
-- `src/types/_subnet_ids.rs`
-- `src/types/_tag_key_list.rs`
-- `src/types/_tags.rs`
-- `src/types/_topics.rs`
 - `src/types/_update_alias_request.rs`
 - `src/types/_update_capacity_provider_request.rs`
 - `src/types/_update_capacity_provider_response.rs`

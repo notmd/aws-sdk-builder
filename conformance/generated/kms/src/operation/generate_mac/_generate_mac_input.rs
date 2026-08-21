@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct GenerateMacInput {
     pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
+    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
     pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
     pub mac_algorithm: ::std::option::Option<super::super::super::types::MacAlgorithmSpec>,
     pub message: ::std::option::Option<super::super::super::types::PlaintextType>,
@@ -21,7 +21,7 @@ impl GenerateMacInput {
 #[derive(Clone, Debug, Default)]
 pub struct GenerateMacInputBuilder {
     dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
+    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
     key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
     mac_algorithm: ::std::option::Option<super::super::super::types::MacAlgorithmSpec>,
     message: ::std::option::Option<super::super::super::types::PlaintextType>,
@@ -30,9 +30,9 @@ impl GenerateMacInputBuilder {
     pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
     pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
     pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
+    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
     pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
     pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
     pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }

@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetOrganizationsAccessReportOutput {
-    pub access_details: ::std::option::Option<super::super::super::types::AccessDetails>,
+    pub access_details: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessDetail>>,
     pub error_details: ::std::option::Option<super::super::super::types::ErrorDetails>,
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub job_completion_date: ::std::option::Option<super::super::super::types::DateType>,
@@ -28,7 +28,7 @@ impl GetOrganizationsAccessReportOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetOrganizationsAccessReportOutputBuilder {
-    access_details: ::std::option::Option<super::super::super::types::AccessDetails>,
+    access_details: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessDetail>>,
     error_details: ::std::option::Option<super::super::super::types::ErrorDetails>,
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     job_completion_date: ::std::option::Option<super::super::super::types::DateType>,
@@ -39,9 +39,9 @@ pub struct GetOrganizationsAccessReportOutputBuilder {
     number_of_services_not_accessed: ::std::option::Option<super::super::super::types::IntegerType>,
 }
 impl GetOrganizationsAccessReportOutputBuilder {
-    pub fn access_details(mut self, input: impl ::std::convert::Into<super::super::super::types::AccessDetails>) -> Self { self.access_details = Some(input.into()); self }
-    pub fn set_access_details(mut self, input: ::std::option::Option<super::super::super::types::AccessDetails>) -> Self { self.access_details = input; self }
-    pub fn get_access_details(&self) -> &::std::option::Option<super::super::super::types::AccessDetails> { &self.access_details }
+    pub fn access_details(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AccessDetail>>) -> Self { self.access_details = Some(input.into()); self }
+    pub fn set_access_details(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessDetail>>) -> Self { self.access_details = input; self }
+    pub fn get_access_details(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AccessDetail>> { &self.access_details }
     pub fn error_details(mut self, input: impl ::std::convert::Into<super::super::super::types::ErrorDetails>) -> Self { self.error_details = Some(input.into()); self }
     pub fn set_error_details(mut self, input: ::std::option::Option<super::super::super::types::ErrorDetails>) -> Self { self.error_details = input; self }
     pub fn get_error_details(&self) -> &::std::option::Option<super::super::super::types::ErrorDetails> { &self.error_details }

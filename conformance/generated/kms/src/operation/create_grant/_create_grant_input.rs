@@ -4,12 +4,12 @@
 pub struct CreateGrantInput {
     pub constraints: ::std::option::Option<super::super::super::types::GrantConstraints>,
     pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
+    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
     pub grantee_principal: ::std::option::Option<super::super::super::types::PrincipalIdType>,
     pub grantee_service_principal: ::std::option::Option<super::super::super::types::ServicePrincipalType>,
     pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
     pub name: ::std::option::Option<super::super::super::types::GrantNameType>,
-    pub operations: ::std::option::Option<super::super::super::types::GrantOperationList>,
+    pub operations: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantOperation>>,
     pub retiring_principal: ::std::option::Option<super::super::super::types::PrincipalIdType>,
     pub retiring_service_principal: ::std::option::Option<super::super::super::types::ServicePrincipalType>,
 }
@@ -32,12 +32,12 @@ impl CreateGrantInput {
 pub struct CreateGrantInputBuilder {
     constraints: ::std::option::Option<super::super::super::types::GrantConstraints>,
     dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
+    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
     grantee_principal: ::std::option::Option<super::super::super::types::PrincipalIdType>,
     grantee_service_principal: ::std::option::Option<super::super::super::types::ServicePrincipalType>,
     key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
     name: ::std::option::Option<super::super::super::types::GrantNameType>,
-    operations: ::std::option::Option<super::super::super::types::GrantOperationList>,
+    operations: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantOperation>>,
     retiring_principal: ::std::option::Option<super::super::super::types::PrincipalIdType>,
     retiring_service_principal: ::std::option::Option<super::super::super::types::ServicePrincipalType>,
 }
@@ -48,9 +48,9 @@ impl CreateGrantInputBuilder {
     pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
     pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
     pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
+    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
     pub fn grantee_principal(mut self, input: impl ::std::convert::Into<super::super::super::types::PrincipalIdType>) -> Self { self.grantee_principal = Some(input.into()); self }
     pub fn set_grantee_principal(mut self, input: ::std::option::Option<super::super::super::types::PrincipalIdType>) -> Self { self.grantee_principal = input; self }
     pub fn get_grantee_principal(&self) -> &::std::option::Option<super::super::super::types::PrincipalIdType> { &self.grantee_principal }
@@ -63,9 +63,9 @@ impl CreateGrantInputBuilder {
     pub fn name(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantNameType>) -> Self { self.name = Some(input.into()); self }
     pub fn set_name(mut self, input: ::std::option::Option<super::super::super::types::GrantNameType>) -> Self { self.name = input; self }
     pub fn get_name(&self) -> &::std::option::Option<super::super::super::types::GrantNameType> { &self.name }
-    pub fn operations(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantOperationList>) -> Self { self.operations = Some(input.into()); self }
-    pub fn set_operations(mut self, input: ::std::option::Option<super::super::super::types::GrantOperationList>) -> Self { self.operations = input; self }
-    pub fn get_operations(&self) -> &::std::option::Option<super::super::super::types::GrantOperationList> { &self.operations }
+    pub fn operations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantOperation>>) -> Self { self.operations = Some(input.into()); self }
+    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantOperation>>) -> Self { self.operations = input; self }
+    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantOperation>> { &self.operations }
     pub fn retiring_principal(mut self, input: impl ::std::convert::Into<super::super::super::types::PrincipalIdType>) -> Self { self.retiring_principal = Some(input.into()); self }
     pub fn set_retiring_principal(mut self, input: ::std::option::Option<super::super::super::types::PrincipalIdType>) -> Self { self.retiring_principal = input; self }
     pub fn get_retiring_principal(&self) -> &::std::option::Option<super::super::super::types::PrincipalIdType> { &self.retiring_principal }

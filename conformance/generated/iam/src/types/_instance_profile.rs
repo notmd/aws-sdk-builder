@@ -7,8 +7,8 @@
         pub instance_profile_id: ::std::option::Option<self::IdType>,
         pub instance_profile_name: ::std::option::Option<self::InstanceProfileNameType>,
         pub path: ::std::option::Option<self::PathType>,
-        pub roles: ::std::option::Option<self::RoleListType>,
-        pub tags: ::std::option::Option<self::TagListType>,
+        pub roles: ::std::option::Option<::std::vec::Vec<self::Role>>,
+        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
     }
     impl InstanceProfile {
         pub fn builder() -> InstanceProfileBuilder { InstanceProfileBuilder::default() }
@@ -17,8 +17,8 @@
         pub fn instance_profile_id(&self) -> &::std::option::Option<self::IdType> { &self.instance_profile_id }
         pub fn instance_profile_name(&self) -> &::std::option::Option<self::InstanceProfileNameType> { &self.instance_profile_name }
         pub fn path(&self) -> &::std::option::Option<self::PathType> { &self.path }
-        pub fn roles(&self) -> &::std::option::Option<self::RoleListType> { &self.roles }
-        pub fn tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
+        pub fn roles(&self) -> &::std::option::Option<::std::vec::Vec<self::Role>> { &self.roles }
+        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
     }
 
     #[derive(Clone, Debug, Default)]
@@ -28,8 +28,8 @@
         instance_profile_id: ::std::option::Option<self::IdType>,
         instance_profile_name: ::std::option::Option<self::InstanceProfileNameType>,
         path: ::std::option::Option<self::PathType>,
-        roles: ::std::option::Option<self::RoleListType>,
-        tags: ::std::option::Option<self::TagListType>,
+        roles: ::std::option::Option<::std::vec::Vec<self::Role>>,
+        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
     }
 
     impl InstanceProfileBuilder {
@@ -48,12 +48,12 @@
         pub fn path(mut self, input: impl ::std::convert::Into<self::PathType>) -> Self { self.path = Some(input.into()); self }
         pub fn set_path(mut self, input: ::std::option::Option<self::PathType>) -> Self { self.path = input; self }
         pub fn get_path(&self) -> &::std::option::Option<self::PathType> { &self.path }
-        pub fn roles(mut self, input: impl ::std::convert::Into<self::RoleListType>) -> Self { self.roles = Some(input.into()); self }
-        pub fn set_roles(mut self, input: ::std::option::Option<self::RoleListType>) -> Self { self.roles = input; self }
-        pub fn get_roles(&self) -> &::std::option::Option<self::RoleListType> { &self.roles }
-        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagListType>) -> Self { self.tags = Some(input.into()); self }
-        pub fn set_tags(mut self, input: ::std::option::Option<self::TagListType>) -> Self { self.tags = input; self }
-        pub fn get_tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
+        pub fn roles(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Role>>) -> Self { self.roles = Some(input.into()); self }
+        pub fn set_roles(mut self, input: ::std::option::Option<::std::vec::Vec<self::Role>>) -> Self { self.roles = input; self }
+        pub fn get_roles(&self) -> &::std::option::Option<::std::vec::Vec<self::Role>> { &self.roles }
+        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
+        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
+        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
         pub fn build(self) -> InstanceProfile {
             InstanceProfile {
                 arn: self.arn,

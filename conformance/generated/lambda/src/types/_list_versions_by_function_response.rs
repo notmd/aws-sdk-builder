@@ -3,27 +3,27 @@
     #[derive(Clone, Debug, Default)]
     pub struct ListVersionsByFunctionResponse {
         pub next_marker: ::std::option::Option<self::String>,
-        pub versions: ::std::option::Option<self::FunctionList>,
+        pub versions: ::std::option::Option<::std::vec::Vec<self::FunctionConfiguration>>,
     }
     impl ListVersionsByFunctionResponse {
         pub fn builder() -> ListVersionsByFunctionResponseBuilder { ListVersionsByFunctionResponseBuilder::default() }
         pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
-        pub fn versions(&self) -> &::std::option::Option<self::FunctionList> { &self.versions }
+        pub fn versions(&self) -> &::std::option::Option<::std::vec::Vec<self::FunctionConfiguration>> { &self.versions }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ListVersionsByFunctionResponseBuilder {
         next_marker: ::std::option::Option<self::String>,
-        versions: ::std::option::Option<self::FunctionList>,
+        versions: ::std::option::Option<::std::vec::Vec<self::FunctionConfiguration>>,
     }
 
     impl ListVersionsByFunctionResponseBuilder {
         pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
         pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
         pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }
-        pub fn versions(mut self, input: impl ::std::convert::Into<self::FunctionList>) -> Self { self.versions = Some(input.into()); self }
-        pub fn set_versions(mut self, input: ::std::option::Option<self::FunctionList>) -> Self { self.versions = input; self }
-        pub fn get_versions(&self) -> &::std::option::Option<self::FunctionList> { &self.versions }
+        pub fn versions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::FunctionConfiguration>>) -> Self { self.versions = Some(input.into()); self }
+        pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<self::FunctionConfiguration>>) -> Self { self.versions = input; self }
+        pub fn get_versions(&self) -> &::std::option::Option<::std::vec::Vec<self::FunctionConfiguration>> { &self.versions }
         pub fn build(self) -> ListVersionsByFunctionResponse {
             ListVersionsByFunctionResponse {
                 next_marker: self.next_marker,

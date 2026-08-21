@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetContextKeysForPrincipalPolicyOutput {
-    pub context_key_names: ::std::option::Option<super::super::super::types::ContextKeyNamesResultListType>,
+    pub context_key_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextKeyNameType>>,
 }
         impl GetContextKeysForPrincipalPolicyOutput {
             pub fn context_key_names(&self) -> &[super::super::super::types::ContextKeyNameType] { self.context_key_names.as_deref().unwrap_or(&[]) }
@@ -12,12 +12,12 @@ impl GetContextKeysForPrincipalPolicyOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetContextKeysForPrincipalPolicyOutputBuilder {
-    context_key_names: ::std::option::Option<super::super::super::types::ContextKeyNamesResultListType>,
+    context_key_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextKeyNameType>>,
 }
 impl GetContextKeysForPrincipalPolicyOutputBuilder {
-    pub fn context_key_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ContextKeyNamesResultListType>) -> Self { self.context_key_names = Some(input.into()); self }
-    pub fn set_context_key_names(mut self, input: ::std::option::Option<super::super::super::types::ContextKeyNamesResultListType>) -> Self { self.context_key_names = input; self }
-    pub fn get_context_key_names(&self) -> &::std::option::Option<super::super::super::types::ContextKeyNamesResultListType> { &self.context_key_names }
+    pub fn context_key_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ContextKeyNameType>>) -> Self { self.context_key_names = Some(input.into()); self }
+    pub fn set_context_key_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextKeyNameType>>) -> Self { self.context_key_names = input; self }
+    pub fn get_context_key_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ContextKeyNameType>> { &self.context_key_names }
     pub fn build(self) -> GetContextKeysForPrincipalPolicyOutput { GetContextKeysForPrincipalPolicyOutput {
         context_key_names: self.context_key_names,
     } }

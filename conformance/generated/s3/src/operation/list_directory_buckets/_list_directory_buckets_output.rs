@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListDirectoryBucketsOutput {
-    pub buckets: ::std::option::Option<super::super::super::types::Buckets>,
+    pub buckets: ::std::option::Option<::std::vec::Vec<super::super::super::types::Bucket>>,
     pub continuation_token: ::std::option::Option<super::super::super::types::DirectoryBucketToken>,
 }
         impl ListDirectoryBucketsOutput {
@@ -14,13 +14,13 @@ impl ListDirectoryBucketsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListDirectoryBucketsOutputBuilder {
-    buckets: ::std::option::Option<super::super::super::types::Buckets>,
+    buckets: ::std::option::Option<::std::vec::Vec<super::super::super::types::Bucket>>,
     continuation_token: ::std::option::Option<super::super::super::types::DirectoryBucketToken>,
 }
 impl ListDirectoryBucketsOutputBuilder {
-    pub fn buckets(mut self, input: impl ::std::convert::Into<super::super::super::types::Buckets>) -> Self { self.buckets = Some(input.into()); self }
-    pub fn set_buckets(mut self, input: ::std::option::Option<super::super::super::types::Buckets>) -> Self { self.buckets = input; self }
-    pub fn get_buckets(&self) -> &::std::option::Option<super::super::super::types::Buckets> { &self.buckets }
+    pub fn buckets(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Bucket>>) -> Self { self.buckets = Some(input.into()); self }
+    pub fn set_buckets(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Bucket>>) -> Self { self.buckets = input; self }
+    pub fn get_buckets(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Bucket>> { &self.buckets }
     pub fn continuation_token(mut self, input: impl ::std::convert::Into<super::super::super::types::DirectoryBucketToken>) -> Self { self.continuation_token = Some(input.into()); self }
     pub fn set_continuation_token(mut self, input: ::std::option::Option<super::super::super::types::DirectoryBucketToken>) -> Self { self.continuation_token = input; self }
     pub fn get_continuation_token(&self) -> &::std::option::Option<super::super::super::types::DirectoryBucketToken> { &self.continuation_token }

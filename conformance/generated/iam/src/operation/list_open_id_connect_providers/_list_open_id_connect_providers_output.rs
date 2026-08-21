@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListOpenIdConnectProvidersOutput {
-    pub open_id_connect_provider_list: ::std::option::Option<super::super::super::types::OpenIdConnectProviderListType>,
+    pub open_id_connect_provider_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::OpenIdConnectProviderListEntry>>,
 }
         impl ListOpenIdConnectProvidersOutput {
             pub fn open_id_connect_provider_list(&self) -> &[super::super::super::types::OpenIdConnectProviderListEntry] { self.open_id_connect_provider_list.as_deref().unwrap_or(&[]) }
@@ -12,12 +12,12 @@ impl ListOpenIdConnectProvidersOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListOpenIdConnectProvidersOutputBuilder {
-    open_id_connect_provider_list: ::std::option::Option<super::super::super::types::OpenIdConnectProviderListType>,
+    open_id_connect_provider_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::OpenIdConnectProviderListEntry>>,
 }
 impl ListOpenIdConnectProvidersOutputBuilder {
-    pub fn open_id_connect_provider_list(mut self, input: impl ::std::convert::Into<super::super::super::types::OpenIdConnectProviderListType>) -> Self { self.open_id_connect_provider_list = Some(input.into()); self }
-    pub fn set_open_id_connect_provider_list(mut self, input: ::std::option::Option<super::super::super::types::OpenIdConnectProviderListType>) -> Self { self.open_id_connect_provider_list = input; self }
-    pub fn get_open_id_connect_provider_list(&self) -> &::std::option::Option<super::super::super::types::OpenIdConnectProviderListType> { &self.open_id_connect_provider_list }
+    pub fn open_id_connect_provider_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::OpenIdConnectProviderListEntry>>) -> Self { self.open_id_connect_provider_list = Some(input.into()); self }
+    pub fn set_open_id_connect_provider_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::OpenIdConnectProviderListEntry>>) -> Self { self.open_id_connect_provider_list = input; self }
+    pub fn get_open_id_connect_provider_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::OpenIdConnectProviderListEntry>> { &self.open_id_connect_provider_list }
     pub fn build(self) -> ListOpenIdConnectProvidersOutput { ListOpenIdConnectProvidersOutput {
         open_id_connect_provider_list: self.open_id_connect_provider_list,
     } }

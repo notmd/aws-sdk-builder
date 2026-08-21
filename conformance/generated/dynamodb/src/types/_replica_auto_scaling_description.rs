@@ -2,7 +2,7 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ReplicaAutoScalingDescription {
-        pub global_secondary_indexes: ::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList>,
+        pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingDescription>>,
         pub region_name: ::std::option::Option<self::RegionName>,
         pub replica_provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
         pub replica_provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
@@ -10,7 +10,7 @@
     }
     impl ReplicaAutoScalingDescription {
         pub fn builder() -> ReplicaAutoScalingDescriptionBuilder { ReplicaAutoScalingDescriptionBuilder::default() }
-        pub fn global_secondary_indexes(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList> { &self.global_secondary_indexes }
+        pub fn global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingDescription>> { &self.global_secondary_indexes }
         pub fn region_name(&self) -> &::std::option::Option<self::RegionName> { &self.region_name }
         pub fn replica_provisioned_read_capacity_auto_scaling_settings(&self) -> &::std::option::Option<self::AutoScalingSettingsDescription> { &self.replica_provisioned_read_capacity_auto_scaling_settings }
         pub fn replica_provisioned_write_capacity_auto_scaling_settings(&self) -> &::std::option::Option<self::AutoScalingSettingsDescription> { &self.replica_provisioned_write_capacity_auto_scaling_settings }
@@ -19,7 +19,7 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ReplicaAutoScalingDescriptionBuilder {
-        global_secondary_indexes: ::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList>,
+        global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingDescription>>,
         region_name: ::std::option::Option<self::RegionName>,
         replica_provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
         replica_provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
@@ -27,9 +27,9 @@
     }
 
     impl ReplicaAutoScalingDescriptionBuilder {
-        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<self::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList>) -> Self { self.global_secondary_indexes = input; self }
-        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList> { &self.global_secondary_indexes }
+        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingDescription>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
+        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingDescription>>) -> Self { self.global_secondary_indexes = input; self }
+        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingDescription>> { &self.global_secondary_indexes }
         pub fn region_name(mut self, input: impl ::std::convert::Into<self::RegionName>) -> Self { self.region_name = Some(input.into()); self }
         pub fn set_region_name(mut self, input: ::std::option::Option<self::RegionName>) -> Self { self.region_name = input; self }
         pub fn get_region_name(&self) -> &::std::option::Option<self::RegionName> { &self.region_name }

@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteUserError::Unhandled(format!("DeleteUser returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteUserOutput::default())
+                         Ok(super::DeleteUserOutput)
                      }
 }
 pub use Builder as DeleteUserFluentBuilder;

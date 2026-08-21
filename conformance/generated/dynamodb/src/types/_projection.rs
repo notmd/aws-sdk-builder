@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct Projection {
-        pub non_key_attributes: ::std::option::Option<self::NonKeyAttributeNameList>,
+        pub non_key_attributes: ::std::option::Option<::std::vec::Vec<self::NonKeyAttributeName>>,
         pub projection_type: ::std::option::Option<self::ProjectionType>,
     }
     impl Projection {
         pub fn builder() -> ProjectionBuilder { ProjectionBuilder::default() }
-        pub fn non_key_attributes(&self) -> &::std::option::Option<self::NonKeyAttributeNameList> { &self.non_key_attributes }
+        pub fn non_key_attributes(&self) -> &::std::option::Option<::std::vec::Vec<self::NonKeyAttributeName>> { &self.non_key_attributes }
         pub fn projection_type(&self) -> &::std::option::Option<self::ProjectionType> { &self.projection_type }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ProjectionBuilder {
-        non_key_attributes: ::std::option::Option<self::NonKeyAttributeNameList>,
+        non_key_attributes: ::std::option::Option<::std::vec::Vec<self::NonKeyAttributeName>>,
         projection_type: ::std::option::Option<self::ProjectionType>,
     }
 
     impl ProjectionBuilder {
-        pub fn non_key_attributes(mut self, input: impl ::std::convert::Into<self::NonKeyAttributeNameList>) -> Self { self.non_key_attributes = Some(input.into()); self }
-        pub fn set_non_key_attributes(mut self, input: ::std::option::Option<self::NonKeyAttributeNameList>) -> Self { self.non_key_attributes = input; self }
-        pub fn get_non_key_attributes(&self) -> &::std::option::Option<self::NonKeyAttributeNameList> { &self.non_key_attributes }
+        pub fn non_key_attributes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::NonKeyAttributeName>>) -> Self { self.non_key_attributes = Some(input.into()); self }
+        pub fn set_non_key_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<self::NonKeyAttributeName>>) -> Self { self.non_key_attributes = input; self }
+        pub fn get_non_key_attributes(&self) -> &::std::option::Option<::std::vec::Vec<self::NonKeyAttributeName>> { &self.non_key_attributes }
         pub fn projection_type(mut self, input: impl ::std::convert::Into<self::ProjectionType>) -> Self { self.projection_type = Some(input.into()); self }
         pub fn set_projection_type(mut self, input: ::std::option::Option<self::ProjectionType>) -> Self { self.projection_type = input; self }
         pub fn get_projection_type(&self) -> &::std::option::Option<self::ProjectionType> { &self.projection_type }

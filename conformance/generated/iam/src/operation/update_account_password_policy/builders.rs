@@ -30,7 +30,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateAccountPasswordPolicyError::Unhandled(format!("UpdateAccountPasswordPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateAccountPasswordPolicyOutput::default())
+                         Ok(super::UpdateAccountPasswordPolicyOutput)
                      }
 }
 pub use Builder as UpdateAccountPasswordPolicyFluentBuilder;

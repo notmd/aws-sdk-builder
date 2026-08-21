@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DetachGroupPolicyError::Unhandled(format!("DetachGroupPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::DetachGroupPolicyOutput::default())
+                         Ok(super::DetachGroupPolicyOutput)
                      }
 }
 pub use Builder as DetachGroupPolicyFluentBuilder;

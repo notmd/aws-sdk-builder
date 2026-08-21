@@ -2,18 +2,18 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ScanInput {
-    pub attributes_to_get: ::std::option::Option<super::super::super::types::AttributeNameList>,
+    pub attributes_to_get: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>,
     pub conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
     pub consistent_read: ::std::option::Option<super::super::super::types::ConsistentRead>,
-    pub exclusive_start_key: ::std::option::Option<super::super::super::types::Key>,
-    pub expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-    pub expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
+    pub exclusive_start_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
+    pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
+    pub expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
     pub filter_expression: ::std::option::Option<super::super::super::types::ConditionExpression>,
     pub index_name: ::std::option::Option<super::super::super::types::IndexName>,
     pub limit: ::std::option::Option<super::super::super::types::PositiveIntegerObject>,
     pub projection_expression: ::std::option::Option<super::super::super::types::ProjectionExpression>,
     pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-    pub scan_filter: ::std::option::Option<super::super::super::types::FilterConditionMap>,
+    pub scan_filter: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>,
     pub segment: ::std::option::Option<super::super::super::types::ScanSegment>,
     pub select: ::std::option::Option<super::super::super::types::Select>,
     pub table_name: ::std::option::Option<super::super::super::types::TableArn>,
@@ -23,15 +23,15 @@ pub struct ScanInput {
             pub fn attributes_to_get(&self) -> &[super::super::super::types::AttributeName] { self.attributes_to_get.as_deref().unwrap_or(&[]) }
             pub fn conditional_operator(&self) -> ::std::option::Option<&super::super::super::types::ConditionalOperator> { self.conditional_operator.as_ref() }
             pub fn consistent_read(&self) -> ::std::option::Option<bool> { self.consistent_read }
-            pub fn exclusive_start_key(&self) -> ::std::option::Option<&super::super::super::types::Key> { self.exclusive_start_key.as_ref() }
-            pub fn expression_attribute_names(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeNameMap> { self.expression_attribute_names.as_ref() }
-            pub fn expression_attribute_values(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeValueMap> { self.expression_attribute_values.as_ref() }
+            pub fn exclusive_start_key(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.exclusive_start_key.as_ref() }
+            pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { self.expression_attribute_names.as_ref() }
+            pub fn expression_attribute_values(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { self.expression_attribute_values.as_ref() }
             pub fn filter_expression(&self) -> ::std::option::Option<&str> { self.filter_expression.as_deref() }
             pub fn index_name(&self) -> ::std::option::Option<&str> { self.index_name.as_deref() }
             pub fn limit(&self) -> ::std::option::Option<i32> { self.limit }
             pub fn projection_expression(&self) -> ::std::option::Option<&str> { self.projection_expression.as_deref() }
             pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
-            pub fn scan_filter(&self) -> ::std::option::Option<&super::super::super::types::FilterConditionMap> { self.scan_filter.as_ref() }
+            pub fn scan_filter(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>> { self.scan_filter.as_ref() }
             pub fn segment(&self) -> ::std::option::Option<i32> { self.segment }
             pub fn select(&self) -> ::std::option::Option<&super::super::super::types::Select> { self.select.as_ref() }
             pub fn table_name(&self) -> ::std::option::Option<&str> { self.table_name.as_deref() }
@@ -42,42 +42,42 @@ impl ScanInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ScanInputBuilder {
-    attributes_to_get: ::std::option::Option<super::super::super::types::AttributeNameList>,
+    attributes_to_get: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>,
     conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
     consistent_read: ::std::option::Option<super::super::super::types::ConsistentRead>,
-    exclusive_start_key: ::std::option::Option<super::super::super::types::Key>,
-    expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-    expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
+    exclusive_start_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
+    expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
+    expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
     filter_expression: ::std::option::Option<super::super::super::types::ConditionExpression>,
     index_name: ::std::option::Option<super::super::super::types::IndexName>,
     limit: ::std::option::Option<super::super::super::types::PositiveIntegerObject>,
     projection_expression: ::std::option::Option<super::super::super::types::ProjectionExpression>,
     return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-    scan_filter: ::std::option::Option<super::super::super::types::FilterConditionMap>,
+    scan_filter: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>,
     segment: ::std::option::Option<super::super::super::types::ScanSegment>,
     select: ::std::option::Option<super::super::super::types::Select>,
     table_name: ::std::option::Option<super::super::super::types::TableArn>,
     total_segments: ::std::option::Option<super::super::super::types::ScanTotalSegments>,
 }
 impl ScanInputBuilder {
-    pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.attributes_to_get = Some(input.into()); self }
-    pub fn set_attributes_to_get(mut self, input: ::std::option::Option<super::super::super::types::AttributeNameList>) -> Self { self.attributes_to_get = input; self }
-    pub fn get_attributes_to_get(&self) -> &::std::option::Option<super::super::super::types::AttributeNameList> { &self.attributes_to_get }
+    pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.attributes_to_get = Some(input.into()); self }
+    pub fn set_attributes_to_get(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.attributes_to_get = input; self }
+    pub fn get_attributes_to_get(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeName>> { &self.attributes_to_get }
     pub fn conditional_operator(mut self, input: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.conditional_operator = Some(input.into()); self }
     pub fn set_conditional_operator(mut self, input: ::std::option::Option<super::super::super::types::ConditionalOperator>) -> Self { self.conditional_operator = input; self }
     pub fn get_conditional_operator(&self) -> &::std::option::Option<super::super::super::types::ConditionalOperator> { &self.conditional_operator }
     pub fn consistent_read(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.consistent_read = Some(input.into()); self }
     pub fn set_consistent_read(mut self, input: ::std::option::Option<super::super::super::types::ConsistentRead>) -> Self { self.consistent_read = input; self }
     pub fn get_consistent_read(&self) -> &::std::option::Option<super::super::super::types::ConsistentRead> { &self.consistent_read }
-    pub fn exclusive_start_key(mut self, input: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.exclusive_start_key = Some(input.into()); self }
-    pub fn set_exclusive_start_key(mut self, input: ::std::option::Option<super::super::super::types::Key>) -> Self { self.exclusive_start_key = input; self }
-    pub fn get_exclusive_start_key(&self) -> &::std::option::Option<super::super::super::types::Key> { &self.exclusive_start_key }
-    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = Some(input.into()); self }
-    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = input; self }
-    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeValueMap> { &self.expression_attribute_values }
+    pub fn exclusive_start_key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.exclusive_start_key = Some(input.into()); self }
+    pub fn set_exclusive_start_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.exclusive_start_key = input; self }
+    pub fn get_exclusive_start_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.exclusive_start_key }
+    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
+    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
+    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { &self.expression_attribute_names }
+    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = Some(input.into()); self }
+    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
+    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { &self.expression_attribute_values }
     pub fn filter_expression(mut self, input: impl ::std::convert::Into<super::super::super::types::ConditionExpression>) -> Self { self.filter_expression = Some(input.into()); self }
     pub fn set_filter_expression(mut self, input: ::std::option::Option<super::super::super::types::ConditionExpression>) -> Self { self.filter_expression = input; self }
     pub fn get_filter_expression(&self) -> &::std::option::Option<super::super::super::types::ConditionExpression> { &self.filter_expression }
@@ -93,9 +93,9 @@ impl ScanInputBuilder {
     pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
     pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
     pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
-    pub fn scan_filter(mut self, input: impl ::std::convert::Into<super::super::super::types::FilterConditionMap>) -> Self { self.scan_filter = Some(input.into()); self }
-    pub fn set_scan_filter(mut self, input: ::std::option::Option<super::super::super::types::FilterConditionMap>) -> Self { self.scan_filter = input; self }
-    pub fn get_scan_filter(&self) -> &::std::option::Option<super::super::super::types::FilterConditionMap> { &self.scan_filter }
+    pub fn scan_filter(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>) -> Self { self.scan_filter = Some(input.into()); self }
+    pub fn set_scan_filter(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>>) -> Self { self.scan_filter = input; self }
+    pub fn get_scan_filter(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::Condition>> { &self.scan_filter }
     pub fn segment(mut self, input: impl ::std::convert::Into<super::super::super::types::ScanSegment>) -> Self { self.segment = Some(input.into()); self }
     pub fn set_segment(mut self, input: ::std::option::Option<super::super::super::types::ScanSegment>) -> Self { self.segment = input; self }
     pub fn get_segment(&self) -> &::std::option::Option<super::super::super::types::ScanSegment> { &self.segment }

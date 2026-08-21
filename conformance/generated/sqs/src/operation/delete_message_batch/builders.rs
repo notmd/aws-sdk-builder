@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn entries(mut self, value: impl ::std::convert::Into<super::super::super::types::DeleteMessageBatchRequestEntryList>) -> Self { self.input.entries = Some(value.into()); self }
+    pub fn entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DeleteMessageBatchRequestEntry>>) -> Self { self.input.entries = Some(value.into()); self }
     pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]

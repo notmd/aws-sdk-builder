@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateLoginProfileError::Unhandled(format!("UpdateLoginProfile returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateLoginProfileOutput::default())
+                         Ok(super::UpdateLoginProfileOutput)
                      }
 }
 pub use Builder as UpdateLoginProfileFluentBuilder;

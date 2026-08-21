@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct ListOriginationNumbersOutput {
     pub next_token: ::std::option::Option<super::super::super::types::NextToken>,
-    pub phone_numbers: ::std::option::Option<super::super::super::types::PhoneNumberInformationList>,
+    pub phone_numbers: ::std::option::Option<::std::vec::Vec<super::super::super::types::PhoneNumberInformation>>,
 }
         impl ListOriginationNumbersOutput {
             pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -15,15 +15,15 @@ impl ListOriginationNumbersOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ListOriginationNumbersOutputBuilder {
     next_token: ::std::option::Option<super::super::super::types::NextToken>,
-    phone_numbers: ::std::option::Option<super::super::super::types::PhoneNumberInformationList>,
+    phone_numbers: ::std::option::Option<::std::vec::Vec<super::super::super::types::PhoneNumberInformation>>,
 }
 impl ListOriginationNumbersOutputBuilder {
     pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::NextToken>) -> Self { self.next_token = Some(input.into()); self }
     pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::NextToken>) -> Self { self.next_token = input; self }
     pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::NextToken> { &self.next_token }
-    pub fn phone_numbers(mut self, input: impl ::std::convert::Into<super::super::super::types::PhoneNumberInformationList>) -> Self { self.phone_numbers = Some(input.into()); self }
-    pub fn set_phone_numbers(mut self, input: ::std::option::Option<super::super::super::types::PhoneNumberInformationList>) -> Self { self.phone_numbers = input; self }
-    pub fn get_phone_numbers(&self) -> &::std::option::Option<super::super::super::types::PhoneNumberInformationList> { &self.phone_numbers }
+    pub fn phone_numbers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PhoneNumberInformation>>) -> Self { self.phone_numbers = Some(input.into()); self }
+    pub fn set_phone_numbers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PhoneNumberInformation>>) -> Self { self.phone_numbers = input; self }
+    pub fn get_phone_numbers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PhoneNumberInformation>> { &self.phone_numbers }
     pub fn build(self) -> ListOriginationNumbersOutput { ListOriginationNumbersOutput {
         next_token: self.next_token,
         phone_numbers: self.phone_numbers,

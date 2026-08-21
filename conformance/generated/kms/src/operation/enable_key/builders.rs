@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::EnableKeyError::Unhandled(format!("EnableKey returned HTTP {}", status)));
                          }
-                         Ok(super::EnableKeyOutput::default())
+                         Ok(super::EnableKeyOutput)
                      }
 }
 pub use Builder as EnableKeyFluentBuilder;

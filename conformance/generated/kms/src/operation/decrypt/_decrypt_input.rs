@@ -4,10 +4,10 @@
 pub struct DecryptInput {
     pub ciphertext_blob: ::std::option::Option<super::super::super::types::CiphertextType>,
     pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-    pub dry_run_modifiers: ::std::option::Option<super::super::super::types::DryRunModifierList>,
+    pub dry_run_modifiers: ::std::option::Option<::std::vec::Vec<super::super::super::types::DryRunModifierType>>,
     pub encryption_algorithm: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>,
-    pub encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
+    pub encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
+    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
     pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
     pub recipient: ::std::option::Option<super::super::super::types::RecipientInfo>,
 }
@@ -16,7 +16,7 @@ pub struct DecryptInput {
             pub fn dry_run(&self) -> ::std::option::Option<bool> { self.dry_run }
             pub fn dry_run_modifiers(&self) -> &[super::super::super::types::DryRunModifierType] { self.dry_run_modifiers.as_deref().unwrap_or(&[]) }
             pub fn encryption_algorithm(&self) -> ::std::option::Option<&super::super::super::types::EncryptionAlgorithmSpec> { self.encryption_algorithm.as_ref() }
-            pub fn encryption_context(&self) -> ::std::option::Option<&super::super::super::types::EncryptionContextType> { self.encryption_context.as_ref() }
+            pub fn encryption_context(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { self.encryption_context.as_ref() }
             pub fn grant_tokens(&self) -> &[super::super::super::types::GrantTokenType] { self.grant_tokens.as_deref().unwrap_or(&[]) }
             pub fn key_id(&self) -> ::std::option::Option<&str> { self.key_id.as_deref() }
             pub fn recipient(&self) -> ::std::option::Option<&super::super::super::types::RecipientInfo> { self.recipient.as_ref() }
@@ -28,10 +28,10 @@ impl DecryptInput {
 pub struct DecryptInputBuilder {
     ciphertext_blob: ::std::option::Option<super::super::super::types::CiphertextType>,
     dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-    dry_run_modifiers: ::std::option::Option<super::super::super::types::DryRunModifierList>,
+    dry_run_modifiers: ::std::option::Option<::std::vec::Vec<super::super::super::types::DryRunModifierType>>,
     encryption_algorithm: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>,
-    encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
+    encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
+    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
     key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
     recipient: ::std::option::Option<super::super::super::types::RecipientInfo>,
 }
@@ -42,18 +42,18 @@ impl DecryptInputBuilder {
     pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
     pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
     pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-    pub fn dry_run_modifiers(mut self, input: impl ::std::convert::Into<super::super::super::types::DryRunModifierList>) -> Self { self.dry_run_modifiers = Some(input.into()); self }
-    pub fn set_dry_run_modifiers(mut self, input: ::std::option::Option<super::super::super::types::DryRunModifierList>) -> Self { self.dry_run_modifiers = input; self }
-    pub fn get_dry_run_modifiers(&self) -> &::std::option::Option<super::super::super::types::DryRunModifierList> { &self.dry_run_modifiers }
+    pub fn dry_run_modifiers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DryRunModifierType>>) -> Self { self.dry_run_modifiers = Some(input.into()); self }
+    pub fn set_dry_run_modifiers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DryRunModifierType>>) -> Self { self.dry_run_modifiers = input; self }
+    pub fn get_dry_run_modifiers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DryRunModifierType>> { &self.dry_run_modifiers }
     pub fn encryption_algorithm(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.encryption_algorithm = Some(input.into()); self }
     pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.encryption_algorithm = input; self }
     pub fn get_encryption_algorithm(&self) -> &::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec> { &self.encryption_algorithm }
-    pub fn encryption_context(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = Some(input.into()); self }
-    pub fn set_encryption_context(mut self, input: ::std::option::Option<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = input; self }
-    pub fn get_encryption_context(&self) -> &::std::option::Option<super::super::super::types::EncryptionContextType> { &self.encryption_context }
-    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
+    pub fn encryption_context(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = Some(input.into()); self }
+    pub fn set_encryption_context(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = input; self }
+    pub fn get_encryption_context(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { &self.encryption_context }
+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
+    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
     pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
     pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
     pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }

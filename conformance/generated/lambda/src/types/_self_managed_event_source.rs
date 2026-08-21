@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct SelfManagedEventSource {
-        pub endpoints: ::std::option::Option<self::Endpoints>,
+        pub endpoints: ::std::option::Option<::std::collections::BTreeMap<self::EndPointType, ::std::vec::Vec<self::Endpoint>>>,
     }
     impl SelfManagedEventSource {
         pub fn builder() -> SelfManagedEventSourceBuilder { SelfManagedEventSourceBuilder::default() }
-        pub fn endpoints(&self) -> &::std::option::Option<self::Endpoints> { &self.endpoints }
+        pub fn endpoints(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EndPointType, ::std::vec::Vec<self::Endpoint>>> { &self.endpoints }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct SelfManagedEventSourceBuilder {
-        endpoints: ::std::option::Option<self::Endpoints>,
+        endpoints: ::std::option::Option<::std::collections::BTreeMap<self::EndPointType, ::std::vec::Vec<self::Endpoint>>>,
     }
 
     impl SelfManagedEventSourceBuilder {
-        pub fn endpoints(mut self, input: impl ::std::convert::Into<self::Endpoints>) -> Self { self.endpoints = Some(input.into()); self }
-        pub fn set_endpoints(mut self, input: ::std::option::Option<self::Endpoints>) -> Self { self.endpoints = input; self }
-        pub fn get_endpoints(&self) -> &::std::option::Option<self::Endpoints> { &self.endpoints }
+        pub fn endpoints(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::EndPointType, ::std::vec::Vec<self::Endpoint>>>) -> Self { self.endpoints = Some(input.into()); self }
+        pub fn set_endpoints(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::EndPointType, ::std::vec::Vec<self::Endpoint>>>) -> Self { self.endpoints = input; self }
+        pub fn get_endpoints(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EndPointType, ::std::vec::Vec<self::Endpoint>>> { &self.endpoints }
         pub fn build(self) -> SelfManagedEventSource {
             SelfManagedEventSource {
                 endpoints: self.endpoints,

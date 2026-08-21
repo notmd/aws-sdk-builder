@@ -2,13 +2,13 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct CreatePlatformEndpointInput {
-    pub attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
+    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
     pub custom_user_data: ::std::option::Option<super::super::super::types::String>,
     pub platform_application_arn: ::std::option::Option<super::super::super::types::String>,
     pub token: ::std::option::Option<super::super::super::types::String>,
 }
         impl CreatePlatformEndpointInput {
-            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::MapStringToString> { self.attributes.as_ref() }
+            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { self.attributes.as_ref() }
             pub fn custom_user_data(&self) -> ::std::option::Option<&str> { self.custom_user_data.as_deref() }
             pub fn platform_application_arn(&self) -> ::std::option::Option<&str> { self.platform_application_arn.as_deref() }
             pub fn token(&self) -> ::std::option::Option<&str> { self.token.as_deref() }
@@ -18,15 +18,15 @@ impl CreatePlatformEndpointInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct CreatePlatformEndpointInputBuilder {
-    attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
+    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
     custom_user_data: ::std::option::Option<super::super::super::types::String>,
     platform_application_arn: ::std::option::Option<super::super::super::types::String>,
     token: ::std::option::Option<super::super::super::types::String>,
 }
 impl CreatePlatformEndpointInputBuilder {
-    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::MapStringToString>) -> Self { self.attributes = input; self }
-    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::MapStringToString> { &self.attributes }
+    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = input; self }
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { &self.attributes }
     pub fn custom_user_data(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.custom_user_data = Some(input.into()); self }
     pub fn set_custom_user_data(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.custom_user_data = input; self }
     pub fn get_custom_user_data(&self) -> &::std::option::Option<super::super::super::types::String> { &self.custom_user_data }

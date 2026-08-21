@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketOwnershipControlsError::Unhandled(format!("PutBucketOwnershipControls returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketOwnershipControlsOutput::default())
+                         Ok(super::PutBucketOwnershipControlsOutput)
                      }
 }
 pub use Builder as PutBucketOwnershipControlsFluentBuilder;

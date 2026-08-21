@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct ListBucketIntelligentTieringConfigurationsOutput {
     pub continuation_token: ::std::option::Option<super::super::super::types::Token>,
-    pub intelligent_tiering_configuration_list: ::std::option::Option<super::super::super::types::IntelligentTieringConfigurationList>,
+    pub intelligent_tiering_configuration_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::IntelligentTieringConfiguration>>,
     pub is_truncated: ::std::option::Option<super::super::super::types::IsTruncated>,
     pub next_continuation_token: ::std::option::Option<super::super::super::types::NextToken>,
 }
@@ -19,7 +19,7 @@ impl ListBucketIntelligentTieringConfigurationsOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ListBucketIntelligentTieringConfigurationsOutputBuilder {
     continuation_token: ::std::option::Option<super::super::super::types::Token>,
-    intelligent_tiering_configuration_list: ::std::option::Option<super::super::super::types::IntelligentTieringConfigurationList>,
+    intelligent_tiering_configuration_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::IntelligentTieringConfiguration>>,
     is_truncated: ::std::option::Option<super::super::super::types::IsTruncated>,
     next_continuation_token: ::std::option::Option<super::super::super::types::NextToken>,
 }
@@ -27,9 +27,9 @@ impl ListBucketIntelligentTieringConfigurationsOutputBuilder {
     pub fn continuation_token(mut self, input: impl ::std::convert::Into<super::super::super::types::Token>) -> Self { self.continuation_token = Some(input.into()); self }
     pub fn set_continuation_token(mut self, input: ::std::option::Option<super::super::super::types::Token>) -> Self { self.continuation_token = input; self }
     pub fn get_continuation_token(&self) -> &::std::option::Option<super::super::super::types::Token> { &self.continuation_token }
-    pub fn intelligent_tiering_configuration_list(mut self, input: impl ::std::convert::Into<super::super::super::types::IntelligentTieringConfigurationList>) -> Self { self.intelligent_tiering_configuration_list = Some(input.into()); self }
-    pub fn set_intelligent_tiering_configuration_list(mut self, input: ::std::option::Option<super::super::super::types::IntelligentTieringConfigurationList>) -> Self { self.intelligent_tiering_configuration_list = input; self }
-    pub fn get_intelligent_tiering_configuration_list(&self) -> &::std::option::Option<super::super::super::types::IntelligentTieringConfigurationList> { &self.intelligent_tiering_configuration_list }
+    pub fn intelligent_tiering_configuration_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::IntelligentTieringConfiguration>>) -> Self { self.intelligent_tiering_configuration_list = Some(input.into()); self }
+    pub fn set_intelligent_tiering_configuration_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::IntelligentTieringConfiguration>>) -> Self { self.intelligent_tiering_configuration_list = input; self }
+    pub fn get_intelligent_tiering_configuration_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::IntelligentTieringConfiguration>> { &self.intelligent_tiering_configuration_list }
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::IsTruncated>) -> Self { self.is_truncated = Some(input.into()); self }
     pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::IsTruncated>) -> Self { self.is_truncated = input; self }
     pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::IsTruncated> { &self.is_truncated }

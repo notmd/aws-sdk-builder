@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct UntagPolicyInput {
     pub policy_arn: ::std::option::Option<super::super::super::types::ArnType>,
-    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
+    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
 }
         impl UntagPolicyInput {
             pub fn policy_arn(&self) -> ::std::option::Option<&str> { self.policy_arn.as_deref() }
@@ -15,15 +15,15 @@ impl UntagPolicyInput {
 #[derive(Clone, Debug, Default)]
 pub struct UntagPolicyInputBuilder {
     policy_arn: ::std::option::Option<super::super::super::types::ArnType>,
-    tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
+    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
 }
 impl UntagPolicyInputBuilder {
     pub fn policy_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.policy_arn = Some(input.into()); self }
     pub fn set_policy_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.policy_arn = input; self }
     pub fn get_policy_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.policy_arn }
-    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = Some(input.into()); self }
-    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = input; self }
-    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.tag_keys }
+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = Some(input.into()); self }
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = input; self }
+    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.tag_keys }
     pub fn build(self) -> UntagPolicyInput { UntagPolicyInput {
         policy_arn: self.policy_arn,
         tag_keys: self.tag_keys,

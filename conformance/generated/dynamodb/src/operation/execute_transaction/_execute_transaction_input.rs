@@ -4,7 +4,7 @@
 pub struct ExecuteTransactionInput {
     pub client_request_token: ::std::option::Option<super::super::super::types::ClientRequestToken>,
     pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-    pub transact_statements: ::std::option::Option<super::super::super::types::ParameterizedStatements>,
+    pub transact_statements: ::std::option::Option<::std::vec::Vec<super::super::super::types::ParameterizedStatement>>,
 }
         impl ExecuteTransactionInput {
             pub fn client_request_token(&self) -> ::std::option::Option<&str> { self.client_request_token.as_deref() }
@@ -18,7 +18,7 @@ impl ExecuteTransactionInput {
 pub struct ExecuteTransactionInputBuilder {
     client_request_token: ::std::option::Option<super::super::super::types::ClientRequestToken>,
     return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
-    transact_statements: ::std::option::Option<super::super::super::types::ParameterizedStatements>,
+    transact_statements: ::std::option::Option<::std::vec::Vec<super::super::super::types::ParameterizedStatement>>,
 }
 impl ExecuteTransactionInputBuilder {
     pub fn client_request_token(mut self, input: impl ::std::convert::Into<super::super::super::types::ClientRequestToken>) -> Self { self.client_request_token = Some(input.into()); self }
@@ -27,9 +27,9 @@ impl ExecuteTransactionInputBuilder {
     pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
     pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
     pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }
-    pub fn transact_statements(mut self, input: impl ::std::convert::Into<super::super::super::types::ParameterizedStatements>) -> Self { self.transact_statements = Some(input.into()); self }
-    pub fn set_transact_statements(mut self, input: ::std::option::Option<super::super::super::types::ParameterizedStatements>) -> Self { self.transact_statements = input; self }
-    pub fn get_transact_statements(&self) -> &::std::option::Option<super::super::super::types::ParameterizedStatements> { &self.transact_statements }
+    pub fn transact_statements(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ParameterizedStatement>>) -> Self { self.transact_statements = Some(input.into()); self }
+    pub fn set_transact_statements(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ParameterizedStatement>>) -> Self { self.transact_statements = input; self }
+    pub fn get_transact_statements(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ParameterizedStatement>> { &self.transact_statements }
     pub fn build(self) -> ExecuteTransactionInput { ExecuteTransactionInput {
         client_request_token: self.client_request_token,
         return_consumed_capacity: self.return_consumed_capacity,

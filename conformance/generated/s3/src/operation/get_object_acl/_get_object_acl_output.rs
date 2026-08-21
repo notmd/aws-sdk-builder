@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetObjectAclOutput {
-    pub grants: ::std::option::Option<super::super::super::types::Grants>,
+    pub grants: ::std::option::Option<::std::vec::Vec<super::super::super::types::Grant>>,
     pub owner: ::std::option::Option<super::super::super::types::Owner>,
     pub request_charged: ::std::option::Option<super::super::super::types::RequestCharged>,
 }
@@ -16,14 +16,14 @@ impl GetObjectAclOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetObjectAclOutputBuilder {
-    grants: ::std::option::Option<super::super::super::types::Grants>,
+    grants: ::std::option::Option<::std::vec::Vec<super::super::super::types::Grant>>,
     owner: ::std::option::Option<super::super::super::types::Owner>,
     request_charged: ::std::option::Option<super::super::super::types::RequestCharged>,
 }
 impl GetObjectAclOutputBuilder {
-    pub fn grants(mut self, input: impl ::std::convert::Into<super::super::super::types::Grants>) -> Self { self.grants = Some(input.into()); self }
-    pub fn set_grants(mut self, input: ::std::option::Option<super::super::super::types::Grants>) -> Self { self.grants = input; self }
-    pub fn get_grants(&self) -> &::std::option::Option<super::super::super::types::Grants> { &self.grants }
+    pub fn grants(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Grant>>) -> Self { self.grants = Some(input.into()); self }
+    pub fn set_grants(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Grant>>) -> Self { self.grants = input; self }
+    pub fn get_grants(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Grant>> { &self.grants }
     pub fn owner(mut self, input: impl ::std::convert::Into<super::super::super::types::Owner>) -> Self { self.owner = Some(input.into()); self }
     pub fn set_owner(mut self, input: ::std::option::Option<super::super::super::types::Owner>) -> Self { self.owner = input; self }
     pub fn get_owner(&self) -> &::std::option::Option<super::super::super::types::Owner> { &self.owner }

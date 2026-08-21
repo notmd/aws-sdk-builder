@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct TagUserInput {
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     pub user_name: ::std::option::Option<super::super::super::types::ExistingUserNameType>,
 }
         impl TagUserInput {
@@ -14,13 +14,13 @@ impl TagUserInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct TagUserInputBuilder {
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     user_name: ::std::option::Option<super::super::super::types::ExistingUserNameType>,
 }
 impl TagUserInputBuilder {
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn user_name(mut self, input: impl ::std::convert::Into<super::super::super::types::ExistingUserNameType>) -> Self { self.user_name = Some(input.into()); self }
     pub fn set_user_name(mut self, input: ::std::option::Option<super::super::super::types::ExistingUserNameType>) -> Self { self.user_name = input; self }
     pub fn get_user_name(&self) -> &::std::option::Option<super::super::super::types::ExistingUserNameType> { &self.user_name }

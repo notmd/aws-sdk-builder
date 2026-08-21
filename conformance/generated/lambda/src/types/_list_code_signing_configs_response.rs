@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ListCodeSigningConfigsResponse {
-        pub code_signing_configs: ::std::option::Option<self::CodeSigningConfigList>,
+        pub code_signing_configs: ::std::option::Option<::std::vec::Vec<self::CodeSigningConfig>>,
         pub next_marker: ::std::option::Option<self::String>,
     }
     impl ListCodeSigningConfigsResponse {
         pub fn builder() -> ListCodeSigningConfigsResponseBuilder { ListCodeSigningConfigsResponseBuilder::default() }
-        pub fn code_signing_configs(&self) -> &::std::option::Option<self::CodeSigningConfigList> { &self.code_signing_configs }
+        pub fn code_signing_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::CodeSigningConfig>> { &self.code_signing_configs }
         pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ListCodeSigningConfigsResponseBuilder {
-        code_signing_configs: ::std::option::Option<self::CodeSigningConfigList>,
+        code_signing_configs: ::std::option::Option<::std::vec::Vec<self::CodeSigningConfig>>,
         next_marker: ::std::option::Option<self::String>,
     }
 
     impl ListCodeSigningConfigsResponseBuilder {
-        pub fn code_signing_configs(mut self, input: impl ::std::convert::Into<self::CodeSigningConfigList>) -> Self { self.code_signing_configs = Some(input.into()); self }
-        pub fn set_code_signing_configs(mut self, input: ::std::option::Option<self::CodeSigningConfigList>) -> Self { self.code_signing_configs = input; self }
-        pub fn get_code_signing_configs(&self) -> &::std::option::Option<self::CodeSigningConfigList> { &self.code_signing_configs }
+        pub fn code_signing_configs(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::CodeSigningConfig>>) -> Self { self.code_signing_configs = Some(input.into()); self }
+        pub fn set_code_signing_configs(mut self, input: ::std::option::Option<::std::vec::Vec<self::CodeSigningConfig>>) -> Self { self.code_signing_configs = input; self }
+        pub fn get_code_signing_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::CodeSigningConfig>> { &self.code_signing_configs }
         pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
         pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
         pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }

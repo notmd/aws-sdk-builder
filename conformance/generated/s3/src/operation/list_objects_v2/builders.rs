@@ -17,7 +17,7 @@ impl Builder {
     pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn fetch_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::FetchOwner>) -> Self { self.input.fetch_owner = Some(value.into()); self }
     pub fn max_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxKeys>) -> Self { self.input.max_keys = Some(value.into()); self }
-    pub fn optional_object_attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::OptionalObjectAttributesList>) -> Self { self.input.optional_object_attributes = Some(value.into()); self }
+    pub fn optional_object_attributes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>>) -> Self { self.input.optional_object_attributes = Some(value.into()); self }
     pub fn prefix(mut self, value: impl ::std::convert::Into<super::super::super::types::Prefix>) -> Self { self.input.prefix = Some(value.into()); self }
     pub fn request_payer(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
     pub fn start_after(mut self, value: impl ::std::convert::Into<super::super::super::types::StartAfter>) -> Self { self.input.start_after = Some(value.into()); self }

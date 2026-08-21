@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## kms
-**Progress:** `618/618` files compared · `2` matched · `369` mismatches · `228` missing · `19` extra · `0.32%` match (100.00% means fully matched)
+**Progress:** `601/601` files compared · `2` matched · `369` mismatches · `228` missing · `2` extra · `0.33%` match (100.00% means fully matched)
 
 ### `src/client/cancel_key_deletion.rs`
 
@@ -5239,7 +5239,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::ConnectCustomKeyStoreError::Unhandled(format!("ConnectCustomKeyStore returned HTTP {}", status)));
 +                         }
-+                         Ok(super::ConnectCustomKeyStoreOutput::default())
++                         Ok(super::ConnectCustomKeyStoreOutput)
 +                     }
  }
 +pub use Builder as ConnectCustomKeyStoreFluentBuilder;
@@ -6109,7 +6109,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::CreateAliasError::Unhandled(format!("CreateAlias returned HTTP {}", status)));
 +                         }
-+                         Ok(super::CreateAliasOutput::default())
++                         Ok(super::CreateAliasOutput)
 +                     }
  }
 -impl CreateAliasFluentBuilder {
@@ -8719,12 +8719,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub retiring_service_principal: ::std::option::Option<::std::string::String>,
 +    pub constraints: ::std::option::Option<super::super::super::types::GrantConstraints>,
 +    pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub grantee_principal: ::std::option::Option<super::super::super::types::PrincipalIdType>,
 +    pub grantee_service_principal: ::std::option::Option<super::super::super::types::ServicePrincipalType>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub name: ::std::option::Option<super::super::super::types::GrantNameType>,
-+    pub operations: ::std::option::Option<super::super::super::types::GrantOperationList>,
++    pub operations: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantOperation>>,
 +    pub retiring_principal: ::std::option::Option<super::super::super::types::PrincipalIdType>,
 +    pub retiring_service_principal: ::std::option::Option<super::super::super::types::ServicePrincipalType>,
  }
@@ -8847,12 +8847,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) retiring_service_principal: ::std::option::Option<::std::string::String>,
 +    constraints: ::std::option::Option<super::super::super::types::GrantConstraints>,
 +    dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    grantee_principal: ::std::option::Option<super::super::super::types::PrincipalIdType>,
 +    grantee_service_principal: ::std::option::Option<super::super::super::types::ServicePrincipalType>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    name: ::std::option::Option<super::super::super::types::GrantNameType>,
-+    operations: ::std::option::Option<super::super::super::types::GrantOperationList>,
++    operations: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantOperation>>,
 +    retiring_principal: ::std::option::Option<super::super::super::types::PrincipalIdType>,
 +    retiring_service_principal: ::std::option::Option<super::super::super::types::ServicePrincipalType>,
  }
@@ -9139,9 +9139,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
 +    pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
 +    pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn grantee_principal(mut self, input: impl ::std::convert::Into<super::super::super::types::PrincipalIdType>) -> Self { self.grantee_principal = Some(input.into()); self }
 +    pub fn set_grantee_principal(mut self, input: ::std::option::Option<super::super::super::types::PrincipalIdType>) -> Self { self.grantee_principal = input; self }
 +    pub fn get_grantee_principal(&self) -> &::std::option::Option<super::super::super::types::PrincipalIdType> { &self.grantee_principal }
@@ -9154,9 +9154,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn name(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantNameType>) -> Self { self.name = Some(input.into()); self }
 +    pub fn set_name(mut self, input: ::std::option::Option<super::super::super::types::GrantNameType>) -> Self { self.name = input; self }
 +    pub fn get_name(&self) -> &::std::option::Option<super::super::super::types::GrantNameType> { &self.name }
-+    pub fn operations(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantOperationList>) -> Self { self.operations = Some(input.into()); self }
-+    pub fn set_operations(mut self, input: ::std::option::Option<super::super::super::types::GrantOperationList>) -> Self { self.operations = input; self }
-+    pub fn get_operations(&self) -> &::std::option::Option<super::super::super::types::GrantOperationList> { &self.operations }
++    pub fn operations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantOperation>>) -> Self { self.operations = Some(input.into()); self }
++    pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantOperation>>) -> Self { self.operations = input; self }
++    pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantOperation>> { &self.operations }
 +    pub fn retiring_principal(mut self, input: impl ::std::convert::Into<super::super::super::types::PrincipalIdType>) -> Self { self.retiring_principal = Some(input.into()); self }
 +    pub fn set_retiring_principal(mut self, input: ::std::option::Option<super::super::super::types::PrincipalIdType>) -> Self { self.retiring_principal = input; self }
 +    pub fn get_retiring_principal(&self) -> &::std::option::Option<super::super::super::types::PrincipalIdType> { &self.retiring_principal }
@@ -9398,12 +9398,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 +    pub fn constraints(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantConstraints>) -> Self { self.input.constraints = Some(value.into()); self }
 +    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn grantee_principal(mut self, value: impl ::std::convert::Into<super::super::super::types::PrincipalIdType>) -> Self { self.input.grantee_principal = Some(value.into()); self }
 +    pub fn grantee_service_principal(mut self, value: impl ::std::convert::Into<super::super::super::types::ServicePrincipalType>) -> Self { self.input.grantee_service_principal = Some(value.into()); self }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn name(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantNameType>) -> Self { self.input.name = Some(value.into()); self }
-+    pub fn operations(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantOperationList>) -> Self { self.input.operations = Some(value.into()); self }
++    pub fn operations(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantOperation>>) -> Self { self.input.operations = Some(value.into()); self }
 +    pub fn retiring_principal(mut self, value: impl ::std::convert::Into<super::super::super::types::PrincipalIdType>) -> Self { self.input.retiring_principal = Some(value.into()); self }
 +    pub fn retiring_service_principal(mut self, value: impl ::std::convert::Into<super::super::super::types::ServicePrincipalType>) -> Self { self.input.retiring_service_principal = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
@@ -10690,7 +10690,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub multi_region: ::std::option::Option<super::super::super::types::NullableBooleanType>,
 +    pub origin: ::std::option::Option<super::super::super::types::OriginType>,
 +    pub policy: ::std::option::Option<super::super::super::types::PolicyType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagList>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 +    pub xks_key_id: ::std::option::Option<super::super::super::types::XksKeyIdType>,
  }
 +        impl CreateKeyInput {
@@ -10739,7 +10739,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    multi_region: ::std::option::Option<super::super::super::types::NullableBooleanType>,
 +    origin: ::std::option::Option<super::super::super::types::OriginType>,
 +    policy: ::std::option::Option<super::super::super::types::PolicyType>,
-+    tags: ::std::option::Option<super::super::super::types::TagList>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 +    xks_key_id: ::std::option::Option<super::super::super::types::XksKeyIdType>,
  }
  impl CreateKeyInputBuilder {
@@ -11339,9 +11339,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn policy(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyType>) -> Self { self.policy = Some(input.into()); self }
 +    pub fn set_policy(mut self, input: ::std::option::Option<super::super::super::types::PolicyType>) -> Self { self.policy = input; self }
 +    pub fn get_policy(&self) -> &::std::option::Option<super::super::super::types::PolicyType> { &self.policy }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn xks_key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::XksKeyIdType>) -> Self { self.xks_key_id = Some(input.into()); self }
 +    pub fn set_xks_key_id(mut self, input: ::std::option::Option<super::super::super::types::XksKeyIdType>) -> Self { self.xks_key_id = input; self }
 +    pub fn get_xks_key_id(&self) -> &::std::option::Option<super::super::super::types::XksKeyIdType> { &self.xks_key_id }
@@ -11594,7 +11594,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn multi_region(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.multi_region = Some(value.into()); self }
 +    pub fn origin(mut self, value: impl ::std::convert::Into<super::super::super::types::OriginType>) -> Self { self.input.origin = Some(value.into()); self }
 +    pub fn policy(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyType>) -> Self { self.input.policy = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn xks_key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::XksKeyIdType>) -> Self { self.input.xks_key_id = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -12934,10 +12934,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub dry_run_modifiers: ::std::option::Option<::std::vec::Vec<crate::types::DryRunModifierType>>,
 +    pub ciphertext_blob: ::std::option::Option<super::super::super::types::CiphertextType>,
 +    pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    pub dry_run_modifiers: ::std::option::Option<super::super::super::types::DryRunModifierList>,
++    pub dry_run_modifiers: ::std::option::Option<::std::vec::Vec<super::super::super::types::DryRunModifierType>>,
 +    pub encryption_algorithm: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>,
-+    pub encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub recipient: ::std::option::Option<super::super::super::types::RecipientInfo>,
  }
@@ -12946,7 +12946,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +            pub fn dry_run(&self) -> ::std::option::Option<bool> { self.dry_run }
 +            pub fn dry_run_modifiers(&self) -> &[super::super::super::types::DryRunModifierType] { self.dry_run_modifiers.as_deref().unwrap_or(&[]) }
 +            pub fn encryption_algorithm(&self) -> ::std::option::Option<&super::super::super::types::EncryptionAlgorithmSpec> { self.encryption_algorithm.as_ref() }
-+            pub fn encryption_context(&self) -> ::std::option::Option<&super::super::super::types::EncryptionContextType> { self.encryption_context.as_ref() }
++            pub fn encryption_context(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { self.encryption_context.as_ref() }
 +            pub fn grant_tokens(&self) -> &[super::super::super::types::GrantTokenType] { self.grant_tokens.as_deref().unwrap_or(&[]) }
 +            pub fn key_id(&self) -> ::std::option::Option<&str> { self.key_id.as_deref() }
 +            pub fn recipient(&self) -> ::std::option::Option<&super::super::super::types::RecipientInfo> { self.recipient.as_ref() }
@@ -13038,10 +13038,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) dry_run_modifiers: ::std::option::Option<::std::vec::Vec<crate::types::DryRunModifierType>>,
 +    ciphertext_blob: ::std::option::Option<super::super::super::types::CiphertextType>,
 +    dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    dry_run_modifiers: ::std::option::Option<super::super::super::types::DryRunModifierList>,
++    dry_run_modifiers: ::std::option::Option<::std::vec::Vec<super::super::super::types::DryRunModifierType>>,
 +    encryption_algorithm: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>,
-+    encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    recipient: ::std::option::Option<super::super::super::types::RecipientInfo>,
  }
@@ -13280,18 +13280,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
 +    pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
 +    pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-+    pub fn dry_run_modifiers(mut self, input: impl ::std::convert::Into<super::super::super::types::DryRunModifierList>) -> Self { self.dry_run_modifiers = Some(input.into()); self }
-+    pub fn set_dry_run_modifiers(mut self, input: ::std::option::Option<super::super::super::types::DryRunModifierList>) -> Self { self.dry_run_modifiers = input; self }
-+    pub fn get_dry_run_modifiers(&self) -> &::std::option::Option<super::super::super::types::DryRunModifierList> { &self.dry_run_modifiers }
++    pub fn dry_run_modifiers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DryRunModifierType>>) -> Self { self.dry_run_modifiers = Some(input.into()); self }
++    pub fn set_dry_run_modifiers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DryRunModifierType>>) -> Self { self.dry_run_modifiers = input; self }
++    pub fn get_dry_run_modifiers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DryRunModifierType>> { &self.dry_run_modifiers }
 +    pub fn encryption_algorithm(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.encryption_algorithm = Some(input.into()); self }
 +    pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.encryption_algorithm = input; self }
 +    pub fn get_encryption_algorithm(&self) -> &::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec> { &self.encryption_algorithm }
-+    pub fn encryption_context(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = Some(input.into()); self }
-+    pub fn set_encryption_context(mut self, input: ::std::option::Option<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = input; self }
-+    pub fn get_encryption_context(&self) -> &::std::option::Option<super::super::super::types::EncryptionContextType> { &self.encryption_context }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn encryption_context(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = Some(input.into()); self }
++    pub fn set_encryption_context(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = input; self }
++    pub fn get_encryption_context(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { &self.encryption_context }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
@@ -13913,10 +13913,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub fn ciphertext_blob(mut self, value: impl ::std::convert::Into<super::super::super::types::CiphertextType>) -> Self { self.input.ciphertext_blob = Some(value.into()); self }
 +    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-+    pub fn dry_run_modifiers(mut self, value: impl ::std::convert::Into<super::super::super::types::DryRunModifierList>) -> Self { self.input.dry_run_modifiers = Some(value.into()); self }
++    pub fn dry_run_modifiers(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DryRunModifierType>>) -> Self { self.input.dry_run_modifiers = Some(value.into()); self }
 +    pub fn encryption_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.input.encryption_algorithm = Some(value.into()); self }
-+    pub fn encryption_context(mut self, value: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.input.encryption_context = Some(value.into()); self }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn encryption_context(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.input.encryption_context = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn recipient(mut self, value: impl ::std::convert::Into<super::super::super::types::RecipientInfo>) -> Self { self.input.recipient = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
@@ -14756,7 +14756,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteAliasError::Unhandled(format!("DeleteAlias returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteAliasOutput::default())
++                         Ok(super::DeleteAliasOutput)
 +                     }
  }
 -impl DeleteAliasFluentBuilder {
@@ -15648,7 +15648,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteCustomKeyStoreError::Unhandled(format!("DeleteCustomKeyStore returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteCustomKeyStoreOutput::default())
++                         Ok(super::DeleteCustomKeyStoreOutput)
 +                     }
  }
 +pub use Builder as DeleteCustomKeyStoreFluentBuilder;
@@ -17270,7 +17270,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>For information about the interaction between KMS and Amazon Web Services Nitro Enclaves or Amazon Web Services NitroTPM, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/cryptographic-attestation.html">Cryptographic attestation support in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub recipient: ::std::option::Option<crate::types::RecipientInfo>,
 +    pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub key_agreement_algorithm: ::std::option::Option<super::super::super::types::KeyAgreementAlgorithmSpec>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub public_key: ::std::option::Option<super::super::super::types::PublicKeyType>,
@@ -17355,7 +17355,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) dry_run: ::std::option::Option<bool>,
 -    pub(crate) recipient: ::std::option::Option<crate::types::RecipientInfo>,
 +    dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    key_agreement_algorithm: ::std::option::Option<super::super::super::types::KeyAgreementAlgorithmSpec>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    public_key: ::std::option::Option<super::super::super::types::PublicKeyType>,
@@ -17541,9 +17541,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
 +    pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
 +    pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn key_agreement_algorithm(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyAgreementAlgorithmSpec>) -> Self { self.key_agreement_algorithm = Some(input.into()); self }
 +    pub fn set_key_agreement_algorithm(mut self, input: ::std::option::Option<super::super::super::types::KeyAgreementAlgorithmSpec>) -> Self { self.key_agreement_algorithm = input; self }
 +    pub fn get_key_agreement_algorithm(&self) -> &::std::option::Option<super::super::super::types::KeyAgreementAlgorithmSpec> { &self.key_agreement_algorithm }
@@ -17917,7 +17917,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn key_agreement_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyAgreementAlgorithmSpec>) -> Self { self.input.key_agreement_algorithm = Some(value.into()); self }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn public_key(mut self, value: impl ::std::convert::Into<super::super::super::types::PublicKeyType>) -> Self { self.input.public_key = Some(value.into()); self }
@@ -18932,7 +18932,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
 -    pub truncated: bool,
 -    _request_id: Option<String>,
-+    pub custom_key_stores: ::std::option::Option<super::super::super::types::CustomKeyStoresList>,
++    pub custom_key_stores: ::std::option::Option<::std::vec::Vec<super::super::super::types::CustomKeyStoresListEntry>>,
 +    pub next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    pub truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
@@ -18979,7 +18979,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) next_marker: ::std::option::Option<::std::string::String>,
 -    pub(crate) truncated: ::std::option::Option<bool>,
 -    _request_id: Option<String>,
-+    custom_key_stores: ::std::option::Option<super::super::super::types::CustomKeyStoresList>,
++    custom_key_stores: ::std::option::Option<::std::vec::Vec<super::super::super::types::CustomKeyStoresListEntry>>,
 +    next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
@@ -19050,9 +19050,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn custom_key_stores(mut self, input: impl ::std::convert::Into<super::super::super::types::CustomKeyStoresList>) -> Self { self.custom_key_stores = Some(input.into()); self }
-+    pub fn set_custom_key_stores(mut self, input: ::std::option::Option<super::super::super::types::CustomKeyStoresList>) -> Self { self.custom_key_stores = input; self }
-+    pub fn get_custom_key_stores(&self) -> &::std::option::Option<super::super::super::types::CustomKeyStoresList> { &self.custom_key_stores }
++    pub fn custom_key_stores(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::CustomKeyStoresListEntry>>) -> Self { self.custom_key_stores = Some(input.into()); self }
++    pub fn set_custom_key_stores(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::CustomKeyStoresListEntry>>) -> Self { self.custom_key_stores = input; self }
++    pub fn get_custom_key_stores(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::CustomKeyStoresListEntry>> { &self.custom_key_stores }
 +    pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.next_marker = Some(input.into()); self }
 +    pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.next_marker = input; self }
 +    pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.next_marker }
@@ -19862,7 +19862,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn grant_tokens(&self) -> &[::std::string::String] {
 -        self.grant_tokens.as_deref().unwrap_or_default()
 -    }
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
  }
 +        impl DescribeKeyInput {
@@ -19884,7 +19884,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DescribeKeyInputBuilder {
 -    pub(crate) key_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
  }
  impl DescribeKeyInputBuilder {
@@ -19975,9 +19975,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            grant_tokens: self.grant_tokens,
 -        })
 -    }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
@@ -20175,7 +20175,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -21181,7 +21181,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DisableKeyError::Unhandled(format!("DisableKey returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DisableKeyOutput::default())
++                         Ok(super::DisableKeyOutput)
 +                     }
  }
 +pub use Builder as DisableKeyFluentBuilder;
@@ -22070,7 +22070,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DisableKeyRotationError::Unhandled(format!("DisableKeyRotation returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DisableKeyRotationOutput::default())
++                         Ok(super::DisableKeyRotationOutput)
 +                     }
  }
 +pub use Builder as DisableKeyRotationFluentBuilder;
@@ -22929,7 +22929,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DisconnectCustomKeyStoreError::Unhandled(format!("DisconnectCustomKeyStore returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DisconnectCustomKeyStoreOutput::default())
++                         Ok(super::DisconnectCustomKeyStoreOutput)
 +                     }
  }
 +pub use Builder as DisconnectCustomKeyStoreFluentBuilder;
@@ -23781,7 +23781,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::EnableKeyError::Unhandled(format!("EnableKey returned HTTP {}", status)));
 +                         }
-+                         Ok(super::EnableKeyOutput::default())
++                         Ok(super::EnableKeyOutput)
 +                     }
  }
 +pub use Builder as EnableKeyFluentBuilder;
@@ -24758,7 +24758,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::EnableKeyRotationError::Unhandled(format!("EnableKeyRotation returned HTTP {}", status)));
 +                         }
-+                         Ok(super::EnableKeyRotationOutput::default())
++                         Ok(super::EnableKeyRotationOutput)
 +                     }
  }
 +pub use Builder as EnableKeyRotationFluentBuilder;
@@ -25403,8 +25403,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
 +    pub encryption_algorithm: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>,
-+    pub encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub plaintext: ::std::option::Option<super::super::super::types::PlaintextType>,
  }
@@ -25423,7 +25423,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        impl EncryptInput {
 +            pub fn dry_run(&self) -> ::std::option::Option<bool> { self.dry_run }
 +            pub fn encryption_algorithm(&self) -> ::std::option::Option<&super::super::super::types::EncryptionAlgorithmSpec> { self.encryption_algorithm.as_ref() }
-+            pub fn encryption_context(&self) -> ::std::option::Option<&super::super::super::types::EncryptionContextType> { self.encryption_context.as_ref() }
++            pub fn encryption_context(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { self.encryption_context.as_ref() }
 +            pub fn grant_tokens(&self) -> &[super::super::super::types::GrantTokenType] { self.grant_tokens.as_deref().unwrap_or(&[]) }
 +            pub fn key_id(&self) -> ::std::option::Option<&str> { self.key_id.as_deref() }
 +            pub fn plaintext(&self) -> ::std::option::Option<&super::super::super::types::PlaintextType> { self.plaintext.as_ref() }
@@ -25449,8 +25449,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) dry_run: ::std::option::Option<bool>,
 +    dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
 +    encryption_algorithm: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>,
-+    encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    plaintext: ::std::option::Option<super::super::super::types::PlaintextType>,
  }
@@ -25652,12 +25652,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn encryption_algorithm(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.encryption_algorithm = Some(input.into()); self }
 +    pub fn set_encryption_algorithm(mut self, input: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.encryption_algorithm = input; self }
 +    pub fn get_encryption_algorithm(&self) -> &::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec> { &self.encryption_algorithm }
-+    pub fn encryption_context(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = Some(input.into()); self }
-+    pub fn set_encryption_context(mut self, input: ::std::option::Option<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = input; self }
-+    pub fn get_encryption_context(&self) -> &::std::option::Option<super::super::super::types::EncryptionContextType> { &self.encryption_context }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn encryption_context(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = Some(input.into()); self }
++    pub fn set_encryption_context(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = input; self }
++    pub fn get_encryption_context(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { &self.encryption_context }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
@@ -26159,8 +26159,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
 +    pub fn encryption_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.input.encryption_algorithm = Some(value.into()); self }
-+    pub fn encryption_context(mut self, value: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.input.encryption_context = Some(value.into()); self }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn encryption_context(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.input.encryption_context = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn plaintext(mut self, value: impl ::std::convert::Into<super::super::super::types::PlaintextType>) -> Self { self.input.plaintext = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
@@ -26802,8 +26802,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub dry_run: ::std::option::Option<bool>,
 +    pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    pub encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub key_spec: ::std::option::Option<super::super::super::types::DataKeySpec>,
 +    pub number_of_bytes: ::std::option::Option<super::super::super::types::NumberOfBytesType>,
@@ -26811,7 +26811,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +        impl GenerateDataKeyInput {
 +            pub fn dry_run(&self) -> ::std::option::Option<bool> { self.dry_run }
-+            pub fn encryption_context(&self) -> ::std::option::Option<&super::super::super::types::EncryptionContextType> { self.encryption_context.as_ref() }
++            pub fn encryption_context(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { self.encryption_context.as_ref() }
 +            pub fn grant_tokens(&self) -> &[super::super::super::types::GrantTokenType] { self.grant_tokens.as_deref().unwrap_or(&[]) }
 +            pub fn key_id(&self) -> ::std::option::Option<&str> { self.key_id.as_deref() }
 +            pub fn key_spec(&self) -> ::std::option::Option<&super::super::super::types::DataKeySpec> { self.key_spec.as_ref() }
@@ -26895,8 +26895,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) recipient: ::std::option::Option<crate::types::RecipientInfo>,
 -    pub(crate) dry_run: ::std::option::Option<bool>,
 +    dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    key_spec: ::std::option::Option<super::super::super::types::DataKeySpec>,
 +    number_of_bytes: ::std::option::Option<super::super::super::types::NumberOfBytesType>,
@@ -27110,12 +27110,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
 +    pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
 +    pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-+    pub fn encryption_context(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = Some(input.into()); self }
-+    pub fn set_encryption_context(mut self, input: ::std::option::Option<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = input; self }
-+    pub fn get_encryption_context(&self) -> &::std::option::Option<super::super::super::types::EncryptionContextType> { &self.encryption_context }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn encryption_context(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = Some(input.into()); self }
++    pub fn set_encryption_context(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = input; self }
++    pub fn get_encryption_context(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { &self.encryption_context }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
@@ -27734,8 +27734,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.inner.get_dry_run()
 -    }
 +    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-+    pub fn encryption_context(mut self, value: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.input.encryption_context = Some(value.into()); self }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn encryption_context(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.input.encryption_context = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn key_spec(mut self, value: impl ::std::convert::Into<super::super::super::types::DataKeySpec>) -> Self { self.input.key_spec = Some(value.into()); self }
 +    pub fn number_of_bytes(mut self, value: impl ::std::convert::Into<super::super::super::types::NumberOfBytesType>) -> Self { self.input.number_of_bytes = Some(value.into()); self }
@@ -28383,15 +28383,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub dry_run: ::std::option::Option<bool>,
 +    pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    pub encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub key_pair_spec: ::std::option::Option<super::super::super::types::DataKeyPairSpec>,
 +    pub recipient: ::std::option::Option<super::super::super::types::RecipientInfo>,
  }
 +        impl GenerateDataKeyPairInput {
 +            pub fn dry_run(&self) -> ::std::option::Option<bool> { self.dry_run }
-+            pub fn encryption_context(&self) -> ::std::option::Option<&super::super::super::types::EncryptionContextType> { self.encryption_context.as_ref() }
++            pub fn encryption_context(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { self.encryption_context.as_ref() }
 +            pub fn grant_tokens(&self) -> &[super::super::super::types::GrantTokenType] { self.grant_tokens.as_deref().unwrap_or(&[]) }
 +            pub fn key_id(&self) -> ::std::option::Option<&str> { self.key_id.as_deref() }
 +            pub fn key_pair_spec(&self) -> ::std::option::Option<&super::super::super::types::DataKeyPairSpec> { self.key_pair_spec.as_ref() }
@@ -28468,8 +28468,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) recipient: ::std::option::Option<crate::types::RecipientInfo>,
 -    pub(crate) dry_run: ::std::option::Option<bool>,
 +    dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    key_pair_spec: ::std::option::Option<super::super::super::types::DataKeyPairSpec>,
 +    recipient: ::std::option::Option<super::super::super::types::RecipientInfo>,
@@ -28666,12 +28666,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
 +    pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
 +    pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-+    pub fn encryption_context(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = Some(input.into()); self }
-+    pub fn set_encryption_context(mut self, input: ::std::option::Option<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = input; self }
-+    pub fn get_encryption_context(&self) -> &::std::option::Option<super::super::super::types::EncryptionContextType> { &self.encryption_context }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn encryption_context(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = Some(input.into()); self }
++    pub fn set_encryption_context(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = input; self }
++    pub fn get_encryption_context(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { &self.encryption_context }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
@@ -29082,8 +29082,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-+    pub fn encryption_context(mut self, value: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.input.encryption_context = Some(value.into()); self }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn encryption_context(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.input.encryption_context = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn key_pair_spec(mut self, value: impl ::std::convert::Into<super::super::super::types::DataKeyPairSpec>) -> Self { self.input.key_pair_spec = Some(value.into()); self }
 +    pub fn recipient(mut self, value: impl ::std::convert::Into<super::super::super::types::RecipientInfo>) -> Self { self.input.recipient = Some(value.into()); self }
@@ -29975,14 +29975,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub dry_run: ::std::option::Option<bool>,
 +    pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    pub encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub key_pair_spec: ::std::option::Option<super::super::super::types::DataKeyPairSpec>,
  }
 +        impl GenerateDataKeyPairWithoutPlaintextInput {
 +            pub fn dry_run(&self) -> ::std::option::Option<bool> { self.dry_run }
-+            pub fn encryption_context(&self) -> ::std::option::Option<&super::super::super::types::EncryptionContextType> { self.encryption_context.as_ref() }
++            pub fn encryption_context(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { self.encryption_context.as_ref() }
 +            pub fn grant_tokens(&self) -> &[super::super::super::types::GrantTokenType] { self.grant_tokens.as_deref().unwrap_or(&[]) }
 +            pub fn key_id(&self) -> ::std::option::Option<&str> { self.key_id.as_deref() }
 +            pub fn key_pair_spec(&self) -> ::std::option::Option<&super::super::super::types::DataKeyPairSpec> { self.key_pair_spec.as_ref() }
@@ -30050,8 +30050,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) dry_run: ::std::option::Option<bool>,
 +    dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    key_pair_spec: ::std::option::Option<super::super::super::types::DataKeyPairSpec>,
  }
@@ -30227,12 +30227,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
 +    pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
 +    pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-+    pub fn encryption_context(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = Some(input.into()); self }
-+    pub fn set_encryption_context(mut self, input: ::std::option::Option<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = input; self }
-+    pub fn get_encryption_context(&self) -> &::std::option::Option<super::super::super::types::EncryptionContextType> { &self.encryption_context }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn encryption_context(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = Some(input.into()); self }
++    pub fn set_encryption_context(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = input; self }
++    pub fn get_encryption_context(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { &self.encryption_context }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
@@ -30751,8 +30751,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.inner.get_dry_run()
 -    }
 +    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-+    pub fn encryption_context(mut self, value: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.input.encryption_context = Some(value.into()); self }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn encryption_context(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.input.encryption_context = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn key_pair_spec(mut self, value: impl ::std::convert::Into<super::super::super::types::DataKeyPairSpec>) -> Self { self.input.key_pair_spec = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
@@ -31468,15 +31468,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.dry_run
 -    }
 +    pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    pub encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub key_spec: ::std::option::Option<super::super::super::types::DataKeySpec>,
 +    pub number_of_bytes: ::std::option::Option<super::super::super::types::NumberOfBytesType>,
  }
 +        impl GenerateDataKeyWithoutPlaintextInput {
 +            pub fn dry_run(&self) -> ::std::option::Option<bool> { self.dry_run }
-+            pub fn encryption_context(&self) -> ::std::option::Option<&super::super::super::types::EncryptionContextType> { self.encryption_context.as_ref() }
++            pub fn encryption_context(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { self.encryption_context.as_ref() }
 +            pub fn grant_tokens(&self) -> &[super::super::super::types::GrantTokenType] { self.grant_tokens.as_deref().unwrap_or(&[]) }
 +            pub fn key_id(&self) -> ::std::option::Option<&str> { self.key_id.as_deref() }
 +            pub fn key_spec(&self) -> ::std::option::Option<&super::super::super::types::DataKeySpec> { self.key_spec.as_ref() }
@@ -31502,8 +31502,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) dry_run: ::std::option::Option<bool>,
 +    dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    key_spec: ::std::option::Option<super::super::super::types::DataKeySpec>,
 +    number_of_bytes: ::std::option::Option<super::super::super::types::NumberOfBytesType>,
@@ -31691,12 +31691,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
 +    pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
 +    pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-+    pub fn encryption_context(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = Some(input.into()); self }
-+    pub fn set_encryption_context(mut self, input: ::std::option::Option<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = input; self }
-+    pub fn get_encryption_context(&self) -> &::std::option::Option<super::super::super::types::EncryptionContextType> { &self.encryption_context }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn encryption_context(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = Some(input.into()); self }
++    pub fn set_encryption_context(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = input; self }
++    pub fn get_encryption_context(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { &self.encryption_context }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
@@ -31955,8 +31955,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-+    pub fn encryption_context(mut self, value: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.input.encryption_context = Some(value.into()); self }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn encryption_context(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.input.encryption_context = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn key_spec(mut self, value: impl ::std::convert::Into<super::super::super::types::DataKeySpec>) -> Self { self.input.key_spec = Some(value.into()); self }
 +    pub fn number_of_bytes(mut self, value: impl ::std::convert::Into<super::super::super::types::NumberOfBytesType>) -> Self { self.input.number_of_bytes = Some(value.into()); self }
@@ -32815,7 +32815,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>To learn more about how to use this parameter, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/testing-permissions.html">Testing your permissions</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub dry_run: ::std::option::Option<bool>,
 +    pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub mac_algorithm: ::std::option::Option<super::super::super::types::MacAlgorithmSpec>,
 +    pub message: ::std::option::Option<super::super::super::types::PlaintextType>,
@@ -32886,7 +32886,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) dry_run: ::std::option::Option<bool>,
 +    dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    mac_algorithm: ::std::option::Option<super::super::super::types::MacAlgorithmSpec>,
 +    message: ::std::option::Option<super::super::super::types::PlaintextType>,
@@ -33010,9 +33010,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
 +    pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
 +    pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
@@ -33409,7 +33409,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.inner.get_dry_run()
 -    }
 +    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn mac_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::MacAlgorithmSpec>) -> Self { self.input.mac_algorithm = Some(value.into()); self }
 +    pub fn message(mut self, value: impl ::std::convert::Into<super::super::super::types::PlaintextType>) -> Self { self.input.message = Some(value.into()); self }
@@ -39431,7 +39431,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A list of grant tokens.</p>
 -    /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
 -    pub grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
  }
 +        impl GetPublicKeyInput {
@@ -39479,7 +39479,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetPublicKeyInputBuilder {
 -    pub(crate) key_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
  }
  impl GetPublicKeyInputBuilder {
@@ -39569,9 +39569,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            grant_tokens: self.grant_tokens,
 -        })
 -    }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
@@ -39675,13 +39675,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self._request_id.as_deref()
 -    }
 +    pub customer_master_key_spec: ::std::option::Option<super::super::super::types::CustomerMasterKeySpec>,
-+    pub encryption_algorithms: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpecList>,
-+    pub key_agreement_algorithms: ::std::option::Option<super::super::super::types::KeyAgreementAlgorithmSpecList>,
++    pub encryption_algorithms: ::std::option::Option<::std::vec::Vec<super::super::super::types::EncryptionAlgorithmSpec>>,
++    pub key_agreement_algorithms: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeyAgreementAlgorithmSpec>>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub key_spec: ::std::option::Option<super::super::super::types::KeySpec>,
 +    pub key_usage: ::std::option::Option<super::super::super::types::KeyUsageType>,
 +    pub public_key: ::std::option::Option<super::super::super::types::PublicKeyType>,
-+    pub signing_algorithms: ::std::option::Option<super::super::super::types::SigningAlgorithmSpecList>,
++    pub signing_algorithms: ::std::option::Option<::std::vec::Vec<super::super::super::types::SigningAlgorithmSpec>>,
  }
 +        impl GetPublicKeyOutput {
 +            pub fn customer_master_key_spec(&self) -> ::std::option::Option<&super::super::super::types::CustomerMasterKeySpec> { self.customer_master_key_spec.as_ref() }
@@ -39716,13 +39716,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) key_agreement_algorithms: ::std::option::Option<::std::vec::Vec<crate::types::KeyAgreementAlgorithmSpec>>,
 -    _request_id: Option<String>,
 +    customer_master_key_spec: ::std::option::Option<super::super::super::types::CustomerMasterKeySpec>,
-+    encryption_algorithms: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpecList>,
-+    key_agreement_algorithms: ::std::option::Option<super::super::super::types::KeyAgreementAlgorithmSpecList>,
++    encryption_algorithms: ::std::option::Option<::std::vec::Vec<super::super::super::types::EncryptionAlgorithmSpec>>,
++    key_agreement_algorithms: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeyAgreementAlgorithmSpec>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    key_spec: ::std::option::Option<super::super::super::types::KeySpec>,
 +    key_usage: ::std::option::Option<super::super::super::types::KeyUsageType>,
 +    public_key: ::std::option::Option<super::super::super::types::PublicKeyType>,
-+    signing_algorithms: ::std::option::Option<super::super::super::types::SigningAlgorithmSpecList>,
++    signing_algorithms: ::std::option::Option<::std::vec::Vec<super::super::super::types::SigningAlgorithmSpec>>,
  }
  impl GetPublicKeyOutputBuilder {
 -    /// <p>The Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) of the asymmetric KMS key from which the public key was downloaded.</p>
@@ -39905,12 +39905,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn customer_master_key_spec(mut self, input: impl ::std::convert::Into<super::super::super::types::CustomerMasterKeySpec>) -> Self { self.customer_master_key_spec = Some(input.into()); self }
 +    pub fn set_customer_master_key_spec(mut self, input: ::std::option::Option<super::super::super::types::CustomerMasterKeySpec>) -> Self { self.customer_master_key_spec = input; self }
 +    pub fn get_customer_master_key_spec(&self) -> &::std::option::Option<super::super::super::types::CustomerMasterKeySpec> { &self.customer_master_key_spec }
-+    pub fn encryption_algorithms(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionAlgorithmSpecList>) -> Self { self.encryption_algorithms = Some(input.into()); self }
-+    pub fn set_encryption_algorithms(mut self, input: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpecList>) -> Self { self.encryption_algorithms = input; self }
-+    pub fn get_encryption_algorithms(&self) -> &::std::option::Option<super::super::super::types::EncryptionAlgorithmSpecList> { &self.encryption_algorithms }
-+    pub fn key_agreement_algorithms(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyAgreementAlgorithmSpecList>) -> Self { self.key_agreement_algorithms = Some(input.into()); self }
-+    pub fn set_key_agreement_algorithms(mut self, input: ::std::option::Option<super::super::super::types::KeyAgreementAlgorithmSpecList>) -> Self { self.key_agreement_algorithms = input; self }
-+    pub fn get_key_agreement_algorithms(&self) -> &::std::option::Option<super::super::super::types::KeyAgreementAlgorithmSpecList> { &self.key_agreement_algorithms }
++    pub fn encryption_algorithms(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::EncryptionAlgorithmSpec>>) -> Self { self.encryption_algorithms = Some(input.into()); self }
++    pub fn set_encryption_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EncryptionAlgorithmSpec>>) -> Self { self.encryption_algorithms = input; self }
++    pub fn get_encryption_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::EncryptionAlgorithmSpec>> { &self.encryption_algorithms }
++    pub fn key_agreement_algorithms(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::KeyAgreementAlgorithmSpec>>) -> Self { self.key_agreement_algorithms = Some(input.into()); self }
++    pub fn set_key_agreement_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeyAgreementAlgorithmSpec>>) -> Self { self.key_agreement_algorithms = input; self }
++    pub fn get_key_agreement_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::KeyAgreementAlgorithmSpec>> { &self.key_agreement_algorithms }
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
@@ -39923,9 +39923,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn public_key(mut self, input: impl ::std::convert::Into<super::super::super::types::PublicKeyType>) -> Self { self.public_key = Some(input.into()); self }
 +    pub fn set_public_key(mut self, input: ::std::option::Option<super::super::super::types::PublicKeyType>) -> Self { self.public_key = input; self }
 +    pub fn get_public_key(&self) -> &::std::option::Option<super::super::super::types::PublicKeyType> { &self.public_key }
-+    pub fn signing_algorithms(mut self, input: impl ::std::convert::Into<super::super::super::types::SigningAlgorithmSpecList>) -> Self { self.signing_algorithms = Some(input.into()); self }
-+    pub fn set_signing_algorithms(mut self, input: ::std::option::Option<super::super::super::types::SigningAlgorithmSpecList>) -> Self { self.signing_algorithms = input; self }
-+    pub fn get_signing_algorithms(&self) -> &::std::option::Option<super::super::super::types::SigningAlgorithmSpecList> { &self.signing_algorithms }
++    pub fn signing_algorithms(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SigningAlgorithmSpec>>) -> Self { self.signing_algorithms = Some(input.into()); self }
++    pub fn set_signing_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SigningAlgorithmSpec>>) -> Self { self.signing_algorithms = input; self }
++    pub fn get_signing_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SigningAlgorithmSpec>> { &self.signing_algorithms }
 +    pub fn build(self) -> GetPublicKeyOutput { GetPublicKeyOutput {
 +        customer_master_key_spec: self.customer_master_key_spec,
 +        encryption_algorithms: self.encryption_algorithms,
@@ -40019,7 +40019,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -42474,7 +42474,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
 -    pub truncated: bool,
 -    _request_id: Option<String>,
-+    pub aliases: ::std::option::Option<super::super::super::types::AliasList>,
++    pub aliases: ::std::option::Option<::std::vec::Vec<super::super::super::types::AliasListEntry>>,
 +    pub next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    pub truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
@@ -42521,7 +42521,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) next_marker: ::std::option::Option<::std::string::String>,
 -    pub(crate) truncated: ::std::option::Option<bool>,
 -    _request_id: Option<String>,
-+    aliases: ::std::option::Option<super::super::super::types::AliasList>,
++    aliases: ::std::option::Option<::std::vec::Vec<super::super::super::types::AliasListEntry>>,
 +    next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
@@ -42592,9 +42592,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn aliases(mut self, input: impl ::std::convert::Into<super::super::super::types::AliasList>) -> Self { self.aliases = Some(input.into()); self }
-+    pub fn set_aliases(mut self, input: ::std::option::Option<super::super::super::types::AliasList>) -> Self { self.aliases = input; self }
-+    pub fn get_aliases(&self) -> &::std::option::Option<super::super::super::types::AliasList> { &self.aliases }
++    pub fn aliases(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AliasListEntry>>) -> Self { self.aliases = Some(input.into()); self }
++    pub fn set_aliases(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AliasListEntry>>) -> Self { self.aliases = input; self }
++    pub fn get_aliases(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AliasListEntry>> { &self.aliases }
 +    pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.next_marker = Some(input.into()); self }
 +    pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.next_marker = input; self }
 +    pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.next_marker }
@@ -43666,7 +43666,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
 -    pub truncated: bool,
 -    _request_id: Option<String>,
-+    pub grants: ::std::option::Option<super::super::super::types::GrantList>,
++    pub grants: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantListEntry>>,
 +    pub next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    pub truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
@@ -43713,7 +43713,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) next_marker: ::std::option::Option<::std::string::String>,
 -    pub(crate) truncated: ::std::option::Option<bool>,
 -    _request_id: Option<String>,
-+    grants: ::std::option::Option<super::super::super::types::GrantList>,
++    grants: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantListEntry>>,
 +    next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
@@ -43784,9 +43784,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn grants(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantList>) -> Self { self.grants = Some(input.into()); self }
-+    pub fn set_grants(mut self, input: ::std::option::Option<super::super::super::types::GrantList>) -> Self { self.grants = input; self }
-+    pub fn get_grants(&self) -> &::std::option::Option<super::super::super::types::GrantList> { &self.grants }
++    pub fn grants(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantListEntry>>) -> Self { self.grants = Some(input.into()); self }
++    pub fn set_grants(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantListEntry>>) -> Self { self.grants = input; self }
++    pub fn get_grants(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantListEntry>> { &self.grants }
 +    pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.next_marker = Some(input.into()); self }
 +    pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.next_marker = input; self }
 +    pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.next_marker }
@@ -44867,7 +44867,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub truncated: bool,
 -    _request_id: Option<String>,
 +    pub next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
-+    pub policy_names: ::std::option::Option<super::super::super::types::PolicyNameList>,
++    pub policy_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>,
 +    pub truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
 +        impl ListKeyPoliciesOutput {
@@ -44914,7 +44914,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) truncated: ::std::option::Option<bool>,
 -    _request_id: Option<String>,
 +    next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
-+    policy_names: ::std::option::Option<super::super::super::types::PolicyNameList>,
++    policy_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>,
 +    truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
  impl ListKeyPoliciesOutputBuilder {
@@ -44987,9 +44987,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.next_marker = Some(input.into()); self }
 +    pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.next_marker = input; self }
 +    pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.next_marker }
-+    pub fn policy_names(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyNameList>) -> Self { self.policy_names = Some(input.into()); self }
-+    pub fn set_policy_names(mut self, input: ::std::option::Option<super::super::super::types::PolicyNameList>) -> Self { self.policy_names = input; self }
-+    pub fn get_policy_names(&self) -> &::std::option::Option<super::super::super::types::PolicyNameList> { &self.policy_names }
++    pub fn policy_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyNameType>>) -> Self { self.policy_names = Some(input.into()); self }
++    pub fn set_policy_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>) -> Self { self.policy_names = input; self }
++    pub fn get_policy_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>> { &self.policy_names }
 +    pub fn truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.truncated = Some(input.into()); self }
 +    pub fn set_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.truncated = input; self }
 +    pub fn get_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.truncated }
@@ -45995,7 +45995,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub truncated: bool,
 -    _request_id: Option<String>,
 +    pub next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
-+    pub rotations: ::std::option::Option<super::super::super::types::RotationsList>,
++    pub rotations: ::std::option::Option<::std::vec::Vec<super::super::super::types::RotationsListEntry>>,
 +    pub truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
 +        impl ListKeyRotationsOutput {
@@ -46042,7 +46042,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) truncated: ::std::option::Option<bool>,
 -    _request_id: Option<String>,
 +    next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
-+    rotations: ::std::option::Option<super::super::super::types::RotationsList>,
++    rotations: ::std::option::Option<::std::vec::Vec<super::super::super::types::RotationsListEntry>>,
 +    truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
  impl ListKeyRotationsOutputBuilder {
@@ -46115,9 +46115,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.next_marker = Some(input.into()); self }
 +    pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.next_marker = input; self }
 +    pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.next_marker }
-+    pub fn rotations(mut self, input: impl ::std::convert::Into<super::super::super::types::RotationsList>) -> Self { self.rotations = Some(input.into()); self }
-+    pub fn set_rotations(mut self, input: ::std::option::Option<super::super::super::types::RotationsList>) -> Self { self.rotations = input; self }
-+    pub fn get_rotations(&self) -> &::std::option::Option<super::super::super::types::RotationsList> { &self.rotations }
++    pub fn rotations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::RotationsListEntry>>) -> Self { self.rotations = Some(input.into()); self }
++    pub fn set_rotations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RotationsListEntry>>) -> Self { self.rotations = input; self }
++    pub fn get_rotations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::RotationsListEntry>> { &self.rotations }
 +    pub fn truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.truncated = Some(input.into()); self }
 +    pub fn set_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.truncated = input; self }
 +    pub fn get_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.truncated }
@@ -47051,7 +47051,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
 -    pub truncated: bool,
 -    _request_id: Option<String>,
-+    pub keys: ::std::option::Option<super::super::super::types::KeyList>,
++    pub keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeyListEntry>>,
 +    pub next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    pub truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
@@ -47098,7 +47098,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) next_marker: ::std::option::Option<::std::string::String>,
 -    pub(crate) truncated: ::std::option::Option<bool>,
 -    _request_id: Option<String>,
-+    keys: ::std::option::Option<super::super::super::types::KeyList>,
++    keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeyListEntry>>,
 +    next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
@@ -47169,9 +47169,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn keys(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyList>) -> Self { self.keys = Some(input.into()); self }
-+    pub fn set_keys(mut self, input: ::std::option::Option<super::super::super::types::KeyList>) -> Self { self.keys = input; self }
-+    pub fn get_keys(&self) -> &::std::option::Option<super::super::super::types::KeyList> { &self.keys }
++    pub fn keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::KeyListEntry>>) -> Self { self.keys = Some(input.into()); self }
++    pub fn set_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeyListEntry>>) -> Self { self.keys = input; self }
++    pub fn get_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::KeyListEntry>> { &self.keys }
 +    pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.next_marker = Some(input.into()); self }
 +    pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.next_marker = input; self }
 +    pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.next_marker }
@@ -48064,7 +48064,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub truncated: bool,
 -    _request_id: Option<String>,
 +    pub next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagList>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 +    pub truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
 +        impl ListResourceTagsOutput {
@@ -48114,7 +48114,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) truncated: ::std::option::Option<bool>,
 -    _request_id: Option<String>,
 +    next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
-+    tags: ::std::option::Option<super::super::super::types::TagList>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 +    truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
  impl ListResourceTagsOutputBuilder {
@@ -48196,9 +48196,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.next_marker = Some(input.into()); self }
 +    pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.next_marker = input; self }
 +    pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.next_marker }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.truncated = Some(input.into()); self }
 +    pub fn set_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.truncated = input; self }
 +    pub fn get_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.truncated }
@@ -49157,7 +49157,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the <code>NextMarker</code> element in this response to the <code>Marker</code> parameter in a subsequent request.</p>
 -    pub truncated: bool,
 -    _request_id: Option<String>,
-+    pub grants: ::std::option::Option<super::super::super::types::GrantList>,
++    pub grants: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantListEntry>>,
 +    pub next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    pub truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
@@ -49204,7 +49204,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) next_marker: ::std::option::Option<::std::string::String>,
 -    pub(crate) truncated: ::std::option::Option<bool>,
 -    _request_id: Option<String>,
-+    grants: ::std::option::Option<super::super::super::types::GrantList>,
++    grants: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantListEntry>>,
 +    next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
@@ -49275,9 +49275,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn grants(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantList>) -> Self { self.grants = Some(input.into()); self }
-+    pub fn set_grants(mut self, input: ::std::option::Option<super::super::super::types::GrantList>) -> Self { self.grants = input; self }
-+    pub fn get_grants(&self) -> &::std::option::Option<super::super::super::types::GrantList> { &self.grants }
++    pub fn grants(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantListEntry>>) -> Self { self.grants = Some(input.into()); self }
++    pub fn set_grants(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantListEntry>>) -> Self { self.grants = input; self }
++    pub fn get_grants(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantListEntry>> { &self.grants }
 +    pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.next_marker = Some(input.into()); self }
 +    pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.next_marker = input; self }
 +    pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.next_marker }
@@ -50531,7 +50531,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::PutKeyPolicyError::Unhandled(format!("PutKeyPolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::PutKeyPolicyOutput::default())
++                         Ok(super::PutKeyPolicyOutput)
 +                     }
  }
 -impl PutKeyPolicyFluentBuilder {
@@ -51403,25 +51403,25 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub dry_run_modifiers: ::std::option::Option<::std::vec::Vec<crate::types::DryRunModifierType>>,
 +    pub ciphertext_blob: ::std::option::Option<super::super::super::types::CiphertextType>,
 +    pub destination_encryption_algorithm: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>,
-+    pub destination_encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
++    pub destination_encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
 +    pub destination_key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    pub dry_run_modifiers: ::std::option::Option<super::super::super::types::DryRunModifierList>,
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub dry_run_modifiers: ::std::option::Option<::std::vec::Vec<super::super::super::types::DryRunModifierType>>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub source_encryption_algorithm: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>,
-+    pub source_encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
++    pub source_encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
 +    pub source_key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
  }
 +        impl ReEncryptInput {
 +            pub fn ciphertext_blob(&self) -> ::std::option::Option<&super::super::super::types::CiphertextType> { self.ciphertext_blob.as_ref() }
 +            pub fn destination_encryption_algorithm(&self) -> ::std::option::Option<&super::super::super::types::EncryptionAlgorithmSpec> { self.destination_encryption_algorithm.as_ref() }
-+            pub fn destination_encryption_context(&self) -> ::std::option::Option<&super::super::super::types::EncryptionContextType> { self.destination_encryption_context.as_ref() }
++            pub fn destination_encryption_context(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { self.destination_encryption_context.as_ref() }
 +            pub fn destination_key_id(&self) -> ::std::option::Option<&str> { self.destination_key_id.as_deref() }
 +            pub fn dry_run(&self) -> ::std::option::Option<bool> { self.dry_run }
 +            pub fn dry_run_modifiers(&self) -> &[super::super::super::types::DryRunModifierType] { self.dry_run_modifiers.as_deref().unwrap_or(&[]) }
 +            pub fn grant_tokens(&self) -> &[super::super::super::types::GrantTokenType] { self.grant_tokens.as_deref().unwrap_or(&[]) }
 +            pub fn source_encryption_algorithm(&self) -> ::std::option::Option<&super::super::super::types::EncryptionAlgorithmSpec> { self.source_encryption_algorithm.as_ref() }
-+            pub fn source_encryption_context(&self) -> ::std::option::Option<&super::super::super::types::EncryptionContextType> { self.source_encryption_context.as_ref() }
++            pub fn source_encryption_context(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { self.source_encryption_context.as_ref() }
 +            pub fn source_key_id(&self) -> ::std::option::Option<&str> { self.source_key_id.as_deref() }
 +        }
  impl ReEncryptInput {
@@ -51540,13 +51540,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) dry_run_modifiers: ::std::option::Option<::std::vec::Vec<crate::types::DryRunModifierType>>,
 +    ciphertext_blob: ::std::option::Option<super::super::super::types::CiphertextType>,
 +    destination_encryption_algorithm: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>,
-+    destination_encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
++    destination_encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
 +    destination_key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    dry_run_modifiers: ::std::option::Option<super::super::super::types::DryRunModifierList>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    dry_run_modifiers: ::std::option::Option<::std::vec::Vec<super::super::super::types::DryRunModifierType>>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    source_encryption_algorithm: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>,
-+    source_encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
++    source_encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
 +    source_key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
  }
  impl ReEncryptInputBuilder {
@@ -51881,27 +51881,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn destination_encryption_algorithm(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.destination_encryption_algorithm = Some(input.into()); self }
 +    pub fn set_destination_encryption_algorithm(mut self, input: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.destination_encryption_algorithm = input; self }
 +    pub fn get_destination_encryption_algorithm(&self) -> &::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec> { &self.destination_encryption_algorithm }
-+    pub fn destination_encryption_context(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.destination_encryption_context = Some(input.into()); self }
-+    pub fn set_destination_encryption_context(mut self, input: ::std::option::Option<super::super::super::types::EncryptionContextType>) -> Self { self.destination_encryption_context = input; self }
-+    pub fn get_destination_encryption_context(&self) -> &::std::option::Option<super::super::super::types::EncryptionContextType> { &self.destination_encryption_context }
++    pub fn destination_encryption_context(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.destination_encryption_context = Some(input.into()); self }
++    pub fn set_destination_encryption_context(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.destination_encryption_context = input; self }
++    pub fn get_destination_encryption_context(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { &self.destination_encryption_context }
 +    pub fn destination_key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.destination_key_id = Some(input.into()); self }
 +    pub fn set_destination_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.destination_key_id = input; self }
 +    pub fn get_destination_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.destination_key_id }
 +    pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
 +    pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
 +    pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-+    pub fn dry_run_modifiers(mut self, input: impl ::std::convert::Into<super::super::super::types::DryRunModifierList>) -> Self { self.dry_run_modifiers = Some(input.into()); self }
-+    pub fn set_dry_run_modifiers(mut self, input: ::std::option::Option<super::super::super::types::DryRunModifierList>) -> Self { self.dry_run_modifiers = input; self }
-+    pub fn get_dry_run_modifiers(&self) -> &::std::option::Option<super::super::super::types::DryRunModifierList> { &self.dry_run_modifiers }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn dry_run_modifiers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DryRunModifierType>>) -> Self { self.dry_run_modifiers = Some(input.into()); self }
++    pub fn set_dry_run_modifiers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DryRunModifierType>>) -> Self { self.dry_run_modifiers = input; self }
++    pub fn get_dry_run_modifiers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DryRunModifierType>> { &self.dry_run_modifiers }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn source_encryption_algorithm(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.source_encryption_algorithm = Some(input.into()); self }
 +    pub fn set_source_encryption_algorithm(mut self, input: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.source_encryption_algorithm = input; self }
 +    pub fn get_source_encryption_algorithm(&self) -> &::std::option::Option<super::super::super::types::EncryptionAlgorithmSpec> { &self.source_encryption_algorithm }
-+    pub fn source_encryption_context(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.source_encryption_context = Some(input.into()); self }
-+    pub fn set_source_encryption_context(mut self, input: ::std::option::Option<super::super::super::types::EncryptionContextType>) -> Self { self.source_encryption_context = input; self }
-+    pub fn get_source_encryption_context(&self) -> &::std::option::Option<super::super::super::types::EncryptionContextType> { &self.source_encryption_context }
++    pub fn source_encryption_context(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.source_encryption_context = Some(input.into()); self }
++    pub fn set_source_encryption_context(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.source_encryption_context = input; self }
++    pub fn get_source_encryption_context(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { &self.source_encryption_context }
 +    pub fn source_key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.source_key_id = Some(input.into()); self }
 +    pub fn set_source_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.source_key_id = input; self }
 +    pub fn get_source_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.source_key_id }
@@ -52280,13 +52280,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 +    pub fn ciphertext_blob(mut self, value: impl ::std::convert::Into<super::super::super::types::CiphertextType>) -> Self { self.input.ciphertext_blob = Some(value.into()); self }
 +    pub fn destination_encryption_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.input.destination_encryption_algorithm = Some(value.into()); self }
-+    pub fn destination_encryption_context(mut self, value: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.input.destination_encryption_context = Some(value.into()); self }
++    pub fn destination_encryption_context(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.input.destination_encryption_context = Some(value.into()); self }
 +    pub fn destination_key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.destination_key_id = Some(value.into()); self }
 +    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-+    pub fn dry_run_modifiers(mut self, value: impl ::std::convert::Into<super::super::super::types::DryRunModifierList>) -> Self { self.input.dry_run_modifiers = Some(value.into()); self }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn dry_run_modifiers(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DryRunModifierType>>) -> Self { self.input.dry_run_modifiers = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn source_encryption_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::EncryptionAlgorithmSpec>) -> Self { self.input.source_encryption_algorithm = Some(value.into()); self }
-+    pub fn source_encryption_context(mut self, value: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.input.source_encryption_context = Some(value.into()); self }
++    pub fn source_encryption_context(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.input.source_encryption_context = Some(value.into()); self }
 +    pub fn source_key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.source_key_id = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -53424,7 +53424,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub policy: ::std::option::Option<super::super::super::types::PolicyType>,
 +    pub replica_region: ::std::option::Option<super::super::super::types::RegionType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagList>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl ReplicateKeyInput {
 +            pub fn bypass_policy_lockout_safety_check(&self) -> ::std::option::Option<bool> { self.bypass_policy_lockout_safety_check }
@@ -53458,7 +53458,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    policy: ::std::option::Option<super::super::super::types::PolicyType>,
 +    replica_region: ::std::option::Option<super::super::super::types::RegionType>,
-+    tags: ::std::option::Option<super::super::super::types::TagList>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl ReplicateKeyInputBuilder {
 -    /// <p>Identifies the multi-Region primary key that is being replicated. To determine whether a KMS key is a multi-Region primary key, use the <code>DescribeKey</code> operation to check the value of the <code>MultiRegionKeyType</code> property.</p>
@@ -53713,9 +53713,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn replica_region(mut self, input: impl ::std::convert::Into<super::super::super::types::RegionType>) -> Self { self.replica_region = Some(input.into()); self }
 +    pub fn set_replica_region(mut self, input: ::std::option::Option<super::super::super::types::RegionType>) -> Self { self.replica_region = input; self }
 +    pub fn get_replica_region(&self) -> &::std::option::Option<super::super::super::types::RegionType> { &self.replica_region }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> ReplicateKeyInput { ReplicateKeyInput {
 +        bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
 +        description: self.description,
@@ -53750,7 +53750,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub replica_key_metadata: ::std::option::Option<super::super::super::types::KeyMetadata>,
 +    pub replica_policy: ::std::option::Option<super::super::super::types::PolicyType>,
-+    pub replica_tags: ::std::option::Option<super::super::super::types::TagList>,
++    pub replica_tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl ReplicateKeyOutput {
 +            pub fn replica_key_metadata(&self) -> ::std::option::Option<&super::super::super::types::KeyMetadata> { self.replica_key_metadata.as_ref() }
@@ -53797,7 +53797,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    replica_key_metadata: ::std::option::Option<super::super::super::types::KeyMetadata>,
 +    replica_policy: ::std::option::Option<super::super::super::types::PolicyType>,
-+    replica_tags: ::std::option::Option<super::super::super::types::TagList>,
++    replica_tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl ReplicateKeyOutputBuilder {
 -    /// <p>Displays details about the new replica key, including its Amazon Resource Name (<a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-ARN">key ARN</a>) and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a>. It also includes the ARN and Amazon Web Services Region of its primary key and other replica keys.</p>
@@ -53872,9 +53872,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn replica_policy(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyType>) -> Self { self.replica_policy = Some(input.into()); self }
 +    pub fn set_replica_policy(mut self, input: ::std::option::Option<super::super::super::types::PolicyType>) -> Self { self.replica_policy = input; self }
 +    pub fn get_replica_policy(&self) -> &::std::option::Option<super::super::super::types::PolicyType> { &self.replica_policy }
-+    pub fn replica_tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.replica_tags = Some(input.into()); self }
-+    pub fn set_replica_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.replica_tags = input; self }
-+    pub fn get_replica_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.replica_tags }
++    pub fn replica_tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.replica_tags = Some(input.into()); self }
++    pub fn set_replica_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.replica_tags = input; self }
++    pub fn get_replica_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.replica_tags }
 +    pub fn build(self) -> ReplicateKeyOutput { ReplicateKeyOutput {
 +        replica_key_metadata: self.replica_key_metadata,
 +        replica_policy: self.replica_policy,
@@ -53978,7 +53978,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn policy(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyType>) -> Self { self.input.policy = Some(value.into()); self }
 +    pub fn replica_region(mut self, value: impl ::std::convert::Into<super::super::super::types::RegionType>) -> Self { self.input.replica_region = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::ReplicateKeyOutput, super::ReplicateKeyError> {
@@ -55355,7 +55355,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::RetireGrantError::Unhandled(format!("RetireGrant returned HTTP {}", status)));
 +                         }
-+                         Ok(super::RetireGrantOutput::default())
++                         Ok(super::RetireGrantOutput)
 +                     }
  }
 +pub use Builder as RetireGrantFluentBuilder;
@@ -56388,7 +56388,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::RevokeGrantError::Unhandled(format!("RevokeGrant returned HTTP {}", status)));
 +                         }
-+                         Ok(super::RevokeGrantOutput::default())
++                         Ok(super::RevokeGrantOutput)
 +                     }
  }
 +pub use Builder as RevokeGrantFluentBuilder;
@@ -59163,7 +59163,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.dry_run
 -    }
 +    pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub message: ::std::option::Option<super::super::super::types::PlaintextType>,
 +    pub message_type: ::std::option::Option<super::super::super::types::MessageType>,
@@ -59209,7 +59209,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) signing_algorithm: ::std::option::Option<crate::types::SigningAlgorithmSpec>,
 -    pub(crate) dry_run: ::std::option::Option<bool>,
 +    dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    message: ::std::option::Option<super::super::super::types::PlaintextType>,
 +    message_type: ::std::option::Option<super::super::super::types::MessageType>,
@@ -59470,9 +59470,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
 +    pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
 +    pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
@@ -60036,7 +60036,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn message(mut self, value: impl ::std::convert::Into<super::super::super::types::PlaintextType>) -> Self { self.input.message = Some(value.into()); self }
 +    pub fn message_type(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageType>) -> Self { self.input.message_type = Some(value.into()); self }
@@ -60650,7 +60650,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>You cannot have more than one tag on a KMS key with the same tag key. If you specify an existing tag key with a different tag value, KMS replaces the current tag value with the specified one.</p>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagList>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl TagResourceInput {
 +            pub fn key_id(&self) -> ::std::option::Option<&str> { self.key_id.as_deref() }
@@ -60696,7 +60696,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) key_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
-+    tags: ::std::option::Option<super::super::super::types::TagList>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl TagResourceInputBuilder {
 -    /// <p>Identifies a customer managed key in the account and Region.</p>
@@ -60780,9 +60780,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> TagResourceInput { TagResourceInput {
 +        key_id: self.key_id,
 +        tags: self.tags,
@@ -60928,7 +60928,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::TagResourceOutput, super::TagResourceError> {
@@ -60940,7 +60940,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::TagResourceError::Unhandled(format!("TagResource returned HTTP {}", status)));
 +                         }
-+                         Ok(super::TagResourceOutput::default())
++                         Ok(super::TagResourceOutput)
 +                     }
  }
 -impl TagResourceFluentBuilder {
@@ -61654,7 +61654,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.tag_keys.as_deref().unwrap_or_default()
 -    }
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
-+    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyList>,
++    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
 +        impl UntagResourceInput {
 +            pub fn key_id(&self) -> ::std::option::Option<&str> { self.key_id.as_deref() }
@@ -61676,7 +61676,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) key_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
-+    tag_keys: ::std::option::Option<super::super::super::types::TagKeyList>,
++    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
  impl UntagResourceInputBuilder {
 -    /// <p>Identifies the KMS key from which you are removing tags.</p>
@@ -61753,9 +61753,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
-+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyList>) -> Self { self.tag_keys = Some(input.into()); self }
-+    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyList>) -> Self { self.tag_keys = input; self }
-+    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyList> { &self.tag_keys }
++    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = Some(input.into()); self }
++    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = input; self }
++    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.tag_keys }
 +    pub fn build(self) -> UntagResourceInput { UntagResourceInput {
 +        key_id: self.key_id,
 +        tag_keys: self.tag_keys,
@@ -62021,7 +62021,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.inner.get_tag_keys()
 -    }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
-+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyList>) -> Self { self.input.tag_keys = Some(value.into()); self }
++    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.input.tag_keys = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UntagResourceOutput, super::UntagResourceError> {
@@ -62033,7 +62033,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UntagResourceError::Unhandled(format!("UntagResource returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UntagResourceOutput::default())
++                         Ok(super::UntagResourceOutput)
 +                     }
  }
 +pub use Builder as UntagResourceFluentBuilder;
@@ -62879,7 +62879,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateAliasError::Unhandled(format!("UpdateAlias returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateAliasOutput::default())
++                         Ok(super::UpdateAliasOutput)
 +                     }
  }
 -impl UpdateAliasFluentBuilder {
@@ -64461,7 +64461,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateCustomKeyStoreError::Unhandled(format!("UpdateCustomKeyStore returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateCustomKeyStoreOutput::default())
++                         Ok(super::UpdateCustomKeyStoreOutput)
 +                     }
  }
 +pub use Builder as UpdateCustomKeyStoreFluentBuilder;
@@ -65498,7 +65498,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateKeyDescriptionError::Unhandled(format!("UpdateKeyDescription returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateKeyDescriptionOutput::default())
++                         Ok(super::UpdateKeyDescriptionOutput)
 +                     }
  }
 -impl UpdateKeyDescriptionFluentBuilder {
@@ -66581,7 +66581,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdatePrimaryRegionError::Unhandled(format!("UpdatePrimaryRegion returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdatePrimaryRegionOutput::default())
++                         Ok(super::UpdatePrimaryRegionOutput)
 +                     }
  }
 +pub use Builder as UpdatePrimaryRegionFluentBuilder;
@@ -67287,7 +67287,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        formatter.finish()
 -    }
 +    pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub message: ::std::option::Option<super::super::super::types::PlaintextType>,
 +    pub message_type: ::std::option::Option<super::super::super::types::MessageType>,
@@ -67324,7 +67324,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) dry_run: ::std::option::Option<bool>,
 +    dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    message: ::std::option::Option<super::super::super::types::PlaintextType>,
 +    message_type: ::std::option::Option<super::super::super::types::MessageType>,
@@ -67600,9 +67600,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
 +    pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
 +    pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
@@ -67847,7 +67847,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn message(mut self, value: impl ::std::convert::Into<super::super::super::types::PlaintextType>) -> Self { self.input.message = Some(value.into()); self }
 +    pub fn message_type(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageType>) -> Self { self.input.message_type = Some(value.into()); self }
@@ -68810,7 +68810,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        formatter.finish()
 -    }
 +    pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    pub mac: ::std::option::Option<super::super::super::types::CiphertextType>,
 +    pub mac_algorithm: ::std::option::Option<super::super::super::types::MacAlgorithmSpec>,
@@ -68844,7 +68844,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) dry_run: ::std::option::Option<bool>,
 +    dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-+    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
++    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
 +    key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
 +    mac: ::std::option::Option<super::super::super::types::CiphertextType>,
 +    mac_algorithm: ::std::option::Option<super::super::super::types::MacAlgorithmSpec>,
@@ -68983,9 +68983,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
 +    pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
 +    pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-+    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
++    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
++    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
++    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
 +    pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +    pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
 +    pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
@@ -69227,7 +69227,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
++    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
 +    pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
 +    pub fn mac(mut self, value: impl ::std::convert::Into<super::super::super::types::CiphertextType>) -> Self { self.input.mac = Some(value.into()); self }
 +    pub fn mac_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::MacAlgorithmSpec>) -> Self { self.input.mac_algorithm = Some(value.into()); self }
@@ -73048,8 +73048,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.source_arn.as_deref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct GrantConstraints {
-+        pub encryption_context_equals: ::std::option::Option<self::EncryptionContextType>,
-+        pub encryption_context_subset: ::std::option::Option<self::EncryptionContextType>,
++        pub encryption_context_equals: ::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>,
++        pub encryption_context_subset: ::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>,
 +        pub source_arn: ::std::option::Option<self::GrantConstraintSourceArnType>,
      }
 -}
@@ -73059,8 +73059,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::GrantConstraintsBuilder::default()
 +    impl GrantConstraints {
 +        pub fn builder() -> GrantConstraintsBuilder { GrantConstraintsBuilder::default() }
-+        pub fn encryption_context_equals(&self) -> &::std::option::Option<self::EncryptionContextType> { &self.encryption_context_equals }
-+        pub fn encryption_context_subset(&self) -> &::std::option::Option<self::EncryptionContextType> { &self.encryption_context_subset }
++        pub fn encryption_context_equals(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>> { &self.encryption_context_equals }
++        pub fn encryption_context_subset(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>> { &self.encryption_context_subset }
 +        pub fn source_arn(&self) -> &::std::option::Option<self::GrantConstraintSourceArnType> { &self.source_arn }
      }
 -}
@@ -73102,8 +73102,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.encryption_context_subset
 +    #[derive(Clone, Debug, Default)]
 +    pub struct GrantConstraintsBuilder {
-+        encryption_context_equals: ::std::option::Option<self::EncryptionContextType>,
-+        encryption_context_subset: ::std::option::Option<self::EncryptionContextType>,
++        encryption_context_equals: ::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>,
++        encryption_context_subset: ::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>,
 +        source_arn: ::std::option::Option<self::GrantConstraintSourceArnType>,
      }
 -    /// Adds a key-value pair to `encryption_context_equals`.
@@ -73155,12 +73155,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            source_arn: self.source_arn,
 +
 +    impl GrantConstraintsBuilder {
-+        pub fn encryption_context_equals(mut self, input: impl ::std::convert::Into<self::EncryptionContextType>) -> Self { self.encryption_context_equals = Some(input.into()); self }
-+        pub fn set_encryption_context_equals(mut self, input: ::std::option::Option<self::EncryptionContextType>) -> Self { self.encryption_context_equals = input; self }
-+        pub fn get_encryption_context_equals(&self) -> &::std::option::Option<self::EncryptionContextType> { &self.encryption_context_equals }
-+        pub fn encryption_context_subset(mut self, input: impl ::std::convert::Into<self::EncryptionContextType>) -> Self { self.encryption_context_subset = Some(input.into()); self }
-+        pub fn set_encryption_context_subset(mut self, input: ::std::option::Option<self::EncryptionContextType>) -> Self { self.encryption_context_subset = input; self }
-+        pub fn get_encryption_context_subset(&self) -> &::std::option::Option<self::EncryptionContextType> { &self.encryption_context_subset }
++        pub fn encryption_context_equals(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>) -> Self { self.encryption_context_equals = Some(input.into()); self }
++        pub fn set_encryption_context_equals(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>) -> Self { self.encryption_context_equals = input; self }
++        pub fn get_encryption_context_equals(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>> { &self.encryption_context_equals }
++        pub fn encryption_context_subset(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>) -> Self { self.encryption_context_subset = Some(input.into()); self }
++        pub fn set_encryption_context_subset(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>>) -> Self { self.encryption_context_subset = input; self }
++        pub fn get_encryption_context_subset(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EncryptionContextKey, self::EncryptionContextValue>> { &self.encryption_context_subset }
 +        pub fn source_arn(mut self, input: impl ::std::convert::Into<self::GrantConstraintSourceArnType>) -> Self { self.source_arn = Some(input.into()); self }
 +        pub fn set_source_arn(mut self, input: ::std::option::Option<self::GrantConstraintSourceArnType>) -> Self { self.source_arn = input; self }
 +        pub fn get_source_arn(&self) -> &::std::option::Option<self::GrantConstraintSourceArnType> { &self.source_arn }
@@ -73257,7 +73257,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub issuing_account: ::std::option::Option<self::PrincipalIdType>,
 +        pub key_id: ::std::option::Option<self::KeyIdType>,
 +        pub name: ::std::option::Option<self::GrantNameType>,
-+        pub operations: ::std::option::Option<self::GrantOperationList>,
++        pub operations: ::std::option::Option<::std::vec::Vec<self::GrantOperation>>,
 +        pub retiring_principal: ::std::option::Option<self::PrincipalIdType>,
 +        pub retiring_service_principal: ::std::option::Option<self::ServicePrincipalType>,
      }
@@ -73288,7 +73288,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn issuing_account(&self) -> &::std::option::Option<self::PrincipalIdType> { &self.issuing_account }
 +        pub fn key_id(&self) -> &::std::option::Option<self::KeyIdType> { &self.key_id }
 +        pub fn name(&self) -> &::std::option::Option<self::GrantNameType> { &self.name }
-+        pub fn operations(&self) -> &::std::option::Option<self::GrantOperationList> { &self.operations }
++        pub fn operations(&self) -> &::std::option::Option<::std::vec::Vec<self::GrantOperation>> { &self.operations }
 +        pub fn retiring_principal(&self) -> &::std::option::Option<self::PrincipalIdType> { &self.retiring_principal }
 +        pub fn retiring_service_principal(&self) -> &::std::option::Option<self::ServicePrincipalType> { &self.retiring_service_principal }
      }
@@ -73382,7 +73382,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        issuing_account: ::std::option::Option<self::PrincipalIdType>,
 +        key_id: ::std::option::Option<self::KeyIdType>,
 +        name: ::std::option::Option<self::GrantNameType>,
-+        operations: ::std::option::Option<self::GrantOperationList>,
++        operations: ::std::option::Option<::std::vec::Vec<self::GrantOperation>>,
 +        retiring_principal: ::std::option::Option<self::PrincipalIdType>,
 +        retiring_service_principal: ::std::option::Option<self::ServicePrincipalType>,
      }
@@ -73527,9 +73527,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn name(mut self, input: impl ::std::convert::Into<self::GrantNameType>) -> Self { self.name = Some(input.into()); self }
 +        pub fn set_name(mut self, input: ::std::option::Option<self::GrantNameType>) -> Self { self.name = input; self }
 +        pub fn get_name(&self) -> &::std::option::Option<self::GrantNameType> { &self.name }
-+        pub fn operations(mut self, input: impl ::std::convert::Into<self::GrantOperationList>) -> Self { self.operations = Some(input.into()); self }
-+        pub fn set_operations(mut self, input: ::std::option::Option<self::GrantOperationList>) -> Self { self.operations = input; self }
-+        pub fn get_operations(&self) -> &::std::option::Option<self::GrantOperationList> { &self.operations }
++        pub fn operations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::GrantOperation>>) -> Self { self.operations = Some(input.into()); self }
++        pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<self::GrantOperation>>) -> Self { self.operations = input; self }
++        pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<self::GrantOperation>> { &self.operations }
 +        pub fn retiring_principal(mut self, input: impl ::std::convert::Into<self::PrincipalIdType>) -> Self { self.retiring_principal = Some(input.into()); self }
 +        pub fn set_retiring_principal(mut self, input: ::std::option::Option<self::PrincipalIdType>) -> Self { self.retiring_principal = input; self }
 +        pub fn get_retiring_principal(&self) -> &::std::option::Option<self::PrincipalIdType> { &self.retiring_principal }
@@ -75526,20 +75526,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub deletion_date: ::std::option::Option<self::DateType>,
 +        pub description: ::std::option::Option<self::DescriptionType>,
 +        pub enabled: ::std::option::Option<self::BooleanType>,
-+        pub encryption_algorithms: ::std::option::Option<self::EncryptionAlgorithmSpecList>,
++        pub encryption_algorithms: ::std::option::Option<::std::vec::Vec<self::EncryptionAlgorithmSpec>>,
 +        pub expiration_model: ::std::option::Option<self::ExpirationModelType>,
-+        pub key_agreement_algorithms: ::std::option::Option<self::KeyAgreementAlgorithmSpecList>,
++        pub key_agreement_algorithms: ::std::option::Option<::std::vec::Vec<self::KeyAgreementAlgorithmSpec>>,
 +        pub key_id: ::std::option::Option<self::KeyIdType>,
 +        pub key_manager: ::std::option::Option<self::KeyManagerType>,
 +        pub key_spec: ::std::option::Option<self::KeySpec>,
 +        pub key_state: ::std::option::Option<self::KeyState>,
 +        pub key_usage: ::std::option::Option<self::KeyUsageType>,
-+        pub mac_algorithms: ::std::option::Option<self::MacAlgorithmSpecList>,
++        pub mac_algorithms: ::std::option::Option<::std::vec::Vec<self::MacAlgorithmSpec>>,
 +        pub multi_region: ::std::option::Option<self::NullableBooleanType>,
 +        pub multi_region_configuration: ::std::option::Option<self::MultiRegionConfiguration>,
 +        pub origin: ::std::option::Option<self::OriginType>,
 +        pub pending_deletion_window_in_days: ::std::option::Option<self::PendingWindowInDaysType>,
-+        pub signing_algorithms: ::std::option::Option<self::SigningAlgorithmSpecList>,
++        pub signing_algorithms: ::std::option::Option<::std::vec::Vec<self::SigningAlgorithmSpec>>,
 +        pub valid_to: ::std::option::Option<self::DateType>,
 +        pub xks_key_configuration: ::std::option::Option<self::XksKeyConfigurationType>,
      }
@@ -75560,20 +75560,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn deletion_date(&self) -> &::std::option::Option<self::DateType> { &self.deletion_date }
 +        pub fn description(&self) -> &::std::option::Option<self::DescriptionType> { &self.description }
 +        pub fn enabled(&self) -> &::std::option::Option<self::BooleanType> { &self.enabled }
-+        pub fn encryption_algorithms(&self) -> &::std::option::Option<self::EncryptionAlgorithmSpecList> { &self.encryption_algorithms }
++        pub fn encryption_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::EncryptionAlgorithmSpec>> { &self.encryption_algorithms }
 +        pub fn expiration_model(&self) -> &::std::option::Option<self::ExpirationModelType> { &self.expiration_model }
-+        pub fn key_agreement_algorithms(&self) -> &::std::option::Option<self::KeyAgreementAlgorithmSpecList> { &self.key_agreement_algorithms }
++        pub fn key_agreement_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::KeyAgreementAlgorithmSpec>> { &self.key_agreement_algorithms }
 +        pub fn key_id(&self) -> &::std::option::Option<self::KeyIdType> { &self.key_id }
 +        pub fn key_manager(&self) -> &::std::option::Option<self::KeyManagerType> { &self.key_manager }
 +        pub fn key_spec(&self) -> &::std::option::Option<self::KeySpec> { &self.key_spec }
 +        pub fn key_state(&self) -> &::std::option::Option<self::KeyState> { &self.key_state }
 +        pub fn key_usage(&self) -> &::std::option::Option<self::KeyUsageType> { &self.key_usage }
-+        pub fn mac_algorithms(&self) -> &::std::option::Option<self::MacAlgorithmSpecList> { &self.mac_algorithms }
++        pub fn mac_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::MacAlgorithmSpec>> { &self.mac_algorithms }
 +        pub fn multi_region(&self) -> &::std::option::Option<self::NullableBooleanType> { &self.multi_region }
 +        pub fn multi_region_configuration(&self) -> &::std::option::Option<self::MultiRegionConfiguration> { &self.multi_region_configuration }
 +        pub fn origin(&self) -> &::std::option::Option<self::OriginType> { &self.origin }
 +        pub fn pending_deletion_window_in_days(&self) -> &::std::option::Option<self::PendingWindowInDaysType> { &self.pending_deletion_window_in_days }
-+        pub fn signing_algorithms(&self) -> &::std::option::Option<self::SigningAlgorithmSpecList> { &self.signing_algorithms }
++        pub fn signing_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::SigningAlgorithmSpec>> { &self.signing_algorithms }
 +        pub fn valid_to(&self) -> &::std::option::Option<self::DateType> { &self.valid_to }
 +        pub fn xks_key_configuration(&self) -> &::std::option::Option<self::XksKeyConfigurationType> { &self.xks_key_configuration }
      }
@@ -75642,20 +75642,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        deletion_date: ::std::option::Option<self::DateType>,
 +        description: ::std::option::Option<self::DescriptionType>,
 +        enabled: ::std::option::Option<self::BooleanType>,
-+        encryption_algorithms: ::std::option::Option<self::EncryptionAlgorithmSpecList>,
++        encryption_algorithms: ::std::option::Option<::std::vec::Vec<self::EncryptionAlgorithmSpec>>,
 +        expiration_model: ::std::option::Option<self::ExpirationModelType>,
-+        key_agreement_algorithms: ::std::option::Option<self::KeyAgreementAlgorithmSpecList>,
++        key_agreement_algorithms: ::std::option::Option<::std::vec::Vec<self::KeyAgreementAlgorithmSpec>>,
 +        key_id: ::std::option::Option<self::KeyIdType>,
 +        key_manager: ::std::option::Option<self::KeyManagerType>,
 +        key_spec: ::std::option::Option<self::KeySpec>,
 +        key_state: ::std::option::Option<self::KeyState>,
 +        key_usage: ::std::option::Option<self::KeyUsageType>,
-+        mac_algorithms: ::std::option::Option<self::MacAlgorithmSpecList>,
++        mac_algorithms: ::std::option::Option<::std::vec::Vec<self::MacAlgorithmSpec>>,
 +        multi_region: ::std::option::Option<self::NullableBooleanType>,
 +        multi_region_configuration: ::std::option::Option<self::MultiRegionConfiguration>,
 +        origin: ::std::option::Option<self::OriginType>,
 +        pending_deletion_window_in_days: ::std::option::Option<self::PendingWindowInDaysType>,
-+        signing_algorithms: ::std::option::Option<self::SigningAlgorithmSpecList>,
++        signing_algorithms: ::std::option::Option<::std::vec::Vec<self::SigningAlgorithmSpec>>,
 +        valid_to: ::std::option::Option<self::DateType>,
 +        xks_key_configuration: ::std::option::Option<self::XksKeyConfigurationType>,
      }
@@ -75808,15 +75808,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn enabled(mut self, input: impl ::std::convert::Into<self::BooleanType>) -> Self { self.enabled = Some(input.into()); self }
 +        pub fn set_enabled(mut self, input: ::std::option::Option<self::BooleanType>) -> Self { self.enabled = input; self }
 +        pub fn get_enabled(&self) -> &::std::option::Option<self::BooleanType> { &self.enabled }
-+        pub fn encryption_algorithms(mut self, input: impl ::std::convert::Into<self::EncryptionAlgorithmSpecList>) -> Self { self.encryption_algorithms = Some(input.into()); self }
-+        pub fn set_encryption_algorithms(mut self, input: ::std::option::Option<self::EncryptionAlgorithmSpecList>) -> Self { self.encryption_algorithms = input; self }
-+        pub fn get_encryption_algorithms(&self) -> &::std::option::Option<self::EncryptionAlgorithmSpecList> { &self.encryption_algorithms }
++        pub fn encryption_algorithms(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::EncryptionAlgorithmSpec>>) -> Self { self.encryption_algorithms = Some(input.into()); self }
++        pub fn set_encryption_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<self::EncryptionAlgorithmSpec>>) -> Self { self.encryption_algorithms = input; self }
++        pub fn get_encryption_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::EncryptionAlgorithmSpec>> { &self.encryption_algorithms }
 +        pub fn expiration_model(mut self, input: impl ::std::convert::Into<self::ExpirationModelType>) -> Self { self.expiration_model = Some(input.into()); self }
 +        pub fn set_expiration_model(mut self, input: ::std::option::Option<self::ExpirationModelType>) -> Self { self.expiration_model = input; self }
 +        pub fn get_expiration_model(&self) -> &::std::option::Option<self::ExpirationModelType> { &self.expiration_model }
-+        pub fn key_agreement_algorithms(mut self, input: impl ::std::convert::Into<self::KeyAgreementAlgorithmSpecList>) -> Self { self.key_agreement_algorithms = Some(input.into()); self }
-+        pub fn set_key_agreement_algorithms(mut self, input: ::std::option::Option<self::KeyAgreementAlgorithmSpecList>) -> Self { self.key_agreement_algorithms = input; self }
-+        pub fn get_key_agreement_algorithms(&self) -> &::std::option::Option<self::KeyAgreementAlgorithmSpecList> { &self.key_agreement_algorithms }
++        pub fn key_agreement_algorithms(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KeyAgreementAlgorithmSpec>>) -> Self { self.key_agreement_algorithms = Some(input.into()); self }
++        pub fn set_key_agreement_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<self::KeyAgreementAlgorithmSpec>>) -> Self { self.key_agreement_algorithms = input; self }
++        pub fn get_key_agreement_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::KeyAgreementAlgorithmSpec>> { &self.key_agreement_algorithms }
 +        pub fn key_id(mut self, input: impl ::std::convert::Into<self::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
 +        pub fn set_key_id(mut self, input: ::std::option::Option<self::KeyIdType>) -> Self { self.key_id = input; self }
 +        pub fn get_key_id(&self) -> &::std::option::Option<self::KeyIdType> { &self.key_id }
@@ -75832,9 +75832,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn key_usage(mut self, input: impl ::std::convert::Into<self::KeyUsageType>) -> Self { self.key_usage = Some(input.into()); self }
 +        pub fn set_key_usage(mut self, input: ::std::option::Option<self::KeyUsageType>) -> Self { self.key_usage = input; self }
 +        pub fn get_key_usage(&self) -> &::std::option::Option<self::KeyUsageType> { &self.key_usage }
-+        pub fn mac_algorithms(mut self, input: impl ::std::convert::Into<self::MacAlgorithmSpecList>) -> Self { self.mac_algorithms = Some(input.into()); self }
-+        pub fn set_mac_algorithms(mut self, input: ::std::option::Option<self::MacAlgorithmSpecList>) -> Self { self.mac_algorithms = input; self }
-+        pub fn get_mac_algorithms(&self) -> &::std::option::Option<self::MacAlgorithmSpecList> { &self.mac_algorithms }
++        pub fn mac_algorithms(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::MacAlgorithmSpec>>) -> Self { self.mac_algorithms = Some(input.into()); self }
++        pub fn set_mac_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<self::MacAlgorithmSpec>>) -> Self { self.mac_algorithms = input; self }
++        pub fn get_mac_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::MacAlgorithmSpec>> { &self.mac_algorithms }
 +        pub fn multi_region(mut self, input: impl ::std::convert::Into<self::NullableBooleanType>) -> Self { self.multi_region = Some(input.into()); self }
 +        pub fn set_multi_region(mut self, input: ::std::option::Option<self::NullableBooleanType>) -> Self { self.multi_region = input; self }
 +        pub fn get_multi_region(&self) -> &::std::option::Option<self::NullableBooleanType> { &self.multi_region }
@@ -75847,9 +75847,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn pending_deletion_window_in_days(mut self, input: impl ::std::convert::Into<self::PendingWindowInDaysType>) -> Self { self.pending_deletion_window_in_days = Some(input.into()); self }
 +        pub fn set_pending_deletion_window_in_days(mut self, input: ::std::option::Option<self::PendingWindowInDaysType>) -> Self { self.pending_deletion_window_in_days = input; self }
 +        pub fn get_pending_deletion_window_in_days(&self) -> &::std::option::Option<self::PendingWindowInDaysType> { &self.pending_deletion_window_in_days }
-+        pub fn signing_algorithms(mut self, input: impl ::std::convert::Into<self::SigningAlgorithmSpecList>) -> Self { self.signing_algorithms = Some(input.into()); self }
-+        pub fn set_signing_algorithms(mut self, input: ::std::option::Option<self::SigningAlgorithmSpecList>) -> Self { self.signing_algorithms = input; self }
-+        pub fn get_signing_algorithms(&self) -> &::std::option::Option<self::SigningAlgorithmSpecList> { &self.signing_algorithms }
++        pub fn signing_algorithms(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SigningAlgorithmSpec>>) -> Self { self.signing_algorithms = Some(input.into()); self }
++        pub fn set_signing_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<self::SigningAlgorithmSpec>>) -> Self { self.signing_algorithms = input; self }
++        pub fn get_signing_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::SigningAlgorithmSpec>> { &self.signing_algorithms }
 +        pub fn valid_to(mut self, input: impl ::std::convert::Into<self::DateType>) -> Self { self.valid_to = Some(input.into()); self }
 +        pub fn set_valid_to(mut self, input: ::std::option::Option<self::DateType>) -> Self { self.valid_to = input; self }
 +        pub fn get_valid_to(&self) -> &::std::option::Option<self::DateType> { &self.valid_to }
@@ -77211,7 +77211,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct MultiRegionConfiguration {
 +        pub multi_region_key_type: ::std::option::Option<self::MultiRegionKeyType>,
 +        pub primary_key: ::std::option::Option<self::MultiRegionKey>,
-+        pub replica_keys: ::std::option::Option<self::MultiRegionKeyList>,
++        pub replica_keys: ::std::option::Option<::std::vec::Vec<self::MultiRegionKey>>,
      }
 -}
 -impl MultiRegionConfiguration {
@@ -77222,7 +77222,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn builder() -> MultiRegionConfigurationBuilder { MultiRegionConfigurationBuilder::default() }
 +        pub fn multi_region_key_type(&self) -> &::std::option::Option<self::MultiRegionKeyType> { &self.multi_region_key_type }
 +        pub fn primary_key(&self) -> &::std::option::Option<self::MultiRegionKey> { &self.primary_key }
-+        pub fn replica_keys(&self) -> &::std::option::Option<self::MultiRegionKeyList> { &self.replica_keys }
++        pub fn replica_keys(&self) -> &::std::option::Option<::std::vec::Vec<self::MultiRegionKey>> { &self.replica_keys }
      }
 -}
 
@@ -77252,7 +77252,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct MultiRegionConfigurationBuilder {
 +        multi_region_key_type: ::std::option::Option<self::MultiRegionKeyType>,
 +        primary_key: ::std::option::Option<self::MultiRegionKey>,
-+        replica_keys: ::std::option::Option<self::MultiRegionKeyList>,
++        replica_keys: ::std::option::Option<::std::vec::Vec<self::MultiRegionKey>>,
      }
 -    /// <p>Displays the key ARN and Region of the primary key. This field includes the current KMS key if it is the primary key.</p>
 -    pub fn primary_key(mut self, input: crate::types::MultiRegionKey) -> Self {
@@ -77302,9 +77302,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn primary_key(mut self, input: impl ::std::convert::Into<self::MultiRegionKey>) -> Self { self.primary_key = Some(input.into()); self }
 +        pub fn set_primary_key(mut self, input: ::std::option::Option<self::MultiRegionKey>) -> Self { self.primary_key = input; self }
 +        pub fn get_primary_key(&self) -> &::std::option::Option<self::MultiRegionKey> { &self.primary_key }
-+        pub fn replica_keys(mut self, input: impl ::std::convert::Into<self::MultiRegionKeyList>) -> Self { self.replica_keys = Some(input.into()); self }
-+        pub fn set_replica_keys(mut self, input: ::std::option::Option<self::MultiRegionKeyList>) -> Self { self.replica_keys = input; self }
-+        pub fn get_replica_keys(&self) -> &::std::option::Option<self::MultiRegionKeyList> { &self.replica_keys }
++        pub fn replica_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::MultiRegionKey>>) -> Self { self.replica_keys = Some(input.into()); self }
++        pub fn set_replica_keys(mut self, input: ::std::option::Option<::std::vec::Vec<self::MultiRegionKey>>) -> Self { self.replica_keys = input; self }
++        pub fn get_replica_keys(&self) -> &::std::option::Option<::std::vec::Vec<self::MultiRegionKey>> { &self.replica_keys }
 +        pub fn build(self) -> MultiRegionConfiguration {
 +            MultiRegionConfiguration {
 +                multi_region_key_type: self.multi_region_key_type,
@@ -84812,7 +84812,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types.rs
 +++ generated/src/types.rs
-@@ -1,186 +1,164 @@
+@@ -1,186 +1,147 @@
 -// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub use crate::types::_custom_key_store_type::CustomKeyStoreType;
 -
@@ -84821,8 +84821,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub use crate::types::_xks_proxy_connectivity_type::XksProxyConnectivityType;
 -
 -pub use crate::types::_grant_constraints::GrantConstraints;
-+// Generated by aws-sdk-build aws-sdk-build-rust-native-0.2.0. DO NOT EDIT.
-
+-
 -pub use crate::types::_key_usage_type::KeyUsageType;
 -
 -pub use crate::types::_customer_master_key_spec::CustomerMasterKeySpec;
@@ -84980,7 +84979,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -mod _rotation_type;
 -
 -mod _rotations_list_entry;
--
++// Generated by aws-sdk-build aws-sdk-build-rust-native-0.2.0. DO NOT EDIT.
+
 -mod _signing_algorithm_spec;
 -
 -mod _tag;
@@ -85004,7 +85004,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type AwsAccountIdType = ::std::string::String;
 +    pub type AccountIdType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_algorithm_spec.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_alias_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_alias_list_entry.rs"));
 +    pub type AliasNameType = ::std::string::String;
 +    pub type ArnType = ::std::string::String;
@@ -85020,42 +85019,33 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type CustomKeyStoreIdType = ::std::string::String;
 +    pub type CustomKeyStoreNameType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_custom_key_store_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_custom_key_stores_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_custom_key_stores_list_entry.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_customer_master_key_spec.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_data_key_pair_spec.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_data_key_spec.rs"));
 +    pub type DateType = ::std::time::SystemTime;
 +    pub type DescriptionType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_dry_run_modifier_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_dry_run_modifier_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_encryption_algorithm_spec.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_encryption_algorithm_spec_list.rs"));
 +    pub type EncryptionContextKey = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_encryption_context_type.rs"));
 +    pub type EncryptionContextValue = ::std::string::String;
 +    pub type ErrorMessageType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_expiration_model_type.rs"));
 +    pub type GrantConstraintSourceArnType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_grant_constraints.rs"));
 +    pub type GrantIdType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_grant_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_grant_list_entry.rs"));
 +    pub type GrantNameType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_grant_operation.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_grant_operation_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_grant_token_list.rs"));
 +    pub type GrantTokenType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_import_state.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_import_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_include_key_material.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_key_agreement_algorithm_spec.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_key_agreement_algorithm_spec_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_key_encryption_mechanism.rs"));
 +    pub type KeyIdType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_key_last_usage_data.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_key_last_usage_tracking_operation.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_key_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_key_list_entry.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_key_manager_type.rs"));
 +    pub type KeyMaterialDescriptionType = ::std::string::String;
@@ -85068,19 +85058,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type KmsRequestIdType = ::std::string::String;
 +    pub type LimitType = i32;
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_mac_algorithm_spec.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_mac_algorithm_spec_list.rs"));
 +    pub type MarkerType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_message_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_multi_region_configuration.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_multi_region_key.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_multi_region_key_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_multi_region_key_type.rs"));
 +    pub type NullableBooleanType = bool;
 +    pub type NumberOfBytesType = i32;
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_origin_type.rs"));
 +    pub type PendingWindowInDaysType = i32;
 +    pub type PlaintextType = ::std::vec::Vec<u8>;
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_policy_name_list.rs"));
 +    pub type PolicyNameType = ::std::string::String;
 +    pub type PolicyType = ::std::string::String;
 +    pub type PrincipalIdType = ::std::string::String;
@@ -85089,15 +85076,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type RegionType = ::std::string::String;
 +    pub type RotationPeriodInDaysType = i32;
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_rotation_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_rotations_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_rotations_list_entry.rs"));
 +    pub type ServicePrincipalType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_signing_algorithm_spec.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_signing_algorithm_spec_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_tag.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_tag_key_list.rs"));
 +    pub type TagKeyType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_tag_list.rs"));
 +    pub type TagValueType = ::std::string::String;
 +    pub type TrustAnchorCertificateType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types/_wrapping_key_spec.rs"));
@@ -85398,23 +85381,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ### Unexpected generated files
 
 - `src/aws_runtime.rs`
-- `src/types/_alias_list.rs`
-- `src/types/_custom_key_stores_list.rs`
-- `src/types/_dry_run_modifier_list.rs`
-- `src/types/_encryption_algorithm_spec_list.rs`
-- `src/types/_encryption_context_type.rs`
-- `src/types/_grant_list.rs`
-- `src/types/_grant_operation_list.rs`
-- `src/types/_grant_token_list.rs`
-- `src/types/_key_agreement_algorithm_spec_list.rs`
-- `src/types/_key_list.rs`
-- `src/types/_mac_algorithm_spec_list.rs`
-- `src/types/_multi_region_key_list.rs`
-- `src/types/_policy_name_list.rs`
-- `src/types/_rotations_list.rs`
-- `src/types/_signing_algorithm_spec_list.rs`
-- `src/types/_tag_key_list.rs`
-- `src/types/_tag_list.rs`
 - `src/types/error/_custom_key_store_has_cm_ks_exception.rs`
 
 ### Rust token differences

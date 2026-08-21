@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::EnableMfaDeviceError::Unhandled(format!("EnableMfaDevice returned HTTP {}", status)));
                          }
-                         Ok(super::EnableMfaDeviceOutput::default())
+                         Ok(super::EnableMfaDeviceOutput)
                      }
 }
 pub use Builder as EnableMfaDeviceFluentBuilder;

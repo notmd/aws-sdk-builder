@@ -6,7 +6,7 @@ pub struct CreatePolicyInput {
     pub path: ::std::option::Option<super::super::super::types::PolicyPathType>,
     pub policy_document: ::std::option::Option<super::super::super::types::PolicyDocumentType>,
     pub policy_name: ::std::option::Option<super::super::super::types::PolicyNameType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl CreatePolicyInput {
             pub fn description(&self) -> ::std::option::Option<&str> { self.description.as_deref() }
@@ -24,7 +24,7 @@ pub struct CreatePolicyInputBuilder {
     path: ::std::option::Option<super::super::super::types::PolicyPathType>,
     policy_document: ::std::option::Option<super::super::super::types::PolicyDocumentType>,
     policy_name: ::std::option::Option<super::super::super::types::PolicyNameType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl CreatePolicyInputBuilder {
     pub fn description(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyDescriptionType>) -> Self { self.description = Some(input.into()); self }
@@ -39,9 +39,9 @@ impl CreatePolicyInputBuilder {
     pub fn policy_name(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyNameType>) -> Self { self.policy_name = Some(input.into()); self }
     pub fn set_policy_name(mut self, input: ::std::option::Option<super::super::super::types::PolicyNameType>) -> Self { self.policy_name = input; self }
     pub fn get_policy_name(&self) -> &::std::option::Option<super::super::super::types::PolicyNameType> { &self.policy_name }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> CreatePolicyInput { CreatePolicyInput {
         description: self.description,
         path: self.path,

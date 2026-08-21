@@ -11,7 +11,7 @@ impl Builder {
         Self { input: super::Input::default(), client }
     }
     pub fn serial_number(mut self, value: impl ::std::convert::Into<super::super::super::types::SerialNumberType>) -> Self { self.input.serial_number = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::TagMfaDeviceOutput, super::TagMfaDeviceError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::TagMfaDeviceError::Unhandled(format!("TagMfaDevice returned HTTP {}", status)));
                          }
-                         Ok(super::TagMfaDeviceOutput::default())
+                         Ok(super::TagMfaDeviceOutput)
                      }
 }
 pub use Builder as TagMfaDeviceFluentBuilder;

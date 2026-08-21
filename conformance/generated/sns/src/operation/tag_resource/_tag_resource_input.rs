@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct TagResourceInput {
     pub resource_arn: ::std::option::Option<super::super::super::types::AmazonResourceName>,
-    pub tags: ::std::option::Option<super::super::super::types::TagList>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl TagResourceInput {
             pub fn resource_arn(&self) -> ::std::option::Option<&str> { self.resource_arn.as_deref() }
@@ -15,15 +15,15 @@ impl TagResourceInput {
 #[derive(Clone, Debug, Default)]
 pub struct TagResourceInputBuilder {
     resource_arn: ::std::option::Option<super::super::super::types::AmazonResourceName>,
-    tags: ::std::option::Option<super::super::super::types::TagList>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl TagResourceInputBuilder {
     pub fn resource_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::AmazonResourceName>) -> Self { self.resource_arn = Some(input.into()); self }
     pub fn set_resource_arn(mut self, input: ::std::option::Option<super::super::super::types::AmazonResourceName>) -> Self { self.resource_arn = input; self }
     pub fn get_resource_arn(&self) -> &::std::option::Option<super::super::super::types::AmazonResourceName> { &self.resource_arn }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> TagResourceInput { TagResourceInput {
         resource_arn: self.resource_arn,
         tags: self.tags,

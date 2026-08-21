@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct TransactionCanceledException {
-        pub cancellation_reasons: ::std::option::Option<super::super::types::CancellationReasonList>,
+        pub cancellation_reasons: ::std::option::Option<::std::vec::Vec<super::super::types::CancellationReason>>,
         pub message: ::std::option::Option<super::super::types::ErrorMessage>,
     }
     impl TransactionCanceledException {
         pub fn builder() -> TransactionCanceledExceptionBuilder { TransactionCanceledExceptionBuilder::default() }
-        pub fn cancellation_reasons(&self) -> &::std::option::Option<super::super::types::CancellationReasonList> { &self.cancellation_reasons }
+        pub fn cancellation_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::CancellationReason>> { &self.cancellation_reasons }
         pub fn message(&self) -> &::std::option::Option<super::super::types::ErrorMessage> { &self.message }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct TransactionCanceledExceptionBuilder {
-        cancellation_reasons: ::std::option::Option<super::super::types::CancellationReasonList>,
+        cancellation_reasons: ::std::option::Option<::std::vec::Vec<super::super::types::CancellationReason>>,
         message: ::std::option::Option<super::super::types::ErrorMessage>,
     }
 
     impl TransactionCanceledExceptionBuilder {
-        pub fn cancellation_reasons(mut self, input: impl ::std::convert::Into<super::super::types::CancellationReasonList>) -> Self { self.cancellation_reasons = Some(input.into()); self }
-        pub fn set_cancellation_reasons(mut self, input: ::std::option::Option<super::super::types::CancellationReasonList>) -> Self { self.cancellation_reasons = input; self }
-        pub fn get_cancellation_reasons(&self) -> &::std::option::Option<super::super::types::CancellationReasonList> { &self.cancellation_reasons }
+        pub fn cancellation_reasons(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::types::CancellationReason>>) -> Self { self.cancellation_reasons = Some(input.into()); self }
+        pub fn set_cancellation_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::CancellationReason>>) -> Self { self.cancellation_reasons = input; self }
+        pub fn get_cancellation_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::CancellationReason>> { &self.cancellation_reasons }
         pub fn message(mut self, input: impl ::std::convert::Into<super::super::types::ErrorMessage>) -> Self { self.message = Some(input.into()); self }
         pub fn set_message(mut self, input: ::std::option::Option<super::super::types::ErrorMessage>) -> Self { self.message = input; self }
         pub fn get_message(&self) -> &::std::option::Option<super::super::types::ErrorMessage> { &self.message }

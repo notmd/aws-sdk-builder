@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct UntagResourceInput {
     pub resource: ::std::option::Option<super::super::super::types::TaggableResource>,
-    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyList>,
+    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>,
 }
         impl UntagResourceInput {
             pub fn resource(&self) -> ::std::option::Option<&str> { self.resource.as_deref() }
@@ -15,15 +15,15 @@ impl UntagResourceInput {
 #[derive(Clone, Debug, Default)]
 pub struct UntagResourceInputBuilder {
     resource: ::std::option::Option<super::super::super::types::TaggableResource>,
-    tag_keys: ::std::option::Option<super::super::super::types::TagKeyList>,
+    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>,
 }
 impl UntagResourceInputBuilder {
     pub fn resource(mut self, input: impl ::std::convert::Into<super::super::super::types::TaggableResource>) -> Self { self.resource = Some(input.into()); self }
     pub fn set_resource(mut self, input: ::std::option::Option<super::super::super::types::TaggableResource>) -> Self { self.resource = input; self }
     pub fn get_resource(&self) -> &::std::option::Option<super::super::super::types::TaggableResource> { &self.resource }
-    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyList>) -> Self { self.tag_keys = Some(input.into()); self }
-    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyList>) -> Self { self.tag_keys = input; self }
-    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyList> { &self.tag_keys }
+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKey>>) -> Self { self.tag_keys = Some(input.into()); self }
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>) -> Self { self.tag_keys = input; self }
+    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>> { &self.tag_keys }
     pub fn build(self) -> UntagResourceInput { UntagResourceInput {
         resource: self.resource,
         tag_keys: self.tag_keys,

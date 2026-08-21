@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct UntagRoleInput {
     pub role_name: ::std::option::Option<super::super::super::types::RoleNameType>,
-    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
+    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
 }
         impl UntagRoleInput {
             pub fn role_name(&self) -> ::std::option::Option<&str> { self.role_name.as_deref() }
@@ -15,15 +15,15 @@ impl UntagRoleInput {
 #[derive(Clone, Debug, Default)]
 pub struct UntagRoleInputBuilder {
     role_name: ::std::option::Option<super::super::super::types::RoleNameType>,
-    tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
+    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
 }
 impl UntagRoleInputBuilder {
     pub fn role_name(mut self, input: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.role_name = Some(input.into()); self }
     pub fn set_role_name(mut self, input: ::std::option::Option<super::super::super::types::RoleNameType>) -> Self { self.role_name = input; self }
     pub fn get_role_name(&self) -> &::std::option::Option<super::super::super::types::RoleNameType> { &self.role_name }
-    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = Some(input.into()); self }
-    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = input; self }
-    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.tag_keys }
+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = Some(input.into()); self }
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = input; self }
+    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.tag_keys }
     pub fn build(self) -> UntagRoleInput { UntagRoleInput {
         role_name: self.role_name,
         tag_keys: self.tag_keys,

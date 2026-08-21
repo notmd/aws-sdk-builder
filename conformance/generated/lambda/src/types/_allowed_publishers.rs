@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct AllowedPublishers {
-        pub signing_profile_version_arns: ::std::option::Option<self::SigningProfileVersionArns>,
+        pub signing_profile_version_arns: ::std::option::Option<::std::vec::Vec<self::Arn>>,
     }
     impl AllowedPublishers {
         pub fn builder() -> AllowedPublishersBuilder { AllowedPublishersBuilder::default() }
-        pub fn signing_profile_version_arns(&self) -> &::std::option::Option<self::SigningProfileVersionArns> { &self.signing_profile_version_arns }
+        pub fn signing_profile_version_arns(&self) -> &::std::option::Option<::std::vec::Vec<self::Arn>> { &self.signing_profile_version_arns }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct AllowedPublishersBuilder {
-        signing_profile_version_arns: ::std::option::Option<self::SigningProfileVersionArns>,
+        signing_profile_version_arns: ::std::option::Option<::std::vec::Vec<self::Arn>>,
     }
 
     impl AllowedPublishersBuilder {
-        pub fn signing_profile_version_arns(mut self, input: impl ::std::convert::Into<self::SigningProfileVersionArns>) -> Self { self.signing_profile_version_arns = Some(input.into()); self }
-        pub fn set_signing_profile_version_arns(mut self, input: ::std::option::Option<self::SigningProfileVersionArns>) -> Self { self.signing_profile_version_arns = input; self }
-        pub fn get_signing_profile_version_arns(&self) -> &::std::option::Option<self::SigningProfileVersionArns> { &self.signing_profile_version_arns }
+        pub fn signing_profile_version_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Arn>>) -> Self { self.signing_profile_version_arns = Some(input.into()); self }
+        pub fn set_signing_profile_version_arns(mut self, input: ::std::option::Option<::std::vec::Vec<self::Arn>>) -> Self { self.signing_profile_version_arns = input; self }
+        pub fn get_signing_profile_version_arns(&self) -> &::std::option::Option<::std::vec::Vec<self::Arn>> { &self.signing_profile_version_arns }
         pub fn build(self) -> AllowedPublishers {
             AllowedPublishers {
                 signing_profile_version_arns: self.signing_profile_version_arns,

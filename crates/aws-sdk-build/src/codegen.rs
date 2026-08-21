@@ -100,7 +100,7 @@ pub(crate) fn generate(
             };
             if shape_id == selected.model.entry.service_shape_id
                 || operation_shapes.contains(&shape_id)
-                || !is_renderable_type(selected.model.shapes.get(&shape_id))
+                || !is_file_renderable_type(selected.model.shapes.get(&shape_id))
             {
                 continue;
             }
@@ -580,7 +580,7 @@ fn render_types_file(service_key: &str, selected: &SelectedModel) -> String {
         };
         if id == selected.model.entry.service_shape_id
             || operation_shape_ids(selected).contains(&id)
-            || (!is_renderable_type(Some(shape)) && !is_primitive_shape(shape))
+            || (!is_file_renderable_type(Some(shape)) && !is_primitive_shape(shape))
             || is_error_shape(shape)
         {
             continue;
@@ -668,18 +668,8 @@ fn is_error_shape(shape: &Value) -> bool {
 
 fn render_type_file(selected: &SelectedModel, shape_id: &str, context: Context) -> String {
     let is_error = matches!(context, Context::Error);
-    let mut one_shape = selected.clone();
-    one_shape.model.shapes = BTreeMap::from([(
-        shape_id.to_owned(),
-        selected
-            .model
-            .shapes
-            .get(shape_id)
-            .expect("renderable type must be present")
-            .clone(),
-    )]);
     let mut rendered = String::new();
-    render_types_with_context(&mut rendered, &one_shape, context);
+    render_types_with_context(&mut rendered, selected, context, Some(shape_id));
     let marker = "pub mod types {\n";
     let start = rendered.find(marker).expect("type module must be rendered") + marker.len();
     let end = rendered
@@ -701,12 +691,12 @@ fn render_type_file(selected: &SelectedModel, shape_id: &str, context: Context) 
     output
 }
 
-fn is_renderable_type(shape: Option<&Value>) -> bool {
+fn is_file_renderable_type(shape: Option<&Value>) -> bool {
     matches!(
         shape
             .and_then(|shape| shape.get("type"))
             .and_then(Value::as_str),
-        Some("structure" | "union" | "enum" | "list" | "map")
+        Some("structure" | "union" | "enum")
     )
 }
 
@@ -733,20 +723,29 @@ fn type_file_name(shape_id: &str) -> String {
     format!("_{}.rs", names::snake_case(terminal(shape_id)))
 }
 
-fn render_types_with_context(output: &mut String, selected: &SelectedModel, context: Context) {
+fn render_types_with_context(
+    output: &mut String,
+    selected: &SelectedModel,
+    context: Context,
+    only_shape: Option<&str>,
+) {
     header(output);
     output.push_str("pub mod types {\n");
     let mut ids = selected.model.shapes.keys().cloned().collect::<Vec<_>>();
     ids.sort();
     for id in ids {
-        if id == selected.model.entry.service_shape_id {
+        if id == selected.model.entry.service_shape_id
+            || only_shape.is_some_and(|only| only != id.as_str())
+        {
             continue;
         }
         let Some(shape) = selected.model.shapes.get(&id) else {
             continue;
         };
         match shape.get("type").and_then(Value::as_str) {
-            Some("structure") => render_structure(output, shape, terminal(&id), context.clone()),
+            Some("structure") => {
+                render_structure(output, selected, shape, terminal(&id), context.clone())
+            }
             Some("union") => render_union(output, shape, terminal(&id)),
             Some("enum") => render_enum(output, shape, terminal(&id)),
             Some("list") => {
@@ -754,7 +753,7 @@ fn render_types_with_context(output: &mut String, selected: &SelectedModel, cont
                     .get("member")
                     .and_then(|member| member.get("target"))
                     .and_then(Value::as_str)
-                    .map(|target| type_expr(target, context.clone()))
+                    .map(|target| type_expr(selected, target, context.clone()))
                     .unwrap_or_else(|| "::std::string::String".to_owned());
                 writeln!(
                     output,
@@ -769,13 +768,13 @@ fn render_types_with_context(output: &mut String, selected: &SelectedModel, cont
                     .get("key")
                     .and_then(|member| member.get("target"))
                     .and_then(Value::as_str)
-                    .map(|target| type_expr(target, context.clone()))
+                    .map(|target| type_expr(selected, target, context.clone()))
                     .unwrap_or_else(|| "::std::string::String".to_owned());
                 let value = shape
                     .get("value")
                     .and_then(|member| member.get("target"))
                     .and_then(Value::as_str)
-                    .map(|target| type_expr(target, Context::Types))
+                    .map(|target| type_expr(selected, target, context.clone()))
                     .unwrap_or_else(|| "::std::string::String".to_owned());
                 writeln!(
                     output,
@@ -908,6 +907,7 @@ fn render_operation_shape_file(
     if let Some(shape) = shape {
         render_structure_at_indent(
             &mut output,
+            selected,
             shape,
             &rust_name,
             Context::Operation(module.clone()),
@@ -922,6 +922,7 @@ fn render_operation_shape_file(
         );
         render_operation_shape_builder(
             &mut output,
+            selected,
             shape,
             &rust_name,
             Context::Builder(String::new()),
@@ -938,6 +939,7 @@ fn render_operation_shape_file(
 
 fn render_operation_shape_builder(
     output: &mut String,
+    selected: &SelectedModel,
     shape: &Value,
     name: &str,
     context: Context,
@@ -951,7 +953,7 @@ fn render_operation_shape_builder(
     for (member_name, member) in members(shape) {
         let field = names::rust_identifier(&member_name);
         let target = member_target(member)
-            .map(|target| type_expr(target, context.clone()))
+            .map(|target| type_expr(selected, target, context.clone()))
             .unwrap_or_else(|| "::std::string::String".to_owned());
         writeln!(output, "    {field}: ::std::option::Option<{target}>,").unwrap();
     }
@@ -960,7 +962,7 @@ fn render_operation_shape_builder(
         let field = names::rust_identifier(&member_name);
         let method = field.strip_prefix("r#").unwrap_or(&field);
         let target = member_target(member)
-            .map(|target| type_expr(target, context.clone()))
+            .map(|target| type_expr(selected, target, context.clone()))
             .unwrap_or_else(|| "::std::string::String".to_owned());
         writeln!(
             output,
@@ -999,7 +1001,7 @@ fn render_operation_builder_file(selected: &SelectedModel, operation_name: &str)
         for (name, member) in members(shape) {
             let field = names::rust_identifier(&name);
             let target = member_target(member)
-                .map(|target| type_expr(target, Context::Builder(module.clone())))
+                .map(|target| type_expr(selected, target, Context::Builder(module.clone())))
                 .unwrap_or_else(|| "::std::string::String".to_owned());
             writeln!(
                 output,
@@ -1161,12 +1163,10 @@ fn render_request_body(
     render_xml_value(
         &mut expression,
         selected,
-        target,
         target_shape,
         "value",
         &root,
         false,
-        1,
     );
     expression.push_str(" } body.into_bytes() }");
     expression
@@ -1175,12 +1175,10 @@ fn render_request_body(
 fn render_xml_value(
     output: &mut String,
     selected: &SelectedModel,
-    _target: &str,
     shape: &Value,
     value_expression: &str,
     tag: &str,
     flattened: bool,
-    _indent: usize,
 ) {
     let kind = shape
         .get("type")
@@ -1222,12 +1220,10 @@ fn render_xml_value(
                 render_xml_value(
                     output,
                     selected,
-                    member_target,
                     member_shape,
                     "value",
                     &member_tag,
                     traits.is_some_and(|traits| traits.contains_key("smithy.api#xmlFlattened")),
-                    _indent + 1,
                 );
                 output.push_str(" }");
             }
@@ -1260,16 +1256,7 @@ fn render_xml_value(
                 .get("member")
                 .and_then(xml_name)
                 .unwrap_or_else(|| tag.to_owned());
-            render_xml_value(
-                output,
-                selected,
-                element_target,
-                element_shape,
-                "item",
-                &element_tag,
-                false,
-                _indent + 1,
-            );
+            render_xml_value(output, selected, element_shape, "item", &element_tag, false);
             output.push_str(" }");
             if !flattened {
                 output.push_str(&format!(
@@ -1379,9 +1366,7 @@ fn render_request_headers(
     input_shape: Option<&Value>,
     protocol: crate::model::ProtocolKind,
 ) -> String {
-    let mut output =
-        String::from("{ let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();");
-    let mut has_headers = false;
+    let mut header_pushes = Vec::new();
     if let Some(shape) = input_shape {
         for (name, member) in members(shape) {
             let Some(header) = member
@@ -1407,13 +1392,13 @@ fn render_request_headers(
             if !is_string {
                 continue;
             }
-            has_headers = true;
             let field = names::rust_identifier(&name);
-            output.push_str(&format!(
+            header_pushes.push(format!(
                 " if let Some(value) = self.input.{field}.as_deref() {{ headers.push(({header:?}, value)); }}"
             ));
         }
     }
+    let has_headers = !header_pushes.is_empty();
     let has_xml_payload = protocol == crate::model::ProtocolKind::RestXml
         && input_shape.is_some_and(|shape| {
             members(shape).values().any(|member| {
@@ -1425,14 +1410,22 @@ fn render_request_headers(
                     })
             })
         });
-    if has_xml_payload {
-        output.push_str(" headers.push((\"content-type\", \"application/xml\"));");
-    }
-    if has_headers || has_xml_payload {
-        output.push_str(" headers }");
-        output
-    } else {
-        "::std::vec::Vec::new()".to_owned()
+    match (has_headers, has_xml_payload) {
+        (false, false) => "::std::vec::Vec::new()".to_owned(),
+        (false, true) => "::std::vec![(\"content-type\", \"application/xml\")]".to_owned(),
+        (true, has_xml_payload) => {
+            let mut output = String::from(
+                "{ let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();",
+            );
+            for header_push in header_pushes {
+                output.push_str(&header_push);
+            }
+            if has_xml_payload {
+                output.push_str(" headers.push((\"content-type\", \"application/xml\"));");
+            }
+            output.push_str(" headers }");
+            output
+        }
     }
 }
 
@@ -1481,9 +1474,11 @@ fn render_response_decode(
         })
         .unwrap_or(false);
     if !has_decoded_values {
+        let output_is_unit = shape.map(|shape| members(shape).is_empty()).unwrap_or(true);
         writeln!(
             output,
-            "                         Ok(super::{rust_operation}Output::default())"
+            "                         Ok(super::{rust_operation}Output{})",
+            if output_is_unit { "" } else { "::default()" }
         )
         .unwrap();
         return;
@@ -1583,7 +1578,7 @@ fn render_xml_flattened_list_decode(
         return;
     };
     let output_field = names::rust_identifier(member_name);
-    let element_type = type_expr(element_id, Context::Builder(String::new()));
+    let element_type = type_expr(selected, element_id, Context::Builder(String::new()));
     let tag = xml_name(member).unwrap_or_else(|| member_name.to_owned());
     if element_shape.get("type").and_then(Value::as_str) != Some("structure") {
         writeln!(
@@ -1653,7 +1648,7 @@ fn render_xml_member_decode(
                 return;
             }
             let element_type = element_target
-                .map(|target| type_expr(target, Context::Builder(String::new())))
+                .map(|target| type_expr(selected, target, Context::Builder(String::new())))
                 .unwrap_or_else(|| "::std::string::String".to_owned());
             writeln!(
                 output,
@@ -1662,7 +1657,7 @@ fn render_xml_member_decode(
             .unwrap();
         }
         Some("structure") => {
-            let element_type = type_expr(target, Context::Builder(String::new()));
+            let element_type = type_expr(selected, target, Context::Builder(String::new()));
             output.push_str(&format!(
                 "                         if let Some(value) = super::super::super::transport::xml_first(&body, {tag:?}) {{ let mut item: {element_type} = ::std::default::Default::default();"
             ));
@@ -1763,7 +1758,7 @@ fn render_operation_accessors(
                 .and_then(|shape| shape.get("member"))
                 .and_then(member_target)
                 .unwrap_or("smithy.api#String");
-            let element = type_expr(member_target, context.clone());
+            let element = type_expr(selected, member_target, context.clone());
             writeln!(
                 output,
                 "            pub fn {method_field}(&self) -> &[{element}] {{ self.{field}.as_deref().unwrap_or(&[]) }}"
@@ -1786,7 +1781,7 @@ fn render_operation_accessors(
             )
             .unwrap();
         } else {
-            let reference = type_expr(target, context.clone());
+            let reference = type_expr(selected, target, context.clone());
             writeln!(
                 output,
                 "            pub fn {method_field}(&self) -> ::std::option::Option<&{reference}> {{ self.{field}.as_ref() }}"
@@ -1817,13 +1812,20 @@ fn is_string_type(target: &str, shape: Option<&Value>) -> bool {
             == Some("string")
 }
 
-fn render_structure(output: &mut String, shape: &Value, name: &str, context: Context) {
-    render_structure_at_indent(output, shape, name, context.clone(), 4);
-    render_type_builder(output, shape, name, context);
+fn render_structure(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: &Value,
+    name: &str,
+    context: Context,
+) {
+    render_structure_at_indent(output, selected, shape, name, context.clone(), 4);
+    render_type_builder(output, selected, shape, name, context);
 }
 
 fn render_structure_at_indent(
     output: &mut String,
+    selected: &SelectedModel,
     shape: &Value,
     name: &str,
     context: Context,
@@ -1841,7 +1843,7 @@ fn render_structure_at_indent(
     for (member_name, member) in members(shape) {
         let field = names::rust_identifier(&member_name);
         let target = member_target(member)
-            .map(|target| type_expr(target, context.clone()))
+            .map(|target| type_expr(selected, target, context.clone()))
             .unwrap_or_else(|| "::std::string::String".to_owned());
         writeln!(
             output,
@@ -1853,7 +1855,13 @@ fn render_structure_at_indent(
     writeln!(output, "{}}}", padding).unwrap();
 }
 
-fn render_type_builder(output: &mut String, shape: &Value, name: &str, context: Context) {
+fn render_type_builder(
+    output: &mut String,
+    selected: &SelectedModel,
+    shape: &Value,
+    name: &str,
+    context: Context,
+) {
     let rust_name = rust_type_name(name);
     writeln!(
         output,
@@ -1863,7 +1871,7 @@ fn render_type_builder(output: &mut String, shape: &Value, name: &str, context: 
     for (member_name, member) in members(shape) {
         let field = names::rust_identifier(&member_name);
         let target = member_target(member)
-            .map(|target| type_expr(target, context.clone()))
+            .map(|target| type_expr(selected, target, context.clone()))
             .unwrap_or_else(|| "::std::string::String".to_owned());
         let raw_target = member_target(member).unwrap_or_default();
         let field_method = &field;
@@ -1890,7 +1898,7 @@ fn render_type_builder(output: &mut String, shape: &Value, name: &str, context: 
     for (member_name, member) in members(shape) {
         let field = names::rust_identifier(&member_name);
         let target = member_target(member)
-            .map(|target| type_expr(target, context.clone()))
+            .map(|target| type_expr(selected, target, context.clone()))
             .unwrap_or_else(|| "::std::string::String".to_owned());
         writeln!(output, "        {field}: ::std::option::Option<{target}>,").unwrap();
     }
@@ -1900,7 +1908,7 @@ fn render_type_builder(output: &mut String, shape: &Value, name: &str, context: 
         let field = names::rust_identifier(&member_name);
         let field_method = field.strip_prefix("r#").unwrap_or(&field);
         let target = member_target(member)
-            .map(|target| type_expr(target, context.clone()))
+            .map(|target| type_expr(selected, target, context.clone()))
             .unwrap_or_else(|| "::std::string::String".to_owned());
         writeln!(
             output,
@@ -2052,9 +2060,35 @@ enum Context {
     Builder(String),
 }
 
-fn type_expr(target: &str, context: Context) -> String {
+fn type_expr(selected: &SelectedModel, target: &str, context: Context) -> String {
     if target.starts_with("smithy.api#") {
         return primitive_type(target.rsplit('#').next().unwrap_or("string"));
+    }
+    if let Some(shape) = selected.model.shapes.get(target) {
+        match shape.get("type").and_then(Value::as_str) {
+            Some("list") => {
+                let element = shape
+                    .get("member")
+                    .and_then(member_target)
+                    .map(|target| type_expr(selected, target, context.clone()))
+                    .unwrap_or_else(|| "::std::string::String".to_owned());
+                return format!("::std::vec::Vec<{element}>");
+            }
+            Some("map") => {
+                let key = shape
+                    .get("key")
+                    .and_then(member_target)
+                    .map(|target| type_expr(selected, target, context.clone()))
+                    .unwrap_or_else(|| "::std::string::String".to_owned());
+                let value = shape
+                    .get("value")
+                    .and_then(member_target)
+                    .map(|target| type_expr(selected, target, context.clone()))
+                    .unwrap_or_else(|| "::std::string::String".to_owned());
+                return format!("::std::collections::BTreeMap<{key}, {value}>");
+            }
+            _ => {}
+        }
     }
     let name = terminal(target);
     let known = rust_type_name(name);
@@ -2195,7 +2229,10 @@ mod tests {
         let stage = tempfile::tempdir().unwrap();
         let selections = [ServiceSelection {
             key: "s3".to_owned(),
-            operations: vec!["AbortMultipartUpload".to_owned()],
+            operations: vec![
+                "AbortMultipartUpload".to_owned(),
+                "ListObjectsV2".to_owned(),
+            ],
             all_operations: false,
         }];
 
@@ -2211,6 +2248,19 @@ mod tests {
             generated
                 .join("operation/abort_multipart_upload.rs")
                 .is_file()
+        );
+        assert!(!generated.join("types/_object_list.rs").exists());
+        assert!(
+            !fs::read_to_string(generated.join("types.rs"))
+                .unwrap()
+                .contains("types/_object_list.rs")
+        );
+        assert!(
+            fs::read_to_string(
+                generated.join("operation/list_objects_v2/_list_objects_v2_output.rs")
+            )
+            .unwrap()
+            .contains("::std::vec::Vec<super::super::super::types::Object>")
         );
         assert!(generated.join("types.rs").is_file());
         assert!(!generated.join("types/_bucket_name.rs").exists());

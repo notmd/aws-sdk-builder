@@ -11,11 +11,11 @@ impl Builder {
         Self { input: super::Input::default(), client }
     }
     pub fn global_table_billing_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.input.global_table_billing_mode = Some(value.into()); self }
-    pub fn global_table_global_secondary_index_settings_update(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdateList>) -> Self { self.input.global_table_global_secondary_index_settings_update = Some(value.into()); self }
+    pub fn global_table_global_secondary_index_settings_update(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalTableGlobalSecondaryIndexSettingsUpdate>>) -> Self { self.input.global_table_global_secondary_index_settings_update = Some(value.into()); self }
     pub fn global_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.global_table_name = Some(value.into()); self }
     pub fn global_table_provisioned_write_capacity_auto_scaling_settings_update(mut self, value: impl ::std::convert::Into<super::super::super::types::AutoScalingSettingsUpdate>) -> Self { self.input.global_table_provisioned_write_capacity_auto_scaling_settings_update = Some(value.into()); self }
     pub fn global_table_provisioned_write_capacity_units(mut self, value: impl ::std::convert::Into<super::super::super::types::PositiveLongObject>) -> Self { self.input.global_table_provisioned_write_capacity_units = Some(value.into()); self }
-    pub fn replica_settings_update(mut self, value: impl ::std::convert::Into<super::super::super::types::ReplicaSettingsUpdateList>) -> Self { self.input.replica_settings_update = Some(value.into()); self }
+    pub fn replica_settings_update(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaSettingsUpdate>>) -> Self { self.input.replica_settings_update = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UpdateGlobalTableSettingsOutput, super::UpdateGlobalTableSettingsError> {

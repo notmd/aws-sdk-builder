@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct SearchResultItem {
-        pub item: ::std::option::Option<self::AttributeMap>,
+        pub item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
         pub score: ::std::option::Option<self::ScoreNumber>,
     }
     impl SearchResultItem {
         pub fn builder() -> SearchResultItemBuilder { SearchResultItemBuilder::default() }
-        pub fn item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
+        pub fn item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
         pub fn score(&self) -> &::std::option::Option<self::ScoreNumber> { &self.score }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct SearchResultItemBuilder {
-        item: ::std::option::Option<self::AttributeMap>,
+        item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
         score: ::std::option::Option<self::ScoreNumber>,
     }
 
     impl SearchResultItemBuilder {
-        pub fn item(mut self, input: impl ::std::convert::Into<self::AttributeMap>) -> Self { self.item = Some(input.into()); self }
-        pub fn set_item(mut self, input: ::std::option::Option<self::AttributeMap>) -> Self { self.item = input; self }
-        pub fn get_item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
+        pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
+        pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = input; self }
+        pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
         pub fn score(mut self, input: impl ::std::convert::Into<self::ScoreNumber>) -> Self { self.score = Some(input.into()); self }
         pub fn set_score(mut self, input: ::std::option::Option<self::ScoreNumber>) -> Self { self.score = input; self }
         pub fn get_score(&self) -> &::std::option::Option<self::ScoreNumber> { &self.score }

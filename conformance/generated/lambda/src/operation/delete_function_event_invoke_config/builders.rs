@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteFunctionEventInvokeConfigError::Unhandled(format!("DeleteFunctionEventInvokeConfig returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteFunctionEventInvokeConfigOutput::default())
+                         Ok(super::DeleteFunctionEventInvokeConfigOutput)
                      }
 }
 pub use Builder as DeleteFunctionEventInvokeConfigFluentBuilder;

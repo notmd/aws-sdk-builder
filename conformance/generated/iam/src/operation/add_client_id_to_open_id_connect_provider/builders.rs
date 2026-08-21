@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::AddClientIdToOpenIdConnectProviderError::Unhandled(format!("AddClientIdToOpenIdConnectProvider returned HTTP {}", status)));
                          }
-                         Ok(super::AddClientIdToOpenIdConnectProviderOutput::default())
+                         Ok(super::AddClientIdToOpenIdConnectProviderOutput)
                      }
 }
 pub use Builder as AddClientIdToOpenIdConnectProviderFluentBuilder;

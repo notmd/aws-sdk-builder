@@ -11,7 +11,7 @@ impl Builder {
         Self { input: super::Input::default(), client }
     }
     pub fn instance_profile_name(mut self, value: impl ::std::convert::Into<super::super::super::types::InstanceProfileNameType>) -> Self { self.input.instance_profile_name = Some(value.into()); self }
-    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.input.tag_keys = Some(value.into()); self }
+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.input.tag_keys = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UntagInstanceProfileOutput, super::UntagInstanceProfileError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UntagInstanceProfileError::Unhandled(format!("UntagInstanceProfile returned HTTP {}", status)));
                          }
-                         Ok(super::UntagInstanceProfileOutput::default())
+                         Ok(super::UntagInstanceProfileOutput)
                      }
 }
 pub use Builder as UntagInstanceProfileFluentBuilder;

@@ -3,27 +3,27 @@
     #[derive(Clone, Debug, Default)]
     pub struct DeletionTaskFailureReasonType {
         pub reason: ::std::option::Option<self::ReasonType>,
-        pub role_usage_list: ::std::option::Option<self::RoleUsageListType>,
+        pub role_usage_list: ::std::option::Option<::std::vec::Vec<self::RoleUsageType>>,
     }
     impl DeletionTaskFailureReasonType {
         pub fn builder() -> DeletionTaskFailureReasonTypeBuilder { DeletionTaskFailureReasonTypeBuilder::default() }
         pub fn reason(&self) -> &::std::option::Option<self::ReasonType> { &self.reason }
-        pub fn role_usage_list(&self) -> &::std::option::Option<self::RoleUsageListType> { &self.role_usage_list }
+        pub fn role_usage_list(&self) -> &::std::option::Option<::std::vec::Vec<self::RoleUsageType>> { &self.role_usage_list }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct DeletionTaskFailureReasonTypeBuilder {
         reason: ::std::option::Option<self::ReasonType>,
-        role_usage_list: ::std::option::Option<self::RoleUsageListType>,
+        role_usage_list: ::std::option::Option<::std::vec::Vec<self::RoleUsageType>>,
     }
 
     impl DeletionTaskFailureReasonTypeBuilder {
         pub fn reason(mut self, input: impl ::std::convert::Into<self::ReasonType>) -> Self { self.reason = Some(input.into()); self }
         pub fn set_reason(mut self, input: ::std::option::Option<self::ReasonType>) -> Self { self.reason = input; self }
         pub fn get_reason(&self) -> &::std::option::Option<self::ReasonType> { &self.reason }
-        pub fn role_usage_list(mut self, input: impl ::std::convert::Into<self::RoleUsageListType>) -> Self { self.role_usage_list = Some(input.into()); self }
-        pub fn set_role_usage_list(mut self, input: ::std::option::Option<self::RoleUsageListType>) -> Self { self.role_usage_list = input; self }
-        pub fn get_role_usage_list(&self) -> &::std::option::Option<self::RoleUsageListType> { &self.role_usage_list }
+        pub fn role_usage_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::RoleUsageType>>) -> Self { self.role_usage_list = Some(input.into()); self }
+        pub fn set_role_usage_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::RoleUsageType>>) -> Self { self.role_usage_list = input; self }
+        pub fn get_role_usage_list(&self) -> &::std::option::Option<::std::vec::Vec<self::RoleUsageType>> { &self.role_usage_list }
         pub fn build(self) -> DeletionTaskFailureReasonType {
             DeletionTaskFailureReasonType {
                 reason: self.reason,

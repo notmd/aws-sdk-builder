@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sqs
-**Progress:** `323/323` files compared · `2` matched · `164` mismatches · `133` missing · `24` extra · `0.62%` match (100.00% means fully matched)
+**Progress:** `300/300` files compared · `2` matched · `164` mismatches · `133` missing · `1` extra · `0.67%` match (100.00% means fully matched)
 
 ### `src/client/add_permission.rs`
 
@@ -2986,8 +2986,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn actions(&self) -> &[::std::string::String] {
 -        self.actions.as_deref().unwrap_or_default()
 -    }
-+    pub aws_account_ids: ::std::option::Option<super::super::super::types::AwsAccountIdList>,
-+    pub actions: ::std::option::Option<super::super::super::types::ActionNameList>,
++    pub aws_account_ids: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
++    pub actions: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
 +    pub label: ::std::option::Option<super::super::super::types::String>,
 +    pub queue_url: ::std::option::Option<super::super::super::types::String>,
  }
@@ -3014,8 +3014,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) label: ::std::option::Option<::std::string::String>,
 -    pub(crate) aws_account_ids: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) actions: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-+    aws_account_ids: ::std::option::Option<super::super::super::types::AwsAccountIdList>,
-+    actions: ::std::option::Option<super::super::super::types::ActionNameList>,
++    aws_account_ids: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
++    actions: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
 +    label: ::std::option::Option<super::super::super::types::String>,
 +    queue_url: ::std::option::Option<super::super::super::types::String>,
  }
@@ -3110,12 +3110,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            actions: self.actions,
 -        })
 -    }
-+    pub fn aws_account_ids(mut self, input: impl ::std::convert::Into<super::super::super::types::AwsAccountIdList>) -> Self { self.aws_account_ids = Some(input.into()); self }
-+    pub fn set_aws_account_ids(mut self, input: ::std::option::Option<super::super::super::types::AwsAccountIdList>) -> Self { self.aws_account_ids = input; self }
-+    pub fn get_aws_account_ids(&self) -> &::std::option::Option<super::super::super::types::AwsAccountIdList> { &self.aws_account_ids }
-+    pub fn actions(mut self, input: impl ::std::convert::Into<super::super::super::types::ActionNameList>) -> Self { self.actions = Some(input.into()); self }
-+    pub fn set_actions(mut self, input: ::std::option::Option<super::super::super::types::ActionNameList>) -> Self { self.actions = input; self }
-+    pub fn get_actions(&self) -> &::std::option::Option<super::super::super::types::ActionNameList> { &self.actions }
++    pub fn aws_account_ids(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.aws_account_ids = Some(input.into()); self }
++    pub fn set_aws_account_ids(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.aws_account_ids = input; self }
++    pub fn get_aws_account_ids(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::String>> { &self.aws_account_ids }
++    pub fn actions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.actions = Some(input.into()); self }
++    pub fn set_actions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.actions = input; self }
++    pub fn get_actions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::String>> { &self.actions }
 +    pub fn label(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.label = Some(input.into()); self }
 +    pub fn set_label(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.label = input; self }
 +    pub fn get_label(&self) -> &::std::option::Option<super::super::super::types::String> { &self.label }
@@ -3398,8 +3398,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn aws_account_ids(mut self, value: impl ::std::convert::Into<super::super::super::types::AwsAccountIdList>) -> Self { self.input.aws_account_ids = Some(value.into()); self }
-+    pub fn actions(mut self, value: impl ::std::convert::Into<super::super::super::types::ActionNameList>) -> Self { self.input.actions = Some(value.into()); self }
++    pub fn aws_account_ids(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.input.aws_account_ids = Some(value.into()); self }
++    pub fn actions(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.input.actions = Some(value.into()); self }
 +    pub fn label(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.label = Some(value.into()); self }
 +    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
@@ -3413,7 +3413,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::AddPermissionError::Unhandled(format!("AddPermission returned HTTP {}", status)));
 +                         }
-+                         Ok(super::AddPermissionOutput::default())
++                         Ok(super::AddPermissionOutput)
 +                     }
  }
 +pub use Builder as AddPermissionFluentBuilder;
@@ -5201,7 +5201,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::ChangeMessageVisibilityError::Unhandled(format!("ChangeMessageVisibility returned HTTP {}", status)));
 +                         }
-+                         Ok(super::ChangeMessageVisibilityOutput::default())
++                         Ok(super::ChangeMessageVisibilityOutput)
 +                     }
  }
 +pub use Builder as ChangeMessageVisibilityFluentBuilder;
@@ -5777,7 +5777,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub queue_url: ::std::option::Option<::std::string::String>,
 -    /// <p>Lists the receipt handles of the messages for which the visibility timeout must be changed.</p>
 -    pub entries: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>>,
-+    pub entries: ::std::option::Option<super::super::super::types::ChangeMessageVisibilityBatchRequestEntryList>,
++    pub entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>,
 +    pub queue_url: ::std::option::Option<super::super::super::types::String>,
  }
 +        impl ChangeMessageVisibilityBatchInput {
@@ -5812,7 +5812,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ChangeMessageVisibilityBatchInputBuilder {
 -    pub(crate) queue_url: ::std::option::Option<::std::string::String>,
 -    pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>>,
-+    entries: ::std::option::Option<super::super::super::types::ChangeMessageVisibilityBatchRequestEntryList>,
++    entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>,
 +    queue_url: ::std::option::Option<super::super::super::types::String>,
  }
  impl ChangeMessageVisibilityBatchInputBuilder {
@@ -5866,9 +5866,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            entries: self.entries,
 -        })
 -    }
-+    pub fn entries(mut self, input: impl ::std::convert::Into<super::super::super::types::ChangeMessageVisibilityBatchRequestEntryList>) -> Self { self.entries = Some(input.into()); self }
-+    pub fn set_entries(mut self, input: ::std::option::Option<super::super::super::types::ChangeMessageVisibilityBatchRequestEntryList>) -> Self { self.entries = input; self }
-+    pub fn get_entries(&self) -> &::std::option::Option<super::super::super::types::ChangeMessageVisibilityBatchRequestEntryList> { &self.entries }
++    pub fn entries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self { self.entries = Some(input.into()); self }
++    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self { self.entries = input; self }
++    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>> { &self.entries }
 +    pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
 +    pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
 +    pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }
@@ -5915,8 +5915,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub failed: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>,
-+    pub successful: ::std::option::Option<super::super::super::types::ChangeMessageVisibilityBatchResultEntryList>,
++    pub failed: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>,
++    pub successful: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchResultEntry>>,
  }
 +        impl ChangeMessageVisibilityBatchOutput {
 +            pub fn failed(&self) -> &[super::super::super::types::BatchResultErrorEntry] { self.failed.as_deref().unwrap_or(&[]) }
@@ -5938,8 +5938,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) successful: ::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchResultEntry>>,
 -    pub(crate) failed: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
 -    _request_id: Option<String>,
-+    failed: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>,
-+    successful: ::std::option::Option<super::super::super::types::ChangeMessageVisibilityBatchResultEntryList>,
++    failed: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>,
++    successful: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchResultEntry>>,
  }
  impl ChangeMessageVisibilityBatchOutputBuilder {
 -    /// Appends an item to `successful`.
@@ -6017,12 +6017,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        })
 -    }
-+    pub fn failed(mut self, input: impl ::std::convert::Into<super::super::super::types::BatchResultErrorEntryList>) -> Self { self.failed = Some(input.into()); self }
-+    pub fn set_failed(mut self, input: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>) -> Self { self.failed = input; self }
-+    pub fn get_failed(&self) -> &::std::option::Option<super::super::super::types::BatchResultErrorEntryList> { &self.failed }
-+    pub fn successful(mut self, input: impl ::std::convert::Into<super::super::super::types::ChangeMessageVisibilityBatchResultEntryList>) -> Self { self.successful = Some(input.into()); self }
-+    pub fn set_successful(mut self, input: ::std::option::Option<super::super::super::types::ChangeMessageVisibilityBatchResultEntryList>) -> Self { self.successful = input; self }
-+    pub fn get_successful(&self) -> &::std::option::Option<super::super::super::types::ChangeMessageVisibilityBatchResultEntryList> { &self.successful }
++    pub fn failed(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>) -> Self { self.failed = Some(input.into()); self }
++    pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>) -> Self { self.failed = input; self }
++    pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>> { &self.failed }
++    pub fn successful(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchResultEntry>>) -> Self { self.successful = Some(input.into()); self }
++    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchResultEntry>>) -> Self { self.successful = input; self }
++    pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchResultEntry>> { &self.successful }
 +    pub fn build(self) -> ChangeMessageVisibilityBatchOutput { ChangeMessageVisibilityBatchOutput {
 +        failed: self.failed,
 +        successful: self.successful,
@@ -6193,7 +6193,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::ChangeMessageVisibilityBatchRequestEntry>> {
 -        self.inner.get_entries()
 -    }
-+    pub fn entries(mut self, value: impl ::std::convert::Into<super::super::super::types::ChangeMessageVisibilityBatchRequestEntryList>) -> Self { self.input.entries = Some(value.into()); self }
++    pub fn entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ChangeMessageVisibilityBatchRequestEntry>>) -> Self { self.input.entries = Some(value.into()); self }
 +    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -7067,14 +7067,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn tags(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
 -        self.tags.as_ref()
 -    }
-+    pub attributes: ::std::option::Option<super::super::super::types::QueueAttributeMap>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>,
 +    pub queue_name: ::std::option::Option<super::super::super::types::String>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagMap>,
++    pub tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
  }
 +        impl CreateQueueInput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::QueueAttributeMap> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>> { self.attributes.as_ref() }
 +            pub fn queue_name(&self) -> ::std::option::Option<&str> { self.queue_name.as_deref() }
-+            pub fn tags(&self) -> ::std::option::Option<&super::super::super::types::TagMap> { self.tags.as_ref() }
++            pub fn tags(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { self.tags.as_ref() }
 +        }
  impl CreateQueueInput {
 -    /// Creates a new builder-style object to manufacture [`CreateQueueInput`](crate::operation::create_queue::CreateQueueInput).
@@ -7092,9 +7092,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) queue_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>,
 -    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-+    attributes: ::std::option::Option<super::super::super::types::QueueAttributeMap>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>,
 +    queue_name: ::std::option::Option<super::super::super::types::String>,
-+    tags: ::std::option::Option<super::super::super::types::TagMap>,
++    tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
  }
  impl CreateQueueInputBuilder {
 -    /// <p>The name of the new queue. The following limits apply to this name:</p>
@@ -7520,15 +7520,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            tags: self.tags,
 -        })
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::QueueAttributeMap>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::QueueAttributeMap>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::QueueAttributeMap> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>> { &self.attributes }
 +    pub fn queue_name(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_name = Some(input.into()); self }
 +    pub fn set_queue_name(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_name = input; self }
 +    pub fn get_queue_name(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_name }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagMap>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagMap>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagMap> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { &self.tags }
 +    pub fn build(self) -> CreateQueueInput { CreateQueueInput {
 +        attributes: self.attributes,
 +        queue_name: self.queue_name,
@@ -7713,9 +7713,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::QueueAttributeMap>) -> Self { self.input.attributes = Some(value.into()); self }
++    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>) -> Self { self.input.attributes = Some(value.into()); self }
 +    pub fn queue_name(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_name = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagMap>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::CreateQueueOutput, super::CreateQueueError> {
@@ -9004,7 +9004,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteMessageError::Unhandled(format!("DeleteMessage returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteMessageOutput::default())
++                         Ok(super::DeleteMessageOutput)
 +                     }
  }
 -impl DeleteMessageFluentBuilder {
@@ -9682,7 +9682,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn entries(&self) -> &[crate::types::DeleteMessageBatchRequestEntry] {
 -        self.entries.as_deref().unwrap_or_default()
 -    }
-+    pub entries: ::std::option::Option<super::super::super::types::DeleteMessageBatchRequestEntryList>,
++    pub entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchRequestEntry>>,
 +    pub queue_url: ::std::option::Option<super::super::super::types::String>,
  }
 +        impl DeleteMessageBatchInput {
@@ -9704,7 +9704,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct DeleteMessageBatchInputBuilder {
 -    pub(crate) queue_url: ::std::option::Option<::std::string::String>,
 -    pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>>,
-+    entries: ::std::option::Option<super::super::super::types::DeleteMessageBatchRequestEntryList>,
++    entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchRequestEntry>>,
 +    queue_url: ::std::option::Option<super::super::super::types::String>,
  }
  impl DeleteMessageBatchInputBuilder {
@@ -9756,9 +9756,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            entries: self.entries,
 -        })
 -    }
-+    pub fn entries(mut self, input: impl ::std::convert::Into<super::super::super::types::DeleteMessageBatchRequestEntryList>) -> Self { self.entries = Some(input.into()); self }
-+    pub fn set_entries(mut self, input: ::std::option::Option<super::super::super::types::DeleteMessageBatchRequestEntryList>) -> Self { self.entries = input; self }
-+    pub fn get_entries(&self) -> &::std::option::Option<super::super::super::types::DeleteMessageBatchRequestEntryList> { &self.entries }
++    pub fn entries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DeleteMessageBatchRequestEntry>>) -> Self { self.entries = Some(input.into()); self }
++    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchRequestEntry>>) -> Self { self.entries = input; self }
++    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchRequestEntry>> { &self.entries }
 +    pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
 +    pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
 +    pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }
@@ -9788,8 +9788,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A list of <code> <code>BatchResultErrorEntry</code> </code> items.</p>
 -    pub failed: ::std::vec::Vec<crate::types::BatchResultErrorEntry>,
 -    _request_id: Option<String>,
-+    pub failed: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>,
-+    pub successful: ::std::option::Option<super::super::super::types::DeleteMessageBatchResultEntryList>,
++    pub failed: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>,
++    pub successful: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchResultEntry>>,
  }
 +        impl DeleteMessageBatchOutput {
 +            pub fn failed(&self) -> &[super::super::super::types::BatchResultErrorEntry] { self.failed.as_deref().unwrap_or(&[]) }
@@ -9828,8 +9828,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) successful: ::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchResultEntry>>,
 -    pub(crate) failed: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
 -    _request_id: Option<String>,
-+    failed: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>,
-+    successful: ::std::option::Option<super::super::super::types::DeleteMessageBatchResultEntryList>,
++    failed: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>,
++    successful: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchResultEntry>>,
  }
  impl DeleteMessageBatchOutputBuilder {
 -    /// Appends an item to `successful`.
@@ -9905,12 +9905,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        })
 -    }
-+    pub fn failed(mut self, input: impl ::std::convert::Into<super::super::super::types::BatchResultErrorEntryList>) -> Self { self.failed = Some(input.into()); self }
-+    pub fn set_failed(mut self, input: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>) -> Self { self.failed = input; self }
-+    pub fn get_failed(&self) -> &::std::option::Option<super::super::super::types::BatchResultErrorEntryList> { &self.failed }
-+    pub fn successful(mut self, input: impl ::std::convert::Into<super::super::super::types::DeleteMessageBatchResultEntryList>) -> Self { self.successful = Some(input.into()); self }
-+    pub fn set_successful(mut self, input: ::std::option::Option<super::super::super::types::DeleteMessageBatchResultEntryList>) -> Self { self.successful = input; self }
-+    pub fn get_successful(&self) -> &::std::option::Option<super::super::super::types::DeleteMessageBatchResultEntryList> { &self.successful }
++    pub fn failed(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>) -> Self { self.failed = Some(input.into()); self }
++    pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>) -> Self { self.failed = input; self }
++    pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>> { &self.failed }
++    pub fn successful(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DeleteMessageBatchResultEntry>>) -> Self { self.successful = Some(input.into()); self }
++    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchResultEntry>>) -> Self { self.successful = input; self }
++    pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchResultEntry>> { &self.successful }
 +    pub fn build(self) -> DeleteMessageBatchOutput { DeleteMessageBatchOutput {
 +        failed: self.failed,
 +        successful: self.successful,
@@ -10081,7 +10081,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>> {
 -        self.inner.get_entries()
 -    }
-+    pub fn entries(mut self, value: impl ::std::convert::Into<super::super::super::types::DeleteMessageBatchRequestEntryList>) -> Self { self.input.entries = Some(value.into()); self }
++    pub fn entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DeleteMessageBatchRequestEntry>>) -> Self { self.input.entries = Some(value.into()); self }
 +    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -10970,7 +10970,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteQueueError::Unhandled(format!("DeleteQueue returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteQueueOutput::default())
++                         Ok(super::DeleteQueueOutput)
 +                     }
  }
 +pub use Builder as DeleteQueueFluentBuilder;
@@ -11607,7 +11607,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
 -    /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
 -    pub attribute_names: ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>,
-+    pub attribute_names: ::std::option::Option<super::super::super::types::AttributeNameList>,
++    pub attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>>,
 +    pub queue_url: ::std::option::Option<super::super::super::types::String>,
  }
 +        impl GetQueueAttributesInput {
@@ -11739,7 +11739,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetQueueAttributesInputBuilder {
 -    pub(crate) queue_url: ::std::option::Option<::std::string::String>,
 -    pub(crate) attribute_names: ::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>>,
-+    attribute_names: ::std::option::Option<super::super::super::types::AttributeNameList>,
++    attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>>,
 +    queue_url: ::std::option::Option<super::super::super::types::String>,
  }
  impl GetQueueAttributesInputBuilder {
@@ -12082,9 +12082,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            attribute_names: self.attribute_names,
 -        })
 -    }
-+    pub fn attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.attribute_names = Some(input.into()); self }
-+    pub fn set_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::AttributeNameList>) -> Self { self.attribute_names = input; self }
-+    pub fn get_attribute_names(&self) -> &::std::option::Option<super::super::super::types::AttributeNameList> { &self.attribute_names }
++    pub fn attribute_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::QueueAttributeName>>) -> Self { self.attribute_names = Some(input.into()); self }
++    pub fn set_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>>) -> Self { self.attribute_names = input; self }
++    pub fn get_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>> { &self.attribute_names }
 +    pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
 +    pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
 +    pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }
@@ -12123,10 +12123,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub attributes: ::std::option::Option<super::super::super::types::QueueAttributeMap>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>,
  }
 +        impl GetQueueAttributesOutput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::QueueAttributeMap> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>> { self.attributes.as_ref() }
 +        }
  impl GetQueueAttributesOutput {
 -    /// Creates a new builder-style object to manufacture [`GetQueueAttributesOutput`](crate::operation::get_queue_attributes::GetQueueAttributesOutput).
@@ -12143,7 +12143,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetQueueAttributesOutputBuilder {
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    attributes: ::std::option::Option<super::super::super::types::QueueAttributeMap>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>,
  }
  impl GetQueueAttributesOutputBuilder {
 -    /// Adds a key-value pair to `attributes`.
@@ -12185,9 +12185,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::QueueAttributeMap>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::QueueAttributeMap>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::QueueAttributeMap> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>> { &self.attributes }
 +    pub fn build(self) -> GetQueueAttributesOutput { GetQueueAttributesOutput {
 +        attributes: self.attributes,
 +    } }
@@ -12648,7 +12648,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::QueueAttributeName>> {
 -        self.inner.get_attribute_names()
 -    }
-+    pub fn attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.input.attribute_names = Some(value.into()); self }
++    pub fn attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::QueueAttributeName>>) -> Self { self.input.attribute_names = Some(value.into()); self }
 +    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -14260,7 +14260,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self._request_id.as_deref()
 -    }
 +    pub next_token: ::std::option::Option<super::super::super::types::Token>,
-+    pub queue_urls: ::std::option::Option<super::super::super::types::QueueUrlList>,
++    pub queue_urls: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
  }
 +        impl ListDeadLetterSourceQueuesOutput {
 +            pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -14283,7 +14283,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
 +    next_token: ::std::option::Option<super::super::super::types::Token>,
-+    queue_urls: ::std::option::Option<super::super::super::types::QueueUrlList>,
++    queue_urls: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
  }
  impl ListDeadLetterSourceQueuesOutputBuilder {
 -    /// Appends an item to `queue_urls`.
@@ -14352,9 +14352,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::Token>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::Token>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::Token> { &self.next_token }
-+    pub fn queue_urls(mut self, input: impl ::std::convert::Into<super::super::super::types::QueueUrlList>) -> Self { self.queue_urls = Some(input.into()); self }
-+    pub fn set_queue_urls(mut self, input: ::std::option::Option<super::super::super::types::QueueUrlList>) -> Self { self.queue_urls = input; self }
-+    pub fn get_queue_urls(&self) -> &::std::option::Option<super::super::super::types::QueueUrlList> { &self.queue_urls }
++    pub fn queue_urls(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.queue_urls = Some(input.into()); self }
++    pub fn set_queue_urls(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.queue_urls = input; self }
++    pub fn get_queue_urls(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::String>> { &self.queue_urls }
 +    pub fn build(self) -> ListDeadLetterSourceQueuesOutput { ListDeadLetterSourceQueuesOutput {
 +        next_token: self.next_token,
 +        queue_urls: self.queue_urls,
@@ -15228,7 +15228,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub results: ::std::option::Option<super::super::super::types::ListMessageMoveTasksResultEntryList>,
++    pub results: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListMessageMoveTasksResultEntry>>,
  }
 +        impl ListMessageMoveTasksOutput {
 +            pub fn results(&self) -> &[super::super::super::types::ListMessageMoveTasksResultEntry] { self.results.as_deref().unwrap_or(&[]) }
@@ -15248,7 +15248,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListMessageMoveTasksOutputBuilder {
 -    pub(crate) results: ::std::option::Option<::std::vec::Vec<crate::types::ListMessageMoveTasksResultEntry>>,
 -    _request_id: Option<String>,
-+    results: ::std::option::Option<super::super::super::types::ListMessageMoveTasksResultEntryList>,
++    results: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListMessageMoveTasksResultEntry>>,
  }
  impl ListMessageMoveTasksOutputBuilder {
 -    /// Appends an item to `results`.
@@ -15287,9 +15287,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn results(mut self, input: impl ::std::convert::Into<super::super::super::types::ListMessageMoveTasksResultEntryList>) -> Self { self.results = Some(input.into()); self }
-+    pub fn set_results(mut self, input: ::std::option::Option<super::super::super::types::ListMessageMoveTasksResultEntryList>) -> Self { self.results = input; self }
-+    pub fn get_results(&self) -> &::std::option::Option<super::super::super::types::ListMessageMoveTasksResultEntryList> { &self.results }
++    pub fn results(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ListMessageMoveTasksResultEntry>>) -> Self { self.results = Some(input.into()); self }
++    pub fn set_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListMessageMoveTasksResultEntry>>) -> Self { self.results = input; self }
++    pub fn get_results(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ListMessageMoveTasksResultEntry>> { &self.results }
 +    pub fn build(self) -> ListMessageMoveTasksOutput { ListMessageMoveTasksOutput {
 +        results: self.results,
 +    } }
@@ -16099,10 +16099,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The list of all tags added to the specified queue.</p>
 -    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagMap>,
++    pub tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
  }
 +        impl ListQueueTagsOutput {
-+            pub fn tags(&self) -> ::std::option::Option<&super::super::super::types::TagMap> { self.tags.as_ref() }
++            pub fn tags(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { self.tags.as_ref() }
 +        }
  impl ListQueueTagsOutput {
 -    /// <p>The list of all tags added to the specified queue.</p>
@@ -16130,7 +16130,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListQueueTagsOutputBuilder {
 -    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    tags: ::std::option::Option<super::super::super::types::TagMap>,
++    tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
  }
  impl ListQueueTagsOutputBuilder {
 -    /// Adds a key-value pair to `tags`.
@@ -16169,9 +16169,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagMap>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagMap>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagMap> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { &self.tags }
 +    pub fn build(self) -> ListQueueTagsOutput { ListQueueTagsOutput {
 +        tags: self.tags,
 +    } }
@@ -17025,7 +17025,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self._request_id.as_deref()
 -    }
 +    pub next_token: ::std::option::Option<super::super::super::types::Token>,
-+    pub queue_urls: ::std::option::Option<super::super::super::types::QueueUrlList>,
++    pub queue_urls: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
  }
 +        impl ListQueuesOutput {
 +            pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -17048,7 +17048,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
 +    next_token: ::std::option::Option<super::super::super::types::Token>,
-+    queue_urls: ::std::option::Option<super::super::super::types::QueueUrlList>,
++    queue_urls: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
  }
  impl ListQueuesOutputBuilder {
 -    /// Appends an item to `queue_urls`.
@@ -17105,9 +17105,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::Token>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::Token>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::Token> { &self.next_token }
-+    pub fn queue_urls(mut self, input: impl ::std::convert::Into<super::super::super::types::QueueUrlList>) -> Self { self.queue_urls = Some(input.into()); self }
-+    pub fn set_queue_urls(mut self, input: ::std::option::Option<super::super::super::types::QueueUrlList>) -> Self { self.queue_urls = input; self }
-+    pub fn get_queue_urls(&self) -> &::std::option::Option<super::super::super::types::QueueUrlList> { &self.queue_urls }
++    pub fn queue_urls(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.queue_urls = Some(input.into()); self }
++    pub fn set_queue_urls(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.queue_urls = input; self }
++    pub fn get_queue_urls(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::String>> { &self.queue_urls }
 +    pub fn build(self) -> ListQueuesOutput { ListQueuesOutput {
 +        next_token: self.next_token,
 +        queue_urls: self.queue_urls,
@@ -18115,7 +18115,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::PurgeQueueError::Unhandled(format!("PurgeQueue returned HTTP {}", status)));
 +                         }
-+                         Ok(super::PurgeQueueOutput::default())
++                         Ok(super::PurgeQueueOutput)
 +                     }
  }
 +pub use Builder as PurgeQueueFluentBuilder;
@@ -18933,10 +18933,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn receive_request_attempt_id(&self) -> ::std::option::Option<&str> {
 -        self.receive_request_attempt_id.as_deref()
 -    }
-+    pub attribute_names: ::std::option::Option<super::super::super::types::AttributeNameList>,
++    pub attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>>,
 +    pub max_number_of_messages: ::std::option::Option<super::super::super::types::NullableInteger>,
-+    pub message_attribute_names: ::std::option::Option<super::super::super::types::MessageAttributeNameList>,
-+    pub message_system_attribute_names: ::std::option::Option<super::super::super::types::MessageSystemAttributeList>,
++    pub message_attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::MessageAttributeName>>,
++    pub message_system_attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>>,
 +    pub queue_url: ::std::option::Option<super::super::super::types::String>,
 +    pub receive_request_attempt_id: ::std::option::Option<super::super::super::types::String>,
 +    pub visibility_timeout: ::std::option::Option<super::super::super::types::NullableInteger>,
@@ -18973,10 +18973,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) visibility_timeout: ::std::option::Option<i32>,
 -    pub(crate) wait_time_seconds: ::std::option::Option<i32>,
 -    pub(crate) receive_request_attempt_id: ::std::option::Option<::std::string::String>,
-+    attribute_names: ::std::option::Option<super::super::super::types::AttributeNameList>,
++    attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>>,
 +    max_number_of_messages: ::std::option::Option<super::super::super::types::NullableInteger>,
-+    message_attribute_names: ::std::option::Option<super::super::super::types::MessageAttributeNameList>,
-+    message_system_attribute_names: ::std::option::Option<super::super::super::types::MessageSystemAttributeList>,
++    message_attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::MessageAttributeName>>,
++    message_system_attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>>,
 +    queue_url: ::std::option::Option<super::super::super::types::String>,
 +    receive_request_attempt_id: ::std::option::Option<super::super::super::types::String>,
 +    visibility_timeout: ::std::option::Option<super::super::super::types::NullableInteger>,
@@ -19456,18 +19456,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            receive_request_attempt_id: self.receive_request_attempt_id,
 -        })
 -    }
-+    pub fn attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.attribute_names = Some(input.into()); self }
-+    pub fn set_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::AttributeNameList>) -> Self { self.attribute_names = input; self }
-+    pub fn get_attribute_names(&self) -> &::std::option::Option<super::super::super::types::AttributeNameList> { &self.attribute_names }
++    pub fn attribute_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::QueueAttributeName>>) -> Self { self.attribute_names = Some(input.into()); self }
++    pub fn set_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>>) -> Self { self.attribute_names = input; self }
++    pub fn get_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>> { &self.attribute_names }
 +    pub fn max_number_of_messages(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.max_number_of_messages = Some(input.into()); self }
 +    pub fn set_max_number_of_messages(mut self, input: ::std::option::Option<super::super::super::types::NullableInteger>) -> Self { self.max_number_of_messages = input; self }
 +    pub fn get_max_number_of_messages(&self) -> &::std::option::Option<super::super::super::types::NullableInteger> { &self.max_number_of_messages }
-+    pub fn message_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::MessageAttributeNameList>) -> Self { self.message_attribute_names = Some(input.into()); self }
-+    pub fn set_message_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::MessageAttributeNameList>) -> Self { self.message_attribute_names = input; self }
-+    pub fn get_message_attribute_names(&self) -> &::std::option::Option<super::super::super::types::MessageAttributeNameList> { &self.message_attribute_names }
-+    pub fn message_system_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::MessageSystemAttributeList>) -> Self { self.message_system_attribute_names = Some(input.into()); self }
-+    pub fn set_message_system_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::MessageSystemAttributeList>) -> Self { self.message_system_attribute_names = input; self }
-+    pub fn get_message_system_attribute_names(&self) -> &::std::option::Option<super::super::super::types::MessageSystemAttributeList> { &self.message_system_attribute_names }
++    pub fn message_attribute_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::MessageAttributeName>>) -> Self { self.message_attribute_names = Some(input.into()); self }
++    pub fn set_message_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MessageAttributeName>>) -> Self { self.message_attribute_names = input; self }
++    pub fn get_message_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MessageAttributeName>> { &self.message_attribute_names }
++    pub fn message_system_attribute_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>>) -> Self { self.message_system_attribute_names = Some(input.into()); self }
++    pub fn set_message_system_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>>) -> Self { self.message_system_attribute_names = input; self }
++    pub fn get_message_system_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>> { &self.message_system_attribute_names }
 +    pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
 +    pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
 +    pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }
@@ -19523,7 +19523,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub messages: ::std::option::Option<super::super::super::types::MessageList>,
++    pub messages: ::std::option::Option<::std::vec::Vec<super::super::super::types::Message>>,
  }
 +        impl ReceiveMessageOutput {
 +            pub fn messages(&self) -> &[super::super::super::types::Message] { self.messages.as_deref().unwrap_or(&[]) }
@@ -19543,7 +19543,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ReceiveMessageOutputBuilder {
 -    pub(crate) messages: ::std::option::Option<::std::vec::Vec<crate::types::Message>>,
 -    _request_id: Option<String>,
-+    messages: ::std::option::Option<super::super::super::types::MessageList>,
++    messages: ::std::option::Option<::std::vec::Vec<super::super::super::types::Message>>,
  }
  impl ReceiveMessageOutputBuilder {
 -    /// Appends an item to `messages`.
@@ -19582,9 +19582,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn messages(mut self, input: impl ::std::convert::Into<super::super::super::types::MessageList>) -> Self { self.messages = Some(input.into()); self }
-+    pub fn set_messages(mut self, input: ::std::option::Option<super::super::super::types::MessageList>) -> Self { self.messages = input; self }
-+    pub fn get_messages(&self) -> &::std::option::Option<super::super::super::types::MessageList> { &self.messages }
++    pub fn messages(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Message>>) -> Self { self.messages = Some(input.into()); self }
++    pub fn set_messages(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Message>>) -> Self { self.messages = input; self }
++    pub fn get_messages(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Message>> { &self.messages }
 +    pub fn build(self) -> ReceiveMessageOutput { ReceiveMessageOutput {
 +        messages: self.messages,
 +    } }
@@ -20190,10 +20190,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_receive_request_attempt_id(&self) -> &::std::option::Option<::std::string::String> {
 -        self.inner.get_receive_request_attempt_id()
 -    }
-+    pub fn attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.input.attribute_names = Some(value.into()); self }
++    pub fn attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::QueueAttributeName>>) -> Self { self.input.attribute_names = Some(value.into()); self }
 +    pub fn max_number_of_messages(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.input.max_number_of_messages = Some(value.into()); self }
-+    pub fn message_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageAttributeNameList>) -> Self { self.input.message_attribute_names = Some(value.into()); self }
-+    pub fn message_system_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageSystemAttributeList>) -> Self { self.input.message_system_attribute_names = Some(value.into()); self }
++    pub fn message_attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::MessageAttributeName>>) -> Self { self.input.message_attribute_names = Some(value.into()); self }
++    pub fn message_system_attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>>) -> Self { self.input.message_system_attribute_names = Some(value.into()); self }
 +    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
 +    pub fn receive_request_attempt_id(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.receive_request_attempt_id = Some(value.into()); self }
 +    pub fn visibility_timeout(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.input.visibility_timeout = Some(value.into()); self }
@@ -21106,7 +21106,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::RemovePermissionError::Unhandled(format!("RemovePermission returned HTTP {}", status)));
 +                         }
-+                         Ok(super::RemovePermissionOutput::default())
++                         Ok(super::RemovePermissionOutput)
 +                     }
  }
 -impl RemovePermissionFluentBuilder {
@@ -21890,20 +21890,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.message_group_id.as_deref()
 -    }
 +    pub delay_seconds: ::std::option::Option<super::super::super::types::NullableInteger>,
-+    pub message_attributes: ::std::option::Option<super::super::super::types::MessageBodyAttributeMap>,
++    pub message_attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>,
 +    pub message_body: ::std::option::Option<super::super::super::types::String>,
 +    pub message_deduplication_id: ::std::option::Option<super::super::super::types::String>,
 +    pub message_group_id: ::std::option::Option<super::super::super::types::String>,
-+    pub message_system_attributes: ::std::option::Option<super::super::super::types::MessageBodySystemAttributeMap>,
++    pub message_system_attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>>,
 +    pub queue_url: ::std::option::Option<super::super::super::types::String>,
  }
 +        impl SendMessageInput {
 +            pub fn delay_seconds(&self) -> ::std::option::Option<i32> { self.delay_seconds }
-+            pub fn message_attributes(&self) -> ::std::option::Option<&super::super::super::types::MessageBodyAttributeMap> { self.message_attributes.as_ref() }
++            pub fn message_attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>> { self.message_attributes.as_ref() }
 +            pub fn message_body(&self) -> ::std::option::Option<&str> { self.message_body.as_deref() }
 +            pub fn message_deduplication_id(&self) -> ::std::option::Option<&str> { self.message_deduplication_id.as_deref() }
 +            pub fn message_group_id(&self) -> ::std::option::Option<&str> { self.message_group_id.as_deref() }
-+            pub fn message_system_attributes(&self) -> ::std::option::Option<&super::super::super::types::MessageBodySystemAttributeMap> { self.message_system_attributes.as_ref() }
++            pub fn message_system_attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>> { self.message_system_attributes.as_ref() }
 +            pub fn queue_url(&self) -> ::std::option::Option<&str> { self.queue_url.as_deref() }
 +        }
  impl SendMessageInput {
@@ -21929,11 +21929,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) message_deduplication_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) message_group_id: ::std::option::Option<::std::string::String>,
 +    delay_seconds: ::std::option::Option<super::super::super::types::NullableInteger>,
-+    message_attributes: ::std::option::Option<super::super::super::types::MessageBodyAttributeMap>,
++    message_attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>,
 +    message_body: ::std::option::Option<super::super::super::types::String>,
 +    message_deduplication_id: ::std::option::Option<super::super::super::types::String>,
 +    message_group_id: ::std::option::Option<super::super::super::types::String>,
-+    message_system_attributes: ::std::option::Option<super::super::super::types::MessageBodySystemAttributeMap>,
++    message_system_attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>>,
 +    queue_url: ::std::option::Option<super::super::super::types::String>,
  }
  impl SendMessageInputBuilder {
@@ -22229,9 +22229,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn delay_seconds(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.delay_seconds = Some(input.into()); self }
 +    pub fn set_delay_seconds(mut self, input: ::std::option::Option<super::super::super::types::NullableInteger>) -> Self { self.delay_seconds = input; self }
 +    pub fn get_delay_seconds(&self) -> &::std::option::Option<super::super::super::types::NullableInteger> { &self.delay_seconds }
-+    pub fn message_attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MessageBodyAttributeMap>) -> Self { self.message_attributes = Some(input.into()); self }
-+    pub fn set_message_attributes(mut self, input: ::std::option::Option<super::super::super::types::MessageBodyAttributeMap>) -> Self { self.message_attributes = input; self }
-+    pub fn get_message_attributes(&self) -> &::std::option::Option<super::super::super::types::MessageBodyAttributeMap> { &self.message_attributes }
++    pub fn message_attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>) -> Self { self.message_attributes = Some(input.into()); self }
++    pub fn set_message_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>) -> Self { self.message_attributes = input; self }
++    pub fn get_message_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>> { &self.message_attributes }
 +    pub fn message_body(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.message_body = Some(input.into()); self }
 +    pub fn set_message_body(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.message_body = input; self }
 +    pub fn get_message_body(&self) -> &::std::option::Option<super::super::super::types::String> { &self.message_body }
@@ -22241,9 +22241,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn message_group_id(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.message_group_id = Some(input.into()); self }
 +    pub fn set_message_group_id(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.message_group_id = input; self }
 +    pub fn get_message_group_id(&self) -> &::std::option::Option<super::super::super::types::String> { &self.message_group_id }
-+    pub fn message_system_attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MessageBodySystemAttributeMap>) -> Self { self.message_system_attributes = Some(input.into()); self }
-+    pub fn set_message_system_attributes(mut self, input: ::std::option::Option<super::super::super::types::MessageBodySystemAttributeMap>) -> Self { self.message_system_attributes = input; self }
-+    pub fn get_message_system_attributes(&self) -> &::std::option::Option<super::super::super::types::MessageBodySystemAttributeMap> { &self.message_system_attributes }
++    pub fn message_system_attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>>) -> Self { self.message_system_attributes = Some(input.into()); self }
++    pub fn set_message_system_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>>) -> Self { self.message_system_attributes = input; self }
++    pub fn get_message_system_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>> { &self.message_system_attributes }
 +    pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
 +    pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
 +    pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }
@@ -22543,11 +22543,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn delay_seconds(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.input.delay_seconds = Some(value.into()); self }
-+    pub fn message_attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageBodyAttributeMap>) -> Self { self.input.message_attributes = Some(value.into()); self }
++    pub fn message_attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>) -> Self { self.input.message_attributes = Some(value.into()); self }
 +    pub fn message_body(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.message_body = Some(value.into()); self }
 +    pub fn message_deduplication_id(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.message_deduplication_id = Some(value.into()); self }
 +    pub fn message_group_id(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.message_group_id = Some(value.into()); self }
-+    pub fn message_system_attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageBodySystemAttributeMap>) -> Self { self.input.message_system_attributes = Some(value.into()); self }
++    pub fn message_system_attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::MessageSystemAttributeNameForSends, super::super::super::types::MessageSystemAttributeValue>>) -> Self { self.input.message_system_attributes = Some(value.into()); self }
 +    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -23573,7 +23573,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn entries(&self) -> &[crate::types::SendMessageBatchRequestEntry] {
 -        self.entries.as_deref().unwrap_or_default()
 -    }
-+    pub entries: ::std::option::Option<super::super::super::types::SendMessageBatchRequestEntryList>,
++    pub entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::SendMessageBatchRequestEntry>>,
 +    pub queue_url: ::std::option::Option<super::super::super::types::String>,
  }
 +        impl SendMessageBatchInput {
@@ -23595,7 +23595,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct SendMessageBatchInputBuilder {
 -    pub(crate) queue_url: ::std::option::Option<::std::string::String>,
 -    pub(crate) entries: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>>,
-+    entries: ::std::option::Option<super::super::super::types::SendMessageBatchRequestEntryList>,
++    entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::SendMessageBatchRequestEntry>>,
 +    queue_url: ::std::option::Option<super::super::super::types::String>,
  }
  impl SendMessageBatchInputBuilder {
@@ -23646,9 +23646,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            entries: self.entries,
 -        })
 -    }
-+    pub fn entries(mut self, input: impl ::std::convert::Into<super::super::super::types::SendMessageBatchRequestEntryList>) -> Self { self.entries = Some(input.into()); self }
-+    pub fn set_entries(mut self, input: ::std::option::Option<super::super::super::types::SendMessageBatchRequestEntryList>) -> Self { self.entries = input; self }
-+    pub fn get_entries(&self) -> &::std::option::Option<super::super::super::types::SendMessageBatchRequestEntryList> { &self.entries }
++    pub fn entries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SendMessageBatchRequestEntry>>) -> Self { self.entries = Some(input.into()); self }
++    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SendMessageBatchRequestEntry>>) -> Self { self.entries = input; self }
++    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SendMessageBatchRequestEntry>> { &self.entries }
 +    pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
 +    pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
 +    pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }
@@ -23678,8 +23678,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A list of <code> <code>BatchResultErrorEntry</code> </code> items with error details about each message that can't be enqueued.</p>
 -    pub failed: ::std::vec::Vec<crate::types::BatchResultErrorEntry>,
 -    _request_id: Option<String>,
-+    pub failed: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>,
-+    pub successful: ::std::option::Option<super::super::super::types::SendMessageBatchResultEntryList>,
++    pub failed: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>,
++    pub successful: ::std::option::Option<::std::vec::Vec<super::super::super::types::SendMessageBatchResultEntry>>,
  }
 +        impl SendMessageBatchOutput {
 +            pub fn failed(&self) -> &[super::super::super::types::BatchResultErrorEntry] { self.failed.as_deref().unwrap_or(&[]) }
@@ -23718,8 +23718,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) successful: ::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchResultEntry>>,
 -    pub(crate) failed: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
 -    _request_id: Option<String>,
-+    failed: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>,
-+    successful: ::std::option::Option<super::super::super::types::SendMessageBatchResultEntryList>,
++    failed: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>,
++    successful: ::std::option::Option<::std::vec::Vec<super::super::super::types::SendMessageBatchResultEntry>>,
  }
  impl SendMessageBatchOutputBuilder {
 -    /// Appends an item to `successful`.
@@ -23794,12 +23794,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        })
 -    }
-+    pub fn failed(mut self, input: impl ::std::convert::Into<super::super::super::types::BatchResultErrorEntryList>) -> Self { self.failed = Some(input.into()); self }
-+    pub fn set_failed(mut self, input: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>) -> Self { self.failed = input; self }
-+    pub fn get_failed(&self) -> &::std::option::Option<super::super::super::types::BatchResultErrorEntryList> { &self.failed }
-+    pub fn successful(mut self, input: impl ::std::convert::Into<super::super::super::types::SendMessageBatchResultEntryList>) -> Self { self.successful = Some(input.into()); self }
-+    pub fn set_successful(mut self, input: ::std::option::Option<super::super::super::types::SendMessageBatchResultEntryList>) -> Self { self.successful = input; self }
-+    pub fn get_successful(&self) -> &::std::option::Option<super::super::super::types::SendMessageBatchResultEntryList> { &self.successful }
++    pub fn failed(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>) -> Self { self.failed = Some(input.into()); self }
++    pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>) -> Self { self.failed = input; self }
++    pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>> { &self.failed }
++    pub fn successful(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SendMessageBatchResultEntry>>) -> Self { self.successful = Some(input.into()); self }
++    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SendMessageBatchResultEntry>>) -> Self { self.successful = input; self }
++    pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SendMessageBatchResultEntry>> { &self.successful }
 +    pub fn build(self) -> SendMessageBatchOutput { SendMessageBatchOutput {
 +        failed: self.failed,
 +        successful: self.successful,
@@ -23975,7 +23975,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<crate::types::SendMessageBatchRequestEntry>> {
 -        self.inner.get_entries()
 -    }
-+    pub fn entries(mut self, value: impl ::std::convert::Into<super::super::super::types::SendMessageBatchRequestEntryList>) -> Self { self.input.entries = Some(value.into()); self }
++    pub fn entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SendMessageBatchRequestEntry>>) -> Self { self.input.entries = Some(value.into()); self }
 +    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -24798,11 +24798,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>If you set these attributes to anything other than the values shown for enabling high throughput, normal throughput is in effect and deduplication occurs as specified.</p>
 -    /// <p>For information on throughput quotas, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/quotas-messages.html">Quotas related to messages</a> in the <i>Amazon SQS Developer Guide</i>.</p>
 -    pub attributes: ::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>,
-+    pub attributes: ::std::option::Option<super::super::super::types::QueueAttributeMap>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>,
 +    pub queue_url: ::std::option::Option<super::super::super::types::String>,
  }
 +        impl SetQueueAttributesInput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::QueueAttributeMap> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>> { self.attributes.as_ref() }
 +            pub fn queue_url(&self) -> ::std::option::Option<&str> { self.queue_url.as_deref() }
 +        }
  impl SetQueueAttributesInput {
@@ -24923,7 +24923,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct SetQueueAttributesInputBuilder {
 -    pub(crate) queue_url: ::std::option::Option<::std::string::String>,
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<crate::types::QueueAttributeName, ::std::string::String>>,
-+    attributes: ::std::option::Option<super::super::super::types::QueueAttributeMap>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>,
 +    queue_url: ::std::option::Option<super::super::super::types::String>,
  }
  impl SetQueueAttributesInputBuilder {
@@ -25254,9 +25254,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            attributes: self.attributes,
 -        })
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::QueueAttributeMap>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::QueueAttributeMap>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::QueueAttributeMap> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>> { &self.attributes }
 +    pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
 +    pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
 +    pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }
@@ -25392,7 +25392,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::QueueAttributeMap>) -> Self { self.input.attributes = Some(value.into()); self }
++    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>) -> Self { self.input.attributes = Some(value.into()); self }
 +    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -25405,7 +25405,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::SetQueueAttributesError::Unhandled(format!("SetQueueAttributes returned HTTP {}", status)));
 +                         }
-+                         Ok(super::SetQueueAttributesOutput::default())
++                         Ok(super::SetQueueAttributesOutput)
 +                     }
  }
 -impl SetQueueAttributesFluentBuilder {
@@ -27308,11 +27308,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The list of tags to be added to the specified queue.</p>
 -    pub tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 +    pub queue_url: ::std::option::Option<super::super::super::types::String>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagMap>,
++    pub tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
  }
 +        impl TagQueueInput {
 +            pub fn queue_url(&self) -> ::std::option::Option<&str> { self.queue_url.as_deref() }
-+            pub fn tags(&self) -> ::std::option::Option<&super::super::super::types::TagMap> { self.tags.as_ref() }
++            pub fn tags(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { self.tags.as_ref() }
 +        }
  impl TagQueueInput {
 -    /// <p>The URL of the queue.</p>
@@ -27340,7 +27340,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) queue_url: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 +    queue_url: ::std::option::Option<super::super::super::types::String>,
-+    tags: ::std::option::Option<super::super::super::types::TagMap>,
++    tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
  }
  impl TagQueueInputBuilder {
 -    /// <p>The URL of the queue.</p>
@@ -27388,9 +27388,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
 +    pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
 +    pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagMap>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagMap>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagMap> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { &self.tags }
 +    pub fn build(self) -> TagQueueInput { TagQueueInput {
 +        queue_url: self.queue_url,
 +        tags: self.tags,
@@ -27523,7 +27523,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagMap>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::TagQueueOutput, super::TagQueueError> {
@@ -27535,7 +27535,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::TagQueueError::Unhandled(format!("TagQueue returned HTTP {}", status)));
 +                         }
-+                         Ok(super::TagQueueOutput::default())
++                         Ok(super::TagQueueOutput)
 +                     }
  }
 -impl TagQueueFluentBuilder {
@@ -28161,7 +28161,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The list of tags to be removed from the specified queue.</p>
 -    pub tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    pub queue_url: ::std::option::Option<super::super::super::types::String>,
-+    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyList>,
++    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>,
  }
 +        impl UntagQueueInput {
 +            pub fn queue_url(&self) -> ::std::option::Option<&str> { self.queue_url.as_deref() }
@@ -28195,7 +28195,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) queue_url: ::std::option::Option<::std::string::String>,
 -    pub(crate) tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    queue_url: ::std::option::Option<super::super::super::types::String>,
-+    tag_keys: ::std::option::Option<super::super::super::types::TagKeyList>,
++    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>,
  }
  impl UntagQueueInputBuilder {
 -    /// <p>The URL of the queue.</p>
@@ -28243,9 +28243,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
 +    pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
 +    pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }
-+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyList>) -> Self { self.tag_keys = Some(input.into()); self }
-+    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyList>) -> Self { self.tag_keys = input; self }
-+    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyList> { &self.tag_keys }
++    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKey>>) -> Self { self.tag_keys = Some(input.into()); self }
++    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>) -> Self { self.tag_keys = input; self }
++    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>> { &self.tag_keys }
 +    pub fn build(self) -> UntagQueueInput { UntagQueueInput {
 +        queue_url: self.queue_url,
 +        tag_keys: self.tag_keys,
@@ -28467,7 +28467,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
-+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyList>) -> Self { self.input.tag_keys = Some(value.into()); self }
++    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKey>>) -> Self { self.input.tag_keys = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UntagQueueOutput, super::UntagQueueError> {
@@ -28479,7 +28479,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UntagQueueError::Unhandled(format!("UntagQueue returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UntagQueueOutput::default())
++                         Ok(super::UntagQueueOutput)
 +                     }
  }
 +pub use Builder as UntagQueueFluentBuilder;
@@ -30265,11 +30265,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.message_attributes.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct Message {
-+        pub attributes: ::std::option::Option<self::MessageSystemAttributeMap>,
++        pub attributes: ::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeName, self::String>>,
 +        pub body: ::std::option::Option<self::String>,
 +        pub md5_of_body: ::std::option::Option<self::String>,
 +        pub md5_of_message_attributes: ::std::option::Option<self::String>,
-+        pub message_attributes: ::std::option::Option<self::MessageBodyAttributeMap>,
++        pub message_attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>,
 +        pub message_id: ::std::option::Option<self::String>,
 +        pub receipt_handle: ::std::option::Option<self::String>,
      }
@@ -30280,11 +30280,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::MessageBuilder::default()
 +    impl Message {
 +        pub fn builder() -> MessageBuilder { MessageBuilder::default() }
-+        pub fn attributes(&self) -> &::std::option::Option<self::MessageSystemAttributeMap> { &self.attributes }
++        pub fn attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeName, self::String>> { &self.attributes }
 +        pub fn body(&self) -> ::std::option::Option<&str> { self.body.as_deref() }
 +        pub fn md5_of_body(&self) -> ::std::option::Option<&str> { self.md5_of_body.as_deref() }
 +        pub fn md5_of_message_attributes(&self) -> ::std::option::Option<&str> { self.md5_of_message_attributes.as_deref() }
-+        pub fn message_attributes(&self) -> &::std::option::Option<self::MessageBodyAttributeMap> { &self.message_attributes }
++        pub fn message_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>> { &self.message_attributes }
 +        pub fn message_id(&self) -> ::std::option::Option<&str> { self.message_id.as_deref() }
 +        pub fn receipt_handle(&self) -> ::std::option::Option<&str> { self.receipt_handle.as_deref() }
      }
@@ -30356,11 +30356,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct MessageBuilder {
-+        attributes: ::std::option::Option<self::MessageSystemAttributeMap>,
++        attributes: ::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeName, self::String>>,
 +        body: ::std::option::Option<self::String>,
 +        md5_of_body: ::std::option::Option<self::String>,
 +        md5_of_message_attributes: ::std::option::Option<self::String>,
-+        message_attributes: ::std::option::Option<self::MessageBodyAttributeMap>,
++        message_attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>,
 +        message_id: ::std::option::Option<self::String>,
 +        receipt_handle: ::std::option::Option<self::String>,
      }
@@ -30495,9 +30495,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            message_attributes: self.message_attributes,
 +
 +    impl MessageBuilder {
-+        pub fn attributes(mut self, input: impl ::std::convert::Into<self::MessageSystemAttributeMap>) -> Self { self.attributes = Some(input.into()); self }
-+        pub fn set_attributes(mut self, input: ::std::option::Option<self::MessageSystemAttributeMap>) -> Self { self.attributes = input; self }
-+        pub fn get_attributes(&self) -> &::std::option::Option<self::MessageSystemAttributeMap> { &self.attributes }
++        pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::MessageSystemAttributeName, self::String>>) -> Self { self.attributes = Some(input.into()); self }
++        pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeName, self::String>>) -> Self { self.attributes = input; self }
++        pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeName, self::String>> { &self.attributes }
 +        pub fn body(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.body = Some(input.into()); self }
 +        pub fn set_body(mut self, input: ::std::option::Option<self::String>) -> Self { self.body = input; self }
 +        pub fn get_body(&self) -> &::std::option::Option<self::String> { &self.body }
@@ -30507,9 +30507,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn md5_of_message_attributes(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.md5_of_message_attributes = Some(input.into()); self }
 +        pub fn set_md5_of_message_attributes(mut self, input: ::std::option::Option<self::String>) -> Self { self.md5_of_message_attributes = input; self }
 +        pub fn get_md5_of_message_attributes(&self) -> &::std::option::Option<self::String> { &self.md5_of_message_attributes }
-+        pub fn message_attributes(mut self, input: impl ::std::convert::Into<self::MessageBodyAttributeMap>) -> Self { self.message_attributes = Some(input.into()); self }
-+        pub fn set_message_attributes(mut self, input: ::std::option::Option<self::MessageBodyAttributeMap>) -> Self { self.message_attributes = input; self }
-+        pub fn get_message_attributes(&self) -> &::std::option::Option<self::MessageBodyAttributeMap> { &self.message_attributes }
++        pub fn message_attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>) -> Self { self.message_attributes = Some(input.into()); self }
++        pub fn set_message_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>) -> Self { self.message_attributes = input; self }
++        pub fn get_message_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>> { &self.message_attributes }
 +        pub fn message_id(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.message_id = Some(input.into()); self }
 +        pub fn set_message_id(mut self, input: ::std::option::Option<self::String>) -> Self { self.message_id = input; self }
 +        pub fn get_message_id(&self) -> &::std::option::Option<self::String> { &self.message_id }
@@ -30567,10 +30567,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.binary_value.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct MessageAttributeValue {
-+        pub binary_list_values: ::std::option::Option<self::BinaryList>,
++        pub binary_list_values: ::std::option::Option<::std::vec::Vec<self::Binary>>,
 +        pub binary_value: ::std::option::Option<self::Binary>,
 +        pub data_type: ::std::option::Option<self::String>,
-+        pub string_list_values: ::std::option::Option<self::StringList>,
++        pub string_list_values: ::std::option::Option<::std::vec::Vec<self::String>>,
 +        pub string_value: ::std::option::Option<self::String>,
      }
 -    /// <p>Not implemented. Reserved for future use.</p>
@@ -30598,10 +30598,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::MessageAttributeValueBuilder::default()
 +    impl MessageAttributeValue {
 +        pub fn builder() -> MessageAttributeValueBuilder { MessageAttributeValueBuilder::default() }
-+        pub fn binary_list_values(&self) -> &::std::option::Option<self::BinaryList> { &self.binary_list_values }
++        pub fn binary_list_values(&self) -> &::std::option::Option<::std::vec::Vec<self::Binary>> { &self.binary_list_values }
 +        pub fn binary_value(&self) -> &::std::option::Option<self::Binary> { &self.binary_value }
 +        pub fn data_type(&self) -> ::std::option::Option<&str> { self.data_type.as_deref() }
-+        pub fn string_list_values(&self) -> &::std::option::Option<self::StringList> { &self.string_list_values }
++        pub fn string_list_values(&self) -> &::std::option::Option<::std::vec::Vec<self::String>> { &self.string_list_values }
 +        pub fn string_value(&self) -> ::std::option::Option<&str> { self.string_value.as_deref() }
      }
 -}
@@ -30704,10 +30704,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.data_type
 +    #[derive(Clone, Debug, Default)]
 +    pub struct MessageAttributeValueBuilder {
-+        binary_list_values: ::std::option::Option<self::BinaryList>,
++        binary_list_values: ::std::option::Option<::std::vec::Vec<self::Binary>>,
 +        binary_value: ::std::option::Option<self::Binary>,
 +        data_type: ::std::option::Option<self::String>,
-+        string_list_values: ::std::option::Option<self::StringList>,
++        string_list_values: ::std::option::Option<::std::vec::Vec<self::String>>,
 +        string_value: ::std::option::Option<self::String>,
      }
 -    /// Consumes the builder and constructs a [`MessageAttributeValue`](crate::types::MessageAttributeValue).
@@ -30728,18 +30728,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        })
 +
 +    impl MessageAttributeValueBuilder {
-+        pub fn binary_list_values(mut self, input: impl ::std::convert::Into<self::BinaryList>) -> Self { self.binary_list_values = Some(input.into()); self }
-+        pub fn set_binary_list_values(mut self, input: ::std::option::Option<self::BinaryList>) -> Self { self.binary_list_values = input; self }
-+        pub fn get_binary_list_values(&self) -> &::std::option::Option<self::BinaryList> { &self.binary_list_values }
++        pub fn binary_list_values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Binary>>) -> Self { self.binary_list_values = Some(input.into()); self }
++        pub fn set_binary_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::Binary>>) -> Self { self.binary_list_values = input; self }
++        pub fn get_binary_list_values(&self) -> &::std::option::Option<::std::vec::Vec<self::Binary>> { &self.binary_list_values }
 +        pub fn binary_value(mut self, input: impl ::std::convert::Into<self::Binary>) -> Self { self.binary_value = Some(input.into()); self }
 +        pub fn set_binary_value(mut self, input: ::std::option::Option<self::Binary>) -> Self { self.binary_value = input; self }
 +        pub fn get_binary_value(&self) -> &::std::option::Option<self::Binary> { &self.binary_value }
 +        pub fn data_type(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.data_type = Some(input.into()); self }
 +        pub fn set_data_type(mut self, input: ::std::option::Option<self::String>) -> Self { self.data_type = input; self }
 +        pub fn get_data_type(&self) -> &::std::option::Option<self::String> { &self.data_type }
-+        pub fn string_list_values(mut self, input: impl ::std::convert::Into<self::StringList>) -> Self { self.string_list_values = Some(input.into()); self }
-+        pub fn set_string_list_values(mut self, input: ::std::option::Option<self::StringList>) -> Self { self.string_list_values = input; self }
-+        pub fn get_string_list_values(&self) -> &::std::option::Option<self::StringList> { &self.string_list_values }
++        pub fn string_list_values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::String>>) -> Self { self.string_list_values = Some(input.into()); self }
++        pub fn set_string_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::String>>) -> Self { self.string_list_values = input; self }
++        pub fn get_string_list_values(&self) -> &::std::option::Option<::std::vec::Vec<self::String>> { &self.string_list_values }
 +        pub fn string_value(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.string_value = Some(input.into()); self }
 +        pub fn set_string_value(mut self, input: ::std::option::Option<self::String>) -> Self { self.string_value = input; self }
 +        pub fn get_string_value(&self) -> &::std::option::Option<self::String> { &self.string_value }
@@ -31136,10 +31136,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.binary_value.as_ref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct MessageSystemAttributeValue {
-+        pub binary_list_values: ::std::option::Option<self::BinaryList>,
++        pub binary_list_values: ::std::option::Option<::std::vec::Vec<self::Binary>>,
 +        pub binary_value: ::std::option::Option<self::Binary>,
 +        pub data_type: ::std::option::Option<self::String>,
-+        pub string_list_values: ::std::option::Option<self::StringList>,
++        pub string_list_values: ::std::option::Option<::std::vec::Vec<self::String>>,
 +        pub string_value: ::std::option::Option<self::String>,
      }
 -    /// <p>Not implemented. Reserved for future use.</p>
@@ -31167,10 +31167,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::MessageSystemAttributeValueBuilder::default()
 +    impl MessageSystemAttributeValue {
 +        pub fn builder() -> MessageSystemAttributeValueBuilder { MessageSystemAttributeValueBuilder::default() }
-+        pub fn binary_list_values(&self) -> &::std::option::Option<self::BinaryList> { &self.binary_list_values }
++        pub fn binary_list_values(&self) -> &::std::option::Option<::std::vec::Vec<self::Binary>> { &self.binary_list_values }
 +        pub fn binary_value(&self) -> &::std::option::Option<self::Binary> { &self.binary_value }
 +        pub fn data_type(&self) -> ::std::option::Option<&str> { self.data_type.as_deref() }
-+        pub fn string_list_values(&self) -> &::std::option::Option<self::StringList> { &self.string_list_values }
++        pub fn string_list_values(&self) -> &::std::option::Option<::std::vec::Vec<self::String>> { &self.string_list_values }
 +        pub fn string_value(&self) -> ::std::option::Option<&str> { self.string_value.as_deref() }
      }
 -}
@@ -31273,10 +31273,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.data_type
 +    #[derive(Clone, Debug, Default)]
 +    pub struct MessageSystemAttributeValueBuilder {
-+        binary_list_values: ::std::option::Option<self::BinaryList>,
++        binary_list_values: ::std::option::Option<::std::vec::Vec<self::Binary>>,
 +        binary_value: ::std::option::Option<self::Binary>,
 +        data_type: ::std::option::Option<self::String>,
-+        string_list_values: ::std::option::Option<self::StringList>,
++        string_list_values: ::std::option::Option<::std::vec::Vec<self::String>>,
 +        string_value: ::std::option::Option<self::String>,
      }
 -    /// Consumes the builder and constructs a [`MessageSystemAttributeValue`](crate::types::MessageSystemAttributeValue).
@@ -31297,18 +31297,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        })
 +
 +    impl MessageSystemAttributeValueBuilder {
-+        pub fn binary_list_values(mut self, input: impl ::std::convert::Into<self::BinaryList>) -> Self { self.binary_list_values = Some(input.into()); self }
-+        pub fn set_binary_list_values(mut self, input: ::std::option::Option<self::BinaryList>) -> Self { self.binary_list_values = input; self }
-+        pub fn get_binary_list_values(&self) -> &::std::option::Option<self::BinaryList> { &self.binary_list_values }
++        pub fn binary_list_values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Binary>>) -> Self { self.binary_list_values = Some(input.into()); self }
++        pub fn set_binary_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::Binary>>) -> Self { self.binary_list_values = input; self }
++        pub fn get_binary_list_values(&self) -> &::std::option::Option<::std::vec::Vec<self::Binary>> { &self.binary_list_values }
 +        pub fn binary_value(mut self, input: impl ::std::convert::Into<self::Binary>) -> Self { self.binary_value = Some(input.into()); self }
 +        pub fn set_binary_value(mut self, input: ::std::option::Option<self::Binary>) -> Self { self.binary_value = input; self }
 +        pub fn get_binary_value(&self) -> &::std::option::Option<self::Binary> { &self.binary_value }
 +        pub fn data_type(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.data_type = Some(input.into()); self }
 +        pub fn set_data_type(mut self, input: ::std::option::Option<self::String>) -> Self { self.data_type = input; self }
 +        pub fn get_data_type(&self) -> &::std::option::Option<self::String> { &self.data_type }
-+        pub fn string_list_values(mut self, input: impl ::std::convert::Into<self::StringList>) -> Self { self.string_list_values = Some(input.into()); self }
-+        pub fn set_string_list_values(mut self, input: ::std::option::Option<self::StringList>) -> Self { self.string_list_values = input; self }
-+        pub fn get_string_list_values(&self) -> &::std::option::Option<self::StringList> { &self.string_list_values }
++        pub fn string_list_values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::String>>) -> Self { self.string_list_values = Some(input.into()); self }
++        pub fn set_string_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::String>>) -> Self { self.string_list_values = input; self }
++        pub fn get_string_list_values(&self) -> &::std::option::Option<::std::vec::Vec<self::String>> { &self.string_list_values }
 +        pub fn string_value(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.string_value = Some(input.into()); self }
 +        pub fn set_string_value(mut self, input: ::std::option::Option<self::String>) -> Self { self.string_value = input; self }
 +        pub fn get_string_value(&self) -> &::std::option::Option<self::String> { &self.string_value }
@@ -31813,11 +31813,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct SendMessageBatchRequestEntry {
 +        pub delay_seconds: ::std::option::Option<self::NullableInteger>,
 +        pub id: ::std::option::Option<self::String>,
-+        pub message_attributes: ::std::option::Option<self::MessageBodyAttributeMap>,
++        pub message_attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>,
 +        pub message_body: ::std::option::Option<self::String>,
 +        pub message_deduplication_id: ::std::option::Option<self::String>,
 +        pub message_group_id: ::std::option::Option<self::String>,
-+        pub message_system_attributes: ::std::option::Option<self::MessageBodySystemAttributeMap>,
++        pub message_system_attributes: ::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeNameForSends, self::MessageSystemAttributeValue>>,
      }
 -    /// <p><code>MessageGroupId</code> is an attribute used in Amazon SQS FIFO (First-In-First-Out) and standard queues. In FIFO queues, <code>MessageGroupId</code> organizes messages into distinct groups. Messages within the same message group are always processed one at a time, in strict order, ensuring that no two messages from the same group are processed simultaneously. In standard queues, using <code>MessageGroupId</code> enables fair queues. It is used to identify the tenant a message belongs to, helping maintain consistent message dwell time across all tenants during noisy neighbor events. Unlike FIFO queues, messages with the same <code>MessageGroupId</code> can be processed in parallel, maintaining the high throughput of standard queues.</p>
 -    /// <ul>
@@ -31836,11 +31836,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn builder() -> SendMessageBatchRequestEntryBuilder { SendMessageBatchRequestEntryBuilder::default() }
 +        pub fn delay_seconds(&self) -> &::std::option::Option<self::NullableInteger> { &self.delay_seconds }
 +        pub fn id(&self) -> ::std::option::Option<&str> { self.id.as_deref() }
-+        pub fn message_attributes(&self) -> &::std::option::Option<self::MessageBodyAttributeMap> { &self.message_attributes }
++        pub fn message_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>> { &self.message_attributes }
 +        pub fn message_body(&self) -> ::std::option::Option<&str> { self.message_body.as_deref() }
 +        pub fn message_deduplication_id(&self) -> ::std::option::Option<&str> { self.message_deduplication_id.as_deref() }
 +        pub fn message_group_id(&self) -> ::std::option::Option<&str> { self.message_group_id.as_deref() }
-+        pub fn message_system_attributes(&self) -> &::std::option::Option<self::MessageBodySystemAttributeMap> { &self.message_system_attributes }
++        pub fn message_system_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeNameForSends, self::MessageSystemAttributeValue>> { &self.message_system_attributes }
      }
 -}
 -impl SendMessageBatchRequestEntry {
@@ -31852,11 +31852,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct SendMessageBatchRequestEntryBuilder {
 +        delay_seconds: ::std::option::Option<self::NullableInteger>,
 +        id: ::std::option::Option<self::String>,
-+        message_attributes: ::std::option::Option<self::MessageBodyAttributeMap>,
++        message_attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>,
 +        message_body: ::std::option::Option<self::String>,
 +        message_deduplication_id: ::std::option::Option<self::String>,
 +        message_group_id: ::std::option::Option<self::String>,
-+        message_system_attributes: ::std::option::Option<self::MessageBodySystemAttributeMap>,
++        message_system_attributes: ::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeNameForSends, self::MessageSystemAttributeValue>>,
      }
 -}
 
@@ -31934,9 +31934,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn id(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.id = Some(input.into()); self }
 +        pub fn set_id(mut self, input: ::std::option::Option<self::String>) -> Self { self.id = input; self }
 +        pub fn get_id(&self) -> &::std::option::Option<self::String> { &self.id }
-+        pub fn message_attributes(mut self, input: impl ::std::convert::Into<self::MessageBodyAttributeMap>) -> Self { self.message_attributes = Some(input.into()); self }
-+        pub fn set_message_attributes(mut self, input: ::std::option::Option<self::MessageBodyAttributeMap>) -> Self { self.message_attributes = input; self }
-+        pub fn get_message_attributes(&self) -> &::std::option::Option<self::MessageBodyAttributeMap> { &self.message_attributes }
++        pub fn message_attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>) -> Self { self.message_attributes = Some(input.into()); self }
++        pub fn set_message_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>) -> Self { self.message_attributes = input; self }
++        pub fn get_message_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>> { &self.message_attributes }
 +        pub fn message_body(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.message_body = Some(input.into()); self }
 +        pub fn set_message_body(mut self, input: ::std::option::Option<self::String>) -> Self { self.message_body = input; self }
 +        pub fn get_message_body(&self) -> &::std::option::Option<self::String> { &self.message_body }
@@ -31946,9 +31946,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn message_group_id(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.message_group_id = Some(input.into()); self }
 +        pub fn set_message_group_id(mut self, input: ::std::option::Option<self::String>) -> Self { self.message_group_id = input; self }
 +        pub fn get_message_group_id(&self) -> &::std::option::Option<self::String> { &self.message_group_id }
-+        pub fn message_system_attributes(mut self, input: impl ::std::convert::Into<self::MessageBodySystemAttributeMap>) -> Self { self.message_system_attributes = Some(input.into()); self }
-+        pub fn set_message_system_attributes(mut self, input: ::std::option::Option<self::MessageBodySystemAttributeMap>) -> Self { self.message_system_attributes = input; self }
-+        pub fn get_message_system_attributes(&self) -> &::std::option::Option<self::MessageBodySystemAttributeMap> { &self.message_system_attributes }
++        pub fn message_system_attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::MessageSystemAttributeNameForSends, self::MessageSystemAttributeValue>>) -> Self { self.message_system_attributes = Some(input.into()); self }
++        pub fn set_message_system_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeNameForSends, self::MessageSystemAttributeValue>>) -> Self { self.message_system_attributes = input; self }
++        pub fn get_message_system_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeNameForSends, self::MessageSystemAttributeValue>> { &self.message_system_attributes }
 +        pub fn build(self) -> SendMessageBatchRequestEntry {
 +            SendMessageBatchRequestEntry {
 +                delay_seconds: self.delay_seconds,
@@ -35661,11 +35661,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types.rs
 +++ generated/src/types.rs
-@@ -1,62 +1,83 @@
+@@ -1,62 +1,60 @@
 -// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub use crate::types::_change_message_visibility_batch_request_entry::ChangeMessageVisibilityBatchRequestEntry;
-+// Generated by aws-sdk-build aws-sdk-build-rust-native-0.2.0. DO NOT EDIT.
-
+-
 -pub use crate::types::_change_message_visibility_batch_result_entry::ChangeMessageVisibilityBatchResultEntry;
 -
 -pub use crate::types::_batch_result_error_entry::BatchResultErrorEntry;
@@ -35679,7 +35678,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -pub use crate::types::_list_message_move_tasks_result_entry::ListMessageMoveTasksResultEntry;
 -
 -pub use crate::types::_message_system_attribute_name::MessageSystemAttributeName;
--
++// Generated by aws-sdk-build aws-sdk-build-rust-native-0.2.0. DO NOT EDIT.
+
 -pub use crate::types::_message::Message;
 -
 -pub use crate::types::_message_attribute_value::MessageAttributeValue;
@@ -35726,53 +35726,30 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -/// Error types that Amazon Simple Queue Service can respond with.
 -pub mod error;
 +pub mod types {
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_aws_account_id_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_action_name_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_attribute_name_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_batch_result_error_entry.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_batch_result_error_entry_list.rs"));
 +    pub type Binary = ::std::vec::Vec<u8>;
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_binary_list.rs"));
 +    pub type Boolean = bool;
 +    pub type BoxedInteger = i32;
 +    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_change_message_visibility_batch_request_entry.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_change_message_visibility_batch_request_entry_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_change_message_visibility_batch_result_entry.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_change_message_visibility_batch_result_entry_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_delete_message_batch_request_entry.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_delete_message_batch_request_entry_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_delete_message_batch_result_entry.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_delete_message_batch_result_entry_list.rs"));
 +    pub type ExceptionMessage = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_list_message_move_tasks_result_entry.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_list_message_move_tasks_result_entry_list.rs"));
 +    pub type Long = i64;
 +    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message.rs"));
 +    pub type MessageAttributeName = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message_attribute_name_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message_attribute_value.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message_body_attribute_map.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message_body_system_attribute_map.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message_system_attribute_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message_system_attribute_map.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message_system_attribute_name.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message_system_attribute_name_for_sends.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_message_system_attribute_value.rs"));
 +    pub type NullableInteger = i32;
 +    pub type NullableLong = i64;
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_queue_attribute_map.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_queue_attribute_name.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_queue_url_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_send_message_batch_request_entry.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_send_message_batch_request_entry_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_send_message_batch_result_entry.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_send_message_batch_result_entry_list.rs"));
 +    pub type String = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_string_list.rs"));
 +    pub type TagKey = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_tag_key_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types/_tag_map.rs"));
 +    pub type TagValue = ::std::string::String;
 +    pub type Token = ::std::string::String;
 +    pub mod error {
@@ -35947,29 +35924,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ### Unexpected generated files
 
 - `src/aws_runtime.rs`
-- `src/types/_action_name_list.rs`
-- `src/types/_attribute_name_list.rs`
-- `src/types/_aws_account_id_list.rs`
-- `src/types/_batch_result_error_entry_list.rs`
-- `src/types/_binary_list.rs`
-- `src/types/_change_message_visibility_batch_request_entry_list.rs`
-- `src/types/_change_message_visibility_batch_result_entry_list.rs`
-- `src/types/_delete_message_batch_request_entry_list.rs`
-- `src/types/_delete_message_batch_result_entry_list.rs`
-- `src/types/_list_message_move_tasks_result_entry_list.rs`
-- `src/types/_message_attribute_name_list.rs`
-- `src/types/_message_body_attribute_map.rs`
-- `src/types/_message_body_system_attribute_map.rs`
-- `src/types/_message_list.rs`
-- `src/types/_message_system_attribute_list.rs`
-- `src/types/_message_system_attribute_map.rs`
-- `src/types/_queue_attribute_map.rs`
-- `src/types/_queue_url_list.rs`
-- `src/types/_send_message_batch_request_entry_list.rs`
-- `src/types/_send_message_batch_result_entry_list.rs`
-- `src/types/_string_list.rs`
-- `src/types/_tag_key_list.rs`
-- `src/types/_tag_map.rs`
 
 ### Rust token differences
 

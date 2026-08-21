@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct UpdateOpenIdConnectProviderThumbprintInput {
     pub open_id_connect_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-    pub thumbprint_list: ::std::option::Option<super::super::super::types::ThumbprintListType>,
+    pub thumbprint_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>,
 }
         impl UpdateOpenIdConnectProviderThumbprintInput {
             pub fn open_id_connect_provider_arn(&self) -> ::std::option::Option<&str> { self.open_id_connect_provider_arn.as_deref() }
@@ -15,15 +15,15 @@ impl UpdateOpenIdConnectProviderThumbprintInput {
 #[derive(Clone, Debug, Default)]
 pub struct UpdateOpenIdConnectProviderThumbprintInputBuilder {
     open_id_connect_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-    thumbprint_list: ::std::option::Option<super::super::super::types::ThumbprintListType>,
+    thumbprint_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>,
 }
 impl UpdateOpenIdConnectProviderThumbprintInputBuilder {
     pub fn open_id_connect_provider_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.open_id_connect_provider_arn = Some(input.into()); self }
     pub fn set_open_id_connect_provider_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.open_id_connect_provider_arn = input; self }
     pub fn get_open_id_connect_provider_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.open_id_connect_provider_arn }
-    pub fn thumbprint_list(mut self, input: impl ::std::convert::Into<super::super::super::types::ThumbprintListType>) -> Self { self.thumbprint_list = Some(input.into()); self }
-    pub fn set_thumbprint_list(mut self, input: ::std::option::Option<super::super::super::types::ThumbprintListType>) -> Self { self.thumbprint_list = input; self }
-    pub fn get_thumbprint_list(&self) -> &::std::option::Option<super::super::super::types::ThumbprintListType> { &self.thumbprint_list }
+    pub fn thumbprint_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ThumbprintType>>) -> Self { self.thumbprint_list = Some(input.into()); self }
+    pub fn set_thumbprint_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>) -> Self { self.thumbprint_list = input; self }
+    pub fn get_thumbprint_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>> { &self.thumbprint_list }
     pub fn build(self) -> UpdateOpenIdConnectProviderThumbprintInput { UpdateOpenIdConnectProviderThumbprintInput {
         open_id_connect_provider_arn: self.open_id_connect_provider_arn,
         thumbprint_list: self.thumbprint_list,

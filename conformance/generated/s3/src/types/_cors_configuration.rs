@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct CorsConfiguration {
-        pub cors_rules: ::std::option::Option<self::CorsRules>,
+        pub cors_rules: ::std::option::Option<::std::vec::Vec<self::CorsRule>>,
     }
     impl CorsConfiguration {
         pub fn builder() -> CorsConfigurationBuilder { CorsConfigurationBuilder::default() }
-        pub fn cors_rules(&self) -> &::std::option::Option<self::CorsRules> { &self.cors_rules }
+        pub fn cors_rules(&self) -> &::std::option::Option<::std::vec::Vec<self::CorsRule>> { &self.cors_rules }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct CorsConfigurationBuilder {
-        cors_rules: ::std::option::Option<self::CorsRules>,
+        cors_rules: ::std::option::Option<::std::vec::Vec<self::CorsRule>>,
     }
 
     impl CorsConfigurationBuilder {
-        pub fn cors_rules(mut self, input: impl ::std::convert::Into<self::CorsRules>) -> Self { self.cors_rules = Some(input.into()); self }
-        pub fn set_cors_rules(mut self, input: ::std::option::Option<self::CorsRules>) -> Self { self.cors_rules = input; self }
-        pub fn get_cors_rules(&self) -> &::std::option::Option<self::CorsRules> { &self.cors_rules }
+        pub fn cors_rules(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::CorsRule>>) -> Self { self.cors_rules = Some(input.into()); self }
+        pub fn set_cors_rules(mut self, input: ::std::option::Option<::std::vec::Vec<self::CorsRule>>) -> Self { self.cors_rules = input; self }
+        pub fn get_cors_rules(&self) -> &::std::option::Option<::std::vec::Vec<self::CorsRule>> { &self.cors_rules }
         pub fn build(self) -> CorsConfiguration {
             CorsConfiguration {
                 cors_rules: self.cors_rules,

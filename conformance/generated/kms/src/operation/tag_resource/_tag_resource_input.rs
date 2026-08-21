@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct TagResourceInput {
     pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagList>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl TagResourceInput {
             pub fn key_id(&self) -> ::std::option::Option<&str> { self.key_id.as_deref() }
@@ -15,15 +15,15 @@ impl TagResourceInput {
 #[derive(Clone, Debug, Default)]
 pub struct TagResourceInputBuilder {
     key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
-    tags: ::std::option::Option<super::super::super::types::TagList>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl TagResourceInputBuilder {
     pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
     pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
     pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> TagResourceInput { TagResourceInput {
         key_id: self.key_id,
         tags: self.tags,

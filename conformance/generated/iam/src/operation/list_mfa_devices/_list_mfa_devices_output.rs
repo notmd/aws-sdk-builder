@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct ListMfaDevicesOutput {
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
-    pub mfa_devices: ::std::option::Option<super::super::super::types::MfaDeviceListType>,
+    pub mfa_devices: ::std::option::Option<::std::vec::Vec<super::super::super::types::MfaDevice>>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
         impl ListMfaDevicesOutput {
@@ -17,16 +17,16 @@ impl ListMfaDevicesOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ListMfaDevicesOutputBuilder {
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
-    mfa_devices: ::std::option::Option<super::super::super::types::MfaDeviceListType>,
+    mfa_devices: ::std::option::Option<::std::vec::Vec<super::super::super::types::MfaDevice>>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
 impl ListMfaDevicesOutputBuilder {
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
     pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
     pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
-    pub fn mfa_devices(mut self, input: impl ::std::convert::Into<super::super::super::types::MfaDeviceListType>) -> Self { self.mfa_devices = Some(input.into()); self }
-    pub fn set_mfa_devices(mut self, input: ::std::option::Option<super::super::super::types::MfaDeviceListType>) -> Self { self.mfa_devices = input; self }
-    pub fn get_mfa_devices(&self) -> &::std::option::Option<super::super::super::types::MfaDeviceListType> { &self.mfa_devices }
+    pub fn mfa_devices(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::MfaDevice>>) -> Self { self.mfa_devices = Some(input.into()); self }
+    pub fn set_mfa_devices(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MfaDevice>>) -> Self { self.mfa_devices = input; self }
+    pub fn get_mfa_devices(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MfaDevice>> { &self.mfa_devices }
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }

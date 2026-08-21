@@ -4,7 +4,7 @@
 pub struct ListPoliciesGrantingServiceAccessInput {
     pub arn: ::std::option::Option<super::super::super::types::ArnType>,
     pub marker: ::std::option::Option<super::super::super::types::MarkerType>,
-    pub service_namespaces: ::std::option::Option<super::super::super::types::ServiceNamespaceListType>,
+    pub service_namespaces: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceNamespaceType>>,
 }
         impl ListPoliciesGrantingServiceAccessInput {
             pub fn arn(&self) -> ::std::option::Option<&str> { self.arn.as_deref() }
@@ -18,7 +18,7 @@ impl ListPoliciesGrantingServiceAccessInput {
 pub struct ListPoliciesGrantingServiceAccessInputBuilder {
     arn: ::std::option::Option<super::super::super::types::ArnType>,
     marker: ::std::option::Option<super::super::super::types::MarkerType>,
-    service_namespaces: ::std::option::Option<super::super::super::types::ServiceNamespaceListType>,
+    service_namespaces: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceNamespaceType>>,
 }
 impl ListPoliciesGrantingServiceAccessInputBuilder {
     pub fn arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.arn = Some(input.into()); self }
@@ -27,9 +27,9 @@ impl ListPoliciesGrantingServiceAccessInputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.marker }
-    pub fn service_namespaces(mut self, input: impl ::std::convert::Into<super::super::super::types::ServiceNamespaceListType>) -> Self { self.service_namespaces = Some(input.into()); self }
-    pub fn set_service_namespaces(mut self, input: ::std::option::Option<super::super::super::types::ServiceNamespaceListType>) -> Self { self.service_namespaces = input; self }
-    pub fn get_service_namespaces(&self) -> &::std::option::Option<super::super::super::types::ServiceNamespaceListType> { &self.service_namespaces }
+    pub fn service_namespaces(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ServiceNamespaceType>>) -> Self { self.service_namespaces = Some(input.into()); self }
+    pub fn set_service_namespaces(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceNamespaceType>>) -> Self { self.service_namespaces = input; self }
+    pub fn get_service_namespaces(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceNamespaceType>> { &self.service_namespaces }
     pub fn build(self) -> ListPoliciesGrantingServiceAccessInput { ListPoliciesGrantingServiceAccessInput {
         arn: self.arn,
         marker: self.marker,

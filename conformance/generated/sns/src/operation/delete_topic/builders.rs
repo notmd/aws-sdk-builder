@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteTopicError::Unhandled(format!("DeleteTopic returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteTopicOutput::default())
+                         Ok(super::DeleteTopicOutput)
                      }
 }
 pub use Builder as DeleteTopicFluentBuilder;

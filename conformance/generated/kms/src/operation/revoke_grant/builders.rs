@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::RevokeGrantError::Unhandled(format!("RevokeGrant returned HTTP {}", status)));
                          }
-                         Ok(super::RevokeGrantOutput::default())
+                         Ok(super::RevokeGrantOutput)
                      }
 }
 pub use Builder as RevokeGrantFluentBuilder;

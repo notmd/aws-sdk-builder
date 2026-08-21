@@ -4,15 +4,15 @@
 pub struct ScanOutput {
     pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
     pub count: ::std::option::Option<super::super::super::types::Integer>,
-    pub items: ::std::option::Option<super::super::super::types::ItemList>,
-    pub last_evaluated_key: ::std::option::Option<super::super::super::types::Key>,
+    pub items: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>,
+    pub last_evaluated_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
     pub scanned_count: ::std::option::Option<super::super::super::types::Integer>,
 }
         impl ScanOutput {
             pub fn consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ConsumedCapacity> { self.consumed_capacity.as_ref() }
             pub fn count(&self) -> ::std::option::Option<i32> { self.count }
-            pub fn items(&self) -> &[super::super::super::types::AttributeMap] { self.items.as_deref().unwrap_or(&[]) }
-            pub fn last_evaluated_key(&self) -> ::std::option::Option<&super::super::super::types::Key> { self.last_evaluated_key.as_ref() }
+            pub fn items(&self) -> &[::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>] { self.items.as_deref().unwrap_or(&[]) }
+            pub fn last_evaluated_key(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.last_evaluated_key.as_ref() }
             pub fn scanned_count(&self) -> ::std::option::Option<i32> { self.scanned_count }
         }
 impl ScanOutput {
@@ -22,8 +22,8 @@ impl ScanOutput {
 pub struct ScanOutputBuilder {
     consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
     count: ::std::option::Option<super::super::super::types::Integer>,
-    items: ::std::option::Option<super::super::super::types::ItemList>,
-    last_evaluated_key: ::std::option::Option<super::super::super::types::Key>,
+    items: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>,
+    last_evaluated_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
     scanned_count: ::std::option::Option<super::super::super::types::Integer>,
 }
 impl ScanOutputBuilder {
@@ -33,12 +33,12 @@ impl ScanOutputBuilder {
     pub fn count(mut self, input: impl ::std::convert::Into<super::super::super::types::Integer>) -> Self { self.count = Some(input.into()); self }
     pub fn set_count(mut self, input: ::std::option::Option<super::super::super::types::Integer>) -> Self { self.count = input; self }
     pub fn get_count(&self) -> &::std::option::Option<super::super::super::types::Integer> { &self.count }
-    pub fn items(mut self, input: impl ::std::convert::Into<super::super::super::types::ItemList>) -> Self { self.items = Some(input.into()); self }
-    pub fn set_items(mut self, input: ::std::option::Option<super::super::super::types::ItemList>) -> Self { self.items = input; self }
-    pub fn get_items(&self) -> &::std::option::Option<super::super::super::types::ItemList> { &self.items }
-    pub fn last_evaluated_key(mut self, input: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.last_evaluated_key = Some(input.into()); self }
-    pub fn set_last_evaluated_key(mut self, input: ::std::option::Option<super::super::super::types::Key>) -> Self { self.last_evaluated_key = input; self }
-    pub fn get_last_evaluated_key(&self) -> &::std::option::Option<super::super::super::types::Key> { &self.last_evaluated_key }
+    pub fn items(mut self, input: impl ::std::convert::Into<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>) -> Self { self.items = Some(input.into()); self }
+    pub fn set_items(mut self, input: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>) -> Self { self.items = input; self }
+    pub fn get_items(&self) -> &::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>> { &self.items }
+    pub fn last_evaluated_key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.last_evaluated_key = Some(input.into()); self }
+    pub fn set_last_evaluated_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.last_evaluated_key = input; self }
+    pub fn get_last_evaluated_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.last_evaluated_key }
     pub fn scanned_count(mut self, input: impl ::std::convert::Into<super::super::super::types::Integer>) -> Self { self.scanned_count = Some(input.into()); self }
     pub fn set_scanned_count(mut self, input: ::std::option::Option<super::super::super::types::Integer>) -> Self { self.scanned_count = input; self }
     pub fn get_scanned_count(&self) -> &::std::option::Option<super::super::super::types::Integer> { &self.scanned_count }

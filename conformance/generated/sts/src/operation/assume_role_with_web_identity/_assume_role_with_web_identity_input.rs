@@ -4,7 +4,7 @@
 pub struct AssumeRoleWithWebIdentityInput {
     pub duration_seconds: ::std::option::Option<super::super::super::types::RoleDurationSecondsType>,
     pub policy: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>,
-    pub policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
+    pub policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
     pub provider_id: ::std::option::Option<super::super::super::types::UrlType>,
     pub role_arn: ::std::option::Option<super::super::super::types::ArnType>,
     pub role_session_name: ::std::option::Option<super::super::super::types::RoleSessionNameType>,
@@ -26,7 +26,7 @@ impl AssumeRoleWithWebIdentityInput {
 pub struct AssumeRoleWithWebIdentityInputBuilder {
     duration_seconds: ::std::option::Option<super::super::super::types::RoleDurationSecondsType>,
     policy: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>,
-    policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
+    policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
     provider_id: ::std::option::Option<super::super::super::types::UrlType>,
     role_arn: ::std::option::Option<super::super::super::types::ArnType>,
     role_session_name: ::std::option::Option<super::super::super::types::RoleSessionNameType>,
@@ -39,9 +39,9 @@ impl AssumeRoleWithWebIdentityInputBuilder {
     pub fn policy(mut self, input: impl ::std::convert::Into<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.policy = Some(input.into()); self }
     pub fn set_policy(mut self, input: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.policy = input; self }
     pub fn get_policy(&self) -> &::std::option::Option<super::super::super::types::SessionPolicyDocumentType> { &self.policy }
-    pub fn policy_arns(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = Some(input.into()); self }
-    pub fn set_policy_arns(mut self, input: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = input; self }
-    pub fn get_policy_arns(&self) -> &::std::option::Option<super::super::super::types::PolicyDescriptorListType> { &self.policy_arns }
+    pub fn policy_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = Some(input.into()); self }
+    pub fn set_policy_arns(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = input; self }
+    pub fn get_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>> { &self.policy_arns }
     pub fn provider_id(mut self, input: impl ::std::convert::Into<super::super::super::types::UrlType>) -> Self { self.provider_id = Some(input.into()); self }
     pub fn set_provider_id(mut self, input: ::std::option::Option<super::super::super::types::UrlType>) -> Self { self.provider_id = input; self }
     pub fn get_provider_id(&self) -> &::std::option::Option<super::super::super::types::UrlType> { &self.provider_id }

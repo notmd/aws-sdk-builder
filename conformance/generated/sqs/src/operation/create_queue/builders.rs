@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::QueueAttributeMap>) -> Self { self.input.attributes = Some(value.into()); self }
+    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>) -> Self { self.input.attributes = Some(value.into()); self }
     pub fn queue_name(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_name = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagMap>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.input.tags = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateQueueOutput, super::CreateQueueError> {

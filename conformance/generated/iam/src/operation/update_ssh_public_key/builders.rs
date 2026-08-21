@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateSshPublicKeyError::Unhandled(format!("UpdateSshPublicKey returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateSshPublicKeyOutput::default())
+                         Ok(super::UpdateSshPublicKeyOutput)
                      }
 }
 pub use Builder as UpdateSshPublicKeyFluentBuilder;

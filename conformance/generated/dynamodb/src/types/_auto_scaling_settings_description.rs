@@ -6,7 +6,7 @@
         pub auto_scaling_role_arn: ::std::option::Option<self::String>,
         pub maximum_units: ::std::option::Option<self::PositiveLongObject>,
         pub minimum_units: ::std::option::Option<self::PositiveLongObject>,
-        pub scaling_policies: ::std::option::Option<self::AutoScalingPolicyDescriptionList>,
+        pub scaling_policies: ::std::option::Option<::std::vec::Vec<self::AutoScalingPolicyDescription>>,
     }
     impl AutoScalingSettingsDescription {
         pub fn builder() -> AutoScalingSettingsDescriptionBuilder { AutoScalingSettingsDescriptionBuilder::default() }
@@ -14,7 +14,7 @@
         pub fn auto_scaling_role_arn(&self) -> ::std::option::Option<&str> { self.auto_scaling_role_arn.as_deref() }
         pub fn maximum_units(&self) -> &::std::option::Option<self::PositiveLongObject> { &self.maximum_units }
         pub fn minimum_units(&self) -> &::std::option::Option<self::PositiveLongObject> { &self.minimum_units }
-        pub fn scaling_policies(&self) -> &::std::option::Option<self::AutoScalingPolicyDescriptionList> { &self.scaling_policies }
+        pub fn scaling_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::AutoScalingPolicyDescription>> { &self.scaling_policies }
     }
 
     #[derive(Clone, Debug, Default)]
@@ -23,7 +23,7 @@
         auto_scaling_role_arn: ::std::option::Option<self::String>,
         maximum_units: ::std::option::Option<self::PositiveLongObject>,
         minimum_units: ::std::option::Option<self::PositiveLongObject>,
-        scaling_policies: ::std::option::Option<self::AutoScalingPolicyDescriptionList>,
+        scaling_policies: ::std::option::Option<::std::vec::Vec<self::AutoScalingPolicyDescription>>,
     }
 
     impl AutoScalingSettingsDescriptionBuilder {
@@ -39,9 +39,9 @@
         pub fn minimum_units(mut self, input: impl ::std::convert::Into<self::PositiveLongObject>) -> Self { self.minimum_units = Some(input.into()); self }
         pub fn set_minimum_units(mut self, input: ::std::option::Option<self::PositiveLongObject>) -> Self { self.minimum_units = input; self }
         pub fn get_minimum_units(&self) -> &::std::option::Option<self::PositiveLongObject> { &self.minimum_units }
-        pub fn scaling_policies(mut self, input: impl ::std::convert::Into<self::AutoScalingPolicyDescriptionList>) -> Self { self.scaling_policies = Some(input.into()); self }
-        pub fn set_scaling_policies(mut self, input: ::std::option::Option<self::AutoScalingPolicyDescriptionList>) -> Self { self.scaling_policies = input; self }
-        pub fn get_scaling_policies(&self) -> &::std::option::Option<self::AutoScalingPolicyDescriptionList> { &self.scaling_policies }
+        pub fn scaling_policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AutoScalingPolicyDescription>>) -> Self { self.scaling_policies = Some(input.into()); self }
+        pub fn set_scaling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<self::AutoScalingPolicyDescription>>) -> Self { self.scaling_policies = input; self }
+        pub fn get_scaling_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::AutoScalingPolicyDescription>> { &self.scaling_policies }
         pub fn build(self) -> AutoScalingSettingsDescription {
             AutoScalingSettingsDescription {
                 auto_scaling_disabled: self.auto_scaling_disabled,

@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct ListKeyRotationsOutput {
     pub next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
-    pub rotations: ::std::option::Option<super::super::super::types::RotationsList>,
+    pub rotations: ::std::option::Option<::std::vec::Vec<super::super::super::types::RotationsListEntry>>,
     pub truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 }
         impl ListKeyRotationsOutput {
@@ -17,16 +17,16 @@ impl ListKeyRotationsOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ListKeyRotationsOutputBuilder {
     next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
-    rotations: ::std::option::Option<super::super::super::types::RotationsList>,
+    rotations: ::std::option::Option<::std::vec::Vec<super::super::super::types::RotationsListEntry>>,
     truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 }
 impl ListKeyRotationsOutputBuilder {
     pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.next_marker = Some(input.into()); self }
     pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.next_marker = input; self }
     pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.next_marker }
-    pub fn rotations(mut self, input: impl ::std::convert::Into<super::super::super::types::RotationsList>) -> Self { self.rotations = Some(input.into()); self }
-    pub fn set_rotations(mut self, input: ::std::option::Option<super::super::super::types::RotationsList>) -> Self { self.rotations = input; self }
-    pub fn get_rotations(&self) -> &::std::option::Option<super::super::super::types::RotationsList> { &self.rotations }
+    pub fn rotations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::RotationsListEntry>>) -> Self { self.rotations = Some(input.into()); self }
+    pub fn set_rotations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RotationsListEntry>>) -> Self { self.rotations = input; self }
+    pub fn get_rotations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::RotationsListEntry>> { &self.rotations }
     pub fn truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.truncated = Some(input.into()); self }
     pub fn set_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.truncated = input; self }
     pub fn get_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.truncated }

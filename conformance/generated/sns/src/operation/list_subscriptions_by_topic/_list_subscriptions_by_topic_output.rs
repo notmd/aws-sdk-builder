@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct ListSubscriptionsByTopicOutput {
     pub next_token: ::std::option::Option<super::super::super::types::NextToken>,
-    pub subscriptions: ::std::option::Option<super::super::super::types::SubscriptionsList>,
+    pub subscriptions: ::std::option::Option<::std::vec::Vec<super::super::super::types::Subscription>>,
 }
         impl ListSubscriptionsByTopicOutput {
             pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -15,15 +15,15 @@ impl ListSubscriptionsByTopicOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ListSubscriptionsByTopicOutputBuilder {
     next_token: ::std::option::Option<super::super::super::types::NextToken>,
-    subscriptions: ::std::option::Option<super::super::super::types::SubscriptionsList>,
+    subscriptions: ::std::option::Option<::std::vec::Vec<super::super::super::types::Subscription>>,
 }
 impl ListSubscriptionsByTopicOutputBuilder {
     pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::NextToken>) -> Self { self.next_token = Some(input.into()); self }
     pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::NextToken>) -> Self { self.next_token = input; self }
     pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::NextToken> { &self.next_token }
-    pub fn subscriptions(mut self, input: impl ::std::convert::Into<super::super::super::types::SubscriptionsList>) -> Self { self.subscriptions = Some(input.into()); self }
-    pub fn set_subscriptions(mut self, input: ::std::option::Option<super::super::super::types::SubscriptionsList>) -> Self { self.subscriptions = input; self }
-    pub fn get_subscriptions(&self) -> &::std::option::Option<super::super::super::types::SubscriptionsList> { &self.subscriptions }
+    pub fn subscriptions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Subscription>>) -> Self { self.subscriptions = Some(input.into()); self }
+    pub fn set_subscriptions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Subscription>>) -> Self { self.subscriptions = input; self }
+    pub fn get_subscriptions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Subscription>> { &self.subscriptions }
     pub fn build(self) -> ListSubscriptionsByTopicOutput { ListSubscriptionsByTopicOutput {
         next_token: self.next_token,
         subscriptions: self.subscriptions,

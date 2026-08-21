@@ -12,7 +12,7 @@
         pub filter_criteria: ::std::option::Option<self::FilterCriteria>,
         pub filter_criteria_error: ::std::option::Option<self::FilterCriteriaError>,
         pub function_arn: ::std::option::Option<self::FunctionArn>,
-        pub function_response_types: ::std::option::Option<self::FunctionResponseTypeList>,
+        pub function_response_types: ::std::option::Option<::std::vec::Vec<self::FunctionResponseType>>,
         pub kms_key_arn: ::std::option::Option<self::KmsKeyArn>,
         pub last_modified: ::std::option::Option<self::Date>,
         pub last_processing_result: ::std::option::Option<self::String>,
@@ -23,16 +23,16 @@
         pub metrics_config: ::std::option::Option<self::EventSourceMappingMetricsConfig>,
         pub parallelization_factor: ::std::option::Option<self::ParallelizationFactor>,
         pub provisioned_poller_config: ::std::option::Option<self::ProvisionedPollerConfig>,
-        pub queues: ::std::option::Option<self::Queues>,
+        pub queues: ::std::option::Option<::std::vec::Vec<self::Queue>>,
         pub scaling_config: ::std::option::Option<self::ScalingConfig>,
         pub self_managed_event_source: ::std::option::Option<self::SelfManagedEventSource>,
         pub self_managed_kafka_event_source_config: ::std::option::Option<self::SelfManagedKafkaEventSourceConfig>,
-        pub source_access_configurations: ::std::option::Option<self::SourceAccessConfigurations>,
+        pub source_access_configurations: ::std::option::Option<::std::vec::Vec<self::SourceAccessConfiguration>>,
         pub starting_position: ::std::option::Option<self::EventSourcePosition>,
         pub starting_position_timestamp: ::std::option::Option<self::Date>,
         pub state: ::std::option::Option<self::String>,
         pub state_transition_reason: ::std::option::Option<self::String>,
-        pub topics: ::std::option::Option<self::Topics>,
+        pub topics: ::std::option::Option<::std::vec::Vec<self::Topic>>,
         pub tumbling_window_in_seconds: ::std::option::Option<self::TumblingWindowInSeconds>,
         pub uuid: ::std::option::Option<self::UuidString>,
     }
@@ -48,7 +48,7 @@
         pub fn filter_criteria(&self) -> &::std::option::Option<self::FilterCriteria> { &self.filter_criteria }
         pub fn filter_criteria_error(&self) -> &::std::option::Option<self::FilterCriteriaError> { &self.filter_criteria_error }
         pub fn function_arn(&self) -> &::std::option::Option<self::FunctionArn> { &self.function_arn }
-        pub fn function_response_types(&self) -> &::std::option::Option<self::FunctionResponseTypeList> { &self.function_response_types }
+        pub fn function_response_types(&self) -> &::std::option::Option<::std::vec::Vec<self::FunctionResponseType>> { &self.function_response_types }
         pub fn kms_key_arn(&self) -> &::std::option::Option<self::KmsKeyArn> { &self.kms_key_arn }
         pub fn last_modified(&self) -> &::std::option::Option<self::Date> { &self.last_modified }
         pub fn last_processing_result(&self) -> ::std::option::Option<&str> { self.last_processing_result.as_deref() }
@@ -59,16 +59,16 @@
         pub fn metrics_config(&self) -> &::std::option::Option<self::EventSourceMappingMetricsConfig> { &self.metrics_config }
         pub fn parallelization_factor(&self) -> &::std::option::Option<self::ParallelizationFactor> { &self.parallelization_factor }
         pub fn provisioned_poller_config(&self) -> &::std::option::Option<self::ProvisionedPollerConfig> { &self.provisioned_poller_config }
-        pub fn queues(&self) -> &::std::option::Option<self::Queues> { &self.queues }
+        pub fn queues(&self) -> &::std::option::Option<::std::vec::Vec<self::Queue>> { &self.queues }
         pub fn scaling_config(&self) -> &::std::option::Option<self::ScalingConfig> { &self.scaling_config }
         pub fn self_managed_event_source(&self) -> &::std::option::Option<self::SelfManagedEventSource> { &self.self_managed_event_source }
         pub fn self_managed_kafka_event_source_config(&self) -> &::std::option::Option<self::SelfManagedKafkaEventSourceConfig> { &self.self_managed_kafka_event_source_config }
-        pub fn source_access_configurations(&self) -> &::std::option::Option<self::SourceAccessConfigurations> { &self.source_access_configurations }
+        pub fn source_access_configurations(&self) -> &::std::option::Option<::std::vec::Vec<self::SourceAccessConfiguration>> { &self.source_access_configurations }
         pub fn starting_position(&self) -> &::std::option::Option<self::EventSourcePosition> { &self.starting_position }
         pub fn starting_position_timestamp(&self) -> &::std::option::Option<self::Date> { &self.starting_position_timestamp }
         pub fn state(&self) -> ::std::option::Option<&str> { self.state.as_deref() }
         pub fn state_transition_reason(&self) -> ::std::option::Option<&str> { self.state_transition_reason.as_deref() }
-        pub fn topics(&self) -> &::std::option::Option<self::Topics> { &self.topics }
+        pub fn topics(&self) -> &::std::option::Option<::std::vec::Vec<self::Topic>> { &self.topics }
         pub fn tumbling_window_in_seconds(&self) -> &::std::option::Option<self::TumblingWindowInSeconds> { &self.tumbling_window_in_seconds }
         pub fn uuid(&self) -> &::std::option::Option<self::UuidString> { &self.uuid }
     }
@@ -85,7 +85,7 @@
         filter_criteria: ::std::option::Option<self::FilterCriteria>,
         filter_criteria_error: ::std::option::Option<self::FilterCriteriaError>,
         function_arn: ::std::option::Option<self::FunctionArn>,
-        function_response_types: ::std::option::Option<self::FunctionResponseTypeList>,
+        function_response_types: ::std::option::Option<::std::vec::Vec<self::FunctionResponseType>>,
         kms_key_arn: ::std::option::Option<self::KmsKeyArn>,
         last_modified: ::std::option::Option<self::Date>,
         last_processing_result: ::std::option::Option<self::String>,
@@ -96,16 +96,16 @@
         metrics_config: ::std::option::Option<self::EventSourceMappingMetricsConfig>,
         parallelization_factor: ::std::option::Option<self::ParallelizationFactor>,
         provisioned_poller_config: ::std::option::Option<self::ProvisionedPollerConfig>,
-        queues: ::std::option::Option<self::Queues>,
+        queues: ::std::option::Option<::std::vec::Vec<self::Queue>>,
         scaling_config: ::std::option::Option<self::ScalingConfig>,
         self_managed_event_source: ::std::option::Option<self::SelfManagedEventSource>,
         self_managed_kafka_event_source_config: ::std::option::Option<self::SelfManagedKafkaEventSourceConfig>,
-        source_access_configurations: ::std::option::Option<self::SourceAccessConfigurations>,
+        source_access_configurations: ::std::option::Option<::std::vec::Vec<self::SourceAccessConfiguration>>,
         starting_position: ::std::option::Option<self::EventSourcePosition>,
         starting_position_timestamp: ::std::option::Option<self::Date>,
         state: ::std::option::Option<self::String>,
         state_transition_reason: ::std::option::Option<self::String>,
-        topics: ::std::option::Option<self::Topics>,
+        topics: ::std::option::Option<::std::vec::Vec<self::Topic>>,
         tumbling_window_in_seconds: ::std::option::Option<self::TumblingWindowInSeconds>,
         uuid: ::std::option::Option<self::UuidString>,
     }
@@ -141,9 +141,9 @@
         pub fn function_arn(mut self, input: impl ::std::convert::Into<self::FunctionArn>) -> Self { self.function_arn = Some(input.into()); self }
         pub fn set_function_arn(mut self, input: ::std::option::Option<self::FunctionArn>) -> Self { self.function_arn = input; self }
         pub fn get_function_arn(&self) -> &::std::option::Option<self::FunctionArn> { &self.function_arn }
-        pub fn function_response_types(mut self, input: impl ::std::convert::Into<self::FunctionResponseTypeList>) -> Self { self.function_response_types = Some(input.into()); self }
-        pub fn set_function_response_types(mut self, input: ::std::option::Option<self::FunctionResponseTypeList>) -> Self { self.function_response_types = input; self }
-        pub fn get_function_response_types(&self) -> &::std::option::Option<self::FunctionResponseTypeList> { &self.function_response_types }
+        pub fn function_response_types(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::FunctionResponseType>>) -> Self { self.function_response_types = Some(input.into()); self }
+        pub fn set_function_response_types(mut self, input: ::std::option::Option<::std::vec::Vec<self::FunctionResponseType>>) -> Self { self.function_response_types = input; self }
+        pub fn get_function_response_types(&self) -> &::std::option::Option<::std::vec::Vec<self::FunctionResponseType>> { &self.function_response_types }
         pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<self::KmsKeyArn>) -> Self { self.kms_key_arn = Some(input.into()); self }
         pub fn set_kms_key_arn(mut self, input: ::std::option::Option<self::KmsKeyArn>) -> Self { self.kms_key_arn = input; self }
         pub fn get_kms_key_arn(&self) -> &::std::option::Option<self::KmsKeyArn> { &self.kms_key_arn }
@@ -174,9 +174,9 @@
         pub fn provisioned_poller_config(mut self, input: impl ::std::convert::Into<self::ProvisionedPollerConfig>) -> Self { self.provisioned_poller_config = Some(input.into()); self }
         pub fn set_provisioned_poller_config(mut self, input: ::std::option::Option<self::ProvisionedPollerConfig>) -> Self { self.provisioned_poller_config = input; self }
         pub fn get_provisioned_poller_config(&self) -> &::std::option::Option<self::ProvisionedPollerConfig> { &self.provisioned_poller_config }
-        pub fn queues(mut self, input: impl ::std::convert::Into<self::Queues>) -> Self { self.queues = Some(input.into()); self }
-        pub fn set_queues(mut self, input: ::std::option::Option<self::Queues>) -> Self { self.queues = input; self }
-        pub fn get_queues(&self) -> &::std::option::Option<self::Queues> { &self.queues }
+        pub fn queues(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Queue>>) -> Self { self.queues = Some(input.into()); self }
+        pub fn set_queues(mut self, input: ::std::option::Option<::std::vec::Vec<self::Queue>>) -> Self { self.queues = input; self }
+        pub fn get_queues(&self) -> &::std::option::Option<::std::vec::Vec<self::Queue>> { &self.queues }
         pub fn scaling_config(mut self, input: impl ::std::convert::Into<self::ScalingConfig>) -> Self { self.scaling_config = Some(input.into()); self }
         pub fn set_scaling_config(mut self, input: ::std::option::Option<self::ScalingConfig>) -> Self { self.scaling_config = input; self }
         pub fn get_scaling_config(&self) -> &::std::option::Option<self::ScalingConfig> { &self.scaling_config }
@@ -186,9 +186,9 @@
         pub fn self_managed_kafka_event_source_config(mut self, input: impl ::std::convert::Into<self::SelfManagedKafkaEventSourceConfig>) -> Self { self.self_managed_kafka_event_source_config = Some(input.into()); self }
         pub fn set_self_managed_kafka_event_source_config(mut self, input: ::std::option::Option<self::SelfManagedKafkaEventSourceConfig>) -> Self { self.self_managed_kafka_event_source_config = input; self }
         pub fn get_self_managed_kafka_event_source_config(&self) -> &::std::option::Option<self::SelfManagedKafkaEventSourceConfig> { &self.self_managed_kafka_event_source_config }
-        pub fn source_access_configurations(mut self, input: impl ::std::convert::Into<self::SourceAccessConfigurations>) -> Self { self.source_access_configurations = Some(input.into()); self }
-        pub fn set_source_access_configurations(mut self, input: ::std::option::Option<self::SourceAccessConfigurations>) -> Self { self.source_access_configurations = input; self }
-        pub fn get_source_access_configurations(&self) -> &::std::option::Option<self::SourceAccessConfigurations> { &self.source_access_configurations }
+        pub fn source_access_configurations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SourceAccessConfiguration>>) -> Self { self.source_access_configurations = Some(input.into()); self }
+        pub fn set_source_access_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<self::SourceAccessConfiguration>>) -> Self { self.source_access_configurations = input; self }
+        pub fn get_source_access_configurations(&self) -> &::std::option::Option<::std::vec::Vec<self::SourceAccessConfiguration>> { &self.source_access_configurations }
         pub fn starting_position(mut self, input: impl ::std::convert::Into<self::EventSourcePosition>) -> Self { self.starting_position = Some(input.into()); self }
         pub fn set_starting_position(mut self, input: ::std::option::Option<self::EventSourcePosition>) -> Self { self.starting_position = input; self }
         pub fn get_starting_position(&self) -> &::std::option::Option<self::EventSourcePosition> { &self.starting_position }
@@ -201,9 +201,9 @@
         pub fn state_transition_reason(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.state_transition_reason = Some(input.into()); self }
         pub fn set_state_transition_reason(mut self, input: ::std::option::Option<self::String>) -> Self { self.state_transition_reason = input; self }
         pub fn get_state_transition_reason(&self) -> &::std::option::Option<self::String> { &self.state_transition_reason }
-        pub fn topics(mut self, input: impl ::std::convert::Into<self::Topics>) -> Self { self.topics = Some(input.into()); self }
-        pub fn set_topics(mut self, input: ::std::option::Option<self::Topics>) -> Self { self.topics = input; self }
-        pub fn get_topics(&self) -> &::std::option::Option<self::Topics> { &self.topics }
+        pub fn topics(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Topic>>) -> Self { self.topics = Some(input.into()); self }
+        pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<self::Topic>>) -> Self { self.topics = input; self }
+        pub fn get_topics(&self) -> &::std::option::Option<::std::vec::Vec<self::Topic>> { &self.topics }
         pub fn tumbling_window_in_seconds(mut self, input: impl ::std::convert::Into<self::TumblingWindowInSeconds>) -> Self { self.tumbling_window_in_seconds = Some(input.into()); self }
         pub fn set_tumbling_window_in_seconds(mut self, input: ::std::option::Option<self::TumblingWindowInSeconds>) -> Self { self.tumbling_window_in_seconds = input; self }
         pub fn get_tumbling_window_in_seconds(&self) -> &::std::option::Option<self::TumblingWindowInSeconds> { &self.tumbling_window_in_seconds }

@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateAliasError::Unhandled(format!("UpdateAlias returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateAliasOutput::default())
+                         Ok(super::UpdateAliasOutput)
                      }
 }
 pub use Builder as UpdateAliasFluentBuilder;

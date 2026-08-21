@@ -2,13 +2,13 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct CreateTopicInput {
-    pub attributes: ::std::option::Option<super::super::super::types::TopicAttributesMap>,
+    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
     pub data_protection_policy: ::std::option::Option<super::super::super::types::AttributeValue>,
     pub name: ::std::option::Option<super::super::super::types::TopicName>,
-    pub tags: ::std::option::Option<super::super::super::types::TagList>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl CreateTopicInput {
-            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::TopicAttributesMap> { self.attributes.as_ref() }
+            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.attributes.as_ref() }
             pub fn data_protection_policy(&self) -> ::std::option::Option<&str> { self.data_protection_policy.as_deref() }
             pub fn name(&self) -> ::std::option::Option<&str> { self.name.as_deref() }
             pub fn tags(&self) -> &[super::super::super::types::Tag] { self.tags.as_deref().unwrap_or(&[]) }
@@ -18,24 +18,24 @@ impl CreateTopicInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct CreateTopicInputBuilder {
-    attributes: ::std::option::Option<super::super::super::types::TopicAttributesMap>,
+    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
     data_protection_policy: ::std::option::Option<super::super::super::types::AttributeValue>,
     name: ::std::option::Option<super::super::super::types::TopicName>,
-    tags: ::std::option::Option<super::super::super::types::TagList>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl CreateTopicInputBuilder {
-    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::TopicAttributesMap>) -> Self { self.attributes = Some(input.into()); self }
-    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::TopicAttributesMap>) -> Self { self.attributes = input; self }
-    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::TopicAttributesMap> { &self.attributes }
+    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = Some(input.into()); self }
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = input; self }
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.attributes }
     pub fn data_protection_policy(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeValue>) -> Self { self.data_protection_policy = Some(input.into()); self }
     pub fn set_data_protection_policy(mut self, input: ::std::option::Option<super::super::super::types::AttributeValue>) -> Self { self.data_protection_policy = input; self }
     pub fn get_data_protection_policy(&self) -> &::std::option::Option<super::super::super::types::AttributeValue> { &self.data_protection_policy }
     pub fn name(mut self, input: impl ::std::convert::Into<super::super::super::types::TopicName>) -> Self { self.name = Some(input.into()); self }
     pub fn set_name(mut self, input: ::std::option::Option<super::super::super::types::TopicName>) -> Self { self.name = input; self }
     pub fn get_name(&self) -> &::std::option::Option<super::super::super::types::TopicName> { &self.name }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> CreateTopicInput { CreateTopicInput {
         attributes: self.attributes,
         data_protection_policy: self.data_protection_policy,

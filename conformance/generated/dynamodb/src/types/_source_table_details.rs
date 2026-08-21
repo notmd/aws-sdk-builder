@@ -4,7 +4,7 @@
     pub struct SourceTableDetails {
         pub billing_mode: ::std::option::Option<self::BillingMode>,
         pub item_count: ::std::option::Option<self::ItemCount>,
-        pub key_schema: ::std::option::Option<self::KeySchema>,
+        pub key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
         pub on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
         pub provisioned_throughput: ::std::option::Option<self::ProvisionedThroughput>,
         pub table_arn: ::std::option::Option<self::TableArn>,
@@ -17,7 +17,7 @@
         pub fn builder() -> SourceTableDetailsBuilder { SourceTableDetailsBuilder::default() }
         pub fn billing_mode(&self) -> &::std::option::Option<self::BillingMode> { &self.billing_mode }
         pub fn item_count(&self) -> &::std::option::Option<self::ItemCount> { &self.item_count }
-        pub fn key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
+        pub fn key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
         pub fn on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
         pub fn provisioned_throughput(&self) -> &::std::option::Option<self::ProvisionedThroughput> { &self.provisioned_throughput }
         pub fn table_arn(&self) -> &::std::option::Option<self::TableArn> { &self.table_arn }
@@ -31,7 +31,7 @@
     pub struct SourceTableDetailsBuilder {
         billing_mode: ::std::option::Option<self::BillingMode>,
         item_count: ::std::option::Option<self::ItemCount>,
-        key_schema: ::std::option::Option<self::KeySchema>,
+        key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
         on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
         provisioned_throughput: ::std::option::Option<self::ProvisionedThroughput>,
         table_arn: ::std::option::Option<self::TableArn>,
@@ -48,9 +48,9 @@
         pub fn item_count(mut self, input: impl ::std::convert::Into<self::ItemCount>) -> Self { self.item_count = Some(input.into()); self }
         pub fn set_item_count(mut self, input: ::std::option::Option<self::ItemCount>) -> Self { self.item_count = input; self }
         pub fn get_item_count(&self) -> &::std::option::Option<self::ItemCount> { &self.item_count }
-        pub fn key_schema(mut self, input: impl ::std::convert::Into<self::KeySchema>) -> Self { self.key_schema = Some(input.into()); self }
-        pub fn set_key_schema(mut self, input: ::std::option::Option<self::KeySchema>) -> Self { self.key_schema = input; self }
-        pub fn get_key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
+        pub fn key_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = Some(input.into()); self }
+        pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = input; self }
+        pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
         pub fn on_demand_throughput(mut self, input: impl ::std::convert::Into<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = Some(input.into()); self }
         pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
         pub fn get_on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }

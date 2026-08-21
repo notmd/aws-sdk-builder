@@ -2,11 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct SetPlatformApplicationAttributesInput {
-    pub attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
+    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
     pub platform_application_arn: ::std::option::Option<super::super::super::types::String>,
 }
         impl SetPlatformApplicationAttributesInput {
-            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::MapStringToString> { self.attributes.as_ref() }
+            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { self.attributes.as_ref() }
             pub fn platform_application_arn(&self) -> ::std::option::Option<&str> { self.platform_application_arn.as_deref() }
         }
 impl SetPlatformApplicationAttributesInput {
@@ -14,13 +14,13 @@ impl SetPlatformApplicationAttributesInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct SetPlatformApplicationAttributesInputBuilder {
-    attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
+    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
     platform_application_arn: ::std::option::Option<super::super::super::types::String>,
 }
 impl SetPlatformApplicationAttributesInputBuilder {
-    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::MapStringToString>) -> Self { self.attributes = input; self }
-    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::MapStringToString> { &self.attributes }
+    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = input; self }
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { &self.attributes }
     pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.platform_application_arn = Some(input.into()); self }
     pub fn set_platform_application_arn(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.platform_application_arn = input; self }
     pub fn get_platform_application_arn(&self) -> &::std::option::Option<super::super::super::types::String> { &self.platform_application_arn }

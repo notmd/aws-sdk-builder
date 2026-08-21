@@ -2,14 +2,14 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct LambdaFunctionConfiguration {
-        pub events: ::std::option::Option<self::EventList>,
+        pub events: ::std::option::Option<::std::vec::Vec<self::Event>>,
         pub filter: ::std::option::Option<self::NotificationConfigurationFilter>,
         pub id: ::std::option::Option<self::NotificationId>,
         pub lambda_function_arn: ::std::option::Option<self::LambdaFunctionArn>,
     }
     impl LambdaFunctionConfiguration {
         pub fn builder() -> LambdaFunctionConfigurationBuilder { LambdaFunctionConfigurationBuilder::default() }
-        pub fn events(&self) -> &::std::option::Option<self::EventList> { &self.events }
+        pub fn events(&self) -> &::std::option::Option<::std::vec::Vec<self::Event>> { &self.events }
         pub fn filter(&self) -> &::std::option::Option<self::NotificationConfigurationFilter> { &self.filter }
         pub fn id(&self) -> &::std::option::Option<self::NotificationId> { &self.id }
         pub fn lambda_function_arn(&self) -> &::std::option::Option<self::LambdaFunctionArn> { &self.lambda_function_arn }
@@ -17,16 +17,16 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct LambdaFunctionConfigurationBuilder {
-        events: ::std::option::Option<self::EventList>,
+        events: ::std::option::Option<::std::vec::Vec<self::Event>>,
         filter: ::std::option::Option<self::NotificationConfigurationFilter>,
         id: ::std::option::Option<self::NotificationId>,
         lambda_function_arn: ::std::option::Option<self::LambdaFunctionArn>,
     }
 
     impl LambdaFunctionConfigurationBuilder {
-        pub fn events(mut self, input: impl ::std::convert::Into<self::EventList>) -> Self { self.events = Some(input.into()); self }
-        pub fn set_events(mut self, input: ::std::option::Option<self::EventList>) -> Self { self.events = input; self }
-        pub fn get_events(&self) -> &::std::option::Option<self::EventList> { &self.events }
+        pub fn events(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Event>>) -> Self { self.events = Some(input.into()); self }
+        pub fn set_events(mut self, input: ::std::option::Option<::std::vec::Vec<self::Event>>) -> Self { self.events = input; self }
+        pub fn get_events(&self) -> &::std::option::Option<::std::vec::Vec<self::Event>> { &self.events }
         pub fn filter(mut self, input: impl ::std::convert::Into<self::NotificationConfigurationFilter>) -> Self { self.filter = Some(input.into()); self }
         pub fn set_filter(mut self, input: ::std::option::Option<self::NotificationConfigurationFilter>) -> Self { self.filter = input; self }
         pub fn get_filter(&self) -> &::std::option::Option<self::NotificationConfigurationFilter> { &self.filter }

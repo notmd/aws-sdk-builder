@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SendDurableExecutionCallbackFailureError::Unhandled(format!("SendDurableExecutionCallbackFailure returned HTTP {}", status)));
                          }
-                         Ok(super::SendDurableExecutionCallbackFailureOutput::default())
+                         Ok(super::SendDurableExecutionCallbackFailureOutput)
                      }
 }
 pub use Builder as SendDurableExecutionCallbackFailureFluentBuilder;

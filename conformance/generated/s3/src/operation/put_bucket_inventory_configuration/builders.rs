@@ -26,7 +26,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketInventoryConfigurationError::Unhandled(format!("PutBucketInventoryConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketInventoryConfigurationOutput::default())
+                         Ok(super::PutBucketInventoryConfigurationOutput)
                      }
 }
 pub use Builder as PutBucketInventoryConfigurationFluentBuilder;

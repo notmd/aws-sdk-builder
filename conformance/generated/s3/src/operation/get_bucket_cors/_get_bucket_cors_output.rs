@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetBucketCorsOutput {
-    pub cors_rules: ::std::option::Option<super::super::super::types::CorsRules>,
+    pub cors_rules: ::std::option::Option<::std::vec::Vec<super::super::super::types::CorsRule>>,
 }
         impl GetBucketCorsOutput {
             pub fn cors_rules(&self) -> &[super::super::super::types::CorsRule] { self.cors_rules.as_deref().unwrap_or(&[]) }
@@ -12,12 +12,12 @@ impl GetBucketCorsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetBucketCorsOutputBuilder {
-    cors_rules: ::std::option::Option<super::super::super::types::CorsRules>,
+    cors_rules: ::std::option::Option<::std::vec::Vec<super::super::super::types::CorsRule>>,
 }
 impl GetBucketCorsOutputBuilder {
-    pub fn cors_rules(mut self, input: impl ::std::convert::Into<super::super::super::types::CorsRules>) -> Self { self.cors_rules = Some(input.into()); self }
-    pub fn set_cors_rules(mut self, input: ::std::option::Option<super::super::super::types::CorsRules>) -> Self { self.cors_rules = input; self }
-    pub fn get_cors_rules(&self) -> &::std::option::Option<super::super::super::types::CorsRules> { &self.cors_rules }
+    pub fn cors_rules(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::CorsRule>>) -> Self { self.cors_rules = Some(input.into()); self }
+    pub fn set_cors_rules(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::CorsRule>>) -> Self { self.cors_rules = input; self }
+    pub fn get_cors_rules(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::CorsRule>> { &self.cors_rules }
     pub fn build(self) -> GetBucketCorsOutput { GetBucketCorsOutput {
         cors_rules: self.cors_rules,
     } }

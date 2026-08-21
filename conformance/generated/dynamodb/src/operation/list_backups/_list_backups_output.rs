@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListBackupsOutput {
-    pub backup_summaries: ::std::option::Option<super::super::super::types::BackupSummaries>,
+    pub backup_summaries: ::std::option::Option<::std::vec::Vec<super::super::super::types::BackupSummary>>,
     pub last_evaluated_backup_arn: ::std::option::Option<super::super::super::types::BackupArn>,
 }
         impl ListBackupsOutput {
@@ -14,13 +14,13 @@ impl ListBackupsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListBackupsOutputBuilder {
-    backup_summaries: ::std::option::Option<super::super::super::types::BackupSummaries>,
+    backup_summaries: ::std::option::Option<::std::vec::Vec<super::super::super::types::BackupSummary>>,
     last_evaluated_backup_arn: ::std::option::Option<super::super::super::types::BackupArn>,
 }
 impl ListBackupsOutputBuilder {
-    pub fn backup_summaries(mut self, input: impl ::std::convert::Into<super::super::super::types::BackupSummaries>) -> Self { self.backup_summaries = Some(input.into()); self }
-    pub fn set_backup_summaries(mut self, input: ::std::option::Option<super::super::super::types::BackupSummaries>) -> Self { self.backup_summaries = input; self }
-    pub fn get_backup_summaries(&self) -> &::std::option::Option<super::super::super::types::BackupSummaries> { &self.backup_summaries }
+    pub fn backup_summaries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::BackupSummary>>) -> Self { self.backup_summaries = Some(input.into()); self }
+    pub fn set_backup_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BackupSummary>>) -> Self { self.backup_summaries = input; self }
+    pub fn get_backup_summaries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::BackupSummary>> { &self.backup_summaries }
     pub fn last_evaluated_backup_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::BackupArn>) -> Self { self.last_evaluated_backup_arn = Some(input.into()); self }
     pub fn set_last_evaluated_backup_arn(mut self, input: ::std::option::Option<super::super::super::types::BackupArn>) -> Self { self.last_evaluated_backup_arn = input; self }
     pub fn get_last_evaluated_backup_arn(&self) -> &::std::option::Option<super::super::super::types::BackupArn> { &self.last_evaluated_backup_arn }

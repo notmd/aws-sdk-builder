@@ -4,7 +4,7 @@
 pub struct ListBucketMetricsConfigurationsOutput {
     pub continuation_token: ::std::option::Option<super::super::super::types::Token>,
     pub is_truncated: ::std::option::Option<super::super::super::types::IsTruncated>,
-    pub metrics_configuration_list: ::std::option::Option<super::super::super::types::MetricsConfigurationList>,
+    pub metrics_configuration_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::MetricsConfiguration>>,
     pub next_continuation_token: ::std::option::Option<super::super::super::types::NextToken>,
 }
         impl ListBucketMetricsConfigurationsOutput {
@@ -20,7 +20,7 @@ impl ListBucketMetricsConfigurationsOutput {
 pub struct ListBucketMetricsConfigurationsOutputBuilder {
     continuation_token: ::std::option::Option<super::super::super::types::Token>,
     is_truncated: ::std::option::Option<super::super::super::types::IsTruncated>,
-    metrics_configuration_list: ::std::option::Option<super::super::super::types::MetricsConfigurationList>,
+    metrics_configuration_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::MetricsConfiguration>>,
     next_continuation_token: ::std::option::Option<super::super::super::types::NextToken>,
 }
 impl ListBucketMetricsConfigurationsOutputBuilder {
@@ -30,9 +30,9 @@ impl ListBucketMetricsConfigurationsOutputBuilder {
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::IsTruncated>) -> Self { self.is_truncated = Some(input.into()); self }
     pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::IsTruncated>) -> Self { self.is_truncated = input; self }
     pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::IsTruncated> { &self.is_truncated }
-    pub fn metrics_configuration_list(mut self, input: impl ::std::convert::Into<super::super::super::types::MetricsConfigurationList>) -> Self { self.metrics_configuration_list = Some(input.into()); self }
-    pub fn set_metrics_configuration_list(mut self, input: ::std::option::Option<super::super::super::types::MetricsConfigurationList>) -> Self { self.metrics_configuration_list = input; self }
-    pub fn get_metrics_configuration_list(&self) -> &::std::option::Option<super::super::super::types::MetricsConfigurationList> { &self.metrics_configuration_list }
+    pub fn metrics_configuration_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::MetricsConfiguration>>) -> Self { self.metrics_configuration_list = Some(input.into()); self }
+    pub fn set_metrics_configuration_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MetricsConfiguration>>) -> Self { self.metrics_configuration_list = input; self }
+    pub fn get_metrics_configuration_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MetricsConfiguration>> { &self.metrics_configuration_list }
     pub fn next_continuation_token(mut self, input: impl ::std::convert::Into<super::super::super::types::NextToken>) -> Self { self.next_continuation_token = Some(input.into()); self }
     pub fn set_next_continuation_token(mut self, input: ::std::option::Option<super::super::super::types::NextToken>) -> Self { self.next_continuation_token = input; self }
     pub fn get_next_continuation_token(&self) -> &::std::option::Option<super::super::super::types::NextToken> { &self.next_continuation_token }

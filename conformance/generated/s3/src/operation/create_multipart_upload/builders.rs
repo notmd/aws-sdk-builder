@@ -27,7 +27,7 @@ impl Builder {
     pub fn grant_read_acp(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantReadAcp>) -> Self { self.input.grant_read_acp = Some(value.into()); self }
     pub fn grant_write_acp(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantWriteAcp>) -> Self { self.input.grant_write_acp = Some(value.into()); self }
     pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectKey>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn metadata(mut self, value: impl ::std::convert::Into<super::super::super::types::Metadata>) -> Self { self.input.metadata = Some(value.into()); self }
+    pub fn metadata(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>>) -> Self { self.input.metadata = Some(value.into()); self }
     pub fn object_lock_legal_hold_status(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockLegalHoldStatus>) -> Self { self.input.object_lock_legal_hold_status = Some(value.into()); self }
     pub fn object_lock_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockMode>) -> Self { self.input.object_lock_mode = Some(value.into()); self }
     pub fn object_lock_retain_until_date(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockRetainUntilDate>) -> Self { self.input.object_lock_retain_until_date = Some(value.into()); self }

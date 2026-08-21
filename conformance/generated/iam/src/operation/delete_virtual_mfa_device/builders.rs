@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteVirtualMfaDeviceError::Unhandled(format!("DeleteVirtualMfaDevice returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteVirtualMfaDeviceOutput::default())
+                         Ok(super::DeleteVirtualMfaDeviceOutput)
                      }
 }
 pub use Builder as DeleteVirtualMfaDeviceFluentBuilder;

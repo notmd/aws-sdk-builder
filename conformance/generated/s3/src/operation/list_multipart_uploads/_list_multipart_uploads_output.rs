@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct ListMultipartUploadsOutput {
     pub bucket: ::std::option::Option<super::super::super::types::BucketName>,
-    pub common_prefixes: ::std::option::Option<super::super::super::types::CommonPrefixList>,
+    pub common_prefixes: ::std::option::Option<::std::vec::Vec<super::super::super::types::CommonPrefix>>,
     pub delimiter: ::std::option::Option<super::super::super::types::Delimiter>,
     pub encoding_type: ::std::option::Option<super::super::super::types::EncodingType>,
     pub is_truncated: ::std::option::Option<super::super::super::types::IsTruncated>,
@@ -14,7 +14,7 @@ pub struct ListMultipartUploadsOutput {
     pub prefix: ::std::option::Option<super::super::super::types::Prefix>,
     pub request_charged: ::std::option::Option<super::super::super::types::RequestCharged>,
     pub upload_id_marker: ::std::option::Option<super::super::super::types::UploadIdMarker>,
-    pub uploads: ::std::option::Option<super::super::super::types::MultipartUploadList>,
+    pub uploads: ::std::option::Option<::std::vec::Vec<super::super::super::types::MultipartUpload>>,
 }
         impl ListMultipartUploadsOutput {
             pub fn bucket(&self) -> ::std::option::Option<&str> { self.bucket.as_deref() }
@@ -37,7 +37,7 @@ impl ListMultipartUploadsOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ListMultipartUploadsOutputBuilder {
     bucket: ::std::option::Option<super::super::super::types::BucketName>,
-    common_prefixes: ::std::option::Option<super::super::super::types::CommonPrefixList>,
+    common_prefixes: ::std::option::Option<::std::vec::Vec<super::super::super::types::CommonPrefix>>,
     delimiter: ::std::option::Option<super::super::super::types::Delimiter>,
     encoding_type: ::std::option::Option<super::super::super::types::EncodingType>,
     is_truncated: ::std::option::Option<super::super::super::types::IsTruncated>,
@@ -48,15 +48,15 @@ pub struct ListMultipartUploadsOutputBuilder {
     prefix: ::std::option::Option<super::super::super::types::Prefix>,
     request_charged: ::std::option::Option<super::super::super::types::RequestCharged>,
     upload_id_marker: ::std::option::Option<super::super::super::types::UploadIdMarker>,
-    uploads: ::std::option::Option<super::super::super::types::MultipartUploadList>,
+    uploads: ::std::option::Option<::std::vec::Vec<super::super::super::types::MultipartUpload>>,
 }
 impl ListMultipartUploadsOutputBuilder {
     pub fn bucket(mut self, input: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.bucket = Some(input.into()); self }
     pub fn set_bucket(mut self, input: ::std::option::Option<super::super::super::types::BucketName>) -> Self { self.bucket = input; self }
     pub fn get_bucket(&self) -> &::std::option::Option<super::super::super::types::BucketName> { &self.bucket }
-    pub fn common_prefixes(mut self, input: impl ::std::convert::Into<super::super::super::types::CommonPrefixList>) -> Self { self.common_prefixes = Some(input.into()); self }
-    pub fn set_common_prefixes(mut self, input: ::std::option::Option<super::super::super::types::CommonPrefixList>) -> Self { self.common_prefixes = input; self }
-    pub fn get_common_prefixes(&self) -> &::std::option::Option<super::super::super::types::CommonPrefixList> { &self.common_prefixes }
+    pub fn common_prefixes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::CommonPrefix>>) -> Self { self.common_prefixes = Some(input.into()); self }
+    pub fn set_common_prefixes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::CommonPrefix>>) -> Self { self.common_prefixes = input; self }
+    pub fn get_common_prefixes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::CommonPrefix>> { &self.common_prefixes }
     pub fn delimiter(mut self, input: impl ::std::convert::Into<super::super::super::types::Delimiter>) -> Self { self.delimiter = Some(input.into()); self }
     pub fn set_delimiter(mut self, input: ::std::option::Option<super::super::super::types::Delimiter>) -> Self { self.delimiter = input; self }
     pub fn get_delimiter(&self) -> &::std::option::Option<super::super::super::types::Delimiter> { &self.delimiter }
@@ -87,9 +87,9 @@ impl ListMultipartUploadsOutputBuilder {
     pub fn upload_id_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::UploadIdMarker>) -> Self { self.upload_id_marker = Some(input.into()); self }
     pub fn set_upload_id_marker(mut self, input: ::std::option::Option<super::super::super::types::UploadIdMarker>) -> Self { self.upload_id_marker = input; self }
     pub fn get_upload_id_marker(&self) -> &::std::option::Option<super::super::super::types::UploadIdMarker> { &self.upload_id_marker }
-    pub fn uploads(mut self, input: impl ::std::convert::Into<super::super::super::types::MultipartUploadList>) -> Self { self.uploads = Some(input.into()); self }
-    pub fn set_uploads(mut self, input: ::std::option::Option<super::super::super::types::MultipartUploadList>) -> Self { self.uploads = input; self }
-    pub fn get_uploads(&self) -> &::std::option::Option<super::super::super::types::MultipartUploadList> { &self.uploads }
+    pub fn uploads(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::MultipartUpload>>) -> Self { self.uploads = Some(input.into()); self }
+    pub fn set_uploads(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MultipartUpload>>) -> Self { self.uploads = input; self }
+    pub fn get_uploads(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MultipartUpload>> { &self.uploads }
     pub fn build(self) -> ListMultipartUploadsOutput { ListMultipartUploadsOutput {
         bucket: self.bucket,
         common_prefixes: self.common_prefixes,

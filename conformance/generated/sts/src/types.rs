@@ -11,7 +11,6 @@ pub mod types {
     pub type OutboundWebIdentityFederationDisabledException2 = ::std::string::String;
     include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/_policy_descriptor_type.rs"));
     include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/_provided_context.rs"));
-    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/_provided_contexts_list_type.rs"));
     pub type RootDurationSecondsType = i32;
     pub type SamlAssertionType = ::std::string::String;
     pub type SessionDurationEscalationException2 = ::std::string::String;
@@ -42,16 +41,13 @@ pub mod types {
     pub type MalformedPolicyDocumentMessage = ::std::string::String;
     pub type NonNegativeIntegerType = i32;
     pub type PackedPolicyTooLargeMessage = ::std::string::String;
-    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/_policy_descriptor_list_type.rs"));
     pub type RegionDisabledMessage = ::std::string::String;
     pub type RoleDurationSecondsType = i32;
     pub type RoleSessionNameType = ::std::string::String;
     pub type SerialNumberType = ::std::string::String;
     pub type SessionPolicyDocumentType = ::std::string::String;
     pub type SourceIdentityType = ::std::string::String;
-    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/_tag_key_list_type.rs"));
     pub type TagKeyType = ::std::string::String;
-    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/_tag_list_type.rs"));
     pub type TagValueType = ::std::string::String;
     pub type TokenCodeType = ::std::string::String;
     pub type TokenType = ::std::string::String;
@@ -61,7 +57,6 @@ pub mod types {
     pub type UserIdType = ::std::string::String;
     pub type UserNameType = ::std::string::String;
     pub type WebIdentitySubjectType = ::std::string::String;
-    include!(concat!(env!("OUT_DIR"), "/generated/sts/src/types/_web_identity_token_audience_list_type.rs"));
     pub type WebIdentityTokenAudienceStringType = ::std::string::String;
     pub type WebIdentityTokenDurationSecondsType = i32;
     pub type WebIdentityTokenType = ::std::string::String;

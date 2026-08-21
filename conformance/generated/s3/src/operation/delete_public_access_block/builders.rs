@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeletePublicAccessBlockError::Unhandled(format!("DeletePublicAccessBlock returned HTTP {}", status)));
                          }
-                         Ok(super::DeletePublicAccessBlockOutput::default())
+                         Ok(super::DeletePublicAccessBlockOutput)
                      }
 }
 pub use Builder as DeletePublicAccessBlockFluentBuilder;

@@ -5,14 +5,14 @@
         pub certificate_body: ::std::option::Option<self::CertificateBodyType>,
         pub certificate_chain: ::std::option::Option<self::CertificateChainType>,
         pub server_certificate_metadata: ::std::option::Option<self::ServerCertificateMetadata>,
-        pub tags: ::std::option::Option<self::TagListType>,
+        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
     }
     impl ServerCertificate {
         pub fn builder() -> ServerCertificateBuilder { ServerCertificateBuilder::default() }
         pub fn certificate_body(&self) -> &::std::option::Option<self::CertificateBodyType> { &self.certificate_body }
         pub fn certificate_chain(&self) -> &::std::option::Option<self::CertificateChainType> { &self.certificate_chain }
         pub fn server_certificate_metadata(&self) -> &::std::option::Option<self::ServerCertificateMetadata> { &self.server_certificate_metadata }
-        pub fn tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
+        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
     }
 
     #[derive(Clone, Debug, Default)]
@@ -20,7 +20,7 @@
         certificate_body: ::std::option::Option<self::CertificateBodyType>,
         certificate_chain: ::std::option::Option<self::CertificateChainType>,
         server_certificate_metadata: ::std::option::Option<self::ServerCertificateMetadata>,
-        tags: ::std::option::Option<self::TagListType>,
+        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
     }
 
     impl ServerCertificateBuilder {
@@ -33,9 +33,9 @@
         pub fn server_certificate_metadata(mut self, input: impl ::std::convert::Into<self::ServerCertificateMetadata>) -> Self { self.server_certificate_metadata = Some(input.into()); self }
         pub fn set_server_certificate_metadata(mut self, input: ::std::option::Option<self::ServerCertificateMetadata>) -> Self { self.server_certificate_metadata = input; self }
         pub fn get_server_certificate_metadata(&self) -> &::std::option::Option<self::ServerCertificateMetadata> { &self.server_certificate_metadata }
-        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagListType>) -> Self { self.tags = Some(input.into()); self }
-        pub fn set_tags(mut self, input: ::std::option::Option<self::TagListType>) -> Self { self.tags = input; self }
-        pub fn get_tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
+        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
+        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
+        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
         pub fn build(self) -> ServerCertificate {
             ServerCertificate {
                 certificate_body: self.certificate_body,

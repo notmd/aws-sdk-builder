@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::RemoveClientIdFromOpenIdConnectProviderError::Unhandled(format!("RemoveClientIdFromOpenIdConnectProvider returned HTTP {}", status)));
                          }
-                         Ok(super::RemoveClientIdFromOpenIdConnectProviderOutput::default())
+                         Ok(super::RemoveClientIdFromOpenIdConnectProviderOutput)
                      }
 }
 pub use Builder as RemoveClientIdFromOpenIdConnectProviderFluentBuilder;

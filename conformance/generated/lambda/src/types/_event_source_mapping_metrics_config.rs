@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct EventSourceMappingMetricsConfig {
-        pub metrics: ::std::option::Option<self::EventSourceMappingMetricList>,
+        pub metrics: ::std::option::Option<::std::vec::Vec<self::EventSourceMappingMetric>>,
     }
     impl EventSourceMappingMetricsConfig {
         pub fn builder() -> EventSourceMappingMetricsConfigBuilder { EventSourceMappingMetricsConfigBuilder::default() }
-        pub fn metrics(&self) -> &::std::option::Option<self::EventSourceMappingMetricList> { &self.metrics }
+        pub fn metrics(&self) -> &::std::option::Option<::std::vec::Vec<self::EventSourceMappingMetric>> { &self.metrics }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct EventSourceMappingMetricsConfigBuilder {
-        metrics: ::std::option::Option<self::EventSourceMappingMetricList>,
+        metrics: ::std::option::Option<::std::vec::Vec<self::EventSourceMappingMetric>>,
     }
 
     impl EventSourceMappingMetricsConfigBuilder {
-        pub fn metrics(mut self, input: impl ::std::convert::Into<self::EventSourceMappingMetricList>) -> Self { self.metrics = Some(input.into()); self }
-        pub fn set_metrics(mut self, input: ::std::option::Option<self::EventSourceMappingMetricList>) -> Self { self.metrics = input; self }
-        pub fn get_metrics(&self) -> &::std::option::Option<self::EventSourceMappingMetricList> { &self.metrics }
+        pub fn metrics(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::EventSourceMappingMetric>>) -> Self { self.metrics = Some(input.into()); self }
+        pub fn set_metrics(mut self, input: ::std::option::Option<::std::vec::Vec<self::EventSourceMappingMetric>>) -> Self { self.metrics = input; self }
+        pub fn get_metrics(&self) -> &::std::option::Option<::std::vec::Vec<self::EventSourceMappingMetric>> { &self.metrics }
         pub fn build(self) -> EventSourceMappingMetricsConfig {
             EventSourceMappingMetricsConfig {
                 metrics: self.metrics,

@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::VerifySmsSandboxPhoneNumberError::Unhandled(format!("VerifySmsSandboxPhoneNumber returned HTTP {}", status)));
                          }
-                         Ok(super::VerifySmsSandboxPhoneNumberOutput::default())
+                         Ok(super::VerifySmsSandboxPhoneNumberOutput)
                      }
 }
 pub use Builder as VerifySmsSandboxPhoneNumberFluentBuilder;

@@ -2,7 +2,7 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct CreateFunctionRequest {
-        pub architectures: ::std::option::Option<self::ArchitecturesList>,
+        pub architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
         pub capacity_provider_config: ::std::option::Option<self::CapacityProviderConfig>,
         pub code: ::std::option::Option<self::FunctionCode>,
         pub code_signing_config_arn: ::std::option::Option<self::CodeSigningConfigArn>,
@@ -11,12 +11,12 @@
         pub durable_config: ::std::option::Option<self::DurableConfig>,
         pub environment: ::std::option::Option<self::Environment>,
         pub ephemeral_storage: ::std::option::Option<self::EphemeralStorage>,
-        pub file_system_configs: ::std::option::Option<self::FileSystemConfigList>,
+        pub file_system_configs: ::std::option::Option<::std::vec::Vec<self::FileSystemConfig>>,
         pub function_name: ::std::option::Option<self::FunctionName>,
         pub handler: ::std::option::Option<self::Handler>,
         pub image_config: ::std::option::Option<self::ImageConfig>,
         pub kms_key_arn: ::std::option::Option<self::KmsKeyArn>,
-        pub layers: ::std::option::Option<self::LayerList>,
+        pub layers: ::std::option::Option<::std::vec::Vec<self::LayerVersionArn>>,
         pub logging_config: ::std::option::Option<self::LoggingConfig>,
         pub memory_size: ::std::option::Option<self::MemorySize>,
         pub package_type: ::std::option::Option<self::PackageType>,
@@ -25,7 +25,7 @@
         pub role: ::std::option::Option<self::RoleArn>,
         pub runtime: ::std::option::Option<self::Runtime>,
         pub snap_start: ::std::option::Option<self::SnapStart>,
-        pub tags: ::std::option::Option<self::Tags>,
+        pub tags: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>,
         pub tenancy_config: ::std::option::Option<self::TenancyConfig>,
         pub timeout: ::std::option::Option<self::Timeout>,
         pub tracing_config: ::std::option::Option<self::TracingConfig>,
@@ -33,7 +33,7 @@
     }
     impl CreateFunctionRequest {
         pub fn builder() -> CreateFunctionRequestBuilder { CreateFunctionRequestBuilder::default() }
-        pub fn architectures(&self) -> &::std::option::Option<self::ArchitecturesList> { &self.architectures }
+        pub fn architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.architectures }
         pub fn capacity_provider_config(&self) -> &::std::option::Option<self::CapacityProviderConfig> { &self.capacity_provider_config }
         pub fn code(&self) -> &::std::option::Option<self::FunctionCode> { &self.code }
         pub fn code_signing_config_arn(&self) -> &::std::option::Option<self::CodeSigningConfigArn> { &self.code_signing_config_arn }
@@ -42,12 +42,12 @@
         pub fn durable_config(&self) -> &::std::option::Option<self::DurableConfig> { &self.durable_config }
         pub fn environment(&self) -> &::std::option::Option<self::Environment> { &self.environment }
         pub fn ephemeral_storage(&self) -> &::std::option::Option<self::EphemeralStorage> { &self.ephemeral_storage }
-        pub fn file_system_configs(&self) -> &::std::option::Option<self::FileSystemConfigList> { &self.file_system_configs }
+        pub fn file_system_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::FileSystemConfig>> { &self.file_system_configs }
         pub fn function_name(&self) -> &::std::option::Option<self::FunctionName> { &self.function_name }
         pub fn handler(&self) -> &::std::option::Option<self::Handler> { &self.handler }
         pub fn image_config(&self) -> &::std::option::Option<self::ImageConfig> { &self.image_config }
         pub fn kms_key_arn(&self) -> &::std::option::Option<self::KmsKeyArn> { &self.kms_key_arn }
-        pub fn layers(&self) -> &::std::option::Option<self::LayerList> { &self.layers }
+        pub fn layers(&self) -> &::std::option::Option<::std::vec::Vec<self::LayerVersionArn>> { &self.layers }
         pub fn logging_config(&self) -> &::std::option::Option<self::LoggingConfig> { &self.logging_config }
         pub fn memory_size(&self) -> &::std::option::Option<self::MemorySize> { &self.memory_size }
         pub fn package_type(&self) -> &::std::option::Option<self::PackageType> { &self.package_type }
@@ -56,7 +56,7 @@
         pub fn role(&self) -> &::std::option::Option<self::RoleArn> { &self.role }
         pub fn runtime(&self) -> &::std::option::Option<self::Runtime> { &self.runtime }
         pub fn snap_start(&self) -> &::std::option::Option<self::SnapStart> { &self.snap_start }
-        pub fn tags(&self) -> &::std::option::Option<self::Tags> { &self.tags }
+        pub fn tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>> { &self.tags }
         pub fn tenancy_config(&self) -> &::std::option::Option<self::TenancyConfig> { &self.tenancy_config }
         pub fn timeout(&self) -> &::std::option::Option<self::Timeout> { &self.timeout }
         pub fn tracing_config(&self) -> &::std::option::Option<self::TracingConfig> { &self.tracing_config }
@@ -65,7 +65,7 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct CreateFunctionRequestBuilder {
-        architectures: ::std::option::Option<self::ArchitecturesList>,
+        architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
         capacity_provider_config: ::std::option::Option<self::CapacityProviderConfig>,
         code: ::std::option::Option<self::FunctionCode>,
         code_signing_config_arn: ::std::option::Option<self::CodeSigningConfigArn>,
@@ -74,12 +74,12 @@
         durable_config: ::std::option::Option<self::DurableConfig>,
         environment: ::std::option::Option<self::Environment>,
         ephemeral_storage: ::std::option::Option<self::EphemeralStorage>,
-        file_system_configs: ::std::option::Option<self::FileSystemConfigList>,
+        file_system_configs: ::std::option::Option<::std::vec::Vec<self::FileSystemConfig>>,
         function_name: ::std::option::Option<self::FunctionName>,
         handler: ::std::option::Option<self::Handler>,
         image_config: ::std::option::Option<self::ImageConfig>,
         kms_key_arn: ::std::option::Option<self::KmsKeyArn>,
-        layers: ::std::option::Option<self::LayerList>,
+        layers: ::std::option::Option<::std::vec::Vec<self::LayerVersionArn>>,
         logging_config: ::std::option::Option<self::LoggingConfig>,
         memory_size: ::std::option::Option<self::MemorySize>,
         package_type: ::std::option::Option<self::PackageType>,
@@ -88,7 +88,7 @@
         role: ::std::option::Option<self::RoleArn>,
         runtime: ::std::option::Option<self::Runtime>,
         snap_start: ::std::option::Option<self::SnapStart>,
-        tags: ::std::option::Option<self::Tags>,
+        tags: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>,
         tenancy_config: ::std::option::Option<self::TenancyConfig>,
         timeout: ::std::option::Option<self::Timeout>,
         tracing_config: ::std::option::Option<self::TracingConfig>,
@@ -96,9 +96,9 @@
     }
 
     impl CreateFunctionRequestBuilder {
-        pub fn architectures(mut self, input: impl ::std::convert::Into<self::ArchitecturesList>) -> Self { self.architectures = Some(input.into()); self }
-        pub fn set_architectures(mut self, input: ::std::option::Option<self::ArchitecturesList>) -> Self { self.architectures = input; self }
-        pub fn get_architectures(&self) -> &::std::option::Option<self::ArchitecturesList> { &self.architectures }
+        pub fn architectures(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Architecture>>) -> Self { self.architectures = Some(input.into()); self }
+        pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<self::Architecture>>) -> Self { self.architectures = input; self }
+        pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.architectures }
         pub fn capacity_provider_config(mut self, input: impl ::std::convert::Into<self::CapacityProviderConfig>) -> Self { self.capacity_provider_config = Some(input.into()); self }
         pub fn set_capacity_provider_config(mut self, input: ::std::option::Option<self::CapacityProviderConfig>) -> Self { self.capacity_provider_config = input; self }
         pub fn get_capacity_provider_config(&self) -> &::std::option::Option<self::CapacityProviderConfig> { &self.capacity_provider_config }
@@ -123,9 +123,9 @@
         pub fn ephemeral_storage(mut self, input: impl ::std::convert::Into<self::EphemeralStorage>) -> Self { self.ephemeral_storage = Some(input.into()); self }
         pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<self::EphemeralStorage>) -> Self { self.ephemeral_storage = input; self }
         pub fn get_ephemeral_storage(&self) -> &::std::option::Option<self::EphemeralStorage> { &self.ephemeral_storage }
-        pub fn file_system_configs(mut self, input: impl ::std::convert::Into<self::FileSystemConfigList>) -> Self { self.file_system_configs = Some(input.into()); self }
-        pub fn set_file_system_configs(mut self, input: ::std::option::Option<self::FileSystemConfigList>) -> Self { self.file_system_configs = input; self }
-        pub fn get_file_system_configs(&self) -> &::std::option::Option<self::FileSystemConfigList> { &self.file_system_configs }
+        pub fn file_system_configs(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::FileSystemConfig>>) -> Self { self.file_system_configs = Some(input.into()); self }
+        pub fn set_file_system_configs(mut self, input: ::std::option::Option<::std::vec::Vec<self::FileSystemConfig>>) -> Self { self.file_system_configs = input; self }
+        pub fn get_file_system_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::FileSystemConfig>> { &self.file_system_configs }
         pub fn function_name(mut self, input: impl ::std::convert::Into<self::FunctionName>) -> Self { self.function_name = Some(input.into()); self }
         pub fn set_function_name(mut self, input: ::std::option::Option<self::FunctionName>) -> Self { self.function_name = input; self }
         pub fn get_function_name(&self) -> &::std::option::Option<self::FunctionName> { &self.function_name }
@@ -138,9 +138,9 @@
         pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<self::KmsKeyArn>) -> Self { self.kms_key_arn = Some(input.into()); self }
         pub fn set_kms_key_arn(mut self, input: ::std::option::Option<self::KmsKeyArn>) -> Self { self.kms_key_arn = input; self }
         pub fn get_kms_key_arn(&self) -> &::std::option::Option<self::KmsKeyArn> { &self.kms_key_arn }
-        pub fn layers(mut self, input: impl ::std::convert::Into<self::LayerList>) -> Self { self.layers = Some(input.into()); self }
-        pub fn set_layers(mut self, input: ::std::option::Option<self::LayerList>) -> Self { self.layers = input; self }
-        pub fn get_layers(&self) -> &::std::option::Option<self::LayerList> { &self.layers }
+        pub fn layers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::LayerVersionArn>>) -> Self { self.layers = Some(input.into()); self }
+        pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<self::LayerVersionArn>>) -> Self { self.layers = input; self }
+        pub fn get_layers(&self) -> &::std::option::Option<::std::vec::Vec<self::LayerVersionArn>> { &self.layers }
         pub fn logging_config(mut self, input: impl ::std::convert::Into<self::LoggingConfig>) -> Self { self.logging_config = Some(input.into()); self }
         pub fn set_logging_config(mut self, input: ::std::option::Option<self::LoggingConfig>) -> Self { self.logging_config = input; self }
         pub fn get_logging_config(&self) -> &::std::option::Option<self::LoggingConfig> { &self.logging_config }
@@ -165,9 +165,9 @@
         pub fn snap_start(mut self, input: impl ::std::convert::Into<self::SnapStart>) -> Self { self.snap_start = Some(input.into()); self }
         pub fn set_snap_start(mut self, input: ::std::option::Option<self::SnapStart>) -> Self { self.snap_start = input; self }
         pub fn get_snap_start(&self) -> &::std::option::Option<self::SnapStart> { &self.snap_start }
-        pub fn tags(mut self, input: impl ::std::convert::Into<self::Tags>) -> Self { self.tags = Some(input.into()); self }
-        pub fn set_tags(mut self, input: ::std::option::Option<self::Tags>) -> Self { self.tags = input; self }
-        pub fn get_tags(&self) -> &::std::option::Option<self::Tags> { &self.tags }
+        pub fn tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::TagKey, self::TagValue>>) -> Self { self.tags = Some(input.into()); self }
+        pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>) -> Self { self.tags = input; self }
+        pub fn get_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>> { &self.tags }
         pub fn tenancy_config(mut self, input: impl ::std::convert::Into<self::TenancyConfig>) -> Self { self.tenancy_config = Some(input.into()); self }
         pub fn set_tenancy_config(mut self, input: ::std::option::Option<self::TenancyConfig>) -> Self { self.tenancy_config = input; self }
         pub fn get_tenancy_config(&self) -> &::std::option::Option<self::TenancyConfig> { &self.tenancy_config }

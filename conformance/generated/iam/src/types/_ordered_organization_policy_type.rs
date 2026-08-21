@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct OrderedOrganizationPolicyType {
-        pub service_control_policy_input_list: ::std::option::Option<self::SimulationPolicyListType>,
+        pub service_control_policy_input_list: ::std::option::Option<::std::vec::Vec<self::PolicyDocumentType>>,
     }
     impl OrderedOrganizationPolicyType {
         pub fn builder() -> OrderedOrganizationPolicyTypeBuilder { OrderedOrganizationPolicyTypeBuilder::default() }
-        pub fn service_control_policy_input_list(&self) -> &::std::option::Option<self::SimulationPolicyListType> { &self.service_control_policy_input_list }
+        pub fn service_control_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyDocumentType>> { &self.service_control_policy_input_list }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct OrderedOrganizationPolicyTypeBuilder {
-        service_control_policy_input_list: ::std::option::Option<self::SimulationPolicyListType>,
+        service_control_policy_input_list: ::std::option::Option<::std::vec::Vec<self::PolicyDocumentType>>,
     }
 
     impl OrderedOrganizationPolicyTypeBuilder {
-        pub fn service_control_policy_input_list(mut self, input: impl ::std::convert::Into<self::SimulationPolicyListType>) -> Self { self.service_control_policy_input_list = Some(input.into()); self }
-        pub fn set_service_control_policy_input_list(mut self, input: ::std::option::Option<self::SimulationPolicyListType>) -> Self { self.service_control_policy_input_list = input; self }
-        pub fn get_service_control_policy_input_list(&self) -> &::std::option::Option<self::SimulationPolicyListType> { &self.service_control_policy_input_list }
+        pub fn service_control_policy_input_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyDocumentType>>) -> Self { self.service_control_policy_input_list = Some(input.into()); self }
+        pub fn set_service_control_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyDocumentType>>) -> Self { self.service_control_policy_input_list = input; self }
+        pub fn get_service_control_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyDocumentType>> { &self.service_control_policy_input_list }
         pub fn build(self) -> OrderedOrganizationPolicyType {
             OrderedOrganizationPolicyType {
                 service_control_policy_input_list: self.service_control_policy_input_list,

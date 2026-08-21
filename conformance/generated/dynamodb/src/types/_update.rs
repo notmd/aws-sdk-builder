@@ -3,9 +3,9 @@
     #[derive(Clone, Debug, Default)]
     pub struct Update {
         pub condition_expression: ::std::option::Option<self::ConditionExpression>,
-        pub expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-        pub expression_attribute_values: ::std::option::Option<self::ExpressionAttributeValueMap>,
-        pub key: ::std::option::Option<self::Key>,
+        pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
+        pub expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>,
+        pub key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
         pub return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
         pub table_name: ::std::option::Option<self::TableArn>,
         pub update_expression: ::std::option::Option<self::UpdateExpression>,
@@ -13,9 +13,9 @@
     impl Update {
         pub fn builder() -> UpdateBuilder { UpdateBuilder::default() }
         pub fn condition_expression(&self) -> &::std::option::Option<self::ConditionExpression> { &self.condition_expression }
-        pub fn expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-        pub fn expression_attribute_values(&self) -> &::std::option::Option<self::ExpressionAttributeValueMap> { &self.expression_attribute_values }
-        pub fn key(&self) -> &::std::option::Option<self::Key> { &self.key }
+        pub fn expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
+        pub fn expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>> { &self.expression_attribute_values }
+        pub fn key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
         pub fn return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
         pub fn table_name(&self) -> &::std::option::Option<self::TableArn> { &self.table_name }
         pub fn update_expression(&self) -> &::std::option::Option<self::UpdateExpression> { &self.update_expression }
@@ -24,9 +24,9 @@
     #[derive(Clone, Debug, Default)]
     pub struct UpdateBuilder {
         condition_expression: ::std::option::Option<self::ConditionExpression>,
-        expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-        expression_attribute_values: ::std::option::Option<self::ExpressionAttributeValueMap>,
-        key: ::std::option::Option<self::Key>,
+        expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
+        expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>,
+        key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
         return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
         table_name: ::std::option::Option<self::TableArn>,
         update_expression: ::std::option::Option<self::UpdateExpression>,
@@ -36,15 +36,15 @@
         pub fn condition_expression(mut self, input: impl ::std::convert::Into<self::ConditionExpression>) -> Self { self.condition_expression = Some(input.into()); self }
         pub fn set_condition_expression(mut self, input: ::std::option::Option<self::ConditionExpression>) -> Self { self.condition_expression = input; self }
         pub fn get_condition_expression(&self) -> &::std::option::Option<self::ConditionExpression> { &self.condition_expression }
-        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-        pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<self::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = Some(input.into()); self }
-        pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<self::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = input; self }
-        pub fn get_expression_attribute_values(&self) -> &::std::option::Option<self::ExpressionAttributeValueMap> { &self.expression_attribute_values }
-        pub fn key(mut self, input: impl ::std::convert::Into<self::Key>) -> Self { self.key = Some(input.into()); self }
-        pub fn set_key(mut self, input: ::std::option::Option<self::Key>) -> Self { self.key = input; self }
-        pub fn get_key(&self) -> &::std::option::Option<self::Key> { &self.key }
+        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
+        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
+        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
+        pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>) -> Self { self.expression_attribute_values = Some(input.into()); self }
+        pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
+        pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeValueVariable, self::AttributeValue>> { &self.expression_attribute_values }
+        pub fn key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = Some(input.into()); self }
+        pub fn set_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = input; self }
+        pub fn get_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
         pub fn return_values_on_condition_check_failure(mut self, input: impl ::std::convert::Into<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = Some(input.into()); self }
         pub fn set_return_values_on_condition_check_failure(mut self, input: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = input; self }
         pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }

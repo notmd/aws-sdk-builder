@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ListFunctionsByCodeSigningConfigResponse {
-        pub function_arns: ::std::option::Option<self::FunctionArnList>,
+        pub function_arns: ::std::option::Option<::std::vec::Vec<self::FunctionArn>>,
         pub next_marker: ::std::option::Option<self::String>,
     }
     impl ListFunctionsByCodeSigningConfigResponse {
         pub fn builder() -> ListFunctionsByCodeSigningConfigResponseBuilder { ListFunctionsByCodeSigningConfigResponseBuilder::default() }
-        pub fn function_arns(&self) -> &::std::option::Option<self::FunctionArnList> { &self.function_arns }
+        pub fn function_arns(&self) -> &::std::option::Option<::std::vec::Vec<self::FunctionArn>> { &self.function_arns }
         pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ListFunctionsByCodeSigningConfigResponseBuilder {
-        function_arns: ::std::option::Option<self::FunctionArnList>,
+        function_arns: ::std::option::Option<::std::vec::Vec<self::FunctionArn>>,
         next_marker: ::std::option::Option<self::String>,
     }
 
     impl ListFunctionsByCodeSigningConfigResponseBuilder {
-        pub fn function_arns(mut self, input: impl ::std::convert::Into<self::FunctionArnList>) -> Self { self.function_arns = Some(input.into()); self }
-        pub fn set_function_arns(mut self, input: ::std::option::Option<self::FunctionArnList>) -> Self { self.function_arns = input; self }
-        pub fn get_function_arns(&self) -> &::std::option::Option<self::FunctionArnList> { &self.function_arns }
+        pub fn function_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::FunctionArn>>) -> Self { self.function_arns = Some(input.into()); self }
+        pub fn set_function_arns(mut self, input: ::std::option::Option<::std::vec::Vec<self::FunctionArn>>) -> Self { self.function_arns = input; self }
+        pub fn get_function_arns(&self) -> &::std::option::Option<::std::vec::Vec<self::FunctionArn>> { &self.function_arns }
         pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
         pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
         pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }

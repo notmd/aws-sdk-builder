@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateAliasError::Unhandled(format!("CreateAlias returned HTTP {}", status)));
                          }
-                         Ok(super::CreateAliasOutput::default())
+                         Ok(super::CreateAliasOutput)
                      }
 }
 pub use Builder as CreateAliasFluentBuilder;

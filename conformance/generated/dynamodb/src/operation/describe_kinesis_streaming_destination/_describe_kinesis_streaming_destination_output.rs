@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct DescribeKinesisStreamingDestinationOutput {
-    pub kinesis_data_stream_destinations: ::std::option::Option<super::super::super::types::KinesisDataStreamDestinations>,
+    pub kinesis_data_stream_destinations: ::std::option::Option<::std::vec::Vec<super::super::super::types::KinesisDataStreamDestination>>,
     pub table_name: ::std::option::Option<super::super::super::types::TableName>,
 }
         impl DescribeKinesisStreamingDestinationOutput {
@@ -14,13 +14,13 @@ impl DescribeKinesisStreamingDestinationOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct DescribeKinesisStreamingDestinationOutputBuilder {
-    kinesis_data_stream_destinations: ::std::option::Option<super::super::super::types::KinesisDataStreamDestinations>,
+    kinesis_data_stream_destinations: ::std::option::Option<::std::vec::Vec<super::super::super::types::KinesisDataStreamDestination>>,
     table_name: ::std::option::Option<super::super::super::types::TableName>,
 }
 impl DescribeKinesisStreamingDestinationOutputBuilder {
-    pub fn kinesis_data_stream_destinations(mut self, input: impl ::std::convert::Into<super::super::super::types::KinesisDataStreamDestinations>) -> Self { self.kinesis_data_stream_destinations = Some(input.into()); self }
-    pub fn set_kinesis_data_stream_destinations(mut self, input: ::std::option::Option<super::super::super::types::KinesisDataStreamDestinations>) -> Self { self.kinesis_data_stream_destinations = input; self }
-    pub fn get_kinesis_data_stream_destinations(&self) -> &::std::option::Option<super::super::super::types::KinesisDataStreamDestinations> { &self.kinesis_data_stream_destinations }
+    pub fn kinesis_data_stream_destinations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::KinesisDataStreamDestination>>) -> Self { self.kinesis_data_stream_destinations = Some(input.into()); self }
+    pub fn set_kinesis_data_stream_destinations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::KinesisDataStreamDestination>>) -> Self { self.kinesis_data_stream_destinations = input; self }
+    pub fn get_kinesis_data_stream_destinations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::KinesisDataStreamDestination>> { &self.kinesis_data_stream_destinations }
     pub fn table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.table_name = Some(input.into()); self }
     pub fn set_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.table_name = input; self }
     pub fn get_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.table_name }

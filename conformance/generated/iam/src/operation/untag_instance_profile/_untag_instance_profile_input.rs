@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct UntagInstanceProfileInput {
     pub instance_profile_name: ::std::option::Option<super::super::super::types::InstanceProfileNameType>,
-    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
+    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
 }
         impl UntagInstanceProfileInput {
             pub fn instance_profile_name(&self) -> ::std::option::Option<&str> { self.instance_profile_name.as_deref() }
@@ -15,15 +15,15 @@ impl UntagInstanceProfileInput {
 #[derive(Clone, Debug, Default)]
 pub struct UntagInstanceProfileInputBuilder {
     instance_profile_name: ::std::option::Option<super::super::super::types::InstanceProfileNameType>,
-    tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
+    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
 }
 impl UntagInstanceProfileInputBuilder {
     pub fn instance_profile_name(mut self, input: impl ::std::convert::Into<super::super::super::types::InstanceProfileNameType>) -> Self { self.instance_profile_name = Some(input.into()); self }
     pub fn set_instance_profile_name(mut self, input: ::std::option::Option<super::super::super::types::InstanceProfileNameType>) -> Self { self.instance_profile_name = input; self }
     pub fn get_instance_profile_name(&self) -> &::std::option::Option<super::super::super::types::InstanceProfileNameType> { &self.instance_profile_name }
-    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = Some(input.into()); self }
-    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = input; self }
-    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.tag_keys }
+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = Some(input.into()); self }
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = input; self }
+    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.tag_keys }
     pub fn build(self) -> UntagInstanceProfileInput { UntagInstanceProfileInput {
         instance_profile_name: self.instance_profile_name,
         tag_keys: self.tag_keys,

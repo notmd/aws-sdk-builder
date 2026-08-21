@@ -3,11 +3,11 @@
 #[derive(Clone, Debug, Default)]
 pub struct GetItemOutput {
     pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
-    pub item: ::std::option::Option<super::super::super::types::AttributeMap>,
+    pub item: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 }
         impl GetItemOutput {
             pub fn consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ConsumedCapacity> { self.consumed_capacity.as_ref() }
-            pub fn item(&self) -> ::std::option::Option<&super::super::super::types::AttributeMap> { self.item.as_ref() }
+            pub fn item(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.item.as_ref() }
         }
 impl GetItemOutput {
     pub fn builder() -> GetItemOutputBuilder { GetItemOutputBuilder::default() }
@@ -15,15 +15,15 @@ impl GetItemOutput {
 #[derive(Clone, Debug, Default)]
 pub struct GetItemOutputBuilder {
     consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
-    item: ::std::option::Option<super::super::super::types::AttributeMap>,
+    item: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 }
 impl GetItemOutputBuilder {
     pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacity>) -> Self { self.consumed_capacity = Some(input.into()); self }
     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacity>) -> Self { self.consumed_capacity = input; self }
     pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacity> { &self.consumed_capacity }
-    pub fn item(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeMap>) -> Self { self.item = Some(input.into()); self }
-    pub fn set_item(mut self, input: ::std::option::Option<super::super::super::types::AttributeMap>) -> Self { self.item = input; self }
-    pub fn get_item(&self) -> &::std::option::Option<super::super::super::types::AttributeMap> { &self.item }
+    pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
+    pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.item = input; self }
+    pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.item }
     pub fn build(self) -> GetItemOutput { GetItemOutput {
         consumed_capacity: self.consumed_capacity,
         item: self.item,

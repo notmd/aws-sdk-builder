@@ -2,11 +2,11 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct SetQueueAttributesInput {
-    pub attributes: ::std::option::Option<super::super::super::types::QueueAttributeMap>,
+    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>,
     pub queue_url: ::std::option::Option<super::super::super::types::String>,
 }
         impl SetQueueAttributesInput {
-            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::QueueAttributeMap> { self.attributes.as_ref() }
+            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>> { self.attributes.as_ref() }
             pub fn queue_url(&self) -> ::std::option::Option<&str> { self.queue_url.as_deref() }
         }
 impl SetQueueAttributesInput {
@@ -14,13 +14,13 @@ impl SetQueueAttributesInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct SetQueueAttributesInputBuilder {
-    attributes: ::std::option::Option<super::super::super::types::QueueAttributeMap>,
+    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>,
     queue_url: ::std::option::Option<super::super::super::types::String>,
 }
 impl SetQueueAttributesInputBuilder {
-    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::QueueAttributeMap>) -> Self { self.attributes = Some(input.into()); self }
-    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::QueueAttributeMap>) -> Self { self.attributes = input; self }
-    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::QueueAttributeMap> { &self.attributes }
+    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>>) -> Self { self.attributes = input; self }
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::QueueAttributeName, super::super::super::types::String>> { &self.attributes }
     pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
     pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
     pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }

@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutDataProtectionPolicyError::Unhandled(format!("PutDataProtectionPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::PutDataProtectionPolicyOutput::default())
+                         Ok(super::PutDataProtectionPolicyOutput)
                      }
 }
 pub use Builder as PutDataProtectionPolicyFluentBuilder;

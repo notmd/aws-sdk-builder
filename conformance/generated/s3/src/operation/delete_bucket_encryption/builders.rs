@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteBucketEncryptionError::Unhandled(format!("DeleteBucketEncryption returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteBucketEncryptionOutput::default())
+                         Ok(super::DeleteBucketEncryptionOutput)
                      }
 }
 pub use Builder as DeleteBucketEncryptionFluentBuilder;

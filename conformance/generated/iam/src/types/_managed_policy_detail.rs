@@ -12,7 +12,7 @@
         pub permissions_boundary_usage_count: ::std::option::Option<self::AttachmentCountType>,
         pub policy_id: ::std::option::Option<self::IdType>,
         pub policy_name: ::std::option::Option<self::PolicyNameType>,
-        pub policy_version_list: ::std::option::Option<self::PolicyDocumentVersionListType>,
+        pub policy_version_list: ::std::option::Option<::std::vec::Vec<self::PolicyVersion>>,
         pub update_date: ::std::option::Option<self::DateType>,
     }
     impl ManagedPolicyDetail {
@@ -27,7 +27,7 @@
         pub fn permissions_boundary_usage_count(&self) -> &::std::option::Option<self::AttachmentCountType> { &self.permissions_boundary_usage_count }
         pub fn policy_id(&self) -> &::std::option::Option<self::IdType> { &self.policy_id }
         pub fn policy_name(&self) -> &::std::option::Option<self::PolicyNameType> { &self.policy_name }
-        pub fn policy_version_list(&self) -> &::std::option::Option<self::PolicyDocumentVersionListType> { &self.policy_version_list }
+        pub fn policy_version_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyVersion>> { &self.policy_version_list }
         pub fn update_date(&self) -> &::std::option::Option<self::DateType> { &self.update_date }
     }
 
@@ -43,7 +43,7 @@
         permissions_boundary_usage_count: ::std::option::Option<self::AttachmentCountType>,
         policy_id: ::std::option::Option<self::IdType>,
         policy_name: ::std::option::Option<self::PolicyNameType>,
-        policy_version_list: ::std::option::Option<self::PolicyDocumentVersionListType>,
+        policy_version_list: ::std::option::Option<::std::vec::Vec<self::PolicyVersion>>,
         update_date: ::std::option::Option<self::DateType>,
     }
 
@@ -78,9 +78,9 @@
         pub fn policy_name(mut self, input: impl ::std::convert::Into<self::PolicyNameType>) -> Self { self.policy_name = Some(input.into()); self }
         pub fn set_policy_name(mut self, input: ::std::option::Option<self::PolicyNameType>) -> Self { self.policy_name = input; self }
         pub fn get_policy_name(&self) -> &::std::option::Option<self::PolicyNameType> { &self.policy_name }
-        pub fn policy_version_list(mut self, input: impl ::std::convert::Into<self::PolicyDocumentVersionListType>) -> Self { self.policy_version_list = Some(input.into()); self }
-        pub fn set_policy_version_list(mut self, input: ::std::option::Option<self::PolicyDocumentVersionListType>) -> Self { self.policy_version_list = input; self }
-        pub fn get_policy_version_list(&self) -> &::std::option::Option<self::PolicyDocumentVersionListType> { &self.policy_version_list }
+        pub fn policy_version_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyVersion>>) -> Self { self.policy_version_list = Some(input.into()); self }
+        pub fn set_policy_version_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyVersion>>) -> Self { self.policy_version_list = input; self }
+        pub fn get_policy_version_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyVersion>> { &self.policy_version_list }
         pub fn update_date(mut self, input: impl ::std::convert::Into<self::DateType>) -> Self { self.update_date = Some(input.into()); self }
         pub fn set_update_date(mut self, input: ::std::option::Option<self::DateType>) -> Self { self.update_date = input; self }
         pub fn get_update_date(&self) -> &::std::option::Option<self::DateType> { &self.update_date }

@@ -4,20 +4,20 @@
     pub struct ContextEntry {
         pub context_key_name: ::std::option::Option<self::ContextKeyNameType>,
         pub context_key_type: ::std::option::Option<self::ContextKeyTypeEnum>,
-        pub context_key_values: ::std::option::Option<self::ContextKeyValueListType>,
+        pub context_key_values: ::std::option::Option<::std::vec::Vec<self::ContextKeyValueType>>,
     }
     impl ContextEntry {
         pub fn builder() -> ContextEntryBuilder { ContextEntryBuilder::default() }
         pub fn context_key_name(&self) -> &::std::option::Option<self::ContextKeyNameType> { &self.context_key_name }
         pub fn context_key_type(&self) -> &::std::option::Option<self::ContextKeyTypeEnum> { &self.context_key_type }
-        pub fn context_key_values(&self) -> &::std::option::Option<self::ContextKeyValueListType> { &self.context_key_values }
+        pub fn context_key_values(&self) -> &::std::option::Option<::std::vec::Vec<self::ContextKeyValueType>> { &self.context_key_values }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ContextEntryBuilder {
         context_key_name: ::std::option::Option<self::ContextKeyNameType>,
         context_key_type: ::std::option::Option<self::ContextKeyTypeEnum>,
-        context_key_values: ::std::option::Option<self::ContextKeyValueListType>,
+        context_key_values: ::std::option::Option<::std::vec::Vec<self::ContextKeyValueType>>,
     }
 
     impl ContextEntryBuilder {
@@ -27,9 +27,9 @@
         pub fn context_key_type(mut self, input: impl ::std::convert::Into<self::ContextKeyTypeEnum>) -> Self { self.context_key_type = Some(input.into()); self }
         pub fn set_context_key_type(mut self, input: ::std::option::Option<self::ContextKeyTypeEnum>) -> Self { self.context_key_type = input; self }
         pub fn get_context_key_type(&self) -> &::std::option::Option<self::ContextKeyTypeEnum> { &self.context_key_type }
-        pub fn context_key_values(mut self, input: impl ::std::convert::Into<self::ContextKeyValueListType>) -> Self { self.context_key_values = Some(input.into()); self }
-        pub fn set_context_key_values(mut self, input: ::std::option::Option<self::ContextKeyValueListType>) -> Self { self.context_key_values = input; self }
-        pub fn get_context_key_values(&self) -> &::std::option::Option<self::ContextKeyValueListType> { &self.context_key_values }
+        pub fn context_key_values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ContextKeyValueType>>) -> Self { self.context_key_values = Some(input.into()); self }
+        pub fn set_context_key_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::ContextKeyValueType>>) -> Self { self.context_key_values = input; self }
+        pub fn get_context_key_values(&self) -> &::std::option::Option<::std::vec::Vec<self::ContextKeyValueType>> { &self.context_key_values }
         pub fn build(self) -> ContextEntry {
             ContextEntry {
                 context_key_name: self.context_key_name,

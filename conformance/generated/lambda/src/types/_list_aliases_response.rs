@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ListAliasesResponse {
-        pub aliases: ::std::option::Option<self::AliasList>,
+        pub aliases: ::std::option::Option<::std::vec::Vec<self::AliasConfiguration>>,
         pub next_marker: ::std::option::Option<self::String>,
     }
     impl ListAliasesResponse {
         pub fn builder() -> ListAliasesResponseBuilder { ListAliasesResponseBuilder::default() }
-        pub fn aliases(&self) -> &::std::option::Option<self::AliasList> { &self.aliases }
+        pub fn aliases(&self) -> &::std::option::Option<::std::vec::Vec<self::AliasConfiguration>> { &self.aliases }
         pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ListAliasesResponseBuilder {
-        aliases: ::std::option::Option<self::AliasList>,
+        aliases: ::std::option::Option<::std::vec::Vec<self::AliasConfiguration>>,
         next_marker: ::std::option::Option<self::String>,
     }
 
     impl ListAliasesResponseBuilder {
-        pub fn aliases(mut self, input: impl ::std::convert::Into<self::AliasList>) -> Self { self.aliases = Some(input.into()); self }
-        pub fn set_aliases(mut self, input: ::std::option::Option<self::AliasList>) -> Self { self.aliases = input; self }
-        pub fn get_aliases(&self) -> &::std::option::Option<self::AliasList> { &self.aliases }
+        pub fn aliases(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AliasConfiguration>>) -> Self { self.aliases = Some(input.into()); self }
+        pub fn set_aliases(mut self, input: ::std::option::Option<::std::vec::Vec<self::AliasConfiguration>>) -> Self { self.aliases = input; self }
+        pub fn get_aliases(&self) -> &::std::option::Option<::std::vec::Vec<self::AliasConfiguration>> { &self.aliases }
         pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
         pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
         pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }

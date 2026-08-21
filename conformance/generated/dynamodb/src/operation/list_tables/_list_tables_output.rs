@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct ListTablesOutput {
     pub last_evaluated_table_name: ::std::option::Option<super::super::super::types::TableName>,
-    pub table_names: ::std::option::Option<super::super::super::types::TableNameList>,
+    pub table_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::TableName>>,
 }
         impl ListTablesOutput {
             pub fn last_evaluated_table_name(&self) -> ::std::option::Option<&str> { self.last_evaluated_table_name.as_deref() }
@@ -15,15 +15,15 @@ impl ListTablesOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ListTablesOutputBuilder {
     last_evaluated_table_name: ::std::option::Option<super::super::super::types::TableName>,
-    table_names: ::std::option::Option<super::super::super::types::TableNameList>,
+    table_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::TableName>>,
 }
 impl ListTablesOutputBuilder {
     pub fn last_evaluated_table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.last_evaluated_table_name = Some(input.into()); self }
     pub fn set_last_evaluated_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.last_evaluated_table_name = input; self }
     pub fn get_last_evaluated_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.last_evaluated_table_name }
-    pub fn table_names(mut self, input: impl ::std::convert::Into<super::super::super::types::TableNameList>) -> Self { self.table_names = Some(input.into()); self }
-    pub fn set_table_names(mut self, input: ::std::option::Option<super::super::super::types::TableNameList>) -> Self { self.table_names = input; self }
-    pub fn get_table_names(&self) -> &::std::option::Option<super::super::super::types::TableNameList> { &self.table_names }
+    pub fn table_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TableName>>) -> Self { self.table_names = Some(input.into()); self }
+    pub fn set_table_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TableName>>) -> Self { self.table_names = input; self }
+    pub fn get_table_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TableName>> { &self.table_names }
     pub fn build(self) -> ListTablesOutput { ListTablesOutput {
         last_evaluated_table_name: self.last_evaluated_table_name,
         table_names: self.table_names,

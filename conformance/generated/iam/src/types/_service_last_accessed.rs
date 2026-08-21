@@ -8,7 +8,7 @@
         pub service_name: ::std::option::Option<self::ServiceNameType>,
         pub service_namespace: ::std::option::Option<self::ServiceNamespaceType>,
         pub total_authenticated_entities: ::std::option::Option<self::IntegerType>,
-        pub tracked_actions_last_accessed: ::std::option::Option<self::TrackedActionsLastAccessed>,
+        pub tracked_actions_last_accessed: ::std::option::Option<::std::vec::Vec<self::TrackedActionLastAccessed>>,
     }
     impl ServiceLastAccessed {
         pub fn builder() -> ServiceLastAccessedBuilder { ServiceLastAccessedBuilder::default() }
@@ -18,7 +18,7 @@
         pub fn service_name(&self) -> &::std::option::Option<self::ServiceNameType> { &self.service_name }
         pub fn service_namespace(&self) -> &::std::option::Option<self::ServiceNamespaceType> { &self.service_namespace }
         pub fn total_authenticated_entities(&self) -> &::std::option::Option<self::IntegerType> { &self.total_authenticated_entities }
-        pub fn tracked_actions_last_accessed(&self) -> &::std::option::Option<self::TrackedActionsLastAccessed> { &self.tracked_actions_last_accessed }
+        pub fn tracked_actions_last_accessed(&self) -> &::std::option::Option<::std::vec::Vec<self::TrackedActionLastAccessed>> { &self.tracked_actions_last_accessed }
     }
 
     #[derive(Clone, Debug, Default)]
@@ -29,7 +29,7 @@
         service_name: ::std::option::Option<self::ServiceNameType>,
         service_namespace: ::std::option::Option<self::ServiceNamespaceType>,
         total_authenticated_entities: ::std::option::Option<self::IntegerType>,
-        tracked_actions_last_accessed: ::std::option::Option<self::TrackedActionsLastAccessed>,
+        tracked_actions_last_accessed: ::std::option::Option<::std::vec::Vec<self::TrackedActionLastAccessed>>,
     }
 
     impl ServiceLastAccessedBuilder {
@@ -51,9 +51,9 @@
         pub fn total_authenticated_entities(mut self, input: impl ::std::convert::Into<self::IntegerType>) -> Self { self.total_authenticated_entities = Some(input.into()); self }
         pub fn set_total_authenticated_entities(mut self, input: ::std::option::Option<self::IntegerType>) -> Self { self.total_authenticated_entities = input; self }
         pub fn get_total_authenticated_entities(&self) -> &::std::option::Option<self::IntegerType> { &self.total_authenticated_entities }
-        pub fn tracked_actions_last_accessed(mut self, input: impl ::std::convert::Into<self::TrackedActionsLastAccessed>) -> Self { self.tracked_actions_last_accessed = Some(input.into()); self }
-        pub fn set_tracked_actions_last_accessed(mut self, input: ::std::option::Option<self::TrackedActionsLastAccessed>) -> Self { self.tracked_actions_last_accessed = input; self }
-        pub fn get_tracked_actions_last_accessed(&self) -> &::std::option::Option<self::TrackedActionsLastAccessed> { &self.tracked_actions_last_accessed }
+        pub fn tracked_actions_last_accessed(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::TrackedActionLastAccessed>>) -> Self { self.tracked_actions_last_accessed = Some(input.into()); self }
+        pub fn set_tracked_actions_last_accessed(mut self, input: ::std::option::Option<::std::vec::Vec<self::TrackedActionLastAccessed>>) -> Self { self.tracked_actions_last_accessed = input; self }
+        pub fn get_tracked_actions_last_accessed(&self) -> &::std::option::Option<::std::vec::Vec<self::TrackedActionLastAccessed>> { &self.tracked_actions_last_accessed }
         pub fn build(self) -> ServiceLastAccessed {
             ServiceLastAccessed {
                 last_authenticated: self.last_authenticated,

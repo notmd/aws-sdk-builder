@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteAccountAliasError::Unhandled(format!("DeleteAccountAlias returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteAccountAliasOutput::default())
+                         Ok(super::DeleteAccountAliasOutput)
                      }
 }
 pub use Builder as DeleteAccountAliasFluentBuilder;

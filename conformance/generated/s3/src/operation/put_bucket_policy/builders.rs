@@ -28,7 +28,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketPolicyError::Unhandled(format!("PutBucketPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketPolicyOutput::default())
+                         Ok(super::PutBucketPolicyOutput)
                      }
 }
 pub use Builder as PutBucketPolicyFluentBuilder;

@@ -4,7 +4,7 @@
 pub struct ReplicateKeyOutput {
     pub replica_key_metadata: ::std::option::Option<super::super::super::types::KeyMetadata>,
     pub replica_policy: ::std::option::Option<super::super::super::types::PolicyType>,
-    pub replica_tags: ::std::option::Option<super::super::super::types::TagList>,
+    pub replica_tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl ReplicateKeyOutput {
             pub fn replica_key_metadata(&self) -> ::std::option::Option<&super::super::super::types::KeyMetadata> { self.replica_key_metadata.as_ref() }
@@ -18,7 +18,7 @@ impl ReplicateKeyOutput {
 pub struct ReplicateKeyOutputBuilder {
     replica_key_metadata: ::std::option::Option<super::super::super::types::KeyMetadata>,
     replica_policy: ::std::option::Option<super::super::super::types::PolicyType>,
-    replica_tags: ::std::option::Option<super::super::super::types::TagList>,
+    replica_tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl ReplicateKeyOutputBuilder {
     pub fn replica_key_metadata(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyMetadata>) -> Self { self.replica_key_metadata = Some(input.into()); self }
@@ -27,9 +27,9 @@ impl ReplicateKeyOutputBuilder {
     pub fn replica_policy(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyType>) -> Self { self.replica_policy = Some(input.into()); self }
     pub fn set_replica_policy(mut self, input: ::std::option::Option<super::super::super::types::PolicyType>) -> Self { self.replica_policy = input; self }
     pub fn get_replica_policy(&self) -> &::std::option::Option<super::super::super::types::PolicyType> { &self.replica_policy }
-    pub fn replica_tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.replica_tags = Some(input.into()); self }
-    pub fn set_replica_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.replica_tags = input; self }
-    pub fn get_replica_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.replica_tags }
+    pub fn replica_tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.replica_tags = Some(input.into()); self }
+    pub fn set_replica_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.replica_tags = input; self }
+    pub fn get_replica_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.replica_tags }
     pub fn build(self) -> ReplicateKeyOutput { ReplicateKeyOutput {
         replica_key_metadata: self.replica_key_metadata,
         replica_policy: self.replica_policy,

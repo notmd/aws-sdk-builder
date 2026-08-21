@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct UntagOpenIdConnectProviderInput {
     pub open_id_connect_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
+    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
 }
         impl UntagOpenIdConnectProviderInput {
             pub fn open_id_connect_provider_arn(&self) -> ::std::option::Option<&str> { self.open_id_connect_provider_arn.as_deref() }
@@ -15,15 +15,15 @@ impl UntagOpenIdConnectProviderInput {
 #[derive(Clone, Debug, Default)]
 pub struct UntagOpenIdConnectProviderInputBuilder {
     open_id_connect_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-    tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
+    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
 }
 impl UntagOpenIdConnectProviderInputBuilder {
     pub fn open_id_connect_provider_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.open_id_connect_provider_arn = Some(input.into()); self }
     pub fn set_open_id_connect_provider_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.open_id_connect_provider_arn = input; self }
     pub fn get_open_id_connect_provider_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.open_id_connect_provider_arn }
-    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = Some(input.into()); self }
-    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = input; self }
-    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.tag_keys }
+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = Some(input.into()); self }
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = input; self }
+    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.tag_keys }
     pub fn build(self) -> UntagOpenIdConnectProviderInput { UntagOpenIdConnectProviderInput {
         open_id_connect_provider_arn: self.open_id_connect_provider_arn,
         tag_keys: self.tag_keys,

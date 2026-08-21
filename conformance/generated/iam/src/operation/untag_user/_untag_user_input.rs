@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct UntagUserInput {
-    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
+    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
     pub user_name: ::std::option::Option<super::super::super::types::ExistingUserNameType>,
 }
         impl UntagUserInput {
@@ -14,13 +14,13 @@ impl UntagUserInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct UntagUserInputBuilder {
-    tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
+    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
     user_name: ::std::option::Option<super::super::super::types::ExistingUserNameType>,
 }
 impl UntagUserInputBuilder {
-    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = Some(input.into()); self }
-    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = input; self }
-    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.tag_keys }
+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = Some(input.into()); self }
+    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = input; self }
+    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.tag_keys }
     pub fn user_name(mut self, input: impl ::std::convert::Into<super::super::super::types::ExistingUserNameType>) -> Self { self.user_name = Some(input.into()); self }
     pub fn set_user_name(mut self, input: ::std::option::Option<super::super::super::types::ExistingUserNameType>) -> Self { self.user_name = input; self }
     pub fn get_user_name(&self) -> &::std::option::Option<super::super::super::types::ExistingUserNameType> { &self.user_name }

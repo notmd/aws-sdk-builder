@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetContextKeysForPrincipalPolicyInput {
-    pub policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
+    pub policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
     pub policy_source_arn: ::std::option::Option<super::super::super::types::ArnType>,
 }
         impl GetContextKeysForPrincipalPolicyInput {
@@ -14,13 +14,13 @@ impl GetContextKeysForPrincipalPolicyInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetContextKeysForPrincipalPolicyInputBuilder {
-    policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
+    policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
     policy_source_arn: ::std::option::Option<super::super::super::types::ArnType>,
 }
 impl GetContextKeysForPrincipalPolicyInputBuilder {
-    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.policy_input_list = Some(input.into()); self }
-    pub fn set_policy_input_list(mut self, input: ::std::option::Option<super::super::super::types::SimulationPolicyListType>) -> Self { self.policy_input_list = input; self }
-    pub fn get_policy_input_list(&self) -> &::std::option::Option<super::super::super::types::SimulationPolicyListType> { &self.policy_input_list }
+    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.policy_input_list = Some(input.into()); self }
+    pub fn set_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.policy_input_list = input; self }
+    pub fn get_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>> { &self.policy_input_list }
     pub fn policy_source_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.policy_source_arn = Some(input.into()); self }
     pub fn set_policy_source_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.policy_source_arn = input; self }
     pub fn get_policy_source_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.policy_source_arn }

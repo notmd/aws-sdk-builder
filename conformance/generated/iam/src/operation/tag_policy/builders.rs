@@ -11,7 +11,7 @@ impl Builder {
         Self { input: super::Input::default(), client }
     }
     pub fn policy_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.policy_arn = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::TagPolicyOutput, super::TagPolicyError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::TagPolicyError::Unhandled(format!("TagPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::TagPolicyOutput::default())
+                         Ok(super::TagPolicyOutput)
                      }
 }
 pub use Builder as TagPolicyFluentBuilder;

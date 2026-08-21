@@ -3,27 +3,27 @@
     #[derive(Clone, Debug, Default)]
     pub struct ThrottlingException {
         pub message: ::std::option::Option<super::super::types::AvailabilityErrorMessage>,
-        pub throttling_reasons: ::std::option::Option<super::super::types::ThrottlingReasonList>,
+        pub throttling_reasons: ::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>>,
     }
     impl ThrottlingException {
         pub fn builder() -> ThrottlingExceptionBuilder { ThrottlingExceptionBuilder::default() }
         pub fn message(&self) -> &::std::option::Option<super::super::types::AvailabilityErrorMessage> { &self.message }
-        pub fn throttling_reasons(&self) -> &::std::option::Option<super::super::types::ThrottlingReasonList> { &self.throttling_reasons }
+        pub fn throttling_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>> { &self.throttling_reasons }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ThrottlingExceptionBuilder {
         message: ::std::option::Option<super::super::types::AvailabilityErrorMessage>,
-        throttling_reasons: ::std::option::Option<super::super::types::ThrottlingReasonList>,
+        throttling_reasons: ::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>>,
     }
 
     impl ThrottlingExceptionBuilder {
         pub fn message(mut self, input: impl ::std::convert::Into<super::super::types::AvailabilityErrorMessage>) -> Self { self.message = Some(input.into()); self }
         pub fn set_message(mut self, input: ::std::option::Option<super::super::types::AvailabilityErrorMessage>) -> Self { self.message = input; self }
         pub fn get_message(&self) -> &::std::option::Option<super::super::types::AvailabilityErrorMessage> { &self.message }
-        pub fn throttling_reasons(mut self, input: impl ::std::convert::Into<super::super::types::ThrottlingReasonList>) -> Self { self.throttling_reasons = Some(input.into()); self }
-        pub fn set_throttling_reasons(mut self, input: ::std::option::Option<super::super::types::ThrottlingReasonList>) -> Self { self.throttling_reasons = input; self }
-        pub fn get_throttling_reasons(&self) -> &::std::option::Option<super::super::types::ThrottlingReasonList> { &self.throttling_reasons }
+        pub fn throttling_reasons(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::types::ThrottlingReason>>) -> Self { self.throttling_reasons = Some(input.into()); self }
+        pub fn set_throttling_reasons(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>>) -> Self { self.throttling_reasons = input; self }
+        pub fn get_throttling_reasons(&self) -> &::std::option::Option<::std::vec::Vec<super::super::types::ThrottlingReason>> { &self.throttling_reasons }
         pub fn build(self) -> ThrottlingException {
             ThrottlingException {
                 message: self.message,

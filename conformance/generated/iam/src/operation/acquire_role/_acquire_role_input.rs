@@ -2,12 +2,12 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct AcquireRoleInput {
-    pub replacement_values: ::std::option::Option<super::super::super::types::MapStringReplacementValueEntry>,
+    pub replacement_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::StringType, super::super::super::types::ReplacementValueEntry>>,
     pub template_arn: ::std::option::Option<super::super::super::types::ArnType>,
     pub template_minor_version: ::std::option::Option<super::super::super::types::IntegerType>,
 }
         impl AcquireRoleInput {
-            pub fn replacement_values(&self) -> ::std::option::Option<&super::super::super::types::MapStringReplacementValueEntry> { self.replacement_values.as_ref() }
+            pub fn replacement_values(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::StringType, super::super::super::types::ReplacementValueEntry>> { self.replacement_values.as_ref() }
             pub fn template_arn(&self) -> ::std::option::Option<&str> { self.template_arn.as_deref() }
             pub fn template_minor_version(&self) -> ::std::option::Option<i32> { self.template_minor_version }
         }
@@ -16,14 +16,14 @@ impl AcquireRoleInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct AcquireRoleInputBuilder {
-    replacement_values: ::std::option::Option<super::super::super::types::MapStringReplacementValueEntry>,
+    replacement_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::StringType, super::super::super::types::ReplacementValueEntry>>,
     template_arn: ::std::option::Option<super::super::super::types::ArnType>,
     template_minor_version: ::std::option::Option<super::super::super::types::IntegerType>,
 }
 impl AcquireRoleInputBuilder {
-    pub fn replacement_values(mut self, input: impl ::std::convert::Into<super::super::super::types::MapStringReplacementValueEntry>) -> Self { self.replacement_values = Some(input.into()); self }
-    pub fn set_replacement_values(mut self, input: ::std::option::Option<super::super::super::types::MapStringReplacementValueEntry>) -> Self { self.replacement_values = input; self }
-    pub fn get_replacement_values(&self) -> &::std::option::Option<super::super::super::types::MapStringReplacementValueEntry> { &self.replacement_values }
+    pub fn replacement_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::StringType, super::super::super::types::ReplacementValueEntry>>) -> Self { self.replacement_values = Some(input.into()); self }
+    pub fn set_replacement_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::StringType, super::super::super::types::ReplacementValueEntry>>) -> Self { self.replacement_values = input; self }
+    pub fn get_replacement_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::StringType, super::super::super::types::ReplacementValueEntry>> { &self.replacement_values }
     pub fn template_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.template_arn = Some(input.into()); self }
     pub fn set_template_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.template_arn = input; self }
     pub fn get_template_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.template_arn }

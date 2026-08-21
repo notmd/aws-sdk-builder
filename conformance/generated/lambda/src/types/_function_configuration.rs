@@ -2,7 +2,7 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct FunctionConfiguration {
-        pub architectures: ::std::option::Option<self::ArchitecturesList>,
+        pub architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
         pub capacity_provider_config: ::std::option::Option<self::CapacityProviderConfig>,
         pub code_sha256: ::std::option::Option<self::String>,
         pub code_size: ::std::option::Option<self::Long>,
@@ -12,7 +12,7 @@
         pub durable_config: ::std::option::Option<self::DurableConfig>,
         pub environment: ::std::option::Option<self::EnvironmentResponse>,
         pub ephemeral_storage: ::std::option::Option<self::EphemeralStorage>,
-        pub file_system_configs: ::std::option::Option<self::FileSystemConfigList>,
+        pub file_system_configs: ::std::option::Option<::std::vec::Vec<self::FileSystemConfig>>,
         pub function_arn: ::std::option::Option<self::NameSpacedFunctionArn>,
         pub function_name: ::std::option::Option<self::NamespacedFunctionName>,
         pub handler: ::std::option::Option<self::Handler>,
@@ -22,7 +22,7 @@
         pub last_update_status: ::std::option::Option<self::LastUpdateStatus>,
         pub last_update_status_reason: ::std::option::Option<self::LastUpdateStatusReason>,
         pub last_update_status_reason_code: ::std::option::Option<self::LastUpdateStatusReasonCode>,
-        pub layers: ::std::option::Option<self::LayersReferenceList>,
+        pub layers: ::std::option::Option<::std::vec::Vec<self::Layer>>,
         pub logging_config: ::std::option::Option<self::LoggingConfig>,
         pub master_arn: ::std::option::Option<self::FunctionArn>,
         pub memory_size: ::std::option::Option<self::MemorySize>,
@@ -45,7 +45,7 @@
     }
     impl FunctionConfiguration {
         pub fn builder() -> FunctionConfigurationBuilder { FunctionConfigurationBuilder::default() }
-        pub fn architectures(&self) -> &::std::option::Option<self::ArchitecturesList> { &self.architectures }
+        pub fn architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.architectures }
         pub fn capacity_provider_config(&self) -> &::std::option::Option<self::CapacityProviderConfig> { &self.capacity_provider_config }
         pub fn code_sha256(&self) -> ::std::option::Option<&str> { self.code_sha256.as_deref() }
         pub fn code_size(&self) -> &::std::option::Option<self::Long> { &self.code_size }
@@ -55,7 +55,7 @@
         pub fn durable_config(&self) -> &::std::option::Option<self::DurableConfig> { &self.durable_config }
         pub fn environment(&self) -> &::std::option::Option<self::EnvironmentResponse> { &self.environment }
         pub fn ephemeral_storage(&self) -> &::std::option::Option<self::EphemeralStorage> { &self.ephemeral_storage }
-        pub fn file_system_configs(&self) -> &::std::option::Option<self::FileSystemConfigList> { &self.file_system_configs }
+        pub fn file_system_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::FileSystemConfig>> { &self.file_system_configs }
         pub fn function_arn(&self) -> &::std::option::Option<self::NameSpacedFunctionArn> { &self.function_arn }
         pub fn function_name(&self) -> &::std::option::Option<self::NamespacedFunctionName> { &self.function_name }
         pub fn handler(&self) -> &::std::option::Option<self::Handler> { &self.handler }
@@ -65,7 +65,7 @@
         pub fn last_update_status(&self) -> &::std::option::Option<self::LastUpdateStatus> { &self.last_update_status }
         pub fn last_update_status_reason(&self) -> &::std::option::Option<self::LastUpdateStatusReason> { &self.last_update_status_reason }
         pub fn last_update_status_reason_code(&self) -> &::std::option::Option<self::LastUpdateStatusReasonCode> { &self.last_update_status_reason_code }
-        pub fn layers(&self) -> &::std::option::Option<self::LayersReferenceList> { &self.layers }
+        pub fn layers(&self) -> &::std::option::Option<::std::vec::Vec<self::Layer>> { &self.layers }
         pub fn logging_config(&self) -> &::std::option::Option<self::LoggingConfig> { &self.logging_config }
         pub fn master_arn(&self) -> &::std::option::Option<self::FunctionArn> { &self.master_arn }
         pub fn memory_size(&self) -> &::std::option::Option<self::MemorySize> { &self.memory_size }
@@ -89,7 +89,7 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct FunctionConfigurationBuilder {
-        architectures: ::std::option::Option<self::ArchitecturesList>,
+        architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
         capacity_provider_config: ::std::option::Option<self::CapacityProviderConfig>,
         code_sha256: ::std::option::Option<self::String>,
         code_size: ::std::option::Option<self::Long>,
@@ -99,7 +99,7 @@
         durable_config: ::std::option::Option<self::DurableConfig>,
         environment: ::std::option::Option<self::EnvironmentResponse>,
         ephemeral_storage: ::std::option::Option<self::EphemeralStorage>,
-        file_system_configs: ::std::option::Option<self::FileSystemConfigList>,
+        file_system_configs: ::std::option::Option<::std::vec::Vec<self::FileSystemConfig>>,
         function_arn: ::std::option::Option<self::NameSpacedFunctionArn>,
         function_name: ::std::option::Option<self::NamespacedFunctionName>,
         handler: ::std::option::Option<self::Handler>,
@@ -109,7 +109,7 @@
         last_update_status: ::std::option::Option<self::LastUpdateStatus>,
         last_update_status_reason: ::std::option::Option<self::LastUpdateStatusReason>,
         last_update_status_reason_code: ::std::option::Option<self::LastUpdateStatusReasonCode>,
-        layers: ::std::option::Option<self::LayersReferenceList>,
+        layers: ::std::option::Option<::std::vec::Vec<self::Layer>>,
         logging_config: ::std::option::Option<self::LoggingConfig>,
         master_arn: ::std::option::Option<self::FunctionArn>,
         memory_size: ::std::option::Option<self::MemorySize>,
@@ -132,9 +132,9 @@
     }
 
     impl FunctionConfigurationBuilder {
-        pub fn architectures(mut self, input: impl ::std::convert::Into<self::ArchitecturesList>) -> Self { self.architectures = Some(input.into()); self }
-        pub fn set_architectures(mut self, input: ::std::option::Option<self::ArchitecturesList>) -> Self { self.architectures = input; self }
-        pub fn get_architectures(&self) -> &::std::option::Option<self::ArchitecturesList> { &self.architectures }
+        pub fn architectures(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Architecture>>) -> Self { self.architectures = Some(input.into()); self }
+        pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<self::Architecture>>) -> Self { self.architectures = input; self }
+        pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.architectures }
         pub fn capacity_provider_config(mut self, input: impl ::std::convert::Into<self::CapacityProviderConfig>) -> Self { self.capacity_provider_config = Some(input.into()); self }
         pub fn set_capacity_provider_config(mut self, input: ::std::option::Option<self::CapacityProviderConfig>) -> Self { self.capacity_provider_config = input; self }
         pub fn get_capacity_provider_config(&self) -> &::std::option::Option<self::CapacityProviderConfig> { &self.capacity_provider_config }
@@ -162,9 +162,9 @@
         pub fn ephemeral_storage(mut self, input: impl ::std::convert::Into<self::EphemeralStorage>) -> Self { self.ephemeral_storage = Some(input.into()); self }
         pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<self::EphemeralStorage>) -> Self { self.ephemeral_storage = input; self }
         pub fn get_ephemeral_storage(&self) -> &::std::option::Option<self::EphemeralStorage> { &self.ephemeral_storage }
-        pub fn file_system_configs(mut self, input: impl ::std::convert::Into<self::FileSystemConfigList>) -> Self { self.file_system_configs = Some(input.into()); self }
-        pub fn set_file_system_configs(mut self, input: ::std::option::Option<self::FileSystemConfigList>) -> Self { self.file_system_configs = input; self }
-        pub fn get_file_system_configs(&self) -> &::std::option::Option<self::FileSystemConfigList> { &self.file_system_configs }
+        pub fn file_system_configs(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::FileSystemConfig>>) -> Self { self.file_system_configs = Some(input.into()); self }
+        pub fn set_file_system_configs(mut self, input: ::std::option::Option<::std::vec::Vec<self::FileSystemConfig>>) -> Self { self.file_system_configs = input; self }
+        pub fn get_file_system_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::FileSystemConfig>> { &self.file_system_configs }
         pub fn function_arn(mut self, input: impl ::std::convert::Into<self::NameSpacedFunctionArn>) -> Self { self.function_arn = Some(input.into()); self }
         pub fn set_function_arn(mut self, input: ::std::option::Option<self::NameSpacedFunctionArn>) -> Self { self.function_arn = input; self }
         pub fn get_function_arn(&self) -> &::std::option::Option<self::NameSpacedFunctionArn> { &self.function_arn }
@@ -192,9 +192,9 @@
         pub fn last_update_status_reason_code(mut self, input: impl ::std::convert::Into<self::LastUpdateStatusReasonCode>) -> Self { self.last_update_status_reason_code = Some(input.into()); self }
         pub fn set_last_update_status_reason_code(mut self, input: ::std::option::Option<self::LastUpdateStatusReasonCode>) -> Self { self.last_update_status_reason_code = input; self }
         pub fn get_last_update_status_reason_code(&self) -> &::std::option::Option<self::LastUpdateStatusReasonCode> { &self.last_update_status_reason_code }
-        pub fn layers(mut self, input: impl ::std::convert::Into<self::LayersReferenceList>) -> Self { self.layers = Some(input.into()); self }
-        pub fn set_layers(mut self, input: ::std::option::Option<self::LayersReferenceList>) -> Self { self.layers = input; self }
-        pub fn get_layers(&self) -> &::std::option::Option<self::LayersReferenceList> { &self.layers }
+        pub fn layers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Layer>>) -> Self { self.layers = Some(input.into()); self }
+        pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<self::Layer>>) -> Self { self.layers = input; self }
+        pub fn get_layers(&self) -> &::std::option::Option<::std::vec::Vec<self::Layer>> { &self.layers }
         pub fn logging_config(mut self, input: impl ::std::convert::Into<self::LoggingConfig>) -> Self { self.logging_config = Some(input.into()); self }
         pub fn set_logging_config(mut self, input: ::std::option::Option<self::LoggingConfig>) -> Self { self.logging_config = input; self }
         pub fn get_logging_config(&self) -> &::std::option::Option<self::LoggingConfig> { &self.logging_config }

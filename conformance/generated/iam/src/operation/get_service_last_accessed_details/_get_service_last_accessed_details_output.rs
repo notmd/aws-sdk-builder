@@ -9,7 +9,7 @@ pub struct GetServiceLastAccessedDetailsOutput {
     pub job_status: ::std::option::Option<super::super::super::types::JobStatusType>,
     pub job_type: ::std::option::Option<super::super::super::types::AccessAdvisorUsageGranularityType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub services_last_accessed: ::std::option::Option<super::super::super::types::ServicesLastAccessed>,
+    pub services_last_accessed: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceLastAccessed>>,
 }
         impl GetServiceLastAccessedDetailsOutput {
             pub fn error(&self) -> ::std::option::Option<&super::super::super::types::ErrorDetails> { self.error.as_ref() }
@@ -33,7 +33,7 @@ pub struct GetServiceLastAccessedDetailsOutputBuilder {
     job_status: ::std::option::Option<super::super::super::types::JobStatusType>,
     job_type: ::std::option::Option<super::super::super::types::AccessAdvisorUsageGranularityType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    services_last_accessed: ::std::option::Option<super::super::super::types::ServicesLastAccessed>,
+    services_last_accessed: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceLastAccessed>>,
 }
 impl GetServiceLastAccessedDetailsOutputBuilder {
     pub fn error(mut self, input: impl ::std::convert::Into<super::super::super::types::ErrorDetails>) -> Self { self.error = Some(input.into()); self }
@@ -57,9 +57,9 @@ impl GetServiceLastAccessedDetailsOutputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn services_last_accessed(mut self, input: impl ::std::convert::Into<super::super::super::types::ServicesLastAccessed>) -> Self { self.services_last_accessed = Some(input.into()); self }
-    pub fn set_services_last_accessed(mut self, input: ::std::option::Option<super::super::super::types::ServicesLastAccessed>) -> Self { self.services_last_accessed = input; self }
-    pub fn get_services_last_accessed(&self) -> &::std::option::Option<super::super::super::types::ServicesLastAccessed> { &self.services_last_accessed }
+    pub fn services_last_accessed(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ServiceLastAccessed>>) -> Self { self.services_last_accessed = Some(input.into()); self }
+    pub fn set_services_last_accessed(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceLastAccessed>>) -> Self { self.services_last_accessed = input; self }
+    pub fn get_services_last_accessed(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceLastAccessed>> { &self.services_last_accessed }
     pub fn build(self) -> GetServiceLastAccessedDetailsOutput { GetServiceLastAccessedDetailsOutput {
         error: self.error,
         is_truncated: self.is_truncated,

@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct CreateVirtualMfaDeviceInput {
     pub path: ::std::option::Option<super::super::super::types::PathType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     pub virtual_mfa_device_name: ::std::option::Option<super::super::super::types::VirtualMfaDeviceName>,
 }
         impl CreateVirtualMfaDeviceInput {
@@ -17,16 +17,16 @@ impl CreateVirtualMfaDeviceInput {
 #[derive(Clone, Debug, Default)]
 pub struct CreateVirtualMfaDeviceInputBuilder {
     path: ::std::option::Option<super::super::super::types::PathType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     virtual_mfa_device_name: ::std::option::Option<super::super::super::types::VirtualMfaDeviceName>,
 }
 impl CreateVirtualMfaDeviceInputBuilder {
     pub fn path(mut self, input: impl ::std::convert::Into<super::super::super::types::PathType>) -> Self { self.path = Some(input.into()); self }
     pub fn set_path(mut self, input: ::std::option::Option<super::super::super::types::PathType>) -> Self { self.path = input; self }
     pub fn get_path(&self) -> &::std::option::Option<super::super::super::types::PathType> { &self.path }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn virtual_mfa_device_name(mut self, input: impl ::std::convert::Into<super::super::super::types::VirtualMfaDeviceName>) -> Self { self.virtual_mfa_device_name = Some(input.into()); self }
     pub fn set_virtual_mfa_device_name(mut self, input: ::std::option::Option<super::super::super::types::VirtualMfaDeviceName>) -> Self { self.virtual_mfa_device_name = input; self }
     pub fn get_virtual_mfa_device_name(&self) -> &::std::option::Option<super::super::super::types::VirtualMfaDeviceName> { &self.virtual_mfa_device_name }

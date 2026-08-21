@@ -11,7 +11,7 @@ impl Builder {
         Self { input: super::Input::default(), client }
     }
     pub fn open_id_connect_provider_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.open_id_connect_provider_arn = Some(value.into()); self }
-    pub fn thumbprint_list(mut self, value: impl ::std::convert::Into<super::super::super::types::ThumbprintListType>) -> Self { self.input.thumbprint_list = Some(value.into()); self }
+    pub fn thumbprint_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ThumbprintType>>) -> Self { self.input.thumbprint_list = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UpdateOpenIdConnectProviderThumbprintOutput, super::UpdateOpenIdConnectProviderThumbprintError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateOpenIdConnectProviderThumbprintError::Unhandled(format!("UpdateOpenIdConnectProviderThumbprint returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateOpenIdConnectProviderThumbprintOutput::default())
+                         Ok(super::UpdateOpenIdConnectProviderThumbprintOutput)
                      }
 }
 pub use Builder as UpdateOpenIdConnectProviderThumbprintFluentBuilder;

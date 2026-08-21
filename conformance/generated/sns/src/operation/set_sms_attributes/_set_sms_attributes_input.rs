@@ -2,22 +2,22 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct SetSmsAttributesInput {
-    pub attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
+    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
 }
         impl SetSmsAttributesInput {
-            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::MapStringToString> { self.attributes.as_ref() }
+            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { self.attributes.as_ref() }
         }
 impl SetSmsAttributesInput {
     pub fn builder() -> SetSmsAttributesInputBuilder { SetSmsAttributesInputBuilder::default() }
 }
 #[derive(Clone, Debug, Default)]
 pub struct SetSmsAttributesInputBuilder {
-    attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
+    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
 }
 impl SetSmsAttributesInputBuilder {
-    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::MapStringToString>) -> Self { self.attributes = input; self }
-    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::MapStringToString> { &self.attributes }
+    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = input; self }
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { &self.attributes }
     pub fn build(self) -> SetSmsAttributesInput { SetSmsAttributesInput {
         attributes: self.attributes,
     } }

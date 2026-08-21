@@ -12,20 +12,20 @@
         pub deletion_date: ::std::option::Option<self::DateType>,
         pub description: ::std::option::Option<self::DescriptionType>,
         pub enabled: ::std::option::Option<self::BooleanType>,
-        pub encryption_algorithms: ::std::option::Option<self::EncryptionAlgorithmSpecList>,
+        pub encryption_algorithms: ::std::option::Option<::std::vec::Vec<self::EncryptionAlgorithmSpec>>,
         pub expiration_model: ::std::option::Option<self::ExpirationModelType>,
-        pub key_agreement_algorithms: ::std::option::Option<self::KeyAgreementAlgorithmSpecList>,
+        pub key_agreement_algorithms: ::std::option::Option<::std::vec::Vec<self::KeyAgreementAlgorithmSpec>>,
         pub key_id: ::std::option::Option<self::KeyIdType>,
         pub key_manager: ::std::option::Option<self::KeyManagerType>,
         pub key_spec: ::std::option::Option<self::KeySpec>,
         pub key_state: ::std::option::Option<self::KeyState>,
         pub key_usage: ::std::option::Option<self::KeyUsageType>,
-        pub mac_algorithms: ::std::option::Option<self::MacAlgorithmSpecList>,
+        pub mac_algorithms: ::std::option::Option<::std::vec::Vec<self::MacAlgorithmSpec>>,
         pub multi_region: ::std::option::Option<self::NullableBooleanType>,
         pub multi_region_configuration: ::std::option::Option<self::MultiRegionConfiguration>,
         pub origin: ::std::option::Option<self::OriginType>,
         pub pending_deletion_window_in_days: ::std::option::Option<self::PendingWindowInDaysType>,
-        pub signing_algorithms: ::std::option::Option<self::SigningAlgorithmSpecList>,
+        pub signing_algorithms: ::std::option::Option<::std::vec::Vec<self::SigningAlgorithmSpec>>,
         pub valid_to: ::std::option::Option<self::DateType>,
         pub xks_key_configuration: ::std::option::Option<self::XksKeyConfigurationType>,
     }
@@ -41,20 +41,20 @@
         pub fn deletion_date(&self) -> &::std::option::Option<self::DateType> { &self.deletion_date }
         pub fn description(&self) -> &::std::option::Option<self::DescriptionType> { &self.description }
         pub fn enabled(&self) -> &::std::option::Option<self::BooleanType> { &self.enabled }
-        pub fn encryption_algorithms(&self) -> &::std::option::Option<self::EncryptionAlgorithmSpecList> { &self.encryption_algorithms }
+        pub fn encryption_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::EncryptionAlgorithmSpec>> { &self.encryption_algorithms }
         pub fn expiration_model(&self) -> &::std::option::Option<self::ExpirationModelType> { &self.expiration_model }
-        pub fn key_agreement_algorithms(&self) -> &::std::option::Option<self::KeyAgreementAlgorithmSpecList> { &self.key_agreement_algorithms }
+        pub fn key_agreement_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::KeyAgreementAlgorithmSpec>> { &self.key_agreement_algorithms }
         pub fn key_id(&self) -> &::std::option::Option<self::KeyIdType> { &self.key_id }
         pub fn key_manager(&self) -> &::std::option::Option<self::KeyManagerType> { &self.key_manager }
         pub fn key_spec(&self) -> &::std::option::Option<self::KeySpec> { &self.key_spec }
         pub fn key_state(&self) -> &::std::option::Option<self::KeyState> { &self.key_state }
         pub fn key_usage(&self) -> &::std::option::Option<self::KeyUsageType> { &self.key_usage }
-        pub fn mac_algorithms(&self) -> &::std::option::Option<self::MacAlgorithmSpecList> { &self.mac_algorithms }
+        pub fn mac_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::MacAlgorithmSpec>> { &self.mac_algorithms }
         pub fn multi_region(&self) -> &::std::option::Option<self::NullableBooleanType> { &self.multi_region }
         pub fn multi_region_configuration(&self) -> &::std::option::Option<self::MultiRegionConfiguration> { &self.multi_region_configuration }
         pub fn origin(&self) -> &::std::option::Option<self::OriginType> { &self.origin }
         pub fn pending_deletion_window_in_days(&self) -> &::std::option::Option<self::PendingWindowInDaysType> { &self.pending_deletion_window_in_days }
-        pub fn signing_algorithms(&self) -> &::std::option::Option<self::SigningAlgorithmSpecList> { &self.signing_algorithms }
+        pub fn signing_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::SigningAlgorithmSpec>> { &self.signing_algorithms }
         pub fn valid_to(&self) -> &::std::option::Option<self::DateType> { &self.valid_to }
         pub fn xks_key_configuration(&self) -> &::std::option::Option<self::XksKeyConfigurationType> { &self.xks_key_configuration }
     }
@@ -71,20 +71,20 @@
         deletion_date: ::std::option::Option<self::DateType>,
         description: ::std::option::Option<self::DescriptionType>,
         enabled: ::std::option::Option<self::BooleanType>,
-        encryption_algorithms: ::std::option::Option<self::EncryptionAlgorithmSpecList>,
+        encryption_algorithms: ::std::option::Option<::std::vec::Vec<self::EncryptionAlgorithmSpec>>,
         expiration_model: ::std::option::Option<self::ExpirationModelType>,
-        key_agreement_algorithms: ::std::option::Option<self::KeyAgreementAlgorithmSpecList>,
+        key_agreement_algorithms: ::std::option::Option<::std::vec::Vec<self::KeyAgreementAlgorithmSpec>>,
         key_id: ::std::option::Option<self::KeyIdType>,
         key_manager: ::std::option::Option<self::KeyManagerType>,
         key_spec: ::std::option::Option<self::KeySpec>,
         key_state: ::std::option::Option<self::KeyState>,
         key_usage: ::std::option::Option<self::KeyUsageType>,
-        mac_algorithms: ::std::option::Option<self::MacAlgorithmSpecList>,
+        mac_algorithms: ::std::option::Option<::std::vec::Vec<self::MacAlgorithmSpec>>,
         multi_region: ::std::option::Option<self::NullableBooleanType>,
         multi_region_configuration: ::std::option::Option<self::MultiRegionConfiguration>,
         origin: ::std::option::Option<self::OriginType>,
         pending_deletion_window_in_days: ::std::option::Option<self::PendingWindowInDaysType>,
-        signing_algorithms: ::std::option::Option<self::SigningAlgorithmSpecList>,
+        signing_algorithms: ::std::option::Option<::std::vec::Vec<self::SigningAlgorithmSpec>>,
         valid_to: ::std::option::Option<self::DateType>,
         xks_key_configuration: ::std::option::Option<self::XksKeyConfigurationType>,
     }
@@ -120,15 +120,15 @@
         pub fn enabled(mut self, input: impl ::std::convert::Into<self::BooleanType>) -> Self { self.enabled = Some(input.into()); self }
         pub fn set_enabled(mut self, input: ::std::option::Option<self::BooleanType>) -> Self { self.enabled = input; self }
         pub fn get_enabled(&self) -> &::std::option::Option<self::BooleanType> { &self.enabled }
-        pub fn encryption_algorithms(mut self, input: impl ::std::convert::Into<self::EncryptionAlgorithmSpecList>) -> Self { self.encryption_algorithms = Some(input.into()); self }
-        pub fn set_encryption_algorithms(mut self, input: ::std::option::Option<self::EncryptionAlgorithmSpecList>) -> Self { self.encryption_algorithms = input; self }
-        pub fn get_encryption_algorithms(&self) -> &::std::option::Option<self::EncryptionAlgorithmSpecList> { &self.encryption_algorithms }
+        pub fn encryption_algorithms(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::EncryptionAlgorithmSpec>>) -> Self { self.encryption_algorithms = Some(input.into()); self }
+        pub fn set_encryption_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<self::EncryptionAlgorithmSpec>>) -> Self { self.encryption_algorithms = input; self }
+        pub fn get_encryption_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::EncryptionAlgorithmSpec>> { &self.encryption_algorithms }
         pub fn expiration_model(mut self, input: impl ::std::convert::Into<self::ExpirationModelType>) -> Self { self.expiration_model = Some(input.into()); self }
         pub fn set_expiration_model(mut self, input: ::std::option::Option<self::ExpirationModelType>) -> Self { self.expiration_model = input; self }
         pub fn get_expiration_model(&self) -> &::std::option::Option<self::ExpirationModelType> { &self.expiration_model }
-        pub fn key_agreement_algorithms(mut self, input: impl ::std::convert::Into<self::KeyAgreementAlgorithmSpecList>) -> Self { self.key_agreement_algorithms = Some(input.into()); self }
-        pub fn set_key_agreement_algorithms(mut self, input: ::std::option::Option<self::KeyAgreementAlgorithmSpecList>) -> Self { self.key_agreement_algorithms = input; self }
-        pub fn get_key_agreement_algorithms(&self) -> &::std::option::Option<self::KeyAgreementAlgorithmSpecList> { &self.key_agreement_algorithms }
+        pub fn key_agreement_algorithms(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KeyAgreementAlgorithmSpec>>) -> Self { self.key_agreement_algorithms = Some(input.into()); self }
+        pub fn set_key_agreement_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<self::KeyAgreementAlgorithmSpec>>) -> Self { self.key_agreement_algorithms = input; self }
+        pub fn get_key_agreement_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::KeyAgreementAlgorithmSpec>> { &self.key_agreement_algorithms }
         pub fn key_id(mut self, input: impl ::std::convert::Into<self::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
         pub fn set_key_id(mut self, input: ::std::option::Option<self::KeyIdType>) -> Self { self.key_id = input; self }
         pub fn get_key_id(&self) -> &::std::option::Option<self::KeyIdType> { &self.key_id }
@@ -144,9 +144,9 @@
         pub fn key_usage(mut self, input: impl ::std::convert::Into<self::KeyUsageType>) -> Self { self.key_usage = Some(input.into()); self }
         pub fn set_key_usage(mut self, input: ::std::option::Option<self::KeyUsageType>) -> Self { self.key_usage = input; self }
         pub fn get_key_usage(&self) -> &::std::option::Option<self::KeyUsageType> { &self.key_usage }
-        pub fn mac_algorithms(mut self, input: impl ::std::convert::Into<self::MacAlgorithmSpecList>) -> Self { self.mac_algorithms = Some(input.into()); self }
-        pub fn set_mac_algorithms(mut self, input: ::std::option::Option<self::MacAlgorithmSpecList>) -> Self { self.mac_algorithms = input; self }
-        pub fn get_mac_algorithms(&self) -> &::std::option::Option<self::MacAlgorithmSpecList> { &self.mac_algorithms }
+        pub fn mac_algorithms(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::MacAlgorithmSpec>>) -> Self { self.mac_algorithms = Some(input.into()); self }
+        pub fn set_mac_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<self::MacAlgorithmSpec>>) -> Self { self.mac_algorithms = input; self }
+        pub fn get_mac_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::MacAlgorithmSpec>> { &self.mac_algorithms }
         pub fn multi_region(mut self, input: impl ::std::convert::Into<self::NullableBooleanType>) -> Self { self.multi_region = Some(input.into()); self }
         pub fn set_multi_region(mut self, input: ::std::option::Option<self::NullableBooleanType>) -> Self { self.multi_region = input; self }
         pub fn get_multi_region(&self) -> &::std::option::Option<self::NullableBooleanType> { &self.multi_region }
@@ -159,9 +159,9 @@
         pub fn pending_deletion_window_in_days(mut self, input: impl ::std::convert::Into<self::PendingWindowInDaysType>) -> Self { self.pending_deletion_window_in_days = Some(input.into()); self }
         pub fn set_pending_deletion_window_in_days(mut self, input: ::std::option::Option<self::PendingWindowInDaysType>) -> Self { self.pending_deletion_window_in_days = input; self }
         pub fn get_pending_deletion_window_in_days(&self) -> &::std::option::Option<self::PendingWindowInDaysType> { &self.pending_deletion_window_in_days }
-        pub fn signing_algorithms(mut self, input: impl ::std::convert::Into<self::SigningAlgorithmSpecList>) -> Self { self.signing_algorithms = Some(input.into()); self }
-        pub fn set_signing_algorithms(mut self, input: ::std::option::Option<self::SigningAlgorithmSpecList>) -> Self { self.signing_algorithms = input; self }
-        pub fn get_signing_algorithms(&self) -> &::std::option::Option<self::SigningAlgorithmSpecList> { &self.signing_algorithms }
+        pub fn signing_algorithms(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SigningAlgorithmSpec>>) -> Self { self.signing_algorithms = Some(input.into()); self }
+        pub fn set_signing_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<self::SigningAlgorithmSpec>>) -> Self { self.signing_algorithms = input; self }
+        pub fn get_signing_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<self::SigningAlgorithmSpec>> { &self.signing_algorithms }
         pub fn valid_to(mut self, input: impl ::std::convert::Into<self::DateType>) -> Self { self.valid_to = Some(input.into()); self }
         pub fn set_valid_to(mut self, input: ::std::option::Option<self::DateType>) -> Self { self.valid_to = input; self }
         pub fn get_valid_to(&self) -> &::std::option::Option<self::DateType> { &self.valid_to }

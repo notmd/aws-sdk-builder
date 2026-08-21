@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeactivateMfaDeviceError::Unhandled(format!("DeactivateMfaDevice returned HTTP {}", status)));
                          }
-                         Ok(super::DeactivateMfaDeviceOutput::default())
+                         Ok(super::DeactivateMfaDeviceOutput)
                      }
 }
 pub use Builder as DeactivateMfaDeviceFluentBuilder;

@@ -31,7 +31,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateCustomKeyStoreError::Unhandled(format!("UpdateCustomKeyStore returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateCustomKeyStoreOutput::default())
+                         Ok(super::UpdateCustomKeyStoreOutput)
                      }
 }
 pub use Builder as UpdateCustomKeyStoreFluentBuilder;

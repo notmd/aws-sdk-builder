@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct ListBucketInventoryConfigurationsOutput {
     pub continuation_token: ::std::option::Option<super::super::super::types::Token>,
-    pub inventory_configuration_list: ::std::option::Option<super::super::super::types::InventoryConfigurationList>,
+    pub inventory_configuration_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::InventoryConfiguration>>,
     pub is_truncated: ::std::option::Option<super::super::super::types::IsTruncated>,
     pub next_continuation_token: ::std::option::Option<super::super::super::types::NextToken>,
 }
@@ -19,7 +19,7 @@ impl ListBucketInventoryConfigurationsOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ListBucketInventoryConfigurationsOutputBuilder {
     continuation_token: ::std::option::Option<super::super::super::types::Token>,
-    inventory_configuration_list: ::std::option::Option<super::super::super::types::InventoryConfigurationList>,
+    inventory_configuration_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::InventoryConfiguration>>,
     is_truncated: ::std::option::Option<super::super::super::types::IsTruncated>,
     next_continuation_token: ::std::option::Option<super::super::super::types::NextToken>,
 }
@@ -27,9 +27,9 @@ impl ListBucketInventoryConfigurationsOutputBuilder {
     pub fn continuation_token(mut self, input: impl ::std::convert::Into<super::super::super::types::Token>) -> Self { self.continuation_token = Some(input.into()); self }
     pub fn set_continuation_token(mut self, input: ::std::option::Option<super::super::super::types::Token>) -> Self { self.continuation_token = input; self }
     pub fn get_continuation_token(&self) -> &::std::option::Option<super::super::super::types::Token> { &self.continuation_token }
-    pub fn inventory_configuration_list(mut self, input: impl ::std::convert::Into<super::super::super::types::InventoryConfigurationList>) -> Self { self.inventory_configuration_list = Some(input.into()); self }
-    pub fn set_inventory_configuration_list(mut self, input: ::std::option::Option<super::super::super::types::InventoryConfigurationList>) -> Self { self.inventory_configuration_list = input; self }
-    pub fn get_inventory_configuration_list(&self) -> &::std::option::Option<super::super::super::types::InventoryConfigurationList> { &self.inventory_configuration_list }
+    pub fn inventory_configuration_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::InventoryConfiguration>>) -> Self { self.inventory_configuration_list = Some(input.into()); self }
+    pub fn set_inventory_configuration_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::InventoryConfiguration>>) -> Self { self.inventory_configuration_list = input; self }
+    pub fn get_inventory_configuration_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::InventoryConfiguration>> { &self.inventory_configuration_list }
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::IsTruncated>) -> Self { self.is_truncated = Some(input.into()); self }
     pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::IsTruncated>) -> Self { self.is_truncated = input; self }
     pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::IsTruncated> { &self.is_truncated }

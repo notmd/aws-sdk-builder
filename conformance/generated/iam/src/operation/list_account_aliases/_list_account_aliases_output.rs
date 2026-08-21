@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListAccountAliasesOutput {
-    pub account_aliases: ::std::option::Option<super::super::super::types::AccountAliasListType>,
+    pub account_aliases: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccountAliasType>>,
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
@@ -16,14 +16,14 @@ impl ListAccountAliasesOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListAccountAliasesOutputBuilder {
-    account_aliases: ::std::option::Option<super::super::super::types::AccountAliasListType>,
+    account_aliases: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccountAliasType>>,
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
 impl ListAccountAliasesOutputBuilder {
-    pub fn account_aliases(mut self, input: impl ::std::convert::Into<super::super::super::types::AccountAliasListType>) -> Self { self.account_aliases = Some(input.into()); self }
-    pub fn set_account_aliases(mut self, input: ::std::option::Option<super::super::super::types::AccountAliasListType>) -> Self { self.account_aliases = input; self }
-    pub fn get_account_aliases(&self) -> &::std::option::Option<super::super::super::types::AccountAliasListType> { &self.account_aliases }
+    pub fn account_aliases(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AccountAliasType>>) -> Self { self.account_aliases = Some(input.into()); self }
+    pub fn set_account_aliases(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccountAliasType>>) -> Self { self.account_aliases = input; self }
+    pub fn get_account_aliases(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AccountAliasType>> { &self.account_aliases }
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
     pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
     pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }

@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::RemoveRoleFromInstanceProfileError::Unhandled(format!("RemoveRoleFromInstanceProfile returned HTTP {}", status)));
                          }
-                         Ok(super::RemoveRoleFromInstanceProfileOutput::default())
+                         Ok(super::RemoveRoleFromInstanceProfileOutput)
                      }
 }
 pub use Builder as RemoveRoleFromInstanceProfileFluentBuilder;

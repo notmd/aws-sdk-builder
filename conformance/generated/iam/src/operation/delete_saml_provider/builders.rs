@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteSamlProviderError::Unhandled(format!("DeleteSamlProvider returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteSamlProviderOutput::default())
+                         Ok(super::DeleteSamlProviderOutput)
                      }
 }
 pub use Builder as DeleteSamlProviderFluentBuilder;

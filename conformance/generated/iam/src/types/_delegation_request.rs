@@ -18,7 +18,7 @@
         pub request_message: ::std::option::Option<self::RequestMessageType>,
         pub requestor_id: ::std::option::Option<self::AccountIdType>,
         pub requestor_name: ::std::option::Option<self::RequestorNameType>,
-        pub role_permission_restriction_arns: ::std::option::Option<self::RolePermissionRestrictionArnListType>,
+        pub role_permission_restriction_arns: ::std::option::Option<::std::vec::Vec<self::ArnType>>,
         pub session_duration: ::std::option::Option<self::SessionDurationType>,
         pub state: ::std::option::Option<self::StateType>,
         pub updated_time: ::std::option::Option<self::DateType>,
@@ -41,7 +41,7 @@
         pub fn request_message(&self) -> &::std::option::Option<self::RequestMessageType> { &self.request_message }
         pub fn requestor_id(&self) -> &::std::option::Option<self::AccountIdType> { &self.requestor_id }
         pub fn requestor_name(&self) -> &::std::option::Option<self::RequestorNameType> { &self.requestor_name }
-        pub fn role_permission_restriction_arns(&self) -> &::std::option::Option<self::RolePermissionRestrictionArnListType> { &self.role_permission_restriction_arns }
+        pub fn role_permission_restriction_arns(&self) -> &::std::option::Option<::std::vec::Vec<self::ArnType>> { &self.role_permission_restriction_arns }
         pub fn session_duration(&self) -> &::std::option::Option<self::SessionDurationType> { &self.session_duration }
         pub fn state(&self) -> &::std::option::Option<self::StateType> { &self.state }
         pub fn updated_time(&self) -> &::std::option::Option<self::DateType> { &self.updated_time }
@@ -65,7 +65,7 @@
         request_message: ::std::option::Option<self::RequestMessageType>,
         requestor_id: ::std::option::Option<self::AccountIdType>,
         requestor_name: ::std::option::Option<self::RequestorNameType>,
-        role_permission_restriction_arns: ::std::option::Option<self::RolePermissionRestrictionArnListType>,
+        role_permission_restriction_arns: ::std::option::Option<::std::vec::Vec<self::ArnType>>,
         session_duration: ::std::option::Option<self::SessionDurationType>,
         state: ::std::option::Option<self::StateType>,
         updated_time: ::std::option::Option<self::DateType>,
@@ -120,9 +120,9 @@
         pub fn requestor_name(mut self, input: impl ::std::convert::Into<self::RequestorNameType>) -> Self { self.requestor_name = Some(input.into()); self }
         pub fn set_requestor_name(mut self, input: ::std::option::Option<self::RequestorNameType>) -> Self { self.requestor_name = input; self }
         pub fn get_requestor_name(&self) -> &::std::option::Option<self::RequestorNameType> { &self.requestor_name }
-        pub fn role_permission_restriction_arns(mut self, input: impl ::std::convert::Into<self::RolePermissionRestrictionArnListType>) -> Self { self.role_permission_restriction_arns = Some(input.into()); self }
-        pub fn set_role_permission_restriction_arns(mut self, input: ::std::option::Option<self::RolePermissionRestrictionArnListType>) -> Self { self.role_permission_restriction_arns = input; self }
-        pub fn get_role_permission_restriction_arns(&self) -> &::std::option::Option<self::RolePermissionRestrictionArnListType> { &self.role_permission_restriction_arns }
+        pub fn role_permission_restriction_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ArnType>>) -> Self { self.role_permission_restriction_arns = Some(input.into()); self }
+        pub fn set_role_permission_restriction_arns(mut self, input: ::std::option::Option<::std::vec::Vec<self::ArnType>>) -> Self { self.role_permission_restriction_arns = input; self }
+        pub fn get_role_permission_restriction_arns(&self) -> &::std::option::Option<::std::vec::Vec<self::ArnType>> { &self.role_permission_restriction_arns }
         pub fn session_duration(mut self, input: impl ::std::convert::Into<self::SessionDurationType>) -> Self { self.session_duration = Some(input.into()); self }
         pub fn set_session_duration(mut self, input: ::std::option::Option<self::SessionDurationType>) -> Self { self.session_duration = input; self }
         pub fn get_session_duration(&self) -> &::std::option::Option<self::SessionDurationType> { &self.session_duration }

@@ -4,7 +4,7 @@
 pub struct ListObjectAnnotationsOutput {
     pub annotation_count: ::std::option::Option<super::super::super::types::AnnotationCount>,
     pub annotation_prefix: ::std::option::Option<super::super::super::types::AnnotationPrefix>,
-    pub annotations: ::std::option::Option<super::super::super::types::AnnotationList>,
+    pub annotations: ::std::option::Option<::std::vec::Vec<super::super::super::types::AnnotationEntry>>,
     pub bucket: ::std::option::Option<super::super::super::types::BucketName>,
     pub continuation_token: ::std::option::Option<super::super::super::types::Token>,
     pub key: ::std::option::Option<super::super::super::types::ObjectKey>,
@@ -32,7 +32,7 @@ impl ListObjectAnnotationsOutput {
 pub struct ListObjectAnnotationsOutputBuilder {
     annotation_count: ::std::option::Option<super::super::super::types::AnnotationCount>,
     annotation_prefix: ::std::option::Option<super::super::super::types::AnnotationPrefix>,
-    annotations: ::std::option::Option<super::super::super::types::AnnotationList>,
+    annotations: ::std::option::Option<::std::vec::Vec<super::super::super::types::AnnotationEntry>>,
     bucket: ::std::option::Option<super::super::super::types::BucketName>,
     continuation_token: ::std::option::Option<super::super::super::types::Token>,
     key: ::std::option::Option<super::super::super::types::ObjectKey>,
@@ -48,9 +48,9 @@ impl ListObjectAnnotationsOutputBuilder {
     pub fn annotation_prefix(mut self, input: impl ::std::convert::Into<super::super::super::types::AnnotationPrefix>) -> Self { self.annotation_prefix = Some(input.into()); self }
     pub fn set_annotation_prefix(mut self, input: ::std::option::Option<super::super::super::types::AnnotationPrefix>) -> Self { self.annotation_prefix = input; self }
     pub fn get_annotation_prefix(&self) -> &::std::option::Option<super::super::super::types::AnnotationPrefix> { &self.annotation_prefix }
-    pub fn annotations(mut self, input: impl ::std::convert::Into<super::super::super::types::AnnotationList>) -> Self { self.annotations = Some(input.into()); self }
-    pub fn set_annotations(mut self, input: ::std::option::Option<super::super::super::types::AnnotationList>) -> Self { self.annotations = input; self }
-    pub fn get_annotations(&self) -> &::std::option::Option<super::super::super::types::AnnotationList> { &self.annotations }
+    pub fn annotations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AnnotationEntry>>) -> Self { self.annotations = Some(input.into()); self }
+    pub fn set_annotations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AnnotationEntry>>) -> Self { self.annotations = input; self }
+    pub fn get_annotations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AnnotationEntry>> { &self.annotations }
     pub fn bucket(mut self, input: impl ::std::convert::Into<super::super::super::types::BucketName>) -> Self { self.bucket = Some(input.into()); self }
     pub fn set_bucket(mut self, input: ::std::option::Option<super::super::super::types::BucketName>) -> Self { self.bucket = input; self }
     pub fn get_bucket(&self) -> &::std::option::Option<super::super::super::types::BucketName> { &self.bucket }

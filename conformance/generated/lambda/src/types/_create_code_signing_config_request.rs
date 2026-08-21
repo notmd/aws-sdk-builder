@@ -5,14 +5,14 @@
         pub allowed_publishers: ::std::option::Option<self::AllowedPublishers>,
         pub code_signing_policies: ::std::option::Option<self::CodeSigningPolicies>,
         pub description: ::std::option::Option<self::Description>,
-        pub tags: ::std::option::Option<self::Tags>,
+        pub tags: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>,
     }
     impl CreateCodeSigningConfigRequest {
         pub fn builder() -> CreateCodeSigningConfigRequestBuilder { CreateCodeSigningConfigRequestBuilder::default() }
         pub fn allowed_publishers(&self) -> &::std::option::Option<self::AllowedPublishers> { &self.allowed_publishers }
         pub fn code_signing_policies(&self) -> &::std::option::Option<self::CodeSigningPolicies> { &self.code_signing_policies }
         pub fn description(&self) -> &::std::option::Option<self::Description> { &self.description }
-        pub fn tags(&self) -> &::std::option::Option<self::Tags> { &self.tags }
+        pub fn tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>> { &self.tags }
     }
 
     #[derive(Clone, Debug, Default)]
@@ -20,7 +20,7 @@
         allowed_publishers: ::std::option::Option<self::AllowedPublishers>,
         code_signing_policies: ::std::option::Option<self::CodeSigningPolicies>,
         description: ::std::option::Option<self::Description>,
-        tags: ::std::option::Option<self::Tags>,
+        tags: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>,
     }
 
     impl CreateCodeSigningConfigRequestBuilder {
@@ -33,9 +33,9 @@
         pub fn description(mut self, input: impl ::std::convert::Into<self::Description>) -> Self { self.description = Some(input.into()); self }
         pub fn set_description(mut self, input: ::std::option::Option<self::Description>) -> Self { self.description = input; self }
         pub fn get_description(&self) -> &::std::option::Option<self::Description> { &self.description }
-        pub fn tags(mut self, input: impl ::std::convert::Into<self::Tags>) -> Self { self.tags = Some(input.into()); self }
-        pub fn set_tags(mut self, input: ::std::option::Option<self::Tags>) -> Self { self.tags = input; self }
-        pub fn get_tags(&self) -> &::std::option::Option<self::Tags> { &self.tags }
+        pub fn tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::TagKey, self::TagValue>>) -> Self { self.tags = Some(input.into()); self }
+        pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>) -> Self { self.tags = input; self }
+        pub fn get_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>> { &self.tags }
         pub fn build(self) -> CreateCodeSigningConfigRequest {
             CreateCodeSigningConfigRequest {
                 allowed_publishers: self.allowed_publishers,

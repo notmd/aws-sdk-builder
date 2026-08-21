@@ -9,7 +9,7 @@ pub struct ListObjectsV2Input {
     pub expected_bucket_owner: ::std::option::Option<super::super::super::types::AccountId>,
     pub fetch_owner: ::std::option::Option<super::super::super::types::FetchOwner>,
     pub max_keys: ::std::option::Option<super::super::super::types::MaxKeys>,
-    pub optional_object_attributes: ::std::option::Option<super::super::super::types::OptionalObjectAttributesList>,
+    pub optional_object_attributes: ::std::option::Option<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>>,
     pub prefix: ::std::option::Option<super::super::super::types::Prefix>,
     pub request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
     pub start_after: ::std::option::Option<super::super::super::types::StartAfter>,
@@ -39,7 +39,7 @@ pub struct ListObjectsV2InputBuilder {
     expected_bucket_owner: ::std::option::Option<super::super::super::types::AccountId>,
     fetch_owner: ::std::option::Option<super::super::super::types::FetchOwner>,
     max_keys: ::std::option::Option<super::super::super::types::MaxKeys>,
-    optional_object_attributes: ::std::option::Option<super::super::super::types::OptionalObjectAttributesList>,
+    optional_object_attributes: ::std::option::Option<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>>,
     prefix: ::std::option::Option<super::super::super::types::Prefix>,
     request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
     start_after: ::std::option::Option<super::super::super::types::StartAfter>,
@@ -66,9 +66,9 @@ impl ListObjectsV2InputBuilder {
     pub fn max_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::MaxKeys>) -> Self { self.max_keys = Some(input.into()); self }
     pub fn set_max_keys(mut self, input: ::std::option::Option<super::super::super::types::MaxKeys>) -> Self { self.max_keys = input; self }
     pub fn get_max_keys(&self) -> &::std::option::Option<super::super::super::types::MaxKeys> { &self.max_keys }
-    pub fn optional_object_attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::OptionalObjectAttributesList>) -> Self { self.optional_object_attributes = Some(input.into()); self }
-    pub fn set_optional_object_attributes(mut self, input: ::std::option::Option<super::super::super::types::OptionalObjectAttributesList>) -> Self { self.optional_object_attributes = input; self }
-    pub fn get_optional_object_attributes(&self) -> &::std::option::Option<super::super::super::types::OptionalObjectAttributesList> { &self.optional_object_attributes }
+    pub fn optional_object_attributes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>>) -> Self { self.optional_object_attributes = Some(input.into()); self }
+    pub fn set_optional_object_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>>) -> Self { self.optional_object_attributes = input; self }
+    pub fn get_optional_object_attributes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::OptionalObjectAttributes>> { &self.optional_object_attributes }
     pub fn prefix(mut self, input: impl ::std::convert::Into<super::super::super::types::Prefix>) -> Self { self.prefix = Some(input.into()); self }
     pub fn set_prefix(mut self, input: ::std::option::Option<super::super::super::types::Prefix>) -> Self { self.prefix = input; self }
     pub fn get_prefix(&self) -> &::std::option::Option<super::super::super::types::Prefix> { &self.prefix }

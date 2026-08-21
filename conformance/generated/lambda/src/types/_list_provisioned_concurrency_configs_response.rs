@@ -3,27 +3,27 @@
     #[derive(Clone, Debug, Default)]
     pub struct ListProvisionedConcurrencyConfigsResponse {
         pub next_marker: ::std::option::Option<self::String>,
-        pub provisioned_concurrency_configs: ::std::option::Option<self::ProvisionedConcurrencyConfigList>,
+        pub provisioned_concurrency_configs: ::std::option::Option<::std::vec::Vec<self::ProvisionedConcurrencyConfigListItem>>,
     }
     impl ListProvisionedConcurrencyConfigsResponse {
         pub fn builder() -> ListProvisionedConcurrencyConfigsResponseBuilder { ListProvisionedConcurrencyConfigsResponseBuilder::default() }
         pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
-        pub fn provisioned_concurrency_configs(&self) -> &::std::option::Option<self::ProvisionedConcurrencyConfigList> { &self.provisioned_concurrency_configs }
+        pub fn provisioned_concurrency_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::ProvisionedConcurrencyConfigListItem>> { &self.provisioned_concurrency_configs }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ListProvisionedConcurrencyConfigsResponseBuilder {
         next_marker: ::std::option::Option<self::String>,
-        provisioned_concurrency_configs: ::std::option::Option<self::ProvisionedConcurrencyConfigList>,
+        provisioned_concurrency_configs: ::std::option::Option<::std::vec::Vec<self::ProvisionedConcurrencyConfigListItem>>,
     }
 
     impl ListProvisionedConcurrencyConfigsResponseBuilder {
         pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
         pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
         pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }
-        pub fn provisioned_concurrency_configs(mut self, input: impl ::std::convert::Into<self::ProvisionedConcurrencyConfigList>) -> Self { self.provisioned_concurrency_configs = Some(input.into()); self }
-        pub fn set_provisioned_concurrency_configs(mut self, input: ::std::option::Option<self::ProvisionedConcurrencyConfigList>) -> Self { self.provisioned_concurrency_configs = input; self }
-        pub fn get_provisioned_concurrency_configs(&self) -> &::std::option::Option<self::ProvisionedConcurrencyConfigList> { &self.provisioned_concurrency_configs }
+        pub fn provisioned_concurrency_configs(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ProvisionedConcurrencyConfigListItem>>) -> Self { self.provisioned_concurrency_configs = Some(input.into()); self }
+        pub fn set_provisioned_concurrency_configs(mut self, input: ::std::option::Option<::std::vec::Vec<self::ProvisionedConcurrencyConfigListItem>>) -> Self { self.provisioned_concurrency_configs = input; self }
+        pub fn get_provisioned_concurrency_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::ProvisionedConcurrencyConfigListItem>> { &self.provisioned_concurrency_configs }
         pub fn build(self) -> ListProvisionedConcurrencyConfigsResponse {
             ListProvisionedConcurrencyConfigsResponse {
                 next_marker: self.next_marker,

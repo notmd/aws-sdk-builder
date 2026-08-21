@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetBucketLifecycleConfigurationOutput {
-    pub rules: ::std::option::Option<super::super::super::types::LifecycleRules>,
+    pub rules: ::std::option::Option<::std::vec::Vec<super::super::super::types::LifecycleRule>>,
     pub transition_default_minimum_object_size: ::std::option::Option<super::super::super::types::TransitionDefaultMinimumObjectSize>,
 }
         impl GetBucketLifecycleConfigurationOutput {
@@ -14,13 +14,13 @@ impl GetBucketLifecycleConfigurationOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetBucketLifecycleConfigurationOutputBuilder {
-    rules: ::std::option::Option<super::super::super::types::LifecycleRules>,
+    rules: ::std::option::Option<::std::vec::Vec<super::super::super::types::LifecycleRule>>,
     transition_default_minimum_object_size: ::std::option::Option<super::super::super::types::TransitionDefaultMinimumObjectSize>,
 }
 impl GetBucketLifecycleConfigurationOutputBuilder {
-    pub fn rules(mut self, input: impl ::std::convert::Into<super::super::super::types::LifecycleRules>) -> Self { self.rules = Some(input.into()); self }
-    pub fn set_rules(mut self, input: ::std::option::Option<super::super::super::types::LifecycleRules>) -> Self { self.rules = input; self }
-    pub fn get_rules(&self) -> &::std::option::Option<super::super::super::types::LifecycleRules> { &self.rules }
+    pub fn rules(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::LifecycleRule>>) -> Self { self.rules = Some(input.into()); self }
+    pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::LifecycleRule>>) -> Self { self.rules = input; self }
+    pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::LifecycleRule>> { &self.rules }
     pub fn transition_default_minimum_object_size(mut self, input: impl ::std::convert::Into<super::super::super::types::TransitionDefaultMinimumObjectSize>) -> Self { self.transition_default_minimum_object_size = Some(input.into()); self }
     pub fn set_transition_default_minimum_object_size(mut self, input: ::std::option::Option<super::super::super::types::TransitionDefaultMinimumObjectSize>) -> Self { self.transition_default_minimum_object_size = input; self }
     pub fn get_transition_default_minimum_object_size(&self) -> &::std::option::Option<super::super::super::types::TransitionDefaultMinimumObjectSize> { &self.transition_default_minimum_object_size }

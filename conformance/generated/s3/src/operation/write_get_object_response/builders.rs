@@ -37,7 +37,7 @@ impl Builder {
     pub fn expiration(mut self, value: impl ::std::convert::Into<super::super::super::types::Expiration>) -> Self { self.input.expiration = Some(value.into()); self }
     pub fn expires(mut self, value: impl ::std::convert::Into<super::super::super::types::Expires>) -> Self { self.input.expires = Some(value.into()); self }
     pub fn last_modified(mut self, value: impl ::std::convert::Into<super::super::super::types::LastModified>) -> Self { self.input.last_modified = Some(value.into()); self }
-    pub fn metadata(mut self, value: impl ::std::convert::Into<super::super::super::types::Metadata>) -> Self { self.input.metadata = Some(value.into()); self }
+    pub fn metadata(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>>) -> Self { self.input.metadata = Some(value.into()); self }
     pub fn missing_meta(mut self, value: impl ::std::convert::Into<super::super::super::types::MissingMeta>) -> Self { self.input.missing_meta = Some(value.into()); self }
     pub fn object_lock_legal_hold_status(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockLegalHoldStatus>) -> Self { self.input.object_lock_legal_hold_status = Some(value.into()); self }
     pub fn object_lock_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockMode>) -> Self { self.input.object_lock_mode = Some(value.into()); self }
@@ -67,7 +67,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::WriteGetObjectResponseError::Unhandled(format!("WriteGetObjectResponse returned HTTP {}", status)));
                          }
-                         Ok(super::WriteGetObjectResponseOutput::default())
+                         Ok(super::WriteGetObjectResponseOutput)
                      }
 }
 pub use Builder as WriteGetObjectResponseFluentBuilder;

@@ -4,10 +4,10 @@
 pub struct PutItemInput {
     pub condition_expression: ::std::option::Option<super::super::super::types::ConditionExpression>,
     pub conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
-    pub expected: ::std::option::Option<super::super::super::types::ExpectedAttributeMap>,
-    pub expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-    pub expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
-    pub item: ::std::option::Option<super::super::super::types::PutItemInputAttributeMap>,
+    pub expected: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>,
+    pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
+    pub expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
+    pub item: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
     pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     pub return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
     pub return_values: ::std::option::Option<super::super::super::types::ReturnValue>,
@@ -17,10 +17,10 @@ pub struct PutItemInput {
         impl PutItemInput {
             pub fn condition_expression(&self) -> ::std::option::Option<&str> { self.condition_expression.as_deref() }
             pub fn conditional_operator(&self) -> ::std::option::Option<&super::super::super::types::ConditionalOperator> { self.conditional_operator.as_ref() }
-            pub fn expected(&self) -> ::std::option::Option<&super::super::super::types::ExpectedAttributeMap> { self.expected.as_ref() }
-            pub fn expression_attribute_names(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeNameMap> { self.expression_attribute_names.as_ref() }
-            pub fn expression_attribute_values(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeValueMap> { self.expression_attribute_values.as_ref() }
-            pub fn item(&self) -> ::std::option::Option<&super::super::super::types::PutItemInputAttributeMap> { self.item.as_ref() }
+            pub fn expected(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>> { self.expected.as_ref() }
+            pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { self.expression_attribute_names.as_ref() }
+            pub fn expression_attribute_values(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { self.expression_attribute_values.as_ref() }
+            pub fn item(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.item.as_ref() }
             pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
             pub fn return_item_collection_metrics(&self) -> ::std::option::Option<&super::super::super::types::ReturnItemCollectionMetrics> { self.return_item_collection_metrics.as_ref() }
             pub fn return_values(&self) -> ::std::option::Option<&super::super::super::types::ReturnValue> { self.return_values.as_ref() }
@@ -34,10 +34,10 @@ impl PutItemInput {
 pub struct PutItemInputBuilder {
     condition_expression: ::std::option::Option<super::super::super::types::ConditionExpression>,
     conditional_operator: ::std::option::Option<super::super::super::types::ConditionalOperator>,
-    expected: ::std::option::Option<super::super::super::types::ExpectedAttributeMap>,
-    expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-    expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
-    item: ::std::option::Option<super::super::super::types::PutItemInputAttributeMap>,
+    expected: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>,
+    expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
+    expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
+    item: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
     return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     return_item_collection_metrics: ::std::option::Option<super::super::super::types::ReturnItemCollectionMetrics>,
     return_values: ::std::option::Option<super::super::super::types::ReturnValue>,
@@ -51,18 +51,18 @@ impl PutItemInputBuilder {
     pub fn conditional_operator(mut self, input: impl ::std::convert::Into<super::super::super::types::ConditionalOperator>) -> Self { self.conditional_operator = Some(input.into()); self }
     pub fn set_conditional_operator(mut self, input: ::std::option::Option<super::super::super::types::ConditionalOperator>) -> Self { self.conditional_operator = input; self }
     pub fn get_conditional_operator(&self) -> &::std::option::Option<super::super::super::types::ConditionalOperator> { &self.conditional_operator }
-    pub fn expected(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpectedAttributeMap>) -> Self { self.expected = Some(input.into()); self }
-    pub fn set_expected(mut self, input: ::std::option::Option<super::super::super::types::ExpectedAttributeMap>) -> Self { self.expected = input; self }
-    pub fn get_expected(&self) -> &::std::option::Option<super::super::super::types::ExpectedAttributeMap> { &self.expected }
-    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = Some(input.into()); self }
-    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = input; self }
-    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeValueMap> { &self.expression_attribute_values }
-    pub fn item(mut self, input: impl ::std::convert::Into<super::super::super::types::PutItemInputAttributeMap>) -> Self { self.item = Some(input.into()); self }
-    pub fn set_item(mut self, input: ::std::option::Option<super::super::super::types::PutItemInputAttributeMap>) -> Self { self.item = input; self }
-    pub fn get_item(&self) -> &::std::option::Option<super::super::super::types::PutItemInputAttributeMap> { &self.item }
+    pub fn expected(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>) -> Self { self.expected = Some(input.into()); self }
+    pub fn set_expected(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>>) -> Self { self.expected = input; self }
+    pub fn get_expected(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::ExpectedAttributeValue>> { &self.expected }
+    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
+    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
+    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { &self.expression_attribute_names }
+    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = Some(input.into()); self }
+    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
+    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { &self.expression_attribute_values }
+    pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
+    pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.item = input; self }
+    pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.item }
     pub fn return_consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = Some(input.into()); self }
     pub fn set_return_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.return_consumed_capacity = input; self }
     pub fn get_return_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ReturnConsumedCapacity> { &self.return_consumed_capacity }

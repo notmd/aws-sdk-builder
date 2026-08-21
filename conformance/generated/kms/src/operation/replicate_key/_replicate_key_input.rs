@@ -7,7 +7,7 @@ pub struct ReplicateKeyInput {
     pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
     pub policy: ::std::option::Option<super::super::super::types::PolicyType>,
     pub replica_region: ::std::option::Option<super::super::super::types::RegionType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagList>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl ReplicateKeyInput {
             pub fn bypass_policy_lockout_safety_check(&self) -> ::std::option::Option<bool> { self.bypass_policy_lockout_safety_check }
@@ -27,7 +27,7 @@ pub struct ReplicateKeyInputBuilder {
     key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
     policy: ::std::option::Option<super::super::super::types::PolicyType>,
     replica_region: ::std::option::Option<super::super::super::types::RegionType>,
-    tags: ::std::option::Option<super::super::super::types::TagList>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl ReplicateKeyInputBuilder {
     pub fn bypass_policy_lockout_safety_check(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.bypass_policy_lockout_safety_check = Some(input.into()); self }
@@ -45,9 +45,9 @@ impl ReplicateKeyInputBuilder {
     pub fn replica_region(mut self, input: impl ::std::convert::Into<super::super::super::types::RegionType>) -> Self { self.replica_region = Some(input.into()); self }
     pub fn set_replica_region(mut self, input: ::std::option::Option<super::super::super::types::RegionType>) -> Self { self.replica_region = input; self }
     pub fn get_replica_region(&self) -> &::std::option::Option<super::super::super::types::RegionType> { &self.replica_region }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> ReplicateKeyInput { ReplicateKeyInput {
         bypass_policy_lockout_safety_check: self.bypass_policy_lockout_safety_check,
         description: self.description,

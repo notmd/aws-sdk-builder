@@ -2,43 +2,43 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct S3Location {
-        pub access_control_list: ::std::option::Option<self::Grants>,
+        pub access_control_list: ::std::option::Option<::std::vec::Vec<self::Grant>>,
         pub bucket_name: ::std::option::Option<self::BucketName>,
         pub canned_acl: ::std::option::Option<self::ObjectCannedAcl>,
         pub encryption: ::std::option::Option<self::Encryption>,
         pub prefix: ::std::option::Option<self::LocationPrefix>,
         pub storage_class: ::std::option::Option<self::StorageClass>,
         pub tagging: ::std::option::Option<self::Tagging>,
-        pub user_metadata: ::std::option::Option<self::UserMetadata>,
+        pub user_metadata: ::std::option::Option<::std::vec::Vec<self::MetadataEntry>>,
     }
     impl S3Location {
         pub fn builder() -> S3LocationBuilder { S3LocationBuilder::default() }
-        pub fn access_control_list(&self) -> &::std::option::Option<self::Grants> { &self.access_control_list }
+        pub fn access_control_list(&self) -> &::std::option::Option<::std::vec::Vec<self::Grant>> { &self.access_control_list }
         pub fn bucket_name(&self) -> ::std::option::Option<&str> { self.bucket_name.as_deref() }
         pub fn canned_acl(&self) -> &::std::option::Option<self::ObjectCannedAcl> { &self.canned_acl }
         pub fn encryption(&self) -> &::std::option::Option<self::Encryption> { &self.encryption }
         pub fn prefix(&self) -> &::std::option::Option<self::LocationPrefix> { &self.prefix }
         pub fn storage_class(&self) -> &::std::option::Option<self::StorageClass> { &self.storage_class }
         pub fn tagging(&self) -> &::std::option::Option<self::Tagging> { &self.tagging }
-        pub fn user_metadata(&self) -> &::std::option::Option<self::UserMetadata> { &self.user_metadata }
+        pub fn user_metadata(&self) -> &::std::option::Option<::std::vec::Vec<self::MetadataEntry>> { &self.user_metadata }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct S3LocationBuilder {
-        access_control_list: ::std::option::Option<self::Grants>,
+        access_control_list: ::std::option::Option<::std::vec::Vec<self::Grant>>,
         bucket_name: ::std::option::Option<self::BucketName>,
         canned_acl: ::std::option::Option<self::ObjectCannedAcl>,
         encryption: ::std::option::Option<self::Encryption>,
         prefix: ::std::option::Option<self::LocationPrefix>,
         storage_class: ::std::option::Option<self::StorageClass>,
         tagging: ::std::option::Option<self::Tagging>,
-        user_metadata: ::std::option::Option<self::UserMetadata>,
+        user_metadata: ::std::option::Option<::std::vec::Vec<self::MetadataEntry>>,
     }
 
     impl S3LocationBuilder {
-        pub fn access_control_list(mut self, input: impl ::std::convert::Into<self::Grants>) -> Self { self.access_control_list = Some(input.into()); self }
-        pub fn set_access_control_list(mut self, input: ::std::option::Option<self::Grants>) -> Self { self.access_control_list = input; self }
-        pub fn get_access_control_list(&self) -> &::std::option::Option<self::Grants> { &self.access_control_list }
+        pub fn access_control_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Grant>>) -> Self { self.access_control_list = Some(input.into()); self }
+        pub fn set_access_control_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::Grant>>) -> Self { self.access_control_list = input; self }
+        pub fn get_access_control_list(&self) -> &::std::option::Option<::std::vec::Vec<self::Grant>> { &self.access_control_list }
         pub fn bucket_name(mut self, input: impl ::std::convert::Into<self::BucketName>) -> Self { self.bucket_name = Some(input.into()); self }
         pub fn set_bucket_name(mut self, input: ::std::option::Option<self::BucketName>) -> Self { self.bucket_name = input; self }
         pub fn get_bucket_name(&self) -> &::std::option::Option<self::BucketName> { &self.bucket_name }
@@ -57,9 +57,9 @@
         pub fn tagging(mut self, input: impl ::std::convert::Into<self::Tagging>) -> Self { self.tagging = Some(input.into()); self }
         pub fn set_tagging(mut self, input: ::std::option::Option<self::Tagging>) -> Self { self.tagging = input; self }
         pub fn get_tagging(&self) -> &::std::option::Option<self::Tagging> { &self.tagging }
-        pub fn user_metadata(mut self, input: impl ::std::convert::Into<self::UserMetadata>) -> Self { self.user_metadata = Some(input.into()); self }
-        pub fn set_user_metadata(mut self, input: ::std::option::Option<self::UserMetadata>) -> Self { self.user_metadata = input; self }
-        pub fn get_user_metadata(&self) -> &::std::option::Option<self::UserMetadata> { &self.user_metadata }
+        pub fn user_metadata(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::MetadataEntry>>) -> Self { self.user_metadata = Some(input.into()); self }
+        pub fn set_user_metadata(mut self, input: ::std::option::Option<::std::vec::Vec<self::MetadataEntry>>) -> Self { self.user_metadata = input; self }
+        pub fn get_user_metadata(&self) -> &::std::option::Option<::std::vec::Vec<self::MetadataEntry>> { &self.user_metadata }
         pub fn build(self) -> S3Location {
             S3Location {
                 access_control_list: self.access_control_list,

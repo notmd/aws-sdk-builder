@@ -19,7 +19,7 @@ impl Builder {
     pub fn multi_region(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.multi_region = Some(value.into()); self }
     pub fn origin(mut self, value: impl ::std::convert::Into<super::super::super::types::OriginType>) -> Self { self.input.origin = Some(value.into()); self }
     pub fn policy(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyType>) -> Self { self.input.policy = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
     pub fn xks_key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::XksKeyIdType>) -> Self { self.input.xks_key_id = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]

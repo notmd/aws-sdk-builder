@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteBucketAnalyticsConfigurationError::Unhandled(format!("DeleteBucketAnalyticsConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteBucketAnalyticsConfigurationOutput::default())
+                         Ok(super::DeleteBucketAnalyticsConfigurationOutput)
                      }
 }
 pub use Builder as DeleteBucketAnalyticsConfigurationFluentBuilder;

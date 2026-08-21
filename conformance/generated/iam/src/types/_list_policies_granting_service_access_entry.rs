@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ListPoliciesGrantingServiceAccessEntry {
-        pub policies: ::std::option::Option<self::PolicyGrantingServiceAccessListType>,
+        pub policies: ::std::option::Option<::std::vec::Vec<self::PolicyGrantingServiceAccess>>,
         pub service_namespace: ::std::option::Option<self::ServiceNamespaceType>,
     }
     impl ListPoliciesGrantingServiceAccessEntry {
         pub fn builder() -> ListPoliciesGrantingServiceAccessEntryBuilder { ListPoliciesGrantingServiceAccessEntryBuilder::default() }
-        pub fn policies(&self) -> &::std::option::Option<self::PolicyGrantingServiceAccessListType> { &self.policies }
+        pub fn policies(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyGrantingServiceAccess>> { &self.policies }
         pub fn service_namespace(&self) -> &::std::option::Option<self::ServiceNamespaceType> { &self.service_namespace }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ListPoliciesGrantingServiceAccessEntryBuilder {
-        policies: ::std::option::Option<self::PolicyGrantingServiceAccessListType>,
+        policies: ::std::option::Option<::std::vec::Vec<self::PolicyGrantingServiceAccess>>,
         service_namespace: ::std::option::Option<self::ServiceNamespaceType>,
     }
 
     impl ListPoliciesGrantingServiceAccessEntryBuilder {
-        pub fn policies(mut self, input: impl ::std::convert::Into<self::PolicyGrantingServiceAccessListType>) -> Self { self.policies = Some(input.into()); self }
-        pub fn set_policies(mut self, input: ::std::option::Option<self::PolicyGrantingServiceAccessListType>) -> Self { self.policies = input; self }
-        pub fn get_policies(&self) -> &::std::option::Option<self::PolicyGrantingServiceAccessListType> { &self.policies }
+        pub fn policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyGrantingServiceAccess>>) -> Self { self.policies = Some(input.into()); self }
+        pub fn set_policies(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyGrantingServiceAccess>>) -> Self { self.policies = input; self }
+        pub fn get_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyGrantingServiceAccess>> { &self.policies }
         pub fn service_namespace(mut self, input: impl ::std::convert::Into<self::ServiceNamespaceType>) -> Self { self.service_namespace = Some(input.into()); self }
         pub fn set_service_namespace(mut self, input: ::std::option::Option<self::ServiceNamespaceType>) -> Self { self.service_namespace = input; self }
         pub fn get_service_namespace(&self) -> &::std::option::Option<self::ServiceNamespaceType> { &self.service_namespace }

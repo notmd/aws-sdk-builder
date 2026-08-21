@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListBucketAnalyticsConfigurationsOutput {
-    pub analytics_configuration_list: ::std::option::Option<super::super::super::types::AnalyticsConfigurationList>,
+    pub analytics_configuration_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::AnalyticsConfiguration>>,
     pub continuation_token: ::std::option::Option<super::super::super::types::Token>,
     pub is_truncated: ::std::option::Option<super::super::super::types::IsTruncated>,
     pub next_continuation_token: ::std::option::Option<super::super::super::types::NextToken>,
@@ -18,15 +18,15 @@ impl ListBucketAnalyticsConfigurationsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListBucketAnalyticsConfigurationsOutputBuilder {
-    analytics_configuration_list: ::std::option::Option<super::super::super::types::AnalyticsConfigurationList>,
+    analytics_configuration_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::AnalyticsConfiguration>>,
     continuation_token: ::std::option::Option<super::super::super::types::Token>,
     is_truncated: ::std::option::Option<super::super::super::types::IsTruncated>,
     next_continuation_token: ::std::option::Option<super::super::super::types::NextToken>,
 }
 impl ListBucketAnalyticsConfigurationsOutputBuilder {
-    pub fn analytics_configuration_list(mut self, input: impl ::std::convert::Into<super::super::super::types::AnalyticsConfigurationList>) -> Self { self.analytics_configuration_list = Some(input.into()); self }
-    pub fn set_analytics_configuration_list(mut self, input: ::std::option::Option<super::super::super::types::AnalyticsConfigurationList>) -> Self { self.analytics_configuration_list = input; self }
-    pub fn get_analytics_configuration_list(&self) -> &::std::option::Option<super::super::super::types::AnalyticsConfigurationList> { &self.analytics_configuration_list }
+    pub fn analytics_configuration_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AnalyticsConfiguration>>) -> Self { self.analytics_configuration_list = Some(input.into()); self }
+    pub fn set_analytics_configuration_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AnalyticsConfiguration>>) -> Self { self.analytics_configuration_list = input; self }
+    pub fn get_analytics_configuration_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AnalyticsConfiguration>> { &self.analytics_configuration_list }
     pub fn continuation_token(mut self, input: impl ::std::convert::Into<super::super::super::types::Token>) -> Self { self.continuation_token = Some(input.into()); self }
     pub fn set_continuation_token(mut self, input: ::std::option::Option<super::super::super::types::Token>) -> Self { self.continuation_token = input; self }
     pub fn get_continuation_token(&self) -> &::std::option::Option<super::super::super::types::Token> { &self.continuation_token }

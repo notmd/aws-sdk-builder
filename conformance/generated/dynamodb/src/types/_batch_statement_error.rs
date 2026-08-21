@@ -3,20 +3,20 @@
     #[derive(Clone, Debug, Default)]
     pub struct BatchStatementError {
         pub code: ::std::option::Option<self::BatchStatementErrorCodeEnum>,
-        pub item: ::std::option::Option<self::AttributeMap>,
+        pub item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
         pub message: ::std::option::Option<self::String>,
     }
     impl BatchStatementError {
         pub fn builder() -> BatchStatementErrorBuilder { BatchStatementErrorBuilder::default() }
         pub fn code(&self) -> &::std::option::Option<self::BatchStatementErrorCodeEnum> { &self.code }
-        pub fn item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
+        pub fn item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
         pub fn message(&self) -> ::std::option::Option<&str> { self.message.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct BatchStatementErrorBuilder {
         code: ::std::option::Option<self::BatchStatementErrorCodeEnum>,
-        item: ::std::option::Option<self::AttributeMap>,
+        item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
         message: ::std::option::Option<self::String>,
     }
 
@@ -24,9 +24,9 @@
         pub fn code(mut self, input: impl ::std::convert::Into<self::BatchStatementErrorCodeEnum>) -> Self { self.code = Some(input.into()); self }
         pub fn set_code(mut self, input: ::std::option::Option<self::BatchStatementErrorCodeEnum>) -> Self { self.code = input; self }
         pub fn get_code(&self) -> &::std::option::Option<self::BatchStatementErrorCodeEnum> { &self.code }
-        pub fn item(mut self, input: impl ::std::convert::Into<self::AttributeMap>) -> Self { self.item = Some(input.into()); self }
-        pub fn set_item(mut self, input: ::std::option::Option<self::AttributeMap>) -> Self { self.item = input; self }
-        pub fn get_item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
+        pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
+        pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = input; self }
+        pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
         pub fn message(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.message = Some(input.into()); self }
         pub fn set_message(mut self, input: ::std::option::Option<self::String>) -> Self { self.message = input; self }
         pub fn get_message(&self) -> &::std::option::Option<self::String> { &self.message }

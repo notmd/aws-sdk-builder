@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetQueueAttributesInput {
-    pub attribute_names: ::std::option::Option<super::super::super::types::AttributeNameList>,
+    pub attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>>,
     pub queue_url: ::std::option::Option<super::super::super::types::String>,
 }
         impl GetQueueAttributesInput {
@@ -14,13 +14,13 @@ impl GetQueueAttributesInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetQueueAttributesInputBuilder {
-    attribute_names: ::std::option::Option<super::super::super::types::AttributeNameList>,
+    attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>>,
     queue_url: ::std::option::Option<super::super::super::types::String>,
 }
 impl GetQueueAttributesInputBuilder {
-    pub fn attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.attribute_names = Some(input.into()); self }
-    pub fn set_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::AttributeNameList>) -> Self { self.attribute_names = input; self }
-    pub fn get_attribute_names(&self) -> &::std::option::Option<super::super::super::types::AttributeNameList> { &self.attribute_names }
+    pub fn attribute_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::QueueAttributeName>>) -> Self { self.attribute_names = Some(input.into()); self }
+    pub fn set_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>>) -> Self { self.attribute_names = input; self }
+    pub fn get_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>> { &self.attribute_names }
     pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
     pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
     pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }

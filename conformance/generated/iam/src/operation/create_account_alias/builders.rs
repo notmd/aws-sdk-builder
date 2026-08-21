@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateAccountAliasError::Unhandled(format!("CreateAccountAlias returned HTTP {}", status)));
                          }
-                         Ok(super::CreateAccountAliasOutput::default())
+                         Ok(super::CreateAccountAliasOutput)
                      }
 }
 pub use Builder as CreateAccountAliasFluentBuilder;

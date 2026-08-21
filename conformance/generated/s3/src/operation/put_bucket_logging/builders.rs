@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketLoggingError::Unhandled(format!("PutBucketLogging returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketLoggingOutput::default())
+                         Ok(super::PutBucketLoggingOutput)
                      }
 }
 pub use Builder as PutBucketLoggingFluentBuilder;

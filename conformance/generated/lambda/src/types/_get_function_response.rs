@@ -5,7 +5,7 @@
         pub code: ::std::option::Option<self::FunctionCodeLocation>,
         pub concurrency: ::std::option::Option<self::Concurrency>,
         pub configuration: ::std::option::Option<self::FunctionConfiguration>,
-        pub tags: ::std::option::Option<self::Tags>,
+        pub tags: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>,
         pub tags_error: ::std::option::Option<self::TagsError>,
     }
     impl GetFunctionResponse {
@@ -13,7 +13,7 @@
         pub fn code(&self) -> &::std::option::Option<self::FunctionCodeLocation> { &self.code }
         pub fn concurrency(&self) -> &::std::option::Option<self::Concurrency> { &self.concurrency }
         pub fn configuration(&self) -> &::std::option::Option<self::FunctionConfiguration> { &self.configuration }
-        pub fn tags(&self) -> &::std::option::Option<self::Tags> { &self.tags }
+        pub fn tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>> { &self.tags }
         pub fn tags_error(&self) -> &::std::option::Option<self::TagsError> { &self.tags_error }
     }
 
@@ -22,7 +22,7 @@
         code: ::std::option::Option<self::FunctionCodeLocation>,
         concurrency: ::std::option::Option<self::Concurrency>,
         configuration: ::std::option::Option<self::FunctionConfiguration>,
-        tags: ::std::option::Option<self::Tags>,
+        tags: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>,
         tags_error: ::std::option::Option<self::TagsError>,
     }
 
@@ -36,9 +36,9 @@
         pub fn configuration(mut self, input: impl ::std::convert::Into<self::FunctionConfiguration>) -> Self { self.configuration = Some(input.into()); self }
         pub fn set_configuration(mut self, input: ::std::option::Option<self::FunctionConfiguration>) -> Self { self.configuration = input; self }
         pub fn get_configuration(&self) -> &::std::option::Option<self::FunctionConfiguration> { &self.configuration }
-        pub fn tags(mut self, input: impl ::std::convert::Into<self::Tags>) -> Self { self.tags = Some(input.into()); self }
-        pub fn set_tags(mut self, input: ::std::option::Option<self::Tags>) -> Self { self.tags = input; self }
-        pub fn get_tags(&self) -> &::std::option::Option<self::Tags> { &self.tags }
+        pub fn tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::TagKey, self::TagValue>>) -> Self { self.tags = Some(input.into()); self }
+        pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>>) -> Self { self.tags = input; self }
+        pub fn get_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::TagKey, self::TagValue>> { &self.tags }
         pub fn tags_error(mut self, input: impl ::std::convert::Into<self::TagsError>) -> Self { self.tags_error = Some(input.into()); self }
         pub fn set_tags_error(mut self, input: ::std::option::Option<self::TagsError>) -> Self { self.tags_error = input; self }
         pub fn get_tags_error(&self) -> &::std::option::Option<self::TagsError> { &self.tags_error }

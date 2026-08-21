@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::AddUserToGroupError::Unhandled(format!("AddUserToGroup returned HTTP {}", status)));
                          }
-                         Ok(super::AddUserToGroupOutput::default())
+                         Ok(super::AddUserToGroupOutput)
                      }
 }
 pub use Builder as AddUserToGroupFluentBuilder;

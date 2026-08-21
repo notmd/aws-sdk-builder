@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct AliasRoutingConfiguration {
-        pub additional_version_weights: ::std::option::Option<self::AdditionalVersionWeights>,
+        pub additional_version_weights: ::std::option::Option<::std::collections::BTreeMap<self::AdditionalVersion, self::Weight>>,
     }
     impl AliasRoutingConfiguration {
         pub fn builder() -> AliasRoutingConfigurationBuilder { AliasRoutingConfigurationBuilder::default() }
-        pub fn additional_version_weights(&self) -> &::std::option::Option<self::AdditionalVersionWeights> { &self.additional_version_weights }
+        pub fn additional_version_weights(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AdditionalVersion, self::Weight>> { &self.additional_version_weights }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct AliasRoutingConfigurationBuilder {
-        additional_version_weights: ::std::option::Option<self::AdditionalVersionWeights>,
+        additional_version_weights: ::std::option::Option<::std::collections::BTreeMap<self::AdditionalVersion, self::Weight>>,
     }
 
     impl AliasRoutingConfigurationBuilder {
-        pub fn additional_version_weights(mut self, input: impl ::std::convert::Into<self::AdditionalVersionWeights>) -> Self { self.additional_version_weights = Some(input.into()); self }
-        pub fn set_additional_version_weights(mut self, input: ::std::option::Option<self::AdditionalVersionWeights>) -> Self { self.additional_version_weights = input; self }
-        pub fn get_additional_version_weights(&self) -> &::std::option::Option<self::AdditionalVersionWeights> { &self.additional_version_weights }
+        pub fn additional_version_weights(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AdditionalVersion, self::Weight>>) -> Self { self.additional_version_weights = Some(input.into()); self }
+        pub fn set_additional_version_weights(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AdditionalVersion, self::Weight>>) -> Self { self.additional_version_weights = input; self }
+        pub fn get_additional_version_weights(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AdditionalVersion, self::Weight>> { &self.additional_version_weights }
         pub fn build(self) -> AliasRoutingConfiguration {
             AliasRoutingConfiguration {
                 additional_version_weights: self.additional_version_weights,

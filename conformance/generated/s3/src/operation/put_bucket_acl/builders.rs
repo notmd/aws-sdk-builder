@@ -33,7 +33,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketAclError::Unhandled(format!("PutBucketAcl returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketAclOutput::default())
+                         Ok(super::PutBucketAclOutput)
                      }
 }
 pub use Builder as PutBucketAclFluentBuilder;

@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListSamlProvidersOutput {
-    pub saml_provider_list: ::std::option::Option<super::super::super::types::SamlProviderListType>,
+    pub saml_provider_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlProviderListEntry>>,
 }
         impl ListSamlProvidersOutput {
             pub fn saml_provider_list(&self) -> &[super::super::super::types::SamlProviderListEntry] { self.saml_provider_list.as_deref().unwrap_or(&[]) }
@@ -12,12 +12,12 @@ impl ListSamlProvidersOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListSamlProvidersOutputBuilder {
-    saml_provider_list: ::std::option::Option<super::super::super::types::SamlProviderListType>,
+    saml_provider_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlProviderListEntry>>,
 }
 impl ListSamlProvidersOutputBuilder {
-    pub fn saml_provider_list(mut self, input: impl ::std::convert::Into<super::super::super::types::SamlProviderListType>) -> Self { self.saml_provider_list = Some(input.into()); self }
-    pub fn set_saml_provider_list(mut self, input: ::std::option::Option<super::super::super::types::SamlProviderListType>) -> Self { self.saml_provider_list = input; self }
-    pub fn get_saml_provider_list(&self) -> &::std::option::Option<super::super::super::types::SamlProviderListType> { &self.saml_provider_list }
+    pub fn saml_provider_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SamlProviderListEntry>>) -> Self { self.saml_provider_list = Some(input.into()); self }
+    pub fn set_saml_provider_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlProviderListEntry>>) -> Self { self.saml_provider_list = input; self }
+    pub fn get_saml_provider_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SamlProviderListEntry>> { &self.saml_provider_list }
     pub fn build(self) -> ListSamlProvidersOutput { ListSamlProvidersOutput {
         saml_provider_list: self.saml_provider_list,
     } }

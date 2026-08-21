@@ -2,8 +2,8 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListObjectsV2Output {
-    pub common_prefixes: ::std::option::Option<super::super::super::types::CommonPrefixList>,
-    pub contents: ::std::option::Option<super::super::super::types::ObjectList>,
+    pub common_prefixes: ::std::option::Option<::std::vec::Vec<super::super::super::types::CommonPrefix>>,
+    pub contents: ::std::option::Option<::std::vec::Vec<super::super::super::types::Object>>,
     pub continuation_token: ::std::option::Option<super::super::super::types::Token>,
     pub delimiter: ::std::option::Option<super::super::super::types::Delimiter>,
     pub encoding_type: ::std::option::Option<super::super::super::types::EncodingType>,
@@ -36,8 +36,8 @@ impl ListObjectsV2Output {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListObjectsV2OutputBuilder {
-    common_prefixes: ::std::option::Option<super::super::super::types::CommonPrefixList>,
-    contents: ::std::option::Option<super::super::super::types::ObjectList>,
+    common_prefixes: ::std::option::Option<::std::vec::Vec<super::super::super::types::CommonPrefix>>,
+    contents: ::std::option::Option<::std::vec::Vec<super::super::super::types::Object>>,
     continuation_token: ::std::option::Option<super::super::super::types::Token>,
     delimiter: ::std::option::Option<super::super::super::types::Delimiter>,
     encoding_type: ::std::option::Option<super::super::super::types::EncodingType>,
@@ -51,12 +51,12 @@ pub struct ListObjectsV2OutputBuilder {
     start_after: ::std::option::Option<super::super::super::types::StartAfter>,
 }
 impl ListObjectsV2OutputBuilder {
-    pub fn common_prefixes(mut self, input: impl ::std::convert::Into<super::super::super::types::CommonPrefixList>) -> Self { self.common_prefixes = Some(input.into()); self }
-    pub fn set_common_prefixes(mut self, input: ::std::option::Option<super::super::super::types::CommonPrefixList>) -> Self { self.common_prefixes = input; self }
-    pub fn get_common_prefixes(&self) -> &::std::option::Option<super::super::super::types::CommonPrefixList> { &self.common_prefixes }
-    pub fn contents(mut self, input: impl ::std::convert::Into<super::super::super::types::ObjectList>) -> Self { self.contents = Some(input.into()); self }
-    pub fn set_contents(mut self, input: ::std::option::Option<super::super::super::types::ObjectList>) -> Self { self.contents = input; self }
-    pub fn get_contents(&self) -> &::std::option::Option<super::super::super::types::ObjectList> { &self.contents }
+    pub fn common_prefixes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::CommonPrefix>>) -> Self { self.common_prefixes = Some(input.into()); self }
+    pub fn set_common_prefixes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::CommonPrefix>>) -> Self { self.common_prefixes = input; self }
+    pub fn get_common_prefixes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::CommonPrefix>> { &self.common_prefixes }
+    pub fn contents(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Object>>) -> Self { self.contents = Some(input.into()); self }
+    pub fn set_contents(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Object>>) -> Self { self.contents = input; self }
+    pub fn get_contents(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Object>> { &self.contents }
     pub fn continuation_token(mut self, input: impl ::std::convert::Into<super::super::super::types::Token>) -> Self { self.continuation_token = Some(input.into()); self }
     pub fn set_continuation_token(mut self, input: ::std::option::Option<super::super::super::types::Token>) -> Self { self.continuation_token = input; self }
     pub fn get_continuation_token(&self) -> &::std::option::Option<super::super::super::types::Token> { &self.continuation_token }

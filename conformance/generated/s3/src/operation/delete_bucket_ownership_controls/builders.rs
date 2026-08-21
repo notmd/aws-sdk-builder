@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteBucketOwnershipControlsError::Unhandled(format!("DeleteBucketOwnershipControls returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteBucketOwnershipControlsOutput::default())
+                         Ok(super::DeleteBucketOwnershipControlsOutput)
                      }
 }
 pub use Builder as DeleteBucketOwnershipControlsFluentBuilder;

@@ -3,20 +3,20 @@
     #[derive(Clone, Debug, Default)]
     pub struct ReplicaAutoScalingUpdate {
         pub region_name: ::std::option::Option<self::RegionName>,
-        pub replica_global_secondary_index_updates: ::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingUpdateList>,
+        pub replica_global_secondary_index_updates: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>,
         pub replica_provisioned_read_capacity_auto_scaling_update: ::std::option::Option<self::AutoScalingSettingsUpdate>,
     }
     impl ReplicaAutoScalingUpdate {
         pub fn builder() -> ReplicaAutoScalingUpdateBuilder { ReplicaAutoScalingUpdateBuilder::default() }
         pub fn region_name(&self) -> &::std::option::Option<self::RegionName> { &self.region_name }
-        pub fn replica_global_secondary_index_updates(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingUpdateList> { &self.replica_global_secondary_index_updates }
+        pub fn replica_global_secondary_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingUpdate>> { &self.replica_global_secondary_index_updates }
         pub fn replica_provisioned_read_capacity_auto_scaling_update(&self) -> &::std::option::Option<self::AutoScalingSettingsUpdate> { &self.replica_provisioned_read_capacity_auto_scaling_update }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ReplicaAutoScalingUpdateBuilder {
         region_name: ::std::option::Option<self::RegionName>,
-        replica_global_secondary_index_updates: ::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingUpdateList>,
+        replica_global_secondary_index_updates: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>,
         replica_provisioned_read_capacity_auto_scaling_update: ::std::option::Option<self::AutoScalingSettingsUpdate>,
     }
 
@@ -24,9 +24,9 @@
         pub fn region_name(mut self, input: impl ::std::convert::Into<self::RegionName>) -> Self { self.region_name = Some(input.into()); self }
         pub fn set_region_name(mut self, input: ::std::option::Option<self::RegionName>) -> Self { self.region_name = input; self }
         pub fn get_region_name(&self) -> &::std::option::Option<self::RegionName> { &self.region_name }
-        pub fn replica_global_secondary_index_updates(mut self, input: impl ::std::convert::Into<self::ReplicaGlobalSecondaryIndexAutoScalingUpdateList>) -> Self { self.replica_global_secondary_index_updates = Some(input.into()); self }
-        pub fn set_replica_global_secondary_index_updates(mut self, input: ::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingUpdateList>) -> Self { self.replica_global_secondary_index_updates = input; self }
-        pub fn get_replica_global_secondary_index_updates(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexAutoScalingUpdateList> { &self.replica_global_secondary_index_updates }
+        pub fn replica_global_secondary_index_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>) -> Self { self.replica_global_secondary_index_updates = Some(input.into()); self }
+        pub fn set_replica_global_secondary_index_updates(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingUpdate>>) -> Self { self.replica_global_secondary_index_updates = input; self }
+        pub fn get_replica_global_secondary_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexAutoScalingUpdate>> { &self.replica_global_secondary_index_updates }
         pub fn replica_provisioned_read_capacity_auto_scaling_update(mut self, input: impl ::std::convert::Into<self::AutoScalingSettingsUpdate>) -> Self { self.replica_provisioned_read_capacity_auto_scaling_update = Some(input.into()); self }
         pub fn set_replica_provisioned_read_capacity_auto_scaling_update(mut self, input: ::std::option::Option<self::AutoScalingSettingsUpdate>) -> Self { self.replica_provisioned_read_capacity_auto_scaling_update = input; self }
         pub fn get_replica_provisioned_read_capacity_auto_scaling_update(&self) -> &::std::option::Option<self::AutoScalingSettingsUpdate> { &self.replica_provisioned_read_capacity_auto_scaling_update }

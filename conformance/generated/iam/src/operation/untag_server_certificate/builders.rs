@@ -11,7 +11,7 @@ impl Builder {
         Self { input: super::Input::default(), client }
     }
     pub fn server_certificate_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ServerCertificateNameType>) -> Self { self.input.server_certificate_name = Some(value.into()); self }
-    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.input.tag_keys = Some(value.into()); self }
+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.input.tag_keys = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::UntagServerCertificateOutput, super::UntagServerCertificateError> {
@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UntagServerCertificateError::Unhandled(format!("UntagServerCertificate returned HTTP {}", status)));
                          }
-                         Ok(super::UntagServerCertificateOutput::default())
+                         Ok(super::UntagServerCertificateOutput)
                      }
 }
 pub use Builder as UntagServerCertificateFluentBuilder;

@@ -4,7 +4,7 @@
 pub struct ListVirtualMfaDevicesOutput {
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub virtual_mfa_devices: ::std::option::Option<super::super::super::types::VirtualMfaDeviceListType>,
+    pub virtual_mfa_devices: ::std::option::Option<::std::vec::Vec<super::super::super::types::VirtualMfaDevice>>,
 }
         impl ListVirtualMfaDevicesOutput {
             pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -18,7 +18,7 @@ impl ListVirtualMfaDevicesOutput {
 pub struct ListVirtualMfaDevicesOutputBuilder {
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    virtual_mfa_devices: ::std::option::Option<super::super::super::types::VirtualMfaDeviceListType>,
+    virtual_mfa_devices: ::std::option::Option<::std::vec::Vec<super::super::super::types::VirtualMfaDevice>>,
 }
 impl ListVirtualMfaDevicesOutputBuilder {
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
@@ -27,9 +27,9 @@ impl ListVirtualMfaDevicesOutputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn virtual_mfa_devices(mut self, input: impl ::std::convert::Into<super::super::super::types::VirtualMfaDeviceListType>) -> Self { self.virtual_mfa_devices = Some(input.into()); self }
-    pub fn set_virtual_mfa_devices(mut self, input: ::std::option::Option<super::super::super::types::VirtualMfaDeviceListType>) -> Self { self.virtual_mfa_devices = input; self }
-    pub fn get_virtual_mfa_devices(&self) -> &::std::option::Option<super::super::super::types::VirtualMfaDeviceListType> { &self.virtual_mfa_devices }
+    pub fn virtual_mfa_devices(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VirtualMfaDevice>>) -> Self { self.virtual_mfa_devices = Some(input.into()); self }
+    pub fn set_virtual_mfa_devices(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::VirtualMfaDevice>>) -> Self { self.virtual_mfa_devices = input; self }
+    pub fn get_virtual_mfa_devices(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::VirtualMfaDevice>> { &self.virtual_mfa_devices }
     pub fn build(self) -> ListVirtualMfaDevicesOutput { ListVirtualMfaDevicesOutput {
         is_truncated: self.is_truncated,
         marker: self.marker,

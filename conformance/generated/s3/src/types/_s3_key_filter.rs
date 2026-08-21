@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct S3KeyFilter {
-        pub filter_rules: ::std::option::Option<self::FilterRuleList>,
+        pub filter_rules: ::std::option::Option<::std::vec::Vec<self::FilterRule>>,
     }
     impl S3KeyFilter {
         pub fn builder() -> S3KeyFilterBuilder { S3KeyFilterBuilder::default() }
-        pub fn filter_rules(&self) -> &::std::option::Option<self::FilterRuleList> { &self.filter_rules }
+        pub fn filter_rules(&self) -> &::std::option::Option<::std::vec::Vec<self::FilterRule>> { &self.filter_rules }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct S3KeyFilterBuilder {
-        filter_rules: ::std::option::Option<self::FilterRuleList>,
+        filter_rules: ::std::option::Option<::std::vec::Vec<self::FilterRule>>,
     }
 
     impl S3KeyFilterBuilder {
-        pub fn filter_rules(mut self, input: impl ::std::convert::Into<self::FilterRuleList>) -> Self { self.filter_rules = Some(input.into()); self }
-        pub fn set_filter_rules(mut self, input: ::std::option::Option<self::FilterRuleList>) -> Self { self.filter_rules = input; self }
-        pub fn get_filter_rules(&self) -> &::std::option::Option<self::FilterRuleList> { &self.filter_rules }
+        pub fn filter_rules(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::FilterRule>>) -> Self { self.filter_rules = Some(input.into()); self }
+        pub fn set_filter_rules(mut self, input: ::std::option::Option<::std::vec::Vec<self::FilterRule>>) -> Self { self.filter_rules = input; self }
+        pub fn get_filter_rules(&self) -> &::std::option::Option<::std::vec::Vec<self::FilterRule>> { &self.filter_rules }
         pub fn build(self) -> S3KeyFilter {
             S3KeyFilter {
                 filter_rules: self.filter_rules,

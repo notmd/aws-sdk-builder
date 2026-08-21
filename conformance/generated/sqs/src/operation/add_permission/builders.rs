@@ -10,8 +10,8 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn aws_account_ids(mut self, value: impl ::std::convert::Into<super::super::super::types::AwsAccountIdList>) -> Self { self.input.aws_account_ids = Some(value.into()); self }
-    pub fn actions(mut self, value: impl ::std::convert::Into<super::super::super::types::ActionNameList>) -> Self { self.input.actions = Some(value.into()); self }
+    pub fn aws_account_ids(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.input.aws_account_ids = Some(value.into()); self }
+    pub fn actions(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.input.actions = Some(value.into()); self }
     pub fn label(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.label = Some(value.into()); self }
     pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::AddPermissionError::Unhandled(format!("AddPermission returned HTTP {}", status)));
                          }
-                         Ok(super::AddPermissionOutput::default())
+                         Ok(super::AddPermissionOutput)
                      }
 }
 pub use Builder as AddPermissionFluentBuilder;

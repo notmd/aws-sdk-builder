@@ -13,7 +13,7 @@ impl Builder {
     pub fn consistent_read(mut self, value: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.input.consistent_read = Some(value.into()); self }
     pub fn limit(mut self, value: impl ::std::convert::Into<super::super::super::types::PositiveIntegerObject>) -> Self { self.input.limit = Some(value.into()); self }
     pub fn next_token(mut self, value: impl ::std::convert::Into<super::super::super::types::PartiQlNextToken>) -> Self { self.input.next_token = Some(value.into()); self }
-    pub fn parameters(mut self, value: impl ::std::convert::Into<super::super::super::types::PreparedStatementParameters>) -> Self { self.input.parameters = Some(value.into()); self }
+    pub fn parameters(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeValue>>) -> Self { self.input.parameters = Some(value.into()); self }
     pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
     pub fn return_values_on_condition_check_failure(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnValuesOnConditionCheckFailure>) -> Self { self.input.return_values_on_condition_check_failure = Some(value.into()); self }
     pub fn statement(mut self, value: impl ::std::convert::Into<super::super::super::types::PartiQlStatement>) -> Self { self.input.statement = Some(value.into()); self }

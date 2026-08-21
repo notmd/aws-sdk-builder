@@ -4,7 +4,7 @@
 pub struct CreateUserInput {
     pub path: ::std::option::Option<super::super::super::types::PathType>,
     pub permissions_boundary: ::std::option::Option<super::super::super::types::ArnType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     pub user_name: ::std::option::Option<super::super::super::types::UserNameType>,
 }
         impl CreateUserInput {
@@ -20,7 +20,7 @@ impl CreateUserInput {
 pub struct CreateUserInputBuilder {
     path: ::std::option::Option<super::super::super::types::PathType>,
     permissions_boundary: ::std::option::Option<super::super::super::types::ArnType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     user_name: ::std::option::Option<super::super::super::types::UserNameType>,
 }
 impl CreateUserInputBuilder {
@@ -30,9 +30,9 @@ impl CreateUserInputBuilder {
     pub fn permissions_boundary(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.permissions_boundary = Some(input.into()); self }
     pub fn set_permissions_boundary(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.permissions_boundary = input; self }
     pub fn get_permissions_boundary(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.permissions_boundary }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn user_name(mut self, input: impl ::std::convert::Into<super::super::super::types::UserNameType>) -> Self { self.user_name = Some(input.into()); self }
     pub fn set_user_name(mut self, input: ::std::option::Option<super::super::super::types::UserNameType>) -> Self { self.user_name = input; self }
     pub fn get_user_name(&self) -> &::std::option::Option<super::super::super::types::UserNameType> { &self.user_name }

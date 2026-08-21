@@ -3,14 +3,14 @@
 #[derive(Clone, Debug, Default)]
 pub struct ExecuteStatementOutput {
     pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
-    pub items: ::std::option::Option<super::super::super::types::ItemList>,
-    pub last_evaluated_key: ::std::option::Option<super::super::super::types::Key>,
+    pub items: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>,
+    pub last_evaluated_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
     pub next_token: ::std::option::Option<super::super::super::types::PartiQlNextToken>,
 }
         impl ExecuteStatementOutput {
             pub fn consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ConsumedCapacity> { self.consumed_capacity.as_ref() }
-            pub fn items(&self) -> &[super::super::super::types::AttributeMap] { self.items.as_deref().unwrap_or(&[]) }
-            pub fn last_evaluated_key(&self) -> ::std::option::Option<&super::super::super::types::Key> { self.last_evaluated_key.as_ref() }
+            pub fn items(&self) -> &[::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>] { self.items.as_deref().unwrap_or(&[]) }
+            pub fn last_evaluated_key(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.last_evaluated_key.as_ref() }
             pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
         }
 impl ExecuteStatementOutput {
@@ -19,20 +19,20 @@ impl ExecuteStatementOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ExecuteStatementOutputBuilder {
     consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacity>,
-    items: ::std::option::Option<super::super::super::types::ItemList>,
-    last_evaluated_key: ::std::option::Option<super::super::super::types::Key>,
+    items: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>,
+    last_evaluated_key: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
     next_token: ::std::option::Option<super::super::super::types::PartiQlNextToken>,
 }
 impl ExecuteStatementOutputBuilder {
     pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacity>) -> Self { self.consumed_capacity = Some(input.into()); self }
     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacity>) -> Self { self.consumed_capacity = input; self }
     pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacity> { &self.consumed_capacity }
-    pub fn items(mut self, input: impl ::std::convert::Into<super::super::super::types::ItemList>) -> Self { self.items = Some(input.into()); self }
-    pub fn set_items(mut self, input: ::std::option::Option<super::super::super::types::ItemList>) -> Self { self.items = input; self }
-    pub fn get_items(&self) -> &::std::option::Option<super::super::super::types::ItemList> { &self.items }
-    pub fn last_evaluated_key(mut self, input: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.last_evaluated_key = Some(input.into()); self }
-    pub fn set_last_evaluated_key(mut self, input: ::std::option::Option<super::super::super::types::Key>) -> Self { self.last_evaluated_key = input; self }
-    pub fn get_last_evaluated_key(&self) -> &::std::option::Option<super::super::super::types::Key> { &self.last_evaluated_key }
+    pub fn items(mut self, input: impl ::std::convert::Into<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>) -> Self { self.items = Some(input.into()); self }
+    pub fn set_items(mut self, input: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>) -> Self { self.items = input; self }
+    pub fn get_items(&self) -> &::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>> { &self.items }
+    pub fn last_evaluated_key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.last_evaluated_key = Some(input.into()); self }
+    pub fn set_last_evaluated_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.last_evaluated_key = input; self }
+    pub fn get_last_evaluated_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.last_evaluated_key }
     pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::PartiQlNextToken>) -> Self { self.next_token = Some(input.into()); self }
     pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::PartiQlNextToken>) -> Self { self.next_token = input; self }
     pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::PartiQlNextToken> { &self.next_token }

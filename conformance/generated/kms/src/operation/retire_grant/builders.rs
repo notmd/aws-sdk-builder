@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::RetireGrantError::Unhandled(format!("RetireGrant returned HTTP {}", status)));
                          }
-                         Ok(super::RetireGrantOutput::default())
+                         Ok(super::RetireGrantOutput)
                      }
 }
 pub use Builder as RetireGrantFluentBuilder;

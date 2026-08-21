@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteCustomKeyStoreError::Unhandled(format!("DeleteCustomKeyStore returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteCustomKeyStoreOutput::default())
+                         Ok(super::DeleteCustomKeyStoreOutput)
                      }
 }
 pub use Builder as DeleteCustomKeyStoreFluentBuilder;

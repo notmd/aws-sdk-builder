@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SetTopicAttributesError::Unhandled(format!("SetTopicAttributes returned HTTP {}", status)));
                          }
-                         Ok(super::SetTopicAttributesOutput::default())
+                         Ok(super::SetTopicAttributesOutput)
                      }
 }
 pub use Builder as SetTopicAttributesFluentBuilder;

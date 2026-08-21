@@ -6,7 +6,7 @@ pub struct GetObjectAttributesInput {
     pub expected_bucket_owner: ::std::option::Option<super::super::super::types::AccountId>,
     pub key: ::std::option::Option<super::super::super::types::ObjectKey>,
     pub max_parts: ::std::option::Option<super::super::super::types::MaxParts>,
-    pub object_attributes: ::std::option::Option<super::super::super::types::ObjectAttributesList>,
+    pub object_attributes: ::std::option::Option<::std::vec::Vec<super::super::super::types::ObjectAttributes>>,
     pub part_number_marker: ::std::option::Option<super::super::super::types::PartNumberMarker>,
     pub request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
     pub sse_customer_algorithm: ::std::option::Option<super::super::super::types::SseCustomerAlgorithm>,
@@ -36,7 +36,7 @@ pub struct GetObjectAttributesInputBuilder {
     expected_bucket_owner: ::std::option::Option<super::super::super::types::AccountId>,
     key: ::std::option::Option<super::super::super::types::ObjectKey>,
     max_parts: ::std::option::Option<super::super::super::types::MaxParts>,
-    object_attributes: ::std::option::Option<super::super::super::types::ObjectAttributesList>,
+    object_attributes: ::std::option::Option<::std::vec::Vec<super::super::super::types::ObjectAttributes>>,
     part_number_marker: ::std::option::Option<super::super::super::types::PartNumberMarker>,
     request_payer: ::std::option::Option<super::super::super::types::RequestPayer>,
     sse_customer_algorithm: ::std::option::Option<super::super::super::types::SseCustomerAlgorithm>,
@@ -57,9 +57,9 @@ impl GetObjectAttributesInputBuilder {
     pub fn max_parts(mut self, input: impl ::std::convert::Into<super::super::super::types::MaxParts>) -> Self { self.max_parts = Some(input.into()); self }
     pub fn set_max_parts(mut self, input: ::std::option::Option<super::super::super::types::MaxParts>) -> Self { self.max_parts = input; self }
     pub fn get_max_parts(&self) -> &::std::option::Option<super::super::super::types::MaxParts> { &self.max_parts }
-    pub fn object_attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::ObjectAttributesList>) -> Self { self.object_attributes = Some(input.into()); self }
-    pub fn set_object_attributes(mut self, input: ::std::option::Option<super::super::super::types::ObjectAttributesList>) -> Self { self.object_attributes = input; self }
-    pub fn get_object_attributes(&self) -> &::std::option::Option<super::super::super::types::ObjectAttributesList> { &self.object_attributes }
+    pub fn object_attributes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ObjectAttributes>>) -> Self { self.object_attributes = Some(input.into()); self }
+    pub fn set_object_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ObjectAttributes>>) -> Self { self.object_attributes = input; self }
+    pub fn get_object_attributes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ObjectAttributes>> { &self.object_attributes }
     pub fn part_number_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::PartNumberMarker>) -> Self { self.part_number_marker = Some(input.into()); self }
     pub fn set_part_number_marker(mut self, input: ::std::option::Option<super::super::super::types::PartNumberMarker>) -> Self { self.part_number_marker = input; self }
     pub fn get_part_number_marker(&self) -> &::std::option::Option<super::super::super::types::PartNumberMarker> { &self.part_number_marker }

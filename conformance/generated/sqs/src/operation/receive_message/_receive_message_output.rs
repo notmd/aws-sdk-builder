@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ReceiveMessageOutput {
-    pub messages: ::std::option::Option<super::super::super::types::MessageList>,
+    pub messages: ::std::option::Option<::std::vec::Vec<super::super::super::types::Message>>,
 }
         impl ReceiveMessageOutput {
             pub fn messages(&self) -> &[super::super::super::types::Message] { self.messages.as_deref().unwrap_or(&[]) }
@@ -12,12 +12,12 @@ impl ReceiveMessageOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ReceiveMessageOutputBuilder {
-    messages: ::std::option::Option<super::super::super::types::MessageList>,
+    messages: ::std::option::Option<::std::vec::Vec<super::super::super::types::Message>>,
 }
 impl ReceiveMessageOutputBuilder {
-    pub fn messages(mut self, input: impl ::std::convert::Into<super::super::super::types::MessageList>) -> Self { self.messages = Some(input.into()); self }
-    pub fn set_messages(mut self, input: ::std::option::Option<super::super::super::types::MessageList>) -> Self { self.messages = input; self }
-    pub fn get_messages(&self) -> &::std::option::Option<super::super::super::types::MessageList> { &self.messages }
+    pub fn messages(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Message>>) -> Self { self.messages = Some(input.into()); self }
+    pub fn set_messages(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Message>>) -> Self { self.messages = input; self }
+    pub fn get_messages(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Message>> { &self.messages }
     pub fn build(self) -> ReceiveMessageOutput { ReceiveMessageOutput {
         messages: self.messages,
     } }

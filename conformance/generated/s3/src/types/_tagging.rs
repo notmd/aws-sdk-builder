@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct Tagging {
-        pub tag_set: ::std::option::Option<self::TagSet>,
+        pub tag_set: ::std::option::Option<::std::vec::Vec<self::Tag>>,
     }
     impl Tagging {
         pub fn builder() -> TaggingBuilder { TaggingBuilder::default() }
-        pub fn tag_set(&self) -> &::std::option::Option<self::TagSet> { &self.tag_set }
+        pub fn tag_set(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tag_set }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct TaggingBuilder {
-        tag_set: ::std::option::Option<self::TagSet>,
+        tag_set: ::std::option::Option<::std::vec::Vec<self::Tag>>,
     }
 
     impl TaggingBuilder {
-        pub fn tag_set(mut self, input: impl ::std::convert::Into<self::TagSet>) -> Self { self.tag_set = Some(input.into()); self }
-        pub fn set_tag_set(mut self, input: ::std::option::Option<self::TagSet>) -> Self { self.tag_set = input; self }
-        pub fn get_tag_set(&self) -> &::std::option::Option<self::TagSet> { &self.tag_set }
+        pub fn tag_set(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tag_set = Some(input.into()); self }
+        pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tag_set = input; self }
+        pub fn get_tag_set(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tag_set }
         pub fn build(self) -> Tagging {
             Tagging {
                 tag_set: self.tag_set,

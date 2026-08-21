@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateBucketMetadataInventoryTableConfigurationError::Unhandled(format!("UpdateBucketMetadataInventoryTableConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateBucketMetadataInventoryTableConfigurationOutput::default())
+                         Ok(super::UpdateBucketMetadataInventoryTableConfigurationOutput)
                      }
 }
 pub use Builder as UpdateBucketMetadataInventoryTableConfigurationFluentBuilder;

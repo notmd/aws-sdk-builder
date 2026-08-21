@@ -10,9 +10,9 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn client_id_list(mut self, value: impl ::std::convert::Into<super::super::super::types::ClientIdListType>) -> Self { self.input.client_id_list = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
-    pub fn thumbprint_list(mut self, value: impl ::std::convert::Into<super::super::super::types::ThumbprintListType>) -> Self { self.input.thumbprint_list = Some(value.into()); self }
+    pub fn client_id_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ClientIdType>>) -> Self { self.input.client_id_list = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn thumbprint_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ThumbprintType>>) -> Self { self.input.thumbprint_list = Some(value.into()); self }
     pub fn url(mut self, value: impl ::std::convert::Into<super::super::super::types::OpenIdConnectProviderUrlType>) -> Self { self.input.url = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]

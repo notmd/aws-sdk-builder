@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteSigningCertificateError::Unhandled(format!("DeleteSigningCertificate returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteSigningCertificateOutput::default())
+                         Ok(super::DeleteSigningCertificateOutput)
                      }
 }
 pub use Builder as DeleteSigningCertificateFluentBuilder;

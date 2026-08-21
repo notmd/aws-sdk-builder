@@ -4,20 +4,20 @@
     pub struct CapacityProviderScalingConfig {
         pub max_v_cpu_count: ::std::option::Option<self::CapacityProviderMaxVCpuCount>,
         pub scaling_mode: ::std::option::Option<self::CapacityProviderScalingMode>,
-        pub scaling_policies: ::std::option::Option<self::CapacityProviderScalingPoliciesList>,
+        pub scaling_policies: ::std::option::Option<::std::vec::Vec<self::TargetTrackingScalingPolicy>>,
     }
     impl CapacityProviderScalingConfig {
         pub fn builder() -> CapacityProviderScalingConfigBuilder { CapacityProviderScalingConfigBuilder::default() }
         pub fn max_v_cpu_count(&self) -> &::std::option::Option<self::CapacityProviderMaxVCpuCount> { &self.max_v_cpu_count }
         pub fn scaling_mode(&self) -> &::std::option::Option<self::CapacityProviderScalingMode> { &self.scaling_mode }
-        pub fn scaling_policies(&self) -> &::std::option::Option<self::CapacityProviderScalingPoliciesList> { &self.scaling_policies }
+        pub fn scaling_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::TargetTrackingScalingPolicy>> { &self.scaling_policies }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct CapacityProviderScalingConfigBuilder {
         max_v_cpu_count: ::std::option::Option<self::CapacityProviderMaxVCpuCount>,
         scaling_mode: ::std::option::Option<self::CapacityProviderScalingMode>,
-        scaling_policies: ::std::option::Option<self::CapacityProviderScalingPoliciesList>,
+        scaling_policies: ::std::option::Option<::std::vec::Vec<self::TargetTrackingScalingPolicy>>,
     }
 
     impl CapacityProviderScalingConfigBuilder {
@@ -27,9 +27,9 @@
         pub fn scaling_mode(mut self, input: impl ::std::convert::Into<self::CapacityProviderScalingMode>) -> Self { self.scaling_mode = Some(input.into()); self }
         pub fn set_scaling_mode(mut self, input: ::std::option::Option<self::CapacityProviderScalingMode>) -> Self { self.scaling_mode = input; self }
         pub fn get_scaling_mode(&self) -> &::std::option::Option<self::CapacityProviderScalingMode> { &self.scaling_mode }
-        pub fn scaling_policies(mut self, input: impl ::std::convert::Into<self::CapacityProviderScalingPoliciesList>) -> Self { self.scaling_policies = Some(input.into()); self }
-        pub fn set_scaling_policies(mut self, input: ::std::option::Option<self::CapacityProviderScalingPoliciesList>) -> Self { self.scaling_policies = input; self }
-        pub fn get_scaling_policies(&self) -> &::std::option::Option<self::CapacityProviderScalingPoliciesList> { &self.scaling_policies }
+        pub fn scaling_policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::TargetTrackingScalingPolicy>>) -> Self { self.scaling_policies = Some(input.into()); self }
+        pub fn set_scaling_policies(mut self, input: ::std::option::Option<::std::vec::Vec<self::TargetTrackingScalingPolicy>>) -> Self { self.scaling_policies = input; self }
+        pub fn get_scaling_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::TargetTrackingScalingPolicy>> { &self.scaling_policies }
         pub fn build(self) -> CapacityProviderScalingConfig {
             CapacityProviderScalingConfig {
                 max_v_cpu_count: self.max_v_cpu_count,

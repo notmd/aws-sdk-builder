@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct DelegationPermission {
-        pub parameters: ::std::option::Option<self::PolicyParameterListType>,
+        pub parameters: ::std::option::Option<::std::vec::Vec<self::PolicyParameter>>,
         pub policy_template_arn: ::std::option::Option<self::ArnType>,
     }
     impl DelegationPermission {
         pub fn builder() -> DelegationPermissionBuilder { DelegationPermissionBuilder::default() }
-        pub fn parameters(&self) -> &::std::option::Option<self::PolicyParameterListType> { &self.parameters }
+        pub fn parameters(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyParameter>> { &self.parameters }
         pub fn policy_template_arn(&self) -> &::std::option::Option<self::ArnType> { &self.policy_template_arn }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct DelegationPermissionBuilder {
-        parameters: ::std::option::Option<self::PolicyParameterListType>,
+        parameters: ::std::option::Option<::std::vec::Vec<self::PolicyParameter>>,
         policy_template_arn: ::std::option::Option<self::ArnType>,
     }
 
     impl DelegationPermissionBuilder {
-        pub fn parameters(mut self, input: impl ::std::convert::Into<self::PolicyParameterListType>) -> Self { self.parameters = Some(input.into()); self }
-        pub fn set_parameters(mut self, input: ::std::option::Option<self::PolicyParameterListType>) -> Self { self.parameters = input; self }
-        pub fn get_parameters(&self) -> &::std::option::Option<self::PolicyParameterListType> { &self.parameters }
+        pub fn parameters(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyParameter>>) -> Self { self.parameters = Some(input.into()); self }
+        pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyParameter>>) -> Self { self.parameters = input; self }
+        pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyParameter>> { &self.parameters }
         pub fn policy_template_arn(mut self, input: impl ::std::convert::Into<self::ArnType>) -> Self { self.policy_template_arn = Some(input.into()); self }
         pub fn set_policy_template_arn(mut self, input: ::std::option::Option<self::ArnType>) -> Self { self.policy_template_arn = input; self }
         pub fn get_policy_template_arn(&self) -> &::std::option::Option<self::ArnType> { &self.policy_template_arn }

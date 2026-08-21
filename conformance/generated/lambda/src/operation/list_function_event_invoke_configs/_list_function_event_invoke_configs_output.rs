@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListFunctionEventInvokeConfigsOutput {
-    pub function_event_invoke_configs: ::std::option::Option<super::super::super::types::FunctionEventInvokeConfigList>,
+    pub function_event_invoke_configs: ::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionEventInvokeConfig>>,
     pub next_marker: ::std::option::Option<super::super::super::types::String>,
 }
         impl ListFunctionEventInvokeConfigsOutput {
@@ -14,13 +14,13 @@ impl ListFunctionEventInvokeConfigsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListFunctionEventInvokeConfigsOutputBuilder {
-    function_event_invoke_configs: ::std::option::Option<super::super::super::types::FunctionEventInvokeConfigList>,
+    function_event_invoke_configs: ::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionEventInvokeConfig>>,
     next_marker: ::std::option::Option<super::super::super::types::String>,
 }
 impl ListFunctionEventInvokeConfigsOutputBuilder {
-    pub fn function_event_invoke_configs(mut self, input: impl ::std::convert::Into<super::super::super::types::FunctionEventInvokeConfigList>) -> Self { self.function_event_invoke_configs = Some(input.into()); self }
-    pub fn set_function_event_invoke_configs(mut self, input: ::std::option::Option<super::super::super::types::FunctionEventInvokeConfigList>) -> Self { self.function_event_invoke_configs = input; self }
-    pub fn get_function_event_invoke_configs(&self) -> &::std::option::Option<super::super::super::types::FunctionEventInvokeConfigList> { &self.function_event_invoke_configs }
+    pub fn function_event_invoke_configs(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::FunctionEventInvokeConfig>>) -> Self { self.function_event_invoke_configs = Some(input.into()); self }
+    pub fn set_function_event_invoke_configs(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionEventInvokeConfig>>) -> Self { self.function_event_invoke_configs = input; self }
+    pub fn get_function_event_invoke_configs(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FunctionEventInvokeConfig>> { &self.function_event_invoke_configs }
     pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.next_marker = Some(input.into()); self }
     pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.next_marker = input; self }
     pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::String> { &self.next_marker }

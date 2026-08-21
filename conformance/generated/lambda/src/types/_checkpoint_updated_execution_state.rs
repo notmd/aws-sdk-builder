@@ -3,27 +3,27 @@
     #[derive(Clone, Debug, Default)]
     pub struct CheckpointUpdatedExecutionState {
         pub next_marker: ::std::option::Option<self::String>,
-        pub operations: ::std::option::Option<self::Operations>,
+        pub operations: ::std::option::Option<::std::vec::Vec<self::Operation>>,
     }
     impl CheckpointUpdatedExecutionState {
         pub fn builder() -> CheckpointUpdatedExecutionStateBuilder { CheckpointUpdatedExecutionStateBuilder::default() }
         pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
-        pub fn operations(&self) -> &::std::option::Option<self::Operations> { &self.operations }
+        pub fn operations(&self) -> &::std::option::Option<::std::vec::Vec<self::Operation>> { &self.operations }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct CheckpointUpdatedExecutionStateBuilder {
         next_marker: ::std::option::Option<self::String>,
-        operations: ::std::option::Option<self::Operations>,
+        operations: ::std::option::Option<::std::vec::Vec<self::Operation>>,
     }
 
     impl CheckpointUpdatedExecutionStateBuilder {
         pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
         pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
         pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }
-        pub fn operations(mut self, input: impl ::std::convert::Into<self::Operations>) -> Self { self.operations = Some(input.into()); self }
-        pub fn set_operations(mut self, input: ::std::option::Option<self::Operations>) -> Self { self.operations = input; self }
-        pub fn get_operations(&self) -> &::std::option::Option<self::Operations> { &self.operations }
+        pub fn operations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Operation>>) -> Self { self.operations = Some(input.into()); self }
+        pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<self::Operation>>) -> Self { self.operations = input; self }
+        pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<self::Operation>> { &self.operations }
         pub fn build(self) -> CheckpointUpdatedExecutionState {
             CheckpointUpdatedExecutionState {
                 next_marker: self.next_marker,

@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct Environment {
-        pub variables: ::std::option::Option<self::EnvironmentVariables>,
+        pub variables: ::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>,
     }
     impl Environment {
         pub fn builder() -> EnvironmentBuilder { EnvironmentBuilder::default() }
-        pub fn variables(&self) -> &::std::option::Option<self::EnvironmentVariables> { &self.variables }
+        pub fn variables(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>> { &self.variables }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct EnvironmentBuilder {
-        variables: ::std::option::Option<self::EnvironmentVariables>,
+        variables: ::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>,
     }
 
     impl EnvironmentBuilder {
-        pub fn variables(mut self, input: impl ::std::convert::Into<self::EnvironmentVariables>) -> Self { self.variables = Some(input.into()); self }
-        pub fn set_variables(mut self, input: ::std::option::Option<self::EnvironmentVariables>) -> Self { self.variables = input; self }
-        pub fn get_variables(&self) -> &::std::option::Option<self::EnvironmentVariables> { &self.variables }
+        pub fn variables(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>) -> Self { self.variables = Some(input.into()); self }
+        pub fn set_variables(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>>) -> Self { self.variables = input; self }
+        pub fn get_variables(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EnvironmentVariableName, self::EnvironmentVariableValue>> { &self.variables }
         pub fn build(self) -> Environment {
             Environment {
                 variables: self.variables,

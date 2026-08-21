@@ -2,28 +2,28 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct TableAutoScalingDescription {
-        pub replicas: ::std::option::Option<self::ReplicaAutoScalingDescriptionList>,
+        pub replicas: ::std::option::Option<::std::vec::Vec<self::ReplicaAutoScalingDescription>>,
         pub table_name: ::std::option::Option<self::TableName>,
         pub table_status: ::std::option::Option<self::TableStatus>,
     }
     impl TableAutoScalingDescription {
         pub fn builder() -> TableAutoScalingDescriptionBuilder { TableAutoScalingDescriptionBuilder::default() }
-        pub fn replicas(&self) -> &::std::option::Option<self::ReplicaAutoScalingDescriptionList> { &self.replicas }
+        pub fn replicas(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaAutoScalingDescription>> { &self.replicas }
         pub fn table_name(&self) -> &::std::option::Option<self::TableName> { &self.table_name }
         pub fn table_status(&self) -> &::std::option::Option<self::TableStatus> { &self.table_status }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct TableAutoScalingDescriptionBuilder {
-        replicas: ::std::option::Option<self::ReplicaAutoScalingDescriptionList>,
+        replicas: ::std::option::Option<::std::vec::Vec<self::ReplicaAutoScalingDescription>>,
         table_name: ::std::option::Option<self::TableName>,
         table_status: ::std::option::Option<self::TableStatus>,
     }
 
     impl TableAutoScalingDescriptionBuilder {
-        pub fn replicas(mut self, input: impl ::std::convert::Into<self::ReplicaAutoScalingDescriptionList>) -> Self { self.replicas = Some(input.into()); self }
-        pub fn set_replicas(mut self, input: ::std::option::Option<self::ReplicaAutoScalingDescriptionList>) -> Self { self.replicas = input; self }
-        pub fn get_replicas(&self) -> &::std::option::Option<self::ReplicaAutoScalingDescriptionList> { &self.replicas }
+        pub fn replicas(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaAutoScalingDescription>>) -> Self { self.replicas = Some(input.into()); self }
+        pub fn set_replicas(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaAutoScalingDescription>>) -> Self { self.replicas = input; self }
+        pub fn get_replicas(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaAutoScalingDescription>> { &self.replicas }
         pub fn table_name(mut self, input: impl ::std::convert::Into<self::TableName>) -> Self { self.table_name = Some(input.into()); self }
         pub fn set_table_name(mut self, input: ::std::option::Option<self::TableName>) -> Self { self.table_name = input; self }
         pub fn get_table_name(&self) -> &::std::option::Option<self::TableName> { &self.table_name }

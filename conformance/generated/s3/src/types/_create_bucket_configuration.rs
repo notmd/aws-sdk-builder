@@ -5,14 +5,14 @@
         pub bucket: ::std::option::Option<self::BucketInfo>,
         pub location: ::std::option::Option<self::LocationInfo>,
         pub location_constraint: ::std::option::Option<self::BucketLocationConstraint>,
-        pub tags: ::std::option::Option<self::TagSet>,
+        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
     }
     impl CreateBucketConfiguration {
         pub fn builder() -> CreateBucketConfigurationBuilder { CreateBucketConfigurationBuilder::default() }
         pub fn bucket(&self) -> &::std::option::Option<self::BucketInfo> { &self.bucket }
         pub fn location(&self) -> &::std::option::Option<self::LocationInfo> { &self.location }
         pub fn location_constraint(&self) -> &::std::option::Option<self::BucketLocationConstraint> { &self.location_constraint }
-        pub fn tags(&self) -> &::std::option::Option<self::TagSet> { &self.tags }
+        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
     }
 
     #[derive(Clone, Debug, Default)]
@@ -20,7 +20,7 @@
         bucket: ::std::option::Option<self::BucketInfo>,
         location: ::std::option::Option<self::LocationInfo>,
         location_constraint: ::std::option::Option<self::BucketLocationConstraint>,
-        tags: ::std::option::Option<self::TagSet>,
+        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
     }
 
     impl CreateBucketConfigurationBuilder {
@@ -33,9 +33,9 @@
         pub fn location_constraint(mut self, input: impl ::std::convert::Into<self::BucketLocationConstraint>) -> Self { self.location_constraint = Some(input.into()); self }
         pub fn set_location_constraint(mut self, input: ::std::option::Option<self::BucketLocationConstraint>) -> Self { self.location_constraint = input; self }
         pub fn get_location_constraint(&self) -> &::std::option::Option<self::BucketLocationConstraint> { &self.location_constraint }
-        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagSet>) -> Self { self.tags = Some(input.into()); self }
-        pub fn set_tags(mut self, input: ::std::option::Option<self::TagSet>) -> Self { self.tags = input; self }
-        pub fn get_tags(&self) -> &::std::option::Option<self::TagSet> { &self.tags }
+        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
+        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
+        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
         pub fn build(self) -> CreateBucketConfiguration {
             CreateBucketConfiguration {
                 bucket: self.bucket,

@@ -14,7 +14,7 @@ impl Builder {
     pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountId>) -> Self { self.input.expected_bucket_owner = Some(value.into()); self }
     pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectKey>) -> Self { self.input.key = Some(value.into()); self }
     pub fn max_parts(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxParts>) -> Self { self.input.max_parts = Some(value.into()); self }
-    pub fn object_attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectAttributesList>) -> Self { self.input.object_attributes = Some(value.into()); self }
+    pub fn object_attributes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ObjectAttributes>>) -> Self { self.input.object_attributes = Some(value.into()); self }
     pub fn part_number_marker(mut self, value: impl ::std::convert::Into<super::super::super::types::PartNumberMarker>) -> Self { self.input.part_number_marker = Some(value.into()); self }
     pub fn request_payer(mut self, value: impl ::std::convert::Into<super::super::super::types::RequestPayer>) -> Self { self.input.request_payer = Some(value.into()); self }
     pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::SseCustomerAlgorithm>) -> Self { self.input.sse_customer_algorithm = Some(value.into()); self }

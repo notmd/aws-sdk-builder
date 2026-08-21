@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteInstanceProfileError::Unhandled(format!("DeleteInstanceProfile returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteInstanceProfileOutput::default())
+                         Ok(super::DeleteInstanceProfileOutput)
                      }
 }
 pub use Builder as DeleteInstanceProfileFluentBuilder;

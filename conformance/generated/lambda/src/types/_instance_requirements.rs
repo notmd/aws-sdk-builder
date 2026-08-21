@@ -2,34 +2,34 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct InstanceRequirements {
-        pub allowed_instance_types: ::std::option::Option<self::InstanceTypeSet>,
-        pub architectures: ::std::option::Option<self::ArchitecturesList>,
-        pub excluded_instance_types: ::std::option::Option<self::InstanceTypeSet>,
+        pub allowed_instance_types: ::std::option::Option<::std::vec::Vec<self::InstanceType>>,
+        pub architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
+        pub excluded_instance_types: ::std::option::Option<::std::vec::Vec<self::InstanceType>>,
     }
     impl InstanceRequirements {
         pub fn builder() -> InstanceRequirementsBuilder { InstanceRequirementsBuilder::default() }
-        pub fn allowed_instance_types(&self) -> &::std::option::Option<self::InstanceTypeSet> { &self.allowed_instance_types }
-        pub fn architectures(&self) -> &::std::option::Option<self::ArchitecturesList> { &self.architectures }
-        pub fn excluded_instance_types(&self) -> &::std::option::Option<self::InstanceTypeSet> { &self.excluded_instance_types }
+        pub fn allowed_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<self::InstanceType>> { &self.allowed_instance_types }
+        pub fn architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.architectures }
+        pub fn excluded_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<self::InstanceType>> { &self.excluded_instance_types }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct InstanceRequirementsBuilder {
-        allowed_instance_types: ::std::option::Option<self::InstanceTypeSet>,
-        architectures: ::std::option::Option<self::ArchitecturesList>,
-        excluded_instance_types: ::std::option::Option<self::InstanceTypeSet>,
+        allowed_instance_types: ::std::option::Option<::std::vec::Vec<self::InstanceType>>,
+        architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
+        excluded_instance_types: ::std::option::Option<::std::vec::Vec<self::InstanceType>>,
     }
 
     impl InstanceRequirementsBuilder {
-        pub fn allowed_instance_types(mut self, input: impl ::std::convert::Into<self::InstanceTypeSet>) -> Self { self.allowed_instance_types = Some(input.into()); self }
-        pub fn set_allowed_instance_types(mut self, input: ::std::option::Option<self::InstanceTypeSet>) -> Self { self.allowed_instance_types = input; self }
-        pub fn get_allowed_instance_types(&self) -> &::std::option::Option<self::InstanceTypeSet> { &self.allowed_instance_types }
-        pub fn architectures(mut self, input: impl ::std::convert::Into<self::ArchitecturesList>) -> Self { self.architectures = Some(input.into()); self }
-        pub fn set_architectures(mut self, input: ::std::option::Option<self::ArchitecturesList>) -> Self { self.architectures = input; self }
-        pub fn get_architectures(&self) -> &::std::option::Option<self::ArchitecturesList> { &self.architectures }
-        pub fn excluded_instance_types(mut self, input: impl ::std::convert::Into<self::InstanceTypeSet>) -> Self { self.excluded_instance_types = Some(input.into()); self }
-        pub fn set_excluded_instance_types(mut self, input: ::std::option::Option<self::InstanceTypeSet>) -> Self { self.excluded_instance_types = input; self }
-        pub fn get_excluded_instance_types(&self) -> &::std::option::Option<self::InstanceTypeSet> { &self.excluded_instance_types }
+        pub fn allowed_instance_types(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::InstanceType>>) -> Self { self.allowed_instance_types = Some(input.into()); self }
+        pub fn set_allowed_instance_types(mut self, input: ::std::option::Option<::std::vec::Vec<self::InstanceType>>) -> Self { self.allowed_instance_types = input; self }
+        pub fn get_allowed_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<self::InstanceType>> { &self.allowed_instance_types }
+        pub fn architectures(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Architecture>>) -> Self { self.architectures = Some(input.into()); self }
+        pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<self::Architecture>>) -> Self { self.architectures = input; self }
+        pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.architectures }
+        pub fn excluded_instance_types(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::InstanceType>>) -> Self { self.excluded_instance_types = Some(input.into()); self }
+        pub fn set_excluded_instance_types(mut self, input: ::std::option::Option<::std::vec::Vec<self::InstanceType>>) -> Self { self.excluded_instance_types = input; self }
+        pub fn get_excluded_instance_types(&self) -> &::std::option::Option<::std::vec::Vec<self::InstanceType>> { &self.excluded_instance_types }
         pub fn build(self) -> InstanceRequirements {
             InstanceRequirements {
                 allowed_instance_types: self.allowed_instance_types,

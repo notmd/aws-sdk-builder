@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ListCapacityProvidersResponse {
-        pub capacity_providers: ::std::option::Option<self::CapacityProvidersList>,
+        pub capacity_providers: ::std::option::Option<::std::vec::Vec<self::CapacityProvider>>,
         pub next_marker: ::std::option::Option<self::String>,
     }
     impl ListCapacityProvidersResponse {
         pub fn builder() -> ListCapacityProvidersResponseBuilder { ListCapacityProvidersResponseBuilder::default() }
-        pub fn capacity_providers(&self) -> &::std::option::Option<self::CapacityProvidersList> { &self.capacity_providers }
+        pub fn capacity_providers(&self) -> &::std::option::Option<::std::vec::Vec<self::CapacityProvider>> { &self.capacity_providers }
         pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ListCapacityProvidersResponseBuilder {
-        capacity_providers: ::std::option::Option<self::CapacityProvidersList>,
+        capacity_providers: ::std::option::Option<::std::vec::Vec<self::CapacityProvider>>,
         next_marker: ::std::option::Option<self::String>,
     }
 
     impl ListCapacityProvidersResponseBuilder {
-        pub fn capacity_providers(mut self, input: impl ::std::convert::Into<self::CapacityProvidersList>) -> Self { self.capacity_providers = Some(input.into()); self }
-        pub fn set_capacity_providers(mut self, input: ::std::option::Option<self::CapacityProvidersList>) -> Self { self.capacity_providers = input; self }
-        pub fn get_capacity_providers(&self) -> &::std::option::Option<self::CapacityProvidersList> { &self.capacity_providers }
+        pub fn capacity_providers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::CapacityProvider>>) -> Self { self.capacity_providers = Some(input.into()); self }
+        pub fn set_capacity_providers(mut self, input: ::std::option::Option<::std::vec::Vec<self::CapacityProvider>>) -> Self { self.capacity_providers = input; self }
+        pub fn get_capacity_providers(&self) -> &::std::option::Option<::std::vec::Vec<self::CapacityProvider>> { &self.capacity_providers }
         pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
         pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
         pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }

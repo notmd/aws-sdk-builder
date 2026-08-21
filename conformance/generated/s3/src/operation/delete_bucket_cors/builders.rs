@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteBucketCorsError::Unhandled(format!("DeleteBucketCors returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteBucketCorsOutput::default())
+                         Ok(super::DeleteBucketCorsOutput)
                      }
 }
 pub use Builder as DeleteBucketCorsFluentBuilder;

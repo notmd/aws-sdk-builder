@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteAliasError::Unhandled(format!("DeleteAlias returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteAliasOutput::default())
+                         Ok(super::DeleteAliasOutput)
                      }
 }
 pub use Builder as DeleteAliasFluentBuilder;

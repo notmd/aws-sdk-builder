@@ -2,46 +2,46 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct CorsRule {
-        pub allowed_headers: ::std::option::Option<self::AllowedHeaders>,
-        pub allowed_methods: ::std::option::Option<self::AllowedMethods>,
-        pub allowed_origins: ::std::option::Option<self::AllowedOrigins>,
-        pub expose_headers: ::std::option::Option<self::ExposeHeaders>,
+        pub allowed_headers: ::std::option::Option<::std::vec::Vec<self::AllowedHeader>>,
+        pub allowed_methods: ::std::option::Option<::std::vec::Vec<self::AllowedMethod>>,
+        pub allowed_origins: ::std::option::Option<::std::vec::Vec<self::AllowedOrigin>>,
+        pub expose_headers: ::std::option::Option<::std::vec::Vec<self::ExposeHeader>>,
         pub id: ::std::option::Option<self::Id>,
         pub max_age_seconds: ::std::option::Option<self::MaxAgeSeconds>,
     }
     impl CorsRule {
         pub fn builder() -> CorsRuleBuilder { CorsRuleBuilder::default() }
-        pub fn allowed_headers(&self) -> &::std::option::Option<self::AllowedHeaders> { &self.allowed_headers }
-        pub fn allowed_methods(&self) -> &::std::option::Option<self::AllowedMethods> { &self.allowed_methods }
-        pub fn allowed_origins(&self) -> &::std::option::Option<self::AllowedOrigins> { &self.allowed_origins }
-        pub fn expose_headers(&self) -> &::std::option::Option<self::ExposeHeaders> { &self.expose_headers }
+        pub fn allowed_headers(&self) -> &::std::option::Option<::std::vec::Vec<self::AllowedHeader>> { &self.allowed_headers }
+        pub fn allowed_methods(&self) -> &::std::option::Option<::std::vec::Vec<self::AllowedMethod>> { &self.allowed_methods }
+        pub fn allowed_origins(&self) -> &::std::option::Option<::std::vec::Vec<self::AllowedOrigin>> { &self.allowed_origins }
+        pub fn expose_headers(&self) -> &::std::option::Option<::std::vec::Vec<self::ExposeHeader>> { &self.expose_headers }
         pub fn id(&self) -> &::std::option::Option<self::Id> { &self.id }
         pub fn max_age_seconds(&self) -> &::std::option::Option<self::MaxAgeSeconds> { &self.max_age_seconds }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct CorsRuleBuilder {
-        allowed_headers: ::std::option::Option<self::AllowedHeaders>,
-        allowed_methods: ::std::option::Option<self::AllowedMethods>,
-        allowed_origins: ::std::option::Option<self::AllowedOrigins>,
-        expose_headers: ::std::option::Option<self::ExposeHeaders>,
+        allowed_headers: ::std::option::Option<::std::vec::Vec<self::AllowedHeader>>,
+        allowed_methods: ::std::option::Option<::std::vec::Vec<self::AllowedMethod>>,
+        allowed_origins: ::std::option::Option<::std::vec::Vec<self::AllowedOrigin>>,
+        expose_headers: ::std::option::Option<::std::vec::Vec<self::ExposeHeader>>,
         id: ::std::option::Option<self::Id>,
         max_age_seconds: ::std::option::Option<self::MaxAgeSeconds>,
     }
 
     impl CorsRuleBuilder {
-        pub fn allowed_headers(mut self, input: impl ::std::convert::Into<self::AllowedHeaders>) -> Self { self.allowed_headers = Some(input.into()); self }
-        pub fn set_allowed_headers(mut self, input: ::std::option::Option<self::AllowedHeaders>) -> Self { self.allowed_headers = input; self }
-        pub fn get_allowed_headers(&self) -> &::std::option::Option<self::AllowedHeaders> { &self.allowed_headers }
-        pub fn allowed_methods(mut self, input: impl ::std::convert::Into<self::AllowedMethods>) -> Self { self.allowed_methods = Some(input.into()); self }
-        pub fn set_allowed_methods(mut self, input: ::std::option::Option<self::AllowedMethods>) -> Self { self.allowed_methods = input; self }
-        pub fn get_allowed_methods(&self) -> &::std::option::Option<self::AllowedMethods> { &self.allowed_methods }
-        pub fn allowed_origins(mut self, input: impl ::std::convert::Into<self::AllowedOrigins>) -> Self { self.allowed_origins = Some(input.into()); self }
-        pub fn set_allowed_origins(mut self, input: ::std::option::Option<self::AllowedOrigins>) -> Self { self.allowed_origins = input; self }
-        pub fn get_allowed_origins(&self) -> &::std::option::Option<self::AllowedOrigins> { &self.allowed_origins }
-        pub fn expose_headers(mut self, input: impl ::std::convert::Into<self::ExposeHeaders>) -> Self { self.expose_headers = Some(input.into()); self }
-        pub fn set_expose_headers(mut self, input: ::std::option::Option<self::ExposeHeaders>) -> Self { self.expose_headers = input; self }
-        pub fn get_expose_headers(&self) -> &::std::option::Option<self::ExposeHeaders> { &self.expose_headers }
+        pub fn allowed_headers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AllowedHeader>>) -> Self { self.allowed_headers = Some(input.into()); self }
+        pub fn set_allowed_headers(mut self, input: ::std::option::Option<::std::vec::Vec<self::AllowedHeader>>) -> Self { self.allowed_headers = input; self }
+        pub fn get_allowed_headers(&self) -> &::std::option::Option<::std::vec::Vec<self::AllowedHeader>> { &self.allowed_headers }
+        pub fn allowed_methods(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AllowedMethod>>) -> Self { self.allowed_methods = Some(input.into()); self }
+        pub fn set_allowed_methods(mut self, input: ::std::option::Option<::std::vec::Vec<self::AllowedMethod>>) -> Self { self.allowed_methods = input; self }
+        pub fn get_allowed_methods(&self) -> &::std::option::Option<::std::vec::Vec<self::AllowedMethod>> { &self.allowed_methods }
+        pub fn allowed_origins(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AllowedOrigin>>) -> Self { self.allowed_origins = Some(input.into()); self }
+        pub fn set_allowed_origins(mut self, input: ::std::option::Option<::std::vec::Vec<self::AllowedOrigin>>) -> Self { self.allowed_origins = input; self }
+        pub fn get_allowed_origins(&self) -> &::std::option::Option<::std::vec::Vec<self::AllowedOrigin>> { &self.allowed_origins }
+        pub fn expose_headers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ExposeHeader>>) -> Self { self.expose_headers = Some(input.into()); self }
+        pub fn set_expose_headers(mut self, input: ::std::option::Option<::std::vec::Vec<self::ExposeHeader>>) -> Self { self.expose_headers = input; self }
+        pub fn get_expose_headers(&self) -> &::std::option::Option<::std::vec::Vec<self::ExposeHeader>> { &self.expose_headers }
         pub fn id(mut self, input: impl ::std::convert::Into<self::Id>) -> Self { self.id = Some(input.into()); self }
         pub fn set_id(mut self, input: ::std::option::Option<self::Id>) -> Self { self.id = input; self }
         pub fn get_id(&self) -> &::std::option::Option<self::Id> { &self.id }

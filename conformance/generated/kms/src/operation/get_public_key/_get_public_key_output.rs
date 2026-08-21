@@ -3,13 +3,13 @@
 #[derive(Clone, Debug, Default)]
 pub struct GetPublicKeyOutput {
     pub customer_master_key_spec: ::std::option::Option<super::super::super::types::CustomerMasterKeySpec>,
-    pub encryption_algorithms: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpecList>,
-    pub key_agreement_algorithms: ::std::option::Option<super::super::super::types::KeyAgreementAlgorithmSpecList>,
+    pub encryption_algorithms: ::std::option::Option<::std::vec::Vec<super::super::super::types::EncryptionAlgorithmSpec>>,
+    pub key_agreement_algorithms: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeyAgreementAlgorithmSpec>>,
     pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
     pub key_spec: ::std::option::Option<super::super::super::types::KeySpec>,
     pub key_usage: ::std::option::Option<super::super::super::types::KeyUsageType>,
     pub public_key: ::std::option::Option<super::super::super::types::PublicKeyType>,
-    pub signing_algorithms: ::std::option::Option<super::super::super::types::SigningAlgorithmSpecList>,
+    pub signing_algorithms: ::std::option::Option<::std::vec::Vec<super::super::super::types::SigningAlgorithmSpec>>,
 }
         impl GetPublicKeyOutput {
             pub fn customer_master_key_spec(&self) -> ::std::option::Option<&super::super::super::types::CustomerMasterKeySpec> { self.customer_master_key_spec.as_ref() }
@@ -27,24 +27,24 @@ impl GetPublicKeyOutput {
 #[derive(Clone, Debug, Default)]
 pub struct GetPublicKeyOutputBuilder {
     customer_master_key_spec: ::std::option::Option<super::super::super::types::CustomerMasterKeySpec>,
-    encryption_algorithms: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpecList>,
-    key_agreement_algorithms: ::std::option::Option<super::super::super::types::KeyAgreementAlgorithmSpecList>,
+    encryption_algorithms: ::std::option::Option<::std::vec::Vec<super::super::super::types::EncryptionAlgorithmSpec>>,
+    key_agreement_algorithms: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeyAgreementAlgorithmSpec>>,
     key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
     key_spec: ::std::option::Option<super::super::super::types::KeySpec>,
     key_usage: ::std::option::Option<super::super::super::types::KeyUsageType>,
     public_key: ::std::option::Option<super::super::super::types::PublicKeyType>,
-    signing_algorithms: ::std::option::Option<super::super::super::types::SigningAlgorithmSpecList>,
+    signing_algorithms: ::std::option::Option<::std::vec::Vec<super::super::super::types::SigningAlgorithmSpec>>,
 }
 impl GetPublicKeyOutputBuilder {
     pub fn customer_master_key_spec(mut self, input: impl ::std::convert::Into<super::super::super::types::CustomerMasterKeySpec>) -> Self { self.customer_master_key_spec = Some(input.into()); self }
     pub fn set_customer_master_key_spec(mut self, input: ::std::option::Option<super::super::super::types::CustomerMasterKeySpec>) -> Self { self.customer_master_key_spec = input; self }
     pub fn get_customer_master_key_spec(&self) -> &::std::option::Option<super::super::super::types::CustomerMasterKeySpec> { &self.customer_master_key_spec }
-    pub fn encryption_algorithms(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionAlgorithmSpecList>) -> Self { self.encryption_algorithms = Some(input.into()); self }
-    pub fn set_encryption_algorithms(mut self, input: ::std::option::Option<super::super::super::types::EncryptionAlgorithmSpecList>) -> Self { self.encryption_algorithms = input; self }
-    pub fn get_encryption_algorithms(&self) -> &::std::option::Option<super::super::super::types::EncryptionAlgorithmSpecList> { &self.encryption_algorithms }
-    pub fn key_agreement_algorithms(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyAgreementAlgorithmSpecList>) -> Self { self.key_agreement_algorithms = Some(input.into()); self }
-    pub fn set_key_agreement_algorithms(mut self, input: ::std::option::Option<super::super::super::types::KeyAgreementAlgorithmSpecList>) -> Self { self.key_agreement_algorithms = input; self }
-    pub fn get_key_agreement_algorithms(&self) -> &::std::option::Option<super::super::super::types::KeyAgreementAlgorithmSpecList> { &self.key_agreement_algorithms }
+    pub fn encryption_algorithms(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::EncryptionAlgorithmSpec>>) -> Self { self.encryption_algorithms = Some(input.into()); self }
+    pub fn set_encryption_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EncryptionAlgorithmSpec>>) -> Self { self.encryption_algorithms = input; self }
+    pub fn get_encryption_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::EncryptionAlgorithmSpec>> { &self.encryption_algorithms }
+    pub fn key_agreement_algorithms(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::KeyAgreementAlgorithmSpec>>) -> Self { self.key_agreement_algorithms = Some(input.into()); self }
+    pub fn set_key_agreement_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::KeyAgreementAlgorithmSpec>>) -> Self { self.key_agreement_algorithms = input; self }
+    pub fn get_key_agreement_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::KeyAgreementAlgorithmSpec>> { &self.key_agreement_algorithms }
     pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
     pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
     pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }
@@ -57,9 +57,9 @@ impl GetPublicKeyOutputBuilder {
     pub fn public_key(mut self, input: impl ::std::convert::Into<super::super::super::types::PublicKeyType>) -> Self { self.public_key = Some(input.into()); self }
     pub fn set_public_key(mut self, input: ::std::option::Option<super::super::super::types::PublicKeyType>) -> Self { self.public_key = input; self }
     pub fn get_public_key(&self) -> &::std::option::Option<super::super::super::types::PublicKeyType> { &self.public_key }
-    pub fn signing_algorithms(mut self, input: impl ::std::convert::Into<super::super::super::types::SigningAlgorithmSpecList>) -> Self { self.signing_algorithms = Some(input.into()); self }
-    pub fn set_signing_algorithms(mut self, input: ::std::option::Option<super::super::super::types::SigningAlgorithmSpecList>) -> Self { self.signing_algorithms = input; self }
-    pub fn get_signing_algorithms(&self) -> &::std::option::Option<super::super::super::types::SigningAlgorithmSpecList> { &self.signing_algorithms }
+    pub fn signing_algorithms(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SigningAlgorithmSpec>>) -> Self { self.signing_algorithms = Some(input.into()); self }
+    pub fn set_signing_algorithms(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SigningAlgorithmSpec>>) -> Self { self.signing_algorithms = input; self }
+    pub fn get_signing_algorithms(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SigningAlgorithmSpec>> { &self.signing_algorithms }
     pub fn build(self) -> GetPublicKeyOutput { GetPublicKeyOutput {
         customer_master_key_spec: self.customer_master_key_spec,
         encryption_algorithms: self.encryption_algorithms,

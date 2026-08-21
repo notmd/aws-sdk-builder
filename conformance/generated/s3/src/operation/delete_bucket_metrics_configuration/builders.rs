@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteBucketMetricsConfigurationError::Unhandled(format!("DeleteBucketMetricsConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteBucketMetricsConfigurationOutput::default())
+                         Ok(super::DeleteBucketMetricsConfigurationOutput)
                      }
 }
 pub use Builder as DeleteBucketMetricsConfigurationFluentBuilder;

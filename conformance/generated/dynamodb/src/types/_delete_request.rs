@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct DeleteRequest {
-        pub key: ::std::option::Option<self::Key>,
+        pub key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
     }
     impl DeleteRequest {
         pub fn builder() -> DeleteRequestBuilder { DeleteRequestBuilder::default() }
-        pub fn key(&self) -> &::std::option::Option<self::Key> { &self.key }
+        pub fn key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct DeleteRequestBuilder {
-        key: ::std::option::Option<self::Key>,
+        key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
     }
 
     impl DeleteRequestBuilder {
-        pub fn key(mut self, input: impl ::std::convert::Into<self::Key>) -> Self { self.key = Some(input.into()); self }
-        pub fn set_key(mut self, input: ::std::option::Option<self::Key>) -> Self { self.key = input; self }
-        pub fn get_key(&self) -> &::std::option::Option<self::Key> { &self.key }
+        pub fn key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = Some(input.into()); self }
+        pub fn set_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = input; self }
+        pub fn get_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
         pub fn build(self) -> DeleteRequest {
             DeleteRequest {
                 key: self.key,

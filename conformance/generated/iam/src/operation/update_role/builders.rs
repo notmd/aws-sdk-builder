@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateRoleError::Unhandled(format!("UpdateRole returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateRoleOutput::default())
+                         Ok(super::UpdateRoleOutput)
                      }
 }
 pub use Builder as UpdateRoleFluentBuilder;

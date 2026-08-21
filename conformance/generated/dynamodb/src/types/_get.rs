@@ -2,34 +2,34 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct Get {
-        pub expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-        pub key: ::std::option::Option<self::Key>,
+        pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
+        pub key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
         pub projection_expression: ::std::option::Option<self::ProjectionExpression>,
         pub table_name: ::std::option::Option<self::TableArn>,
     }
     impl Get {
         pub fn builder() -> GetBuilder { GetBuilder::default() }
-        pub fn expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-        pub fn key(&self) -> &::std::option::Option<self::Key> { &self.key }
+        pub fn expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
+        pub fn key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
         pub fn projection_expression(&self) -> &::std::option::Option<self::ProjectionExpression> { &self.projection_expression }
         pub fn table_name(&self) -> &::std::option::Option<self::TableArn> { &self.table_name }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct GetBuilder {
-        expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-        key: ::std::option::Option<self::Key>,
+        expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
+        key: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
         projection_expression: ::std::option::Option<self::ProjectionExpression>,
         table_name: ::std::option::Option<self::TableArn>,
     }
 
     impl GetBuilder {
-        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-        pub fn key(mut self, input: impl ::std::convert::Into<self::Key>) -> Self { self.key = Some(input.into()); self }
-        pub fn set_key(mut self, input: ::std::option::Option<self::Key>) -> Self { self.key = input; self }
-        pub fn get_key(&self) -> &::std::option::Option<self::Key> { &self.key }
+        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
+        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
+        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
+        pub fn key(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = Some(input.into()); self }
+        pub fn set_key(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.key = input; self }
+        pub fn get_key(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.key }
         pub fn projection_expression(mut self, input: impl ::std::convert::Into<self::ProjectionExpression>) -> Self { self.projection_expression = Some(input.into()); self }
         pub fn set_projection_expression(mut self, input: ::std::option::Option<self::ProjectionExpression>) -> Self { self.projection_expression = input; self }
         pub fn get_projection_expression(&self) -> &::std::option::Option<self::ProjectionExpression> { &self.projection_expression }

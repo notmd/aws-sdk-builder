@@ -2,16 +2,16 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct SimulatePrincipalPolicyInput {
-    pub action_names: ::std::option::Option<super::super::super::types::ActionNameListType>,
+    pub action_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::ActionNameType>>,
     pub caller_arn: ::std::option::Option<super::super::super::types::ResourceNameType>,
-    pub context_entries: ::std::option::Option<super::super::super::types::ContextEntryListType>,
+    pub context_entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextEntry>>,
     pub marker: ::std::option::Option<super::super::super::types::MarkerType>,
     pub max_items: ::std::option::Option<super::super::super::types::MaxItemsType>,
-    pub permissions_boundary_policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
-    pub policy_exclusion_list: ::std::option::Option<super::super::super::types::PolicyExclusionsListType>,
-    pub policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
+    pub permissions_boundary_policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
+    pub policy_exclusion_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyIdentifier>>,
+    pub policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
     pub policy_source_arn: ::std::option::Option<super::super::super::types::ArnType>,
-    pub resource_arns: ::std::option::Option<super::super::super::types::ResourceNameListType>,
+    pub resource_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceNameType>>,
     pub resource_handling_option: ::std::option::Option<super::super::super::types::ResourceHandlingOptionType>,
     pub resource_owner: ::std::option::Option<super::super::super::types::ResourceNameType>,
     pub resource_policy: ::std::option::Option<super::super::super::types::PolicyDocumentType>,
@@ -36,51 +36,51 @@ impl SimulatePrincipalPolicyInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct SimulatePrincipalPolicyInputBuilder {
-    action_names: ::std::option::Option<super::super::super::types::ActionNameListType>,
+    action_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::ActionNameType>>,
     caller_arn: ::std::option::Option<super::super::super::types::ResourceNameType>,
-    context_entries: ::std::option::Option<super::super::super::types::ContextEntryListType>,
+    context_entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextEntry>>,
     marker: ::std::option::Option<super::super::super::types::MarkerType>,
     max_items: ::std::option::Option<super::super::super::types::MaxItemsType>,
-    permissions_boundary_policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
-    policy_exclusion_list: ::std::option::Option<super::super::super::types::PolicyExclusionsListType>,
-    policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
+    permissions_boundary_policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
+    policy_exclusion_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyIdentifier>>,
+    policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
     policy_source_arn: ::std::option::Option<super::super::super::types::ArnType>,
-    resource_arns: ::std::option::Option<super::super::super::types::ResourceNameListType>,
+    resource_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceNameType>>,
     resource_handling_option: ::std::option::Option<super::super::super::types::ResourceHandlingOptionType>,
     resource_owner: ::std::option::Option<super::super::super::types::ResourceNameType>,
     resource_policy: ::std::option::Option<super::super::super::types::PolicyDocumentType>,
 }
 impl SimulatePrincipalPolicyInputBuilder {
-    pub fn action_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ActionNameListType>) -> Self { self.action_names = Some(input.into()); self }
-    pub fn set_action_names(mut self, input: ::std::option::Option<super::super::super::types::ActionNameListType>) -> Self { self.action_names = input; self }
-    pub fn get_action_names(&self) -> &::std::option::Option<super::super::super::types::ActionNameListType> { &self.action_names }
+    pub fn action_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ActionNameType>>) -> Self { self.action_names = Some(input.into()); self }
+    pub fn set_action_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ActionNameType>>) -> Self { self.action_names = input; self }
+    pub fn get_action_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ActionNameType>> { &self.action_names }
     pub fn caller_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ResourceNameType>) -> Self { self.caller_arn = Some(input.into()); self }
     pub fn set_caller_arn(mut self, input: ::std::option::Option<super::super::super::types::ResourceNameType>) -> Self { self.caller_arn = input; self }
     pub fn get_caller_arn(&self) -> &::std::option::Option<super::super::super::types::ResourceNameType> { &self.caller_arn }
-    pub fn context_entries(mut self, input: impl ::std::convert::Into<super::super::super::types::ContextEntryListType>) -> Self { self.context_entries = Some(input.into()); self }
-    pub fn set_context_entries(mut self, input: ::std::option::Option<super::super::super::types::ContextEntryListType>) -> Self { self.context_entries = input; self }
-    pub fn get_context_entries(&self) -> &::std::option::Option<super::super::super::types::ContextEntryListType> { &self.context_entries }
+    pub fn context_entries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ContextEntry>>) -> Self { self.context_entries = Some(input.into()); self }
+    pub fn set_context_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextEntry>>) -> Self { self.context_entries = input; self }
+    pub fn get_context_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ContextEntry>> { &self.context_entries }
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.marker }
     pub fn max_items(mut self, input: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.max_items = Some(input.into()); self }
     pub fn set_max_items(mut self, input: ::std::option::Option<super::super::super::types::MaxItemsType>) -> Self { self.max_items = input; self }
     pub fn get_max_items(&self) -> &::std::option::Option<super::super::super::types::MaxItemsType> { &self.max_items }
-    pub fn permissions_boundary_policy_input_list(mut self, input: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.permissions_boundary_policy_input_list = Some(input.into()); self }
-    pub fn set_permissions_boundary_policy_input_list(mut self, input: ::std::option::Option<super::super::super::types::SimulationPolicyListType>) -> Self { self.permissions_boundary_policy_input_list = input; self }
-    pub fn get_permissions_boundary_policy_input_list(&self) -> &::std::option::Option<super::super::super::types::SimulationPolicyListType> { &self.permissions_boundary_policy_input_list }
-    pub fn policy_exclusion_list(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyExclusionsListType>) -> Self { self.policy_exclusion_list = Some(input.into()); self }
-    pub fn set_policy_exclusion_list(mut self, input: ::std::option::Option<super::super::super::types::PolicyExclusionsListType>) -> Self { self.policy_exclusion_list = input; self }
-    pub fn get_policy_exclusion_list(&self) -> &::std::option::Option<super::super::super::types::PolicyExclusionsListType> { &self.policy_exclusion_list }
-    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.policy_input_list = Some(input.into()); self }
-    pub fn set_policy_input_list(mut self, input: ::std::option::Option<super::super::super::types::SimulationPolicyListType>) -> Self { self.policy_input_list = input; self }
-    pub fn get_policy_input_list(&self) -> &::std::option::Option<super::super::super::types::SimulationPolicyListType> { &self.policy_input_list }
+    pub fn permissions_boundary_policy_input_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.permissions_boundary_policy_input_list = Some(input.into()); self }
+    pub fn set_permissions_boundary_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.permissions_boundary_policy_input_list = input; self }
+    pub fn get_permissions_boundary_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>> { &self.permissions_boundary_policy_input_list }
+    pub fn policy_exclusion_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyIdentifier>>) -> Self { self.policy_exclusion_list = Some(input.into()); self }
+    pub fn set_policy_exclusion_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyIdentifier>>) -> Self { self.policy_exclusion_list = input; self }
+    pub fn get_policy_exclusion_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyIdentifier>> { &self.policy_exclusion_list }
+    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.policy_input_list = Some(input.into()); self }
+    pub fn set_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.policy_input_list = input; self }
+    pub fn get_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>> { &self.policy_input_list }
     pub fn policy_source_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.policy_source_arn = Some(input.into()); self }
     pub fn set_policy_source_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.policy_source_arn = input; self }
     pub fn get_policy_source_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.policy_source_arn }
-    pub fn resource_arns(mut self, input: impl ::std::convert::Into<super::super::super::types::ResourceNameListType>) -> Self { self.resource_arns = Some(input.into()); self }
-    pub fn set_resource_arns(mut self, input: ::std::option::Option<super::super::super::types::ResourceNameListType>) -> Self { self.resource_arns = input; self }
-    pub fn get_resource_arns(&self) -> &::std::option::Option<super::super::super::types::ResourceNameListType> { &self.resource_arns }
+    pub fn resource_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ResourceNameType>>) -> Self { self.resource_arns = Some(input.into()); self }
+    pub fn set_resource_arns(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceNameType>>) -> Self { self.resource_arns = input; self }
+    pub fn get_resource_arns(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceNameType>> { &self.resource_arns }
     pub fn resource_handling_option(mut self, input: impl ::std::convert::Into<super::super::super::types::ResourceHandlingOptionType>) -> Self { self.resource_handling_option = Some(input.into()); self }
     pub fn set_resource_handling_option(mut self, input: ::std::option::Option<super::super::super::types::ResourceHandlingOptionType>) -> Self { self.resource_handling_option = input; self }
     pub fn get_resource_handling_option(&self) -> &::std::option::Option<super::super::super::types::ResourceHandlingOptionType> { &self.resource_handling_option }

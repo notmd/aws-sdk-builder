@@ -26,7 +26,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketNotificationConfigurationError::Unhandled(format!("PutBucketNotificationConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketNotificationConfigurationOutput::default())
+                         Ok(super::PutBucketNotificationConfigurationOutput)
                      }
 }
 pub use Builder as PutBucketNotificationConfigurationFluentBuilder;

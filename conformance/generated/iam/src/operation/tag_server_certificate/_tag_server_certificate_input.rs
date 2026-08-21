@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct TagServerCertificateInput {
     pub server_certificate_name: ::std::option::Option<super::super::super::types::ServerCertificateNameType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl TagServerCertificateInput {
             pub fn server_certificate_name(&self) -> ::std::option::Option<&str> { self.server_certificate_name.as_deref() }
@@ -15,15 +15,15 @@ impl TagServerCertificateInput {
 #[derive(Clone, Debug, Default)]
 pub struct TagServerCertificateInputBuilder {
     server_certificate_name: ::std::option::Option<super::super::super::types::ServerCertificateNameType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl TagServerCertificateInputBuilder {
     pub fn server_certificate_name(mut self, input: impl ::std::convert::Into<super::super::super::types::ServerCertificateNameType>) -> Self { self.server_certificate_name = Some(input.into()); self }
     pub fn set_server_certificate_name(mut self, input: ::std::option::Option<super::super::super::types::ServerCertificateNameType>) -> Self { self.server_certificate_name = input; self }
     pub fn get_server_certificate_name(&self) -> &::std::option::Option<super::super::super::types::ServerCertificateNameType> { &self.server_certificate_name }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> TagServerCertificateInput { TagServerCertificateInput {
         server_certificate_name: self.server_certificate_name,
         tags: self.tags,

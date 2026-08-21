@@ -2,19 +2,19 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct SearchVectorsInput {
-    pub expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-    pub expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
+    pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
+    pub expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
     pub index_name: ::std::option::Option<super::super::super::types::IndexName>,
     pub projection_expression: ::std::option::Option<super::super::super::types::ProjectionExpression>,
     pub return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     pub search_condition_expression: ::std::option::Option<super::super::super::types::String>,
-    pub search_vector: ::std::option::Option<super::super::super::types::SearchVectorList>,
+    pub search_vector: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>>,
     pub table_name: ::std::option::Option<super::super::super::types::TableArn>,
     pub top_k: ::std::option::Option<super::super::super::types::TopKInteger>,
 }
         impl SearchVectorsInput {
-            pub fn expression_attribute_names(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeNameMap> { self.expression_attribute_names.as_ref() }
-            pub fn expression_attribute_values(&self) -> ::std::option::Option<&super::super::super::types::ExpressionAttributeValueMap> { self.expression_attribute_values.as_ref() }
+            pub fn expression_attribute_names(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { self.expression_attribute_names.as_ref() }
+            pub fn expression_attribute_values(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { self.expression_attribute_values.as_ref() }
             pub fn index_name(&self) -> ::std::option::Option<&str> { self.index_name.as_deref() }
             pub fn projection_expression(&self) -> ::std::option::Option<&str> { self.projection_expression.as_deref() }
             pub fn return_consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::ReturnConsumedCapacity> { self.return_consumed_capacity.as_ref() }
@@ -28,23 +28,23 @@ impl SearchVectorsInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct SearchVectorsInputBuilder {
-    expression_attribute_names: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>,
-    expression_attribute_values: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>,
+    expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>,
+    expression_attribute_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>,
     index_name: ::std::option::Option<super::super::super::types::IndexName>,
     projection_expression: ::std::option::Option<super::super::super::types::ProjectionExpression>,
     return_consumed_capacity: ::std::option::Option<super::super::super::types::ReturnConsumedCapacity>,
     search_condition_expression: ::std::option::Option<super::super::super::types::String>,
-    search_vector: ::std::option::Option<super::super::super::types::SearchVectorList>,
+    search_vector: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>>,
     table_name: ::std::option::Option<super::super::super::types::TableArn>,
     top_k: ::std::option::Option<super::super::super::types::TopKInteger>,
 }
 impl SearchVectorsInputBuilder {
-    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = Some(input.into()); self }
-    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.expression_attribute_values = input; self }
-    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<super::super::super::types::ExpressionAttributeValueMap> { &self.expression_attribute_values }
+    pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
+    pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
+    pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>> { &self.expression_attribute_names }
+    pub fn expression_attribute_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = Some(input.into()); self }
+    pub fn set_expression_attribute_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.expression_attribute_values = input; self }
+    pub fn get_expression_attribute_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>> { &self.expression_attribute_values }
     pub fn index_name(mut self, input: impl ::std::convert::Into<super::super::super::types::IndexName>) -> Self { self.index_name = Some(input.into()); self }
     pub fn set_index_name(mut self, input: ::std::option::Option<super::super::super::types::IndexName>) -> Self { self.index_name = input; self }
     pub fn get_index_name(&self) -> &::std::option::Option<super::super::super::types::IndexName> { &self.index_name }
@@ -57,9 +57,9 @@ impl SearchVectorsInputBuilder {
     pub fn search_condition_expression(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.search_condition_expression = Some(input.into()); self }
     pub fn set_search_condition_expression(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.search_condition_expression = input; self }
     pub fn get_search_condition_expression(&self) -> &::std::option::Option<super::super::super::types::String> { &self.search_condition_expression }
-    pub fn search_vector(mut self, input: impl ::std::convert::Into<super::super::super::types::SearchVectorList>) -> Self { self.search_vector = Some(input.into()); self }
-    pub fn set_search_vector(mut self, input: ::std::option::Option<super::super::super::types::SearchVectorList>) -> Self { self.search_vector = input; self }
-    pub fn get_search_vector(&self) -> &::std::option::Option<super::super::super::types::SearchVectorList> { &self.search_vector }
+    pub fn search_vector(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeValue>>) -> Self { self.search_vector = Some(input.into()); self }
+    pub fn set_search_vector(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>>) -> Self { self.search_vector = input; self }
+    pub fn get_search_vector(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttributeValue>> { &self.search_vector }
     pub fn table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.table_name = Some(input.into()); self }
     pub fn set_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableArn>) -> Self { self.table_name = input; self }
     pub fn get_table_name(&self) -> &::std::option::Option<super::super::super::types::TableArn> { &self.table_name }

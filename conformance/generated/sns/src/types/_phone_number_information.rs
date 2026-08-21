@@ -4,7 +4,7 @@
     pub struct PhoneNumberInformation {
         pub created_at: ::std::option::Option<self::Timestamp>,
         pub iso2_country_code: ::std::option::Option<self::Iso2CountryCode>,
-        pub number_capabilities: ::std::option::Option<self::NumberCapabilityList>,
+        pub number_capabilities: ::std::option::Option<::std::vec::Vec<self::NumberCapability>>,
         pub phone_number: ::std::option::Option<self::PhoneNumber>,
         pub route_type: ::std::option::Option<self::RouteType>,
         pub status: ::std::option::Option<self::String>,
@@ -13,7 +13,7 @@
         pub fn builder() -> PhoneNumberInformationBuilder { PhoneNumberInformationBuilder::default() }
         pub fn created_at(&self) -> &::std::option::Option<self::Timestamp> { &self.created_at }
         pub fn iso2_country_code(&self) -> &::std::option::Option<self::Iso2CountryCode> { &self.iso2_country_code }
-        pub fn number_capabilities(&self) -> &::std::option::Option<self::NumberCapabilityList> { &self.number_capabilities }
+        pub fn number_capabilities(&self) -> &::std::option::Option<::std::vec::Vec<self::NumberCapability>> { &self.number_capabilities }
         pub fn phone_number(&self) -> &::std::option::Option<self::PhoneNumber> { &self.phone_number }
         pub fn route_type(&self) -> &::std::option::Option<self::RouteType> { &self.route_type }
         pub fn status(&self) -> ::std::option::Option<&str> { self.status.as_deref() }
@@ -23,7 +23,7 @@
     pub struct PhoneNumberInformationBuilder {
         created_at: ::std::option::Option<self::Timestamp>,
         iso2_country_code: ::std::option::Option<self::Iso2CountryCode>,
-        number_capabilities: ::std::option::Option<self::NumberCapabilityList>,
+        number_capabilities: ::std::option::Option<::std::vec::Vec<self::NumberCapability>>,
         phone_number: ::std::option::Option<self::PhoneNumber>,
         route_type: ::std::option::Option<self::RouteType>,
         status: ::std::option::Option<self::String>,
@@ -36,9 +36,9 @@
         pub fn iso2_country_code(mut self, input: impl ::std::convert::Into<self::Iso2CountryCode>) -> Self { self.iso2_country_code = Some(input.into()); self }
         pub fn set_iso2_country_code(mut self, input: ::std::option::Option<self::Iso2CountryCode>) -> Self { self.iso2_country_code = input; self }
         pub fn get_iso2_country_code(&self) -> &::std::option::Option<self::Iso2CountryCode> { &self.iso2_country_code }
-        pub fn number_capabilities(mut self, input: impl ::std::convert::Into<self::NumberCapabilityList>) -> Self { self.number_capabilities = Some(input.into()); self }
-        pub fn set_number_capabilities(mut self, input: ::std::option::Option<self::NumberCapabilityList>) -> Self { self.number_capabilities = input; self }
-        pub fn get_number_capabilities(&self) -> &::std::option::Option<self::NumberCapabilityList> { &self.number_capabilities }
+        pub fn number_capabilities(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::NumberCapability>>) -> Self { self.number_capabilities = Some(input.into()); self }
+        pub fn set_number_capabilities(mut self, input: ::std::option::Option<::std::vec::Vec<self::NumberCapability>>) -> Self { self.number_capabilities = input; self }
+        pub fn get_number_capabilities(&self) -> &::std::option::Option<::std::vec::Vec<self::NumberCapability>> { &self.number_capabilities }
         pub fn phone_number(mut self, input: impl ::std::convert::Into<self::PhoneNumber>) -> Self { self.phone_number = Some(input.into()); self }
         pub fn set_phone_number(mut self, input: ::std::option::Option<self::PhoneNumber>) -> Self { self.phone_number = input; self }
         pub fn get_phone_number(&self) -> &::std::option::Option<self::PhoneNumber> { &self.phone_number }

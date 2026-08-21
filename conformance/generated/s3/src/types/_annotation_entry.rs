@@ -3,7 +3,7 @@
     #[derive(Clone, Debug, Default)]
     pub struct AnnotationEntry {
         pub annotation_name: ::std::option::Option<self::AnnotationName>,
-        pub checksum_algorithm: ::std::option::Option<self::ChecksumAlgorithmList>,
+        pub checksum_algorithm: ::std::option::Option<::std::vec::Vec<self::ChecksumAlgorithm>>,
         pub e_tag: ::std::option::Option<self::ETag>,
         pub last_modified: ::std::option::Option<self::LastModified>,
         pub replication_status: ::std::option::Option<self::ReplicationStatus>,
@@ -12,7 +12,7 @@
     impl AnnotationEntry {
         pub fn builder() -> AnnotationEntryBuilder { AnnotationEntryBuilder::default() }
         pub fn annotation_name(&self) -> &::std::option::Option<self::AnnotationName> { &self.annotation_name }
-        pub fn checksum_algorithm(&self) -> &::std::option::Option<self::ChecksumAlgorithmList> { &self.checksum_algorithm }
+        pub fn checksum_algorithm(&self) -> &::std::option::Option<::std::vec::Vec<self::ChecksumAlgorithm>> { &self.checksum_algorithm }
         pub fn e_tag(&self) -> ::std::option::Option<&str> { self.e_tag.as_deref() }
         pub fn last_modified(&self) -> &::std::option::Option<self::LastModified> { &self.last_modified }
         pub fn replication_status(&self) -> &::std::option::Option<self::ReplicationStatus> { &self.replication_status }
@@ -22,7 +22,7 @@
     #[derive(Clone, Debug, Default)]
     pub struct AnnotationEntryBuilder {
         annotation_name: ::std::option::Option<self::AnnotationName>,
-        checksum_algorithm: ::std::option::Option<self::ChecksumAlgorithmList>,
+        checksum_algorithm: ::std::option::Option<::std::vec::Vec<self::ChecksumAlgorithm>>,
         e_tag: ::std::option::Option<self::ETag>,
         last_modified: ::std::option::Option<self::LastModified>,
         replication_status: ::std::option::Option<self::ReplicationStatus>,
@@ -33,9 +33,9 @@
         pub fn annotation_name(mut self, input: impl ::std::convert::Into<self::AnnotationName>) -> Self { self.annotation_name = Some(input.into()); self }
         pub fn set_annotation_name(mut self, input: ::std::option::Option<self::AnnotationName>) -> Self { self.annotation_name = input; self }
         pub fn get_annotation_name(&self) -> &::std::option::Option<self::AnnotationName> { &self.annotation_name }
-        pub fn checksum_algorithm(mut self, input: impl ::std::convert::Into<self::ChecksumAlgorithmList>) -> Self { self.checksum_algorithm = Some(input.into()); self }
-        pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<self::ChecksumAlgorithmList>) -> Self { self.checksum_algorithm = input; self }
-        pub fn get_checksum_algorithm(&self) -> &::std::option::Option<self::ChecksumAlgorithmList> { &self.checksum_algorithm }
+        pub fn checksum_algorithm(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ChecksumAlgorithm>>) -> Self { self.checksum_algorithm = Some(input.into()); self }
+        pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<::std::vec::Vec<self::ChecksumAlgorithm>>) -> Self { self.checksum_algorithm = input; self }
+        pub fn get_checksum_algorithm(&self) -> &::std::option::Option<::std::vec::Vec<self::ChecksumAlgorithm>> { &self.checksum_algorithm }
         pub fn e_tag(mut self, input: impl ::std::convert::Into<self::ETag>) -> Self { self.e_tag = Some(input.into()); self }
         pub fn set_e_tag(mut self, input: ::std::option::Option<self::ETag>) -> Self { self.e_tag = input; self }
         pub fn get_e_tag(&self) -> &::std::option::Option<self::ETag> { &self.e_tag }

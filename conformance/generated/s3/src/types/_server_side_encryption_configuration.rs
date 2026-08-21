@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ServerSideEncryptionConfiguration {
-        pub rules: ::std::option::Option<self::ServerSideEncryptionRules>,
+        pub rules: ::std::option::Option<::std::vec::Vec<self::ServerSideEncryptionRule>>,
     }
     impl ServerSideEncryptionConfiguration {
         pub fn builder() -> ServerSideEncryptionConfigurationBuilder { ServerSideEncryptionConfigurationBuilder::default() }
-        pub fn rules(&self) -> &::std::option::Option<self::ServerSideEncryptionRules> { &self.rules }
+        pub fn rules(&self) -> &::std::option::Option<::std::vec::Vec<self::ServerSideEncryptionRule>> { &self.rules }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ServerSideEncryptionConfigurationBuilder {
-        rules: ::std::option::Option<self::ServerSideEncryptionRules>,
+        rules: ::std::option::Option<::std::vec::Vec<self::ServerSideEncryptionRule>>,
     }
 
     impl ServerSideEncryptionConfigurationBuilder {
-        pub fn rules(mut self, input: impl ::std::convert::Into<self::ServerSideEncryptionRules>) -> Self { self.rules = Some(input.into()); self }
-        pub fn set_rules(mut self, input: ::std::option::Option<self::ServerSideEncryptionRules>) -> Self { self.rules = input; self }
-        pub fn get_rules(&self) -> &::std::option::Option<self::ServerSideEncryptionRules> { &self.rules }
+        pub fn rules(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ServerSideEncryptionRule>>) -> Self { self.rules = Some(input.into()); self }
+        pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<self::ServerSideEncryptionRule>>) -> Self { self.rules = input; self }
+        pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<self::ServerSideEncryptionRule>> { &self.rules }
         pub fn build(self) -> ServerSideEncryptionConfiguration {
             ServerSideEncryptionConfiguration {
                 rules: self.rules,

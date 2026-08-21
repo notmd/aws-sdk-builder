@@ -4,7 +4,7 @@
 pub struct ListPolicyVersionsOutput {
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub versions: ::std::option::Option<super::super::super::types::PolicyDocumentVersionListType>,
+    pub versions: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyVersion>>,
 }
         impl ListPolicyVersionsOutput {
             pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -18,7 +18,7 @@ impl ListPolicyVersionsOutput {
 pub struct ListPolicyVersionsOutputBuilder {
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    versions: ::std::option::Option<super::super::super::types::PolicyDocumentVersionListType>,
+    versions: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyVersion>>,
 }
 impl ListPolicyVersionsOutputBuilder {
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
@@ -27,9 +27,9 @@ impl ListPolicyVersionsOutputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn versions(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyDocumentVersionListType>) -> Self { self.versions = Some(input.into()); self }
-    pub fn set_versions(mut self, input: ::std::option::Option<super::super::super::types::PolicyDocumentVersionListType>) -> Self { self.versions = input; self }
-    pub fn get_versions(&self) -> &::std::option::Option<super::super::super::types::PolicyDocumentVersionListType> { &self.versions }
+    pub fn versions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyVersion>>) -> Self { self.versions = Some(input.into()); self }
+    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyVersion>>) -> Self { self.versions = input; self }
+    pub fn get_versions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyVersion>> { &self.versions }
     pub fn build(self) -> ListPolicyVersionsOutput { ListPolicyVersionsOutput {
         is_truncated: self.is_truncated,
         marker: self.marker,

@@ -38,7 +38,7 @@ impl Builder {
     pub fn if_match(mut self, value: impl ::std::convert::Into<super::super::super::types::IfMatch>) -> Self { self.input.if_match = Some(value.into()); self }
     pub fn if_none_match(mut self, value: impl ::std::convert::Into<super::super::super::types::IfNoneMatch>) -> Self { self.input.if_none_match = Some(value.into()); self }
     pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectKey>) -> Self { self.input.key = Some(value.into()); self }
-    pub fn metadata(mut self, value: impl ::std::convert::Into<super::super::super::types::Metadata>) -> Self { self.input.metadata = Some(value.into()); self }
+    pub fn metadata(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>>) -> Self { self.input.metadata = Some(value.into()); self }
     pub fn metadata_directive(mut self, value: impl ::std::convert::Into<super::super::super::types::MetadataDirective>) -> Self { self.input.metadata_directive = Some(value.into()); self }
     pub fn object_lock_legal_hold_status(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockLegalHoldStatus>) -> Self { self.input.object_lock_legal_hold_status = Some(value.into()); self }
     pub fn object_lock_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::ObjectLockMode>) -> Self { self.input.object_lock_mode = Some(value.into()); self }

@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct DescribeEndpointsOutput {
-    pub endpoints: ::std::option::Option<super::super::super::types::Endpoints>,
+    pub endpoints: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>,
 }
         impl DescribeEndpointsOutput {
             pub fn endpoints(&self) -> &[super::super::super::types::Endpoint] { self.endpoints.as_deref().unwrap_or(&[]) }
@@ -12,12 +12,12 @@ impl DescribeEndpointsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct DescribeEndpointsOutputBuilder {
-    endpoints: ::std::option::Option<super::super::super::types::Endpoints>,
+    endpoints: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>,
 }
 impl DescribeEndpointsOutputBuilder {
-    pub fn endpoints(mut self, input: impl ::std::convert::Into<super::super::super::types::Endpoints>) -> Self { self.endpoints = Some(input.into()); self }
-    pub fn set_endpoints(mut self, input: ::std::option::Option<super::super::super::types::Endpoints>) -> Self { self.endpoints = input; self }
-    pub fn get_endpoints(&self) -> &::std::option::Option<super::super::super::types::Endpoints> { &self.endpoints }
+    pub fn endpoints(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Endpoint>>) -> Self { self.endpoints = Some(input.into()); self }
+    pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>) -> Self { self.endpoints = input; self }
+    pub fn get_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>> { &self.endpoints }
     pub fn build(self) -> DescribeEndpointsOutput { DescribeEndpointsOutput {
         endpoints: self.endpoints,
     } }

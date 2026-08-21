@@ -2,8 +2,8 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct AddPermissionInput {
-    pub aws_account_ids: ::std::option::Option<super::super::super::types::AwsAccountIdList>,
-    pub actions: ::std::option::Option<super::super::super::types::ActionNameList>,
+    pub aws_account_ids: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
+    pub actions: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
     pub label: ::std::option::Option<super::super::super::types::String>,
     pub queue_url: ::std::option::Option<super::super::super::types::String>,
 }
@@ -18,18 +18,18 @@ impl AddPermissionInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct AddPermissionInputBuilder {
-    aws_account_ids: ::std::option::Option<super::super::super::types::AwsAccountIdList>,
-    actions: ::std::option::Option<super::super::super::types::ActionNameList>,
+    aws_account_ids: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
+    actions: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
     label: ::std::option::Option<super::super::super::types::String>,
     queue_url: ::std::option::Option<super::super::super::types::String>,
 }
 impl AddPermissionInputBuilder {
-    pub fn aws_account_ids(mut self, input: impl ::std::convert::Into<super::super::super::types::AwsAccountIdList>) -> Self { self.aws_account_ids = Some(input.into()); self }
-    pub fn set_aws_account_ids(mut self, input: ::std::option::Option<super::super::super::types::AwsAccountIdList>) -> Self { self.aws_account_ids = input; self }
-    pub fn get_aws_account_ids(&self) -> &::std::option::Option<super::super::super::types::AwsAccountIdList> { &self.aws_account_ids }
-    pub fn actions(mut self, input: impl ::std::convert::Into<super::super::super::types::ActionNameList>) -> Self { self.actions = Some(input.into()); self }
-    pub fn set_actions(mut self, input: ::std::option::Option<super::super::super::types::ActionNameList>) -> Self { self.actions = input; self }
-    pub fn get_actions(&self) -> &::std::option::Option<super::super::super::types::ActionNameList> { &self.actions }
+    pub fn aws_account_ids(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.aws_account_ids = Some(input.into()); self }
+    pub fn set_aws_account_ids(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.aws_account_ids = input; self }
+    pub fn get_aws_account_ids(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::String>> { &self.aws_account_ids }
+    pub fn actions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.actions = Some(input.into()); self }
+    pub fn set_actions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.actions = input; self }
+    pub fn get_actions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::String>> { &self.actions }
     pub fn label(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.label = Some(input.into()); self }
     pub fn set_label(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.label = input; self }
     pub fn get_label(&self) -> &::std::option::Option<super::super::super::types::String> { &self.label }

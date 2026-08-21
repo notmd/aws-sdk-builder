@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DisconnectCustomKeyStoreError::Unhandled(format!("DisconnectCustomKeyStore returned HTTP {}", status)));
                          }
-                         Ok(super::DisconnectCustomKeyStoreOutput::default())
+                         Ok(super::DisconnectCustomKeyStoreOutput)
                      }
 }
 pub use Builder as DisconnectCustomKeyStoreFluentBuilder;

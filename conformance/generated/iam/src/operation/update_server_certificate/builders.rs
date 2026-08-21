@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateServerCertificateError::Unhandled(format!("UpdateServerCertificate returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateServerCertificateOutput::default())
+                         Ok(super::UpdateServerCertificateOutput)
                      }
 }
 pub use Builder as UpdateServerCertificateFluentBuilder;

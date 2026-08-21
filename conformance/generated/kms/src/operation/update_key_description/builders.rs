@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateKeyDescriptionError::Unhandled(format!("UpdateKeyDescription returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateKeyDescriptionOutput::default())
+                         Ok(super::UpdateKeyDescriptionOutput)
                      }
 }
 pub use Builder as UpdateKeyDescriptionFluentBuilder;

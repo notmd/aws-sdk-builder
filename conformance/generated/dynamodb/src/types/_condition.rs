@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct Condition {
-        pub attribute_value_list: ::std::option::Option<self::AttributeValueList>,
+        pub attribute_value_list: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>,
         pub comparison_operator: ::std::option::Option<self::ComparisonOperator>,
     }
     impl Condition {
         pub fn builder() -> ConditionBuilder { ConditionBuilder::default() }
-        pub fn attribute_value_list(&self) -> &::std::option::Option<self::AttributeValueList> { &self.attribute_value_list }
+        pub fn attribute_value_list(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeValue>> { &self.attribute_value_list }
         pub fn comparison_operator(&self) -> &::std::option::Option<self::ComparisonOperator> { &self.comparison_operator }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ConditionBuilder {
-        attribute_value_list: ::std::option::Option<self::AttributeValueList>,
+        attribute_value_list: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>,
         comparison_operator: ::std::option::Option<self::ComparisonOperator>,
     }
 
     impl ConditionBuilder {
-        pub fn attribute_value_list(mut self, input: impl ::std::convert::Into<self::AttributeValueList>) -> Self { self.attribute_value_list = Some(input.into()); self }
-        pub fn set_attribute_value_list(mut self, input: ::std::option::Option<self::AttributeValueList>) -> Self { self.attribute_value_list = input; self }
-        pub fn get_attribute_value_list(&self) -> &::std::option::Option<self::AttributeValueList> { &self.attribute_value_list }
+        pub fn attribute_value_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttributeValue>>) -> Self { self.attribute_value_list = Some(input.into()); self }
+        pub fn set_attribute_value_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>) -> Self { self.attribute_value_list = input; self }
+        pub fn get_attribute_value_list(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeValue>> { &self.attribute_value_list }
         pub fn comparison_operator(mut self, input: impl ::std::convert::Into<self::ComparisonOperator>) -> Self { self.comparison_operator = Some(input.into()); self }
         pub fn set_comparison_operator(mut self, input: ::std::option::Option<self::ComparisonOperator>) -> Self { self.comparison_operator = input; self }
         pub fn get_comparison_operator(&self) -> &::std::option::Option<self::ComparisonOperator> { &self.comparison_operator }

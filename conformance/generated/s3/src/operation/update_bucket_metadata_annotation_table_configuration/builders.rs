@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateBucketMetadataAnnotationTableConfigurationError::Unhandled(format!("UpdateBucketMetadataAnnotationTableConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateBucketMetadataAnnotationTableConfigurationOutput::default())
+                         Ok(super::UpdateBucketMetadataAnnotationTableConfigurationOutput)
                      }
 }
 pub use Builder as UpdateBucketMetadataAnnotationTableConfigurationFluentBuilder;

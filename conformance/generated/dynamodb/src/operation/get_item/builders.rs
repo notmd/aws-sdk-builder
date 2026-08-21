@@ -10,10 +10,10 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.input.attributes_to_get = Some(value.into()); self }
+    pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeName>>) -> Self { self.input.attributes_to_get = Some(value.into()); self }
     pub fn consistent_read(mut self, value: impl ::std::convert::Into<super::super::super::types::ConsistentRead>) -> Self { self.input.consistent_read = Some(value.into()); self }
-    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
-    pub fn key(mut self, value: impl ::std::convert::Into<super::super::super::types::Key>) -> Self { self.input.key = Some(value.into()); self }
+    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
+    pub fn key(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.key = Some(value.into()); self }
     pub fn projection_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ProjectionExpression>) -> Self { self.input.projection_expression = Some(value.into()); self }
     pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
     pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }

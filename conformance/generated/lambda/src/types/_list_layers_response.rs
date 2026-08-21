@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ListLayersResponse {
-        pub layers: ::std::option::Option<self::LayersList>,
+        pub layers: ::std::option::Option<::std::vec::Vec<self::LayersListItem>>,
         pub next_marker: ::std::option::Option<self::String>,
     }
     impl ListLayersResponse {
         pub fn builder() -> ListLayersResponseBuilder { ListLayersResponseBuilder::default() }
-        pub fn layers(&self) -> &::std::option::Option<self::LayersList> { &self.layers }
+        pub fn layers(&self) -> &::std::option::Option<::std::vec::Vec<self::LayersListItem>> { &self.layers }
         pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ListLayersResponseBuilder {
-        layers: ::std::option::Option<self::LayersList>,
+        layers: ::std::option::Option<::std::vec::Vec<self::LayersListItem>>,
         next_marker: ::std::option::Option<self::String>,
     }
 
     impl ListLayersResponseBuilder {
-        pub fn layers(mut self, input: impl ::std::convert::Into<self::LayersList>) -> Self { self.layers = Some(input.into()); self }
-        pub fn set_layers(mut self, input: ::std::option::Option<self::LayersList>) -> Self { self.layers = input; self }
-        pub fn get_layers(&self) -> &::std::option::Option<self::LayersList> { &self.layers }
+        pub fn layers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::LayersListItem>>) -> Self { self.layers = Some(input.into()); self }
+        pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<self::LayersListItem>>) -> Self { self.layers = input; self }
+        pub fn get_layers(&self) -> &::std::option::Option<::std::vec::Vec<self::LayersListItem>> { &self.layers }
         pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
         pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
         pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }

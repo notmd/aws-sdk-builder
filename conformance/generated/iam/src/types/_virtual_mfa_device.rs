@@ -6,7 +6,7 @@
         pub enable_date: ::std::option::Option<self::DateType>,
         pub qr_code_png: ::std::option::Option<self::BootstrapDatum>,
         pub serial_number: ::std::option::Option<self::SerialNumberType>,
-        pub tags: ::std::option::Option<self::TagListType>,
+        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
         pub user: ::std::option::Option<self::User>,
     }
     impl VirtualMfaDevice {
@@ -15,7 +15,7 @@
         pub fn enable_date(&self) -> &::std::option::Option<self::DateType> { &self.enable_date }
         pub fn qr_code_png(&self) -> &::std::option::Option<self::BootstrapDatum> { &self.qr_code_png }
         pub fn serial_number(&self) -> &::std::option::Option<self::SerialNumberType> { &self.serial_number }
-        pub fn tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
+        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
         pub fn user(&self) -> &::std::option::Option<self::User> { &self.user }
     }
 
@@ -25,7 +25,7 @@
         enable_date: ::std::option::Option<self::DateType>,
         qr_code_png: ::std::option::Option<self::BootstrapDatum>,
         serial_number: ::std::option::Option<self::SerialNumberType>,
-        tags: ::std::option::Option<self::TagListType>,
+        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
         user: ::std::option::Option<self::User>,
     }
 
@@ -42,9 +42,9 @@
         pub fn serial_number(mut self, input: impl ::std::convert::Into<self::SerialNumberType>) -> Self { self.serial_number = Some(input.into()); self }
         pub fn set_serial_number(mut self, input: ::std::option::Option<self::SerialNumberType>) -> Self { self.serial_number = input; self }
         pub fn get_serial_number(&self) -> &::std::option::Option<self::SerialNumberType> { &self.serial_number }
-        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagListType>) -> Self { self.tags = Some(input.into()); self }
-        pub fn set_tags(mut self, input: ::std::option::Option<self::TagListType>) -> Self { self.tags = input; self }
-        pub fn get_tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
+        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
+        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
+        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
         pub fn user(mut self, input: impl ::std::convert::Into<self::User>) -> Self { self.user = Some(input.into()); self }
         pub fn set_user(mut self, input: ::std::option::Option<self::User>) -> Self { self.user = input; self }
         pub fn get_user(&self) -> &::std::option::Option<self::User> { &self.user }

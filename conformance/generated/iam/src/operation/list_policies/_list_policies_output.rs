@@ -4,7 +4,7 @@
 pub struct ListPoliciesOutput {
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub policies: ::std::option::Option<super::super::super::types::PolicyListType>,
+    pub policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::Policy>>,
 }
         impl ListPoliciesOutput {
             pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -18,7 +18,7 @@ impl ListPoliciesOutput {
 pub struct ListPoliciesOutputBuilder {
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    policies: ::std::option::Option<super::super::super::types::PolicyListType>,
+    policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::Policy>>,
 }
 impl ListPoliciesOutputBuilder {
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
@@ -27,9 +27,9 @@ impl ListPoliciesOutputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn policies(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyListType>) -> Self { self.policies = Some(input.into()); self }
-    pub fn set_policies(mut self, input: ::std::option::Option<super::super::super::types::PolicyListType>) -> Self { self.policies = input; self }
-    pub fn get_policies(&self) -> &::std::option::Option<super::super::super::types::PolicyListType> { &self.policies }
+    pub fn policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Policy>>) -> Self { self.policies = Some(input.into()); self }
+    pub fn set_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Policy>>) -> Self { self.policies = input; self }
+    pub fn get_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Policy>> { &self.policies }
     pub fn build(self) -> ListPoliciesOutput { ListPoliciesOutput {
         is_truncated: self.is_truncated,
         marker: self.marker,

@@ -10,10 +10,10 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.input.attribute_names = Some(value.into()); self }
+    pub fn attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::QueueAttributeName>>) -> Self { self.input.attribute_names = Some(value.into()); self }
     pub fn max_number_of_messages(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.input.max_number_of_messages = Some(value.into()); self }
-    pub fn message_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageAttributeNameList>) -> Self { self.input.message_attribute_names = Some(value.into()); self }
-    pub fn message_system_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageSystemAttributeList>) -> Self { self.input.message_system_attribute_names = Some(value.into()); self }
+    pub fn message_attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::MessageAttributeName>>) -> Self { self.input.message_attribute_names = Some(value.into()); self }
+    pub fn message_system_attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>>) -> Self { self.input.message_system_attribute_names = Some(value.into()); self }
     pub fn queue_url(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.queue_url = Some(value.into()); self }
     pub fn receive_request_attempt_id(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.receive_request_attempt_id = Some(value.into()); self }
     pub fn visibility_timeout(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.input.visibility_timeout = Some(value.into()); self }

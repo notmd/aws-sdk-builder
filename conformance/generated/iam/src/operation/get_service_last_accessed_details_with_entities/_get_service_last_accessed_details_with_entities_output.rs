@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetServiceLastAccessedDetailsWithEntitiesOutput {
-    pub entity_details_list: ::std::option::Option<super::super::super::types::EntityDetailsListType>,
+    pub entity_details_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::EntityDetails>>,
     pub error: ::std::option::Option<super::super::super::types::ErrorDetails>,
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub job_completion_date: ::std::option::Option<super::super::super::types::DateType>,
@@ -24,7 +24,7 @@ impl GetServiceLastAccessedDetailsWithEntitiesOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetServiceLastAccessedDetailsWithEntitiesOutputBuilder {
-    entity_details_list: ::std::option::Option<super::super::super::types::EntityDetailsListType>,
+    entity_details_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::EntityDetails>>,
     error: ::std::option::Option<super::super::super::types::ErrorDetails>,
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     job_completion_date: ::std::option::Option<super::super::super::types::DateType>,
@@ -33,9 +33,9 @@ pub struct GetServiceLastAccessedDetailsWithEntitiesOutputBuilder {
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
 impl GetServiceLastAccessedDetailsWithEntitiesOutputBuilder {
-    pub fn entity_details_list(mut self, input: impl ::std::convert::Into<super::super::super::types::EntityDetailsListType>) -> Self { self.entity_details_list = Some(input.into()); self }
-    pub fn set_entity_details_list(mut self, input: ::std::option::Option<super::super::super::types::EntityDetailsListType>) -> Self { self.entity_details_list = input; self }
-    pub fn get_entity_details_list(&self) -> &::std::option::Option<super::super::super::types::EntityDetailsListType> { &self.entity_details_list }
+    pub fn entity_details_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::EntityDetails>>) -> Self { self.entity_details_list = Some(input.into()); self }
+    pub fn set_entity_details_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EntityDetails>>) -> Self { self.entity_details_list = input; self }
+    pub fn get_entity_details_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::EntityDetails>> { &self.entity_details_list }
     pub fn error(mut self, input: impl ::std::convert::Into<super::super::super::types::ErrorDetails>) -> Self { self.error = Some(input.into()); self }
     pub fn set_error(mut self, input: ::std::option::Option<super::super::super::types::ErrorDetails>) -> Self { self.error = input; self }
     pub fn get_error(&self) -> &::std::option::Option<super::super::super::types::ErrorDetails> { &self.error }

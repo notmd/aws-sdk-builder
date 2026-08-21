@@ -2,7 +2,7 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct UpdateReplicationGroupMemberAction {
-        pub global_secondary_indexes: ::std::option::Option<self::ReplicaGlobalSecondaryIndexList>,
+        pub global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>>,
         pub kms_master_key_id: ::std::option::Option<self::KmsMasterKeyId>,
         pub on_demand_throughput_override: ::std::option::Option<self::OnDemandThroughputOverride>,
         pub provisioned_throughput_override: ::std::option::Option<self::ProvisionedThroughputOverride>,
@@ -11,7 +11,7 @@
     }
     impl UpdateReplicationGroupMemberAction {
         pub fn builder() -> UpdateReplicationGroupMemberActionBuilder { UpdateReplicationGroupMemberActionBuilder::default() }
-        pub fn global_secondary_indexes(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexList> { &self.global_secondary_indexes }
+        pub fn global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>> { &self.global_secondary_indexes }
         pub fn kms_master_key_id(&self) -> &::std::option::Option<self::KmsMasterKeyId> { &self.kms_master_key_id }
         pub fn on_demand_throughput_override(&self) -> &::std::option::Option<self::OnDemandThroughputOverride> { &self.on_demand_throughput_override }
         pub fn provisioned_throughput_override(&self) -> &::std::option::Option<self::ProvisionedThroughputOverride> { &self.provisioned_throughput_override }
@@ -21,7 +21,7 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct UpdateReplicationGroupMemberActionBuilder {
-        global_secondary_indexes: ::std::option::Option<self::ReplicaGlobalSecondaryIndexList>,
+        global_secondary_indexes: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>>,
         kms_master_key_id: ::std::option::Option<self::KmsMasterKeyId>,
         on_demand_throughput_override: ::std::option::Option<self::OnDemandThroughputOverride>,
         provisioned_throughput_override: ::std::option::Option<self::ProvisionedThroughputOverride>,
@@ -30,9 +30,9 @@
     }
 
     impl UpdateReplicationGroupMemberActionBuilder {
-        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<self::ReplicaGlobalSecondaryIndexList>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<self::ReplicaGlobalSecondaryIndexList>) -> Self { self.global_secondary_indexes = input; self }
-        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexList> { &self.global_secondary_indexes }
+        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
+        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>>) -> Self { self.global_secondary_indexes = input; self }
+        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndex>> { &self.global_secondary_indexes }
         pub fn kms_master_key_id(mut self, input: impl ::std::convert::Into<self::KmsMasterKeyId>) -> Self { self.kms_master_key_id = Some(input.into()); self }
         pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<self::KmsMasterKeyId>) -> Self { self.kms_master_key_id = input; self }
         pub fn get_kms_master_key_id(&self) -> &::std::option::Option<self::KmsMasterKeyId> { &self.kms_master_key_id }

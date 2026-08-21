@@ -28,7 +28,7 @@ pub struct HeadObjectOutput {
     pub expiration: ::std::option::Option<super::super::super::types::Expiration>,
     pub expires: ::std::option::Option<super::super::super::types::Expires>,
     pub last_modified: ::std::option::Option<super::super::super::types::LastModified>,
-    pub metadata: ::std::option::Option<super::super::super::types::Metadata>,
+    pub metadata: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>>,
     pub missing_meta: ::std::option::Option<super::super::super::types::MissingMeta>,
     pub object_lock_legal_hold_status: ::std::option::Option<super::super::super::types::ObjectLockLegalHoldStatus>,
     pub object_lock_mode: ::std::option::Option<super::super::super::types::ObjectLockMode>,
@@ -73,7 +73,7 @@ pub struct HeadObjectOutput {
             pub fn expiration(&self) -> ::std::option::Option<&str> { self.expiration.as_deref() }
             pub fn expires(&self) -> ::std::option::Option<&str> { self.expires.as_deref() }
             pub fn last_modified(&self) -> ::std::option::Option<&super::super::super::types::LastModified> { self.last_modified.as_ref() }
-            pub fn metadata(&self) -> ::std::option::Option<&super::super::super::types::Metadata> { self.metadata.as_ref() }
+            pub fn metadata(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>> { self.metadata.as_ref() }
             pub fn missing_meta(&self) -> ::std::option::Option<i32> { self.missing_meta }
             pub fn object_lock_legal_hold_status(&self) -> ::std::option::Option<&super::super::super::types::ObjectLockLegalHoldStatus> { self.object_lock_legal_hold_status.as_ref() }
             pub fn object_lock_mode(&self) -> ::std::option::Option<&super::super::super::types::ObjectLockMode> { self.object_lock_mode.as_ref() }
@@ -122,7 +122,7 @@ pub struct HeadObjectOutputBuilder {
     expiration: ::std::option::Option<super::super::super::types::Expiration>,
     expires: ::std::option::Option<super::super::super::types::Expires>,
     last_modified: ::std::option::Option<super::super::super::types::LastModified>,
-    metadata: ::std::option::Option<super::super::super::types::Metadata>,
+    metadata: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>>,
     missing_meta: ::std::option::Option<super::super::super::types::MissingMeta>,
     object_lock_legal_hold_status: ::std::option::Option<super::super::super::types::ObjectLockLegalHoldStatus>,
     object_lock_mode: ::std::option::Option<super::super::super::types::ObjectLockMode>,
@@ -219,9 +219,9 @@ impl HeadObjectOutputBuilder {
     pub fn last_modified(mut self, input: impl ::std::convert::Into<super::super::super::types::LastModified>) -> Self { self.last_modified = Some(input.into()); self }
     pub fn set_last_modified(mut self, input: ::std::option::Option<super::super::super::types::LastModified>) -> Self { self.last_modified = input; self }
     pub fn get_last_modified(&self) -> &::std::option::Option<super::super::super::types::LastModified> { &self.last_modified }
-    pub fn metadata(mut self, input: impl ::std::convert::Into<super::super::super::types::Metadata>) -> Self { self.metadata = Some(input.into()); self }
-    pub fn set_metadata(mut self, input: ::std::option::Option<super::super::super::types::Metadata>) -> Self { self.metadata = input; self }
-    pub fn get_metadata(&self) -> &::std::option::Option<super::super::super::types::Metadata> { &self.metadata }
+    pub fn metadata(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>>) -> Self { self.metadata = Some(input.into()); self }
+    pub fn set_metadata(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>>) -> Self { self.metadata = input; self }
+    pub fn get_metadata(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>> { &self.metadata }
     pub fn missing_meta(mut self, input: impl ::std::convert::Into<super::super::super::types::MissingMeta>) -> Self { self.missing_meta = Some(input.into()); self }
     pub fn set_missing_meta(mut self, input: ::std::option::Option<super::super::super::types::MissingMeta>) -> Self { self.missing_meta = input; self }
     pub fn get_missing_meta(&self) -> &::std::option::Option<super::super::super::types::MissingMeta> { &self.missing_meta }

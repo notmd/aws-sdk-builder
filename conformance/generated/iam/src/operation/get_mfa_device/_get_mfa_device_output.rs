@@ -2,13 +2,13 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetMfaDeviceOutput {
-    pub certifications: ::std::option::Option<super::super::super::types::CertificationMapType>,
+    pub certifications: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::CertificationKeyType, super::super::super::types::CertificationValueType>>,
     pub enable_date: ::std::option::Option<super::super::super::types::DateType>,
     pub serial_number: ::std::option::Option<super::super::super::types::SerialNumberType>,
     pub user_name: ::std::option::Option<super::super::super::types::UserNameType>,
 }
         impl GetMfaDeviceOutput {
-            pub fn certifications(&self) -> ::std::option::Option<&super::super::super::types::CertificationMapType> { self.certifications.as_ref() }
+            pub fn certifications(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::CertificationKeyType, super::super::super::types::CertificationValueType>> { self.certifications.as_ref() }
             pub fn enable_date(&self) -> ::std::option::Option<&super::super::super::types::DateType> { self.enable_date.as_ref() }
             pub fn serial_number(&self) -> ::std::option::Option<&str> { self.serial_number.as_deref() }
             pub fn user_name(&self) -> ::std::option::Option<&str> { self.user_name.as_deref() }
@@ -18,15 +18,15 @@ impl GetMfaDeviceOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetMfaDeviceOutputBuilder {
-    certifications: ::std::option::Option<super::super::super::types::CertificationMapType>,
+    certifications: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::CertificationKeyType, super::super::super::types::CertificationValueType>>,
     enable_date: ::std::option::Option<super::super::super::types::DateType>,
     serial_number: ::std::option::Option<super::super::super::types::SerialNumberType>,
     user_name: ::std::option::Option<super::super::super::types::UserNameType>,
 }
 impl GetMfaDeviceOutputBuilder {
-    pub fn certifications(mut self, input: impl ::std::convert::Into<super::super::super::types::CertificationMapType>) -> Self { self.certifications = Some(input.into()); self }
-    pub fn set_certifications(mut self, input: ::std::option::Option<super::super::super::types::CertificationMapType>) -> Self { self.certifications = input; self }
-    pub fn get_certifications(&self) -> &::std::option::Option<super::super::super::types::CertificationMapType> { &self.certifications }
+    pub fn certifications(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::CertificationKeyType, super::super::super::types::CertificationValueType>>) -> Self { self.certifications = Some(input.into()); self }
+    pub fn set_certifications(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::CertificationKeyType, super::super::super::types::CertificationValueType>>) -> Self { self.certifications = input; self }
+    pub fn get_certifications(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::CertificationKeyType, super::super::super::types::CertificationValueType>> { &self.certifications }
     pub fn enable_date(mut self, input: impl ::std::convert::Into<super::super::super::types::DateType>) -> Self { self.enable_date = Some(input.into()); self }
     pub fn set_enable_date(mut self, input: ::std::option::Option<super::super::super::types::DateType>) -> Self { self.enable_date = input; self }
     pub fn get_enable_date(&self) -> &::std::option::Option<super::super::super::types::DateType> { &self.enable_date }

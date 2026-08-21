@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::RejectDelegationRequestError::Unhandled(format!("RejectDelegationRequest returned HTTP {}", status)));
                          }
-                         Ok(super::RejectDelegationRequestOutput::default())
+                         Ok(super::RejectDelegationRequestOutput)
                      }
 }
 pub use Builder as RejectDelegationRequestFluentBuilder;

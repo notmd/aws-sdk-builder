@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::AttachRolePolicyError::Unhandled(format!("AttachRolePolicy returned HTTP {}", status)));
                          }
-                         Ok(super::AttachRolePolicyOutput::default())
+                         Ok(super::AttachRolePolicyOutput)
                      }
 }
 pub use Builder as AttachRolePolicyFluentBuilder;

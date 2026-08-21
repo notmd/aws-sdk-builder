@@ -2,9 +2,9 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct UpdateTableReplicaAutoScalingInput {
-    pub global_secondary_index_updates: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdateList>,
+    pub global_secondary_index_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdate>>,
     pub provisioned_write_capacity_auto_scaling_update: ::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate>,
-    pub replica_updates: ::std::option::Option<super::super::super::types::ReplicaAutoScalingUpdateList>,
+    pub replica_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaAutoScalingUpdate>>,
     pub table_name: ::std::option::Option<super::super::super::types::TableArn>,
 }
         impl UpdateTableReplicaAutoScalingInput {
@@ -18,21 +18,21 @@ impl UpdateTableReplicaAutoScalingInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct UpdateTableReplicaAutoScalingInputBuilder {
-    global_secondary_index_updates: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdateList>,
+    global_secondary_index_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdate>>,
     provisioned_write_capacity_auto_scaling_update: ::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate>,
-    replica_updates: ::std::option::Option<super::super::super::types::ReplicaAutoScalingUpdateList>,
+    replica_updates: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaAutoScalingUpdate>>,
     table_name: ::std::option::Option<super::super::super::types::TableArn>,
 }
 impl UpdateTableReplicaAutoScalingInputBuilder {
-    pub fn global_secondary_index_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdateList>) -> Self { self.global_secondary_index_updates = Some(input.into()); self }
-    pub fn set_global_secondary_index_updates(mut self, input: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdateList>) -> Self { self.global_secondary_index_updates = input; self }
-    pub fn get_global_secondary_index_updates(&self) -> &::std::option::Option<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdateList> { &self.global_secondary_index_updates }
+    pub fn global_secondary_index_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdate>>) -> Self { self.global_secondary_index_updates = Some(input.into()); self }
+    pub fn set_global_secondary_index_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdate>>) -> Self { self.global_secondary_index_updates = input; self }
+    pub fn get_global_secondary_index_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexAutoScalingUpdate>> { &self.global_secondary_index_updates }
     pub fn provisioned_write_capacity_auto_scaling_update(mut self, input: impl ::std::convert::Into<super::super::super::types::AutoScalingSettingsUpdate>) -> Self { self.provisioned_write_capacity_auto_scaling_update = Some(input.into()); self }
     pub fn set_provisioned_write_capacity_auto_scaling_update(mut self, input: ::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate>) -> Self { self.provisioned_write_capacity_auto_scaling_update = input; self }
     pub fn get_provisioned_write_capacity_auto_scaling_update(&self) -> &::std::option::Option<super::super::super::types::AutoScalingSettingsUpdate> { &self.provisioned_write_capacity_auto_scaling_update }
-    pub fn replica_updates(mut self, input: impl ::std::convert::Into<super::super::super::types::ReplicaAutoScalingUpdateList>) -> Self { self.replica_updates = Some(input.into()); self }
-    pub fn set_replica_updates(mut self, input: ::std::option::Option<super::super::super::types::ReplicaAutoScalingUpdateList>) -> Self { self.replica_updates = input; self }
-    pub fn get_replica_updates(&self) -> &::std::option::Option<super::super::super::types::ReplicaAutoScalingUpdateList> { &self.replica_updates }
+    pub fn replica_updates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaAutoScalingUpdate>>) -> Self { self.replica_updates = Some(input.into()); self }
+    pub fn set_replica_updates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaAutoScalingUpdate>>) -> Self { self.replica_updates = input; self }
+    pub fn get_replica_updates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaAutoScalingUpdate>> { &self.replica_updates }
     pub fn table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.table_name = Some(input.into()); self }
     pub fn set_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableArn>) -> Self { self.table_name = input; self }
     pub fn get_table_name(&self) -> &::std::option::Option<super::super::super::types::TableArn> { &self.table_name }

@@ -2,8 +2,8 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct DeleteObjectsOutput {
-    pub deleted: ::std::option::Option<super::super::super::types::DeletedObjects>,
-    pub errors: ::std::option::Option<super::super::super::types::Errors>,
+    pub deleted: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeletedObject>>,
+    pub errors: ::std::option::Option<::std::vec::Vec<super::super::super::types::Error>>,
     pub request_charged: ::std::option::Option<super::super::super::types::RequestCharged>,
 }
         impl DeleteObjectsOutput {
@@ -16,17 +16,17 @@ impl DeleteObjectsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct DeleteObjectsOutputBuilder {
-    deleted: ::std::option::Option<super::super::super::types::DeletedObjects>,
-    errors: ::std::option::Option<super::super::super::types::Errors>,
+    deleted: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeletedObject>>,
+    errors: ::std::option::Option<::std::vec::Vec<super::super::super::types::Error>>,
     request_charged: ::std::option::Option<super::super::super::types::RequestCharged>,
 }
 impl DeleteObjectsOutputBuilder {
-    pub fn deleted(mut self, input: impl ::std::convert::Into<super::super::super::types::DeletedObjects>) -> Self { self.deleted = Some(input.into()); self }
-    pub fn set_deleted(mut self, input: ::std::option::Option<super::super::super::types::DeletedObjects>) -> Self { self.deleted = input; self }
-    pub fn get_deleted(&self) -> &::std::option::Option<super::super::super::types::DeletedObjects> { &self.deleted }
-    pub fn errors(mut self, input: impl ::std::convert::Into<super::super::super::types::Errors>) -> Self { self.errors = Some(input.into()); self }
-    pub fn set_errors(mut self, input: ::std::option::Option<super::super::super::types::Errors>) -> Self { self.errors = input; self }
-    pub fn get_errors(&self) -> &::std::option::Option<super::super::super::types::Errors> { &self.errors }
+    pub fn deleted(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DeletedObject>>) -> Self { self.deleted = Some(input.into()); self }
+    pub fn set_deleted(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeletedObject>>) -> Self { self.deleted = input; self }
+    pub fn get_deleted(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DeletedObject>> { &self.deleted }
+    pub fn errors(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Error>>) -> Self { self.errors = Some(input.into()); self }
+    pub fn set_errors(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Error>>) -> Self { self.errors = input; self }
+    pub fn get_errors(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Error>> { &self.errors }
     pub fn request_charged(mut self, input: impl ::std::convert::Into<super::super::super::types::RequestCharged>) -> Self { self.request_charged = Some(input.into()); self }
     pub fn set_request_charged(mut self, input: ::std::option::Option<super::super::super::types::RequestCharged>) -> Self { self.request_charged = input; self }
     pub fn get_request_charged(&self) -> &::std::option::Option<super::super::super::types::RequestCharged> { &self.request_charged }

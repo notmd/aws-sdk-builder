@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetSmsAttributesInput {
-    pub attributes: ::std::option::Option<super::super::super::types::ListString>,
+    pub attributes: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
 }
         impl GetSmsAttributesInput {
             pub fn attributes(&self) -> &[super::super::super::types::String] { self.attributes.as_deref().unwrap_or(&[]) }
@@ -12,12 +12,12 @@ impl GetSmsAttributesInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetSmsAttributesInputBuilder {
-    attributes: ::std::option::Option<super::super::super::types::ListString>,
+    attributes: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
 }
 impl GetSmsAttributesInputBuilder {
-    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::ListString>) -> Self { self.attributes = Some(input.into()); self }
-    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::ListString>) -> Self { self.attributes = input; self }
-    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::ListString> { &self.attributes }
+    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.attributes = input; self }
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::String>> { &self.attributes }
     pub fn build(self) -> GetSmsAttributesInput { GetSmsAttributesInput {
         attributes: self.attributes,
     } }

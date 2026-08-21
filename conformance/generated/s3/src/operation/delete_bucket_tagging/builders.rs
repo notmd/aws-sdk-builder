@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteBucketTaggingError::Unhandled(format!("DeleteBucketTagging returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteBucketTaggingOutput::default())
+                         Ok(super::DeleteBucketTaggingOutput)
                      }
 }
 pub use Builder as DeleteBucketTaggingFluentBuilder;

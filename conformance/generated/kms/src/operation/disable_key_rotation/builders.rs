@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DisableKeyRotationError::Unhandled(format!("DisableKeyRotation returned HTTP {}", status)));
                          }
-                         Ok(super::DisableKeyRotationOutput::default())
+                         Ok(super::DisableKeyRotationOutput)
                      }
 }
 pub use Builder as DisableKeyRotationFluentBuilder;

@@ -4,7 +4,7 @@
 pub struct ListUsersOutput {
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub users: ::std::option::Option<super::super::super::types::UserListType>,
+    pub users: ::std::option::Option<::std::vec::Vec<super::super::super::types::User>>,
 }
         impl ListUsersOutput {
             pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -18,7 +18,7 @@ impl ListUsersOutput {
 pub struct ListUsersOutputBuilder {
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    users: ::std::option::Option<super::super::super::types::UserListType>,
+    users: ::std::option::Option<::std::vec::Vec<super::super::super::types::User>>,
 }
 impl ListUsersOutputBuilder {
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
@@ -27,9 +27,9 @@ impl ListUsersOutputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn users(mut self, input: impl ::std::convert::Into<super::super::super::types::UserListType>) -> Self { self.users = Some(input.into()); self }
-    pub fn set_users(mut self, input: ::std::option::Option<super::super::super::types::UserListType>) -> Self { self.users = input; self }
-    pub fn get_users(&self) -> &::std::option::Option<super::super::super::types::UserListType> { &self.users }
+    pub fn users(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::User>>) -> Self { self.users = Some(input.into()); self }
+    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::User>>) -> Self { self.users = input; self }
+    pub fn get_users(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::User>> { &self.users }
     pub fn build(self) -> ListUsersOutput { ListUsersOutput {
         is_truncated: self.is_truncated,
         marker: self.marker,

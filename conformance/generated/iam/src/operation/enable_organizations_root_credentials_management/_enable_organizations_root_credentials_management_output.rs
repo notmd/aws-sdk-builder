@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct EnableOrganizationsRootCredentialsManagementOutput {
-    pub enabled_features: ::std::option::Option<super::super::super::types::FeaturesListType>,
+    pub enabled_features: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>,
     pub organization_id: ::std::option::Option<super::super::super::types::OrganizationIdType>,
 }
         impl EnableOrganizationsRootCredentialsManagementOutput {
@@ -14,13 +14,13 @@ impl EnableOrganizationsRootCredentialsManagementOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct EnableOrganizationsRootCredentialsManagementOutputBuilder {
-    enabled_features: ::std::option::Option<super::super::super::types::FeaturesListType>,
+    enabled_features: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>,
     organization_id: ::std::option::Option<super::super::super::types::OrganizationIdType>,
 }
 impl EnableOrganizationsRootCredentialsManagementOutputBuilder {
-    pub fn enabled_features(mut self, input: impl ::std::convert::Into<super::super::super::types::FeaturesListType>) -> Self { self.enabled_features = Some(input.into()); self }
-    pub fn set_enabled_features(mut self, input: ::std::option::Option<super::super::super::types::FeaturesListType>) -> Self { self.enabled_features = input; self }
-    pub fn get_enabled_features(&self) -> &::std::option::Option<super::super::super::types::FeaturesListType> { &self.enabled_features }
+    pub fn enabled_features(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::FeatureType>>) -> Self { self.enabled_features = Some(input.into()); self }
+    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>) -> Self { self.enabled_features = input; self }
+    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>> { &self.enabled_features }
     pub fn organization_id(mut self, input: impl ::std::convert::Into<super::super::super::types::OrganizationIdType>) -> Self { self.organization_id = Some(input.into()); self }
     pub fn set_organization_id(mut self, input: ::std::option::Option<super::super::super::types::OrganizationIdType>) -> Self { self.organization_id = input; self }
     pub fn get_organization_id(&self) -> &::std::option::Option<super::super::super::types::OrganizationIdType> { &self.organization_id }

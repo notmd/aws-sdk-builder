@@ -5,7 +5,7 @@ pub struct GetBucketWebsiteOutput {
     pub error_document: ::std::option::Option<super::super::super::types::ErrorDocument>,
     pub index_document: ::std::option::Option<super::super::super::types::IndexDocument>,
     pub redirect_all_requests_to: ::std::option::Option<super::super::super::types::RedirectAllRequestsTo>,
-    pub routing_rules: ::std::option::Option<super::super::super::types::RoutingRules>,
+    pub routing_rules: ::std::option::Option<::std::vec::Vec<super::super::super::types::RoutingRule>>,
 }
         impl GetBucketWebsiteOutput {
             pub fn error_document(&self) -> ::std::option::Option<&super::super::super::types::ErrorDocument> { self.error_document.as_ref() }
@@ -21,7 +21,7 @@ pub struct GetBucketWebsiteOutputBuilder {
     error_document: ::std::option::Option<super::super::super::types::ErrorDocument>,
     index_document: ::std::option::Option<super::super::super::types::IndexDocument>,
     redirect_all_requests_to: ::std::option::Option<super::super::super::types::RedirectAllRequestsTo>,
-    routing_rules: ::std::option::Option<super::super::super::types::RoutingRules>,
+    routing_rules: ::std::option::Option<::std::vec::Vec<super::super::super::types::RoutingRule>>,
 }
 impl GetBucketWebsiteOutputBuilder {
     pub fn error_document(mut self, input: impl ::std::convert::Into<super::super::super::types::ErrorDocument>) -> Self { self.error_document = Some(input.into()); self }
@@ -33,9 +33,9 @@ impl GetBucketWebsiteOutputBuilder {
     pub fn redirect_all_requests_to(mut self, input: impl ::std::convert::Into<super::super::super::types::RedirectAllRequestsTo>) -> Self { self.redirect_all_requests_to = Some(input.into()); self }
     pub fn set_redirect_all_requests_to(mut self, input: ::std::option::Option<super::super::super::types::RedirectAllRequestsTo>) -> Self { self.redirect_all_requests_to = input; self }
     pub fn get_redirect_all_requests_to(&self) -> &::std::option::Option<super::super::super::types::RedirectAllRequestsTo> { &self.redirect_all_requests_to }
-    pub fn routing_rules(mut self, input: impl ::std::convert::Into<super::super::super::types::RoutingRules>) -> Self { self.routing_rules = Some(input.into()); self }
-    pub fn set_routing_rules(mut self, input: ::std::option::Option<super::super::super::types::RoutingRules>) -> Self { self.routing_rules = input; self }
-    pub fn get_routing_rules(&self) -> &::std::option::Option<super::super::super::types::RoutingRules> { &self.routing_rules }
+    pub fn routing_rules(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::RoutingRule>>) -> Self { self.routing_rules = Some(input.into()); self }
+    pub fn set_routing_rules(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RoutingRule>>) -> Self { self.routing_rules = input; self }
+    pub fn get_routing_rules(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::RoutingRule>> { &self.routing_rules }
     pub fn build(self) -> GetBucketWebsiteOutput { GetBucketWebsiteOutput {
         error_document: self.error_document,
         index_document: self.index_document,

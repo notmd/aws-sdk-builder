@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::CreateBucketMetadataConfigurationError::Unhandled(format!("CreateBucketMetadataConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::CreateBucketMetadataConfigurationOutput::default())
+                         Ok(super::CreateBucketMetadataConfigurationOutput)
                      }
 }
 pub use Builder as CreateBucketMetadataConfigurationFluentBuilder;

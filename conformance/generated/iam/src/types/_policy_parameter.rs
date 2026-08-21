@@ -4,20 +4,20 @@
     pub struct PolicyParameter {
         pub name: ::std::option::Option<self::PolicyParameterNameType>,
         pub r#type: ::std::option::Option<self::PolicyParameterTypeEnum>,
-        pub values: ::std::option::Option<self::PolicyParameterValuesListType>,
+        pub values: ::std::option::Option<::std::vec::Vec<self::PolicyParameterValueType>>,
     }
     impl PolicyParameter {
         pub fn builder() -> PolicyParameterBuilder { PolicyParameterBuilder::default() }
         pub fn name(&self) -> &::std::option::Option<self::PolicyParameterNameType> { &self.name }
         pub fn r#type(&self) -> &::std::option::Option<self::PolicyParameterTypeEnum> { &self.r#type }
-        pub fn values(&self) -> &::std::option::Option<self::PolicyParameterValuesListType> { &self.values }
+        pub fn values(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyParameterValueType>> { &self.values }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct PolicyParameterBuilder {
         name: ::std::option::Option<self::PolicyParameterNameType>,
         r#type: ::std::option::Option<self::PolicyParameterTypeEnum>,
-        values: ::std::option::Option<self::PolicyParameterValuesListType>,
+        values: ::std::option::Option<::std::vec::Vec<self::PolicyParameterValueType>>,
     }
 
     impl PolicyParameterBuilder {
@@ -27,9 +27,9 @@
         pub fn r#type(mut self, input: impl ::std::convert::Into<self::PolicyParameterTypeEnum>) -> Self { self.r#type = Some(input.into()); self }
         pub fn set_type(mut self, input: ::std::option::Option<self::PolicyParameterTypeEnum>) -> Self { self.r#type = input; self }
         pub fn get_type(&self) -> &::std::option::Option<self::PolicyParameterTypeEnum> { &self.r#type }
-        pub fn values(mut self, input: impl ::std::convert::Into<self::PolicyParameterValuesListType>) -> Self { self.values = Some(input.into()); self }
-        pub fn set_values(mut self, input: ::std::option::Option<self::PolicyParameterValuesListType>) -> Self { self.values = input; self }
-        pub fn get_values(&self) -> &::std::option::Option<self::PolicyParameterValuesListType> { &self.values }
+        pub fn values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyParameterValueType>>) -> Self { self.values = Some(input.into()); self }
+        pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyParameterValueType>>) -> Self { self.values = input; self }
+        pub fn get_values(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyParameterValueType>> { &self.values }
         pub fn build(self) -> PolicyParameter {
             PolicyParameter {
                 name: self.name,

@@ -4,20 +4,20 @@
     pub struct MultiRegionConfiguration {
         pub multi_region_key_type: ::std::option::Option<self::MultiRegionKeyType>,
         pub primary_key: ::std::option::Option<self::MultiRegionKey>,
-        pub replica_keys: ::std::option::Option<self::MultiRegionKeyList>,
+        pub replica_keys: ::std::option::Option<::std::vec::Vec<self::MultiRegionKey>>,
     }
     impl MultiRegionConfiguration {
         pub fn builder() -> MultiRegionConfigurationBuilder { MultiRegionConfigurationBuilder::default() }
         pub fn multi_region_key_type(&self) -> &::std::option::Option<self::MultiRegionKeyType> { &self.multi_region_key_type }
         pub fn primary_key(&self) -> &::std::option::Option<self::MultiRegionKey> { &self.primary_key }
-        pub fn replica_keys(&self) -> &::std::option::Option<self::MultiRegionKeyList> { &self.replica_keys }
+        pub fn replica_keys(&self) -> &::std::option::Option<::std::vec::Vec<self::MultiRegionKey>> { &self.replica_keys }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct MultiRegionConfigurationBuilder {
         multi_region_key_type: ::std::option::Option<self::MultiRegionKeyType>,
         primary_key: ::std::option::Option<self::MultiRegionKey>,
-        replica_keys: ::std::option::Option<self::MultiRegionKeyList>,
+        replica_keys: ::std::option::Option<::std::vec::Vec<self::MultiRegionKey>>,
     }
 
     impl MultiRegionConfigurationBuilder {
@@ -27,9 +27,9 @@
         pub fn primary_key(mut self, input: impl ::std::convert::Into<self::MultiRegionKey>) -> Self { self.primary_key = Some(input.into()); self }
         pub fn set_primary_key(mut self, input: ::std::option::Option<self::MultiRegionKey>) -> Self { self.primary_key = input; self }
         pub fn get_primary_key(&self) -> &::std::option::Option<self::MultiRegionKey> { &self.primary_key }
-        pub fn replica_keys(mut self, input: impl ::std::convert::Into<self::MultiRegionKeyList>) -> Self { self.replica_keys = Some(input.into()); self }
-        pub fn set_replica_keys(mut self, input: ::std::option::Option<self::MultiRegionKeyList>) -> Self { self.replica_keys = input; self }
-        pub fn get_replica_keys(&self) -> &::std::option::Option<self::MultiRegionKeyList> { &self.replica_keys }
+        pub fn replica_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::MultiRegionKey>>) -> Self { self.replica_keys = Some(input.into()); self }
+        pub fn set_replica_keys(mut self, input: ::std::option::Option<::std::vec::Vec<self::MultiRegionKey>>) -> Self { self.replica_keys = input; self }
+        pub fn get_replica_keys(&self) -> &::std::option::Option<::std::vec::Vec<self::MultiRegionKey>> { &self.replica_keys }
         pub fn build(self) -> MultiRegionConfiguration {
             MultiRegionConfiguration {
                 multi_region_key_type: self.multi_region_key_type,

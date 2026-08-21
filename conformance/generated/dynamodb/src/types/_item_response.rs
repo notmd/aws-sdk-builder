@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ItemResponse {
-        pub item: ::std::option::Option<self::AttributeMap>,
+        pub item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
     }
     impl ItemResponse {
         pub fn builder() -> ItemResponseBuilder { ItemResponseBuilder::default() }
-        pub fn item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
+        pub fn item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ItemResponseBuilder {
-        item: ::std::option::Option<self::AttributeMap>,
+        item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
     }
 
     impl ItemResponseBuilder {
-        pub fn item(mut self, input: impl ::std::convert::Into<self::AttributeMap>) -> Self { self.item = Some(input.into()); self }
-        pub fn set_item(mut self, input: ::std::option::Option<self::AttributeMap>) -> Self { self.item = input; self }
-        pub fn get_item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
+        pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
+        pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = input; self }
+        pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
         pub fn build(self) -> ItemResponse {
             ItemResponse {
                 item: self.item,

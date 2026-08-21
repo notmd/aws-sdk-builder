@@ -11,7 +11,7 @@ impl Builder {
         Self { input: super::Input::default(), client }
     }
     pub fn global_table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.input.global_table_name = Some(value.into()); self }
-    pub fn replication_group(mut self, value: impl ::std::convert::Into<super::super::super::types::ReplicaList>) -> Self { self.input.replication_group = Some(value.into()); self }
+    pub fn replication_group(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Replica>>) -> Self { self.input.replication_group = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateGlobalTableOutput, super::CreateGlobalTableError> {

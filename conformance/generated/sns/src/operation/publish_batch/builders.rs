@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn publish_batch_request_entries(mut self, value: impl ::std::convert::Into<super::super::super::types::PublishBatchRequestEntryList>) -> Self { self.input.publish_batch_request_entries = Some(value.into()); self }
+    pub fn publish_batch_request_entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PublishBatchRequestEntry>>) -> Self { self.input.publish_batch_request_entries = Some(value.into()); self }
     pub fn topic_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicArn>) -> Self { self.input.topic_arn = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]

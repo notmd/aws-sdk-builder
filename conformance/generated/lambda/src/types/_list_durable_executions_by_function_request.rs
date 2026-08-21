@@ -10,7 +10,7 @@
         pub reverse_order: ::std::option::Option<self::ReverseOrder>,
         pub started_after: ::std::option::Option<self::ExecutionTimestamp>,
         pub started_before: ::std::option::Option<self::ExecutionTimestamp>,
-        pub statuses: ::std::option::Option<self::ExecutionStatusList>,
+        pub statuses: ::std::option::Option<::std::vec::Vec<self::ExecutionStatus>>,
     }
     impl ListDurableExecutionsByFunctionRequest {
         pub fn builder() -> ListDurableExecutionsByFunctionRequestBuilder { ListDurableExecutionsByFunctionRequestBuilder::default() }
@@ -22,7 +22,7 @@
         pub fn reverse_order(&self) -> &::std::option::Option<self::ReverseOrder> { &self.reverse_order }
         pub fn started_after(&self) -> &::std::option::Option<self::ExecutionTimestamp> { &self.started_after }
         pub fn started_before(&self) -> &::std::option::Option<self::ExecutionTimestamp> { &self.started_before }
-        pub fn statuses(&self) -> &::std::option::Option<self::ExecutionStatusList> { &self.statuses }
+        pub fn statuses(&self) -> &::std::option::Option<::std::vec::Vec<self::ExecutionStatus>> { &self.statuses }
     }
 
     #[derive(Clone, Debug, Default)]
@@ -35,7 +35,7 @@
         reverse_order: ::std::option::Option<self::ReverseOrder>,
         started_after: ::std::option::Option<self::ExecutionTimestamp>,
         started_before: ::std::option::Option<self::ExecutionTimestamp>,
-        statuses: ::std::option::Option<self::ExecutionStatusList>,
+        statuses: ::std::option::Option<::std::vec::Vec<self::ExecutionStatus>>,
     }
 
     impl ListDurableExecutionsByFunctionRequestBuilder {
@@ -63,9 +63,9 @@
         pub fn started_before(mut self, input: impl ::std::convert::Into<self::ExecutionTimestamp>) -> Self { self.started_before = Some(input.into()); self }
         pub fn set_started_before(mut self, input: ::std::option::Option<self::ExecutionTimestamp>) -> Self { self.started_before = input; self }
         pub fn get_started_before(&self) -> &::std::option::Option<self::ExecutionTimestamp> { &self.started_before }
-        pub fn statuses(mut self, input: impl ::std::convert::Into<self::ExecutionStatusList>) -> Self { self.statuses = Some(input.into()); self }
-        pub fn set_statuses(mut self, input: ::std::option::Option<self::ExecutionStatusList>) -> Self { self.statuses = input; self }
-        pub fn get_statuses(&self) -> &::std::option::Option<self::ExecutionStatusList> { &self.statuses }
+        pub fn statuses(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ExecutionStatus>>) -> Self { self.statuses = Some(input.into()); self }
+        pub fn set_statuses(mut self, input: ::std::option::Option<::std::vec::Vec<self::ExecutionStatus>>) -> Self { self.statuses = input; self }
+        pub fn get_statuses(&self) -> &::std::option::Option<::std::vec::Vec<self::ExecutionStatus>> { &self.statuses }
         pub fn build(self) -> ListDurableExecutionsByFunctionRequest {
             ListDurableExecutionsByFunctionRequest {
                 durable_execution_name: self.durable_execution_name,

@@ -2,31 +2,31 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ImageConfig {
-        pub command: ::std::option::Option<self::StringList>,
-        pub entry_point: ::std::option::Option<self::StringList>,
+        pub command: ::std::option::Option<::std::vec::Vec<self::String>>,
+        pub entry_point: ::std::option::Option<::std::vec::Vec<self::String>>,
         pub working_directory: ::std::option::Option<self::WorkingDirectory>,
     }
     impl ImageConfig {
         pub fn builder() -> ImageConfigBuilder { ImageConfigBuilder::default() }
-        pub fn command(&self) -> &::std::option::Option<self::StringList> { &self.command }
-        pub fn entry_point(&self) -> &::std::option::Option<self::StringList> { &self.entry_point }
+        pub fn command(&self) -> &::std::option::Option<::std::vec::Vec<self::String>> { &self.command }
+        pub fn entry_point(&self) -> &::std::option::Option<::std::vec::Vec<self::String>> { &self.entry_point }
         pub fn working_directory(&self) -> &::std::option::Option<self::WorkingDirectory> { &self.working_directory }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ImageConfigBuilder {
-        command: ::std::option::Option<self::StringList>,
-        entry_point: ::std::option::Option<self::StringList>,
+        command: ::std::option::Option<::std::vec::Vec<self::String>>,
+        entry_point: ::std::option::Option<::std::vec::Vec<self::String>>,
         working_directory: ::std::option::Option<self::WorkingDirectory>,
     }
 
     impl ImageConfigBuilder {
-        pub fn command(mut self, input: impl ::std::convert::Into<self::StringList>) -> Self { self.command = Some(input.into()); self }
-        pub fn set_command(mut self, input: ::std::option::Option<self::StringList>) -> Self { self.command = input; self }
-        pub fn get_command(&self) -> &::std::option::Option<self::StringList> { &self.command }
-        pub fn entry_point(mut self, input: impl ::std::convert::Into<self::StringList>) -> Self { self.entry_point = Some(input.into()); self }
-        pub fn set_entry_point(mut self, input: ::std::option::Option<self::StringList>) -> Self { self.entry_point = input; self }
-        pub fn get_entry_point(&self) -> &::std::option::Option<self::StringList> { &self.entry_point }
+        pub fn command(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::String>>) -> Self { self.command = Some(input.into()); self }
+        pub fn set_command(mut self, input: ::std::option::Option<::std::vec::Vec<self::String>>) -> Self { self.command = input; self }
+        pub fn get_command(&self) -> &::std::option::Option<::std::vec::Vec<self::String>> { &self.command }
+        pub fn entry_point(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::String>>) -> Self { self.entry_point = Some(input.into()); self }
+        pub fn set_entry_point(mut self, input: ::std::option::Option<::std::vec::Vec<self::String>>) -> Self { self.entry_point = input; self }
+        pub fn get_entry_point(&self) -> &::std::option::Option<::std::vec::Vec<self::String>> { &self.entry_point }
         pub fn working_directory(mut self, input: impl ::std::convert::Into<self::WorkingDirectory>) -> Self { self.working_directory = Some(input.into()); self }
         pub fn set_working_directory(mut self, input: ::std::option::Option<self::WorkingDirectory>) -> Self { self.working_directory = input; self }
         pub fn get_working_directory(&self) -> &::std::option::Option<self::WorkingDirectory> { &self.working_directory }

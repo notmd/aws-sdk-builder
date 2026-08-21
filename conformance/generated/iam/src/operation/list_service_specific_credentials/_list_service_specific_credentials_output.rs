@@ -4,7 +4,7 @@
 pub struct ListServiceSpecificCredentialsOutput {
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub service_specific_credentials: ::std::option::Option<super::super::super::types::ServiceSpecificCredentialsListType>,
+    pub service_specific_credentials: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceSpecificCredentialMetadata>>,
 }
         impl ListServiceSpecificCredentialsOutput {
             pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -18,7 +18,7 @@ impl ListServiceSpecificCredentialsOutput {
 pub struct ListServiceSpecificCredentialsOutputBuilder {
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    service_specific_credentials: ::std::option::Option<super::super::super::types::ServiceSpecificCredentialsListType>,
+    service_specific_credentials: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceSpecificCredentialMetadata>>,
 }
 impl ListServiceSpecificCredentialsOutputBuilder {
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
@@ -27,9 +27,9 @@ impl ListServiceSpecificCredentialsOutputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn service_specific_credentials(mut self, input: impl ::std::convert::Into<super::super::super::types::ServiceSpecificCredentialsListType>) -> Self { self.service_specific_credentials = Some(input.into()); self }
-    pub fn set_service_specific_credentials(mut self, input: ::std::option::Option<super::super::super::types::ServiceSpecificCredentialsListType>) -> Self { self.service_specific_credentials = input; self }
-    pub fn get_service_specific_credentials(&self) -> &::std::option::Option<super::super::super::types::ServiceSpecificCredentialsListType> { &self.service_specific_credentials }
+    pub fn service_specific_credentials(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ServiceSpecificCredentialMetadata>>) -> Self { self.service_specific_credentials = Some(input.into()); self }
+    pub fn set_service_specific_credentials(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceSpecificCredentialMetadata>>) -> Self { self.service_specific_credentials = input; self }
+    pub fn get_service_specific_credentials(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceSpecificCredentialMetadata>> { &self.service_specific_credentials }
     pub fn build(self) -> ListServiceSpecificCredentialsOutput { ListServiceSpecificCredentialsOutput {
         is_truncated: self.is_truncated,
         marker: self.marker,

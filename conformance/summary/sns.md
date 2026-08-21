@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sns
-**Progress:** `470/470` files compared · `2` matched · `266` mismatches · `181` missing · `21` extra · `0.43%` match (100.00% means fully matched)
+**Progress:** `450/450` files compared · `2` matched · `266` mismatches · `181` missing · `1` extra · `0.44%` match (100.00% means fully matched)
 
 ### `src/client/add_permission.rs`
 
@@ -3510,8 +3510,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn action_name(&self) -> &[::std::string::String] {
 -        self.action_name.as_deref().unwrap_or_default()
 -    }
-+    pub aws_account_id: ::std::option::Option<super::super::super::types::DelegatesList>,
-+    pub action_name: ::std::option::Option<super::super::super::types::ActionsList>,
++    pub aws_account_id: ::std::option::Option<::std::vec::Vec<super::super::super::types::Delegate>>,
++    pub action_name: ::std::option::Option<::std::vec::Vec<super::super::super::types::Action>>,
 +    pub label: ::std::option::Option<super::super::super::types::Label>,
 +    pub topic_arn: ::std::option::Option<super::super::super::types::TopicArn>,
  }
@@ -3538,8 +3538,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) label: ::std::option::Option<::std::string::String>,
 -    pub(crate) aws_account_id: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) action_name: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-+    aws_account_id: ::std::option::Option<super::super::super::types::DelegatesList>,
-+    action_name: ::std::option::Option<super::super::super::types::ActionsList>,
++    aws_account_id: ::std::option::Option<::std::vec::Vec<super::super::super::types::Delegate>>,
++    action_name: ::std::option::Option<::std::vec::Vec<super::super::super::types::Action>>,
 +    label: ::std::option::Option<super::super::super::types::Label>,
 +    topic_arn: ::std::option::Option<super::super::super::types::TopicArn>,
  }
@@ -3628,12 +3628,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            action_name: self.action_name,
 -        })
 -    }
-+    pub fn aws_account_id(mut self, input: impl ::std::convert::Into<super::super::super::types::DelegatesList>) -> Self { self.aws_account_id = Some(input.into()); self }
-+    pub fn set_aws_account_id(mut self, input: ::std::option::Option<super::super::super::types::DelegatesList>) -> Self { self.aws_account_id = input; self }
-+    pub fn get_aws_account_id(&self) -> &::std::option::Option<super::super::super::types::DelegatesList> { &self.aws_account_id }
-+    pub fn action_name(mut self, input: impl ::std::convert::Into<super::super::super::types::ActionsList>) -> Self { self.action_name = Some(input.into()); self }
-+    pub fn set_action_name(mut self, input: ::std::option::Option<super::super::super::types::ActionsList>) -> Self { self.action_name = input; self }
-+    pub fn get_action_name(&self) -> &::std::option::Option<super::super::super::types::ActionsList> { &self.action_name }
++    pub fn aws_account_id(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Delegate>>) -> Self { self.aws_account_id = Some(input.into()); self }
++    pub fn set_aws_account_id(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Delegate>>) -> Self { self.aws_account_id = input; self }
++    pub fn get_aws_account_id(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Delegate>> { &self.aws_account_id }
++    pub fn action_name(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Action>>) -> Self { self.action_name = Some(input.into()); self }
++    pub fn set_action_name(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Action>>) -> Self { self.action_name = input; self }
++    pub fn get_action_name(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Action>> { &self.action_name }
 +    pub fn label(mut self, input: impl ::std::convert::Into<super::super::super::types::Label>) -> Self { self.label = Some(input.into()); self }
 +    pub fn set_label(mut self, input: ::std::option::Option<super::super::super::types::Label>) -> Self { self.label = input; self }
 +    pub fn get_label(&self) -> &::std::option::Option<super::super::super::types::Label> { &self.label }
@@ -3898,8 +3898,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_action_name(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
 -        self.inner.get_action_name()
 -    }
-+    pub fn aws_account_id(mut self, value: impl ::std::convert::Into<super::super::super::types::DelegatesList>) -> Self { self.input.aws_account_id = Some(value.into()); self }
-+    pub fn action_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ActionsList>) -> Self { self.input.action_name = Some(value.into()); self }
++    pub fn aws_account_id(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Delegate>>) -> Self { self.input.aws_account_id = Some(value.into()); self }
++    pub fn action_name(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Action>>) -> Self { self.input.action_name = Some(value.into()); self }
 +    pub fn label(mut self, value: impl ::std::convert::Into<super::super::super::types::Label>) -> Self { self.input.label = Some(value.into()); self }
 +    pub fn topic_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicArn>) -> Self { self.input.topic_arn = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
@@ -3913,7 +3913,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::AddPermissionError::Unhandled(format!("AddPermission returned HTTP {}", status)));
 +                         }
-+                         Ok(super::AddPermissionOutput::default())
++                         Ok(super::AddPermissionOutput)
 +                     }
  }
 +pub use Builder as AddPermissionFluentBuilder;
@@ -6215,12 +6215,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub platform: ::std::option::Option<::std::string::String>,
 -    /// <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html"> <code>SetPlatformApplicationAttributes</code> </a>.</p>
 -    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-+    pub attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
 +    pub name: ::std::option::Option<super::super::super::types::String>,
 +    pub platform: ::std::option::Option<super::super::super::types::String>,
  }
 +        impl CreatePlatformApplicationInput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::MapStringToString> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { self.attributes.as_ref() }
 +            pub fn name(&self) -> ::std::option::Option<&str> { self.name.as_deref() }
 +            pub fn platform(&self) -> ::std::option::Option<&str> { self.platform.as_deref() }
 +        }
@@ -6254,7 +6254,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) name: ::std::option::Option<::std::string::String>,
 -    pub(crate) platform: ::std::option::Option<::std::string::String>,
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-+    attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
 +    name: ::std::option::Option<super::super::super::types::String>,
 +    platform: ::std::option::Option<super::super::super::types::String>,
  }
@@ -6322,9 +6322,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            attributes: self.attributes,
 -        })
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::MapStringToString>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::MapStringToString> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { &self.attributes }
 +    pub fn name(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.name = Some(input.into()); self }
 +    pub fn set_name(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.name = input; self }
 +    pub fn get_name(&self) -> &::std::option::Option<super::super::super::types::String> { &self.name }
@@ -6512,7 +6512,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.input.attributes = Some(value.into()); self }
++    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.input.attributes = Some(value.into()); self }
 +    pub fn name(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.name = Some(value.into()); self }
 +    pub fn platform(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.platform = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
@@ -7150,13 +7150,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub custom_user_data: ::std::option::Option<::std::string::String>,
 -    /// <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html"> <code>SetEndpointAttributes</code> </a>.</p>
 -    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-+    pub attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
 +    pub custom_user_data: ::std::option::Option<super::super::super::types::String>,
 +    pub platform_application_arn: ::std::option::Option<super::super::super::types::String>,
 +    pub token: ::std::option::Option<super::super::super::types::String>,
  }
 +        impl CreatePlatformEndpointInput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::MapStringToString> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { self.attributes.as_ref() }
 +            pub fn custom_user_data(&self) -> ::std::option::Option<&str> { self.custom_user_data.as_deref() }
 +            pub fn platform_application_arn(&self) -> ::std::option::Option<&str> { self.platform_application_arn.as_deref() }
 +            pub fn token(&self) -> ::std::option::Option<&str> { self.token.as_deref() }
@@ -7196,7 +7196,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) token: ::std::option::Option<::std::string::String>,
 -    pub(crate) custom_user_data: ::std::option::Option<::std::string::String>,
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-+    attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
 +    custom_user_data: ::std::option::Option<super::super::super::types::String>,
 +    platform_application_arn: ::std::option::Option<super::super::super::types::String>,
 +    token: ::std::option::Option<super::super::super::types::String>,
@@ -7280,9 +7280,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            attributes: self.attributes,
 -        })
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::MapStringToString>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::MapStringToString> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { &self.attributes }
 +    pub fn custom_user_data(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.custom_user_data = Some(input.into()); self }
 +    pub fn set_custom_user_data(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.custom_user_data = input; self }
 +    pub fn get_custom_user_data(&self) -> &::std::option::Option<super::super::super::types::String> { &self.custom_user_data }
@@ -7455,7 +7455,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.input.attributes = Some(value.into()); self }
++    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.input.attributes = Some(value.into()); self }
 +    pub fn custom_user_data(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.custom_user_data = Some(value.into()); self }
 +    pub fn platform_application_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.platform_application_arn = Some(value.into()); self }
 +    pub fn token(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.token = Some(value.into()); self }
@@ -8454,7 +8454,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::CreateSmsSandboxPhoneNumberError::Unhandled(format!("CreateSmsSandboxPhoneNumber returned HTTP {}", status)));
 +                         }
-+                         Ok(super::CreateSmsSandboxPhoneNumberOutput::default())
++                         Ok(super::CreateSmsSandboxPhoneNumberOutput)
 +                     }
  }
 +pub use Builder as CreateSmsSandboxPhoneNumberFluentBuilder;
@@ -9070,13 +9070,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The policy must be in JSON string format.</p>
 -    /// <p>Length Constraints: Maximum length of 30,720.</p>
 -    pub data_protection_policy: ::std::option::Option<::std::string::String>,
-+    pub attributes: ::std::option::Option<super::super::super::types::TopicAttributesMap>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    pub data_protection_policy: ::std::option::Option<super::super::super::types::AttributeValue>,
 +    pub name: ::std::option::Option<super::super::super::types::TopicName>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagList>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl CreateTopicInput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::TopicAttributesMap> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.attributes.as_ref() }
 +            pub fn data_protection_policy(&self) -> ::std::option::Option<&str> { self.data_protection_policy.as_deref() }
 +            pub fn name(&self) -> ::std::option::Option<&str> { self.name.as_deref() }
 +            pub fn tags(&self) -> &[super::super::super::types::Tag] { self.tags.as_deref().unwrap_or(&[]) }
@@ -9231,10 +9231,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 -    pub(crate) data_protection_policy: ::std::option::Option<::std::string::String>,
-+    attributes: ::std::option::Option<super::super::super::types::TopicAttributesMap>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    data_protection_policy: ::std::option::Option<super::super::super::types::AttributeValue>,
 +    name: ::std::option::Option<super::super::super::types::TopicName>,
-+    tags: ::std::option::Option<super::super::super::types::TagList>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl CreateTopicInputBuilder {
 -    /// <p>The name of the topic you want to create.</p>
@@ -9654,18 +9654,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            data_protection_policy: self.data_protection_policy,
 -        })
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::TopicAttributesMap>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::TopicAttributesMap>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::TopicAttributesMap> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.attributes }
 +    pub fn data_protection_policy(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeValue>) -> Self { self.data_protection_policy = Some(input.into()); self }
 +    pub fn set_data_protection_policy(mut self, input: ::std::option::Option<super::super::super::types::AttributeValue>) -> Self { self.data_protection_policy = input; self }
 +    pub fn get_data_protection_policy(&self) -> &::std::option::Option<super::super::super::types::AttributeValue> { &self.data_protection_policy }
 +    pub fn name(mut self, input: impl ::std::convert::Into<super::super::super::types::TopicName>) -> Self { self.name = Some(input.into()); self }
 +    pub fn set_name(mut self, input: ::std::option::Option<super::super::super::types::TopicName>) -> Self { self.name = input; self }
 +    pub fn get_name(&self) -> &::std::option::Option<super::super::super::types::TopicName> { &self.name }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> CreateTopicInput { CreateTopicInput {
 +        attributes: self.attributes,
 +        data_protection_policy: self.data_protection_policy,
@@ -10295,10 +10295,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_data_protection_policy(&self) -> &::std::option::Option<::std::string::String> {
 -        self.inner.get_data_protection_policy()
 -    }
-+    pub fn attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicAttributesMap>) -> Self { self.input.attributes = Some(value.into()); self }
++    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.attributes = Some(value.into()); self }
 +    pub fn data_protection_policy(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeValue>) -> Self { self.input.data_protection_policy = Some(value.into()); self }
 +    pub fn name(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicName>) -> Self { self.input.name = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::CreateTopicOutput, super::CreateTopicError> {
@@ -11083,7 +11083,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteEndpointError::Unhandled(format!("DeleteEndpoint returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteEndpointOutput::default())
++                         Ok(super::DeleteEndpointOutput)
 +                     }
  }
 -impl DeleteEndpointFluentBuilder {
@@ -11927,7 +11927,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeletePlatformApplicationError::Unhandled(format!("DeletePlatformApplication returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeletePlatformApplicationOutput::default())
++                         Ok(super::DeletePlatformApplicationOutput)
 +                     }
  }
 +pub use Builder as DeletePlatformApplicationFluentBuilder;
@@ -12643,7 +12643,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteSmsSandboxPhoneNumberError::Unhandled(format!("DeleteSmsSandboxPhoneNumber returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteSmsSandboxPhoneNumberOutput::default())
++                         Ok(super::DeleteSmsSandboxPhoneNumberOutput)
 +                     }
  }
 -impl DeleteSMSSandboxPhoneNumberFluentBuilder {
@@ -13476,7 +13476,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteTopicError::Unhandled(format!("DeleteTopic returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteTopicOutput::default())
++                         Ok(super::DeleteTopicOutput)
 +                     }
  }
 +pub use Builder as DeleteTopicFluentBuilder;
@@ -14988,7 +14988,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
 -        self.attributes.as_ref()
 -    }
-+    pub attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
  }
 -impl ::aws_types::request_id::RequestId for GetEndpointAttributesOutput {
 -    fn request_id(&self) -> Option<&str> {
@@ -14996,7 +14996,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 -}
 +        impl GetEndpointAttributesOutput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::MapStringToString> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { self.attributes.as_ref() }
 +        }
  impl GetEndpointAttributesOutput {
 -    /// Creates a new builder-style object to manufacture [`GetEndpointAttributesOutput`](crate::operation::get_endpoint_attributes::GetEndpointAttributesOutput).
@@ -15013,7 +15013,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetEndpointAttributesOutputBuilder {
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
  }
  impl GetEndpointAttributesOutputBuilder {
 -    /// Adds a key-value pair to `attributes`.
@@ -15082,9 +15082,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::MapStringToString>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::MapStringToString> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { &self.attributes }
 +    pub fn build(self) -> GetEndpointAttributesOutput { GetEndpointAttributesOutput {
 +        attributes: self.attributes,
 +    } }
@@ -15865,10 +15865,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// </ul>
 -    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    pub attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
  }
 +        impl GetPlatformApplicationAttributesOutput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::MapStringToString> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { self.attributes.as_ref() }
 +        }
  impl GetPlatformApplicationAttributesOutput {
 -    /// <p>Attributes include the following:</p>
@@ -15920,7 +15920,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetPlatformApplicationAttributesOutputBuilder {
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
  }
  impl GetPlatformApplicationAttributesOutputBuilder {
 -    /// Adds a key-value pair to `attributes`.
@@ -16031,9 +16031,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::MapStringToString>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::MapStringToString> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { &self.attributes }
 +    pub fn build(self) -> GetPlatformApplicationAttributesOutput { GetPlatformApplicationAttributesOutput {
 +        attributes: self.attributes,
 +    } }
@@ -16730,7 +16730,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn attributes(&self) -> &[::std::string::String] {
 -        self.attributes.as_deref().unwrap_or_default()
 -    }
-+    pub attributes: ::std::option::Option<super::super::super::types::ListString>,
++    pub attributes: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
  }
 +        impl GetSmsAttributesInput {
 +            pub fn attributes(&self) -> &[super::super::super::types::String] { self.attributes.as_deref().unwrap_or(&[]) }
@@ -16749,7 +16749,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(Clone, Debug, Default)]
  pub struct GetSmsAttributesInputBuilder {
 -    pub(crate) attributes: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-+    attributes: ::std::option::Option<super::super::super::types::ListString>,
++    attributes: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
  }
  impl GetSmsAttributesInputBuilder {
 -    /// Appends an item to `attributes`.
@@ -16784,9 +16784,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    ) -> ::std::result::Result<crate::operation::get_sms_attributes::GetSmsAttributesInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::get_sms_attributes::GetSmsAttributesInput { attributes: self.attributes })
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::ListString>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::ListString>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::ListString> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::String>> { &self.attributes }
 +    pub fn build(self) -> GetSmsAttributesInput { GetSmsAttributesInput {
 +        attributes: self.attributes,
 +    } }
@@ -16810,10 +16810,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The SMS attribute names and their values.</p>
 -    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    pub attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
  }
 +        impl GetSmsAttributesOutput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::MapStringToString> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { self.attributes.as_ref() }
 +        }
  impl GetSmsAttributesOutput {
 -    /// <p>The SMS attribute names and their values.</p>
@@ -16841,7 +16841,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetSmsAttributesOutputBuilder {
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
  }
  impl GetSmsAttributesOutputBuilder {
 -    /// Adds a key-value pair to `attributes`.
@@ -16880,9 +16880,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::MapStringToString>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::MapStringToString> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { &self.attributes }
 +    pub fn build(self) -> GetSmsAttributesOutput { GetSmsAttributesOutput {
 +        attributes: self.attributes,
 +    } }
@@ -17040,7 +17040,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_attributes(&self) -> &::std::option::Option<::std::vec::Vec<::std::string::String>> {
 -        self.inner.get_attributes()
 -    }
-+    pub fn attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::ListString>) -> Self { self.input.attributes = Some(value.into()); self }
++    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.input.attributes = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::GetSmsAttributesOutput, super::GetSmsAttributesError> {
@@ -18410,10 +18410,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub attributes: ::std::option::Option<super::super::super::types::SubscriptionAttributesMap>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
  }
 +        impl GetSubscriptionAttributesOutput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::SubscriptionAttributesMap> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.attributes.as_ref() }
 +        }
  impl GetSubscriptionAttributesOutput {
 -    /// Creates a new builder-style object to manufacture [`GetSubscriptionAttributesOutput`](crate::operation::get_subscription_attributes::GetSubscriptionAttributesOutput).
@@ -18430,7 +18430,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetSubscriptionAttributesOutputBuilder {
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    attributes: ::std::option::Option<super::super::super::types::SubscriptionAttributesMap>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
  }
  impl GetSubscriptionAttributesOutputBuilder {
 -    /// Adds a key-value pair to `attributes`.
@@ -18595,9 +18595,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::SubscriptionAttributesMap>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::SubscriptionAttributesMap>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::SubscriptionAttributesMap> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.attributes }
 +    pub fn build(self) -> GetSubscriptionAttributesOutput { GetSubscriptionAttributesOutput {
 +        attributes: self.attributes,
 +    } }
@@ -19464,7 +19464,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
 -        self.attributes.as_ref()
 -    }
-+    pub attributes: ::std::option::Option<super::super::super::types::TopicAttributesMap>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
  }
 -impl ::aws_types::request_id::RequestId for GetTopicAttributesOutput {
 -    fn request_id(&self) -> Option<&str> {
@@ -19472,7 +19472,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 -}
 +        impl GetTopicAttributesOutput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::TopicAttributesMap> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.attributes.as_ref() }
 +        }
  impl GetTopicAttributesOutput {
 -    /// Creates a new builder-style object to manufacture [`GetTopicAttributesOutput`](crate::operation::get_topic_attributes::GetTopicAttributesOutput).
@@ -19489,7 +19489,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetTopicAttributesOutputBuilder {
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    attributes: ::std::option::Option<super::super::super::types::TopicAttributesMap>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
  }
  impl GetTopicAttributesOutputBuilder {
 -    /// Adds a key-value pair to `attributes`.
@@ -19693,9 +19693,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::TopicAttributesMap>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::TopicAttributesMap>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::TopicAttributesMap> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.attributes }
 +    pub fn build(self) -> GetTopicAttributesOutput { GetTopicAttributesOutput {
 +        attributes: self.attributes,
 +    } }
@@ -20510,7 +20510,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub endpoints: ::std::option::Option<super::super::super::types::ListOfEndpoints>,
++    pub endpoints: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>,
 +    pub next_token: ::std::option::Option<super::super::super::types::String>,
  }
 +        impl ListEndpointsByPlatformApplicationOutput {
@@ -20533,7 +20533,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) endpoints: ::std::option::Option<::std::vec::Vec<crate::types::Endpoint>>,
 -    pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    endpoints: ::std::option::Option<super::super::super::types::ListOfEndpoints>,
++    endpoints: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>,
 +    next_token: ::std::option::Option<super::super::super::types::String>,
  }
  impl ListEndpointsByPlatformApplicationOutputBuilder {
@@ -20588,9 +20588,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn endpoints(mut self, input: impl ::std::convert::Into<super::super::super::types::ListOfEndpoints>) -> Self { self.endpoints = Some(input.into()); self }
-+    pub fn set_endpoints(mut self, input: ::std::option::Option<super::super::super::types::ListOfEndpoints>) -> Self { self.endpoints = input; self }
-+    pub fn get_endpoints(&self) -> &::std::option::Option<super::super::super::types::ListOfEndpoints> { &self.endpoints }
++    pub fn endpoints(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Endpoint>>) -> Self { self.endpoints = Some(input.into()); self }
++    pub fn set_endpoints(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>>) -> Self { self.endpoints = input; self }
++    pub fn get_endpoints(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Endpoint>> { &self.endpoints }
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::String> { &self.next_token }
@@ -21422,7 +21422,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub phone_numbers: ::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>>,
 -    _request_id: Option<String>,
 +    pub next_token: ::std::option::Option<super::super::super::types::NextToken>,
-+    pub phone_numbers: ::std::option::Option<super::super::super::types::PhoneNumberInformationList>,
++    pub phone_numbers: ::std::option::Option<::std::vec::Vec<super::super::super::types::PhoneNumberInformation>>,
  }
 +        impl ListOriginationNumbersOutput {
 +            pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -21462,7 +21462,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) phone_numbers: ::std::option::Option<::std::vec::Vec<crate::types::PhoneNumberInformation>>,
 -    _request_id: Option<String>,
 +    next_token: ::std::option::Option<super::super::super::types::NextToken>,
-+    phone_numbers: ::std::option::Option<super::super::super::types::PhoneNumberInformationList>,
++    phone_numbers: ::std::option::Option<::std::vec::Vec<super::super::super::types::PhoneNumberInformation>>,
  }
  impl ListOriginationNumbersOutputBuilder {
 -    /// <p>A <code>NextToken</code> string is returned when you call the <code>ListOriginationNumbers</code> operation if additional pages of records are available.</p>
@@ -21519,9 +21519,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::NextToken>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::NextToken>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::NextToken> { &self.next_token }
-+    pub fn phone_numbers(mut self, input: impl ::std::convert::Into<super::super::super::types::PhoneNumberInformationList>) -> Self { self.phone_numbers = Some(input.into()); self }
-+    pub fn set_phone_numbers(mut self, input: ::std::option::Option<super::super::super::types::PhoneNumberInformationList>) -> Self { self.phone_numbers = input; self }
-+    pub fn get_phone_numbers(&self) -> &::std::option::Option<super::super::super::types::PhoneNumberInformationList> { &self.phone_numbers }
++    pub fn phone_numbers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PhoneNumberInformation>>) -> Self { self.phone_numbers = Some(input.into()); self }
++    pub fn set_phone_numbers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PhoneNumberInformation>>) -> Self { self.phone_numbers = input; self }
++    pub fn get_phone_numbers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PhoneNumberInformation>> { &self.phone_numbers }
 +    pub fn build(self) -> ListOriginationNumbersOutput { ListOriginationNumbersOutput {
 +        next_token: self.next_token,
 +        phone_numbers: self.phone_numbers,
@@ -22332,7 +22332,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self._request_id.as_deref()
 -    }
 +    pub next_token: ::std::option::Option<super::super::super::types::String>,
-+    pub phone_numbers: ::std::option::Option<super::super::super::types::PhoneNumberList>,
++    pub phone_numbers: ::std::option::Option<::std::vec::Vec<super::super::super::types::PhoneNumber>>,
  }
 +        impl ListPhoneNumbersOptedOutOutput {
 +            pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -22355,7 +22355,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
 +    next_token: ::std::option::Option<super::super::super::types::String>,
-+    phone_numbers: ::std::option::Option<super::super::super::types::PhoneNumberList>,
++    phone_numbers: ::std::option::Option<::std::vec::Vec<super::super::super::types::PhoneNumber>>,
  }
  impl ListPhoneNumbersOptedOutOutputBuilder {
 -    /// Appends an item to `phone_numbers`.
@@ -22412,9 +22412,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::String> { &self.next_token }
-+    pub fn phone_numbers(mut self, input: impl ::std::convert::Into<super::super::super::types::PhoneNumberList>) -> Self { self.phone_numbers = Some(input.into()); self }
-+    pub fn set_phone_numbers(mut self, input: ::std::option::Option<super::super::super::types::PhoneNumberList>) -> Self { self.phone_numbers = input; self }
-+    pub fn get_phone_numbers(&self) -> &::std::option::Option<super::super::super::types::PhoneNumberList> { &self.phone_numbers }
++    pub fn phone_numbers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PhoneNumber>>) -> Self { self.phone_numbers = Some(input.into()); self }
++    pub fn set_phone_numbers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PhoneNumber>>) -> Self { self.phone_numbers = input; self }
++    pub fn get_phone_numbers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PhoneNumber>> { &self.phone_numbers }
 +    pub fn build(self) -> ListPhoneNumbersOptedOutOutput { ListPhoneNumbersOptedOutOutput {
 +        next_token: self.next_token,
 +        phone_numbers: self.phone_numbers,
@@ -23198,7 +23198,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self._request_id.as_deref()
 -    }
 +    pub next_token: ::std::option::Option<super::super::super::types::String>,
-+    pub platform_applications: ::std::option::Option<super::super::super::types::ListOfPlatformApplications>,
++    pub platform_applications: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformApplication>>,
  }
 +        impl ListPlatformApplicationsOutput {
 +            pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -23221,7 +23221,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
 +    next_token: ::std::option::Option<super::super::super::types::String>,
-+    platform_applications: ::std::option::Option<super::super::super::types::ListOfPlatformApplications>,
++    platform_applications: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformApplication>>,
  }
  impl ListPlatformApplicationsOutputBuilder {
 -    /// Appends an item to `platform_applications`.
@@ -23278,9 +23278,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::String> { &self.next_token }
-+    pub fn platform_applications(mut self, input: impl ::std::convert::Into<super::super::super::types::ListOfPlatformApplications>) -> Self { self.platform_applications = Some(input.into()); self }
-+    pub fn set_platform_applications(mut self, input: ::std::option::Option<super::super::super::types::ListOfPlatformApplications>) -> Self { self.platform_applications = input; self }
-+    pub fn get_platform_applications(&self) -> &::std::option::Option<super::super::super::types::ListOfPlatformApplications> { &self.platform_applications }
++    pub fn platform_applications(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PlatformApplication>>) -> Self { self.platform_applications = Some(input.into()); self }
++    pub fn set_platform_applications(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformApplication>>) -> Self { self.platform_applications = input; self }
++    pub fn get_platform_applications(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformApplication>> { &self.platform_applications }
 +    pub fn build(self) -> ListPlatformApplicationsOutput { ListPlatformApplicationsOutput {
 +        next_token: self.next_token,
 +        platform_applications: self.platform_applications,
@@ -24080,7 +24080,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self._request_id.as_deref()
 -    }
 +    pub next_token: ::std::option::Option<super::super::super::types::String>,
-+    pub phone_numbers: ::std::option::Option<super::super::super::types::SmsSandboxPhoneNumberList>,
++    pub phone_numbers: ::std::option::Option<::std::vec::Vec<super::super::super::types::SmsSandboxPhoneNumber>>,
  }
 +        impl ListSmsSandboxPhoneNumbersOutput {
 +            pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -24103,7 +24103,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
 +    next_token: ::std::option::Option<super::super::super::types::String>,
-+    phone_numbers: ::std::option::Option<super::super::super::types::SmsSandboxPhoneNumberList>,
++    phone_numbers: ::std::option::Option<::std::vec::Vec<super::super::super::types::SmsSandboxPhoneNumber>>,
  }
  impl ListSmsSandboxPhoneNumbersOutputBuilder {
 -    /// Appends an item to `phone_numbers`.
@@ -24172,9 +24172,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::String> { &self.next_token }
-+    pub fn phone_numbers(mut self, input: impl ::std::convert::Into<super::super::super::types::SmsSandboxPhoneNumberList>) -> Self { self.phone_numbers = Some(input.into()); self }
-+    pub fn set_phone_numbers(mut self, input: ::std::option::Option<super::super::super::types::SmsSandboxPhoneNumberList>) -> Self { self.phone_numbers = input; self }
-+    pub fn get_phone_numbers(&self) -> &::std::option::Option<super::super::super::types::SmsSandboxPhoneNumberList> { &self.phone_numbers }
++    pub fn phone_numbers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SmsSandboxPhoneNumber>>) -> Self { self.phone_numbers = Some(input.into()); self }
++    pub fn set_phone_numbers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SmsSandboxPhoneNumber>>) -> Self { self.phone_numbers = input; self }
++    pub fn get_phone_numbers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SmsSandboxPhoneNumber>> { &self.phone_numbers }
 +    pub fn build(self) -> ListSmsSandboxPhoneNumbersOutput { ListSmsSandboxPhoneNumbersOutput {
 +        next_token: self.next_token,
 +        phone_numbers: self.phone_numbers,
@@ -24983,7 +24983,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self._request_id.as_deref()
 -    }
 +    pub next_token: ::std::option::Option<super::super::super::types::NextToken>,
-+    pub subscriptions: ::std::option::Option<super::super::super::types::SubscriptionsList>,
++    pub subscriptions: ::std::option::Option<::std::vec::Vec<super::super::super::types::Subscription>>,
  }
 +        impl ListSubscriptionsOutput {
 +            pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -25006,7 +25006,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
 +    next_token: ::std::option::Option<super::super::super::types::NextToken>,
-+    subscriptions: ::std::option::Option<super::super::super::types::SubscriptionsList>,
++    subscriptions: ::std::option::Option<::std::vec::Vec<super::super::super::types::Subscription>>,
  }
  impl ListSubscriptionsOutputBuilder {
 -    /// Appends an item to `subscriptions`.
@@ -25063,9 +25063,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::NextToken>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::NextToken>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::NextToken> { &self.next_token }
-+    pub fn subscriptions(mut self, input: impl ::std::convert::Into<super::super::super::types::SubscriptionsList>) -> Self { self.subscriptions = Some(input.into()); self }
-+    pub fn set_subscriptions(mut self, input: ::std::option::Option<super::super::super::types::SubscriptionsList>) -> Self { self.subscriptions = input; self }
-+    pub fn get_subscriptions(&self) -> &::std::option::Option<super::super::super::types::SubscriptionsList> { &self.subscriptions }
++    pub fn subscriptions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Subscription>>) -> Self { self.subscriptions = Some(input.into()); self }
++    pub fn set_subscriptions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Subscription>>) -> Self { self.subscriptions = input; self }
++    pub fn get_subscriptions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Subscription>> { &self.subscriptions }
 +    pub fn build(self) -> ListSubscriptionsOutput { ListSubscriptionsOutput {
 +        next_token: self.next_token,
 +        subscriptions: self.subscriptions,
@@ -25864,7 +25864,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self._request_id.as_deref()
 -    }
 +    pub next_token: ::std::option::Option<super::super::super::types::NextToken>,
-+    pub subscriptions: ::std::option::Option<super::super::super::types::SubscriptionsList>,
++    pub subscriptions: ::std::option::Option<::std::vec::Vec<super::super::super::types::Subscription>>,
  }
 +        impl ListSubscriptionsByTopicOutput {
 +            pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -25887,7 +25887,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
 +    next_token: ::std::option::Option<super::super::super::types::NextToken>,
-+    subscriptions: ::std::option::Option<super::super::super::types::SubscriptionsList>,
++    subscriptions: ::std::option::Option<::std::vec::Vec<super::super::super::types::Subscription>>,
  }
  impl ListSubscriptionsByTopicOutputBuilder {
 -    /// Appends an item to `subscriptions`.
@@ -25944,9 +25944,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::NextToken>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::NextToken>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::NextToken> { &self.next_token }
-+    pub fn subscriptions(mut self, input: impl ::std::convert::Into<super::super::super::types::SubscriptionsList>) -> Self { self.subscriptions = Some(input.into()); self }
-+    pub fn set_subscriptions(mut self, input: ::std::option::Option<super::super::super::types::SubscriptionsList>) -> Self { self.subscriptions = input; self }
-+    pub fn get_subscriptions(&self) -> &::std::option::Option<super::super::super::types::SubscriptionsList> { &self.subscriptions }
++    pub fn subscriptions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Subscription>>) -> Self { self.subscriptions = Some(input.into()); self }
++    pub fn set_subscriptions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Subscription>>) -> Self { self.subscriptions = input; self }
++    pub fn get_subscriptions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Subscription>> { &self.subscriptions }
 +    pub fn build(self) -> ListSubscriptionsByTopicOutput { ListSubscriptionsByTopicOutput {
 +        next_token: self.next_token,
 +        subscriptions: self.subscriptions,
@@ -26743,7 +26743,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub tags: ::std::option::Option<super::super::super::types::TagList>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl ListTagsForResourceOutput {
 +            pub fn tags(&self) -> &[super::super::super::types::Tag] { self.tags.as_deref().unwrap_or(&[]) }
@@ -26763,7 +26763,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListTagsForResourceOutputBuilder {
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 -    _request_id: Option<String>,
-+    tags: ::std::option::Option<super::super::super::types::TagList>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl ListTagsForResourceOutputBuilder {
 -    /// Appends an item to `tags`.
@@ -26802,9 +26802,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> ListTagsForResourceOutput { ListTagsForResourceOutput {
 +        tags: self.tags,
 +    } }
@@ -27584,7 +27584,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self._request_id.as_deref()
 -    }
 +    pub next_token: ::std::option::Option<super::super::super::types::NextToken>,
-+    pub topics: ::std::option::Option<super::super::super::types::TopicsList>,
++    pub topics: ::std::option::Option<::std::vec::Vec<super::super::super::types::Topic>>,
  }
 +        impl ListTopicsOutput {
 +            pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -27607,7 +27607,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) next_token: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
 +    next_token: ::std::option::Option<super::super::super::types::NextToken>,
-+    topics: ::std::option::Option<super::super::super::types::TopicsList>,
++    topics: ::std::option::Option<::std::vec::Vec<super::super::super::types::Topic>>,
  }
  impl ListTopicsOutputBuilder {
 -    /// Appends an item to `topics`.
@@ -27664,9 +27664,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::NextToken>) -> Self { self.next_token = Some(input.into()); self }
 +    pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::NextToken>) -> Self { self.next_token = input; self }
 +    pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::NextToken> { &self.next_token }
-+    pub fn topics(mut self, input: impl ::std::convert::Into<super::super::super::types::TopicsList>) -> Self { self.topics = Some(input.into()); self }
-+    pub fn set_topics(mut self, input: ::std::option::Option<super::super::super::types::TopicsList>) -> Self { self.topics = input; self }
-+    pub fn get_topics(&self) -> &::std::option::Option<super::super::super::types::TopicsList> { &self.topics }
++    pub fn topics(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Topic>>) -> Self { self.topics = Some(input.into()); self }
++    pub fn set_topics(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Topic>>) -> Self { self.topics = input; self }
++    pub fn get_topics(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Topic>> { &self.topics }
 +    pub fn build(self) -> ListTopicsOutput { ListTopicsOutput {
 +        next_token: self.next_token,
 +        topics: self.topics,
@@ -28542,7 +28542,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::OptInPhoneNumberError::Unhandled(format!("OptInPhoneNumber returned HTTP {}", status)));
 +                         }
-+                         Ok(super::OptInPhoneNumberOutput::default())
++                         Ok(super::OptInPhoneNumberOutput)
 +                     }
  }
 -impl OptInPhoneNumberFluentBuilder {
@@ -29298,7 +29298,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        formatter.finish()
 -    }
 +    pub message: ::std::option::Option<super::super::super::types::Message>,
-+    pub message_attributes: ::std::option::Option<super::super::super::types::MessageAttributeMap>,
++    pub message_attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>,
 +    pub message_deduplication_id: ::std::option::Option<super::super::super::types::String>,
 +    pub message_group_id: ::std::option::Option<super::super::super::types::String>,
 +    pub message_structure: ::std::option::Option<super::super::super::types::MessageStructure>,
@@ -29309,7 +29309,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 +        impl PublishInput {
 +            pub fn message(&self) -> ::std::option::Option<&str> { self.message.as_deref() }
-+            pub fn message_attributes(&self) -> ::std::option::Option<&super::super::super::types::MessageAttributeMap> { self.message_attributes.as_ref() }
++            pub fn message_attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>> { self.message_attributes.as_ref() }
 +            pub fn message_deduplication_id(&self) -> ::std::option::Option<&str> { self.message_deduplication_id.as_deref() }
 +            pub fn message_group_id(&self) -> ::std::option::Option<&str> { self.message_group_id.as_deref() }
 +            pub fn message_structure(&self) -> ::std::option::Option<&str> { self.message_structure.as_deref() }
@@ -29341,7 +29341,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) message_deduplication_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) message_group_id: ::std::option::Option<::std::string::String>,
 +    message: ::std::option::Option<super::super::super::types::Message>,
-+    message_attributes: ::std::option::Option<super::super::super::types::MessageAttributeMap>,
++    message_attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>,
 +    message_deduplication_id: ::std::option::Option<super::super::super::types::String>,
 +    message_group_id: ::std::option::Option<super::super::super::types::String>,
 +    message_structure: ::std::option::Option<super::super::super::types::MessageStructure>,
@@ -29731,9 +29731,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn message(mut self, input: impl ::std::convert::Into<super::super::super::types::Message>) -> Self { self.message = Some(input.into()); self }
 +    pub fn set_message(mut self, input: ::std::option::Option<super::super::super::types::Message>) -> Self { self.message = input; self }
 +    pub fn get_message(&self) -> &::std::option::Option<super::super::super::types::Message> { &self.message }
-+    pub fn message_attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MessageAttributeMap>) -> Self { self.message_attributes = Some(input.into()); self }
-+    pub fn set_message_attributes(mut self, input: ::std::option::Option<super::super::super::types::MessageAttributeMap>) -> Self { self.message_attributes = input; self }
-+    pub fn get_message_attributes(&self) -> &::std::option::Option<super::super::super::types::MessageAttributeMap> { &self.message_attributes }
++    pub fn message_attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>) -> Self { self.message_attributes = Some(input.into()); self }
++    pub fn set_message_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>) -> Self { self.message_attributes = input; self }
++    pub fn get_message_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>> { &self.message_attributes }
 +    pub fn message_deduplication_id(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.message_deduplication_id = Some(input.into()); self }
 +    pub fn set_message_deduplication_id(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.message_deduplication_id = input; self }
 +    pub fn get_message_deduplication_id(&self) -> &::std::option::Option<super::super::super::types::String> { &self.message_deduplication_id }
@@ -29962,7 +29962,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn message(mut self, value: impl ::std::convert::Into<super::super::super::types::Message>) -> Self { self.input.message = Some(value.into()); self }
-+    pub fn message_attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageAttributeMap>) -> Self { self.input.message_attributes = Some(value.into()); self }
++    pub fn message_attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::MessageAttributeValue>>) -> Self { self.input.message_attributes = Some(value.into()); self }
 +    pub fn message_deduplication_id(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.message_deduplication_id = Some(value.into()); self }
 +    pub fn message_group_id(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.message_group_id = Some(value.into()); self }
 +    pub fn message_structure(mut self, value: impl ::std::convert::Into<super::super::super::types::MessageStructure>) -> Self { self.input.message_structure = Some(value.into()); self }
@@ -31067,7 +31067,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub topic_arn: ::std::option::Option<::std::string::String>,
 -    /// <p>A list of <code>PublishBatch</code> request entries to be sent to the SNS topic.</p>
 -    pub publish_batch_request_entries: ::std::option::Option<::std::vec::Vec<crate::types::PublishBatchRequestEntry>>,
-+    pub publish_batch_request_entries: ::std::option::Option<super::super::super::types::PublishBatchRequestEntryList>,
++    pub publish_batch_request_entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::PublishBatchRequestEntry>>,
 +    pub topic_arn: ::std::option::Option<super::super::super::types::TopicArn>,
  }
 +        impl PublishBatchInput {
@@ -31101,7 +31101,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct PublishBatchInputBuilder {
 -    pub(crate) topic_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) publish_batch_request_entries: ::std::option::Option<::std::vec::Vec<crate::types::PublishBatchRequestEntry>>,
-+    publish_batch_request_entries: ::std::option::Option<super::super::super::types::PublishBatchRequestEntryList>,
++    publish_batch_request_entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::PublishBatchRequestEntry>>,
 +    topic_arn: ::std::option::Option<super::super::super::types::TopicArn>,
  }
  impl PublishBatchInputBuilder {
@@ -31152,9 +31152,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            publish_batch_request_entries: self.publish_batch_request_entries,
 -        })
 -    }
-+    pub fn publish_batch_request_entries(mut self, input: impl ::std::convert::Into<super::super::super::types::PublishBatchRequestEntryList>) -> Self { self.publish_batch_request_entries = Some(input.into()); self }
-+    pub fn set_publish_batch_request_entries(mut self, input: ::std::option::Option<super::super::super::types::PublishBatchRequestEntryList>) -> Self { self.publish_batch_request_entries = input; self }
-+    pub fn get_publish_batch_request_entries(&self) -> &::std::option::Option<super::super::super::types::PublishBatchRequestEntryList> { &self.publish_batch_request_entries }
++    pub fn publish_batch_request_entries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PublishBatchRequestEntry>>) -> Self { self.publish_batch_request_entries = Some(input.into()); self }
++    pub fn set_publish_batch_request_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PublishBatchRequestEntry>>) -> Self { self.publish_batch_request_entries = input; self }
++    pub fn get_publish_batch_request_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PublishBatchRequestEntry>> { &self.publish_batch_request_entries }
 +    pub fn topic_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::TopicArn>) -> Self { self.topic_arn = Some(input.into()); self }
 +    pub fn set_topic_arn(mut self, input: ::std::option::Option<super::super::super::types::TopicArn>) -> Self { self.topic_arn = input; self }
 +    pub fn get_topic_arn(&self) -> &::std::option::Option<super::super::super::types::TopicArn> { &self.topic_arn }
@@ -31184,8 +31184,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A list of failed <code>PublishBatch</code> responses.</p>
 -    pub failed: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
 -    _request_id: Option<String>,
-+    pub failed: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>,
-+    pub successful: ::std::option::Option<super::super::super::types::PublishBatchResultEntryList>,
++    pub failed: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>,
++    pub successful: ::std::option::Option<::std::vec::Vec<super::super::super::types::PublishBatchResultEntry>>,
  }
 +        impl PublishBatchOutput {
 +            pub fn failed(&self) -> &[super::super::super::types::BatchResultErrorEntry] { self.failed.as_deref().unwrap_or(&[]) }
@@ -31226,8 +31226,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) successful: ::std::option::Option<::std::vec::Vec<crate::types::PublishBatchResultEntry>>,
 -    pub(crate) failed: ::std::option::Option<::std::vec::Vec<crate::types::BatchResultErrorEntry>>,
 -    _request_id: Option<String>,
-+    failed: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>,
-+    successful: ::std::option::Option<super::super::super::types::PublishBatchResultEntryList>,
++    failed: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>,
++    successful: ::std::option::Option<::std::vec::Vec<super::super::super::types::PublishBatchResultEntry>>,
  }
  impl PublishBatchOutputBuilder {
 -    /// Appends an item to `successful`.
@@ -31287,12 +31287,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn failed(mut self, input: impl ::std::convert::Into<super::super::super::types::BatchResultErrorEntryList>) -> Self { self.failed = Some(input.into()); self }
-+    pub fn set_failed(mut self, input: ::std::option::Option<super::super::super::types::BatchResultErrorEntryList>) -> Self { self.failed = input; self }
-+    pub fn get_failed(&self) -> &::std::option::Option<super::super::super::types::BatchResultErrorEntryList> { &self.failed }
-+    pub fn successful(mut self, input: impl ::std::convert::Into<super::super::super::types::PublishBatchResultEntryList>) -> Self { self.successful = Some(input.into()); self }
-+    pub fn set_successful(mut self, input: ::std::option::Option<super::super::super::types::PublishBatchResultEntryList>) -> Self { self.successful = input; self }
-+    pub fn get_successful(&self) -> &::std::option::Option<super::super::super::types::PublishBatchResultEntryList> { &self.successful }
++    pub fn failed(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>) -> Self { self.failed = Some(input.into()); self }
++    pub fn set_failed(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>>) -> Self { self.failed = input; self }
++    pub fn get_failed(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::BatchResultErrorEntry>> { &self.failed }
++    pub fn successful(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PublishBatchResultEntry>>) -> Self { self.successful = Some(input.into()); self }
++    pub fn set_successful(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PublishBatchResultEntry>>) -> Self { self.successful = input; self }
++    pub fn get_successful(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PublishBatchResultEntry>> { &self.successful }
 +    pub fn build(self) -> PublishBatchOutput { PublishBatchOutput {
 +        failed: self.failed,
 +        successful: self.successful,
@@ -31373,7 +31373,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn publish_batch_request_entries(mut self, value: impl ::std::convert::Into<super::super::super::types::PublishBatchRequestEntryList>) -> Self { self.input.publish_batch_request_entries = Some(value.into()); self }
++    pub fn publish_batch_request_entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PublishBatchRequestEntry>>) -> Self { self.input.publish_batch_request_entries = Some(value.into()); self }
 +    pub fn topic_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::TopicArn>) -> Self { self.input.topic_arn = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -32542,7 +32542,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::PutDataProtectionPolicyError::Unhandled(format!("PutDataProtectionPolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::PutDataProtectionPolicyOutput::default())
++                         Ok(super::PutDataProtectionPolicyOutput)
 +                     }
  }
 +pub use Builder as PutDataProtectionPolicyFluentBuilder;
@@ -33298,7 +33298,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::RemovePermissionError::Unhandled(format!("RemovePermission returned HTTP {}", status)));
 +                         }
-+                         Ok(super::RemovePermissionOutput::default())
++                         Ok(super::RemovePermissionOutput)
 +                     }
  }
 -impl RemovePermissionFluentBuilder {
@@ -33917,11 +33917,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>Token</code> – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li>
 -    /// </ul>
 -    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-+    pub attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
 +    pub endpoint_arn: ::std::option::Option<super::super::super::types::String>,
  }
 +        impl SetEndpointAttributesInput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::MapStringToString> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { self.attributes.as_ref() }
 +            pub fn endpoint_arn(&self) -> ::std::option::Option<&str> { self.endpoint_arn.as_deref() }
 +        }
  impl SetEndpointAttributesInput {
@@ -33957,7 +33957,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct SetEndpointAttributesInputBuilder {
 -    pub(crate) endpoint_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-+    attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
 +    endpoint_arn: ::std::option::Option<super::super::super::types::String>,
  }
  impl SetEndpointAttributesInputBuilder {
@@ -34030,9 +34030,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            attributes: self.attributes,
 -        })
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::MapStringToString>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::MapStringToString> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { &self.attributes }
 +    pub fn endpoint_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.endpoint_arn = Some(input.into()); self }
 +    pub fn set_endpoint_arn(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.endpoint_arn = input; self }
 +    pub fn get_endpoint_arn(&self) -> &::std::option::Option<super::super::super::types::String> { &self.endpoint_arn }
@@ -34278,7 +34278,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
 -        self.inner.get_attributes()
 -    }
-+    pub fn attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.input.attributes = Some(value.into()); self }
++    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.input.attributes = Some(value.into()); self }
 +    pub fn endpoint_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.endpoint_arn = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -34291,7 +34291,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::SetEndpointAttributesError::Unhandled(format!("SetEndpointAttributes returned HTTP {}", status)));
 +                         }
-+                         Ok(super::SetEndpointAttributesOutput::default())
++                         Ok(super::SetEndpointAttributesOutput)
 +                     }
  }
 +pub use Builder as SetEndpointAttributesFluentBuilder;
@@ -34863,11 +34863,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p><code>ApplePlatformBundleID</code> – The bundle identifier that's assigned to your iOS app.</p></li>
 -    /// </ul>
 -    pub attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-+    pub attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
 +    pub platform_application_arn: ::std::option::Option<super::super::super::types::String>,
  }
 +        impl SetPlatformApplicationAttributesInput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::MapStringToString> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { self.attributes.as_ref() }
 +            pub fn platform_application_arn(&self) -> ::std::option::Option<&str> { self.platform_application_arn.as_deref() }
 +        }
  impl SetPlatformApplicationAttributesInput {
@@ -34948,7 +34948,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct SetPlatformApplicationAttributesInputBuilder {
 -    pub(crate) platform_application_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-+    attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
 +    platform_application_arn: ::std::option::Option<super::super::super::types::String>,
  }
  impl SetPlatformApplicationAttributesInputBuilder {
@@ -35160,9 +35160,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            },
 -        )
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::MapStringToString>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::MapStringToString> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { &self.attributes }
 +    pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.platform_application_arn = Some(input.into()); self }
 +    pub fn set_platform_application_arn(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.platform_application_arn = input; self }
 +    pub fn get_platform_application_arn(&self) -> &::std::option::Option<super::super::super::types::String> { &self.platform_application_arn }
@@ -35289,7 +35289,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.input.attributes = Some(value.into()); self }
++    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.input.attributes = Some(value.into()); self }
 +    pub fn platform_application_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.platform_application_arn = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -35302,7 +35302,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::SetPlatformApplicationAttributesError::Unhandled(format!("SetPlatformApplicationAttributes returned HTTP {}", status)));
 +                         }
-+                         Ok(super::SetPlatformApplicationAttributesOutput::default())
++                         Ok(super::SetPlatformApplicationAttributesOutput)
 +                     }
  }
 -impl SetPlatformApplicationAttributesFluentBuilder {
@@ -36159,10 +36159,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn attributes(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
 -        self.attributes.as_ref()
 -    }
-+    pub attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
  }
 +        impl SetSmsAttributesInput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::MapStringToString> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { self.attributes.as_ref() }
 +        }
  impl SetSmsAttributesInput {
 -    /// Creates a new builder-style object to manufacture [`SetSmsAttributesInput`](crate::operation::set_sms_attributes::SetSmsAttributesInput).
@@ -36178,7 +36178,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(Clone, Debug, Default)]
  pub struct SetSmsAttributesInputBuilder {
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-+    attributes: ::std::option::Option<super::super::super::types::MapStringToString>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>,
  }
  impl SetSmsAttributesInputBuilder {
 -    /// Adds a key-value pair to `attributes`.
@@ -36312,9 +36312,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    ) -> ::std::result::Result<crate::operation::set_sms_attributes::SetSmsAttributesInput, ::aws_smithy_types::error::operation::BuildError> {
 -        ::std::result::Result::Ok(crate::operation::set_sms_attributes::SetSmsAttributesInput { attributes: self.attributes })
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::MapStringToString>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::MapStringToString> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>> { &self.attributes }
 +    pub fn build(self) -> SetSmsAttributesInput { SetSmsAttributesInput {
 +        attributes: self.attributes,
 +    } }
@@ -36446,7 +36446,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.input.attributes = Some(value.into()); self }
++    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.input.attributes = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::SetSmsAttributesOutput, super::SetSmsAttributesError> {
@@ -36458,7 +36458,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::SetSmsAttributesError::Unhandled(format!("SetSmsAttributes returned HTTP {}", status)));
 +                         }
-+                         Ok(super::SetSmsAttributesOutput::default())
++                         Ok(super::SetSmsAttributesOutput)
 +                     }
  }
 -impl SetSMSAttributesFluentBuilder {
@@ -37519,7 +37519,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::SetSubscriptionAttributesError::Unhandled(format!("SetSubscriptionAttributes returned HTTP {}", status)));
 +                         }
-+                         Ok(super::SetSubscriptionAttributesOutput::default())
++                         Ok(super::SetSubscriptionAttributesOutput)
 +                     }
  }
 -impl SetSubscriptionAttributesFluentBuilder {
@@ -39489,7 +39489,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::SetTopicAttributesError::Unhandled(format!("SetTopicAttributes returned HTTP {}", status)));
 +                         }
-+                         Ok(super::SetTopicAttributesOutput::default())
++                         Ok(super::SetTopicAttributesOutput)
 +                     }
  }
 +pub use Builder as SetTopicAttributesFluentBuilder;
@@ -40125,14 +40125,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p></p>
 -    /// <p>The default value is <code>false</code>.</p>
 -    pub return_subscription_arn: ::std::option::Option<bool>,
-+    pub attributes: ::std::option::Option<super::super::super::types::SubscriptionAttributesMap>,
++    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    pub endpoint: ::std::option::Option<super::super::super::types::Endpoint2>,
 +    pub protocol: ::std::option::Option<super::super::super::types::Protocol>,
 +    pub return_subscription_arn: ::std::option::Option<super::super::super::types::Boolean>,
 +    pub topic_arn: ::std::option::Option<super::super::super::types::TopicArn>,
  }
 +        impl SubscribeInput {
-+            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::SubscriptionAttributesMap> { self.attributes.as_ref() }
++            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.attributes.as_ref() }
 +            pub fn endpoint(&self) -> ::std::option::Option<&str> { self.endpoint.as_deref() }
 +            pub fn protocol(&self) -> ::std::option::Option<&str> { self.protocol.as_deref() }
 +            pub fn return_subscription_arn(&self) -> ::std::option::Option<bool> { self.return_subscription_arn }
@@ -40269,7 +40269,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) endpoint: ::std::option::Option<::std::string::String>,
 -    pub(crate) attributes: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    pub(crate) return_subscription_arn: ::std::option::Option<bool>,
-+    attributes: ::std::option::Option<super::super::super::types::SubscriptionAttributesMap>,
++    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 +    endpoint: ::std::option::Option<super::super::super::types::Endpoint2>,
 +    protocol: ::std::option::Option<super::super::super::types::Protocol>,
 +    return_subscription_arn: ::std::option::Option<super::super::super::types::Boolean>,
@@ -40637,9 +40637,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            return_subscription_arn: self.return_subscription_arn,
 -        })
 -    }
-+    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::SubscriptionAttributesMap>) -> Self { self.attributes = Some(input.into()); self }
-+    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::SubscriptionAttributesMap>) -> Self { self.attributes = input; self }
-+    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::SubscriptionAttributesMap> { &self.attributes }
++    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = Some(input.into()); self }
++    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = input; self }
++    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.attributes }
 +    pub fn endpoint(mut self, input: impl ::std::convert::Into<super::super::super::types::Endpoint2>) -> Self { self.endpoint = Some(input.into()); self }
 +    pub fn set_endpoint(mut self, input: ::std::option::Option<super::super::super::types::Endpoint2>) -> Self { self.endpoint = input; self }
 +    pub fn get_endpoint(&self) -> &::std::option::Option<super::super::super::types::Endpoint2> { &self.endpoint }
@@ -41221,7 +41221,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::SubscriptionAttributesMap>) -> Self { self.input.attributes = Some(value.into()); self }
++    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.attributes = Some(value.into()); self }
 +    pub fn endpoint(mut self, value: impl ::std::convert::Into<super::super::super::types::Endpoint2>) -> Self { self.input.endpoint = Some(value.into()); self }
 +    pub fn protocol(mut self, value: impl ::std::convert::Into<super::super::super::types::Protocol>) -> Self { self.input.protocol = Some(value.into()); self }
 +    pub fn return_subscription_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::Boolean>) -> Self { self.input.return_subscription_arn = Some(value.into()); self }
@@ -41809,7 +41809,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The tags to be added to the specified topic. A tag consists of a required key and an optional value.</p>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    pub resource_arn: ::std::option::Option<super::super::super::types::AmazonResourceName>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagList>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl TagResourceInput {
 +            pub fn resource_arn(&self) -> ::std::option::Option<&str> { self.resource_arn.as_deref() }
@@ -41843,7 +41843,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    resource_arn: ::std::option::Option<super::super::super::types::AmazonResourceName>,
-+    tags: ::std::option::Option<super::super::super::types::TagList>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl TagResourceInputBuilder {
 -    /// <p>The ARN of the topic to which to add tags.</p>
@@ -41891,9 +41891,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn resource_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::AmazonResourceName>) -> Self { self.resource_arn = Some(input.into()); self }
 +    pub fn set_resource_arn(mut self, input: ::std::option::Option<super::super::super::types::AmazonResourceName>) -> Self { self.resource_arn = input; self }
 +    pub fn get_resource_arn(&self) -> &::std::option::Option<super::super::super::types::AmazonResourceName> { &self.resource_arn }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagList>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagList> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> TagResourceInput { TagResourceInput {
 +        resource_arn: self.resource_arn,
 +        tags: self.tags,
@@ -42037,7 +42037,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn resource_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::AmazonResourceName>) -> Self { self.input.resource_arn = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::TagResourceOutput, super::TagResourceError> {
@@ -42049,7 +42049,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::TagResourceError::Unhandled(format!("TagResource returned HTTP {}", status)));
 +                         }
-+                         Ok(super::TagResourceOutput::default())
++                         Ok(super::TagResourceOutput)
 +                     }
  }
 -impl TagResourceFluentBuilder {
@@ -42884,7 +42884,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UnsubscribeError::Unhandled(format!("Unsubscribe returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UnsubscribeOutput::default())
++                         Ok(super::UnsubscribeOutput)
 +                     }
  }
 -impl UnsubscribeFluentBuilder {
@@ -43499,7 +43499,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.tag_keys.as_deref().unwrap_or_default()
 -    }
 +    pub resource_arn: ::std::option::Option<super::super::super::types::AmazonResourceName>,
-+    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyList>,
++    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>,
  }
 +        impl UntagResourceInput {
 +            pub fn resource_arn(&self) -> ::std::option::Option<&str> { self.resource_arn.as_deref() }
@@ -43521,7 +43521,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) resource_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    resource_arn: ::std::option::Option<super::super::super::types::AmazonResourceName>,
-+    tag_keys: ::std::option::Option<super::super::super::types::TagKeyList>,
++    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>,
  }
  impl UntagResourceInputBuilder {
 -    /// <p>The ARN of the topic from which to remove tags.</p>
@@ -43571,9 +43571,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn resource_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::AmazonResourceName>) -> Self { self.resource_arn = Some(input.into()); self }
 +    pub fn set_resource_arn(mut self, input: ::std::option::Option<super::super::super::types::AmazonResourceName>) -> Self { self.resource_arn = input; self }
 +    pub fn get_resource_arn(&self) -> &::std::option::Option<super::super::super::types::AmazonResourceName> { &self.resource_arn }
-+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyList>) -> Self { self.tag_keys = Some(input.into()); self }
-+    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyList>) -> Self { self.tag_keys = input; self }
-+    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyList> { &self.tag_keys }
++    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKey>>) -> Self { self.tag_keys = Some(input.into()); self }
++    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>>) -> Self { self.tag_keys = input; self }
++    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKey>> { &self.tag_keys }
 +    pub fn build(self) -> UntagResourceInput { UntagResourceInput {
 +        resource_arn: self.resource_arn,
 +        tag_keys: self.tag_keys,
@@ -43799,7 +43799,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.inner.get_tag_keys()
 -    }
 +    pub fn resource_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::AmazonResourceName>) -> Self { self.input.resource_arn = Some(value.into()); self }
-+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyList>) -> Self { self.input.tag_keys = Some(value.into()); self }
++    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKey>>) -> Self { self.input.tag_keys = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UntagResourceOutput, super::UntagResourceError> {
@@ -43811,7 +43811,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UntagResourceError::Unhandled(format!("UntagResource returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UntagResourceOutput::default())
++                         Ok(super::UntagResourceOutput)
 +                     }
  }
 +pub use Builder as UntagResourceFluentBuilder;
@@ -44699,7 +44699,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::VerifySmsSandboxPhoneNumberError::Unhandled(format!("VerifySmsSandboxPhoneNumber returned HTTP {}", status)));
 +                         }
-+                         Ok(super::VerifySmsSandboxPhoneNumberOutput::default())
++                         Ok(super::VerifySmsSandboxPhoneNumberOutput)
 +                     }
  }
 +pub use Builder as VerifySmsSandboxPhoneNumberFluentBuilder;
@@ -45743,7 +45743,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.endpoint_arn.as_deref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct Endpoint {
-+        pub attributes: ::std::option::Option<self::MapStringToString>,
++        pub attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::String>>,
 +        pub endpoint_arn: ::std::option::Option<self::String>,
      }
 -    /// <p>Attributes for endpoint.</p>
@@ -45757,7 +45757,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::EndpointBuilder::default()
 +    impl Endpoint {
 +        pub fn builder() -> EndpointBuilder { EndpointBuilder::default() }
-+        pub fn attributes(&self) -> &::std::option::Option<self::MapStringToString> { &self.attributes }
++        pub fn attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::String>> { &self.attributes }
 +        pub fn endpoint_arn(&self) -> ::std::option::Option<&str> { self.endpoint_arn.as_deref() }
      }
 -}
@@ -45781,7 +45781,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct EndpointBuilder {
-+        attributes: ::std::option::Option<self::MapStringToString>,
++        attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::String>>,
 +        endpoint_arn: ::std::option::Option<self::String>,
      }
 -    /// <p>The <code>EndpointArn</code> for mobile app and device.</p>
@@ -45815,9 +45815,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            attributes: self.attributes,
 +
 +    impl EndpointBuilder {
-+        pub fn attributes(mut self, input: impl ::std::convert::Into<self::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-+        pub fn set_attributes(mut self, input: ::std::option::Option<self::MapStringToString>) -> Self { self.attributes = input; self }
-+        pub fn get_attributes(&self) -> &::std::option::Option<self::MapStringToString> { &self.attributes }
++        pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::String, self::String>>) -> Self { self.attributes = Some(input.into()); self }
++        pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::String, self::String>>) -> Self { self.attributes = input; self }
++        pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::String>> { &self.attributes }
 +        pub fn endpoint_arn(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.endpoint_arn = Some(input.into()); self }
 +        pub fn set_endpoint_arn(mut self, input: ::std::option::Option<self::String>) -> Self { self.endpoint_arn = input; self }
 +        pub fn get_endpoint_arn(&self) -> &::std::option::Option<self::String> { &self.endpoint_arn }
@@ -46391,7 +46391,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct PhoneNumberInformation {
 +        pub created_at: ::std::option::Option<self::Timestamp>,
 +        pub iso2_country_code: ::std::option::Option<self::Iso2CountryCode>,
-+        pub number_capabilities: ::std::option::Option<self::NumberCapabilityList>,
++        pub number_capabilities: ::std::option::Option<::std::vec::Vec<self::NumberCapability>>,
 +        pub phone_number: ::std::option::Option<self::PhoneNumber>,
 +        pub route_type: ::std::option::Option<self::RouteType>,
 +        pub status: ::std::option::Option<self::String>,
@@ -46421,7 +46421,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn builder() -> PhoneNumberInformationBuilder { PhoneNumberInformationBuilder::default() }
 +        pub fn created_at(&self) -> &::std::option::Option<self::Timestamp> { &self.created_at }
 +        pub fn iso2_country_code(&self) -> &::std::option::Option<self::Iso2CountryCode> { &self.iso2_country_code }
-+        pub fn number_capabilities(&self) -> &::std::option::Option<self::NumberCapabilityList> { &self.number_capabilities }
++        pub fn number_capabilities(&self) -> &::std::option::Option<::std::vec::Vec<self::NumberCapability>> { &self.number_capabilities }
 +        pub fn phone_number(&self) -> &::std::option::Option<self::PhoneNumber> { &self.phone_number }
 +        pub fn route_type(&self) -> &::std::option::Option<self::RouteType> { &self.route_type }
 +        pub fn status(&self) -> ::std::option::Option<&str> { self.status.as_deref() }
@@ -46551,7 +46551,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct PhoneNumberInformationBuilder {
 +        created_at: ::std::option::Option<self::Timestamp>,
 +        iso2_country_code: ::std::option::Option<self::Iso2CountryCode>,
-+        number_capabilities: ::std::option::Option<self::NumberCapabilityList>,
++        number_capabilities: ::std::option::Option<::std::vec::Vec<self::NumberCapability>>,
 +        phone_number: ::std::option::Option<self::PhoneNumber>,
 +        route_type: ::std::option::Option<self::RouteType>,
 +        status: ::std::option::Option<self::String>,
@@ -46573,9 +46573,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn iso2_country_code(mut self, input: impl ::std::convert::Into<self::Iso2CountryCode>) -> Self { self.iso2_country_code = Some(input.into()); self }
 +        pub fn set_iso2_country_code(mut self, input: ::std::option::Option<self::Iso2CountryCode>) -> Self { self.iso2_country_code = input; self }
 +        pub fn get_iso2_country_code(&self) -> &::std::option::Option<self::Iso2CountryCode> { &self.iso2_country_code }
-+        pub fn number_capabilities(mut self, input: impl ::std::convert::Into<self::NumberCapabilityList>) -> Self { self.number_capabilities = Some(input.into()); self }
-+        pub fn set_number_capabilities(mut self, input: ::std::option::Option<self::NumberCapabilityList>) -> Self { self.number_capabilities = input; self }
-+        pub fn get_number_capabilities(&self) -> &::std::option::Option<self::NumberCapabilityList> { &self.number_capabilities }
++        pub fn number_capabilities(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::NumberCapability>>) -> Self { self.number_capabilities = Some(input.into()); self }
++        pub fn set_number_capabilities(mut self, input: ::std::option::Option<::std::vec::Vec<self::NumberCapability>>) -> Self { self.number_capabilities = input; self }
++        pub fn get_number_capabilities(&self) -> &::std::option::Option<::std::vec::Vec<self::NumberCapability>> { &self.number_capabilities }
 +        pub fn phone_number(mut self, input: impl ::std::convert::Into<self::PhoneNumber>) -> Self { self.phone_number = Some(input.into()); self }
 +        pub fn set_phone_number(mut self, input: ::std::option::Option<self::PhoneNumber>) -> Self { self.phone_number = input; self }
 +        pub fn get_phone_number(&self) -> &::std::option::Option<self::PhoneNumber> { &self.phone_number }
@@ -46635,7 +46635,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.platform_application_arn.as_deref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct PlatformApplication {
-+        pub attributes: ::std::option::Option<self::MapStringToString>,
++        pub attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::String>>,
 +        pub platform_application_arn: ::std::option::Option<self::String>,
      }
 -    /// <p>Attributes for platform application object.</p>
@@ -46649,7 +46649,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::PlatformApplicationBuilder::default()
 +    impl PlatformApplication {
 +        pub fn builder() -> PlatformApplicationBuilder { PlatformApplicationBuilder::default() }
-+        pub fn attributes(&self) -> &::std::option::Option<self::MapStringToString> { &self.attributes }
++        pub fn attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::String>> { &self.attributes }
 +        pub fn platform_application_arn(&self) -> ::std::option::Option<&str> { self.platform_application_arn.as_deref() }
      }
 -}
@@ -46673,7 +46673,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct PlatformApplicationBuilder {
-+        attributes: ::std::option::Option<self::MapStringToString>,
++        attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::String>>,
 +        platform_application_arn: ::std::option::Option<self::String>,
      }
 -    /// <p>PlatformApplicationArn for platform application object.</p>
@@ -46707,9 +46707,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            attributes: self.attributes,
 +
 +    impl PlatformApplicationBuilder {
-+        pub fn attributes(mut self, input: impl ::std::convert::Into<self::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-+        pub fn set_attributes(mut self, input: ::std::option::Option<self::MapStringToString>) -> Self { self.attributes = input; self }
-+        pub fn get_attributes(&self) -> &::std::option::Option<self::MapStringToString> { &self.attributes }
++        pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::String, self::String>>) -> Self { self.attributes = Some(input.into()); self }
++        pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::String, self::String>>) -> Self { self.attributes = input; self }
++        pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::String>> { &self.attributes }
 +        pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.platform_application_arn = Some(input.into()); self }
 +        pub fn set_platform_application_arn(mut self, input: ::std::option::Option<self::String>) -> Self { self.platform_application_arn = input; self }
 +        pub fn get_platform_application_arn(&self) -> &::std::option::Option<self::String> { &self.platform_application_arn }
@@ -46806,7 +46806,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct PublishBatchRequestEntry {
 +        pub id: ::std::option::Option<self::String>,
 +        pub message: ::std::option::Option<self::Message>,
-+        pub message_attributes: ::std::option::Option<self::MessageAttributeMap>,
++        pub message_attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>,
 +        pub message_deduplication_id: ::std::option::Option<self::String>,
 +        pub message_group_id: ::std::option::Option<self::String>,
 +        pub message_structure: ::std::option::Option<self::MessageStructure>,
@@ -46875,7 +46875,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn builder() -> PublishBatchRequestEntryBuilder { PublishBatchRequestEntryBuilder::default() }
 +        pub fn id(&self) -> ::std::option::Option<&str> { self.id.as_deref() }
 +        pub fn message(&self) -> &::std::option::Option<self::Message> { &self.message }
-+        pub fn message_attributes(&self) -> &::std::option::Option<self::MessageAttributeMap> { &self.message_attributes }
++        pub fn message_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>> { &self.message_attributes }
 +        pub fn message_deduplication_id(&self) -> ::std::option::Option<&str> { self.message_deduplication_id.as_deref() }
 +        pub fn message_group_id(&self) -> ::std::option::Option<&str> { self.message_group_id.as_deref() }
 +        pub fn message_structure(&self) -> &::std::option::Option<self::MessageStructure> { &self.message_structure }
@@ -47129,7 +47129,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct PublishBatchRequestEntryBuilder {
 +        id: ::std::option::Option<self::String>,
 +        message: ::std::option::Option<self::Message>,
-+        message_attributes: ::std::option::Option<self::MessageAttributeMap>,
++        message_attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>,
 +        message_deduplication_id: ::std::option::Option<self::String>,
 +        message_group_id: ::std::option::Option<self::String>,
 +        message_structure: ::std::option::Option<self::MessageStructure>,
@@ -47190,9 +47190,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn message(mut self, input: impl ::std::convert::Into<self::Message>) -> Self { self.message = Some(input.into()); self }
 +        pub fn set_message(mut self, input: ::std::option::Option<self::Message>) -> Self { self.message = input; self }
 +        pub fn get_message(&self) -> &::std::option::Option<self::Message> { &self.message }
-+        pub fn message_attributes(mut self, input: impl ::std::convert::Into<self::MessageAttributeMap>) -> Self { self.message_attributes = Some(input.into()); self }
-+        pub fn set_message_attributes(mut self, input: ::std::option::Option<self::MessageAttributeMap>) -> Self { self.message_attributes = input; self }
-+        pub fn get_message_attributes(&self) -> &::std::option::Option<self::MessageAttributeMap> { &self.message_attributes }
++        pub fn message_attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>) -> Self { self.message_attributes = Some(input.into()); self }
++        pub fn set_message_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>) -> Self { self.message_attributes = input; self }
++        pub fn get_message_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>> { &self.message_attributes }
 +        pub fn message_deduplication_id(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.message_deduplication_id = Some(input.into()); self }
 +        pub fn set_message_deduplication_id(mut self, input: ::std::option::Option<self::String>) -> Self { self.message_deduplication_id = input; self }
 +        pub fn get_message_deduplication_id(&self) -> &::std::option::Option<self::String> { &self.message_deduplication_id }
@@ -52097,11 +52097,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types.rs
 +++ generated/src/types.rs
-@@ -1,66 +1,106 @@
+@@ -1,66 +1,86 @@
 -// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub use crate::types::_language_code_string::LanguageCodeString;
-+// Generated by aws-sdk-build aws-sdk-build-rust-native-0.2.0. DO NOT EDIT.
-
+-
 -pub use crate::types::_tag::Tag;
 -
 -pub use crate::types::_endpoint::Endpoint;
@@ -52139,7 +52138,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -mod _message_attribute_value;
 -
 -mod _number_capability;
--
++// Generated by aws-sdk-build aws-sdk-build-rust-native-0.2.0. DO NOT EDIT.
+
 -mod _phone_number_information;
 -
 -mod _platform_application;
@@ -52166,54 +52166,34 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -/// Error types that Amazon Simple Notification Service can respond with.
 -pub mod error;
 +pub mod types {
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_actions_list.rs"));
 +    pub type AmazonResourceName = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_batch_result_error_entry.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_batch_result_error_entry_list.rs"));
 +    pub type Binary = ::std::vec::Vec<u8>;
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_delegates_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_endpoint.rs"));
 +    pub type Endpoint2 = ::std::string::String;
 +    pub type Iso2CountryCode = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_language_code_string.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_list_of_endpoints.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_list_of_platform_applications.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_list_string.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_map_string_to_string.rs"));
 +    pub type MaxItems = i32;
 +    pub type MaxItemsListOriginationNumbers = i32;
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_message_attribute_map.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_message_attribute_value.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_number_capability.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_number_capability_list.rs"));
 +    pub type OtpCode = ::std::string::String;
 +    pub type PhoneNumber = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_phone_number_information.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_phone_number_information_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_phone_number_list.rs"));
 +    pub type PhoneNumberString = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_platform_application.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_publish_batch_request_entry.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_publish_batch_request_entry_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_publish_batch_result_entry.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_publish_batch_result_entry_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_route_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_sms_sandbox_phone_number.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_sms_sandbox_phone_number_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_sms_sandbox_phone_number_verification_status.rs"));
 +    pub type String = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_subscription.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_subscription_attributes_map.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_subscriptions_list.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_tag.rs"));
 +    pub type TagKey = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_tag_key_list.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_tag_list.rs"));
 +    pub type TagValue = ::std::string::String;
 +    pub type Timestamp = ::std::time::SystemTime;
 +    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_topic.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_topic_attributes_map.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/sns/src/types/_topics_list.rs"));
 +    pub type Account = ::std::string::String;
 +    pub type Action = ::std::string::String;
 +    pub type AttributeName = ::std::string::String;
@@ -52458,26 +52438,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ### Unexpected generated files
 
 - `src/aws_runtime.rs`
-- `src/types/_actions_list.rs`
-- `src/types/_batch_result_error_entry_list.rs`
-- `src/types/_delegates_list.rs`
-- `src/types/_list_of_endpoints.rs`
-- `src/types/_list_of_platform_applications.rs`
-- `src/types/_list_string.rs`
-- `src/types/_map_string_to_string.rs`
-- `src/types/_message_attribute_map.rs`
-- `src/types/_number_capability_list.rs`
-- `src/types/_phone_number_information_list.rs`
-- `src/types/_phone_number_list.rs`
-- `src/types/_publish_batch_request_entry_list.rs`
-- `src/types/_publish_batch_result_entry_list.rs`
-- `src/types/_sms_sandbox_phone_number_list.rs`
-- `src/types/_subscription_attributes_map.rs`
-- `src/types/_subscriptions_list.rs`
-- `src/types/_tag_key_list.rs`
-- `src/types/_tag_list.rs`
-- `src/types/_topic_attributes_map.rs`
-- `src/types/_topics_list.rs`
 
 ### Rust token differences
 

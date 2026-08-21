@@ -5,8 +5,8 @@ pub struct GetFederationTokenInput {
     pub duration_seconds: ::std::option::Option<super::super::super::types::DurationSecondsType>,
     pub name: ::std::option::Option<super::super::super::types::UserNameType>,
     pub policy: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>,
-    pub policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl GetFederationTokenInput {
             pub fn duration_seconds(&self) -> ::std::option::Option<i32> { self.duration_seconds }
@@ -23,8 +23,8 @@ pub struct GetFederationTokenInputBuilder {
     duration_seconds: ::std::option::Option<super::super::super::types::DurationSecondsType>,
     name: ::std::option::Option<super::super::super::types::UserNameType>,
     policy: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>,
-    policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl GetFederationTokenInputBuilder {
     pub fn duration_seconds(mut self, input: impl ::std::convert::Into<super::super::super::types::DurationSecondsType>) -> Self { self.duration_seconds = Some(input.into()); self }
@@ -36,12 +36,12 @@ impl GetFederationTokenInputBuilder {
     pub fn policy(mut self, input: impl ::std::convert::Into<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.policy = Some(input.into()); self }
     pub fn set_policy(mut self, input: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.policy = input; self }
     pub fn get_policy(&self) -> &::std::option::Option<super::super::super::types::SessionPolicyDocumentType> { &self.policy }
-    pub fn policy_arns(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = Some(input.into()); self }
-    pub fn set_policy_arns(mut self, input: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = input; self }
-    pub fn get_policy_arns(&self) -> &::std::option::Option<super::super::super::types::PolicyDescriptorListType> { &self.policy_arns }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn policy_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = Some(input.into()); self }
+    pub fn set_policy_arns(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = input; self }
+    pub fn get_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>> { &self.policy_arns }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> GetFederationTokenInput { GetFederationTokenInput {
         duration_seconds: self.duration_seconds,
         name: self.name,

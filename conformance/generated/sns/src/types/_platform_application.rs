@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct PlatformApplication {
-        pub attributes: ::std::option::Option<self::MapStringToString>,
+        pub attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::String>>,
         pub platform_application_arn: ::std::option::Option<self::String>,
     }
     impl PlatformApplication {
         pub fn builder() -> PlatformApplicationBuilder { PlatformApplicationBuilder::default() }
-        pub fn attributes(&self) -> &::std::option::Option<self::MapStringToString> { &self.attributes }
+        pub fn attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::String>> { &self.attributes }
         pub fn platform_application_arn(&self) -> ::std::option::Option<&str> { self.platform_application_arn.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct PlatformApplicationBuilder {
-        attributes: ::std::option::Option<self::MapStringToString>,
+        attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::String>>,
         platform_application_arn: ::std::option::Option<self::String>,
     }
 
     impl PlatformApplicationBuilder {
-        pub fn attributes(mut self, input: impl ::std::convert::Into<self::MapStringToString>) -> Self { self.attributes = Some(input.into()); self }
-        pub fn set_attributes(mut self, input: ::std::option::Option<self::MapStringToString>) -> Self { self.attributes = input; self }
-        pub fn get_attributes(&self) -> &::std::option::Option<self::MapStringToString> { &self.attributes }
+        pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::String, self::String>>) -> Self { self.attributes = Some(input.into()); self }
+        pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::String, self::String>>) -> Self { self.attributes = input; self }
+        pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::String>> { &self.attributes }
         pub fn platform_application_arn(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.platform_application_arn = Some(input.into()); self }
         pub fn set_platform_application_arn(mut self, input: ::std::option::Option<self::String>) -> Self { self.platform_application_arn = input; self }
         pub fn get_platform_application_arn(&self) -> &::std::option::Option<self::String> { &self.platform_application_arn }

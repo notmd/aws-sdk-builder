@@ -3,11 +3,11 @@
 #[derive(Clone, Debug, Default)]
 pub struct TagQueueInput {
     pub queue_url: ::std::option::Option<super::super::super::types::String>,
-    pub tags: ::std::option::Option<super::super::super::types::TagMap>,
+    pub tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
 }
         impl TagQueueInput {
             pub fn queue_url(&self) -> ::std::option::Option<&str> { self.queue_url.as_deref() }
-            pub fn tags(&self) -> ::std::option::Option<&super::super::super::types::TagMap> { self.tags.as_ref() }
+            pub fn tags(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { self.tags.as_ref() }
         }
 impl TagQueueInput {
     pub fn builder() -> TagQueueInputBuilder { TagQueueInputBuilder::default() }
@@ -15,15 +15,15 @@ impl TagQueueInput {
 #[derive(Clone, Debug, Default)]
 pub struct TagQueueInputBuilder {
     queue_url: ::std::option::Option<super::super::super::types::String>,
-    tags: ::std::option::Option<super::super::super::types::TagMap>,
+    tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
 }
 impl TagQueueInputBuilder {
     pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
     pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
     pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagMap>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagMap>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagMap> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { &self.tags }
     pub fn build(self) -> TagQueueInput { TagQueueInput {
         queue_url: self.queue_url,
         tags: self.tags,

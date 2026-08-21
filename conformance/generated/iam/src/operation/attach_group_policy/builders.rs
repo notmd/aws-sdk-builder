@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::AttachGroupPolicyError::Unhandled(format!("AttachGroupPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::AttachGroupPolicyOutput::default())
+                         Ok(super::AttachGroupPolicyOutput)
                      }
 }
 pub use Builder as AttachGroupPolicyFluentBuilder;

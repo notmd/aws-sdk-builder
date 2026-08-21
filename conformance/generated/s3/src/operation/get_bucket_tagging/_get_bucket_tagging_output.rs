@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetBucketTaggingOutput {
-    pub tag_set: ::std::option::Option<super::super::super::types::TagSet>,
+    pub tag_set: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl GetBucketTaggingOutput {
             pub fn tag_set(&self) -> &[super::super::super::types::Tag] { self.tag_set.as_deref().unwrap_or(&[]) }
@@ -12,12 +12,12 @@ impl GetBucketTaggingOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetBucketTaggingOutputBuilder {
-    tag_set: ::std::option::Option<super::super::super::types::TagSet>,
+    tag_set: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl GetBucketTaggingOutputBuilder {
-    pub fn tag_set(mut self, input: impl ::std::convert::Into<super::super::super::types::TagSet>) -> Self { self.tag_set = Some(input.into()); self }
-    pub fn set_tag_set(mut self, input: ::std::option::Option<super::super::super::types::TagSet>) -> Self { self.tag_set = input; self }
-    pub fn get_tag_set(&self) -> &::std::option::Option<super::super::super::types::TagSet> { &self.tag_set }
+    pub fn tag_set(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tag_set = Some(input.into()); self }
+    pub fn set_tag_set(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tag_set = input; self }
+    pub fn get_tag_set(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tag_set }
     pub fn build(self) -> GetBucketTaggingOutput { GetBucketTaggingOutput {
         tag_set: self.tag_set,
     } }

@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct DescribeCustomKeyStoresOutput {
-    pub custom_key_stores: ::std::option::Option<super::super::super::types::CustomKeyStoresList>,
+    pub custom_key_stores: ::std::option::Option<::std::vec::Vec<super::super::super::types::CustomKeyStoresListEntry>>,
     pub next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
     pub truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 }
@@ -16,14 +16,14 @@ impl DescribeCustomKeyStoresOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct DescribeCustomKeyStoresOutputBuilder {
-    custom_key_stores: ::std::option::Option<super::super::super::types::CustomKeyStoresList>,
+    custom_key_stores: ::std::option::Option<::std::vec::Vec<super::super::super::types::CustomKeyStoresListEntry>>,
     next_marker: ::std::option::Option<super::super::super::types::MarkerType>,
     truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 }
 impl DescribeCustomKeyStoresOutputBuilder {
-    pub fn custom_key_stores(mut self, input: impl ::std::convert::Into<super::super::super::types::CustomKeyStoresList>) -> Self { self.custom_key_stores = Some(input.into()); self }
-    pub fn set_custom_key_stores(mut self, input: ::std::option::Option<super::super::super::types::CustomKeyStoresList>) -> Self { self.custom_key_stores = input; self }
-    pub fn get_custom_key_stores(&self) -> &::std::option::Option<super::super::super::types::CustomKeyStoresList> { &self.custom_key_stores }
+    pub fn custom_key_stores(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::CustomKeyStoresListEntry>>) -> Self { self.custom_key_stores = Some(input.into()); self }
+    pub fn set_custom_key_stores(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::CustomKeyStoresListEntry>>) -> Self { self.custom_key_stores = input; self }
+    pub fn get_custom_key_stores(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::CustomKeyStoresListEntry>> { &self.custom_key_stores }
     pub fn next_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.next_marker = Some(input.into()); self }
     pub fn set_next_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.next_marker = input; self }
     pub fn get_next_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.next_marker }

@@ -8,12 +8,12 @@
         pub durable_config: ::std::option::Option<self::DurableConfig>,
         pub environment: ::std::option::Option<self::Environment>,
         pub ephemeral_storage: ::std::option::Option<self::EphemeralStorage>,
-        pub file_system_configs: ::std::option::Option<self::FileSystemConfigList>,
+        pub file_system_configs: ::std::option::Option<::std::vec::Vec<self::FileSystemConfig>>,
         pub function_name: ::std::option::Option<self::FunctionName>,
         pub handler: ::std::option::Option<self::Handler>,
         pub image_config: ::std::option::Option<self::ImageConfig>,
         pub kms_key_arn: ::std::option::Option<self::KmsKeyArn>,
-        pub layers: ::std::option::Option<self::LayerList>,
+        pub layers: ::std::option::Option<::std::vec::Vec<self::LayerVersionArn>>,
         pub logging_config: ::std::option::Option<self::LoggingConfig>,
         pub memory_size: ::std::option::Option<self::MemorySize>,
         pub revision_id: ::std::option::Option<self::String>,
@@ -32,12 +32,12 @@
         pub fn durable_config(&self) -> &::std::option::Option<self::DurableConfig> { &self.durable_config }
         pub fn environment(&self) -> &::std::option::Option<self::Environment> { &self.environment }
         pub fn ephemeral_storage(&self) -> &::std::option::Option<self::EphemeralStorage> { &self.ephemeral_storage }
-        pub fn file_system_configs(&self) -> &::std::option::Option<self::FileSystemConfigList> { &self.file_system_configs }
+        pub fn file_system_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::FileSystemConfig>> { &self.file_system_configs }
         pub fn function_name(&self) -> &::std::option::Option<self::FunctionName> { &self.function_name }
         pub fn handler(&self) -> &::std::option::Option<self::Handler> { &self.handler }
         pub fn image_config(&self) -> &::std::option::Option<self::ImageConfig> { &self.image_config }
         pub fn kms_key_arn(&self) -> &::std::option::Option<self::KmsKeyArn> { &self.kms_key_arn }
-        pub fn layers(&self) -> &::std::option::Option<self::LayerList> { &self.layers }
+        pub fn layers(&self) -> &::std::option::Option<::std::vec::Vec<self::LayerVersionArn>> { &self.layers }
         pub fn logging_config(&self) -> &::std::option::Option<self::LoggingConfig> { &self.logging_config }
         pub fn memory_size(&self) -> &::std::option::Option<self::MemorySize> { &self.memory_size }
         pub fn revision_id(&self) -> ::std::option::Option<&str> { self.revision_id.as_deref() }
@@ -57,12 +57,12 @@
         durable_config: ::std::option::Option<self::DurableConfig>,
         environment: ::std::option::Option<self::Environment>,
         ephemeral_storage: ::std::option::Option<self::EphemeralStorage>,
-        file_system_configs: ::std::option::Option<self::FileSystemConfigList>,
+        file_system_configs: ::std::option::Option<::std::vec::Vec<self::FileSystemConfig>>,
         function_name: ::std::option::Option<self::FunctionName>,
         handler: ::std::option::Option<self::Handler>,
         image_config: ::std::option::Option<self::ImageConfig>,
         kms_key_arn: ::std::option::Option<self::KmsKeyArn>,
-        layers: ::std::option::Option<self::LayerList>,
+        layers: ::std::option::Option<::std::vec::Vec<self::LayerVersionArn>>,
         logging_config: ::std::option::Option<self::LoggingConfig>,
         memory_size: ::std::option::Option<self::MemorySize>,
         revision_id: ::std::option::Option<self::String>,
@@ -93,9 +93,9 @@
         pub fn ephemeral_storage(mut self, input: impl ::std::convert::Into<self::EphemeralStorage>) -> Self { self.ephemeral_storage = Some(input.into()); self }
         pub fn set_ephemeral_storage(mut self, input: ::std::option::Option<self::EphemeralStorage>) -> Self { self.ephemeral_storage = input; self }
         pub fn get_ephemeral_storage(&self) -> &::std::option::Option<self::EphemeralStorage> { &self.ephemeral_storage }
-        pub fn file_system_configs(mut self, input: impl ::std::convert::Into<self::FileSystemConfigList>) -> Self { self.file_system_configs = Some(input.into()); self }
-        pub fn set_file_system_configs(mut self, input: ::std::option::Option<self::FileSystemConfigList>) -> Self { self.file_system_configs = input; self }
-        pub fn get_file_system_configs(&self) -> &::std::option::Option<self::FileSystemConfigList> { &self.file_system_configs }
+        pub fn file_system_configs(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::FileSystemConfig>>) -> Self { self.file_system_configs = Some(input.into()); self }
+        pub fn set_file_system_configs(mut self, input: ::std::option::Option<::std::vec::Vec<self::FileSystemConfig>>) -> Self { self.file_system_configs = input; self }
+        pub fn get_file_system_configs(&self) -> &::std::option::Option<::std::vec::Vec<self::FileSystemConfig>> { &self.file_system_configs }
         pub fn function_name(mut self, input: impl ::std::convert::Into<self::FunctionName>) -> Self { self.function_name = Some(input.into()); self }
         pub fn set_function_name(mut self, input: ::std::option::Option<self::FunctionName>) -> Self { self.function_name = input; self }
         pub fn get_function_name(&self) -> &::std::option::Option<self::FunctionName> { &self.function_name }
@@ -108,9 +108,9 @@
         pub fn kms_key_arn(mut self, input: impl ::std::convert::Into<self::KmsKeyArn>) -> Self { self.kms_key_arn = Some(input.into()); self }
         pub fn set_kms_key_arn(mut self, input: ::std::option::Option<self::KmsKeyArn>) -> Self { self.kms_key_arn = input; self }
         pub fn get_kms_key_arn(&self) -> &::std::option::Option<self::KmsKeyArn> { &self.kms_key_arn }
-        pub fn layers(mut self, input: impl ::std::convert::Into<self::LayerList>) -> Self { self.layers = Some(input.into()); self }
-        pub fn set_layers(mut self, input: ::std::option::Option<self::LayerList>) -> Self { self.layers = input; self }
-        pub fn get_layers(&self) -> &::std::option::Option<self::LayerList> { &self.layers }
+        pub fn layers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::LayerVersionArn>>) -> Self { self.layers = Some(input.into()); self }
+        pub fn set_layers(mut self, input: ::std::option::Option<::std::vec::Vec<self::LayerVersionArn>>) -> Self { self.layers = input; self }
+        pub fn get_layers(&self) -> &::std::option::Option<::std::vec::Vec<self::LayerVersionArn>> { &self.layers }
         pub fn logging_config(mut self, input: impl ::std::convert::Into<self::LoggingConfig>) -> Self { self.logging_config = Some(input.into()); self }
         pub fn set_logging_config(mut self, input: ::std::option::Option<self::LoggingConfig>) -> Self { self.logging_config = input; self }
         pub fn get_logging_config(&self) -> &::std::option::Option<self::LoggingConfig> { &self.logging_config }

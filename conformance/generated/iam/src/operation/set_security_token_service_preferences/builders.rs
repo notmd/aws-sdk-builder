@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SetSecurityTokenServicePreferencesError::Unhandled(format!("SetSecurityTokenServicePreferences returned HTTP {}", status)));
                          }
-                         Ok(super::SetSecurityTokenServicePreferencesOutput::default())
+                         Ok(super::SetSecurityTokenServicePreferencesOutput)
                      }
 }
 pub use Builder as SetSecurityTokenServicePreferencesFluentBuilder;

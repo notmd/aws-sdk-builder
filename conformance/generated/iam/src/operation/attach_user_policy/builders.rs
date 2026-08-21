@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::AttachUserPolicyError::Unhandled(format!("AttachUserPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::AttachUserPolicyOutput::default())
+                         Ok(super::AttachUserPolicyOutput)
                      }
 }
 pub use Builder as AttachUserPolicyFluentBuilder;

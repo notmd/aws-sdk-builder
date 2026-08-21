@@ -2,8 +2,8 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct BatchExecuteStatementOutput {
-    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-    pub responses: ::std::option::Option<super::super::super::types::PartiQlBatchResponse>,
+    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
+    pub responses: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementResponse>>,
 }
         impl BatchExecuteStatementOutput {
             pub fn consumed_capacity(&self) -> &[super::super::super::types::ConsumedCapacity] { self.consumed_capacity.as_deref().unwrap_or(&[]) }
@@ -14,16 +14,16 @@ impl BatchExecuteStatementOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct BatchExecuteStatementOutputBuilder {
-    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-    responses: ::std::option::Option<super::super::super::types::PartiQlBatchResponse>,
+    consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
+    responses: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementResponse>>,
 }
 impl BatchExecuteStatementOutputBuilder {
-    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = Some(input.into()); self }
-    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = input; self }
-    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacityMultiple> { &self.consumed_capacity }
-    pub fn responses(mut self, input: impl ::std::convert::Into<super::super::super::types::PartiQlBatchResponse>) -> Self { self.responses = Some(input.into()); self }
-    pub fn set_responses(mut self, input: ::std::option::Option<super::super::super::types::PartiQlBatchResponse>) -> Self { self.responses = input; self }
-    pub fn get_responses(&self) -> &::std::option::Option<super::super::super::types::PartiQlBatchResponse> { &self.responses }
+    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = Some(input.into()); self }
+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = input; self }
+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>> { &self.consumed_capacity }
+    pub fn responses(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::BatchStatementResponse>>) -> Self { self.responses = Some(input.into()); self }
+    pub fn set_responses(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementResponse>>) -> Self { self.responses = input; self }
+    pub fn get_responses(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::BatchStatementResponse>> { &self.responses }
     pub fn build(self) -> BatchExecuteStatementOutput { BatchExecuteStatementOutput {
         consumed_capacity: self.consumed_capacity,
         responses: self.responses,

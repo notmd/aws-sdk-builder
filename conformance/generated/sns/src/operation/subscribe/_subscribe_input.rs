@@ -2,14 +2,14 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct SubscribeInput {
-    pub attributes: ::std::option::Option<super::super::super::types::SubscriptionAttributesMap>,
+    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
     pub endpoint: ::std::option::Option<super::super::super::types::Endpoint2>,
     pub protocol: ::std::option::Option<super::super::super::types::Protocol>,
     pub return_subscription_arn: ::std::option::Option<super::super::super::types::Boolean>,
     pub topic_arn: ::std::option::Option<super::super::super::types::TopicArn>,
 }
         impl SubscribeInput {
-            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::SubscriptionAttributesMap> { self.attributes.as_ref() }
+            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.attributes.as_ref() }
             pub fn endpoint(&self) -> ::std::option::Option<&str> { self.endpoint.as_deref() }
             pub fn protocol(&self) -> ::std::option::Option<&str> { self.protocol.as_deref() }
             pub fn return_subscription_arn(&self) -> ::std::option::Option<bool> { self.return_subscription_arn }
@@ -20,16 +20,16 @@ impl SubscribeInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct SubscribeInputBuilder {
-    attributes: ::std::option::Option<super::super::super::types::SubscriptionAttributesMap>,
+    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
     endpoint: ::std::option::Option<super::super::super::types::Endpoint2>,
     protocol: ::std::option::Option<super::super::super::types::Protocol>,
     return_subscription_arn: ::std::option::Option<super::super::super::types::Boolean>,
     topic_arn: ::std::option::Option<super::super::super::types::TopicArn>,
 }
 impl SubscribeInputBuilder {
-    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::SubscriptionAttributesMap>) -> Self { self.attributes = Some(input.into()); self }
-    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::SubscriptionAttributesMap>) -> Self { self.attributes = input; self }
-    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::SubscriptionAttributesMap> { &self.attributes }
+    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = Some(input.into()); self }
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = input; self }
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.attributes }
     pub fn endpoint(mut self, input: impl ::std::convert::Into<super::super::super::types::Endpoint2>) -> Self { self.endpoint = Some(input.into()); self }
     pub fn set_endpoint(mut self, input: ::std::option::Option<super::super::super::types::Endpoint2>) -> Self { self.endpoint = input; self }
     pub fn get_endpoint(&self) -> &::std::option::Option<super::super::super::types::Endpoint2> { &self.endpoint }

@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct AccessControlPolicy {
-        pub grants: ::std::option::Option<self::Grants>,
+        pub grants: ::std::option::Option<::std::vec::Vec<self::Grant>>,
         pub owner: ::std::option::Option<self::Owner>,
     }
     impl AccessControlPolicy {
         pub fn builder() -> AccessControlPolicyBuilder { AccessControlPolicyBuilder::default() }
-        pub fn grants(&self) -> &::std::option::Option<self::Grants> { &self.grants }
+        pub fn grants(&self) -> &::std::option::Option<::std::vec::Vec<self::Grant>> { &self.grants }
         pub fn owner(&self) -> &::std::option::Option<self::Owner> { &self.owner }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct AccessControlPolicyBuilder {
-        grants: ::std::option::Option<self::Grants>,
+        grants: ::std::option::Option<::std::vec::Vec<self::Grant>>,
         owner: ::std::option::Option<self::Owner>,
     }
 
     impl AccessControlPolicyBuilder {
-        pub fn grants(mut self, input: impl ::std::convert::Into<self::Grants>) -> Self { self.grants = Some(input.into()); self }
-        pub fn set_grants(mut self, input: ::std::option::Option<self::Grants>) -> Self { self.grants = input; self }
-        pub fn get_grants(&self) -> &::std::option::Option<self::Grants> { &self.grants }
+        pub fn grants(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Grant>>) -> Self { self.grants = Some(input.into()); self }
+        pub fn set_grants(mut self, input: ::std::option::Option<::std::vec::Vec<self::Grant>>) -> Self { self.grants = input; self }
+        pub fn get_grants(&self) -> &::std::option::Option<::std::vec::Vec<self::Grant>> { &self.grants }
         pub fn owner(mut self, input: impl ::std::convert::Into<self::Owner>) -> Self { self.owner = Some(input.into()); self }
         pub fn set_owner(mut self, input: ::std::option::Option<self::Owner>) -> Self { self.owner = input; self }
         pub fn get_owner(&self) -> &::std::option::Option<self::Owner> { &self.owner }

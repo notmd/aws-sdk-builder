@@ -2,8 +2,8 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct PublishLayerVersionRequest {
-        pub compatible_architectures: ::std::option::Option<self::CompatibleArchitectures>,
-        pub compatible_runtimes: ::std::option::Option<self::CompatibleRuntimes>,
+        pub compatible_architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
+        pub compatible_runtimes: ::std::option::Option<::std::vec::Vec<self::Runtime>>,
         pub content: ::std::option::Option<self::LayerVersionContentInput>,
         pub description: ::std::option::Option<self::Description>,
         pub layer_name: ::std::option::Option<self::LayerName>,
@@ -11,8 +11,8 @@
     }
     impl PublishLayerVersionRequest {
         pub fn builder() -> PublishLayerVersionRequestBuilder { PublishLayerVersionRequestBuilder::default() }
-        pub fn compatible_architectures(&self) -> &::std::option::Option<self::CompatibleArchitectures> { &self.compatible_architectures }
-        pub fn compatible_runtimes(&self) -> &::std::option::Option<self::CompatibleRuntimes> { &self.compatible_runtimes }
+        pub fn compatible_architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.compatible_architectures }
+        pub fn compatible_runtimes(&self) -> &::std::option::Option<::std::vec::Vec<self::Runtime>> { &self.compatible_runtimes }
         pub fn content(&self) -> &::std::option::Option<self::LayerVersionContentInput> { &self.content }
         pub fn description(&self) -> &::std::option::Option<self::Description> { &self.description }
         pub fn layer_name(&self) -> &::std::option::Option<self::LayerName> { &self.layer_name }
@@ -21,8 +21,8 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct PublishLayerVersionRequestBuilder {
-        compatible_architectures: ::std::option::Option<self::CompatibleArchitectures>,
-        compatible_runtimes: ::std::option::Option<self::CompatibleRuntimes>,
+        compatible_architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
+        compatible_runtimes: ::std::option::Option<::std::vec::Vec<self::Runtime>>,
         content: ::std::option::Option<self::LayerVersionContentInput>,
         description: ::std::option::Option<self::Description>,
         layer_name: ::std::option::Option<self::LayerName>,
@@ -30,12 +30,12 @@
     }
 
     impl PublishLayerVersionRequestBuilder {
-        pub fn compatible_architectures(mut self, input: impl ::std::convert::Into<self::CompatibleArchitectures>) -> Self { self.compatible_architectures = Some(input.into()); self }
-        pub fn set_compatible_architectures(mut self, input: ::std::option::Option<self::CompatibleArchitectures>) -> Self { self.compatible_architectures = input; self }
-        pub fn get_compatible_architectures(&self) -> &::std::option::Option<self::CompatibleArchitectures> { &self.compatible_architectures }
-        pub fn compatible_runtimes(mut self, input: impl ::std::convert::Into<self::CompatibleRuntimes>) -> Self { self.compatible_runtimes = Some(input.into()); self }
-        pub fn set_compatible_runtimes(mut self, input: ::std::option::Option<self::CompatibleRuntimes>) -> Self { self.compatible_runtimes = input; self }
-        pub fn get_compatible_runtimes(&self) -> &::std::option::Option<self::CompatibleRuntimes> { &self.compatible_runtimes }
+        pub fn compatible_architectures(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Architecture>>) -> Self { self.compatible_architectures = Some(input.into()); self }
+        pub fn set_compatible_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<self::Architecture>>) -> Self { self.compatible_architectures = input; self }
+        pub fn get_compatible_architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.compatible_architectures }
+        pub fn compatible_runtimes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Runtime>>) -> Self { self.compatible_runtimes = Some(input.into()); self }
+        pub fn set_compatible_runtimes(mut self, input: ::std::option::Option<::std::vec::Vec<self::Runtime>>) -> Self { self.compatible_runtimes = input; self }
+        pub fn get_compatible_runtimes(&self) -> &::std::option::Option<::std::vec::Vec<self::Runtime>> { &self.compatible_runtimes }
         pub fn content(mut self, input: impl ::std::convert::Into<self::LayerVersionContentInput>) -> Self { self.content = Some(input.into()); self }
         pub fn set_content(mut self, input: ::std::option::Option<self::LayerVersionContentInput>) -> Self { self.content = input; self }
         pub fn get_content(&self) -> &::std::option::Option<self::LayerVersionContentInput> { &self.content }

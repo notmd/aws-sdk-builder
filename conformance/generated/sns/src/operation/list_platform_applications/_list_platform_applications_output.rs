@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct ListPlatformApplicationsOutput {
     pub next_token: ::std::option::Option<super::super::super::types::String>,
-    pub platform_applications: ::std::option::Option<super::super::super::types::ListOfPlatformApplications>,
+    pub platform_applications: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformApplication>>,
 }
         impl ListPlatformApplicationsOutput {
             pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -15,15 +15,15 @@ impl ListPlatformApplicationsOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ListPlatformApplicationsOutputBuilder {
     next_token: ::std::option::Option<super::super::super::types::String>,
-    platform_applications: ::std::option::Option<super::super::super::types::ListOfPlatformApplications>,
+    platform_applications: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformApplication>>,
 }
 impl ListPlatformApplicationsOutputBuilder {
     pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.next_token = Some(input.into()); self }
     pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.next_token = input; self }
     pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::String> { &self.next_token }
-    pub fn platform_applications(mut self, input: impl ::std::convert::Into<super::super::super::types::ListOfPlatformApplications>) -> Self { self.platform_applications = Some(input.into()); self }
-    pub fn set_platform_applications(mut self, input: ::std::option::Option<super::super::super::types::ListOfPlatformApplications>) -> Self { self.platform_applications = input; self }
-    pub fn get_platform_applications(&self) -> &::std::option::Option<super::super::super::types::ListOfPlatformApplications> { &self.platform_applications }
+    pub fn platform_applications(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PlatformApplication>>) -> Self { self.platform_applications = Some(input.into()); self }
+    pub fn set_platform_applications(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformApplication>>) -> Self { self.platform_applications = input; self }
+    pub fn get_platform_applications(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PlatformApplication>> { &self.platform_applications }
     pub fn build(self) -> ListPlatformApplicationsOutput { ListPlatformApplicationsOutput {
         next_token: self.next_token,
         platform_applications: self.platform_applications,

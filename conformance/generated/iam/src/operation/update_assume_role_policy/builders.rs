@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateAssumeRolePolicyError::Unhandled(format!("UpdateAssumeRolePolicy returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateAssumeRolePolicyOutput::default())
+                         Ok(super::UpdateAssumeRolePolicyOutput)
                      }
 }
 pub use Builder as UpdateAssumeRolePolicyFluentBuilder;

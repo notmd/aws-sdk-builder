@@ -3,11 +3,11 @@
 #[derive(Clone, Debug, Default)]
 pub struct TagResourceInput {
     pub resource: ::std::option::Option<super::super::super::types::TaggableResource>,
-    pub tags: ::std::option::Option<super::super::super::types::Tags>,
+    pub tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
 }
         impl TagResourceInput {
             pub fn resource(&self) -> ::std::option::Option<&str> { self.resource.as_deref() }
-            pub fn tags(&self) -> ::std::option::Option<&super::super::super::types::Tags> { self.tags.as_ref() }
+            pub fn tags(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { self.tags.as_ref() }
         }
 impl TagResourceInput {
     pub fn builder() -> TagResourceInputBuilder { TagResourceInputBuilder::default() }
@@ -15,15 +15,15 @@ impl TagResourceInput {
 #[derive(Clone, Debug, Default)]
 pub struct TagResourceInputBuilder {
     resource: ::std::option::Option<super::super::super::types::TaggableResource>,
-    tags: ::std::option::Option<super::super::super::types::Tags>,
+    tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
 }
 impl TagResourceInputBuilder {
     pub fn resource(mut self, input: impl ::std::convert::Into<super::super::super::types::TaggableResource>) -> Self { self.resource = Some(input.into()); self }
     pub fn set_resource(mut self, input: ::std::option::Option<super::super::super::types::TaggableResource>) -> Self { self.resource = input; self }
     pub fn get_resource(&self) -> &::std::option::Option<super::super::super::types::TaggableResource> { &self.resource }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::Tags>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::Tags>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::Tags> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { &self.tags }
     pub fn build(self) -> TagResourceInput { TagResourceInput {
         resource: self.resource,
         tags: self.tags,

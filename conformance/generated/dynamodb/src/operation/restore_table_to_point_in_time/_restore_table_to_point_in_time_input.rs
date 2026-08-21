@@ -3,8 +3,8 @@
 #[derive(Clone, Debug, Default)]
 pub struct RestoreTableToPointInTimeInput {
     pub billing_mode_override: ::std::option::Option<super::super::super::types::BillingMode>,
-    pub global_secondary_index_override: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>,
-    pub local_secondary_index_override: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>,
+    pub global_secondary_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>,
+    pub local_secondary_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>,
     pub on_demand_throughput_override: ::std::option::Option<super::super::super::types::OnDemandThroughput>,
     pub provisioned_throughput_override: ::std::option::Option<super::super::super::types::ProvisionedThroughput>,
     pub restore_date_time: ::std::option::Option<super::super::super::types::Date>,
@@ -13,7 +13,7 @@ pub struct RestoreTableToPointInTimeInput {
     pub source_table_name: ::std::option::Option<super::super::super::types::TableName>,
     pub target_table_name: ::std::option::Option<super::super::super::types::TableName>,
     pub use_latest_restorable_time: ::std::option::Option<super::super::super::types::BooleanObject>,
-    pub vector_index_override: ::std::option::Option<super::super::super::types::VectorIndexList>,
+    pub vector_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>,
 }
         impl RestoreTableToPointInTimeInput {
             pub fn billing_mode_override(&self) -> ::std::option::Option<&super::super::super::types::BillingMode> { self.billing_mode_override.as_ref() }
@@ -35,8 +35,8 @@ impl RestoreTableToPointInTimeInput {
 #[derive(Clone, Debug, Default)]
 pub struct RestoreTableToPointInTimeInputBuilder {
     billing_mode_override: ::std::option::Option<super::super::super::types::BillingMode>,
-    global_secondary_index_override: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>,
-    local_secondary_index_override: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>,
+    global_secondary_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>,
+    local_secondary_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>,
     on_demand_throughput_override: ::std::option::Option<super::super::super::types::OnDemandThroughput>,
     provisioned_throughput_override: ::std::option::Option<super::super::super::types::ProvisionedThroughput>,
     restore_date_time: ::std::option::Option<super::super::super::types::Date>,
@@ -45,18 +45,18 @@ pub struct RestoreTableToPointInTimeInputBuilder {
     source_table_name: ::std::option::Option<super::super::super::types::TableName>,
     target_table_name: ::std::option::Option<super::super::super::types::TableName>,
     use_latest_restorable_time: ::std::option::Option<super::super::super::types::BooleanObject>,
-    vector_index_override: ::std::option::Option<super::super::super::types::VectorIndexList>,
+    vector_index_override: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>,
 }
 impl RestoreTableToPointInTimeInputBuilder {
     pub fn billing_mode_override(mut self, input: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.billing_mode_override = Some(input.into()); self }
     pub fn set_billing_mode_override(mut self, input: ::std::option::Option<super::super::super::types::BillingMode>) -> Self { self.billing_mode_override = input; self }
     pub fn get_billing_mode_override(&self) -> &::std::option::Option<super::super::super::types::BillingMode> { &self.billing_mode_override }
-    pub fn global_secondary_index_override(mut self, input: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.global_secondary_index_override = Some(input.into()); self }
-    pub fn set_global_secondary_index_override(mut self, input: ::std::option::Option<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.global_secondary_index_override = input; self }
-    pub fn get_global_secondary_index_override(&self) -> &::std::option::Option<super::super::super::types::GlobalSecondaryIndexList> { &self.global_secondary_index_override }
-    pub fn local_secondary_index_override(mut self, input: impl ::std::convert::Into<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.local_secondary_index_override = Some(input.into()); self }
-    pub fn set_local_secondary_index_override(mut self, input: ::std::option::Option<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.local_secondary_index_override = input; self }
-    pub fn get_local_secondary_index_override(&self) -> &::std::option::Option<super::super::super::types::LocalSecondaryIndexList> { &self.local_secondary_index_override }
+    pub fn global_secondary_index_override(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.global_secondary_index_override = Some(input.into()); self }
+    pub fn set_global_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.global_secondary_index_override = input; self }
+    pub fn get_global_secondary_index_override(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>> { &self.global_secondary_index_override }
+    pub fn local_secondary_index_override(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.local_secondary_index_override = Some(input.into()); self }
+    pub fn set_local_secondary_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.local_secondary_index_override = input; self }
+    pub fn get_local_secondary_index_override(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>> { &self.local_secondary_index_override }
     pub fn on_demand_throughput_override(mut self, input: impl ::std::convert::Into<super::super::super::types::OnDemandThroughput>) -> Self { self.on_demand_throughput_override = Some(input.into()); self }
     pub fn set_on_demand_throughput_override(mut self, input: ::std::option::Option<super::super::super::types::OnDemandThroughput>) -> Self { self.on_demand_throughput_override = input; self }
     pub fn get_on_demand_throughput_override(&self) -> &::std::option::Option<super::super::super::types::OnDemandThroughput> { &self.on_demand_throughput_override }
@@ -81,9 +81,9 @@ impl RestoreTableToPointInTimeInputBuilder {
     pub fn use_latest_restorable_time(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanObject>) -> Self { self.use_latest_restorable_time = Some(input.into()); self }
     pub fn set_use_latest_restorable_time(mut self, input: ::std::option::Option<super::super::super::types::BooleanObject>) -> Self { self.use_latest_restorable_time = input; self }
     pub fn get_use_latest_restorable_time(&self) -> &::std::option::Option<super::super::super::types::BooleanObject> { &self.use_latest_restorable_time }
-    pub fn vector_index_override(mut self, input: impl ::std::convert::Into<super::super::super::types::VectorIndexList>) -> Self { self.vector_index_override = Some(input.into()); self }
-    pub fn set_vector_index_override(mut self, input: ::std::option::Option<super::super::super::types::VectorIndexList>) -> Self { self.vector_index_override = input; self }
-    pub fn get_vector_index_override(&self) -> &::std::option::Option<super::super::super::types::VectorIndexList> { &self.vector_index_override }
+    pub fn vector_index_override(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.vector_index_override = Some(input.into()); self }
+    pub fn set_vector_index_override(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.vector_index_override = input; self }
+    pub fn get_vector_index_override(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::VectorIndex>> { &self.vector_index_override }
     pub fn build(self) -> RestoreTableToPointInTimeInput { RestoreTableToPointInTimeInput {
         billing_mode_override: self.billing_mode_override,
         global_secondary_index_override: self.global_secondary_index_override,

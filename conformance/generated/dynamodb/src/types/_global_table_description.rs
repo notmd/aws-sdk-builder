@@ -6,7 +6,7 @@
         pub global_table_arn: ::std::option::Option<self::GlobalTableArnString>,
         pub global_table_name: ::std::option::Option<self::TableName>,
         pub global_table_status: ::std::option::Option<self::GlobalTableStatus>,
-        pub replication_group: ::std::option::Option<self::ReplicaDescriptionList>,
+        pub replication_group: ::std::option::Option<::std::vec::Vec<self::ReplicaDescription>>,
     }
     impl GlobalTableDescription {
         pub fn builder() -> GlobalTableDescriptionBuilder { GlobalTableDescriptionBuilder::default() }
@@ -14,7 +14,7 @@
         pub fn global_table_arn(&self) -> &::std::option::Option<self::GlobalTableArnString> { &self.global_table_arn }
         pub fn global_table_name(&self) -> &::std::option::Option<self::TableName> { &self.global_table_name }
         pub fn global_table_status(&self) -> &::std::option::Option<self::GlobalTableStatus> { &self.global_table_status }
-        pub fn replication_group(&self) -> &::std::option::Option<self::ReplicaDescriptionList> { &self.replication_group }
+        pub fn replication_group(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaDescription>> { &self.replication_group }
     }
 
     #[derive(Clone, Debug, Default)]
@@ -23,7 +23,7 @@
         global_table_arn: ::std::option::Option<self::GlobalTableArnString>,
         global_table_name: ::std::option::Option<self::TableName>,
         global_table_status: ::std::option::Option<self::GlobalTableStatus>,
-        replication_group: ::std::option::Option<self::ReplicaDescriptionList>,
+        replication_group: ::std::option::Option<::std::vec::Vec<self::ReplicaDescription>>,
     }
 
     impl GlobalTableDescriptionBuilder {
@@ -39,9 +39,9 @@
         pub fn global_table_status(mut self, input: impl ::std::convert::Into<self::GlobalTableStatus>) -> Self { self.global_table_status = Some(input.into()); self }
         pub fn set_global_table_status(mut self, input: ::std::option::Option<self::GlobalTableStatus>) -> Self { self.global_table_status = input; self }
         pub fn get_global_table_status(&self) -> &::std::option::Option<self::GlobalTableStatus> { &self.global_table_status }
-        pub fn replication_group(mut self, input: impl ::std::convert::Into<self::ReplicaDescriptionList>) -> Self { self.replication_group = Some(input.into()); self }
-        pub fn set_replication_group(mut self, input: ::std::option::Option<self::ReplicaDescriptionList>) -> Self { self.replication_group = input; self }
-        pub fn get_replication_group(&self) -> &::std::option::Option<self::ReplicaDescriptionList> { &self.replication_group }
+        pub fn replication_group(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaDescription>>) -> Self { self.replication_group = Some(input.into()); self }
+        pub fn set_replication_group(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaDescription>>) -> Self { self.replication_group = input; self }
+        pub fn get_replication_group(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaDescription>> { &self.replication_group }
         pub fn build(self) -> GlobalTableDescription {
             GlobalTableDescription {
                 creation_date_time: self.creation_date_time,

@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct TagRoleInput {
     pub role_name: ::std::option::Option<super::super::super::types::RoleNameType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl TagRoleInput {
             pub fn role_name(&self) -> ::std::option::Option<&str> { self.role_name.as_deref() }
@@ -15,15 +15,15 @@ impl TagRoleInput {
 #[derive(Clone, Debug, Default)]
 pub struct TagRoleInputBuilder {
     role_name: ::std::option::Option<super::super::super::types::RoleNameType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl TagRoleInputBuilder {
     pub fn role_name(mut self, input: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.role_name = Some(input.into()); self }
     pub fn set_role_name(mut self, input: ::std::option::Option<super::super::super::types::RoleNameType>) -> Self { self.role_name = input; self }
     pub fn get_role_name(&self) -> &::std::option::Option<super::super::super::types::RoleNameType> { &self.role_name }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> TagRoleInput { TagRoleInput {
         role_name: self.role_name,
         tags: self.tags,

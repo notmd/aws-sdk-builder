@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DetachRolePolicyError::Unhandled(format!("DetachRolePolicy returned HTTP {}", status)));
                          }
-                         Ok(super::DetachRolePolicyOutput::default())
+                         Ok(super::DetachRolePolicyOutput)
                      }
 }
 pub use Builder as DetachRolePolicyFluentBuilder;

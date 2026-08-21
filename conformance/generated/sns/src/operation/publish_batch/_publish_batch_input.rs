@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct PublishBatchInput {
-    pub publish_batch_request_entries: ::std::option::Option<super::super::super::types::PublishBatchRequestEntryList>,
+    pub publish_batch_request_entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::PublishBatchRequestEntry>>,
     pub topic_arn: ::std::option::Option<super::super::super::types::TopicArn>,
 }
         impl PublishBatchInput {
@@ -14,13 +14,13 @@ impl PublishBatchInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct PublishBatchInputBuilder {
-    publish_batch_request_entries: ::std::option::Option<super::super::super::types::PublishBatchRequestEntryList>,
+    publish_batch_request_entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::PublishBatchRequestEntry>>,
     topic_arn: ::std::option::Option<super::super::super::types::TopicArn>,
 }
 impl PublishBatchInputBuilder {
-    pub fn publish_batch_request_entries(mut self, input: impl ::std::convert::Into<super::super::super::types::PublishBatchRequestEntryList>) -> Self { self.publish_batch_request_entries = Some(input.into()); self }
-    pub fn set_publish_batch_request_entries(mut self, input: ::std::option::Option<super::super::super::types::PublishBatchRequestEntryList>) -> Self { self.publish_batch_request_entries = input; self }
-    pub fn get_publish_batch_request_entries(&self) -> &::std::option::Option<super::super::super::types::PublishBatchRequestEntryList> { &self.publish_batch_request_entries }
+    pub fn publish_batch_request_entries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PublishBatchRequestEntry>>) -> Self { self.publish_batch_request_entries = Some(input.into()); self }
+    pub fn set_publish_batch_request_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PublishBatchRequestEntry>>) -> Self { self.publish_batch_request_entries = input; self }
+    pub fn get_publish_batch_request_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PublishBatchRequestEntry>> { &self.publish_batch_request_entries }
     pub fn topic_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::TopicArn>) -> Self { self.topic_arn = Some(input.into()); self }
     pub fn set_topic_arn(mut self, input: ::std::option::Option<super::super::super::types::TopicArn>) -> Self { self.topic_arn = input; self }
     pub fn get_topic_arn(&self) -> &::std::option::Option<super::super::super::types::TopicArn> { &self.topic_arn }

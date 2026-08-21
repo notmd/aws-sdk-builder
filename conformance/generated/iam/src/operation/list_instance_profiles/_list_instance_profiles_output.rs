@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListInstanceProfilesOutput {
-    pub instance_profiles: ::std::option::Option<super::super::super::types::InstanceProfileListType>,
+    pub instance_profiles: ::std::option::Option<::std::vec::Vec<super::super::super::types::InstanceProfile>>,
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
@@ -16,14 +16,14 @@ impl ListInstanceProfilesOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListInstanceProfilesOutputBuilder {
-    instance_profiles: ::std::option::Option<super::super::super::types::InstanceProfileListType>,
+    instance_profiles: ::std::option::Option<::std::vec::Vec<super::super::super::types::InstanceProfile>>,
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
 impl ListInstanceProfilesOutputBuilder {
-    pub fn instance_profiles(mut self, input: impl ::std::convert::Into<super::super::super::types::InstanceProfileListType>) -> Self { self.instance_profiles = Some(input.into()); self }
-    pub fn set_instance_profiles(mut self, input: ::std::option::Option<super::super::super::types::InstanceProfileListType>) -> Self { self.instance_profiles = input; self }
-    pub fn get_instance_profiles(&self) -> &::std::option::Option<super::super::super::types::InstanceProfileListType> { &self.instance_profiles }
+    pub fn instance_profiles(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::InstanceProfile>>) -> Self { self.instance_profiles = Some(input.into()); self }
+    pub fn set_instance_profiles(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::InstanceProfile>>) -> Self { self.instance_profiles = input; self }
+    pub fn get_instance_profiles(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::InstanceProfile>> { &self.instance_profiles }
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
     pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
     pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }

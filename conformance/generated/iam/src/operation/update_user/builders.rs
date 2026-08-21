@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateUserError::Unhandled(format!("UpdateUser returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateUserOutput::default())
+                         Ok(super::UpdateUserOutput)
                      }
 }
 pub use Builder as UpdateUserFluentBuilder;

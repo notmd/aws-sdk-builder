@@ -2,8 +2,8 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct LayerVersionsListItem {
-        pub compatible_architectures: ::std::option::Option<self::CompatibleArchitectures>,
-        pub compatible_runtimes: ::std::option::Option<self::CompatibleRuntimes>,
+        pub compatible_architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
+        pub compatible_runtimes: ::std::option::Option<::std::vec::Vec<self::Runtime>>,
         pub created_date: ::std::option::Option<self::Timestamp>,
         pub description: ::std::option::Option<self::Description>,
         pub layer_version_arn: ::std::option::Option<self::LayerVersionArn>,
@@ -12,8 +12,8 @@
     }
     impl LayerVersionsListItem {
         pub fn builder() -> LayerVersionsListItemBuilder { LayerVersionsListItemBuilder::default() }
-        pub fn compatible_architectures(&self) -> &::std::option::Option<self::CompatibleArchitectures> { &self.compatible_architectures }
-        pub fn compatible_runtimes(&self) -> &::std::option::Option<self::CompatibleRuntimes> { &self.compatible_runtimes }
+        pub fn compatible_architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.compatible_architectures }
+        pub fn compatible_runtimes(&self) -> &::std::option::Option<::std::vec::Vec<self::Runtime>> { &self.compatible_runtimes }
         pub fn created_date(&self) -> &::std::option::Option<self::Timestamp> { &self.created_date }
         pub fn description(&self) -> &::std::option::Option<self::Description> { &self.description }
         pub fn layer_version_arn(&self) -> &::std::option::Option<self::LayerVersionArn> { &self.layer_version_arn }
@@ -23,8 +23,8 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct LayerVersionsListItemBuilder {
-        compatible_architectures: ::std::option::Option<self::CompatibleArchitectures>,
-        compatible_runtimes: ::std::option::Option<self::CompatibleRuntimes>,
+        compatible_architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
+        compatible_runtimes: ::std::option::Option<::std::vec::Vec<self::Runtime>>,
         created_date: ::std::option::Option<self::Timestamp>,
         description: ::std::option::Option<self::Description>,
         layer_version_arn: ::std::option::Option<self::LayerVersionArn>,
@@ -33,12 +33,12 @@
     }
 
     impl LayerVersionsListItemBuilder {
-        pub fn compatible_architectures(mut self, input: impl ::std::convert::Into<self::CompatibleArchitectures>) -> Self { self.compatible_architectures = Some(input.into()); self }
-        pub fn set_compatible_architectures(mut self, input: ::std::option::Option<self::CompatibleArchitectures>) -> Self { self.compatible_architectures = input; self }
-        pub fn get_compatible_architectures(&self) -> &::std::option::Option<self::CompatibleArchitectures> { &self.compatible_architectures }
-        pub fn compatible_runtimes(mut self, input: impl ::std::convert::Into<self::CompatibleRuntimes>) -> Self { self.compatible_runtimes = Some(input.into()); self }
-        pub fn set_compatible_runtimes(mut self, input: ::std::option::Option<self::CompatibleRuntimes>) -> Self { self.compatible_runtimes = input; self }
-        pub fn get_compatible_runtimes(&self) -> &::std::option::Option<self::CompatibleRuntimes> { &self.compatible_runtimes }
+        pub fn compatible_architectures(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Architecture>>) -> Self { self.compatible_architectures = Some(input.into()); self }
+        pub fn set_compatible_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<self::Architecture>>) -> Self { self.compatible_architectures = input; self }
+        pub fn get_compatible_architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.compatible_architectures }
+        pub fn compatible_runtimes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Runtime>>) -> Self { self.compatible_runtimes = Some(input.into()); self }
+        pub fn set_compatible_runtimes(mut self, input: ::std::option::Option<::std::vec::Vec<self::Runtime>>) -> Self { self.compatible_runtimes = input; self }
+        pub fn get_compatible_runtimes(&self) -> &::std::option::Option<::std::vec::Vec<self::Runtime>> { &self.compatible_runtimes }
         pub fn created_date(mut self, input: impl ::std::convert::Into<self::Timestamp>) -> Self { self.created_date = Some(input.into()); self }
         pub fn set_created_date(mut self, input: ::std::option::Option<self::Timestamp>) -> Self { self.created_date = input; self }
         pub fn get_created_date(&self) -> &::std::option::Option<self::Timestamp> { &self.created_date }

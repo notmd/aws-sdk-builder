@@ -3,32 +3,32 @@
     #[derive(Clone, Debug, Default)]
     pub struct GroupDetail {
         pub arn: ::std::option::Option<self::ArnType>,
-        pub attached_managed_policies: ::std::option::Option<self::AttachedPoliciesListType>,
+        pub attached_managed_policies: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>,
         pub create_date: ::std::option::Option<self::DateType>,
         pub group_id: ::std::option::Option<self::IdType>,
         pub group_name: ::std::option::Option<self::GroupNameType>,
-        pub group_policy_list: ::std::option::Option<self::PolicyDetailListType>,
+        pub group_policy_list: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>,
         pub path: ::std::option::Option<self::PathType>,
     }
     impl GroupDetail {
         pub fn builder() -> GroupDetailBuilder { GroupDetailBuilder::default() }
         pub fn arn(&self) -> &::std::option::Option<self::ArnType> { &self.arn }
-        pub fn attached_managed_policies(&self) -> &::std::option::Option<self::AttachedPoliciesListType> { &self.attached_managed_policies }
+        pub fn attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::AttachedPolicy>> { &self.attached_managed_policies }
         pub fn create_date(&self) -> &::std::option::Option<self::DateType> { &self.create_date }
         pub fn group_id(&self) -> &::std::option::Option<self::IdType> { &self.group_id }
         pub fn group_name(&self) -> &::std::option::Option<self::GroupNameType> { &self.group_name }
-        pub fn group_policy_list(&self) -> &::std::option::Option<self::PolicyDetailListType> { &self.group_policy_list }
+        pub fn group_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyDetail>> { &self.group_policy_list }
         pub fn path(&self) -> &::std::option::Option<self::PathType> { &self.path }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct GroupDetailBuilder {
         arn: ::std::option::Option<self::ArnType>,
-        attached_managed_policies: ::std::option::Option<self::AttachedPoliciesListType>,
+        attached_managed_policies: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>,
         create_date: ::std::option::Option<self::DateType>,
         group_id: ::std::option::Option<self::IdType>,
         group_name: ::std::option::Option<self::GroupNameType>,
-        group_policy_list: ::std::option::Option<self::PolicyDetailListType>,
+        group_policy_list: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>,
         path: ::std::option::Option<self::PathType>,
     }
 
@@ -36,9 +36,9 @@
         pub fn arn(mut self, input: impl ::std::convert::Into<self::ArnType>) -> Self { self.arn = Some(input.into()); self }
         pub fn set_arn(mut self, input: ::std::option::Option<self::ArnType>) -> Self { self.arn = input; self }
         pub fn get_arn(&self) -> &::std::option::Option<self::ArnType> { &self.arn }
-        pub fn attached_managed_policies(mut self, input: impl ::std::convert::Into<self::AttachedPoliciesListType>) -> Self { self.attached_managed_policies = Some(input.into()); self }
-        pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<self::AttachedPoliciesListType>) -> Self { self.attached_managed_policies = input; self }
-        pub fn get_attached_managed_policies(&self) -> &::std::option::Option<self::AttachedPoliciesListType> { &self.attached_managed_policies }
+        pub fn attached_managed_policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttachedPolicy>>) -> Self { self.attached_managed_policies = Some(input.into()); self }
+        pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>) -> Self { self.attached_managed_policies = input; self }
+        pub fn get_attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::AttachedPolicy>> { &self.attached_managed_policies }
         pub fn create_date(mut self, input: impl ::std::convert::Into<self::DateType>) -> Self { self.create_date = Some(input.into()); self }
         pub fn set_create_date(mut self, input: ::std::option::Option<self::DateType>) -> Self { self.create_date = input; self }
         pub fn get_create_date(&self) -> &::std::option::Option<self::DateType> { &self.create_date }
@@ -48,9 +48,9 @@
         pub fn group_name(mut self, input: impl ::std::convert::Into<self::GroupNameType>) -> Self { self.group_name = Some(input.into()); self }
         pub fn set_group_name(mut self, input: ::std::option::Option<self::GroupNameType>) -> Self { self.group_name = input; self }
         pub fn get_group_name(&self) -> &::std::option::Option<self::GroupNameType> { &self.group_name }
-        pub fn group_policy_list(mut self, input: impl ::std::convert::Into<self::PolicyDetailListType>) -> Self { self.group_policy_list = Some(input.into()); self }
-        pub fn set_group_policy_list(mut self, input: ::std::option::Option<self::PolicyDetailListType>) -> Self { self.group_policy_list = input; self }
-        pub fn get_group_policy_list(&self) -> &::std::option::Option<self::PolicyDetailListType> { &self.group_policy_list }
+        pub fn group_policy_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyDetail>>) -> Self { self.group_policy_list = Some(input.into()); self }
+        pub fn set_group_policy_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>) -> Self { self.group_policy_list = input; self }
+        pub fn get_group_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyDetail>> { &self.group_policy_list }
         pub fn path(mut self, input: impl ::std::convert::Into<self::PathType>) -> Self { self.path = Some(input.into()); self }
         pub fn set_path(mut self, input: ::std::option::Option<self::PathType>) -> Self { self.path = input; self }
         pub fn get_path(&self) -> &::std::option::Option<self::PathType> { &self.path }

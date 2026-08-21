@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct DescribeContributorInsightsOutput {
     pub contributor_insights_mode: ::std::option::Option<super::super::super::types::ContributorInsightsMode>,
-    pub contributor_insights_rule_list: ::std::option::Option<super::super::super::types::ContributorInsightsRuleList>,
+    pub contributor_insights_rule_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsRule>>,
     pub contributor_insights_status: ::std::option::Option<super::super::super::types::ContributorInsightsStatus>,
     pub failure_exception: ::std::option::Option<super::super::super::types::FailureException>,
     pub index_name: ::std::option::Option<super::super::super::types::IndexName>,
@@ -25,7 +25,7 @@ impl DescribeContributorInsightsOutput {
 #[derive(Clone, Debug, Default)]
 pub struct DescribeContributorInsightsOutputBuilder {
     contributor_insights_mode: ::std::option::Option<super::super::super::types::ContributorInsightsMode>,
-    contributor_insights_rule_list: ::std::option::Option<super::super::super::types::ContributorInsightsRuleList>,
+    contributor_insights_rule_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsRule>>,
     contributor_insights_status: ::std::option::Option<super::super::super::types::ContributorInsightsStatus>,
     failure_exception: ::std::option::Option<super::super::super::types::FailureException>,
     index_name: ::std::option::Option<super::super::super::types::IndexName>,
@@ -36,9 +36,9 @@ impl DescribeContributorInsightsOutputBuilder {
     pub fn contributor_insights_mode(mut self, input: impl ::std::convert::Into<super::super::super::types::ContributorInsightsMode>) -> Self { self.contributor_insights_mode = Some(input.into()); self }
     pub fn set_contributor_insights_mode(mut self, input: ::std::option::Option<super::super::super::types::ContributorInsightsMode>) -> Self { self.contributor_insights_mode = input; self }
     pub fn get_contributor_insights_mode(&self) -> &::std::option::Option<super::super::super::types::ContributorInsightsMode> { &self.contributor_insights_mode }
-    pub fn contributor_insights_rule_list(mut self, input: impl ::std::convert::Into<super::super::super::types::ContributorInsightsRuleList>) -> Self { self.contributor_insights_rule_list = Some(input.into()); self }
-    pub fn set_contributor_insights_rule_list(mut self, input: ::std::option::Option<super::super::super::types::ContributorInsightsRuleList>) -> Self { self.contributor_insights_rule_list = input; self }
-    pub fn get_contributor_insights_rule_list(&self) -> &::std::option::Option<super::super::super::types::ContributorInsightsRuleList> { &self.contributor_insights_rule_list }
+    pub fn contributor_insights_rule_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ContributorInsightsRule>>) -> Self { self.contributor_insights_rule_list = Some(input.into()); self }
+    pub fn set_contributor_insights_rule_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsRule>>) -> Self { self.contributor_insights_rule_list = input; self }
+    pub fn get_contributor_insights_rule_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsRule>> { &self.contributor_insights_rule_list }
     pub fn contributor_insights_status(mut self, input: impl ::std::convert::Into<super::super::super::types::ContributorInsightsStatus>) -> Self { self.contributor_insights_status = Some(input.into()); self }
     pub fn set_contributor_insights_status(mut self, input: ::std::option::Option<super::super::super::types::ContributorInsightsStatus>) -> Self { self.contributor_insights_status = input; self }
     pub fn get_contributor_insights_status(&self) -> &::std::option::Option<super::super::super::types::ContributorInsightsStatus> { &self.contributor_insights_status }

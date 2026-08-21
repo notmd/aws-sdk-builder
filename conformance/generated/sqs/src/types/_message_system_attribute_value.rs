@@ -2,43 +2,43 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct MessageSystemAttributeValue {
-        pub binary_list_values: ::std::option::Option<self::BinaryList>,
+        pub binary_list_values: ::std::option::Option<::std::vec::Vec<self::Binary>>,
         pub binary_value: ::std::option::Option<self::Binary>,
         pub data_type: ::std::option::Option<self::String>,
-        pub string_list_values: ::std::option::Option<self::StringList>,
+        pub string_list_values: ::std::option::Option<::std::vec::Vec<self::String>>,
         pub string_value: ::std::option::Option<self::String>,
     }
     impl MessageSystemAttributeValue {
         pub fn builder() -> MessageSystemAttributeValueBuilder { MessageSystemAttributeValueBuilder::default() }
-        pub fn binary_list_values(&self) -> &::std::option::Option<self::BinaryList> { &self.binary_list_values }
+        pub fn binary_list_values(&self) -> &::std::option::Option<::std::vec::Vec<self::Binary>> { &self.binary_list_values }
         pub fn binary_value(&self) -> &::std::option::Option<self::Binary> { &self.binary_value }
         pub fn data_type(&self) -> ::std::option::Option<&str> { self.data_type.as_deref() }
-        pub fn string_list_values(&self) -> &::std::option::Option<self::StringList> { &self.string_list_values }
+        pub fn string_list_values(&self) -> &::std::option::Option<::std::vec::Vec<self::String>> { &self.string_list_values }
         pub fn string_value(&self) -> ::std::option::Option<&str> { self.string_value.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct MessageSystemAttributeValueBuilder {
-        binary_list_values: ::std::option::Option<self::BinaryList>,
+        binary_list_values: ::std::option::Option<::std::vec::Vec<self::Binary>>,
         binary_value: ::std::option::Option<self::Binary>,
         data_type: ::std::option::Option<self::String>,
-        string_list_values: ::std::option::Option<self::StringList>,
+        string_list_values: ::std::option::Option<::std::vec::Vec<self::String>>,
         string_value: ::std::option::Option<self::String>,
     }
 
     impl MessageSystemAttributeValueBuilder {
-        pub fn binary_list_values(mut self, input: impl ::std::convert::Into<self::BinaryList>) -> Self { self.binary_list_values = Some(input.into()); self }
-        pub fn set_binary_list_values(mut self, input: ::std::option::Option<self::BinaryList>) -> Self { self.binary_list_values = input; self }
-        pub fn get_binary_list_values(&self) -> &::std::option::Option<self::BinaryList> { &self.binary_list_values }
+        pub fn binary_list_values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Binary>>) -> Self { self.binary_list_values = Some(input.into()); self }
+        pub fn set_binary_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::Binary>>) -> Self { self.binary_list_values = input; self }
+        pub fn get_binary_list_values(&self) -> &::std::option::Option<::std::vec::Vec<self::Binary>> { &self.binary_list_values }
         pub fn binary_value(mut self, input: impl ::std::convert::Into<self::Binary>) -> Self { self.binary_value = Some(input.into()); self }
         pub fn set_binary_value(mut self, input: ::std::option::Option<self::Binary>) -> Self { self.binary_value = input; self }
         pub fn get_binary_value(&self) -> &::std::option::Option<self::Binary> { &self.binary_value }
         pub fn data_type(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.data_type = Some(input.into()); self }
         pub fn set_data_type(mut self, input: ::std::option::Option<self::String>) -> Self { self.data_type = input; self }
         pub fn get_data_type(&self) -> &::std::option::Option<self::String> { &self.data_type }
-        pub fn string_list_values(mut self, input: impl ::std::convert::Into<self::StringList>) -> Self { self.string_list_values = Some(input.into()); self }
-        pub fn set_string_list_values(mut self, input: ::std::option::Option<self::StringList>) -> Self { self.string_list_values = input; self }
-        pub fn get_string_list_values(&self) -> &::std::option::Option<self::StringList> { &self.string_list_values }
+        pub fn string_list_values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::String>>) -> Self { self.string_list_values = Some(input.into()); self }
+        pub fn set_string_list_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::String>>) -> Self { self.string_list_values = input; self }
+        pub fn get_string_list_values(&self) -> &::std::option::Option<::std::vec::Vec<self::String>> { &self.string_list_values }
         pub fn string_value(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.string_value = Some(input.into()); self }
         pub fn set_string_value(mut self, input: ::std::option::Option<self::String>) -> Self { self.string_value = input; self }
         pub fn get_string_value(&self) -> &::std::option::Option<self::String> { &self.string_value }

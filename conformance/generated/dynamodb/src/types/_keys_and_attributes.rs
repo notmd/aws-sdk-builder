@@ -2,43 +2,43 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct KeysAndAttributes {
-        pub attributes_to_get: ::std::option::Option<self::AttributeNameList>,
+        pub attributes_to_get: ::std::option::Option<::std::vec::Vec<self::AttributeName>>,
         pub consistent_read: ::std::option::Option<self::ConsistentRead>,
-        pub expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-        pub keys: ::std::option::Option<self::KeyList>,
+        pub expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
+        pub keys: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>>,
         pub projection_expression: ::std::option::Option<self::ProjectionExpression>,
     }
     impl KeysAndAttributes {
         pub fn builder() -> KeysAndAttributesBuilder { KeysAndAttributesBuilder::default() }
-        pub fn attributes_to_get(&self) -> &::std::option::Option<self::AttributeNameList> { &self.attributes_to_get }
+        pub fn attributes_to_get(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeName>> { &self.attributes_to_get }
         pub fn consistent_read(&self) -> &::std::option::Option<self::ConsistentRead> { &self.consistent_read }
-        pub fn expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-        pub fn keys(&self) -> &::std::option::Option<self::KeyList> { &self.keys }
+        pub fn expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
+        pub fn keys(&self) -> &::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>> { &self.keys }
         pub fn projection_expression(&self) -> &::std::option::Option<self::ProjectionExpression> { &self.projection_expression }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct KeysAndAttributesBuilder {
-        attributes_to_get: ::std::option::Option<self::AttributeNameList>,
+        attributes_to_get: ::std::option::Option<::std::vec::Vec<self::AttributeName>>,
         consistent_read: ::std::option::Option<self::ConsistentRead>,
-        expression_attribute_names: ::std::option::Option<self::ExpressionAttributeNameMap>,
-        keys: ::std::option::Option<self::KeyList>,
+        expression_attribute_names: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>,
+        keys: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>>,
         projection_expression: ::std::option::Option<self::ProjectionExpression>,
     }
 
     impl KeysAndAttributesBuilder {
-        pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<self::AttributeNameList>) -> Self { self.attributes_to_get = Some(input.into()); self }
-        pub fn set_attributes_to_get(mut self, input: ::std::option::Option<self::AttributeNameList>) -> Self { self.attributes_to_get = input; self }
-        pub fn get_attributes_to_get(&self) -> &::std::option::Option<self::AttributeNameList> { &self.attributes_to_get }
+        pub fn attributes_to_get(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttributeName>>) -> Self { self.attributes_to_get = Some(input.into()); self }
+        pub fn set_attributes_to_get(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttributeName>>) -> Self { self.attributes_to_get = input; self }
+        pub fn get_attributes_to_get(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeName>> { &self.attributes_to_get }
         pub fn consistent_read(mut self, input: impl ::std::convert::Into<self::ConsistentRead>) -> Self { self.consistent_read = Some(input.into()); self }
         pub fn set_consistent_read(mut self, input: ::std::option::Option<self::ConsistentRead>) -> Self { self.consistent_read = input; self }
         pub fn get_consistent_read(&self) -> &::std::option::Option<self::ConsistentRead> { &self.consistent_read }
-        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = Some(input.into()); self }
-        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<self::ExpressionAttributeNameMap>) -> Self { self.expression_attribute_names = input; self }
-        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<self::ExpressionAttributeNameMap> { &self.expression_attribute_names }
-        pub fn keys(mut self, input: impl ::std::convert::Into<self::KeyList>) -> Self { self.keys = Some(input.into()); self }
-        pub fn set_keys(mut self, input: ::std::option::Option<self::KeyList>) -> Self { self.keys = input; self }
-        pub fn get_keys(&self) -> &::std::option::Option<self::KeyList> { &self.keys }
+        pub fn expression_attribute_names(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = Some(input.into()); self }
+        pub fn set_expression_attribute_names(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>>) -> Self { self.expression_attribute_names = input; self }
+        pub fn get_expression_attribute_names(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::ExpressionAttributeNameVariable, self::AttributeName>> { &self.expression_attribute_names }
+        pub fn keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>>) -> Self { self.keys = Some(input.into()); self }
+        pub fn set_keys(mut self, input: ::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>>) -> Self { self.keys = input; self }
+        pub fn get_keys(&self) -> &::std::option::Option<::std::vec::Vec<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>> { &self.keys }
         pub fn projection_expression(mut self, input: impl ::std::convert::Into<self::ProjectionExpression>) -> Self { self.projection_expression = Some(input.into()); self }
         pub fn set_projection_expression(mut self, input: ::std::option::Option<self::ProjectionExpression>) -> Self { self.projection_expression = input; self }
         pub fn get_projection_expression(&self) -> &::std::option::Option<self::ProjectionExpression> { &self.projection_expression }

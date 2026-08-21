@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn filter(mut self, value: impl ::std::convert::Into<super::super::super::types::EntityListType>) -> Self { self.input.filter = Some(value.into()); self }
+    pub fn filter(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::EntityType>>) -> Self { self.input.filter = Some(value.into()); self }
     pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
     pub fn max_items(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.input.max_items = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }

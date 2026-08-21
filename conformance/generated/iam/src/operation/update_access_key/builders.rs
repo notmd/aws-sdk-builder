@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateAccessKeyError::Unhandled(format!("UpdateAccessKey returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateAccessKeyOutput::default())
+                         Ok(super::UpdateAccessKeyOutput)
                      }
 }
 pub use Builder as UpdateAccessKeyFluentBuilder;

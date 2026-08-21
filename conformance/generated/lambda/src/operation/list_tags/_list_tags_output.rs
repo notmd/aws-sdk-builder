@@ -2,22 +2,22 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListTagsOutput {
-    pub tags: ::std::option::Option<super::super::super::types::Tags>,
+    pub tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
 }
         impl ListTagsOutput {
-            pub fn tags(&self) -> ::std::option::Option<&super::super::super::types::Tags> { self.tags.as_ref() }
+            pub fn tags(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { self.tags.as_ref() }
         }
 impl ListTagsOutput {
     pub fn builder() -> ListTagsOutputBuilder { ListTagsOutputBuilder::default() }
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListTagsOutputBuilder {
-    tags: ::std::option::Option<super::super::super::types::Tags>,
+    tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
 }
 impl ListTagsOutputBuilder {
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::Tags>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::Tags>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::Tags> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { &self.tags }
     pub fn build(self) -> ListTagsOutput { ListTagsOutput {
         tags: self.tags,
     } }

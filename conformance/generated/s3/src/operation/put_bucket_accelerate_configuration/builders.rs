@@ -26,7 +26,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketAccelerateConfigurationError::Unhandled(format!("PutBucketAccelerateConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketAccelerateConfigurationOutput::default())
+                         Ok(super::PutBucketAccelerateConfigurationOutput)
                      }
 }
 pub use Builder as PutBucketAccelerateConfigurationFluentBuilder;

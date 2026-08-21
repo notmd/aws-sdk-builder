@@ -2,22 +2,22 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListQueueTagsOutput {
-    pub tags: ::std::option::Option<super::super::super::types::TagMap>,
+    pub tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
 }
         impl ListQueueTagsOutput {
-            pub fn tags(&self) -> ::std::option::Option<&super::super::super::types::TagMap> { self.tags.as_ref() }
+            pub fn tags(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { self.tags.as_ref() }
         }
 impl ListQueueTagsOutput {
     pub fn builder() -> ListQueueTagsOutputBuilder { ListQueueTagsOutputBuilder::default() }
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListQueueTagsOutputBuilder {
-    tags: ::std::option::Option<super::super::super::types::TagMap>,
+    tags: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>,
 }
 impl ListQueueTagsOutputBuilder {
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagMap>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagMap>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagMap> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TagKey, super::super::super::types::TagValue>> { &self.tags }
     pub fn build(self) -> ListQueueTagsOutput { ListQueueTagsOutput {
         tags: self.tags,
     } }

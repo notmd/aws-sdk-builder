@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct SearchVectorsOutput {
     pub consumed_capacity: ::std::option::Option<super::super::super::types::VectorCapacity>,
-    pub search_results: ::std::option::Option<super::super::super::types::SearchResultList>,
+    pub search_results: ::std::option::Option<::std::vec::Vec<super::super::super::types::SearchResultItem>>,
 }
         impl SearchVectorsOutput {
             pub fn consumed_capacity(&self) -> ::std::option::Option<&super::super::super::types::VectorCapacity> { self.consumed_capacity.as_ref() }
@@ -15,15 +15,15 @@ impl SearchVectorsOutput {
 #[derive(Clone, Debug, Default)]
 pub struct SearchVectorsOutputBuilder {
     consumed_capacity: ::std::option::Option<super::super::super::types::VectorCapacity>,
-    search_results: ::std::option::Option<super::super::super::types::SearchResultList>,
+    search_results: ::std::option::Option<::std::vec::Vec<super::super::super::types::SearchResultItem>>,
 }
 impl SearchVectorsOutputBuilder {
     pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::VectorCapacity>) -> Self { self.consumed_capacity = Some(input.into()); self }
     pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::VectorCapacity>) -> Self { self.consumed_capacity = input; self }
     pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::VectorCapacity> { &self.consumed_capacity }
-    pub fn search_results(mut self, input: impl ::std::convert::Into<super::super::super::types::SearchResultList>) -> Self { self.search_results = Some(input.into()); self }
-    pub fn set_search_results(mut self, input: ::std::option::Option<super::super::super::types::SearchResultList>) -> Self { self.search_results = input; self }
-    pub fn get_search_results(&self) -> &::std::option::Option<super::super::super::types::SearchResultList> { &self.search_results }
+    pub fn search_results(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SearchResultItem>>) -> Self { self.search_results = Some(input.into()); self }
+    pub fn set_search_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SearchResultItem>>) -> Self { self.search_results = input; self }
+    pub fn get_search_results(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SearchResultItem>> { &self.search_results }
     pub fn build(self) -> SearchVectorsOutput { SearchVectorsOutput {
         consumed_capacity: self.consumed_capacity,
         search_results: self.search_results,

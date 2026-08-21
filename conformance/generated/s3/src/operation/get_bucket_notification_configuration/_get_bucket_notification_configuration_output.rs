@@ -3,9 +3,9 @@
 #[derive(Clone, Debug, Default)]
 pub struct GetBucketNotificationConfigurationOutput {
     pub event_bridge_configuration: ::std::option::Option<super::super::super::types::EventBridgeConfiguration>,
-    pub lambda_function_configurations: ::std::option::Option<super::super::super::types::LambdaFunctionConfigurationList>,
-    pub queue_configurations: ::std::option::Option<super::super::super::types::QueueConfigurationList>,
-    pub topic_configurations: ::std::option::Option<super::super::super::types::TopicConfigurationList>,
+    pub lambda_function_configurations: ::std::option::Option<::std::vec::Vec<super::super::super::types::LambdaFunctionConfiguration>>,
+    pub queue_configurations: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueConfiguration>>,
+    pub topic_configurations: ::std::option::Option<::std::vec::Vec<super::super::super::types::TopicConfiguration>>,
 }
         impl GetBucketNotificationConfigurationOutput {
             pub fn event_bridge_configuration(&self) -> ::std::option::Option<&super::super::super::types::EventBridgeConfiguration> { self.event_bridge_configuration.as_ref() }
@@ -19,23 +19,23 @@ impl GetBucketNotificationConfigurationOutput {
 #[derive(Clone, Debug, Default)]
 pub struct GetBucketNotificationConfigurationOutputBuilder {
     event_bridge_configuration: ::std::option::Option<super::super::super::types::EventBridgeConfiguration>,
-    lambda_function_configurations: ::std::option::Option<super::super::super::types::LambdaFunctionConfigurationList>,
-    queue_configurations: ::std::option::Option<super::super::super::types::QueueConfigurationList>,
-    topic_configurations: ::std::option::Option<super::super::super::types::TopicConfigurationList>,
+    lambda_function_configurations: ::std::option::Option<::std::vec::Vec<super::super::super::types::LambdaFunctionConfiguration>>,
+    queue_configurations: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueConfiguration>>,
+    topic_configurations: ::std::option::Option<::std::vec::Vec<super::super::super::types::TopicConfiguration>>,
 }
 impl GetBucketNotificationConfigurationOutputBuilder {
     pub fn event_bridge_configuration(mut self, input: impl ::std::convert::Into<super::super::super::types::EventBridgeConfiguration>) -> Self { self.event_bridge_configuration = Some(input.into()); self }
     pub fn set_event_bridge_configuration(mut self, input: ::std::option::Option<super::super::super::types::EventBridgeConfiguration>) -> Self { self.event_bridge_configuration = input; self }
     pub fn get_event_bridge_configuration(&self) -> &::std::option::Option<super::super::super::types::EventBridgeConfiguration> { &self.event_bridge_configuration }
-    pub fn lambda_function_configurations(mut self, input: impl ::std::convert::Into<super::super::super::types::LambdaFunctionConfigurationList>) -> Self { self.lambda_function_configurations = Some(input.into()); self }
-    pub fn set_lambda_function_configurations(mut self, input: ::std::option::Option<super::super::super::types::LambdaFunctionConfigurationList>) -> Self { self.lambda_function_configurations = input; self }
-    pub fn get_lambda_function_configurations(&self) -> &::std::option::Option<super::super::super::types::LambdaFunctionConfigurationList> { &self.lambda_function_configurations }
-    pub fn queue_configurations(mut self, input: impl ::std::convert::Into<super::super::super::types::QueueConfigurationList>) -> Self { self.queue_configurations = Some(input.into()); self }
-    pub fn set_queue_configurations(mut self, input: ::std::option::Option<super::super::super::types::QueueConfigurationList>) -> Self { self.queue_configurations = input; self }
-    pub fn get_queue_configurations(&self) -> &::std::option::Option<super::super::super::types::QueueConfigurationList> { &self.queue_configurations }
-    pub fn topic_configurations(mut self, input: impl ::std::convert::Into<super::super::super::types::TopicConfigurationList>) -> Self { self.topic_configurations = Some(input.into()); self }
-    pub fn set_topic_configurations(mut self, input: ::std::option::Option<super::super::super::types::TopicConfigurationList>) -> Self { self.topic_configurations = input; self }
-    pub fn get_topic_configurations(&self) -> &::std::option::Option<super::super::super::types::TopicConfigurationList> { &self.topic_configurations }
+    pub fn lambda_function_configurations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::LambdaFunctionConfiguration>>) -> Self { self.lambda_function_configurations = Some(input.into()); self }
+    pub fn set_lambda_function_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::LambdaFunctionConfiguration>>) -> Self { self.lambda_function_configurations = input; self }
+    pub fn get_lambda_function_configurations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::LambdaFunctionConfiguration>> { &self.lambda_function_configurations }
+    pub fn queue_configurations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::QueueConfiguration>>) -> Self { self.queue_configurations = Some(input.into()); self }
+    pub fn set_queue_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueConfiguration>>) -> Self { self.queue_configurations = input; self }
+    pub fn get_queue_configurations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::QueueConfiguration>> { &self.queue_configurations }
+    pub fn topic_configurations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TopicConfiguration>>) -> Self { self.topic_configurations = Some(input.into()); self }
+    pub fn set_topic_configurations(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TopicConfiguration>>) -> Self { self.topic_configurations = input; self }
+    pub fn get_topic_configurations(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TopicConfiguration>> { &self.topic_configurations }
     pub fn build(self) -> GetBucketNotificationConfigurationOutput { GetBucketNotificationConfigurationOutput {
         event_bridge_configuration: self.event_bridge_configuration,
         lambda_function_configurations: self.lambda_function_configurations,

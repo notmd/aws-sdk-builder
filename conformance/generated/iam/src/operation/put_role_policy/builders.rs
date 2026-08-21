@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutRolePolicyError::Unhandled(format!("PutRolePolicy returned HTTP {}", status)));
                          }
-                         Ok(super::PutRolePolicyOutput::default())
+                         Ok(super::PutRolePolicyOutput)
                      }
 }
 pub use Builder as PutRolePolicyFluentBuilder;

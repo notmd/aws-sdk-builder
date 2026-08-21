@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct FilterCriteria {
-        pub filters: ::std::option::Option<self::FilterList>,
+        pub filters: ::std::option::Option<::std::vec::Vec<self::Filter>>,
     }
     impl FilterCriteria {
         pub fn builder() -> FilterCriteriaBuilder { FilterCriteriaBuilder::default() }
-        pub fn filters(&self) -> &::std::option::Option<self::FilterList> { &self.filters }
+        pub fn filters(&self) -> &::std::option::Option<::std::vec::Vec<self::Filter>> { &self.filters }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct FilterCriteriaBuilder {
-        filters: ::std::option::Option<self::FilterList>,
+        filters: ::std::option::Option<::std::vec::Vec<self::Filter>>,
     }
 
     impl FilterCriteriaBuilder {
-        pub fn filters(mut self, input: impl ::std::convert::Into<self::FilterList>) -> Self { self.filters = Some(input.into()); self }
-        pub fn set_filters(mut self, input: ::std::option::Option<self::FilterList>) -> Self { self.filters = input; self }
-        pub fn get_filters(&self) -> &::std::option::Option<self::FilterList> { &self.filters }
+        pub fn filters(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Filter>>) -> Self { self.filters = Some(input.into()); self }
+        pub fn set_filters(mut self, input: ::std::option::Option<::std::vec::Vec<self::Filter>>) -> Self { self.filters = input; self }
+        pub fn get_filters(&self) -> &::std::option::Option<::std::vec::Vec<self::Filter>> { &self.filters }
         pub fn build(self) -> FilterCriteria {
             FilterCriteria {
                 filters: self.filters,

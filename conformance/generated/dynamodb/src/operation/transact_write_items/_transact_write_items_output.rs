@@ -2,28 +2,28 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct TransactWriteItemsOutput {
-    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-    pub item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable>,
+    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
+    pub item_collection_metrics: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>,
 }
         impl TransactWriteItemsOutput {
             pub fn consumed_capacity(&self) -> &[super::super::super::types::ConsumedCapacity] { self.consumed_capacity.as_deref().unwrap_or(&[]) }
-            pub fn item_collection_metrics(&self) -> ::std::option::Option<&super::super::super::types::ItemCollectionMetricsPerTable> { self.item_collection_metrics.as_ref() }
+            pub fn item_collection_metrics(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>> { self.item_collection_metrics.as_ref() }
         }
 impl TransactWriteItemsOutput {
     pub fn builder() -> TransactWriteItemsOutputBuilder { TransactWriteItemsOutputBuilder::default() }
 }
 #[derive(Clone, Debug, Default)]
 pub struct TransactWriteItemsOutputBuilder {
-    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-    item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable>,
+    consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
+    item_collection_metrics: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>,
 }
 impl TransactWriteItemsOutputBuilder {
-    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = Some(input.into()); self }
-    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = input; self }
-    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacityMultiple> { &self.consumed_capacity }
-    pub fn item_collection_metrics(mut self, input: impl ::std::convert::Into<super::super::super::types::ItemCollectionMetricsPerTable>) -> Self { self.item_collection_metrics = Some(input.into()); self }
-    pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable>) -> Self { self.item_collection_metrics = input; self }
-    pub fn get_item_collection_metrics(&self) -> &::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable> { &self.item_collection_metrics }
+    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = Some(input.into()); self }
+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = input; self }
+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>> { &self.consumed_capacity }
+    pub fn item_collection_metrics(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>) -> Self { self.item_collection_metrics = Some(input.into()); self }
+    pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>) -> Self { self.item_collection_metrics = input; self }
+    pub fn get_item_collection_metrics(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>> { &self.item_collection_metrics }
     pub fn build(self) -> TransactWriteItemsOutput { TransactWriteItemsOutput {
         consumed_capacity: self.consumed_capacity,
         item_collection_metrics: self.item_collection_metrics,

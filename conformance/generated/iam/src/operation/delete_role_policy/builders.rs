@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteRolePolicyError::Unhandled(format!("DeleteRolePolicy returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteRolePolicyOutput::default())
+                         Ok(super::DeleteRolePolicyOutput)
                      }
 }
 pub use Builder as DeleteRolePolicyFluentBuilder;

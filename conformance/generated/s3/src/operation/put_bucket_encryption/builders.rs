@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketEncryptionError::Unhandled(format!("PutBucketEncryption returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketEncryptionOutput::default())
+                         Ok(super::PutBucketEncryptionOutput)
                      }
 }
 pub use Builder as PutBucketEncryptionFluentBuilder;

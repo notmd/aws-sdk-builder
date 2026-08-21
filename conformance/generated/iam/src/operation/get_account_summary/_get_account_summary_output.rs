@@ -2,22 +2,22 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetAccountSummaryOutput {
-    pub summary_map: ::std::option::Option<super::super::super::types::SummaryMapType>,
+    pub summary_map: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::SummaryKeyType, super::super::super::types::SummaryValueType>>,
 }
         impl GetAccountSummaryOutput {
-            pub fn summary_map(&self) -> ::std::option::Option<&super::super::super::types::SummaryMapType> { self.summary_map.as_ref() }
+            pub fn summary_map(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::SummaryKeyType, super::super::super::types::SummaryValueType>> { self.summary_map.as_ref() }
         }
 impl GetAccountSummaryOutput {
     pub fn builder() -> GetAccountSummaryOutputBuilder { GetAccountSummaryOutputBuilder::default() }
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetAccountSummaryOutputBuilder {
-    summary_map: ::std::option::Option<super::super::super::types::SummaryMapType>,
+    summary_map: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::SummaryKeyType, super::super::super::types::SummaryValueType>>,
 }
 impl GetAccountSummaryOutputBuilder {
-    pub fn summary_map(mut self, input: impl ::std::convert::Into<super::super::super::types::SummaryMapType>) -> Self { self.summary_map = Some(input.into()); self }
-    pub fn set_summary_map(mut self, input: ::std::option::Option<super::super::super::types::SummaryMapType>) -> Self { self.summary_map = input; self }
-    pub fn get_summary_map(&self) -> &::std::option::Option<super::super::super::types::SummaryMapType> { &self.summary_map }
+    pub fn summary_map(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::SummaryKeyType, super::super::super::types::SummaryValueType>>) -> Self { self.summary_map = Some(input.into()); self }
+    pub fn set_summary_map(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::SummaryKeyType, super::super::super::types::SummaryValueType>>) -> Self { self.summary_map = input; self }
+    pub fn get_summary_map(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::SummaryKeyType, super::super::super::types::SummaryValueType>> { &self.summary_map }
     pub fn build(self) -> GetAccountSummaryOutput { GetAccountSummaryOutput {
         summary_map: self.summary_map,
     } }

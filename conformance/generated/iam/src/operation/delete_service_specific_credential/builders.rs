@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteServiceSpecificCredentialError::Unhandled(format!("DeleteServiceSpecificCredential returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteServiceSpecificCredentialOutput::default())
+                         Ok(super::DeleteServiceSpecificCredentialOutput)
                      }
 }
 pub use Builder as DeleteServiceSpecificCredentialFluentBuilder;

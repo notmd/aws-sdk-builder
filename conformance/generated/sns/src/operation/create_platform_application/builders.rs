@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::MapStringToString>) -> Self { self.input.attributes = Some(value.into()); self }
+    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::String, super::super::super::types::String>>) -> Self { self.input.attributes = Some(value.into()); self }
     pub fn name(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.name = Some(value.into()); self }
     pub fn platform(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.platform = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }

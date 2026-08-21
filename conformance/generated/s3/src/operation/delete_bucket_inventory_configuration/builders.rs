@@ -25,7 +25,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteBucketInventoryConfigurationError::Unhandled(format!("DeleteBucketInventoryConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteBucketInventoryConfigurationOutput::default())
+                         Ok(super::DeleteBucketInventoryConfigurationOutput)
                      }
 }
 pub use Builder as DeleteBucketInventoryConfigurationFluentBuilder;

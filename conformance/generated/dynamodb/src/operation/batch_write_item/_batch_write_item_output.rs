@@ -2,34 +2,34 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct BatchWriteItemOutput {
-    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-    pub item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable>,
-    pub unprocessed_items: ::std::option::Option<super::super::super::types::BatchWriteItemRequestMap>,
+    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
+    pub item_collection_metrics: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>,
+    pub unprocessed_items: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>,
 }
         impl BatchWriteItemOutput {
             pub fn consumed_capacity(&self) -> &[super::super::super::types::ConsumedCapacity] { self.consumed_capacity.as_deref().unwrap_or(&[]) }
-            pub fn item_collection_metrics(&self) -> ::std::option::Option<&super::super::super::types::ItemCollectionMetricsPerTable> { self.item_collection_metrics.as_ref() }
-            pub fn unprocessed_items(&self) -> ::std::option::Option<&super::super::super::types::BatchWriteItemRequestMap> { self.unprocessed_items.as_ref() }
+            pub fn item_collection_metrics(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>> { self.item_collection_metrics.as_ref() }
+            pub fn unprocessed_items(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>> { self.unprocessed_items.as_ref() }
         }
 impl BatchWriteItemOutput {
     pub fn builder() -> BatchWriteItemOutputBuilder { BatchWriteItemOutputBuilder::default() }
 }
 #[derive(Clone, Debug, Default)]
 pub struct BatchWriteItemOutputBuilder {
-    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-    item_collection_metrics: ::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable>,
-    unprocessed_items: ::std::option::Option<super::super::super::types::BatchWriteItemRequestMap>,
+    consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
+    item_collection_metrics: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>,
+    unprocessed_items: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>,
 }
 impl BatchWriteItemOutputBuilder {
-    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = Some(input.into()); self }
-    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = input; self }
-    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacityMultiple> { &self.consumed_capacity }
-    pub fn item_collection_metrics(mut self, input: impl ::std::convert::Into<super::super::super::types::ItemCollectionMetricsPerTable>) -> Self { self.item_collection_metrics = Some(input.into()); self }
-    pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable>) -> Self { self.item_collection_metrics = input; self }
-    pub fn get_item_collection_metrics(&self) -> &::std::option::Option<super::super::super::types::ItemCollectionMetricsPerTable> { &self.item_collection_metrics }
-    pub fn unprocessed_items(mut self, input: impl ::std::convert::Into<super::super::super::types::BatchWriteItemRequestMap>) -> Self { self.unprocessed_items = Some(input.into()); self }
-    pub fn set_unprocessed_items(mut self, input: ::std::option::Option<super::super::super::types::BatchWriteItemRequestMap>) -> Self { self.unprocessed_items = input; self }
-    pub fn get_unprocessed_items(&self) -> &::std::option::Option<super::super::super::types::BatchWriteItemRequestMap> { &self.unprocessed_items }
+    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = Some(input.into()); self }
+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = input; self }
+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>> { &self.consumed_capacity }
+    pub fn item_collection_metrics(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>) -> Self { self.item_collection_metrics = Some(input.into()); self }
+    pub fn set_item_collection_metrics(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>>) -> Self { self.item_collection_metrics = input; self }
+    pub fn get_item_collection_metrics(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::ItemCollectionMetrics>>> { &self.item_collection_metrics }
+    pub fn unprocessed_items(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>) -> Self { self.unprocessed_items = Some(input.into()); self }
+    pub fn set_unprocessed_items(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>>) -> Self { self.unprocessed_items = input; self }
+    pub fn get_unprocessed_items(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<super::super::super::types::WriteRequest>>> { &self.unprocessed_items }
     pub fn build(self) -> BatchWriteItemOutput { BatchWriteItemOutput {
         consumed_capacity: self.consumed_capacity,
         item_collection_metrics: self.item_collection_metrics,

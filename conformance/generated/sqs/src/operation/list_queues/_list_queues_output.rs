@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct ListQueuesOutput {
     pub next_token: ::std::option::Option<super::super::super::types::Token>,
-    pub queue_urls: ::std::option::Option<super::super::super::types::QueueUrlList>,
+    pub queue_urls: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
 }
         impl ListQueuesOutput {
             pub fn next_token(&self) -> ::std::option::Option<&str> { self.next_token.as_deref() }
@@ -15,15 +15,15 @@ impl ListQueuesOutput {
 #[derive(Clone, Debug, Default)]
 pub struct ListQueuesOutputBuilder {
     next_token: ::std::option::Option<super::super::super::types::Token>,
-    queue_urls: ::std::option::Option<super::super::super::types::QueueUrlList>,
+    queue_urls: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>,
 }
 impl ListQueuesOutputBuilder {
     pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::Token>) -> Self { self.next_token = Some(input.into()); self }
     pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::Token>) -> Self { self.next_token = input; self }
     pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::Token> { &self.next_token }
-    pub fn queue_urls(mut self, input: impl ::std::convert::Into<super::super::super::types::QueueUrlList>) -> Self { self.queue_urls = Some(input.into()); self }
-    pub fn set_queue_urls(mut self, input: ::std::option::Option<super::super::super::types::QueueUrlList>) -> Self { self.queue_urls = input; self }
-    pub fn get_queue_urls(&self) -> &::std::option::Option<super::super::super::types::QueueUrlList> { &self.queue_urls }
+    pub fn queue_urls(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.queue_urls = Some(input.into()); self }
+    pub fn set_queue_urls(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::String>>) -> Self { self.queue_urls = input; self }
+    pub fn get_queue_urls(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::String>> { &self.queue_urls }
     pub fn build(self) -> ListQueuesOutput { ListQueuesOutput {
         next_token: self.next_token,
         queue_urls: self.queue_urls,

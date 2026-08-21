@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteServerCertificateError::Unhandled(format!("DeleteServerCertificate returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteServerCertificateOutput::default())
+                         Ok(super::DeleteServerCertificateOutput)
                      }
 }
 pub use Builder as DeleteServerCertificateFluentBuilder;

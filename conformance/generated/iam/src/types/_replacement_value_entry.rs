@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ReplacementValueEntry {
-        pub values: ::std::option::Option<self::ReplacementValueListType>,
+        pub values: ::std::option::Option<::std::vec::Vec<self::StringType>>,
     }
     impl ReplacementValueEntry {
         pub fn builder() -> ReplacementValueEntryBuilder { ReplacementValueEntryBuilder::default() }
-        pub fn values(&self) -> &::std::option::Option<self::ReplacementValueListType> { &self.values }
+        pub fn values(&self) -> &::std::option::Option<::std::vec::Vec<self::StringType>> { &self.values }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ReplacementValueEntryBuilder {
-        values: ::std::option::Option<self::ReplacementValueListType>,
+        values: ::std::option::Option<::std::vec::Vec<self::StringType>>,
     }
 
     impl ReplacementValueEntryBuilder {
-        pub fn values(mut self, input: impl ::std::convert::Into<self::ReplacementValueListType>) -> Self { self.values = Some(input.into()); self }
-        pub fn set_values(mut self, input: ::std::option::Option<self::ReplacementValueListType>) -> Self { self.values = input; self }
-        pub fn get_values(&self) -> &::std::option::Option<self::ReplacementValueListType> { &self.values }
+        pub fn values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::StringType>>) -> Self { self.values = Some(input.into()); self }
+        pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::StringType>>) -> Self { self.values = input; self }
+        pub fn get_values(&self) -> &::std::option::Option<::std::vec::Vec<self::StringType>> { &self.values }
         pub fn build(self) -> ReplacementValueEntry {
             ReplacementValueEntry {
                 values: self.values,

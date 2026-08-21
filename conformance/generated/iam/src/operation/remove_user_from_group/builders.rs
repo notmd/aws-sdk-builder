@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::RemoveUserFromGroupError::Unhandled(format!("RemoveUserFromGroup returned HTTP {}", status)));
                          }
-                         Ok(super::RemoveUserFromGroupOutput::default())
+                         Ok(super::RemoveUserFromGroupOutput)
                      }
 }
 pub use Builder as RemoveUserFromGroupFluentBuilder;

@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutPublicAccessBlockError::Unhandled(format!("PutPublicAccessBlock returned HTTP {}", status)));
                          }
-                         Ok(super::PutPublicAccessBlockOutput::default())
+                         Ok(super::PutPublicAccessBlockOutput)
                      }
 }
 pub use Builder as PutPublicAccessBlockFluentBuilder;

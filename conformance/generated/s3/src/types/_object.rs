@@ -2,7 +2,7 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct Object {
-        pub checksum_algorithm: ::std::option::Option<self::ChecksumAlgorithmList>,
+        pub checksum_algorithm: ::std::option::Option<::std::vec::Vec<self::ChecksumAlgorithm>>,
         pub checksum_type: ::std::option::Option<self::ChecksumType>,
         pub e_tag: ::std::option::Option<self::ETag>,
         pub key: ::std::option::Option<self::ObjectKey>,
@@ -14,7 +14,7 @@
     }
     impl Object {
         pub fn builder() -> ObjectBuilder { ObjectBuilder::default() }
-        pub fn checksum_algorithm(&self) -> &::std::option::Option<self::ChecksumAlgorithmList> { &self.checksum_algorithm }
+        pub fn checksum_algorithm(&self) -> &::std::option::Option<::std::vec::Vec<self::ChecksumAlgorithm>> { &self.checksum_algorithm }
         pub fn checksum_type(&self) -> &::std::option::Option<self::ChecksumType> { &self.checksum_type }
         pub fn e_tag(&self) -> ::std::option::Option<&str> { self.e_tag.as_deref() }
         pub fn key(&self) -> ::std::option::Option<&str> { self.key.as_deref() }
@@ -27,7 +27,7 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ObjectBuilder {
-        checksum_algorithm: ::std::option::Option<self::ChecksumAlgorithmList>,
+        checksum_algorithm: ::std::option::Option<::std::vec::Vec<self::ChecksumAlgorithm>>,
         checksum_type: ::std::option::Option<self::ChecksumType>,
         e_tag: ::std::option::Option<self::ETag>,
         key: ::std::option::Option<self::ObjectKey>,
@@ -39,9 +39,9 @@
     }
 
     impl ObjectBuilder {
-        pub fn checksum_algorithm(mut self, input: impl ::std::convert::Into<self::ChecksumAlgorithmList>) -> Self { self.checksum_algorithm = Some(input.into()); self }
-        pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<self::ChecksumAlgorithmList>) -> Self { self.checksum_algorithm = input; self }
-        pub fn get_checksum_algorithm(&self) -> &::std::option::Option<self::ChecksumAlgorithmList> { &self.checksum_algorithm }
+        pub fn checksum_algorithm(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ChecksumAlgorithm>>) -> Self { self.checksum_algorithm = Some(input.into()); self }
+        pub fn set_checksum_algorithm(mut self, input: ::std::option::Option<::std::vec::Vec<self::ChecksumAlgorithm>>) -> Self { self.checksum_algorithm = input; self }
+        pub fn get_checksum_algorithm(&self) -> &::std::option::Option<::std::vec::Vec<self::ChecksumAlgorithm>> { &self.checksum_algorithm }
         pub fn checksum_type(mut self, input: impl ::std::convert::Into<self::ChecksumType>) -> Self { self.checksum_type = Some(input.into()); self }
         pub fn set_checksum_type(mut self, input: ::std::option::Option<self::ChecksumType>) -> Self { self.checksum_type = input; self }
         pub fn get_checksum_type(&self) -> &::std::option::Option<self::ChecksumType> { &self.checksum_type }

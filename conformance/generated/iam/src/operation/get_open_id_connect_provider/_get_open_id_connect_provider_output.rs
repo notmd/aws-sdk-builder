@@ -2,10 +2,10 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetOpenIdConnectProviderOutput {
-    pub client_id_list: ::std::option::Option<super::super::super::types::ClientIdListType>,
+    pub client_id_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ClientIdType>>,
     pub create_date: ::std::option::Option<super::super::super::types::DateType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
-    pub thumbprint_list: ::std::option::Option<super::super::super::types::ThumbprintListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
+    pub thumbprint_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>,
     pub url: ::std::option::Option<super::super::super::types::OpenIdConnectProviderUrlType>,
 }
         impl GetOpenIdConnectProviderOutput {
@@ -20,25 +20,25 @@ impl GetOpenIdConnectProviderOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetOpenIdConnectProviderOutputBuilder {
-    client_id_list: ::std::option::Option<super::super::super::types::ClientIdListType>,
+    client_id_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ClientIdType>>,
     create_date: ::std::option::Option<super::super::super::types::DateType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
-    thumbprint_list: ::std::option::Option<super::super::super::types::ThumbprintListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
+    thumbprint_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>,
     url: ::std::option::Option<super::super::super::types::OpenIdConnectProviderUrlType>,
 }
 impl GetOpenIdConnectProviderOutputBuilder {
-    pub fn client_id_list(mut self, input: impl ::std::convert::Into<super::super::super::types::ClientIdListType>) -> Self { self.client_id_list = Some(input.into()); self }
-    pub fn set_client_id_list(mut self, input: ::std::option::Option<super::super::super::types::ClientIdListType>) -> Self { self.client_id_list = input; self }
-    pub fn get_client_id_list(&self) -> &::std::option::Option<super::super::super::types::ClientIdListType> { &self.client_id_list }
+    pub fn client_id_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ClientIdType>>) -> Self { self.client_id_list = Some(input.into()); self }
+    pub fn set_client_id_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ClientIdType>>) -> Self { self.client_id_list = input; self }
+    pub fn get_client_id_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ClientIdType>> { &self.client_id_list }
     pub fn create_date(mut self, input: impl ::std::convert::Into<super::super::super::types::DateType>) -> Self { self.create_date = Some(input.into()); self }
     pub fn set_create_date(mut self, input: ::std::option::Option<super::super::super::types::DateType>) -> Self { self.create_date = input; self }
     pub fn get_create_date(&self) -> &::std::option::Option<super::super::super::types::DateType> { &self.create_date }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
-    pub fn thumbprint_list(mut self, input: impl ::std::convert::Into<super::super::super::types::ThumbprintListType>) -> Self { self.thumbprint_list = Some(input.into()); self }
-    pub fn set_thumbprint_list(mut self, input: ::std::option::Option<super::super::super::types::ThumbprintListType>) -> Self { self.thumbprint_list = input; self }
-    pub fn get_thumbprint_list(&self) -> &::std::option::Option<super::super::super::types::ThumbprintListType> { &self.thumbprint_list }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
+    pub fn thumbprint_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ThumbprintType>>) -> Self { self.thumbprint_list = Some(input.into()); self }
+    pub fn set_thumbprint_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>) -> Self { self.thumbprint_list = input; self }
+    pub fn get_thumbprint_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>> { &self.thumbprint_list }
     pub fn url(mut self, input: impl ::std::convert::Into<super::super::super::types::OpenIdConnectProviderUrlType>) -> Self { self.url = Some(input.into()); self }
     pub fn set_url(mut self, input: ::std::option::Option<super::super::super::types::OpenIdConnectProviderUrlType>) -> Self { self.url = input; self }
     pub fn get_url(&self) -> &::std::option::Option<super::super::super::types::OpenIdConnectProviderUrlType> { &self.url }

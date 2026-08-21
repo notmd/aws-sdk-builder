@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UnsubscribeError::Unhandled(format!("Unsubscribe returned HTTP {}", status)));
                          }
-                         Ok(super::UnsubscribeOutput::default())
+                         Ok(super::UnsubscribeOutput)
                      }
 }
 pub use Builder as UnsubscribeFluentBuilder;

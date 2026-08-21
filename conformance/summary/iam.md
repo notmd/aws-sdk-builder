@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1700/1700` files compared · `2` matched · `1040` mismatches · `589` missing · `69` extra · `0.12%` match (100.00% means fully matched)
+**Progress:** `1632/1632` files compared · `2` matched · `1040` mismatches · `589` missing · `1` extra · `0.12%` match (100.00% means fully matched)
 
 ### `src/client/accept_delegation_request.rs`
 
@@ -7990,7 +7990,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::AcceptDelegationRequestError::Unhandled(format!("AcceptDelegationRequest returned HTTP {}", status)));
 +                         }
-+                         Ok(super::AcceptDelegationRequestOutput::default())
++                         Ok(super::AcceptDelegationRequestOutput)
 +                     }
  }
 -impl AcceptDelegationRequestFluentBuilder {
@@ -8592,12 +8592,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    ) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>> {
 -        self.replacement_values.as_ref()
 -    }
-+    pub replacement_values: ::std::option::Option<super::super::super::types::MapStringReplacementValueEntry>,
++    pub replacement_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::StringType, super::super::super::types::ReplacementValueEntry>>,
 +    pub template_arn: ::std::option::Option<super::super::super::types::ArnType>,
 +    pub template_minor_version: ::std::option::Option<super::super::super::types::IntegerType>,
  }
 +        impl AcquireRoleInput {
-+            pub fn replacement_values(&self) -> ::std::option::Option<&super::super::super::types::MapStringReplacementValueEntry> { self.replacement_values.as_ref() }
++            pub fn replacement_values(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::StringType, super::super::super::types::ReplacementValueEntry>> { self.replacement_values.as_ref() }
 +            pub fn template_arn(&self) -> ::std::option::Option<&str> { self.template_arn.as_deref() }
 +            pub fn template_minor_version(&self) -> ::std::option::Option<i32> { self.template_minor_version }
 +        }
@@ -8617,7 +8617,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) template_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) template_minor_version: ::std::option::Option<i32>,
 -    pub(crate) replacement_values: ::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>>,
-+    replacement_values: ::std::option::Option<super::super::super::types::MapStringReplacementValueEntry>,
++    replacement_values: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::StringType, super::super::super::types::ReplacementValueEntry>>,
 +    template_arn: ::std::option::Option<super::super::super::types::ArnType>,
 +    template_minor_version: ::std::option::Option<super::super::super::types::IntegerType>,
  }
@@ -8687,9 +8687,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            replacement_values: self.replacement_values,
 -        })
 -    }
-+    pub fn replacement_values(mut self, input: impl ::std::convert::Into<super::super::super::types::MapStringReplacementValueEntry>) -> Self { self.replacement_values = Some(input.into()); self }
-+    pub fn set_replacement_values(mut self, input: ::std::option::Option<super::super::super::types::MapStringReplacementValueEntry>) -> Self { self.replacement_values = input; self }
-+    pub fn get_replacement_values(&self) -> &::std::option::Option<super::super::super::types::MapStringReplacementValueEntry> { &self.replacement_values }
++    pub fn replacement_values(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::StringType, super::super::super::types::ReplacementValueEntry>>) -> Self { self.replacement_values = Some(input.into()); self }
++    pub fn set_replacement_values(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::StringType, super::super::super::types::ReplacementValueEntry>>) -> Self { self.replacement_values = input; self }
++    pub fn get_replacement_values(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::StringType, super::super::super::types::ReplacementValueEntry>> { &self.replacement_values }
 +    pub fn template_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.template_arn = Some(input.into()); self }
 +    pub fn set_template_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.template_arn = input; self }
 +    pub fn get_template_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.template_arn }
@@ -8976,7 +8976,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    ) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, crate::types::ReplacementValueEntry>> {
 -        self.inner.get_replacement_values()
 -    }
-+    pub fn replacement_values(mut self, value: impl ::std::convert::Into<super::super::super::types::MapStringReplacementValueEntry>) -> Self { self.input.replacement_values = Some(value.into()); self }
++    pub fn replacement_values(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::StringType, super::super::super::types::ReplacementValueEntry>>) -> Self { self.input.replacement_values = Some(value.into()); self }
 +    pub fn template_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.template_arn = Some(value.into()); self }
 +    pub fn template_minor_version(mut self, value: impl ::std::convert::Into<super::super::super::types::IntegerType>) -> Self { self.input.template_minor_version = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
@@ -9807,7 +9807,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::AddClientIdToOpenIdConnectProviderError::Unhandled(format!("AddClientIdToOpenIdConnectProvider returned HTTP {}", status)));
 +                         }
-+                         Ok(super::AddClientIdToOpenIdConnectProviderOutput::default())
++                         Ok(super::AddClientIdToOpenIdConnectProviderOutput)
 +                     }
  }
 -impl AddClientIDToOpenIDConnectProviderFluentBuilder {
@@ -10774,7 +10774,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::AddRoleToInstanceProfileError::Unhandled(format!("AddRoleToInstanceProfile returned HTTP {}", status)));
 +                         }
-+                         Ok(super::AddRoleToInstanceProfileOutput::default())
++                         Ok(super::AddRoleToInstanceProfileOutput)
 +                     }
  }
 +pub use Builder as AddRoleToInstanceProfileFluentBuilder;
@@ -11538,7 +11538,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::AddUserToGroupError::Unhandled(format!("AddUserToGroup returned HTTP {}", status)));
 +                         }
-+                         Ok(super::AddUserToGroupOutput::default())
++                         Ok(super::AddUserToGroupOutput)
 +                     }
  }
 -impl AddUserToGroupFluentBuilder {
@@ -12334,7 +12334,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::AssociateDelegationRequestError::Unhandled(format!("AssociateDelegationRequest returned HTTP {}", status)));
 +                         }
-+                         Ok(super::AssociateDelegationRequestOutput::default())
++                         Ok(super::AssociateDelegationRequestOutput)
 +                     }
  }
 -impl AssociateDelegationRequestFluentBuilder {
@@ -13255,7 +13255,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::AttachGroupPolicyError::Unhandled(format!("AttachGroupPolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::AttachGroupPolicyOutput::default())
++                         Ok(super::AttachGroupPolicyOutput)
 +                     }
  }
 +pub use Builder as AttachGroupPolicyFluentBuilder;
@@ -14020,7 +14020,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::AttachRolePolicyError::Unhandled(format!("AttachRolePolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::AttachRolePolicyOutput::default())
++                         Ok(super::AttachRolePolicyOutput)
 +                     }
  }
 -impl AttachRolePolicyFluentBuilder {
@@ -14989,7 +14989,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::AttachUserPolicyError::Unhandled(format!("AttachUserPolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::AttachUserPolicyOutput::default())
++                         Ok(super::AttachUserPolicyOutput)
 +                     }
  }
 +pub use Builder as AttachUserPolicyFluentBuilder;
@@ -15762,7 +15762,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::ChangePasswordError::Unhandled(format!("ChangePassword returned HTTP {}", status)));
 +                         }
-+                         Ok(super::ChangePasswordOutput::default())
++                         Ok(super::ChangePasswordOutput)
 +                     }
  }
 -impl ChangePasswordFluentBuilder {
@@ -17356,7 +17356,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::CreateAccountAliasError::Unhandled(format!("CreateAccountAlias returned HTTP {}", status)));
 +                         }
-+                         Ok(super::CreateAccountAliasOutput::default())
++                         Ok(super::CreateAccountAliasOutput)
 +                     }
  }
 -impl CreateAccountAliasFluentBuilder {
@@ -20170,7 +20170,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    pub instance_profile_name: ::std::option::Option<super::super::super::types::InstanceProfileNameType>,
 +    pub path: ::std::option::Option<super::super::super::types::PathType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl CreateInstanceProfileInput {
 +            pub fn instance_profile_name(&self) -> ::std::option::Option<&str> { self.instance_profile_name.as_deref() }
@@ -20216,7 +20216,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    instance_profile_name: ::std::option::Option<super::super::super::types::InstanceProfileNameType>,
 +    path: ::std::option::Option<super::super::super::types::PathType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl CreateInstanceProfileInputBuilder {
 -    /// <p>The name of the instance profile to create.</p>
@@ -20300,9 +20300,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn path(mut self, input: impl ::std::convert::Into<super::super::super::types::PathType>) -> Self { self.path = Some(input.into()); self }
 +    pub fn set_path(mut self, input: ::std::option::Option<super::super::super::types::PathType>) -> Self { self.path = input; self }
 +    pub fn get_path(&self) -> &::std::option::Option<super::super::super::types::PathType> { &self.path }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> CreateInstanceProfileInput { CreateInstanceProfileInput {
 +        instance_profile_name: self.instance_profile_name,
 +        path: self.path,
@@ -20468,7 +20468,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 +    pub fn instance_profile_name(mut self, value: impl ::std::convert::Into<super::super::super::types::InstanceProfileNameType>) -> Self { self.input.instance_profile_name = Some(value.into()); self }
 +    pub fn path(mut self, value: impl ::std::convert::Into<super::super::super::types::PathType>) -> Self { self.input.path = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::CreateInstanceProfileOutput, super::CreateInstanceProfileError> {
@@ -22160,9 +22160,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn tags(&self) -> &[crate::types::Tag] {
 -        self.tags.as_deref().unwrap_or_default()
 -    }
-+    pub client_id_list: ::std::option::Option<super::super::super::types::ClientIdListType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
-+    pub thumbprint_list: ::std::option::Option<super::super::super::types::ThumbprintListType>,
++    pub client_id_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ClientIdType>>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
++    pub thumbprint_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>,
 +    pub url: ::std::option::Option<super::super::super::types::OpenIdConnectProviderUrlType>,
  }
 +        impl CreateOpenIdConnectProviderInput {
@@ -22188,9 +22188,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) client_id_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) thumbprint_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    client_id_list: ::std::option::Option<super::super::super::types::ClientIdListType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
-+    thumbprint_list: ::std::option::Option<super::super::super::types::ThumbprintListType>,
++    client_id_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ClientIdType>>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
++    thumbprint_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>,
 +    url: ::std::option::Option<super::super::super::types::OpenIdConnectProviderUrlType>,
  }
  impl CreateOpenIdConnectProviderInputBuilder {
@@ -22316,15 +22316,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            tags: self.tags,
 -        })
 -    }
-+    pub fn client_id_list(mut self, input: impl ::std::convert::Into<super::super::super::types::ClientIdListType>) -> Self { self.client_id_list = Some(input.into()); self }
-+    pub fn set_client_id_list(mut self, input: ::std::option::Option<super::super::super::types::ClientIdListType>) -> Self { self.client_id_list = input; self }
-+    pub fn get_client_id_list(&self) -> &::std::option::Option<super::super::super::types::ClientIdListType> { &self.client_id_list }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
-+    pub fn thumbprint_list(mut self, input: impl ::std::convert::Into<super::super::super::types::ThumbprintListType>) -> Self { self.thumbprint_list = Some(input.into()); self }
-+    pub fn set_thumbprint_list(mut self, input: ::std::option::Option<super::super::super::types::ThumbprintListType>) -> Self { self.thumbprint_list = input; self }
-+    pub fn get_thumbprint_list(&self) -> &::std::option::Option<super::super::super::types::ThumbprintListType> { &self.thumbprint_list }
++    pub fn client_id_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ClientIdType>>) -> Self { self.client_id_list = Some(input.into()); self }
++    pub fn set_client_id_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ClientIdType>>) -> Self { self.client_id_list = input; self }
++    pub fn get_client_id_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ClientIdType>> { &self.client_id_list }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
++    pub fn thumbprint_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ThumbprintType>>) -> Self { self.thumbprint_list = Some(input.into()); self }
++    pub fn set_thumbprint_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>) -> Self { self.thumbprint_list = input; self }
++    pub fn get_thumbprint_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>> { &self.thumbprint_list }
 +    pub fn url(mut self, input: impl ::std::convert::Into<super::super::super::types::OpenIdConnectProviderUrlType>) -> Self { self.url = Some(input.into()); self }
 +    pub fn set_url(mut self, input: ::std::option::Option<super::super::super::types::OpenIdConnectProviderUrlType>) -> Self { self.url = input; self }
 +    pub fn get_url(&self) -> &::std::option::Option<super::super::super::types::OpenIdConnectProviderUrlType> { &self.url }
@@ -22374,7 +22374,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self._request_id.as_deref()
 -    }
 +    pub open_id_connect_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl CreateOpenIdConnectProviderOutput {
 +            pub fn open_id_connect_provider_arn(&self) -> ::std::option::Option<&str> { self.open_id_connect_provider_arn.as_deref() }
@@ -22397,7 +22397,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 -    _request_id: Option<String>,
 +    open_id_connect_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl CreateOpenIdConnectProviderOutputBuilder {
 -    /// <p>The Amazon Resource Name (ARN) of the new IAM OpenID Connect provider that is created. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_OpenIDConnectProviderListEntry.html">OpenIDConnectProviderListEntry</a>.</p>
@@ -22454,9 +22454,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn open_id_connect_provider_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.open_id_connect_provider_arn = Some(input.into()); self }
 +    pub fn set_open_id_connect_provider_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.open_id_connect_provider_arn = input; self }
 +    pub fn get_open_id_connect_provider_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.open_id_connect_provider_arn }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> CreateOpenIdConnectProviderOutput { CreateOpenIdConnectProviderOutput {
 +        open_id_connect_provider_arn: self.open_id_connect_provider_arn,
 +        tags: self.tags,
@@ -22545,9 +22545,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn client_id_list(mut self, value: impl ::std::convert::Into<super::super::super::types::ClientIdListType>) -> Self { self.input.client_id_list = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
-+    pub fn thumbprint_list(mut self, value: impl ::std::convert::Into<super::super::super::types::ThumbprintListType>) -> Self { self.input.thumbprint_list = Some(value.into()); self }
++    pub fn client_id_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ClientIdType>>) -> Self { self.input.client_id_list = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn thumbprint_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ThumbprintType>>) -> Self { self.input.thumbprint_list = Some(value.into()); self }
 +    pub fn url(mut self, value: impl ::std::convert::Into<super::super::super::types::OpenIdConnectProviderUrlType>) -> Self { self.input.url = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -23303,7 +23303,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub path: ::std::option::Option<super::super::super::types::PolicyPathType>,
 +    pub policy_document: ::std::option::Option<super::super::super::types::PolicyDocumentType>,
 +    pub policy_name: ::std::option::Option<super::super::super::types::PolicyNameType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl CreatePolicyInput {
 +            pub fn description(&self) -> ::std::option::Option<&str> { self.description.as_deref() }
@@ -23380,7 +23380,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    path: ::std::option::Option<super::super::super::types::PolicyPathType>,
 +    policy_document: ::std::option::Option<super::super::super::types::PolicyDocumentType>,
 +    policy_name: ::std::option::Option<super::super::super::types::PolicyNameType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl CreatePolicyInputBuilder {
 -    /// <p>The friendly name of the policy.</p>
@@ -23551,9 +23551,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn policy_name(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyNameType>) -> Self { self.policy_name = Some(input.into()); self }
 +    pub fn set_policy_name(mut self, input: ::std::option::Option<super::super::super::types::PolicyNameType>) -> Self { self.policy_name = input; self }
 +    pub fn get_policy_name(&self) -> &::std::option::Option<super::super::super::types::PolicyNameType> { &self.policy_name }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> CreatePolicyInput { CreatePolicyInput {
 +        description: self.description,
 +        path: self.path,
@@ -23927,7 +23927,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn path(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyPathType>) -> Self { self.input.path = Some(value.into()); self }
 +    pub fn policy_document(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyDocumentType>) -> Self { self.input.policy_document = Some(value.into()); self }
 +    pub fn policy_name(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyNameType>) -> Self { self.input.policy_name = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::CreatePolicyOutput, super::CreatePolicyError> {
@@ -25624,7 +25624,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub path: ::std::option::Option<super::super::super::types::PathType>,
 +    pub permissions_boundary: ::std::option::Option<super::super::super::types::ArnType>,
 +    pub role_name: ::std::option::Option<super::super::super::types::RoleNameType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl CreateRoleInput {
 +            pub fn assume_role_policy_document(&self) -> ::std::option::Option<&str> { self.assume_role_policy_document.as_deref() }
@@ -25661,7 +25661,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    path: ::std::option::Option<super::super::super::types::PathType>,
 +    permissions_boundary: ::std::option::Option<super::super::super::types::ArnType>,
 +    role_name: ::std::option::Option<super::super::super::types::RoleNameType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl CreateRoleInputBuilder {
 -    /// <p>The path to the role. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM Identifiers</a> in the <i>IAM User Guide</i>.</p>
@@ -25860,9 +25860,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn role_name(mut self, input: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.role_name = Some(input.into()); self }
 +    pub fn set_role_name(mut self, input: ::std::option::Option<super::super::super::types::RoleNameType>) -> Self { self.role_name = input; self }
 +    pub fn get_role_name(&self) -> &::std::option::Option<super::super::super::types::RoleNameType> { &self.role_name }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> CreateRoleInput { CreateRoleInput {
 +        assume_role_policy_document: self.assume_role_policy_document,
 +        description: self.description,
@@ -26261,7 +26261,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn path(mut self, value: impl ::std::convert::Into<super::super::super::types::PathType>) -> Self { self.input.path = Some(value.into()); self }
 +    pub fn permissions_boundary(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.permissions_boundary = Some(value.into()); self }
 +    pub fn role_name(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.input.role_name = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::CreateRoleOutput, super::CreateRoleError> {
@@ -26846,7 +26846,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub assertion_encryption_mode: ::std::option::Option<super::super::super::types::AssertionEncryptionModeType>,
 +    pub name: ::std::option::Option<super::super::super::types::SamlProviderNameType>,
 +    pub saml_metadata_document: ::std::option::Option<super::super::super::types::SamlMetadataDocumentType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl CreateSamlProviderInput {
 +            pub fn add_private_key(&self) -> ::std::option::Option<&str> { self.add_private_key.as_deref() }
@@ -26916,7 +26916,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    assertion_encryption_mode: ::std::option::Option<super::super::super::types::AssertionEncryptionModeType>,
 +    name: ::std::option::Option<super::super::super::types::SamlProviderNameType>,
 +    saml_metadata_document: ::std::option::Option<super::super::super::types::SamlMetadataDocumentType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl CreateSamlProviderInputBuilder {
 -    /// <p>An XML document generated by an identity provider (IdP) that supports SAML 2.0. The document includes the issuer's name, expiration information, and keys that can be used to validate the SAML authentication response (assertions) that are received from the IdP. You must generate the metadata document using the identity management software that is used as your organization's IdP.</p>
@@ -27045,9 +27045,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn saml_metadata_document(mut self, input: impl ::std::convert::Into<super::super::super::types::SamlMetadataDocumentType>) -> Self { self.saml_metadata_document = Some(input.into()); self }
 +    pub fn set_saml_metadata_document(mut self, input: ::std::option::Option<super::super::super::types::SamlMetadataDocumentType>) -> Self { self.saml_metadata_document = input; self }
 +    pub fn get_saml_metadata_document(&self) -> &::std::option::Option<super::super::super::types::SamlMetadataDocumentType> { &self.saml_metadata_document }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> CreateSamlProviderInput { CreateSamlProviderInput {
 +        add_private_key: self.add_private_key,
 +        assertion_encryption_mode: self.assertion_encryption_mode,
@@ -27095,7 +27095,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self._request_id.as_deref()
 -    }
 +    pub saml_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl CreateSamlProviderOutput {
 +            pub fn saml_provider_arn(&self) -> ::std::option::Option<&str> { self.saml_provider_arn.as_deref() }
@@ -27118,7 +27118,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 -    _request_id: Option<String>,
 +    saml_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl CreateSamlProviderOutputBuilder {
 -    /// <p>The Amazon Resource Name (ARN) of the new SAML provider resource in IAM.</p>
@@ -27175,9 +27175,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn saml_provider_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.saml_provider_arn = Some(input.into()); self }
 +    pub fn set_saml_provider_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.saml_provider_arn = input; self }
 +    pub fn get_saml_provider_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.saml_provider_arn }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> CreateSamlProviderOutput { CreateSamlProviderOutput {
 +        saml_provider_arn: self.saml_provider_arn,
 +        tags: self.tags,
@@ -27406,7 +27406,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn assertion_encryption_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::AssertionEncryptionModeType>) -> Self { self.input.assertion_encryption_mode = Some(value.into()); self }
 +    pub fn name(mut self, value: impl ::std::convert::Into<super::super::super::types::SamlProviderNameType>) -> Self { self.input.name = Some(value.into()); self }
 +    pub fn saml_metadata_document(mut self, value: impl ::std::convert::Into<super::super::super::types::SamlMetadataDocumentType>) -> Self { self.input.saml_metadata_document = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::CreateSamlProviderOutput, super::CreateSamlProviderError> {
@@ -29859,7 +29859,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    pub path: ::std::option::Option<super::super::super::types::PathType>,
 +    pub permissions_boundary: ::std::option::Option<super::super::super::types::ArnType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 +    pub user_name: ::std::option::Option<super::super::super::types::UserNameType>,
  }
 +        impl CreateUserInput {
@@ -29914,7 +29914,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    path: ::std::option::Option<super::super::super::types::PathType>,
 +    permissions_boundary: ::std::option::Option<super::super::super::types::ArnType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 +    user_name: ::std::option::Option<super::super::super::types::UserNameType>,
  }
  impl CreateUserInputBuilder {
@@ -30017,9 +30017,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn permissions_boundary(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.permissions_boundary = Some(input.into()); self }
 +    pub fn set_permissions_boundary(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.permissions_boundary = input; self }
 +    pub fn get_permissions_boundary(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.permissions_boundary }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn user_name(mut self, input: impl ::std::convert::Into<super::super::super::types::UserNameType>) -> Self { self.user_name = Some(input.into()); self }
 +    pub fn set_user_name(mut self, input: ::std::option::Option<super::super::super::types::UserNameType>) -> Self { self.user_name = input; self }
 +    pub fn get_user_name(&self) -> &::std::option::Option<super::super::super::types::UserNameType> { &self.user_name }
@@ -30332,7 +30332,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub fn path(mut self, value: impl ::std::convert::Into<super::super::super::types::PathType>) -> Self { self.input.path = Some(value.into()); self }
 +    pub fn permissions_boundary(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.permissions_boundary = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::UserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -30923,7 +30923,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.tags.as_deref().unwrap_or_default()
 -    }
 +    pub path: ::std::option::Option<super::super::super::types::PathType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 +    pub virtual_mfa_device_name: ::std::option::Option<super::super::super::types::VirtualMfaDeviceName>,
  }
 +        impl CreateVirtualMfaDeviceInput {
@@ -30948,7 +30948,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) virtual_mfa_device_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    path: ::std::option::Option<super::super::super::types::PathType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 +    virtual_mfa_device_name: ::std::option::Option<super::super::super::types::VirtualMfaDeviceName>,
  }
  impl CreateVirtualMfaDeviceInputBuilder {
@@ -31032,9 +31032,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn path(mut self, input: impl ::std::convert::Into<super::super::super::types::PathType>) -> Self { self.path = Some(input.into()); self }
 +    pub fn set_path(mut self, input: ::std::option::Option<super::super::super::types::PathType>) -> Self { self.path = input; self }
 +    pub fn get_path(&self) -> &::std::option::Option<super::super::super::types::PathType> { &self.path }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn virtual_mfa_device_name(mut self, input: impl ::std::convert::Into<super::super::super::types::VirtualMfaDeviceName>) -> Self { self.virtual_mfa_device_name = Some(input.into()); self }
 +    pub fn set_virtual_mfa_device_name(mut self, input: ::std::option::Option<super::super::super::types::VirtualMfaDeviceName>) -> Self { self.virtual_mfa_device_name = input; self }
 +    pub fn get_virtual_mfa_device_name(&self) -> &::std::option::Option<super::super::super::types::VirtualMfaDeviceName> { &self.virtual_mfa_device_name }
@@ -31204,7 +31204,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn path(mut self, value: impl ::std::convert::Into<super::super::super::types::PathType>) -> Self { self.input.path = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn virtual_mfa_device_name(mut self, value: impl ::std::convert::Into<super::super::super::types::VirtualMfaDeviceName>) -> Self { self.input.virtual_mfa_device_name = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -32112,7 +32112,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeactivateMfaDeviceError::Unhandled(format!("DeactivateMfaDevice returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeactivateMfaDeviceOutput::default())
++                         Ok(super::DeactivateMfaDeviceOutput)
 +                     }
  }
 -impl DeactivateMFADeviceFluentBuilder {
@@ -33071,7 +33071,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteAccessKeyError::Unhandled(format!("DeleteAccessKey returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteAccessKeyOutput::default())
++                         Ok(super::DeleteAccessKeyOutput)
 +                     }
  }
 +pub use Builder as DeleteAccessKeyFluentBuilder;
@@ -33771,7 +33771,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteAccountAliasError::Unhandled(format!("DeleteAccountAlias returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteAccountAliasOutput::default())
++                         Ok(super::DeleteAccountAliasOutput)
 +                     }
  }
 -impl DeleteAccountAliasFluentBuilder {
@@ -34513,7 +34513,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteAccountPasswordPolicyError::Unhandled(format!("DeleteAccountPasswordPolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteAccountPasswordPolicyOutput::default())
++                         Ok(super::DeleteAccountPasswordPolicyOutput)
 +                     }
  }
 -impl DeleteAccountPasswordPolicyFluentBuilder {
@@ -35219,7 +35219,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteGroupError::Unhandled(format!("DeleteGroup returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteGroupOutput::default())
++                         Ok(super::DeleteGroupOutput)
 +                     }
  }
 -impl DeleteGroupFluentBuilder {
@@ -36138,7 +36138,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteGroupPolicyError::Unhandled(format!("DeleteGroupPolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteGroupPolicyOutput::default())
++                         Ok(super::DeleteGroupPolicyOutput)
 +                     }
  }
 +pub use Builder as DeleteGroupPolicyFluentBuilder;
@@ -36920,7 +36920,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteInstanceProfileError::Unhandled(format!("DeleteInstanceProfile returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteInstanceProfileOutput::default())
++                         Ok(super::DeleteInstanceProfileOutput)
 +                     }
  }
 +pub use Builder as DeleteInstanceProfileFluentBuilder;
@@ -37636,7 +37636,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteLoginProfileError::Unhandled(format!("DeleteLoginProfile returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteLoginProfileOutput::default())
++                         Ok(super::DeleteLoginProfileOutput)
 +                     }
  }
 -impl DeleteLoginProfileFluentBuilder {
@@ -38501,7 +38501,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteOpenIdConnectProviderError::Unhandled(format!("DeleteOpenIdConnectProvider returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteOpenIdConnectProviderOutput::default())
++                         Ok(super::DeleteOpenIdConnectProviderOutput)
 +                     }
  }
 +pub use Builder as DeleteOpenIdConnectProviderFluentBuilder;
@@ -39285,7 +39285,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeletePolicyError::Unhandled(format!("DeletePolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeletePolicyOutput::default())
++                         Ok(super::DeletePolicyOutput)
 +                     }
  }
 +pub use Builder as DeletePolicyFluentBuilder;
@@ -40148,7 +40148,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeletePolicyVersionError::Unhandled(format!("DeletePolicyVersion returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeletePolicyVersionOutput::default())
++                         Ok(super::DeletePolicyVersionOutput)
 +                     }
  }
 +pub use Builder as DeletePolicyVersionFluentBuilder;
@@ -40884,7 +40884,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteRoleError::Unhandled(format!("DeleteRole returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteRoleOutput::default())
++                         Ok(super::DeleteRoleOutput)
 +                     }
  }
 -impl DeleteRoleFluentBuilder {
@@ -41694,7 +41694,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteRolePermissionsBoundaryError::Unhandled(format!("DeleteRolePermissionsBoundary returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteRolePermissionsBoundaryOutput::default())
++                         Ok(super::DeleteRolePermissionsBoundaryOutput)
 +                     }
  }
 -impl DeleteRolePermissionsBoundaryFluentBuilder {
@@ -42600,7 +42600,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteRolePolicyError::Unhandled(format!("DeleteRolePolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteRolePolicyOutput::default())
++                         Ok(super::DeleteRolePolicyOutput)
 +                     }
  }
 +pub use Builder as DeleteRolePolicyFluentBuilder;
@@ -43311,7 +43311,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteSamlProviderError::Unhandled(format!("DeleteSamlProvider returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteSamlProviderOutput::default())
++                         Ok(super::DeleteSamlProviderOutput)
 +                     }
  }
 -impl DeleteSAMLProviderFluentBuilder {
@@ -44179,7 +44179,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteServerCertificateError::Unhandled(format!("DeleteServerCertificate returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteServerCertificateOutput::default())
++                         Ok(super::DeleteServerCertificateOutput)
 +                     }
  }
 +pub use Builder as DeleteServerCertificateFluentBuilder;
@@ -45781,7 +45781,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteServiceSpecificCredentialError::Unhandled(format!("DeleteServiceSpecificCredential returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteServiceSpecificCredentialOutput::default())
++                         Ok(super::DeleteServiceSpecificCredentialOutput)
 +                     }
  }
 -impl DeleteServiceSpecificCredentialFluentBuilder {
@@ -46696,7 +46696,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteSigningCertificateError::Unhandled(format!("DeleteSigningCertificate returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteSigningCertificateOutput::default())
++                         Ok(super::DeleteSigningCertificateOutput)
 +                     }
  }
 +pub use Builder as DeleteSigningCertificateFluentBuilder;
@@ -47545,7 +47545,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteSshPublicKeyError::Unhandled(format!("DeleteSshPublicKey returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteSshPublicKeyOutput::default())
++                         Ok(super::DeleteSshPublicKeyOutput)
 +                     }
  }
 +pub use Builder as DeleteSshPublicKeyFluentBuilder;
@@ -48234,7 +48234,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteUserError::Unhandled(format!("DeleteUser returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteUserOutput::default())
++                         Ok(super::DeleteUserOutput)
 +                     }
  }
 -impl DeleteUserFluentBuilder {
@@ -49106,7 +49106,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteUserPermissionsBoundaryError::Unhandled(format!("DeleteUserPermissionsBoundary returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteUserPermissionsBoundaryOutput::default())
++                         Ok(super::DeleteUserPermissionsBoundaryOutput)
 +                     }
  }
 +pub use Builder as DeleteUserPermissionsBoundaryFluentBuilder;
@@ -49923,7 +49923,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteUserPolicyError::Unhandled(format!("DeleteUserPolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteUserPolicyOutput::default())
++                         Ok(super::DeleteUserPolicyOutput)
 +                     }
  }
 +pub use Builder as DeleteUserPolicyFluentBuilder;
@@ -50627,7 +50627,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DeleteVirtualMfaDeviceError::Unhandled(format!("DeleteVirtualMfaDevice returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DeleteVirtualMfaDeviceOutput::default())
++                         Ok(super::DeleteVirtualMfaDeviceOutput)
 +                     }
  }
 -impl DeleteVirtualMFADeviceFluentBuilder {
@@ -51562,7 +51562,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DetachGroupPolicyError::Unhandled(format!("DetachGroupPolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DetachGroupPolicyOutput::default())
++                         Ok(super::DetachGroupPolicyOutput)
 +                     }
  }
 +pub use Builder as DetachGroupPolicyFluentBuilder;
@@ -52407,7 +52407,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DetachRolePolicyError::Unhandled(format!("DetachRolePolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DetachRolePolicyOutput::default())
++                         Ok(super::DetachRolePolicyOutput)
 +                     }
  }
 +pub use Builder as DetachRolePolicyFluentBuilder;
@@ -53265,7 +53265,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DetachUserPolicyError::Unhandled(format!("DetachUserPolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DetachUserPolicyOutput::default())
++                         Ok(super::DetachUserPolicyOutput)
 +                     }
  }
 +pub use Builder as DetachUserPolicyFluentBuilder;
@@ -53856,7 +53856,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub enabled_features: ::std::option::Option<super::super::super::types::FeaturesListType>,
++    pub enabled_features: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>,
 +    pub organization_id: ::std::option::Option<super::super::super::types::OrganizationIdType>,
  }
 +        impl DisableOrganizationsRootCredentialsManagementOutput {
@@ -53881,7 +53881,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) organization_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
 -    _request_id: Option<String>,
-+    enabled_features: ::std::option::Option<super::super::super::types::FeaturesListType>,
++    enabled_features: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>,
 +    organization_id: ::std::option::Option<super::super::super::types::OrganizationIdType>,
  }
  impl DisableOrganizationsRootCredentialsManagementOutputBuilder {
@@ -53936,9 +53936,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn enabled_features(mut self, input: impl ::std::convert::Into<super::super::super::types::FeaturesListType>) -> Self { self.enabled_features = Some(input.into()); self }
-+    pub fn set_enabled_features(mut self, input: ::std::option::Option<super::super::super::types::FeaturesListType>) -> Self { self.enabled_features = input; self }
-+    pub fn get_enabled_features(&self) -> &::std::option::Option<super::super::super::types::FeaturesListType> { &self.enabled_features }
++    pub fn enabled_features(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::FeatureType>>) -> Self { self.enabled_features = Some(input.into()); self }
++    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>) -> Self { self.enabled_features = input; self }
++    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>> { &self.enabled_features }
 +    pub fn organization_id(mut self, input: impl ::std::convert::Into<super::super::super::types::OrganizationIdType>) -> Self { self.organization_id = Some(input.into()); self }
 +    pub fn set_organization_id(mut self, input: ::std::option::Option<super::super::super::types::OrganizationIdType>) -> Self { self.organization_id = input; self }
 +    pub fn get_organization_id(&self) -> &::std::option::Option<super::super::super::types::OrganizationIdType> { &self.organization_id }
@@ -54620,7 +54620,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The features you have enabled for centralized root access of member accounts in your organization.</p>
 -    pub enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
 -    _request_id: Option<String>,
-+    pub enabled_features: ::std::option::Option<super::super::super::types::FeaturesListType>,
++    pub enabled_features: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>,
 +    pub organization_id: ::std::option::Option<super::super::super::types::OrganizationIdType>,
  }
 +        impl DisableOrganizationsRootSessionsOutput {
@@ -54660,7 +54660,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) organization_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
 -    _request_id: Option<String>,
-+    enabled_features: ::std::option::Option<super::super::super::types::FeaturesListType>,
++    enabled_features: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>,
 +    organization_id: ::std::option::Option<super::super::super::types::OrganizationIdType>,
  }
  impl DisableOrganizationsRootSessionsOutputBuilder {
@@ -54715,9 +54715,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn enabled_features(mut self, input: impl ::std::convert::Into<super::super::super::types::FeaturesListType>) -> Self { self.enabled_features = Some(input.into()); self }
-+    pub fn set_enabled_features(mut self, input: ::std::option::Option<super::super::super::types::FeaturesListType>) -> Self { self.enabled_features = input; self }
-+    pub fn get_enabled_features(&self) -> &::std::option::Option<super::super::super::types::FeaturesListType> { &self.enabled_features }
++    pub fn enabled_features(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::FeatureType>>) -> Self { self.enabled_features = Some(input.into()); self }
++    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>) -> Self { self.enabled_features = input; self }
++    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>> { &self.enabled_features }
 +    pub fn organization_id(mut self, input: impl ::std::convert::Into<super::super::super::types::OrganizationIdType>) -> Self { self.organization_id = Some(input.into()); self }
 +    pub fn set_organization_id(mut self, input: ::std::option::Option<super::super::super::types::OrganizationIdType>) -> Self { self.organization_id = input; self }
 +    pub fn get_organization_id(&self) -> &::std::option::Option<super::super::super::types::OrganizationIdType> { &self.organization_id }
@@ -55558,7 +55558,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::DisableOutboundWebIdentityFederationError::Unhandled(format!("DisableOutboundWebIdentityFederation returned HTTP {}", status)));
 +                         }
-+                         Ok(super::DisableOutboundWebIdentityFederationOutput::default())
++                         Ok(super::DisableOutboundWebIdentityFederationOutput)
 +                     }
  }
 +pub use Builder as DisableOutboundWebIdentityFederationFluentBuilder;
@@ -56316,7 +56316,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::EnableMfaDeviceError::Unhandled(format!("EnableMfaDevice returned HTTP {}", status)));
 +                         }
-+                         Ok(super::EnableMfaDeviceOutput::default())
++                         Ok(super::EnableMfaDeviceOutput)
 +                     }
  }
 -impl EnableMFADeviceFluentBuilder {
@@ -57080,7 +57080,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The features you have enabled for centralized root access.</p>
 -    pub enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
 -    _request_id: Option<String>,
-+    pub enabled_features: ::std::option::Option<super::super::super::types::FeaturesListType>,
++    pub enabled_features: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>,
 +    pub organization_id: ::std::option::Option<super::super::super::types::OrganizationIdType>,
  }
 +        impl EnableOrganizationsRootCredentialsManagementOutput {
@@ -57121,7 +57121,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) organization_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
 -    _request_id: Option<String>,
-+    enabled_features: ::std::option::Option<super::super::super::types::FeaturesListType>,
++    enabled_features: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>,
 +    organization_id: ::std::option::Option<super::super::super::types::OrganizationIdType>,
  }
  impl EnableOrganizationsRootCredentialsManagementOutputBuilder {
@@ -57176,9 +57176,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn enabled_features(mut self, input: impl ::std::convert::Into<super::super::super::types::FeaturesListType>) -> Self { self.enabled_features = Some(input.into()); self }
-+    pub fn set_enabled_features(mut self, input: ::std::option::Option<super::super::super::types::FeaturesListType>) -> Self { self.enabled_features = input; self }
-+    pub fn get_enabled_features(&self) -> &::std::option::Option<super::super::super::types::FeaturesListType> { &self.enabled_features }
++    pub fn enabled_features(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::FeatureType>>) -> Self { self.enabled_features = Some(input.into()); self }
++    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>) -> Self { self.enabled_features = input; self }
++    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>> { &self.enabled_features }
 +    pub fn organization_id(mut self, input: impl ::std::convert::Into<super::super::super::types::OrganizationIdType>) -> Self { self.organization_id = Some(input.into()); self }
 +    pub fn set_organization_id(mut self, input: ::std::option::Option<super::super::super::types::OrganizationIdType>) -> Self { self.organization_id = input; self }
 +    pub fn get_organization_id(&self) -> &::std::option::Option<super::super::super::types::OrganizationIdType> { &self.organization_id }
@@ -57880,7 +57880,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The features you have enabled for centralized root access.</p>
 -    pub enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
 -    _request_id: Option<String>,
-+    pub enabled_features: ::std::option::Option<super::super::super::types::FeaturesListType>,
++    pub enabled_features: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>,
 +    pub organization_id: ::std::option::Option<super::super::super::types::OrganizationIdType>,
  }
 +        impl EnableOrganizationsRootSessionsOutput {
@@ -57920,7 +57920,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) organization_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
 -    _request_id: Option<String>,
-+    enabled_features: ::std::option::Option<super::super::super::types::FeaturesListType>,
++    enabled_features: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>,
 +    organization_id: ::std::option::Option<super::super::super::types::OrganizationIdType>,
  }
  impl EnableOrganizationsRootSessionsOutputBuilder {
@@ -57975,9 +57975,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn enabled_features(mut self, input: impl ::std::convert::Into<super::super::super::types::FeaturesListType>) -> Self { self.enabled_features = Some(input.into()); self }
-+    pub fn set_enabled_features(mut self, input: ::std::option::Option<super::super::super::types::FeaturesListType>) -> Self { self.enabled_features = input; self }
-+    pub fn get_enabled_features(&self) -> &::std::option::Option<super::super::super::types::FeaturesListType> { &self.enabled_features }
++    pub fn enabled_features(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::FeatureType>>) -> Self { self.enabled_features = Some(input.into()); self }
++    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>) -> Self { self.enabled_features = input; self }
++    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>> { &self.enabled_features }
 +    pub fn organization_id(mut self, input: impl ::std::convert::Into<super::super::super::types::OrganizationIdType>) -> Self { self.organization_id = Some(input.into()); self }
 +    pub fn set_organization_id(mut self, input: ::std::option::Option<super::super::super::types::OrganizationIdType>) -> Self { self.organization_id = input; self }
 +    pub fn get_organization_id(&self) -> &::std::option::Option<super::super::super::types::OrganizationIdType> { &self.organization_id }
@@ -62613,7 +62613,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn marker(&self) -> ::std::option::Option<&str> {
 -        self.marker.as_deref()
 -    }
-+    pub filter: ::std::option::Option<super::super::super::types::EntityListType>,
++    pub filter: ::std::option::Option<::std::vec::Vec<super::super::super::types::EntityType>>,
 +    pub marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    pub max_items: ::std::option::Option<super::super::super::types::MaxItemsType>,
  }
@@ -62638,7 +62638,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) filter: ::std::option::Option<::std::vec::Vec<crate::types::EntityType>>,
 -    pub(crate) max_items: ::std::option::Option<i32>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
-+    filter: ::std::option::Option<super::super::super::types::EntityListType>,
++    filter: ::std::option::Option<::std::vec::Vec<super::super::super::types::EntityType>>,
 +    marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    max_items: ::std::option::Option<super::super::super::types::MaxItemsType>,
  }
@@ -62710,9 +62710,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            marker: self.marker,
 -        })
 -    }
-+    pub fn filter(mut self, input: impl ::std::convert::Into<super::super::super::types::EntityListType>) -> Self { self.filter = Some(input.into()); self }
-+    pub fn set_filter(mut self, input: ::std::option::Option<super::super::super::types::EntityListType>) -> Self { self.filter = input; self }
-+    pub fn get_filter(&self) -> &::std::option::Option<super::super::super::types::EntityListType> { &self.filter }
++    pub fn filter(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::EntityType>>) -> Self { self.filter = Some(input.into()); self }
++    pub fn set_filter(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EntityType>>) -> Self { self.filter = input; self }
++    pub fn get_filter(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::EntityType>> { &self.filter }
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.marker }
@@ -62793,12 +62793,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub group_detail_list: ::std::option::Option<super::super::super::types::GroupDetailListType>,
++    pub group_detail_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::GroupDetail>>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub policies: ::std::option::Option<super::super::super::types::ManagedPolicyDetailListType>,
-+    pub role_detail_list: ::std::option::Option<super::super::super::types::RoleDetailListType>,
-+    pub user_detail_list: ::std::option::Option<super::super::super::types::UserDetailListType>,
++    pub policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::ManagedPolicyDetail>>,
++    pub role_detail_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::RoleDetail>>,
++    pub user_detail_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserDetail>>,
  }
 +        impl GetAccountAuthorizationDetailsOutput {
 +            pub fn group_detail_list(&self) -> &[super::super::super::types::GroupDetail] { self.group_detail_list.as_deref().unwrap_or(&[]) }
@@ -62828,12 +62828,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) is_truncated: ::std::option::Option<bool>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    group_detail_list: ::std::option::Option<super::super::super::types::GroupDetailListType>,
++    group_detail_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::GroupDetail>>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    policies: ::std::option::Option<super::super::super::types::ManagedPolicyDetailListType>,
-+    role_detail_list: ::std::option::Option<super::super::super::types::RoleDetailListType>,
-+    user_detail_list: ::std::option::Option<super::super::super::types::UserDetailListType>,
++    policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::ManagedPolicyDetail>>,
++    role_detail_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::RoleDetail>>,
++    user_detail_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserDetail>>,
  }
  impl GetAccountAuthorizationDetailsOutputBuilder {
 -    /// Appends an item to `user_detail_list`.
@@ -62965,24 +62965,24 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn group_detail_list(mut self, input: impl ::std::convert::Into<super::super::super::types::GroupDetailListType>) -> Self { self.group_detail_list = Some(input.into()); self }
-+    pub fn set_group_detail_list(mut self, input: ::std::option::Option<super::super::super::types::GroupDetailListType>) -> Self { self.group_detail_list = input; self }
-+    pub fn get_group_detail_list(&self) -> &::std::option::Option<super::super::super::types::GroupDetailListType> { &self.group_detail_list }
++    pub fn group_detail_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GroupDetail>>) -> Self { self.group_detail_list = Some(input.into()); self }
++    pub fn set_group_detail_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GroupDetail>>) -> Self { self.group_detail_list = input; self }
++    pub fn get_group_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GroupDetail>> { &self.group_detail_list }
 +    pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
 +    pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
 +    pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn policies(mut self, input: impl ::std::convert::Into<super::super::super::types::ManagedPolicyDetailListType>) -> Self { self.policies = Some(input.into()); self }
-+    pub fn set_policies(mut self, input: ::std::option::Option<super::super::super::types::ManagedPolicyDetailListType>) -> Self { self.policies = input; self }
-+    pub fn get_policies(&self) -> &::std::option::Option<super::super::super::types::ManagedPolicyDetailListType> { &self.policies }
-+    pub fn role_detail_list(mut self, input: impl ::std::convert::Into<super::super::super::types::RoleDetailListType>) -> Self { self.role_detail_list = Some(input.into()); self }
-+    pub fn set_role_detail_list(mut self, input: ::std::option::Option<super::super::super::types::RoleDetailListType>) -> Self { self.role_detail_list = input; self }
-+    pub fn get_role_detail_list(&self) -> &::std::option::Option<super::super::super::types::RoleDetailListType> { &self.role_detail_list }
-+    pub fn user_detail_list(mut self, input: impl ::std::convert::Into<super::super::super::types::UserDetailListType>) -> Self { self.user_detail_list = Some(input.into()); self }
-+    pub fn set_user_detail_list(mut self, input: ::std::option::Option<super::super::super::types::UserDetailListType>) -> Self { self.user_detail_list = input; self }
-+    pub fn get_user_detail_list(&self) -> &::std::option::Option<super::super::super::types::UserDetailListType> { &self.user_detail_list }
++    pub fn policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ManagedPolicyDetail>>) -> Self { self.policies = Some(input.into()); self }
++    pub fn set_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ManagedPolicyDetail>>) -> Self { self.policies = input; self }
++    pub fn get_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ManagedPolicyDetail>> { &self.policies }
++    pub fn role_detail_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::RoleDetail>>) -> Self { self.role_detail_list = Some(input.into()); self }
++    pub fn set_role_detail_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::RoleDetail>>) -> Self { self.role_detail_list = input; self }
++    pub fn get_role_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::RoleDetail>> { &self.role_detail_list }
++    pub fn user_detail_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::UserDetail>>) -> Self { self.user_detail_list = Some(input.into()); self }
++    pub fn set_user_detail_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::UserDetail>>) -> Self { self.user_detail_list = input; self }
++    pub fn get_user_detail_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::UserDetail>> { &self.user_detail_list }
 +    pub fn build(self) -> GetAccountAuthorizationDetailsOutput { GetAccountAuthorizationDetailsOutput {
 +        group_detail_list: self.group_detail_list,
 +        is_truncated: self.is_truncated,
@@ -63181,7 +63181,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_marker(&self) -> &::std::option::Option<::std::string::String> {
 -        self.inner.get_marker()
 -    }
-+    pub fn filter(mut self, value: impl ::std::convert::Into<super::super::super::types::EntityListType>) -> Self { self.input.filter = Some(value.into()); self }
++    pub fn filter(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::EntityType>>) -> Self { self.input.filter = Some(value.into()); self }
 +    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
 +    pub fn max_items(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.input.max_items = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
@@ -64420,10 +64420,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A map of account property key-value pairs. Keys are in the format <code>Namespace/PropertyName</code>.</p>
 -    pub properties: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    pub properties: ::std::option::Option<super::super::super::types::AccountPropertiesMapType>,
++    pub properties: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>>,
  }
 +        impl GetAccountPropertiesOutput {
-+            pub fn properties(&self) -> ::std::option::Option<&super::super::super::types::AccountPropertiesMapType> { self.properties.as_ref() }
++            pub fn properties(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>> { self.properties.as_ref() }
 +        }
  impl GetAccountPropertiesOutput {
 -    /// <p>A map of account property key-value pairs. Keys are in the format <code>Namespace/PropertyName</code>.</p>
@@ -64451,7 +64451,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetAccountPropertiesOutputBuilder {
 -    pub(crate) properties: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    properties: ::std::option::Option<super::super::super::types::AccountPropertiesMapType>,
++    properties: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>>,
  }
  impl GetAccountPropertiesOutputBuilder {
 -    /// Adds a key-value pair to `properties`.
@@ -64490,9 +64490,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn properties(mut self, input: impl ::std::convert::Into<super::super::super::types::AccountPropertiesMapType>) -> Self { self.properties = Some(input.into()); self }
-+    pub fn set_properties(mut self, input: ::std::option::Option<super::super::super::types::AccountPropertiesMapType>) -> Self { self.properties = input; self }
-+    pub fn get_properties(&self) -> &::std::option::Option<super::super::super::types::AccountPropertiesMapType> { &self.properties }
++    pub fn properties(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>>) -> Self { self.properties = Some(input.into()); self }
++    pub fn set_properties(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>>) -> Self { self.properties = input; self }
++    pub fn get_properties(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>> { &self.properties }
 +    pub fn build(self) -> GetAccountPropertiesOutput { GetAccountPropertiesOutput {
 +        properties: self.properties,
 +    } }
@@ -65114,10 +65114,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>
 -    pub summary_map: ::std::option::Option<::std::collections::HashMap<crate::types::SummaryKeyType, i32>>,
 -    _request_id: Option<String>,
-+    pub summary_map: ::std::option::Option<super::super::super::types::SummaryMapType>,
++    pub summary_map: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::SummaryKeyType, super::super::super::types::SummaryValueType>>,
  }
 +        impl GetAccountSummaryOutput {
-+            pub fn summary_map(&self) -> ::std::option::Option<&super::super::super::types::SummaryMapType> { self.summary_map.as_ref() }
++            pub fn summary_map(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::SummaryKeyType, super::super::super::types::SummaryValueType>> { self.summary_map.as_ref() }
 +        }
  impl GetAccountSummaryOutput {
 -    /// <p>A set of key–value pairs containing information about IAM entity usage and IAM quotas.</p>
@@ -65145,7 +65145,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetAccountSummaryOutputBuilder {
 -    pub(crate) summary_map: ::std::option::Option<::std::collections::HashMap<crate::types::SummaryKeyType, i32>>,
 -    _request_id: Option<String>,
-+    summary_map: ::std::option::Option<super::super::super::types::SummaryMapType>,
++    summary_map: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::SummaryKeyType, super::super::super::types::SummaryValueType>>,
  }
  impl GetAccountSummaryOutputBuilder {
 -    /// Adds a key-value pair to `summary_map`.
@@ -65184,9 +65184,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn summary_map(mut self, input: impl ::std::convert::Into<super::super::super::types::SummaryMapType>) -> Self { self.summary_map = Some(input.into()); self }
-+    pub fn set_summary_map(mut self, input: ::std::option::Option<super::super::super::types::SummaryMapType>) -> Self { self.summary_map = input; self }
-+    pub fn get_summary_map(&self) -> &::std::option::Option<super::super::super::types::SummaryMapType> { &self.summary_map }
++    pub fn summary_map(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::SummaryKeyType, super::super::super::types::SummaryValueType>>) -> Self { self.summary_map = Some(input.into()); self }
++    pub fn set_summary_map(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::SummaryKeyType, super::super::super::types::SummaryValueType>>) -> Self { self.summary_map = input; self }
++    pub fn get_summary_map(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::SummaryKeyType, super::super::super::types::SummaryValueType>> { &self.summary_map }
 +    pub fn build(self) -> GetAccountSummaryOutput { GetAccountSummaryOutput {
 +        summary_map: self.summary_map,
 +    } }
@@ -65765,7 +65765,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
 -    /// </ul>
 -    pub policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-+    pub policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
++    pub policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
  }
 +        impl GetContextKeysForCustomPolicyInput {
 +            pub fn policy_input_list(&self) -> &[super::super::super::types::PolicyDocumentType] { self.policy_input_list.as_deref().unwrap_or(&[]) }
@@ -65801,7 +65801,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(Clone, Debug, Default)]
  pub struct GetContextKeysForCustomPolicyInputBuilder {
 -    pub(crate) policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-+    policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
++    policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
  }
  impl GetContextKeysForCustomPolicyInputBuilder {
 -    /// Appends an item to `policy_input_list`.
@@ -65862,9 +65862,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            policy_input_list: self.policy_input_list,
 -        })
 -    }
-+    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.policy_input_list = Some(input.into()); self }
-+    pub fn set_policy_input_list(mut self, input: ::std::option::Option<super::super::super::types::SimulationPolicyListType>) -> Self { self.policy_input_list = input; self }
-+    pub fn get_policy_input_list(&self) -> &::std::option::Option<super::super::super::types::SimulationPolicyListType> { &self.policy_input_list }
++    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.policy_input_list = Some(input.into()); self }
++    pub fn set_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.policy_input_list = input; self }
++    pub fn get_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>> { &self.policy_input_list }
 +    pub fn build(self) -> GetContextKeysForCustomPolicyInput { GetContextKeysForCustomPolicyInput {
 +        policy_input_list: self.policy_input_list,
 +    } }
@@ -65901,7 +65901,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub context_key_names: ::std::option::Option<super::super::super::types::ContextKeyNamesResultListType>,
++    pub context_key_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextKeyNameType>>,
  }
 +        impl GetContextKeysForCustomPolicyOutput {
 +            pub fn context_key_names(&self) -> &[super::super::super::types::ContextKeyNameType] { self.context_key_names.as_deref().unwrap_or(&[]) }
@@ -65921,7 +65921,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetContextKeysForCustomPolicyOutputBuilder {
 -    pub(crate) context_key_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    _request_id: Option<String>,
-+    context_key_names: ::std::option::Option<super::super::super::types::ContextKeyNamesResultListType>,
++    context_key_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextKeyNameType>>,
  }
  impl GetContextKeysForCustomPolicyOutputBuilder {
 -    /// Appends an item to `context_key_names`.
@@ -65960,9 +65960,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn context_key_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ContextKeyNamesResultListType>) -> Self { self.context_key_names = Some(input.into()); self }
-+    pub fn set_context_key_names(mut self, input: ::std::option::Option<super::super::super::types::ContextKeyNamesResultListType>) -> Self { self.context_key_names = input; self }
-+    pub fn get_context_key_names(&self) -> &::std::option::Option<super::super::super::types::ContextKeyNamesResultListType> { &self.context_key_names }
++    pub fn context_key_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ContextKeyNameType>>) -> Self { self.context_key_names = Some(input.into()); self }
++    pub fn set_context_key_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextKeyNameType>>) -> Self { self.context_key_names = input; self }
++    pub fn get_context_key_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ContextKeyNameType>> { &self.context_key_names }
 +    pub fn build(self) -> GetContextKeysForCustomPolicyOutput { GetContextKeysForCustomPolicyOutput {
 +        context_key_names: self.context_key_names,
 +    } }
@@ -66033,7 +66033,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn policy_input_list(mut self, value: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.input.policy_input_list = Some(value.into()); self }
++    pub fn policy_input_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.input.policy_input_list = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::GetContextKeysForCustomPolicyOutput, super::GetContextKeysForCustomPolicyError> {
@@ -66599,7 +66599,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The special characters tab (<code>\u0009</code>), line feed (<code>\u000A</code>), and carriage return (<code>\u000D</code>)</p></li>
 -    /// </ul>
 -    pub policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-+    pub policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
++    pub policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
 +    pub policy_source_arn: ::std::option::Option<super::super::super::types::ArnType>,
  }
 +        impl GetContextKeysForPrincipalPolicyInput {
@@ -66643,7 +66643,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetContextKeysForPrincipalPolicyInputBuilder {
 -    pub(crate) policy_source_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) policy_input_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-+    policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
++    policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
 +    policy_source_arn: ::std::option::Option<super::super::super::types::ArnType>,
  }
  impl GetContextKeysForPrincipalPolicyInputBuilder {
@@ -66726,9 +66726,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            },
 -        )
 -    }
-+    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.policy_input_list = Some(input.into()); self }
-+    pub fn set_policy_input_list(mut self, input: ::std::option::Option<super::super::super::types::SimulationPolicyListType>) -> Self { self.policy_input_list = input; self }
-+    pub fn get_policy_input_list(&self) -> &::std::option::Option<super::super::super::types::SimulationPolicyListType> { &self.policy_input_list }
++    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.policy_input_list = Some(input.into()); self }
++    pub fn set_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.policy_input_list = input; self }
++    pub fn get_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>> { &self.policy_input_list }
 +    pub fn policy_source_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.policy_source_arn = Some(input.into()); self }
 +    pub fn set_policy_source_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.policy_source_arn = input; self }
 +    pub fn get_policy_source_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.policy_source_arn }
@@ -66769,7 +66769,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub context_key_names: ::std::option::Option<super::super::super::types::ContextKeyNamesResultListType>,
++    pub context_key_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextKeyNameType>>,
  }
 +        impl GetContextKeysForPrincipalPolicyOutput {
 +            pub fn context_key_names(&self) -> &[super::super::super::types::ContextKeyNameType] { self.context_key_names.as_deref().unwrap_or(&[]) }
@@ -66789,7 +66789,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct GetContextKeysForPrincipalPolicyOutputBuilder {
 -    pub(crate) context_key_names: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 -    _request_id: Option<String>,
-+    context_key_names: ::std::option::Option<super::super::super::types::ContextKeyNamesResultListType>,
++    context_key_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextKeyNameType>>,
  }
  impl GetContextKeysForPrincipalPolicyOutputBuilder {
 -    /// Appends an item to `context_key_names`.
@@ -66828,9 +66828,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn context_key_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ContextKeyNamesResultListType>) -> Self { self.context_key_names = Some(input.into()); self }
-+    pub fn set_context_key_names(mut self, input: ::std::option::Option<super::super::super::types::ContextKeyNamesResultListType>) -> Self { self.context_key_names = input; self }
-+    pub fn get_context_key_names(&self) -> &::std::option::Option<super::super::super::types::ContextKeyNamesResultListType> { &self.context_key_names }
++    pub fn context_key_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ContextKeyNameType>>) -> Self { self.context_key_names = Some(input.into()); self }
++    pub fn set_context_key_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextKeyNameType>>) -> Self { self.context_key_names = input; self }
++    pub fn get_context_key_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ContextKeyNameType>> { &self.context_key_names }
 +    pub fn build(self) -> GetContextKeysForPrincipalPolicyOutput { GetContextKeysForPrincipalPolicyOutput {
 +        context_key_names: self.context_key_names,
 +    } }
@@ -66903,7 +66903,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn policy_input_list(mut self, value: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.input.policy_input_list = Some(value.into()); self }
++    pub fn policy_input_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.input.policy_input_list = Some(value.into()); self }
 +    pub fn policy_source_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.policy_source_arn = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -69465,7 +69465,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub group: ::std::option::Option<super::super::super::types::Group>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub users: ::std::option::Option<super::super::super::types::UserListType>,
++    pub users: ::std::option::Option<::std::vec::Vec<super::super::super::types::User>>,
  }
 +        impl GetGroupOutput {
 +            pub fn group(&self) -> ::std::option::Option<&super::super::super::types::Group> { self.group.as_ref() }
@@ -69518,7 +69518,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    group: ::std::option::Option<super::super::super::types::Group>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    users: ::std::option::Option<super::super::super::types::UserListType>,
++    users: ::std::option::Option<::std::vec::Vec<super::super::super::types::User>>,
  }
  impl GetGroupOutputBuilder {
 -    /// <p>A structure that contains details about the group.</p>
@@ -69619,9 +69619,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn users(mut self, input: impl ::std::convert::Into<super::super::super::types::UserListType>) -> Self { self.users = Some(input.into()); self }
-+    pub fn set_users(mut self, input: ::std::option::Option<super::super::super::types::UserListType>) -> Self { self.users = input; self }
-+    pub fn get_users(&self) -> &::std::option::Option<super::super::super::types::UserListType> { &self.users }
++    pub fn users(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::User>>) -> Self { self.users = Some(input.into()); self }
++    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::User>>) -> Self { self.users = input; self }
++    pub fn get_users(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::User>> { &self.users }
 +    pub fn build(self) -> GetGroupOutput { GetGroupOutput {
 +        group: self.group,
 +        is_truncated: self.is_truncated,
@@ -73909,13 +73909,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub certifications: ::std::option::Option<super::super::super::types::CertificationMapType>,
++    pub certifications: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::CertificationKeyType, super::super::super::types::CertificationValueType>>,
 +    pub enable_date: ::std::option::Option<super::super::super::types::DateType>,
 +    pub serial_number: ::std::option::Option<super::super::super::types::SerialNumberType>,
 +    pub user_name: ::std::option::Option<super::super::super::types::UserNameType>,
  }
 +        impl GetMfaDeviceOutput {
-+            pub fn certifications(&self) -> ::std::option::Option<&super::super::super::types::CertificationMapType> { self.certifications.as_ref() }
++            pub fn certifications(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::CertificationKeyType, super::super::super::types::CertificationValueType>> { self.certifications.as_ref() }
 +            pub fn enable_date(&self) -> ::std::option::Option<&super::super::super::types::DateType> { self.enable_date.as_ref() }
 +            pub fn serial_number(&self) -> ::std::option::Option<&str> { self.serial_number.as_deref() }
 +            pub fn user_name(&self) -> ::std::option::Option<&str> { self.user_name.as_deref() }
@@ -73938,7 +73938,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) enable_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 -    pub(crate) certifications: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
 -    _request_id: Option<String>,
-+    certifications: ::std::option::Option<super::super::super::types::CertificationMapType>,
++    certifications: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::CertificationKeyType, super::super::super::types::CertificationValueType>>,
 +    enable_date: ::std::option::Option<super::super::super::types::DateType>,
 +    serial_number: ::std::option::Option<super::super::super::types::SerialNumberType>,
 +    user_name: ::std::option::Option<super::super::super::types::UserNameType>,
@@ -74042,9 +74042,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        })
 -    }
-+    pub fn certifications(mut self, input: impl ::std::convert::Into<super::super::super::types::CertificationMapType>) -> Self { self.certifications = Some(input.into()); self }
-+    pub fn set_certifications(mut self, input: ::std::option::Option<super::super::super::types::CertificationMapType>) -> Self { self.certifications = input; self }
-+    pub fn get_certifications(&self) -> &::std::option::Option<super::super::super::types::CertificationMapType> { &self.certifications }
++    pub fn certifications(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::CertificationKeyType, super::super::super::types::CertificationValueType>>) -> Self { self.certifications = Some(input.into()); self }
++    pub fn set_certifications(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::CertificationKeyType, super::super::super::types::CertificationValueType>>) -> Self { self.certifications = input; self }
++    pub fn get_certifications(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::CertificationKeyType, super::super::super::types::CertificationValueType>> { &self.certifications }
 +    pub fn enable_date(mut self, input: impl ::std::convert::Into<super::super::super::types::DateType>) -> Self { self.enable_date = Some(input.into()); self }
 +    pub fn set_enable_date(mut self, input: ::std::option::Option<super::super::super::types::DateType>) -> Self { self.enable_date = input; self }
 +    pub fn get_enable_date(&self) -> &::std::option::Option<super::super::super::types::DateType> { &self.enable_date }
@@ -74848,10 +74848,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub client_id_list: ::std::option::Option<super::super::super::types::ClientIdListType>,
++    pub client_id_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ClientIdType>>,
 +    pub create_date: ::std::option::Option<super::super::super::types::DateType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
-+    pub thumbprint_list: ::std::option::Option<super::super::super::types::ThumbprintListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
++    pub thumbprint_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>,
 +    pub url: ::std::option::Option<super::super::super::types::OpenIdConnectProviderUrlType>,
  }
 +        impl GetOpenIdConnectProviderOutput {
@@ -74880,10 +74880,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) create_date: ::std::option::Option<::aws_smithy_types::DateTime>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 -    _request_id: Option<String>,
-+    client_id_list: ::std::option::Option<super::super::super::types::ClientIdListType>,
++    client_id_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ClientIdType>>,
 +    create_date: ::std::option::Option<super::super::super::types::DateType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
-+    thumbprint_list: ::std::option::Option<super::super::super::types::ThumbprintListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
++    thumbprint_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>,
 +    url: ::std::option::Option<super::super::super::types::OpenIdConnectProviderUrlType>,
  }
  impl GetOpenIdConnectProviderOutputBuilder {
@@ -74995,18 +74995,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn client_id_list(mut self, input: impl ::std::convert::Into<super::super::super::types::ClientIdListType>) -> Self { self.client_id_list = Some(input.into()); self }
-+    pub fn set_client_id_list(mut self, input: ::std::option::Option<super::super::super::types::ClientIdListType>) -> Self { self.client_id_list = input; self }
-+    pub fn get_client_id_list(&self) -> &::std::option::Option<super::super::super::types::ClientIdListType> { &self.client_id_list }
++    pub fn client_id_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ClientIdType>>) -> Self { self.client_id_list = Some(input.into()); self }
++    pub fn set_client_id_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ClientIdType>>) -> Self { self.client_id_list = input; self }
++    pub fn get_client_id_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ClientIdType>> { &self.client_id_list }
 +    pub fn create_date(mut self, input: impl ::std::convert::Into<super::super::super::types::DateType>) -> Self { self.create_date = Some(input.into()); self }
 +    pub fn set_create_date(mut self, input: ::std::option::Option<super::super::super::types::DateType>) -> Self { self.create_date = input; self }
 +    pub fn get_create_date(&self) -> &::std::option::Option<super::super::super::types::DateType> { &self.create_date }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
-+    pub fn thumbprint_list(mut self, input: impl ::std::convert::Into<super::super::super::types::ThumbprintListType>) -> Self { self.thumbprint_list = Some(input.into()); self }
-+    pub fn set_thumbprint_list(mut self, input: ::std::option::Option<super::super::super::types::ThumbprintListType>) -> Self { self.thumbprint_list = input; self }
-+    pub fn get_thumbprint_list(&self) -> &::std::option::Option<super::super::super::types::ThumbprintListType> { &self.thumbprint_list }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
++    pub fn thumbprint_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ThumbprintType>>) -> Self { self.thumbprint_list = Some(input.into()); self }
++    pub fn set_thumbprint_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>) -> Self { self.thumbprint_list = input; self }
++    pub fn get_thumbprint_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>> { &self.thumbprint_list }
 +    pub fn url(mut self, input: impl ::std::convert::Into<super::super::super::types::OpenIdConnectProviderUrlType>) -> Self { self.url = Some(input.into()); self }
 +    pub fn set_url(mut self, input: ::std::option::Option<super::super::super::types::OpenIdConnectProviderUrlType>) -> Self { self.url = input; self }
 +    pub fn get_url(&self) -> &::std::option::Option<super::super::super::types::OpenIdConnectProviderUrlType> { &self.url }
@@ -75868,7 +75868,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>This data type is used as a response element in the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOrganizationsAccessReport.html">GetOrganizationsAccessReport</a>, <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetails.html">GetServiceLastAccessedDetails</a>, and <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServiceLastAccessedDetailsWithEntities.html">GetServiceLastAccessedDetailsWithEntities</a> operations.</p>
 -    pub error_details: ::std::option::Option<crate::types::ErrorDetails>,
 -    _request_id: Option<String>,
-+    pub access_details: ::std::option::Option<super::super::super::types::AccessDetails>,
++    pub access_details: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessDetail>>,
 +    pub error_details: ::std::option::Option<super::super::super::types::ErrorDetails>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub job_completion_date: ::std::option::Option<super::super::super::types::DateType>,
@@ -75959,7 +75959,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    pub(crate) error_details: ::std::option::Option<crate::types::ErrorDetails>,
 -    _request_id: Option<String>,
-+    access_details: ::std::option::Option<super::super::super::types::AccessDetails>,
++    access_details: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessDetail>>,
 +    error_details: ::std::option::Option<super::super::super::types::ErrorDetails>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    job_completion_date: ::std::option::Option<super::super::super::types::DateType>,
@@ -76152,9 +76152,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        })
 -    }
-+    pub fn access_details(mut self, input: impl ::std::convert::Into<super::super::super::types::AccessDetails>) -> Self { self.access_details = Some(input.into()); self }
-+    pub fn set_access_details(mut self, input: ::std::option::Option<super::super::super::types::AccessDetails>) -> Self { self.access_details = input; self }
-+    pub fn get_access_details(&self) -> &::std::option::Option<super::super::super::types::AccessDetails> { &self.access_details }
++    pub fn access_details(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AccessDetail>>) -> Self { self.access_details = Some(input.into()); self }
++    pub fn set_access_details(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessDetail>>) -> Self { self.access_details = input; self }
++    pub fn get_access_details(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AccessDetail>> { &self.access_details }
 +    pub fn error_details(mut self, input: impl ::std::convert::Into<super::super::super::types::ErrorDetails>) -> Self { self.error_details = Some(input.into()); self }
 +    pub fn set_error_details(mut self, input: ::std::option::Option<super::super::super::types::ErrorDetails>) -> Self { self.error_details = input; self }
 +    pub fn get_error_details(&self) -> &::std::option::Option<super::super::super::types::ErrorDetails> { &self.error_details }
@@ -81955,10 +81955,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub assertion_encryption_mode: ::std::option::Option<super::super::super::types::AssertionEncryptionModeType>,
 +    pub create_date: ::std::option::Option<super::super::super::types::DateType>,
-+    pub private_key_list: ::std::option::Option<super::super::super::types::PrivateKeyList>,
++    pub private_key_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlPrivateKey>>,
 +    pub saml_metadata_document: ::std::option::Option<super::super::super::types::SamlMetadataDocumentType>,
 +    pub saml_provider_uuid: ::std::option::Option<super::super::super::types::PrivateKeyIdType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 +    pub valid_until: ::std::option::Option<super::super::super::types::DateType>,
  }
 +        impl GetSamlProviderOutput {
@@ -82032,10 +82032,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    assertion_encryption_mode: ::std::option::Option<super::super::super::types::AssertionEncryptionModeType>,
 +    create_date: ::std::option::Option<super::super::super::types::DateType>,
-+    private_key_list: ::std::option::Option<super::super::super::types::PrivateKeyList>,
++    private_key_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlPrivateKey>>,
 +    saml_metadata_document: ::std::option::Option<super::super::super::types::SamlMetadataDocumentType>,
 +    saml_provider_uuid: ::std::option::Option<super::super::super::types::PrivateKeyIdType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 +    valid_until: ::std::option::Option<super::super::super::types::DateType>,
  }
  impl GetSamlProviderOutputBuilder {
@@ -82177,18 +82177,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn create_date(mut self, input: impl ::std::convert::Into<super::super::super::types::DateType>) -> Self { self.create_date = Some(input.into()); self }
 +    pub fn set_create_date(mut self, input: ::std::option::Option<super::super::super::types::DateType>) -> Self { self.create_date = input; self }
 +    pub fn get_create_date(&self) -> &::std::option::Option<super::super::super::types::DateType> { &self.create_date }
-+    pub fn private_key_list(mut self, input: impl ::std::convert::Into<super::super::super::types::PrivateKeyList>) -> Self { self.private_key_list = Some(input.into()); self }
-+    pub fn set_private_key_list(mut self, input: ::std::option::Option<super::super::super::types::PrivateKeyList>) -> Self { self.private_key_list = input; self }
-+    pub fn get_private_key_list(&self) -> &::std::option::Option<super::super::super::types::PrivateKeyList> { &self.private_key_list }
++    pub fn private_key_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SamlPrivateKey>>) -> Self { self.private_key_list = Some(input.into()); self }
++    pub fn set_private_key_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlPrivateKey>>) -> Self { self.private_key_list = input; self }
++    pub fn get_private_key_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SamlPrivateKey>> { &self.private_key_list }
 +    pub fn saml_metadata_document(mut self, input: impl ::std::convert::Into<super::super::super::types::SamlMetadataDocumentType>) -> Self { self.saml_metadata_document = Some(input.into()); self }
 +    pub fn set_saml_metadata_document(mut self, input: ::std::option::Option<super::super::super::types::SamlMetadataDocumentType>) -> Self { self.saml_metadata_document = input; self }
 +    pub fn get_saml_metadata_document(&self) -> &::std::option::Option<super::super::super::types::SamlMetadataDocumentType> { &self.saml_metadata_document }
 +    pub fn saml_provider_uuid(mut self, input: impl ::std::convert::Into<super::super::super::types::PrivateKeyIdType>) -> Self { self.saml_provider_uuid = Some(input.into()); self }
 +    pub fn set_saml_provider_uuid(mut self, input: ::std::option::Option<super::super::super::types::PrivateKeyIdType>) -> Self { self.saml_provider_uuid = input; self }
 +    pub fn get_saml_provider_uuid(&self) -> &::std::option::Option<super::super::super::types::PrivateKeyIdType> { &self.saml_provider_uuid }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn valid_until(mut self, input: impl ::std::convert::Into<super::super::super::types::DateType>) -> Self { self.valid_until = Some(input.into()); self }
 +    pub fn set_valid_until(mut self, input: ::std::option::Option<super::super::super::types::DateType>) -> Self { self.valid_until = input; self }
 +    pub fn get_valid_until(&self) -> &::std::option::Option<super::super::super::types::DateType> { &self.valid_until }
@@ -83870,7 +83870,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub job_status: ::std::option::Option<super::super::super::types::JobStatusType>,
 +    pub job_type: ::std::option::Option<super::super::super::types::AccessAdvisorUsageGranularityType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub services_last_accessed: ::std::option::Option<super::super::super::types::ServicesLastAccessed>,
++    pub services_last_accessed: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceLastAccessed>>,
  }
 +        impl GetServiceLastAccessedDetailsOutput {
 +            pub fn error(&self) -> ::std::option::Option<&super::super::super::types::ErrorDetails> { self.error.as_ref() }
@@ -83911,7 +83911,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    job_status: ::std::option::Option<super::super::super::types::JobStatusType>,
 +    job_type: ::std::option::Option<super::super::super::types::AccessAdvisorUsageGranularityType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    services_last_accessed: ::std::option::Option<super::super::super::types::ServicesLastAccessed>,
++    services_last_accessed: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceLastAccessed>>,
  }
  impl GetServiceLastAccessedDetailsOutputBuilder {
 -    /// <p>The status of the job.</p>
@@ -84112,9 +84112,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn services_last_accessed(mut self, input: impl ::std::convert::Into<super::super::super::types::ServicesLastAccessed>) -> Self { self.services_last_accessed = Some(input.into()); self }
-+    pub fn set_services_last_accessed(mut self, input: ::std::option::Option<super::super::super::types::ServicesLastAccessed>) -> Self { self.services_last_accessed = input; self }
-+    pub fn get_services_last_accessed(&self) -> &::std::option::Option<super::super::super::types::ServicesLastAccessed> { &self.services_last_accessed }
++    pub fn services_last_accessed(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ServiceLastAccessed>>) -> Self { self.services_last_accessed = Some(input.into()); self }
++    pub fn set_services_last_accessed(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceLastAccessed>>) -> Self { self.services_last_accessed = input; self }
++    pub fn get_services_last_accessed(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceLastAccessed>> { &self.services_last_accessed }
 +    pub fn build(self) -> GetServiceLastAccessedDetailsOutput { GetServiceLastAccessedDetailsOutput {
 +        error: self.error,
 +        is_truncated: self.is_truncated,
@@ -85019,7 +85019,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>An object that contains details about the reason the operation failed.</p>
 -    pub error: ::std::option::Option<crate::types::ErrorDetails>,
 -    _request_id: Option<String>,
-+    pub entity_details_list: ::std::option::Option<super::super::super::types::EntityDetailsListType>,
++    pub entity_details_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::EntityDetails>>,
 +    pub error: ::std::option::Option<super::super::super::types::ErrorDetails>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub job_completion_date: ::std::option::Option<super::super::super::types::DateType>,
@@ -85095,7 +85095,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    pub(crate) error: ::std::option::Option<crate::types::ErrorDetails>,
 -    _request_id: Option<String>,
-+    entity_details_list: ::std::option::Option<super::super::super::types::EntityDetailsListType>,
++    entity_details_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::EntityDetails>>,
 +    error: ::std::option::Option<super::super::super::types::ErrorDetails>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    job_completion_date: ::std::option::Option<super::super::super::types::DateType>,
@@ -85268,9 +85268,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            },
 -        )
 -    }
-+    pub fn entity_details_list(mut self, input: impl ::std::convert::Into<super::super::super::types::EntityDetailsListType>) -> Self { self.entity_details_list = Some(input.into()); self }
-+    pub fn set_entity_details_list(mut self, input: ::std::option::Option<super::super::super::types::EntityDetailsListType>) -> Self { self.entity_details_list = input; self }
-+    pub fn get_entity_details_list(&self) -> &::std::option::Option<super::super::super::types::EntityDetailsListType> { &self.entity_details_list }
++    pub fn entity_details_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::EntityDetails>>) -> Self { self.entity_details_list = Some(input.into()); self }
++    pub fn set_entity_details_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EntityDetails>>) -> Self { self.entity_details_list = input; self }
++    pub fn get_entity_details_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::EntityDetails>> { &self.entity_details_list }
 +    pub fn error(mut self, input: impl ::std::convert::Into<super::super::super::types::ErrorDetails>) -> Self { self.error = Some(input.into()); self }
 +    pub fn set_error(mut self, input: ::std::option::Option<super::super::super::types::ErrorDetails>) -> Self { self.error = input; self }
 +    pub fn get_error(&self) -> &::std::option::Option<super::super::super::types::ErrorDetails> { &self.error }
@@ -89728,7 +89728,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
 -    pub marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    pub access_key_metadata: ::std::option::Option<super::super::super::types::AccessKeyMetadataListType>,
++    pub access_key_metadata: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessKeyMetadata>>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -89774,7 +89774,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) is_truncated: ::std::option::Option<bool>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    access_key_metadata: ::std::option::Option<super::super::super::types::AccessKeyMetadataListType>,
++    access_key_metadata: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessKeyMetadata>>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -89854,9 +89854,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        })
 -    }
-+    pub fn access_key_metadata(mut self, input: impl ::std::convert::Into<super::super::super::types::AccessKeyMetadataListType>) -> Self { self.access_key_metadata = Some(input.into()); self }
-+    pub fn set_access_key_metadata(mut self, input: ::std::option::Option<super::super::super::types::AccessKeyMetadataListType>) -> Self { self.access_key_metadata = input; self }
-+    pub fn get_access_key_metadata(&self) -> &::std::option::Option<super::super::super::types::AccessKeyMetadataListType> { &self.access_key_metadata }
++    pub fn access_key_metadata(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AccessKeyMetadata>>) -> Self { self.access_key_metadata = Some(input.into()); self }
++    pub fn set_access_key_metadata(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccessKeyMetadata>>) -> Self { self.access_key_metadata = input; self }
++    pub fn get_access_key_metadata(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AccessKeyMetadata>> { &self.access_key_metadata }
 +    pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
 +    pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
 +    pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
@@ -90680,7 +90680,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
 -    pub marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    pub account_aliases: ::std::option::Option<super::super::super::types::AccountAliasListType>,
++    pub account_aliases: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccountAliasType>>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -90726,7 +90726,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) is_truncated: ::std::option::Option<bool>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    account_aliases: ::std::option::Option<super::super::super::types::AccountAliasListType>,
++    account_aliases: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccountAliasType>>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -90807,9 +90807,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        })
 -    }
-+    pub fn account_aliases(mut self, input: impl ::std::convert::Into<super::super::super::types::AccountAliasListType>) -> Self { self.account_aliases = Some(input.into()); self }
-+    pub fn set_account_aliases(mut self, input: ::std::option::Option<super::super::super::types::AccountAliasListType>) -> Self { self.account_aliases = input; self }
-+    pub fn get_account_aliases(&self) -> &::std::option::Option<super::super::super::types::AccountAliasListType> { &self.account_aliases }
++    pub fn account_aliases(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AccountAliasType>>) -> Self { self.account_aliases = Some(input.into()); self }
++    pub fn set_account_aliases(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AccountAliasType>>) -> Self { self.account_aliases = input; self }
++    pub fn get_account_aliases(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AccountAliasType>> { &self.account_aliases }
 +    pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
 +    pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
 +    pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
@@ -91663,7 +91663,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
 -    pub marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    pub attached_policies: ::std::option::Option<super::super::super::types::AttachedPoliciesListType>,
++    pub attached_policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -91710,7 +91710,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) is_truncated: ::std::option::Option<bool>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    attached_policies: ::std::option::Option<super::super::super::types::AttachedPoliciesListType>,
++    attached_policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -91781,9 +91781,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn attached_policies(mut self, input: impl ::std::convert::Into<super::super::super::types::AttachedPoliciesListType>) -> Self { self.attached_policies = Some(input.into()); self }
-+    pub fn set_attached_policies(mut self, input: ::std::option::Option<super::super::super::types::AttachedPoliciesListType>) -> Self { self.attached_policies = input; self }
-+    pub fn get_attached_policies(&self) -> &::std::option::Option<super::super::super::types::AttachedPoliciesListType> { &self.attached_policies }
++    pub fn attached_policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttachedPolicy>>) -> Self { self.attached_policies = Some(input.into()); self }
++    pub fn set_attached_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>>) -> Self { self.attached_policies = input; self }
++    pub fn get_attached_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>> { &self.attached_policies }
 +    pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
 +    pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
 +    pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
@@ -92714,7 +92714,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
 -    pub marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    pub attached_policies: ::std::option::Option<super::super::super::types::AttachedPoliciesListType>,
++    pub attached_policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -92761,7 +92761,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) is_truncated: ::std::option::Option<bool>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    attached_policies: ::std::option::Option<super::super::super::types::AttachedPoliciesListType>,
++    attached_policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -92832,9 +92832,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn attached_policies(mut self, input: impl ::std::convert::Into<super::super::super::types::AttachedPoliciesListType>) -> Self { self.attached_policies = Some(input.into()); self }
-+    pub fn set_attached_policies(mut self, input: ::std::option::Option<super::super::super::types::AttachedPoliciesListType>) -> Self { self.attached_policies = input; self }
-+    pub fn get_attached_policies(&self) -> &::std::option::Option<super::super::super::types::AttachedPoliciesListType> { &self.attached_policies }
++    pub fn attached_policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttachedPolicy>>) -> Self { self.attached_policies = Some(input.into()); self }
++    pub fn set_attached_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>>) -> Self { self.attached_policies = input; self }
++    pub fn get_attached_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>> { &self.attached_policies }
 +    pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
 +    pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
 +    pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
@@ -93765,7 +93765,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
 -    pub marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    pub attached_policies: ::std::option::Option<super::super::super::types::AttachedPoliciesListType>,
++    pub attached_policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -93812,7 +93812,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) is_truncated: ::std::option::Option<bool>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    attached_policies: ::std::option::Option<super::super::super::types::AttachedPoliciesListType>,
++    attached_policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -93883,9 +93883,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn attached_policies(mut self, input: impl ::std::convert::Into<super::super::super::types::AttachedPoliciesListType>) -> Self { self.attached_policies = Some(input.into()); self }
-+    pub fn set_attached_policies(mut self, input: ::std::option::Option<super::super::super::types::AttachedPoliciesListType>) -> Self { self.attached_policies = input; self }
-+    pub fn get_attached_policies(&self) -> &::std::option::Option<super::super::super::types::AttachedPoliciesListType> { &self.attached_policies }
++    pub fn attached_policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttachedPolicy>>) -> Self { self.attached_policies = Some(input.into()); self }
++    pub fn set_attached_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>>) -> Self { self.attached_policies = input; self }
++    pub fn get_attached_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::AttachedPolicy>> { &self.attached_policies }
 +    pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
 +    pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
 +    pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
@@ -94776,7 +94776,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A flag that indicates whether there are more items to return. If your results were truncated, you can make a subsequent pagination request using the <code>Marker</code> request parameter to retrieve more items.</p>
 -    pub is_truncated: bool,
 -    _request_id: Option<String>,
-+    pub delegation_requests: ::std::option::Option<super::super::super::types::DelegationRequestsListType>,
++    pub delegation_requests: ::std::option::Option<::std::vec::Vec<super::super::super::types::DelegationRequest>>,
 +    pub marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
@@ -94823,7 +94823,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    pub(crate) is_truncated: ::std::option::Option<bool>,
 -    _request_id: Option<String>,
-+    delegation_requests: ::std::option::Option<super::super::super::types::DelegationRequestsListType>,
++    delegation_requests: ::std::option::Option<::std::vec::Vec<super::super::super::types::DelegationRequest>>,
 +    marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
  }
@@ -94894,9 +94894,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn delegation_requests(mut self, input: impl ::std::convert::Into<super::super::super::types::DelegationRequestsListType>) -> Self { self.delegation_requests = Some(input.into()); self }
-+    pub fn set_delegation_requests(mut self, input: ::std::option::Option<super::super::super::types::DelegationRequestsListType>) -> Self { self.delegation_requests = input; self }
-+    pub fn get_delegation_requests(&self) -> &::std::option::Option<super::super::super::types::DelegationRequestsListType> { &self.delegation_requests }
++    pub fn delegation_requests(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DelegationRequest>>) -> Self { self.delegation_requests = Some(input.into()); self }
++    pub fn set_delegation_requests(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DelegationRequest>>) -> Self { self.delegation_requests = input; self }
++    pub fn get_delegation_requests(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DelegationRequest>> { &self.delegation_requests }
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.marker }
@@ -95902,9 +95902,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub policy_groups: ::std::option::Option<super::super::super::types::PolicyGroupListType>,
-+    pub policy_roles: ::std::option::Option<super::super::super::types::PolicyRoleListType>,
-+    pub policy_users: ::std::option::Option<super::super::super::types::PolicyUserListType>,
++    pub policy_groups: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyGroup>>,
++    pub policy_roles: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyRole>>,
++    pub policy_users: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyUser>>,
  }
 +        impl ListEntitiesForPolicyOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -95934,9 +95934,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    policy_groups: ::std::option::Option<super::super::super::types::PolicyGroupListType>,
-+    policy_roles: ::std::option::Option<super::super::super::types::PolicyRoleListType>,
-+    policy_users: ::std::option::Option<super::super::super::types::PolicyUserListType>,
++    policy_groups: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyGroup>>,
++    policy_roles: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyRole>>,
++    policy_users: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyUser>>,
  }
  impl ListEntitiesForPolicyOutputBuilder {
 -    /// Appends an item to `policy_groups`.
@@ -96053,15 +96053,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn policy_groups(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyGroupListType>) -> Self { self.policy_groups = Some(input.into()); self }
-+    pub fn set_policy_groups(mut self, input: ::std::option::Option<super::super::super::types::PolicyGroupListType>) -> Self { self.policy_groups = input; self }
-+    pub fn get_policy_groups(&self) -> &::std::option::Option<super::super::super::types::PolicyGroupListType> { &self.policy_groups }
-+    pub fn policy_roles(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyRoleListType>) -> Self { self.policy_roles = Some(input.into()); self }
-+    pub fn set_policy_roles(mut self, input: ::std::option::Option<super::super::super::types::PolicyRoleListType>) -> Self { self.policy_roles = input; self }
-+    pub fn get_policy_roles(&self) -> &::std::option::Option<super::super::super::types::PolicyRoleListType> { &self.policy_roles }
-+    pub fn policy_users(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyUserListType>) -> Self { self.policy_users = Some(input.into()); self }
-+    pub fn set_policy_users(mut self, input: ::std::option::Option<super::super::super::types::PolicyUserListType>) -> Self { self.policy_users = input; self }
-+    pub fn get_policy_users(&self) -> &::std::option::Option<super::super::super::types::PolicyUserListType> { &self.policy_users }
++    pub fn policy_groups(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyGroup>>) -> Self { self.policy_groups = Some(input.into()); self }
++    pub fn set_policy_groups(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyGroup>>) -> Self { self.policy_groups = input; self }
++    pub fn get_policy_groups(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyGroup>> { &self.policy_groups }
++    pub fn policy_roles(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyRole>>) -> Self { self.policy_roles = Some(input.into()); self }
++    pub fn set_policy_roles(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyRole>>) -> Self { self.policy_roles = input; self }
++    pub fn get_policy_roles(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyRole>> { &self.policy_roles }
++    pub fn policy_users(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyUser>>) -> Self { self.policy_users = Some(input.into()); self }
++    pub fn set_policy_users(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyUser>>) -> Self { self.policy_users = input; self }
++    pub fn get_policy_users(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyUser>> { &self.policy_users }
 +    pub fn build(self) -> ListEntitiesForPolicyOutput { ListEntitiesForPolicyOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -96993,7 +96993,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub policy_names: ::std::option::Option<super::super::super::types::PolicyNameListType>,
++    pub policy_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>,
  }
 +        impl ListGroupPoliciesOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -97040,7 +97040,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    policy_names: ::std::option::Option<super::super::super::types::PolicyNameListType>,
++    policy_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>,
  }
  impl ListGroupPoliciesOutputBuilder {
 -    /// Appends an item to `policy_names`.
@@ -97127,9 +97127,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn policy_names(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyNameListType>) -> Self { self.policy_names = Some(input.into()); self }
-+    pub fn set_policy_names(mut self, input: ::std::option::Option<super::super::super::types::PolicyNameListType>) -> Self { self.policy_names = input; self }
-+    pub fn get_policy_names(&self) -> &::std::option::Option<super::super::super::types::PolicyNameListType> { &self.policy_names }
++    pub fn policy_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyNameType>>) -> Self { self.policy_names = Some(input.into()); self }
++    pub fn set_policy_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>) -> Self { self.policy_names = input; self }
++    pub fn get_policy_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>> { &self.policy_names }
 +    pub fn build(self) -> ListGroupPoliciesOutput { ListGroupPoliciesOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -97990,7 +97990,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn marker(&self) -> ::std::option::Option<&str> {
 -        self.marker.as_deref()
 -    }
-+    pub groups: ::std::option::Option<super::super::super::types::GroupListType>,
++    pub groups: ::std::option::Option<::std::vec::Vec<super::super::super::types::Group>>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -98021,7 +98021,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) is_truncated: ::std::option::Option<bool>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    groups: ::std::option::Option<super::super::super::types::GroupListType>,
++    groups: ::std::option::Option<::std::vec::Vec<super::super::super::types::Group>>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -98099,9 +98099,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        })
 -    }
-+    pub fn groups(mut self, input: impl ::std::convert::Into<super::super::super::types::GroupListType>) -> Self { self.groups = Some(input.into()); self }
-+    pub fn set_groups(mut self, input: ::std::option::Option<super::super::super::types::GroupListType>) -> Self { self.groups = input; self }
-+    pub fn get_groups(&self) -> &::std::option::Option<super::super::super::types::GroupListType> { &self.groups }
++    pub fn groups(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Group>>) -> Self { self.groups = Some(input.into()); self }
++    pub fn set_groups(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Group>>) -> Self { self.groups = input; self }
++    pub fn get_groups(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Group>> { &self.groups }
 +    pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
 +    pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
 +    pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
@@ -98939,7 +98939,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
 -    pub marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    pub groups: ::std::option::Option<super::super::super::types::GroupListType>,
++    pub groups: ::std::option::Option<::std::vec::Vec<super::super::super::types::Group>>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -98985,7 +98985,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) is_truncated: ::std::option::Option<bool>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    groups: ::std::option::Option<super::super::super::types::GroupListType>,
++    groups: ::std::option::Option<::std::vec::Vec<super::super::super::types::Group>>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -99066,9 +99066,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        })
 -    }
-+    pub fn groups(mut self, input: impl ::std::convert::Into<super::super::super::types::GroupListType>) -> Self { self.groups = Some(input.into()); self }
-+    pub fn set_groups(mut self, input: ::std::option::Option<super::super::super::types::GroupListType>) -> Self { self.groups = input; self }
-+    pub fn get_groups(&self) -> &::std::option::Option<super::super::super::types::GroupListType> { &self.groups }
++    pub fn groups(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Group>>) -> Self { self.groups = Some(input.into()); self }
++    pub fn set_groups(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Group>>) -> Self { self.groups = input; self }
++    pub fn get_groups(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Group>> { &self.groups }
 +    pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
 +    pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
 +    pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
@@ -99927,7 +99927,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl ListInstanceProfileTagsOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -99973,7 +99973,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl ListInstanceProfileTagsOutputBuilder {
 -    /// Appends an item to `tags`.
@@ -100060,9 +100060,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> ListInstanceProfileTagsOutput { ListInstanceProfileTagsOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -100912,7 +100912,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
 -    pub marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    pub instance_profiles: ::std::option::Option<super::super::super::types::InstanceProfileListType>,
++    pub instance_profiles: ::std::option::Option<::std::vec::Vec<super::super::super::types::InstanceProfile>>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -100958,7 +100958,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) is_truncated: ::std::option::Option<bool>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    instance_profiles: ::std::option::Option<super::super::super::types::InstanceProfileListType>,
++    instance_profiles: ::std::option::Option<::std::vec::Vec<super::super::super::types::InstanceProfile>>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -101039,9 +101039,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        })
 -    }
-+    pub fn instance_profiles(mut self, input: impl ::std::convert::Into<super::super::super::types::InstanceProfileListType>) -> Self { self.instance_profiles = Some(input.into()); self }
-+    pub fn set_instance_profiles(mut self, input: ::std::option::Option<super::super::super::types::InstanceProfileListType>) -> Self { self.instance_profiles = input; self }
-+    pub fn get_instance_profiles(&self) -> &::std::option::Option<super::super::super::types::InstanceProfileListType> { &self.instance_profiles }
++    pub fn instance_profiles(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::InstanceProfile>>) -> Self { self.instance_profiles = Some(input.into()); self }
++    pub fn set_instance_profiles(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::InstanceProfile>>) -> Self { self.instance_profiles = input; self }
++    pub fn get_instance_profiles(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::InstanceProfile>> { &self.instance_profiles }
 +    pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
 +    pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
 +    pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
@@ -101890,7 +101890,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
 -    pub marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    pub instance_profiles: ::std::option::Option<super::super::super::types::InstanceProfileListType>,
++    pub instance_profiles: ::std::option::Option<::std::vec::Vec<super::super::super::types::InstanceProfile>>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -101936,7 +101936,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) is_truncated: ::std::option::Option<bool>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    instance_profiles: ::std::option::Option<super::super::super::types::InstanceProfileListType>,
++    instance_profiles: ::std::option::Option<::std::vec::Vec<super::super::super::types::InstanceProfile>>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -102019,9 +102019,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        })
 -    }
-+    pub fn instance_profiles(mut self, input: impl ::std::convert::Into<super::super::super::types::InstanceProfileListType>) -> Self { self.instance_profiles = Some(input.into()); self }
-+    pub fn set_instance_profiles(mut self, input: ::std::option::Option<super::super::super::types::InstanceProfileListType>) -> Self { self.instance_profiles = input; self }
-+    pub fn get_instance_profiles(&self) -> &::std::option::Option<super::super::super::types::InstanceProfileListType> { &self.instance_profiles }
++    pub fn instance_profiles(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::InstanceProfile>>) -> Self { self.instance_profiles = Some(input.into()); self }
++    pub fn set_instance_profiles(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::InstanceProfile>>) -> Self { self.instance_profiles = input; self }
++    pub fn get_instance_profiles(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::InstanceProfile>> { &self.instance_profiles }
 +    pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
 +    pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
 +    pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
@@ -102880,7 +102880,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl ListMfaDeviceTagsOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -102926,7 +102926,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl ListMfaDeviceTagsOutputBuilder {
 -    /// Appends an item to `tags`.
@@ -103011,9 +103011,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> ListMfaDeviceTagsOutput { ListMfaDeviceTagsOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -103873,7 +103873,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
-+    pub mfa_devices: ::std::option::Option<super::super::super::types::MfaDeviceListType>,
++    pub mfa_devices: ::std::option::Option<::std::vec::Vec<super::super::super::types::MfaDevice>>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
 +        impl ListMfaDevicesOutput {
@@ -103919,7 +103919,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
-+    mfa_devices: ::std::option::Option<super::super::super::types::MfaDeviceListType>,
++    mfa_devices: ::std::option::Option<::std::vec::Vec<super::super::super::types::MfaDevice>>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
  impl ListMfaDevicesOutputBuilder {
@@ -104001,9 +104001,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
 +    pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
 +    pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
-+    pub fn mfa_devices(mut self, input: impl ::std::convert::Into<super::super::super::types::MfaDeviceListType>) -> Self { self.mfa_devices = Some(input.into()); self }
-+    pub fn set_mfa_devices(mut self, input: ::std::option::Option<super::super::super::types::MfaDeviceListType>) -> Self { self.mfa_devices = input; self }
-+    pub fn get_mfa_devices(&self) -> &::std::option::Option<super::super::super::types::MfaDeviceListType> { &self.mfa_devices }
++    pub fn mfa_devices(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::MfaDevice>>) -> Self { self.mfa_devices = Some(input.into()); self }
++    pub fn set_mfa_devices(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MfaDevice>>) -> Self { self.mfa_devices = input; self }
++    pub fn get_mfa_devices(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MfaDevice>> { &self.mfa_devices }
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
@@ -104879,7 +104879,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl ListOpenIdConnectProviderTagsOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -104905,7 +104905,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl ListOpenIdConnectProviderTagsOutputBuilder {
 -    /// Appends an item to `tags`.
@@ -104994,9 +104994,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> ListOpenIdConnectProviderTagsOutput { ListOpenIdConnectProviderTagsOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -105762,7 +105762,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The list of IAM OIDC provider resource objects defined in the Amazon Web Services account.</p>
 -    pub open_id_connect_provider_list: ::std::option::Option<::std::vec::Vec<crate::types::OpenIdConnectProviderListEntry>>,
 -    _request_id: Option<String>,
-+    pub open_id_connect_provider_list: ::std::option::Option<super::super::super::types::OpenIdConnectProviderListType>,
++    pub open_id_connect_provider_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::OpenIdConnectProviderListEntry>>,
  }
 +        impl ListOpenIdConnectProvidersOutput {
 +            pub fn open_id_connect_provider_list(&self) -> &[super::super::super::types::OpenIdConnectProviderListEntry] { self.open_id_connect_provider_list.as_deref().unwrap_or(&[]) }
@@ -105795,7 +105795,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListOpenIdConnectProvidersOutputBuilder {
 -    pub(crate) open_id_connect_provider_list: ::std::option::Option<::std::vec::Vec<crate::types::OpenIdConnectProviderListEntry>>,
 -    _request_id: Option<String>,
-+    open_id_connect_provider_list: ::std::option::Option<super::super::super::types::OpenIdConnectProviderListType>,
++    open_id_connect_provider_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::OpenIdConnectProviderListEntry>>,
  }
  impl ListOpenIdConnectProvidersOutputBuilder {
 -    /// Appends an item to `open_id_connect_provider_list`.
@@ -105837,9 +105837,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn open_id_connect_provider_list(mut self, input: impl ::std::convert::Into<super::super::super::types::OpenIdConnectProviderListType>) -> Self { self.open_id_connect_provider_list = Some(input.into()); self }
-+    pub fn set_open_id_connect_provider_list(mut self, input: ::std::option::Option<super::super::super::types::OpenIdConnectProviderListType>) -> Self { self.open_id_connect_provider_list = input; self }
-+    pub fn get_open_id_connect_provider_list(&self) -> &::std::option::Option<super::super::super::types::OpenIdConnectProviderListType> { &self.open_id_connect_provider_list }
++    pub fn open_id_connect_provider_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::OpenIdConnectProviderListEntry>>) -> Self { self.open_id_connect_provider_list = Some(input.into()); self }
++    pub fn set_open_id_connect_provider_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::OpenIdConnectProviderListEntry>>) -> Self { self.open_id_connect_provider_list = input; self }
++    pub fn get_open_id_connect_provider_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::OpenIdConnectProviderListEntry>> { &self.open_id_connect_provider_list }
 +    pub fn build(self) -> ListOpenIdConnectProvidersOutput { ListOpenIdConnectProvidersOutput {
 +        open_id_connect_provider_list: self.open_id_connect_provider_list,
 +    } }
@@ -106464,7 +106464,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>Specifies the features that are currently available in your organization.</p>
 -    pub enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
 -    _request_id: Option<String>,
-+    pub enabled_features: ::std::option::Option<super::super::super::types::FeaturesListType>,
++    pub enabled_features: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>,
 +    pub organization_id: ::std::option::Option<super::super::super::types::OrganizationIdType>,
  }
 +        impl ListOrganizationsFeaturesOutput {
@@ -106504,7 +106504,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) organization_id: ::std::option::Option<::std::string::String>,
 -    pub(crate) enabled_features: ::std::option::Option<::std::vec::Vec<crate::types::FeatureType>>,
 -    _request_id: Option<String>,
-+    enabled_features: ::std::option::Option<super::super::super::types::FeaturesListType>,
++    enabled_features: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>,
 +    organization_id: ::std::option::Option<super::super::super::types::OrganizationIdType>,
  }
  impl ListOrganizationsFeaturesOutputBuilder {
@@ -106559,9 +106559,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn enabled_features(mut self, input: impl ::std::convert::Into<super::super::super::types::FeaturesListType>) -> Self { self.enabled_features = Some(input.into()); self }
-+    pub fn set_enabled_features(mut self, input: ::std::option::Option<super::super::super::types::FeaturesListType>) -> Self { self.enabled_features = input; self }
-+    pub fn get_enabled_features(&self) -> &::std::option::Option<super::super::super::types::FeaturesListType> { &self.enabled_features }
++    pub fn enabled_features(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::FeatureType>>) -> Self { self.enabled_features = Some(input.into()); self }
++    pub fn set_enabled_features(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>>) -> Self { self.enabled_features = input; self }
++    pub fn get_enabled_features(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::FeatureType>> { &self.enabled_features }
 +    pub fn organization_id(mut self, input: impl ::std::convert::Into<super::super::super::types::OrganizationIdType>) -> Self { self.organization_id = Some(input.into()); self }
 +    pub fn set_organization_id(mut self, input: ::std::option::Option<super::super::super::types::OrganizationIdType>) -> Self { self.organization_id = input; self }
 +    pub fn get_organization_id(&self) -> &::std::option::Option<super::super::super::types::OrganizationIdType> { &self.organization_id }
@@ -107435,7 +107435,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub policies: ::std::option::Option<super::super::super::types::PolicyListType>,
++    pub policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::Policy>>,
  }
 +        impl ListPoliciesOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -107482,7 +107482,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    policies: ::std::option::Option<super::super::super::types::PolicyListType>,
++    policies: ::std::option::Option<::std::vec::Vec<super::super::super::types::Policy>>,
  }
  impl ListPoliciesOutputBuilder {
 -    /// Appends an item to `policies`.
@@ -107557,9 +107557,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn policies(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyListType>) -> Self { self.policies = Some(input.into()); self }
-+    pub fn set_policies(mut self, input: ::std::option::Option<super::super::super::types::PolicyListType>) -> Self { self.policies = input; self }
-+    pub fn get_policies(&self) -> &::std::option::Option<super::super::super::types::PolicyListType> { &self.policies }
++    pub fn policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Policy>>) -> Self { self.policies = Some(input.into()); self }
++    pub fn set_policies(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Policy>>) -> Self { self.policies = input; self }
++    pub fn get_policies(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Policy>> { &self.policies }
 +    pub fn build(self) -> ListPoliciesOutput { ListPoliciesOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -108313,7 +108313,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub service_namespaces: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    pub arn: ::std::option::Option<super::super::super::types::ArnType>,
 +    pub marker: ::std::option::Option<super::super::super::types::MarkerType>,
-+    pub service_namespaces: ::std::option::Option<super::super::super::types::ServiceNamespaceListType>,
++    pub service_namespaces: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceNamespaceType>>,
  }
 +        impl ListPoliciesGrantingServiceAccessInput {
 +            pub fn arn(&self) -> ::std::option::Option<&str> { self.arn.as_deref() }
@@ -108355,7 +108355,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) service_namespaces: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    arn: ::std::option::Option<super::super::super::types::ArnType>,
 +    marker: ::std::option::Option<super::super::super::types::MarkerType>,
-+    service_namespaces: ::std::option::Option<super::super::super::types::ServiceNamespaceListType>,
++    service_namespaces: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceNamespaceType>>,
  }
  impl ListPoliciesGrantingServiceAccessInputBuilder {
 -    /// <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
@@ -108431,9 +108431,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.marker }
-+    pub fn service_namespaces(mut self, input: impl ::std::convert::Into<super::super::super::types::ServiceNamespaceListType>) -> Self { self.service_namespaces = Some(input.into()); self }
-+    pub fn set_service_namespaces(mut self, input: ::std::option::Option<super::super::super::types::ServiceNamespaceListType>) -> Self { self.service_namespaces = input; self }
-+    pub fn get_service_namespaces(&self) -> &::std::option::Option<super::super::super::types::ServiceNamespaceListType> { &self.service_namespaces }
++    pub fn service_namespaces(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ServiceNamespaceType>>) -> Self { self.service_namespaces = Some(input.into()); self }
++    pub fn set_service_namespaces(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceNamespaceType>>) -> Self { self.service_namespaces = input; self }
++    pub fn get_service_namespaces(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceNamespaceType>> { &self.service_namespaces }
 +    pub fn build(self) -> ListPoliciesGrantingServiceAccessInput { ListPoliciesGrantingServiceAccessInput {
 +        arn: self.arn,
 +        marker: self.marker,
@@ -108485,7 +108485,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub policies_granting_service_access: ::std::option::Option<super::super::super::types::ListPolicyGrantingServiceAccessResponseListType>,
++    pub policies_granting_service_access: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListPoliciesGrantingServiceAccessEntry>>,
  }
 +        impl ListPoliciesGrantingServiceAccessOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -108511,7 +108511,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    policies_granting_service_access: ::std::option::Option<super::super::super::types::ListPolicyGrantingServiceAccessResponseListType>,
++    policies_granting_service_access: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListPoliciesGrantingServiceAccessEntry>>,
  }
  impl ListPoliciesGrantingServiceAccessOutputBuilder {
 -    /// Appends an item to `policies_granting_service_access`.
@@ -108605,9 +108605,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn policies_granting_service_access(mut self, input: impl ::std::convert::Into<super::super::super::types::ListPolicyGrantingServiceAccessResponseListType>) -> Self { self.policies_granting_service_access = Some(input.into()); self }
-+    pub fn set_policies_granting_service_access(mut self, input: ::std::option::Option<super::super::super::types::ListPolicyGrantingServiceAccessResponseListType>) -> Self { self.policies_granting_service_access = input; self }
-+    pub fn get_policies_granting_service_access(&self) -> &::std::option::Option<super::super::super::types::ListPolicyGrantingServiceAccessResponseListType> { &self.policies_granting_service_access }
++    pub fn policies_granting_service_access(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ListPoliciesGrantingServiceAccessEntry>>) -> Self { self.policies_granting_service_access = Some(input.into()); self }
++    pub fn set_policies_granting_service_access(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ListPoliciesGrantingServiceAccessEntry>>) -> Self { self.policies_granting_service_access = input; self }
++    pub fn get_policies_granting_service_access(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ListPoliciesGrantingServiceAccessEntry>> { &self.policies_granting_service_access }
 +    pub fn build(self) -> ListPoliciesGrantingServiceAccessOutput { ListPoliciesGrantingServiceAccessOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -108694,7 +108694,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 +    pub fn arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.arn = Some(value.into()); self }
 +    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
-+    pub fn service_namespaces(mut self, value: impl ::std::convert::Into<super::super::super::types::ServiceNamespaceListType>) -> Self { self.input.service_namespaces = Some(value.into()); self }
++    pub fn service_namespaces(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ServiceNamespaceType>>) -> Self { self.input.service_namespaces = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::ListPoliciesGrantingServiceAccessOutput, super::ListPoliciesGrantingServiceAccessError> {
@@ -109477,7 +109477,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl ListPolicyTagsOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -109523,7 +109523,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl ListPolicyTagsOutputBuilder {
 -    /// Appends an item to `tags`.
@@ -109607,9 +109607,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> ListPolicyTagsOutput { ListPolicyTagsOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -110473,7 +110473,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub versions: ::std::option::Option<super::super::super::types::PolicyDocumentVersionListType>,
++    pub versions: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyVersion>>,
  }
 +        impl ListPolicyVersionsOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -110521,7 +110521,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    versions: ::std::option::Option<super::super::super::types::PolicyDocumentVersionListType>,
++    versions: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyVersion>>,
  }
  impl ListPolicyVersionsOutputBuilder {
 -    /// Appends an item to `versions`.
@@ -110599,9 +110599,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn versions(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyDocumentVersionListType>) -> Self { self.versions = Some(input.into()); self }
-+    pub fn set_versions(mut self, input: ::std::option::Option<super::super::super::types::PolicyDocumentVersionListType>) -> Self { self.versions = input; self }
-+    pub fn get_versions(&self) -> &::std::option::Option<super::super::super::types::PolicyDocumentVersionListType> { &self.versions }
++    pub fn versions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyVersion>>) -> Self { self.versions = Some(input.into()); self }
++    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyVersion>>) -> Self { self.versions = input; self }
++    pub fn get_versions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyVersion>> { &self.versions }
 +    pub fn build(self) -> ListPolicyVersionsOutput { ListPolicyVersionsOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -111464,7 +111464,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub policy_names: ::std::option::Option<super::super::super::types::PolicyNameListType>,
++    pub policy_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>,
  }
 +        impl ListRolePoliciesOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -111510,7 +111510,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    policy_names: ::std::option::Option<super::super::super::types::PolicyNameListType>,
++    policy_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>,
  }
  impl ListRolePoliciesOutputBuilder {
 -    /// Appends an item to `policy_names`.
@@ -111594,9 +111594,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn policy_names(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyNameListType>) -> Self { self.policy_names = Some(input.into()); self }
-+    pub fn set_policy_names(mut self, input: ::std::option::Option<super::super::super::types::PolicyNameListType>) -> Self { self.policy_names = input; self }
-+    pub fn get_policy_names(&self) -> &::std::option::Option<super::super::super::types::PolicyNameListType> { &self.policy_names }
++    pub fn policy_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyNameType>>) -> Self { self.policy_names = Some(input.into()); self }
++    pub fn set_policy_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>) -> Self { self.policy_names = input; self }
++    pub fn get_policy_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>> { &self.policy_names }
 +    pub fn build(self) -> ListRolePoliciesOutput { ListRolePoliciesOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -112447,7 +112447,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl ListRoleTagsOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -112493,7 +112493,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl ListRoleTagsOutputBuilder {
 -    /// Appends an item to `tags`.
@@ -112577,9 +112577,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> ListRoleTagsOutput { ListRoleTagsOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -113440,7 +113440,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub roles: ::std::option::Option<super::super::super::types::RoleListType>,
++    pub roles: ::std::option::Option<::std::vec::Vec<super::super::super::types::Role>>,
  }
 -impl ::aws_types::request_id::RequestId for ListRolesOutput {
 -    fn request_id(&self) -> Option<&str> {
@@ -113471,7 +113471,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    roles: ::std::option::Option<super::super::super::types::RoleListType>,
++    roles: ::std::option::Option<::std::vec::Vec<super::super::super::types::Role>>,
  }
  impl ListRolesOutputBuilder {
 -    /// Appends an item to `roles`.
@@ -113553,9 +113553,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn roles(mut self, input: impl ::std::convert::Into<super::super::super::types::RoleListType>) -> Self { self.roles = Some(input.into()); self }
-+    pub fn set_roles(mut self, input: ::std::option::Option<super::super::super::types::RoleListType>) -> Self { self.roles = input; self }
-+    pub fn get_roles(&self) -> &::std::option::Option<super::super::super::types::RoleListType> { &self.roles }
++    pub fn roles(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Role>>) -> Self { self.roles = Some(input.into()); self }
++    pub fn set_roles(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Role>>) -> Self { self.roles = input; self }
++    pub fn get_roles(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Role>> { &self.roles }
 +    pub fn build(self) -> ListRolesOutput { ListRolesOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -114394,7 +114394,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl ListSamlProviderTagsOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -114440,7 +114440,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl ListSamlProviderTagsOutputBuilder {
 -    /// Appends an item to `tags`.
@@ -114525,9 +114525,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> ListSamlProviderTagsOutput { ListSamlProviderTagsOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -115301,7 +115301,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    fn request_id(&self) -> Option<&str> {
 -        self._request_id.as_deref()
 -    }
-+    pub saml_provider_list: ::std::option::Option<super::super::super::types::SamlProviderListType>,
++    pub saml_provider_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlProviderListEntry>>,
  }
 +        impl ListSamlProvidersOutput {
 +            pub fn saml_provider_list(&self) -> &[super::super::super::types::SamlProviderListEntry] { self.saml_provider_list.as_deref().unwrap_or(&[]) }
@@ -115321,7 +115321,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct ListSamlProvidersOutputBuilder {
 -    pub(crate) saml_provider_list: ::std::option::Option<::std::vec::Vec<crate::types::SamlProviderListEntry>>,
 -    _request_id: Option<String>,
-+    saml_provider_list: ::std::option::Option<super::super::super::types::SamlProviderListType>,
++    saml_provider_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlProviderListEntry>>,
  }
  impl ListSamlProvidersOutputBuilder {
 -    /// Appends an item to `saml_provider_list`.
@@ -115360,9 +115360,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn saml_provider_list(mut self, input: impl ::std::convert::Into<super::super::super::types::SamlProviderListType>) -> Self { self.saml_provider_list = Some(input.into()); self }
-+    pub fn set_saml_provider_list(mut self, input: ::std::option::Option<super::super::super::types::SamlProviderListType>) -> Self { self.saml_provider_list = input; self }
-+    pub fn get_saml_provider_list(&self) -> &::std::option::Option<super::super::super::types::SamlProviderListType> { &self.saml_provider_list }
++    pub fn saml_provider_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SamlProviderListEntry>>) -> Self { self.saml_provider_list = Some(input.into()); self }
++    pub fn set_saml_provider_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlProviderListEntry>>) -> Self { self.saml_provider_list = input; self }
++    pub fn get_saml_provider_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SamlProviderListEntry>> { &self.saml_provider_list }
 +    pub fn build(self) -> ListSamlProvidersOutput { ListSamlProvidersOutput {
 +        saml_provider_list: self.saml_provider_list,
 +    } }
@@ -116087,7 +116087,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl ListServerCertificateTagsOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -116133,7 +116133,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl ListServerCertificateTagsOutputBuilder {
 -    /// Appends an item to `tags`.
@@ -116220,9 +116220,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> ListServerCertificateTagsOutput { ListServerCertificateTagsOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -117098,7 +117098,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub server_certificate_metadata_list: ::std::option::Option<super::super::super::types::ServerCertificateMetadataListType>,
++    pub server_certificate_metadata_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServerCertificateMetadata>>,
  }
 +        impl ListServerCertificatesOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -117124,7 +117124,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    server_certificate_metadata_list: ::std::option::Option<super::super::super::types::ServerCertificateMetadataListType>,
++    server_certificate_metadata_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServerCertificateMetadata>>,
  }
  impl ListServerCertificatesOutputBuilder {
 -    /// Appends an item to `server_certificate_metadata_list`.
@@ -117214,9 +117214,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn server_certificate_metadata_list(mut self, input: impl ::std::convert::Into<super::super::super::types::ServerCertificateMetadataListType>) -> Self { self.server_certificate_metadata_list = Some(input.into()); self }
-+    pub fn set_server_certificate_metadata_list(mut self, input: ::std::option::Option<super::super::super::types::ServerCertificateMetadataListType>) -> Self { self.server_certificate_metadata_list = input; self }
-+    pub fn get_server_certificate_metadata_list(&self) -> &::std::option::Option<super::super::super::types::ServerCertificateMetadataListType> { &self.server_certificate_metadata_list }
++    pub fn server_certificate_metadata_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ServerCertificateMetadata>>) -> Self { self.server_certificate_metadata_list = Some(input.into()); self }
++    pub fn set_server_certificate_metadata_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServerCertificateMetadata>>) -> Self { self.server_certificate_metadata_list = input; self }
++    pub fn get_server_certificate_metadata_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServerCertificateMetadata>> { &self.server_certificate_metadata_list }
 +    pub fn build(self) -> ListServerCertificatesOutput { ListServerCertificatesOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -118114,7 +118114,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub service_specific_credentials: ::std::option::Option<super::super::super::types::ServiceSpecificCredentialsListType>,
++    pub service_specific_credentials: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceSpecificCredentialMetadata>>,
  }
 +        impl ListServiceSpecificCredentialsOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -118161,7 +118161,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    service_specific_credentials: ::std::option::Option<super::super::super::types::ServiceSpecificCredentialsListType>,
++    service_specific_credentials: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceSpecificCredentialMetadata>>,
  }
  impl ListServiceSpecificCredentialsOutputBuilder {
 -    /// Appends an item to `service_specific_credentials`.
@@ -118239,9 +118239,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn service_specific_credentials(mut self, input: impl ::std::convert::Into<super::super::super::types::ServiceSpecificCredentialsListType>) -> Self { self.service_specific_credentials = Some(input.into()); self }
-+    pub fn set_service_specific_credentials(mut self, input: ::std::option::Option<super::super::super::types::ServiceSpecificCredentialsListType>) -> Self { self.service_specific_credentials = input; self }
-+    pub fn get_service_specific_credentials(&self) -> &::std::option::Option<super::super::super::types::ServiceSpecificCredentialsListType> { &self.service_specific_credentials }
++    pub fn service_specific_credentials(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ServiceSpecificCredentialMetadata>>) -> Self { self.service_specific_credentials = Some(input.into()); self }
++    pub fn set_service_specific_credentials(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceSpecificCredentialMetadata>>) -> Self { self.service_specific_credentials = input; self }
++    pub fn get_service_specific_credentials(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ServiceSpecificCredentialMetadata>> { &self.service_specific_credentials }
 +    pub fn build(self) -> ListServiceSpecificCredentialsOutput { ListServiceSpecificCredentialsOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -119130,7 +119130,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
 -    pub marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    pub certificates: ::std::option::Option<super::super::super::types::CertificateListType>,
++    pub certificates: ::std::option::Option<::std::vec::Vec<super::super::super::types::SigningCertificate>>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -119176,7 +119176,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) is_truncated: ::std::option::Option<bool>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    certificates: ::std::option::Option<super::super::super::types::CertificateListType>,
++    certificates: ::std::option::Option<::std::vec::Vec<super::super::super::types::SigningCertificate>>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -119259,9 +119259,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        })
 -    }
-+    pub fn certificates(mut self, input: impl ::std::convert::Into<super::super::super::types::CertificateListType>) -> Self { self.certificates = Some(input.into()); self }
-+    pub fn set_certificates(mut self, input: ::std::option::Option<super::super::super::types::CertificateListType>) -> Self { self.certificates = input; self }
-+    pub fn get_certificates(&self) -> &::std::option::Option<super::super::super::types::CertificateListType> { &self.certificates }
++    pub fn certificates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SigningCertificate>>) -> Self { self.certificates = Some(input.into()); self }
++    pub fn set_certificates(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SigningCertificate>>) -> Self { self.certificates = input; self }
++    pub fn get_certificates(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SigningCertificate>> { &self.certificates }
 +    pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
 +    pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
 +    pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
@@ -120120,7 +120120,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub ssh_public_keys: ::std::option::Option<super::super::super::types::SshPublicKeyListType>,
++    pub ssh_public_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::SshPublicKeyMetadata>>,
  }
 +        impl ListSshPublicKeysOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -120167,7 +120167,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    ssh_public_keys: ::std::option::Option<super::super::super::types::SshPublicKeyListType>,
++    ssh_public_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::SshPublicKeyMetadata>>,
  }
  impl ListSshPublicKeysOutputBuilder {
 -    /// Appends an item to `ssh_public_keys`.
@@ -120242,9 +120242,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn ssh_public_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::SshPublicKeyListType>) -> Self { self.ssh_public_keys = Some(input.into()); self }
-+    pub fn set_ssh_public_keys(mut self, input: ::std::option::Option<super::super::super::types::SshPublicKeyListType>) -> Self { self.ssh_public_keys = input; self }
-+    pub fn get_ssh_public_keys(&self) -> &::std::option::Option<super::super::super::types::SshPublicKeyListType> { &self.ssh_public_keys }
++    pub fn ssh_public_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SshPublicKeyMetadata>>) -> Self { self.ssh_public_keys = Some(input.into()); self }
++    pub fn set_ssh_public_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SshPublicKeyMetadata>>) -> Self { self.ssh_public_keys = input; self }
++    pub fn get_ssh_public_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SshPublicKeyMetadata>> { &self.ssh_public_keys }
 +    pub fn build(self) -> ListSshPublicKeysOutput { ListSshPublicKeysOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -121082,7 +121082,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub policy_names: ::std::option::Option<super::super::super::types::PolicyNameListType>,
++    pub policy_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>,
  }
 +        impl ListUserPoliciesOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -121128,7 +121128,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    policy_names: ::std::option::Option<super::super::super::types::PolicyNameListType>,
++    policy_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>,
  }
  impl ListUserPoliciesOutputBuilder {
 -    /// Appends an item to `policy_names`.
@@ -121212,9 +121212,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn policy_names(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyNameListType>) -> Self { self.policy_names = Some(input.into()); self }
-+    pub fn set_policy_names(mut self, input: ::std::option::Option<super::super::super::types::PolicyNameListType>) -> Self { self.policy_names = input; self }
-+    pub fn get_policy_names(&self) -> &::std::option::Option<super::super::super::types::PolicyNameListType> { &self.policy_names }
++    pub fn policy_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyNameType>>) -> Self { self.policy_names = Some(input.into()); self }
++    pub fn set_policy_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>) -> Self { self.policy_names = input; self }
++    pub fn get_policy_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>> { &self.policy_names }
 +    pub fn build(self) -> ListUserPoliciesOutput { ListUserPoliciesOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -122065,7 +122065,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl ListUserTagsOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -122111,7 +122111,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl ListUserTagsOutputBuilder {
 -    /// Appends an item to `tags`.
@@ -122195,9 +122195,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> ListUserTagsOutput { ListUserTagsOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -123058,7 +123058,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    }
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub users: ::std::option::Option<super::super::super::types::UserListType>,
++    pub users: ::std::option::Option<::std::vec::Vec<super::super::super::types::User>>,
  }
 -impl ::aws_types::request_id::RequestId for ListUsersOutput {
 -    fn request_id(&self) -> Option<&str> {
@@ -123089,7 +123089,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    users: ::std::option::Option<super::super::super::types::UserListType>,
++    users: ::std::option::Option<::std::vec::Vec<super::super::super::types::User>>,
  }
  impl ListUsersOutputBuilder {
 -    /// Appends an item to `users`.
@@ -123171,9 +123171,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn users(mut self, input: impl ::std::convert::Into<super::super::super::types::UserListType>) -> Self { self.users = Some(input.into()); self }
-+    pub fn set_users(mut self, input: ::std::option::Option<super::super::super::types::UserListType>) -> Self { self.users = input; self }
-+    pub fn get_users(&self) -> &::std::option::Option<super::super::super::types::UserListType> { &self.users }
++    pub fn users(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::User>>) -> Self { self.users = Some(input.into()); self }
++    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::User>>) -> Self { self.users = input; self }
++    pub fn get_users(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::User>> { &self.users }
 +    pub fn build(self) -> ListUsersOutput { ListUsersOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -124004,7 +124004,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    pub virtual_mfa_devices: ::std::option::Option<super::super::super::types::VirtualMfaDeviceListType>,
++    pub virtual_mfa_devices: ::std::option::Option<::std::vec::Vec<super::super::super::types::VirtualMfaDevice>>,
  }
 +        impl ListVirtualMfaDevicesOutput {
 +            pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -124050,7 +124050,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    _request_id: Option<String>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-+    virtual_mfa_devices: ::std::option::Option<super::super::super::types::VirtualMfaDeviceListType>,
++    virtual_mfa_devices: ::std::option::Option<::std::vec::Vec<super::super::super::types::VirtualMfaDevice>>,
  }
  impl ListVirtualMfaDevicesOutputBuilder {
 -    /// Appends an item to `virtual_mfa_devices`.
@@ -124137,9 +124137,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-+    pub fn virtual_mfa_devices(mut self, input: impl ::std::convert::Into<super::super::super::types::VirtualMfaDeviceListType>) -> Self { self.virtual_mfa_devices = Some(input.into()); self }
-+    pub fn set_virtual_mfa_devices(mut self, input: ::std::option::Option<super::super::super::types::VirtualMfaDeviceListType>) -> Self { self.virtual_mfa_devices = input; self }
-+    pub fn get_virtual_mfa_devices(&self) -> &::std::option::Option<super::super::super::types::VirtualMfaDeviceListType> { &self.virtual_mfa_devices }
++    pub fn virtual_mfa_devices(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VirtualMfaDevice>>) -> Self { self.virtual_mfa_devices = Some(input.into()); self }
++    pub fn set_virtual_mfa_devices(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::VirtualMfaDevice>>) -> Self { self.virtual_mfa_devices = input; self }
++    pub fn get_virtual_mfa_devices(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::VirtualMfaDevice>> { &self.virtual_mfa_devices }
 +    pub fn build(self) -> ListVirtualMfaDevicesOutput { ListVirtualMfaDevicesOutput {
 +        is_truncated: self.is_truncated,
 +        marker: self.marker,
@@ -124820,10 +124820,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn properties(&self) -> ::std::option::Option<&::std::collections::HashMap<::std::string::String, ::std::string::String>> {
 -        self.properties.as_ref()
 -    }
-+    pub properties: ::std::option::Option<super::super::super::types::AccountPropertiesMapType>,
++    pub properties: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>>,
  }
 +        impl PutAccountPropertiesInput {
-+            pub fn properties(&self) -> ::std::option::Option<&super::super::super::types::AccountPropertiesMapType> { self.properties.as_ref() }
++            pub fn properties(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>> { self.properties.as_ref() }
 +        }
  impl PutAccountPropertiesInput {
 -    /// Creates a new builder-style object to manufacture [`PutAccountPropertiesInput`](crate::operation::put_account_properties::PutAccountPropertiesInput).
@@ -124839,7 +124839,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +#[derive(Clone, Debug, Default)]
  pub struct PutAccountPropertiesInputBuilder {
 -    pub(crate) properties: ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
-+    properties: ::std::option::Option<super::super::super::types::AccountPropertiesMapType>,
++    properties: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>>,
  }
  impl PutAccountPropertiesInputBuilder {
 -    /// Adds a key-value pair to `properties`.
@@ -124875,9 +124875,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    {
 -        ::std::result::Result::Ok(crate::operation::put_account_properties::PutAccountPropertiesInput { properties: self.properties })
 -    }
-+    pub fn properties(mut self, input: impl ::std::convert::Into<super::super::super::types::AccountPropertiesMapType>) -> Self { self.properties = Some(input.into()); self }
-+    pub fn set_properties(mut self, input: ::std::option::Option<super::super::super::types::AccountPropertiesMapType>) -> Self { self.properties = input; self }
-+    pub fn get_properties(&self) -> &::std::option::Option<super::super::super::types::AccountPropertiesMapType> { &self.properties }
++    pub fn properties(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>>) -> Self { self.properties = Some(input.into()); self }
++    pub fn set_properties(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>>) -> Self { self.properties = input; self }
++    pub fn get_properties(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>> { &self.properties }
 +    pub fn build(self) -> PutAccountPropertiesInput { PutAccountPropertiesInput {
 +        properties: self.properties,
 +    } }
@@ -125094,7 +125094,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn get_properties(&self) -> &::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>> {
 -        self.inner.get_properties()
 -    }
-+    pub fn properties(mut self, value: impl ::std::convert::Into<super::super::super::types::AccountPropertiesMapType>) -> Self { self.input.properties = Some(value.into()); self }
++    pub fn properties(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>>) -> Self { self.input.properties = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::PutAccountPropertiesOutput, super::PutAccountPropertiesError> {
@@ -125106,7 +125106,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::PutAccountPropertiesError::Unhandled(format!("PutAccountProperties returned HTTP {}", status)));
 +                         }
-+                         Ok(super::PutAccountPropertiesOutput::default())
++                         Ok(super::PutAccountPropertiesOutput)
 +                     }
  }
 +pub use Builder as PutAccountPropertiesFluentBuilder;
@@ -126018,7 +126018,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::PutGroupPolicyError::Unhandled(format!("PutGroupPolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::PutGroupPolicyOutput::default())
++                         Ok(super::PutGroupPolicyOutput)
 +                     }
  }
 +pub use Builder as PutGroupPolicyFluentBuilder;
@@ -126873,7 +126873,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::PutRolePermissionsBoundaryError::Unhandled(format!("PutRolePermissionsBoundary returned HTTP {}", status)));
 +                         }
-+                         Ok(super::PutRolePermissionsBoundaryOutput::default())
++                         Ok(super::PutRolePermissionsBoundaryOutput)
 +                     }
  }
 +pub use Builder as PutRolePermissionsBoundaryFluentBuilder;
@@ -127723,7 +127723,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::PutRolePolicyError::Unhandled(format!("PutRolePolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::PutRolePolicyOutput::default())
++                         Ok(super::PutRolePolicyOutput)
 +                     }
  }
 -impl PutRolePolicyFluentBuilder {
@@ -128634,7 +128634,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::PutUserPermissionsBoundaryError::Unhandled(format!("PutUserPermissionsBoundary returned HTTP {}", status)));
 +                         }
-+                         Ok(super::PutUserPermissionsBoundaryOutput::default())
++                         Ok(super::PutUserPermissionsBoundaryOutput)
 +                     }
  }
 -impl PutUserPermissionsBoundaryFluentBuilder {
@@ -129706,7 +129706,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::PutUserPolicyError::Unhandled(format!("PutUserPolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::PutUserPolicyOutput::default())
++                         Ok(super::PutUserPolicyOutput)
 +                     }
  }
 +pub use Builder as PutUserPolicyFluentBuilder;
@@ -130544,7 +130544,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::RejectDelegationRequestError::Unhandled(format!("RejectDelegationRequest returned HTTP {}", status)));
 +                         }
-+                         Ok(super::RejectDelegationRequestOutput::default())
++                         Ok(super::RejectDelegationRequestOutput)
 +                     }
  }
 +pub use Builder as RejectDelegationRequestFluentBuilder;
@@ -131398,7 +131398,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::RemoveClientIdFromOpenIdConnectProviderError::Unhandled(format!("RemoveClientIdFromOpenIdConnectProvider returned HTTP {}", status)));
 +                         }
-+                         Ok(super::RemoveClientIdFromOpenIdConnectProviderOutput::default())
++                         Ok(super::RemoveClientIdFromOpenIdConnectProviderOutput)
 +                     }
  }
 +pub use Builder as RemoveClientIdFromOpenIdConnectProviderFluentBuilder;
@@ -132259,7 +132259,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::RemoveRoleFromInstanceProfileError::Unhandled(format!("RemoveRoleFromInstanceProfile returned HTTP {}", status)));
 +                         }
-+                         Ok(super::RemoveRoleFromInstanceProfileOutput::default())
++                         Ok(super::RemoveRoleFromInstanceProfileOutput)
 +                     }
  }
 +pub use Builder as RemoveRoleFromInstanceProfileFluentBuilder;
@@ -133011,7 +133011,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::RemoveUserFromGroupError::Unhandled(format!("RemoveUserFromGroup returned HTTP {}", status)));
 +                         }
-+                         Ok(super::RemoveUserFromGroupOutput::default())
++                         Ok(super::RemoveUserFromGroupOutput)
 +                     }
  }
 -impl RemoveUserFromGroupFluentBuilder {
@@ -134912,7 +134912,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::ResyncMfaDeviceError::Unhandled(format!("ResyncMfaDevice returned HTTP {}", status)));
 +                         }
-+                         Ok(super::ResyncMfaDeviceOutput::default())
++                         Ok(super::ResyncMfaDeviceOutput)
 +                     }
  }
 +pub use Builder as ResyncMfaDeviceFluentBuilder;
@@ -135646,7 +135646,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::SendDelegationTokenError::Unhandled(format!("SendDelegationToken returned HTTP {}", status)));
 +                         }
-+                         Ok(super::SendDelegationTokenOutput::default())
++                         Ok(super::SendDelegationTokenOutput)
 +                     }
  }
 -impl SendDelegationTokenFluentBuilder {
@@ -136473,7 +136473,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::SetDefaultPolicyVersionError::Unhandled(format!("SetDefaultPolicyVersion returned HTTP {}", status)));
 +                         }
-+                         Ok(super::SetDefaultPolicyVersionOutput::default())
++                         Ok(super::SetDefaultPolicyVersionOutput)
 +                     }
  }
 -impl SetDefaultPolicyVersionFluentBuilder {
@@ -137371,7 +137371,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::SetSecurityTokenServicePreferencesError::Unhandled(format!("SetSecurityTokenServicePreferences returned HTTP {}", status)));
 +                         }
-+                         Ok(super::SetSecurityTokenServicePreferencesOutput::default())
++                         Ok(super::SetSecurityTokenServicePreferencesOutput)
 +                     }
  }
 +pub use Builder as SetSecurityTokenServicePreferencesFluentBuilder;
@@ -137894,15 +137894,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub max_items: ::std::option::Option<i32>,
 -    /// <p>Use this parameter only when paginating results and only after you receive a response indicating that the results are truncated. Set it to the value of the <code>Marker</code> element in the response that you received to indicate where the next call should start.</p>
 -    pub marker: ::std::option::Option<::std::string::String>,
-+    pub action_names: ::std::option::Option<super::super::super::types::ActionNameListType>,
++    pub action_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::ActionNameType>>,
 +    pub caller_arn: ::std::option::Option<super::super::super::types::ResourceNameType>,
-+    pub context_entries: ::std::option::Option<super::super::super::types::ContextEntryListType>,
++    pub context_entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextEntry>>,
 +    pub marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    pub max_items: ::std::option::Option<super::super::super::types::MaxItemsType>,
-+    pub ordered_organization_policy_input_list: ::std::option::Option<super::super::super::types::OrganizationPolicyListType>,
-+    pub permissions_boundary_policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
-+    pub policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
-+    pub resource_arns: ::std::option::Option<super::super::super::types::ResourceNameListType>,
++    pub ordered_organization_policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::OrderedOrganizationPolicyType>>,
++    pub permissions_boundary_policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
++    pub policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
++    pub resource_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceNameType>>,
 +    pub resource_handling_option: ::std::option::Option<super::super::super::types::ResourceHandlingOptionType>,
 +    pub resource_owner: ::std::option::Option<super::super::super::types::ResourceNameType>,
 +    pub resource_policy: ::std::option::Option<super::super::super::types::PolicyDocumentType>,
@@ -138065,15 +138065,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) resource_handling_option: ::std::option::Option<::std::string::String>,
 -    pub(crate) max_items: ::std::option::Option<i32>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
-+    action_names: ::std::option::Option<super::super::super::types::ActionNameListType>,
++    action_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::ActionNameType>>,
 +    caller_arn: ::std::option::Option<super::super::super::types::ResourceNameType>,
-+    context_entries: ::std::option::Option<super::super::super::types::ContextEntryListType>,
++    context_entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextEntry>>,
 +    marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    max_items: ::std::option::Option<super::super::super::types::MaxItemsType>,
-+    ordered_organization_policy_input_list: ::std::option::Option<super::super::super::types::OrganizationPolicyListType>,
-+    permissions_boundary_policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
-+    policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
-+    resource_arns: ::std::option::Option<super::super::super::types::ResourceNameListType>,
++    ordered_organization_policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::OrderedOrganizationPolicyType>>,
++    permissions_boundary_policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
++    policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
++    resource_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceNameType>>,
 +    resource_handling_option: ::std::option::Option<super::super::super::types::ResourceHandlingOptionType>,
 +    resource_owner: ::std::option::Option<super::super::super::types::ResourceNameType>,
 +    resource_policy: ::std::option::Option<super::super::super::types::PolicyDocumentType>,
@@ -138477,33 +138477,33 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            marker: self.marker,
 -        })
 -    }
-+    pub fn action_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ActionNameListType>) -> Self { self.action_names = Some(input.into()); self }
-+    pub fn set_action_names(mut self, input: ::std::option::Option<super::super::super::types::ActionNameListType>) -> Self { self.action_names = input; self }
-+    pub fn get_action_names(&self) -> &::std::option::Option<super::super::super::types::ActionNameListType> { &self.action_names }
++    pub fn action_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ActionNameType>>) -> Self { self.action_names = Some(input.into()); self }
++    pub fn set_action_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ActionNameType>>) -> Self { self.action_names = input; self }
++    pub fn get_action_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ActionNameType>> { &self.action_names }
 +    pub fn caller_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ResourceNameType>) -> Self { self.caller_arn = Some(input.into()); self }
 +    pub fn set_caller_arn(mut self, input: ::std::option::Option<super::super::super::types::ResourceNameType>) -> Self { self.caller_arn = input; self }
 +    pub fn get_caller_arn(&self) -> &::std::option::Option<super::super::super::types::ResourceNameType> { &self.caller_arn }
-+    pub fn context_entries(mut self, input: impl ::std::convert::Into<super::super::super::types::ContextEntryListType>) -> Self { self.context_entries = Some(input.into()); self }
-+    pub fn set_context_entries(mut self, input: ::std::option::Option<super::super::super::types::ContextEntryListType>) -> Self { self.context_entries = input; self }
-+    pub fn get_context_entries(&self) -> &::std::option::Option<super::super::super::types::ContextEntryListType> { &self.context_entries }
++    pub fn context_entries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ContextEntry>>) -> Self { self.context_entries = Some(input.into()); self }
++    pub fn set_context_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextEntry>>) -> Self { self.context_entries = input; self }
++    pub fn get_context_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ContextEntry>> { &self.context_entries }
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.marker }
 +    pub fn max_items(mut self, input: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.max_items = Some(input.into()); self }
 +    pub fn set_max_items(mut self, input: ::std::option::Option<super::super::super::types::MaxItemsType>) -> Self { self.max_items = input; self }
 +    pub fn get_max_items(&self) -> &::std::option::Option<super::super::super::types::MaxItemsType> { &self.max_items }
-+    pub fn ordered_organization_policy_input_list(mut self, input: impl ::std::convert::Into<super::super::super::types::OrganizationPolicyListType>) -> Self { self.ordered_organization_policy_input_list = Some(input.into()); self }
-+    pub fn set_ordered_organization_policy_input_list(mut self, input: ::std::option::Option<super::super::super::types::OrganizationPolicyListType>) -> Self { self.ordered_organization_policy_input_list = input; self }
-+    pub fn get_ordered_organization_policy_input_list(&self) -> &::std::option::Option<super::super::super::types::OrganizationPolicyListType> { &self.ordered_organization_policy_input_list }
-+    pub fn permissions_boundary_policy_input_list(mut self, input: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.permissions_boundary_policy_input_list = Some(input.into()); self }
-+    pub fn set_permissions_boundary_policy_input_list(mut self, input: ::std::option::Option<super::super::super::types::SimulationPolicyListType>) -> Self { self.permissions_boundary_policy_input_list = input; self }
-+    pub fn get_permissions_boundary_policy_input_list(&self) -> &::std::option::Option<super::super::super::types::SimulationPolicyListType> { &self.permissions_boundary_policy_input_list }
-+    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.policy_input_list = Some(input.into()); self }
-+    pub fn set_policy_input_list(mut self, input: ::std::option::Option<super::super::super::types::SimulationPolicyListType>) -> Self { self.policy_input_list = input; self }
-+    pub fn get_policy_input_list(&self) -> &::std::option::Option<super::super::super::types::SimulationPolicyListType> { &self.policy_input_list }
-+    pub fn resource_arns(mut self, input: impl ::std::convert::Into<super::super::super::types::ResourceNameListType>) -> Self { self.resource_arns = Some(input.into()); self }
-+    pub fn set_resource_arns(mut self, input: ::std::option::Option<super::super::super::types::ResourceNameListType>) -> Self { self.resource_arns = input; self }
-+    pub fn get_resource_arns(&self) -> &::std::option::Option<super::super::super::types::ResourceNameListType> { &self.resource_arns }
++    pub fn ordered_organization_policy_input_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::OrderedOrganizationPolicyType>>) -> Self { self.ordered_organization_policy_input_list = Some(input.into()); self }
++    pub fn set_ordered_organization_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::OrderedOrganizationPolicyType>>) -> Self { self.ordered_organization_policy_input_list = input; self }
++    pub fn get_ordered_organization_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::OrderedOrganizationPolicyType>> { &self.ordered_organization_policy_input_list }
++    pub fn permissions_boundary_policy_input_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.permissions_boundary_policy_input_list = Some(input.into()); self }
++    pub fn set_permissions_boundary_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.permissions_boundary_policy_input_list = input; self }
++    pub fn get_permissions_boundary_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>> { &self.permissions_boundary_policy_input_list }
++    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.policy_input_list = Some(input.into()); self }
++    pub fn set_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.policy_input_list = input; self }
++    pub fn get_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>> { &self.policy_input_list }
++    pub fn resource_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ResourceNameType>>) -> Self { self.resource_arns = Some(input.into()); self }
++    pub fn set_resource_arns(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceNameType>>) -> Self { self.resource_arns = input; self }
++    pub fn get_resource_arns(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceNameType>> { &self.resource_arns }
 +    pub fn resource_handling_option(mut self, input: impl ::std::convert::Into<super::super::super::types::ResourceHandlingOptionType>) -> Self { self.resource_handling_option = Some(input.into()); self }
 +    pub fn set_resource_handling_option(mut self, input: ::std::option::Option<super::super::super::types::ResourceHandlingOptionType>) -> Self { self.resource_handling_option = input; self }
 +    pub fn get_resource_handling_option(&self) -> &::std::option::Option<super::super::super::types::ResourceHandlingOptionType> { &self.resource_handling_option }
@@ -138551,7 +138551,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
 -    pub marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    pub evaluation_results: ::std::option::Option<super::super::super::types::EvaluationResultsListType>,
++    pub evaluation_results: ::std::option::Option<::std::vec::Vec<super::super::super::types::EvaluationResult>>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -138598,7 +138598,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) is_truncated: ::std::option::Option<bool>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    evaluation_results: ::std::option::Option<super::super::super::types::EvaluationResultsListType>,
++    evaluation_results: ::std::option::Option<::std::vec::Vec<super::super::super::types::EvaluationResult>>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -138669,9 +138669,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn evaluation_results(mut self, input: impl ::std::convert::Into<super::super::super::types::EvaluationResultsListType>) -> Self { self.evaluation_results = Some(input.into()); self }
-+    pub fn set_evaluation_results(mut self, input: ::std::option::Option<super::super::super::types::EvaluationResultsListType>) -> Self { self.evaluation_results = input; self }
-+    pub fn get_evaluation_results(&self) -> &::std::option::Option<super::super::super::types::EvaluationResultsListType> { &self.evaluation_results }
++    pub fn evaluation_results(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::EvaluationResult>>) -> Self { self.evaluation_results = Some(input.into()); self }
++    pub fn set_evaluation_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EvaluationResult>>) -> Self { self.evaluation_results = input; self }
++    pub fn get_evaluation_results(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::EvaluationResult>> { &self.evaluation_results }
 +    pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
 +    pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
 +    pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
@@ -138755,15 +138755,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn action_names(mut self, value: impl ::std::convert::Into<super::super::super::types::ActionNameListType>) -> Self { self.input.action_names = Some(value.into()); self }
++    pub fn action_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ActionNameType>>) -> Self { self.input.action_names = Some(value.into()); self }
 +    pub fn caller_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceNameType>) -> Self { self.input.caller_arn = Some(value.into()); self }
-+    pub fn context_entries(mut self, value: impl ::std::convert::Into<super::super::super::types::ContextEntryListType>) -> Self { self.input.context_entries = Some(value.into()); self }
++    pub fn context_entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ContextEntry>>) -> Self { self.input.context_entries = Some(value.into()); self }
 +    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
 +    pub fn max_items(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.input.max_items = Some(value.into()); self }
-+    pub fn ordered_organization_policy_input_list(mut self, value: impl ::std::convert::Into<super::super::super::types::OrganizationPolicyListType>) -> Self { self.input.ordered_organization_policy_input_list = Some(value.into()); self }
-+    pub fn permissions_boundary_policy_input_list(mut self, value: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.input.permissions_boundary_policy_input_list = Some(value.into()); self }
-+    pub fn policy_input_list(mut self, value: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.input.policy_input_list = Some(value.into()); self }
-+    pub fn resource_arns(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceNameListType>) -> Self { self.input.resource_arns = Some(value.into()); self }
++    pub fn ordered_organization_policy_input_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::OrderedOrganizationPolicyType>>) -> Self { self.input.ordered_organization_policy_input_list = Some(value.into()); self }
++    pub fn permissions_boundary_policy_input_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.input.permissions_boundary_policy_input_list = Some(value.into()); self }
++    pub fn policy_input_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.input.policy_input_list = Some(value.into()); self }
++    pub fn resource_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ResourceNameType>>) -> Self { self.input.resource_arns = Some(value.into()); self }
 +    pub fn resource_handling_option(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceHandlingOptionType>) -> Self { self.input.resource_handling_option = Some(value.into()); self }
 +    pub fn resource_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceNameType>) -> Self { self.input.resource_owner = Some(value.into()); self }
 +    pub fn resource_policy(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyDocumentType>) -> Self { self.input.resource_policy = Some(value.into()); self }
@@ -139938,16 +139938,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub fn marker(&self) -> ::std::option::Option<&str> {
 -        self.marker.as_deref()
 -    }
-+    pub action_names: ::std::option::Option<super::super::super::types::ActionNameListType>,
++    pub action_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::ActionNameType>>,
 +    pub caller_arn: ::std::option::Option<super::super::super::types::ResourceNameType>,
-+    pub context_entries: ::std::option::Option<super::super::super::types::ContextEntryListType>,
++    pub context_entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextEntry>>,
 +    pub marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    pub max_items: ::std::option::Option<super::super::super::types::MaxItemsType>,
-+    pub permissions_boundary_policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
-+    pub policy_exclusion_list: ::std::option::Option<super::super::super::types::PolicyExclusionsListType>,
-+    pub policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
++    pub permissions_boundary_policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
++    pub policy_exclusion_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyIdentifier>>,
++    pub policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
 +    pub policy_source_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    pub resource_arns: ::std::option::Option<super::super::super::types::ResourceNameListType>,
++    pub resource_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceNameType>>,
 +    pub resource_handling_option: ::std::option::Option<super::super::super::types::ResourceHandlingOptionType>,
 +    pub resource_owner: ::std::option::Option<super::super::super::types::ResourceNameType>,
 +    pub resource_policy: ::std::option::Option<super::super::super::types::PolicyDocumentType>,
@@ -139993,16 +139993,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) resource_handling_option: ::std::option::Option<::std::string::String>,
 -    pub(crate) max_items: ::std::option::Option<i32>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
-+    action_names: ::std::option::Option<super::super::super::types::ActionNameListType>,
++    action_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::ActionNameType>>,
 +    caller_arn: ::std::option::Option<super::super::super::types::ResourceNameType>,
-+    context_entries: ::std::option::Option<super::super::super::types::ContextEntryListType>,
++    context_entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextEntry>>,
 +    marker: ::std::option::Option<super::super::super::types::MarkerType>,
 +    max_items: ::std::option::Option<super::super::super::types::MaxItemsType>,
-+    permissions_boundary_policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
-+    policy_exclusion_list: ::std::option::Option<super::super::super::types::PolicyExclusionsListType>,
-+    policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
++    permissions_boundary_policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
++    policy_exclusion_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyIdentifier>>,
++    policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
 +    policy_source_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    resource_arns: ::std::option::Option<super::super::super::types::ResourceNameListType>,
++    resource_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceNameType>>,
 +    resource_handling_option: ::std::option::Option<super::super::super::types::ResourceHandlingOptionType>,
 +    resource_owner: ::std::option::Option<super::super::super::types::ResourceNameType>,
 +    resource_policy: ::std::option::Option<super::super::super::types::PolicyDocumentType>,
@@ -140424,36 +140424,36 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            marker: self.marker,
 -        })
 -    }
-+    pub fn action_names(mut self, input: impl ::std::convert::Into<super::super::super::types::ActionNameListType>) -> Self { self.action_names = Some(input.into()); self }
-+    pub fn set_action_names(mut self, input: ::std::option::Option<super::super::super::types::ActionNameListType>) -> Self { self.action_names = input; self }
-+    pub fn get_action_names(&self) -> &::std::option::Option<super::super::super::types::ActionNameListType> { &self.action_names }
++    pub fn action_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ActionNameType>>) -> Self { self.action_names = Some(input.into()); self }
++    pub fn set_action_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ActionNameType>>) -> Self { self.action_names = input; self }
++    pub fn get_action_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ActionNameType>> { &self.action_names }
 +    pub fn caller_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ResourceNameType>) -> Self { self.caller_arn = Some(input.into()); self }
 +    pub fn set_caller_arn(mut self, input: ::std::option::Option<super::super::super::types::ResourceNameType>) -> Self { self.caller_arn = input; self }
 +    pub fn get_caller_arn(&self) -> &::std::option::Option<super::super::super::types::ResourceNameType> { &self.caller_arn }
-+    pub fn context_entries(mut self, input: impl ::std::convert::Into<super::super::super::types::ContextEntryListType>) -> Self { self.context_entries = Some(input.into()); self }
-+    pub fn set_context_entries(mut self, input: ::std::option::Option<super::super::super::types::ContextEntryListType>) -> Self { self.context_entries = input; self }
-+    pub fn get_context_entries(&self) -> &::std::option::Option<super::super::super::types::ContextEntryListType> { &self.context_entries }
++    pub fn context_entries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ContextEntry>>) -> Self { self.context_entries = Some(input.into()); self }
++    pub fn set_context_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContextEntry>>) -> Self { self.context_entries = input; self }
++    pub fn get_context_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ContextEntry>> { &self.context_entries }
 +    pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.marker = Some(input.into()); self }
 +    pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.marker = input; self }
 +    pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.marker }
 +    pub fn max_items(mut self, input: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.max_items = Some(input.into()); self }
 +    pub fn set_max_items(mut self, input: ::std::option::Option<super::super::super::types::MaxItemsType>) -> Self { self.max_items = input; self }
 +    pub fn get_max_items(&self) -> &::std::option::Option<super::super::super::types::MaxItemsType> { &self.max_items }
-+    pub fn permissions_boundary_policy_input_list(mut self, input: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.permissions_boundary_policy_input_list = Some(input.into()); self }
-+    pub fn set_permissions_boundary_policy_input_list(mut self, input: ::std::option::Option<super::super::super::types::SimulationPolicyListType>) -> Self { self.permissions_boundary_policy_input_list = input; self }
-+    pub fn get_permissions_boundary_policy_input_list(&self) -> &::std::option::Option<super::super::super::types::SimulationPolicyListType> { &self.permissions_boundary_policy_input_list }
-+    pub fn policy_exclusion_list(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyExclusionsListType>) -> Self { self.policy_exclusion_list = Some(input.into()); self }
-+    pub fn set_policy_exclusion_list(mut self, input: ::std::option::Option<super::super::super::types::PolicyExclusionsListType>) -> Self { self.policy_exclusion_list = input; self }
-+    pub fn get_policy_exclusion_list(&self) -> &::std::option::Option<super::super::super::types::PolicyExclusionsListType> { &self.policy_exclusion_list }
-+    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.policy_input_list = Some(input.into()); self }
-+    pub fn set_policy_input_list(mut self, input: ::std::option::Option<super::super::super::types::SimulationPolicyListType>) -> Self { self.policy_input_list = input; self }
-+    pub fn get_policy_input_list(&self) -> &::std::option::Option<super::super::super::types::SimulationPolicyListType> { &self.policy_input_list }
++    pub fn permissions_boundary_policy_input_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.permissions_boundary_policy_input_list = Some(input.into()); self }
++    pub fn set_permissions_boundary_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.permissions_boundary_policy_input_list = input; self }
++    pub fn get_permissions_boundary_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>> { &self.permissions_boundary_policy_input_list }
++    pub fn policy_exclusion_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyIdentifier>>) -> Self { self.policy_exclusion_list = Some(input.into()); self }
++    pub fn set_policy_exclusion_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyIdentifier>>) -> Self { self.policy_exclusion_list = input; self }
++    pub fn get_policy_exclusion_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyIdentifier>> { &self.policy_exclusion_list }
++    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.policy_input_list = Some(input.into()); self }
++    pub fn set_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.policy_input_list = input; self }
++    pub fn get_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>> { &self.policy_input_list }
 +    pub fn policy_source_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.policy_source_arn = Some(input.into()); self }
 +    pub fn set_policy_source_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.policy_source_arn = input; self }
 +    pub fn get_policy_source_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.policy_source_arn }
-+    pub fn resource_arns(mut self, input: impl ::std::convert::Into<super::super::super::types::ResourceNameListType>) -> Self { self.resource_arns = Some(input.into()); self }
-+    pub fn set_resource_arns(mut self, input: ::std::option::Option<super::super::super::types::ResourceNameListType>) -> Self { self.resource_arns = input; self }
-+    pub fn get_resource_arns(&self) -> &::std::option::Option<super::super::super::types::ResourceNameListType> { &self.resource_arns }
++    pub fn resource_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ResourceNameType>>) -> Self { self.resource_arns = Some(input.into()); self }
++    pub fn set_resource_arns(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceNameType>>) -> Self { self.resource_arns = input; self }
++    pub fn get_resource_arns(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ResourceNameType>> { &self.resource_arns }
 +    pub fn resource_handling_option(mut self, input: impl ::std::convert::Into<super::super::super::types::ResourceHandlingOptionType>) -> Self { self.resource_handling_option = Some(input.into()); self }
 +    pub fn set_resource_handling_option(mut self, input: ::std::option::Option<super::super::super::types::ResourceHandlingOptionType>) -> Self { self.resource_handling_option = input; self }
 +    pub fn get_resource_handling_option(&self) -> &::std::option::Option<super::super::super::types::ResourceHandlingOptionType> { &self.resource_handling_option }
@@ -140502,7 +140502,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>When <code>IsTruncated</code> is <code>true</code>, this element is present and contains the value to use for the <code>Marker</code> parameter in a subsequent pagination request.</p>
 -    pub marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    pub evaluation_results: ::std::option::Option<super::super::super::types::EvaluationResultsListType>,
++    pub evaluation_results: ::std::option::Option<::std::vec::Vec<super::super::super::types::EvaluationResult>>,
 +    pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -140549,7 +140549,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) is_truncated: ::std::option::Option<bool>,
 -    pub(crate) marker: ::std::option::Option<::std::string::String>,
 -    _request_id: Option<String>,
-+    evaluation_results: ::std::option::Option<super::super::super::types::EvaluationResultsListType>,
++    evaluation_results: ::std::option::Option<::std::vec::Vec<super::super::super::types::EvaluationResult>>,
 +    is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 +    marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
  }
@@ -140620,9 +140620,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            _request_id: self._request_id,
 -        }
 -    }
-+    pub fn evaluation_results(mut self, input: impl ::std::convert::Into<super::super::super::types::EvaluationResultsListType>) -> Self { self.evaluation_results = Some(input.into()); self }
-+    pub fn set_evaluation_results(mut self, input: ::std::option::Option<super::super::super::types::EvaluationResultsListType>) -> Self { self.evaluation_results = input; self }
-+    pub fn get_evaluation_results(&self) -> &::std::option::Option<super::super::super::types::EvaluationResultsListType> { &self.evaluation_results }
++    pub fn evaluation_results(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::EvaluationResult>>) -> Self { self.evaluation_results = Some(input.into()); self }
++    pub fn set_evaluation_results(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EvaluationResult>>) -> Self { self.evaluation_results = input; self }
++    pub fn get_evaluation_results(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::EvaluationResult>> { &self.evaluation_results }
 +    pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
 +    pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
 +    pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }
@@ -140709,16 +140709,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn action_names(mut self, value: impl ::std::convert::Into<super::super::super::types::ActionNameListType>) -> Self { self.input.action_names = Some(value.into()); self }
++    pub fn action_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ActionNameType>>) -> Self { self.input.action_names = Some(value.into()); self }
 +    pub fn caller_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceNameType>) -> Self { self.input.caller_arn = Some(value.into()); self }
-+    pub fn context_entries(mut self, value: impl ::std::convert::Into<super::super::super::types::ContextEntryListType>) -> Self { self.input.context_entries = Some(value.into()); self }
++    pub fn context_entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ContextEntry>>) -> Self { self.input.context_entries = Some(value.into()); self }
 +    pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
 +    pub fn max_items(mut self, value: impl ::std::convert::Into<super::super::super::types::MaxItemsType>) -> Self { self.input.max_items = Some(value.into()); self }
-+    pub fn permissions_boundary_policy_input_list(mut self, value: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.input.permissions_boundary_policy_input_list = Some(value.into()); self }
-+    pub fn policy_exclusion_list(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyExclusionsListType>) -> Self { self.input.policy_exclusion_list = Some(value.into()); self }
-+    pub fn policy_input_list(mut self, value: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.input.policy_input_list = Some(value.into()); self }
++    pub fn permissions_boundary_policy_input_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.input.permissions_boundary_policy_input_list = Some(value.into()); self }
++    pub fn policy_exclusion_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyIdentifier>>) -> Self { self.input.policy_exclusion_list = Some(value.into()); self }
++    pub fn policy_input_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.input.policy_input_list = Some(value.into()); self }
 +    pub fn policy_source_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.policy_source_arn = Some(value.into()); self }
-+    pub fn resource_arns(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceNameListType>) -> Self { self.input.resource_arns = Some(value.into()); self }
++    pub fn resource_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ResourceNameType>>) -> Self { self.input.resource_arns = Some(value.into()); self }
 +    pub fn resource_handling_option(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceHandlingOptionType>) -> Self { self.input.resource_handling_option = Some(value.into()); self }
 +    pub fn resource_owner(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourceNameType>) -> Self { self.input.resource_owner = Some(value.into()); self }
 +    pub fn resource_policy(mut self, value: impl ::std::convert::Into<super::super::super::types::PolicyDocumentType>) -> Self { self.input.resource_policy = Some(value.into()); self }
@@ -141723,7 +141723,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The list of tags that you want to attach to the IAM instance profile. Each tag consists of a key name and an associated value.</p>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    pub instance_profile_name: ::std::option::Option<super::super::super::types::InstanceProfileNameType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl TagInstanceProfileInput {
 +            pub fn instance_profile_name(&self) -> ::std::option::Option<&str> { self.instance_profile_name.as_deref() }
@@ -141758,7 +141758,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) instance_profile_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    instance_profile_name: ::std::option::Option<super::super::super::types::InstanceProfileNameType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl TagInstanceProfileInputBuilder {
 -    /// <p>The name of the IAM instance profile to which you want to add tags.</p>
@@ -141812,9 +141812,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn instance_profile_name(mut self, input: impl ::std::convert::Into<super::super::super::types::InstanceProfileNameType>) -> Self { self.instance_profile_name = Some(input.into()); self }
 +    pub fn set_instance_profile_name(mut self, input: ::std::option::Option<super::super::super::types::InstanceProfileNameType>) -> Self { self.instance_profile_name = input; self }
 +    pub fn get_instance_profile_name(&self) -> &::std::option::Option<super::super::super::types::InstanceProfileNameType> { &self.instance_profile_name }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> TagInstanceProfileInput { TagInstanceProfileInput {
 +        instance_profile_name: self.instance_profile_name,
 +        tags: self.tags,
@@ -141953,7 +141953,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn instance_profile_name(mut self, value: impl ::std::convert::Into<super::super::super::types::InstanceProfileNameType>) -> Self { self.input.instance_profile_name = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::TagInstanceProfileOutput, super::TagInstanceProfileError> {
@@ -141965,7 +141965,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::TagInstanceProfileError::Unhandled(format!("TagInstanceProfile returned HTTP {}", status)));
 +                         }
-+                         Ok(super::TagInstanceProfileOutput::default())
++                         Ok(super::TagInstanceProfileOutput)
 +                     }
  }
 -impl TagInstanceProfileFluentBuilder {
@@ -142607,7 +142607,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.tags.as_deref().unwrap_or_default()
 -    }
 +    pub serial_number: ::std::option::Option<super::super::super::types::SerialNumberType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl TagMfaDeviceInput {
 +            pub fn serial_number(&self) -> ::std::option::Option<&str> { self.serial_number.as_deref() }
@@ -142629,7 +142629,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) serial_number: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    serial_number: ::std::option::Option<super::super::super::types::SerialNumberType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl TagMfaDeviceInputBuilder {
 -    /// <p>The unique identifier for the IAM virtual MFA device to which you want to add tags. For virtual MFA devices, the serial number is the same as the ARN.</p>
@@ -142682,9 +142682,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn serial_number(mut self, input: impl ::std::convert::Into<super::super::super::types::SerialNumberType>) -> Self { self.serial_number = Some(input.into()); self }
 +    pub fn set_serial_number(mut self, input: ::std::option::Option<super::super::super::types::SerialNumberType>) -> Self { self.serial_number = input; self }
 +    pub fn get_serial_number(&self) -> &::std::option::Option<super::super::super::types::SerialNumberType> { &self.serial_number }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> TagMfaDeviceInput { TagMfaDeviceInput {
 +        serial_number: self.serial_number,
 +        tags: self.tags,
@@ -142823,7 +142823,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn serial_number(mut self, value: impl ::std::convert::Into<super::super::super::types::SerialNumberType>) -> Self { self.input.serial_number = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::TagMfaDeviceOutput, super::TagMfaDeviceError> {
@@ -142835,7 +142835,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::TagMfaDeviceError::Unhandled(format!("TagMfaDevice returned HTTP {}", status)));
 +                         }
-+                         Ok(super::TagMfaDeviceOutput::default())
++                         Ok(super::TagMfaDeviceOutput)
 +                     }
  }
 -impl TagMFADeviceFluentBuilder {
@@ -143477,7 +143477,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.tags.as_deref().unwrap_or_default()
 -    }
 +    pub open_id_connect_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl TagOpenIdConnectProviderInput {
 +            pub fn open_id_connect_provider_arn(&self) -> ::std::option::Option<&str> { self.open_id_connect_provider_arn.as_deref() }
@@ -143499,7 +143499,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) open_id_connect_provider_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    open_id_connect_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl TagOpenIdConnectProviderInputBuilder {
 -    /// <p>The ARN of the OIDC identity provider in IAM to which you want to add tags.</p>
@@ -143555,9 +143555,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn open_id_connect_provider_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.open_id_connect_provider_arn = Some(input.into()); self }
 +    pub fn set_open_id_connect_provider_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.open_id_connect_provider_arn = input; self }
 +    pub fn get_open_id_connect_provider_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.open_id_connect_provider_arn }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> TagOpenIdConnectProviderInput { TagOpenIdConnectProviderInput {
 +        open_id_connect_provider_arn: self.open_id_connect_provider_arn,
 +        tags: self.tags,
@@ -143696,7 +143696,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn open_id_connect_provider_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.open_id_connect_provider_arn = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::TagOpenIdConnectProviderOutput, super::TagOpenIdConnectProviderError> {
@@ -143708,7 +143708,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::TagOpenIdConnectProviderError::Unhandled(format!("TagOpenIdConnectProvider returned HTTP {}", status)));
 +                         }
-+                         Ok(super::TagOpenIdConnectProviderOutput::default())
++                         Ok(super::TagOpenIdConnectProviderOutput)
 +                     }
  }
 -impl TagOpenIDConnectProviderFluentBuilder {
@@ -144340,7 +144340,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The list of tags that you want to attach to the IAM customer managed policy. Each tag consists of a key name and an associated value.</p>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    pub policy_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl TagPolicyInput {
 +            pub fn policy_arn(&self) -> ::std::option::Option<&str> { self.policy_arn.as_deref() }
@@ -144375,7 +144375,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) policy_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    policy_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl TagPolicyInputBuilder {
 -    /// <p>The ARN of the IAM customer managed policy to which you want to add tags.</p>
@@ -144426,9 +144426,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn policy_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.policy_arn = Some(input.into()); self }
 +    pub fn set_policy_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.policy_arn = input; self }
 +    pub fn get_policy_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.policy_arn }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> TagPolicyInput { TagPolicyInput {
 +        policy_arn: self.policy_arn,
 +        tags: self.tags,
@@ -144561,7 +144561,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn policy_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.policy_arn = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::TagPolicyOutput, super::TagPolicyError> {
@@ -144573,7 +144573,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::TagPolicyError::Unhandled(format!("TagPolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::TagPolicyOutput::default())
++                         Ok(super::TagPolicyOutput)
 +                     }
  }
 -impl TagPolicyFluentBuilder {
@@ -145198,7 +145198,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The list of tags that you want to attach to the IAM role. Each tag consists of a key name and an associated value.</p>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    pub role_name: ::std::option::Option<super::super::super::types::RoleNameType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl TagRoleInput {
 +            pub fn role_name(&self) -> ::std::option::Option<&str> { self.role_name.as_deref() }
@@ -145233,7 +145233,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) role_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    role_name: ::std::option::Option<super::super::super::types::RoleNameType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl TagRoleInputBuilder {
 -    /// <p>The name of the IAM role to which you want to add tags.</p>
@@ -145284,9 +145284,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn role_name(mut self, input: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.role_name = Some(input.into()); self }
 +    pub fn set_role_name(mut self, input: ::std::option::Option<super::super::super::types::RoleNameType>) -> Self { self.role_name = input; self }
 +    pub fn get_role_name(&self) -> &::std::option::Option<super::super::super::types::RoleNameType> { &self.role_name }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> TagRoleInput { TagRoleInput {
 +        role_name: self.role_name,
 +        tags: self.tags,
@@ -145422,7 +145422,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn role_name(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.input.role_name = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::TagRoleOutput, super::TagRoleError> {
@@ -145434,7 +145434,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::TagRoleError::Unhandled(format!("TagRole returned HTTP {}", status)));
 +                         }
-+                         Ok(super::TagRoleOutput::default())
++                         Ok(super::TagRoleOutput)
 +                     }
  }
 -impl TagRoleFluentBuilder {
@@ -146065,7 +146065,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.tags.as_deref().unwrap_or_default()
 -    }
 +    pub saml_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl TagSamlProviderInput {
 +            pub fn saml_provider_arn(&self) -> ::std::option::Option<&str> { self.saml_provider_arn.as_deref() }
@@ -146087,7 +146087,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) saml_provider_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    saml_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl TagSamlProviderInputBuilder {
 -    /// <p>The ARN of the SAML identity provider in IAM to which you want to add tags.</p>
@@ -146140,9 +146140,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn saml_provider_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.saml_provider_arn = Some(input.into()); self }
 +    pub fn set_saml_provider_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.saml_provider_arn = input; self }
 +    pub fn get_saml_provider_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.saml_provider_arn }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> TagSamlProviderInput { TagSamlProviderInput {
 +        saml_provider_arn: self.saml_provider_arn,
 +        tags: self.tags,
@@ -146281,7 +146281,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn saml_provider_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.saml_provider_arn = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::TagSamlProviderOutput, super::TagSamlProviderError> {
@@ -146293,7 +146293,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::TagSamlProviderError::Unhandled(format!("TagSamlProvider returned HTTP {}", status)));
 +                         }
-+                         Ok(super::TagSamlProviderOutput::default())
++                         Ok(super::TagSamlProviderOutput)
 +                     }
  }
 -impl TagSAMLProviderFluentBuilder {
@@ -146922,7 +146922,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>The list of tags that you want to attach to the IAM server certificate. Each tag consists of a key name and an associated value.</p>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    pub server_certificate_name: ::std::option::Option<super::super::super::types::ServerCertificateNameType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl TagServerCertificateInput {
 +            pub fn server_certificate_name(&self) -> ::std::option::Option<&str> { self.server_certificate_name.as_deref() }
@@ -146957,7 +146957,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) server_certificate_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 +    server_certificate_name: ::std::option::Option<super::super::super::types::ServerCertificateNameType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl TagServerCertificateInputBuilder {
 -    /// <p>The name of the IAM server certificate to which you want to add tags.</p>
@@ -147011,9 +147011,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn server_certificate_name(mut self, input: impl ::std::convert::Into<super::super::super::types::ServerCertificateNameType>) -> Self { self.server_certificate_name = Some(input.into()); self }
 +    pub fn set_server_certificate_name(mut self, input: ::std::option::Option<super::super::super::types::ServerCertificateNameType>) -> Self { self.server_certificate_name = input; self }
 +    pub fn get_server_certificate_name(&self) -> &::std::option::Option<super::super::super::types::ServerCertificateNameType> { &self.server_certificate_name }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> TagServerCertificateInput { TagServerCertificateInput {
 +        server_certificate_name: self.server_certificate_name,
 +        tags: self.tags,
@@ -147156,7 +147156,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn server_certificate_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ServerCertificateNameType>) -> Self { self.input.server_certificate_name = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::TagServerCertificateOutput, super::TagServerCertificateError> {
@@ -147168,7 +147168,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::TagServerCertificateError::Unhandled(format!("TagServerCertificate returned HTTP {}", status)));
 +                         }
-+                         Ok(super::TagServerCertificateOutput::default())
++                         Ok(super::TagServerCertificateOutput)
 +                     }
  }
 -impl TagServerCertificateFluentBuilder {
@@ -147799,7 +147799,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub user_name: ::std::option::Option<::std::string::String>,
 -    /// <p>The list of tags that you want to attach to the IAM user. Each tag consists of a key name and an associated value.</p>
 -    pub tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 +    pub user_name: ::std::option::Option<super::super::super::types::ExistingUserNameType>,
  }
 +        impl TagUserInput {
@@ -147834,7 +147834,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct TagUserInputBuilder {
 -    pub(crate) user_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 +    user_name: ::std::option::Option<super::super::super::types::ExistingUserNameType>,
  }
  impl TagUserInputBuilder {
@@ -147883,9 +147883,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            tags: self.tags,
 -        })
 -    }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn user_name(mut self, input: impl ::std::convert::Into<super::super::super::types::ExistingUserNameType>) -> Self { self.user_name = Some(input.into()); self }
 +    pub fn set_user_name(mut self, input: ::std::option::Option<super::super::super::types::ExistingUserNameType>) -> Self { self.user_name = input; self }
 +    pub fn get_user_name(&self) -> &::std::option::Option<super::super::super::types::ExistingUserNameType> { &self.user_name }
@@ -148023,7 +148023,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ExistingUserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -148036,7 +148036,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::TagUserError::Unhandled(format!("TagUser returned HTTP {}", status)));
 +                         }
-+                         Ok(super::TagUserOutput::default())
++                         Ok(super::TagUserOutput)
 +                     }
  }
 -impl TagUserFluentBuilder {
@@ -148654,7 +148654,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified instance profile.</p>
 -    pub tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    pub instance_profile_name: ::std::option::Option<super::super::super::types::InstanceProfileNameType>,
-+    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
 +        impl UntagInstanceProfileInput {
 +            pub fn instance_profile_name(&self) -> ::std::option::Option<&str> { self.instance_profile_name.as_deref() }
@@ -148689,7 +148689,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) instance_profile_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    instance_profile_name: ::std::option::Option<super::super::super::types::InstanceProfileNameType>,
-+    tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
  impl UntagInstanceProfileInputBuilder {
 -    /// <p>The name of the IAM instance profile from which you want to remove tags.</p>
@@ -148743,9 +148743,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn instance_profile_name(mut self, input: impl ::std::convert::Into<super::super::super::types::InstanceProfileNameType>) -> Self { self.instance_profile_name = Some(input.into()); self }
 +    pub fn set_instance_profile_name(mut self, input: ::std::option::Option<super::super::super::types::InstanceProfileNameType>) -> Self { self.instance_profile_name = input; self }
 +    pub fn get_instance_profile_name(&self) -> &::std::option::Option<super::super::super::types::InstanceProfileNameType> { &self.instance_profile_name }
-+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = Some(input.into()); self }
-+    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = input; self }
-+    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.tag_keys }
++    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = Some(input.into()); self }
++    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = input; self }
++    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.tag_keys }
 +    pub fn build(self) -> UntagInstanceProfileInput { UntagInstanceProfileInput {
 +        instance_profile_name: self.instance_profile_name,
 +        tag_keys: self.tag_keys,
@@ -148870,7 +148870,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn instance_profile_name(mut self, value: impl ::std::convert::Into<super::super::super::types::InstanceProfileNameType>) -> Self { self.input.instance_profile_name = Some(value.into()); self }
-+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.input.tag_keys = Some(value.into()); self }
++    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.input.tag_keys = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UntagInstanceProfileOutput, super::UntagInstanceProfileError> {
@@ -148882,7 +148882,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UntagInstanceProfileError::Unhandled(format!("UntagInstanceProfile returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UntagInstanceProfileOutput::default())
++                         Ok(super::UntagInstanceProfileOutput)
 +                     }
  }
 -impl UntagInstanceProfileFluentBuilder {
@@ -149514,7 +149514,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.tag_keys.as_deref().unwrap_or_default()
 -    }
 +    pub serial_number: ::std::option::Option<super::super::super::types::SerialNumberType>,
-+    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
 +        impl UntagMfaDeviceInput {
 +            pub fn serial_number(&self) -> ::std::option::Option<&str> { self.serial_number.as_deref() }
@@ -149536,7 +149536,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) serial_number: ::std::option::Option<::std::string::String>,
 -    pub(crate) tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    serial_number: ::std::option::Option<super::super::super::types::SerialNumberType>,
-+    tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
  impl UntagMfaDeviceInputBuilder {
 -    /// <p>The unique identifier for the IAM virtual MFA device from which you want to remove tags. For virtual MFA devices, the serial number is the same as the ARN.</p>
@@ -149589,9 +149589,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn serial_number(mut self, input: impl ::std::convert::Into<super::super::super::types::SerialNumberType>) -> Self { self.serial_number = Some(input.into()); self }
 +    pub fn set_serial_number(mut self, input: ::std::option::Option<super::super::super::types::SerialNumberType>) -> Self { self.serial_number = input; self }
 +    pub fn get_serial_number(&self) -> &::std::option::Option<super::super::super::types::SerialNumberType> { &self.serial_number }
-+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = Some(input.into()); self }
-+    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = input; self }
-+    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.tag_keys }
++    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = Some(input.into()); self }
++    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = input; self }
++    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.tag_keys }
 +    pub fn build(self) -> UntagMfaDeviceInput { UntagMfaDeviceInput {
 +        serial_number: self.serial_number,
 +        tag_keys: self.tag_keys,
@@ -149716,7 +149716,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn serial_number(mut self, value: impl ::std::convert::Into<super::super::super::types::SerialNumberType>) -> Self { self.input.serial_number = Some(value.into()); self }
-+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.input.tag_keys = Some(value.into()); self }
++    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.input.tag_keys = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UntagMfaDeviceOutput, super::UntagMfaDeviceError> {
@@ -149728,7 +149728,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UntagMfaDeviceError::Unhandled(format!("UntagMfaDevice returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UntagMfaDeviceOutput::default())
++                         Ok(super::UntagMfaDeviceOutput)
 +                     }
  }
 -impl UntagMFADeviceFluentBuilder {
@@ -150357,7 +150357,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.tag_keys.as_deref().unwrap_or_default()
 -    }
 +    pub open_id_connect_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
 +        impl UntagOpenIdConnectProviderInput {
 +            pub fn open_id_connect_provider_arn(&self) -> ::std::option::Option<&str> { self.open_id_connect_provider_arn.as_deref() }
@@ -150379,7 +150379,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) open_id_connect_provider_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    open_id_connect_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
  impl UntagOpenIdConnectProviderInputBuilder {
 -    /// <p>The ARN of the OIDC provider in IAM from which you want to remove tags.</p>
@@ -150435,9 +150435,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn open_id_connect_provider_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.open_id_connect_provider_arn = Some(input.into()); self }
 +    pub fn set_open_id_connect_provider_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.open_id_connect_provider_arn = input; self }
 +    pub fn get_open_id_connect_provider_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.open_id_connect_provider_arn }
-+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = Some(input.into()); self }
-+    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = input; self }
-+    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.tag_keys }
++    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = Some(input.into()); self }
++    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = input; self }
++    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.tag_keys }
 +    pub fn build(self) -> UntagOpenIdConnectProviderInput { UntagOpenIdConnectProviderInput {
 +        open_id_connect_provider_arn: self.open_id_connect_provider_arn,
 +        tag_keys: self.tag_keys,
@@ -150562,7 +150562,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn open_id_connect_provider_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.open_id_connect_provider_arn = Some(value.into()); self }
-+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.input.tag_keys = Some(value.into()); self }
++    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.input.tag_keys = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UntagOpenIdConnectProviderOutput, super::UntagOpenIdConnectProviderError> {
@@ -150574,7 +150574,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UntagOpenIdConnectProviderError::Unhandled(format!("UntagOpenIdConnectProvider returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UntagOpenIdConnectProviderOutput::default())
++                         Ok(super::UntagOpenIdConnectProviderOutput)
 +                     }
  }
 -impl UntagOpenIDConnectProviderFluentBuilder {
@@ -151193,7 +151193,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified policy.</p>
 -    pub tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    pub policy_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
 +        impl UntagPolicyInput {
 +            pub fn policy_arn(&self) -> ::std::option::Option<&str> { self.policy_arn.as_deref() }
@@ -151228,7 +151228,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) policy_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    policy_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
  impl UntagPolicyInputBuilder {
 -    /// <p>The ARN of the IAM customer managed policy from which you want to remove tags.</p>
@@ -151279,9 +151279,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn policy_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.policy_arn = Some(input.into()); self }
 +    pub fn set_policy_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.policy_arn = input; self }
 +    pub fn get_policy_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.policy_arn }
-+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = Some(input.into()); self }
-+    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = input; self }
-+    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.tag_keys }
++    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = Some(input.into()); self }
++    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = input; self }
++    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.tag_keys }
 +    pub fn build(self) -> UntagPolicyInput { UntagPolicyInput {
 +        policy_arn: self.policy_arn,
 +        tag_keys: self.tag_keys,
@@ -151406,7 +151406,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn policy_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.policy_arn = Some(value.into()); self }
-+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.input.tag_keys = Some(value.into()); self }
++    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.input.tag_keys = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UntagPolicyOutput, super::UntagPolicyError> {
@@ -151418,7 +151418,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UntagPolicyError::Unhandled(format!("UntagPolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UntagPolicyOutput::default())
++                         Ok(super::UntagPolicyOutput)
 +                     }
  }
 -impl UntagPolicyFluentBuilder {
@@ -152034,7 +152034,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified role.</p>
 -    pub tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    pub role_name: ::std::option::Option<super::super::super::types::RoleNameType>,
-+    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
 +        impl UntagRoleInput {
 +            pub fn role_name(&self) -> ::std::option::Option<&str> { self.role_name.as_deref() }
@@ -152069,7 +152069,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) role_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    role_name: ::std::option::Option<super::super::super::types::RoleNameType>,
-+    tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
  impl UntagRoleInputBuilder {
 -    /// <p>The name of the IAM role from which you want to remove tags.</p>
@@ -152120,9 +152120,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn role_name(mut self, input: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.role_name = Some(input.into()); self }
 +    pub fn set_role_name(mut self, input: ::std::option::Option<super::super::super::types::RoleNameType>) -> Self { self.role_name = input; self }
 +    pub fn get_role_name(&self) -> &::std::option::Option<super::super::super::types::RoleNameType> { &self.role_name }
-+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = Some(input.into()); self }
-+    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = input; self }
-+    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.tag_keys }
++    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = Some(input.into()); self }
++    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = input; self }
++    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.tag_keys }
 +    pub fn build(self) -> UntagRoleInput { UntagRoleInput {
 +        role_name: self.role_name,
 +        tag_keys: self.tag_keys,
@@ -152241,7 +152241,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn role_name(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.input.role_name = Some(value.into()); self }
-+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.input.tag_keys = Some(value.into()); self }
++    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.input.tag_keys = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UntagRoleOutput, super::UntagRoleError> {
@@ -152253,7 +152253,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UntagRoleError::Unhandled(format!("UntagRole returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UntagRoleOutput::default())
++                         Ok(super::UntagRoleOutput)
 +                     }
  }
 -impl UntagRoleFluentBuilder {
@@ -152865,7 +152865,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.tag_keys.as_deref().unwrap_or_default()
 -    }
 +    pub saml_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
 +        impl UntagSamlProviderInput {
 +            pub fn saml_provider_arn(&self) -> ::std::option::Option<&str> { self.saml_provider_arn.as_deref() }
@@ -152887,7 +152887,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) saml_provider_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    saml_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
  impl UntagSamlProviderInputBuilder {
 -    /// <p>The ARN of the SAML identity provider in IAM from which you want to remove tags.</p>
@@ -152940,9 +152940,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn saml_provider_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.saml_provider_arn = Some(input.into()); self }
 +    pub fn set_saml_provider_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.saml_provider_arn = input; self }
 +    pub fn get_saml_provider_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.saml_provider_arn }
-+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = Some(input.into()); self }
-+    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = input; self }
-+    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.tag_keys }
++    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = Some(input.into()); self }
++    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = input; self }
++    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.tag_keys }
 +    pub fn build(self) -> UntagSamlProviderInput { UntagSamlProviderInput {
 +        saml_provider_arn: self.saml_provider_arn,
 +        tag_keys: self.tag_keys,
@@ -153067,7 +153067,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn saml_provider_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.saml_provider_arn = Some(value.into()); self }
-+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.input.tag_keys = Some(value.into()); self }
++    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.input.tag_keys = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UntagSamlProviderOutput, super::UntagSamlProviderError> {
@@ -153079,7 +153079,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UntagSamlProviderError::Unhandled(format!("UntagSamlProvider returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UntagSamlProviderOutput::default())
++                         Ok(super::UntagSamlProviderOutput)
 +                     }
  }
 -impl UntagSAMLProviderFluentBuilder {
@@ -153708,7 +153708,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.tag_keys.as_deref().unwrap_or_default()
 -    }
 +    pub server_certificate_name: ::std::option::Option<super::super::super::types::ServerCertificateNameType>,
-+    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
 +        impl UntagServerCertificateInput {
 +            pub fn server_certificate_name(&self) -> ::std::option::Option<&str> { self.server_certificate_name.as_deref() }
@@ -153730,7 +153730,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) server_certificate_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    server_certificate_name: ::std::option::Option<super::super::super::types::ServerCertificateNameType>,
-+    tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
  }
  impl UntagServerCertificateInputBuilder {
 -    /// <p>The name of the IAM server certificate from which you want to remove tags.</p>
@@ -153786,9 +153786,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn server_certificate_name(mut self, input: impl ::std::convert::Into<super::super::super::types::ServerCertificateNameType>) -> Self { self.server_certificate_name = Some(input.into()); self }
 +    pub fn set_server_certificate_name(mut self, input: ::std::option::Option<super::super::super::types::ServerCertificateNameType>) -> Self { self.server_certificate_name = input; self }
 +    pub fn get_server_certificate_name(&self) -> &::std::option::Option<super::super::super::types::ServerCertificateNameType> { &self.server_certificate_name }
-+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = Some(input.into()); self }
-+    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = input; self }
-+    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.tag_keys }
++    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = Some(input.into()); self }
++    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = input; self }
++    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.tag_keys }
 +    pub fn build(self) -> UntagServerCertificateInput { UntagServerCertificateInput {
 +        server_certificate_name: self.server_certificate_name,
 +        tag_keys: self.tag_keys,
@@ -153915,7 +153915,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn server_certificate_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ServerCertificateNameType>) -> Self { self.input.server_certificate_name = Some(value.into()); self }
-+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.input.tag_keys = Some(value.into()); self }
++    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.input.tag_keys = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UntagServerCertificateOutput, super::UntagServerCertificateError> {
@@ -153927,7 +153927,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UntagServerCertificateError::Unhandled(format!("UntagServerCertificate returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UntagServerCertificateOutput::default())
++                         Ok(super::UntagServerCertificateOutput)
 +                     }
  }
 -impl UntagServerCertificateFluentBuilder {
@@ -154545,7 +154545,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub user_name: ::std::option::Option<::std::string::String>,
 -    /// <p>A list of key names as a simple array of strings. The tags with matching keys are removed from the specified user.</p>
 -    pub tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-+    pub tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    pub tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
 +    pub user_name: ::std::option::Option<super::super::super::types::ExistingUserNameType>,
  }
 +        impl UntagUserInput {
@@ -154580,7 +154580,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  pub struct UntagUserInputBuilder {
 -    pub(crate) user_name: ::std::option::Option<::std::string::String>,
 -    pub(crate) tag_keys: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-+    tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
++    tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
 +    user_name: ::std::option::Option<super::super::super::types::ExistingUserNameType>,
  }
  impl UntagUserInputBuilder {
@@ -154629,9 +154629,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            tag_keys: self.tag_keys,
 -        })
 -    }
-+    pub fn tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = Some(input.into()); self }
-+    pub fn set_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.tag_keys = input; self }
-+    pub fn get_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.tag_keys }
++    pub fn tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = Some(input.into()); self }
++    pub fn set_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.tag_keys = input; self }
++    pub fn get_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.tag_keys }
 +    pub fn user_name(mut self, input: impl ::std::convert::Into<super::super::super::types::ExistingUserNameType>) -> Self { self.user_name = Some(input.into()); self }
 +    pub fn set_user_name(mut self, input: ::std::option::Option<super::super::super::types::ExistingUserNameType>) -> Self { self.user_name = input; self }
 +    pub fn get_user_name(&self) -> &::std::option::Option<super::super::super::types::ExistingUserNameType> { &self.user_name }
@@ -154752,7 +154752,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn with_client(client: super::super::super::Client) -> Self {
 +        Self { input: super::Input::default(), client }
      }
-+    pub fn tag_keys(mut self, value: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.input.tag_keys = Some(value.into()); self }
++    pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.input.tag_keys = Some(value.into()); self }
 +    pub fn user_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ExistingUserNameType>) -> Self { self.input.user_name = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
@@ -154765,7 +154765,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UntagUserError::Unhandled(format!("UntagUser returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UntagUserOutput::default())
++                         Ok(super::UntagUserOutput)
 +                     }
  }
 -impl UntagUserFluentBuilder {
@@ -155731,7 +155731,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateAccessKeyError::Unhandled(format!("UpdateAccessKey returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateAccessKeyOutput::default())
++                         Ok(super::UpdateAccessKeyOutput)
 +                     }
  }
 +pub use Builder as UpdateAccessKeyFluentBuilder;
@@ -156743,7 +156743,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateAccountPasswordPolicyError::Unhandled(format!("UpdateAccountPasswordPolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateAccountPasswordPolicyOutput::default())
++                         Ok(super::UpdateAccountPasswordPolicyOutput)
 +                     }
  }
 -impl UpdateAccountPasswordPolicyFluentBuilder {
@@ -157838,7 +157838,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateAssumeRolePolicyError::Unhandled(format!("UpdateAssumeRolePolicy returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateAssumeRolePolicyOutput::default())
++                         Ok(super::UpdateAssumeRolePolicyOutput)
 +                     }
  }
 +pub use Builder as UpdateAssumeRolePolicyFluentBuilder;
@@ -158685,7 +158685,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateDelegationRequestError::Unhandled(format!("UpdateDelegationRequest returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateDelegationRequestOutput::default())
++                         Ok(super::UpdateDelegationRequestOutput)
 +                     }
  }
 +pub use Builder as UpdateDelegationRequestFluentBuilder;
@@ -159472,7 +159472,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateGroupError::Unhandled(format!("UpdateGroup returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateGroupOutput::default())
++                         Ok(super::UpdateGroupOutput)
 +                     }
  }
 -impl UpdateGroupFluentBuilder {
@@ -160569,7 +160569,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateLoginProfileError::Unhandled(format!("UpdateLoginProfile returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateLoginProfileOutput::default())
++                         Ok(super::UpdateLoginProfileOutput)
 +                     }
  }
 +pub use Builder as UpdateLoginProfileFluentBuilder;
@@ -161100,7 +161100,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    /// <p>A list of certificate thumbprints that are associated with the specified IAM OpenID Connect provider. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html">CreateOpenIDConnectProvider</a>.</p>
 -    pub thumbprint_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    pub open_id_connect_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    pub thumbprint_list: ::std::option::Option<super::super::super::types::ThumbprintListType>,
++    pub thumbprint_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>,
  }
 +        impl UpdateOpenIdConnectProviderThumbprintInput {
 +            pub fn open_id_connect_provider_arn(&self) -> ::std::option::Option<&str> { self.open_id_connect_provider_arn.as_deref() }
@@ -161135,7 +161135,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) open_id_connect_provider_arn: ::std::option::Option<::std::string::String>,
 -    pub(crate) thumbprint_list: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
 +    open_id_connect_provider_arn: ::std::option::Option<super::super::super::types::ArnType>,
-+    thumbprint_list: ::std::option::Option<super::super::super::types::ThumbprintListType>,
++    thumbprint_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>,
  }
  impl UpdateOpenIdConnectProviderThumbprintInputBuilder {
 -    /// <p>The Amazon Resource Name (ARN) of the IAM OIDC provider resource object for which you want to update the thumbprint. You can get a list of OIDC provider ARNs by using the <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIDConnectProviders.html">ListOpenIDConnectProviders</a> operation.</p>
@@ -161193,9 +161193,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn open_id_connect_provider_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.open_id_connect_provider_arn = Some(input.into()); self }
 +    pub fn set_open_id_connect_provider_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.open_id_connect_provider_arn = input; self }
 +    pub fn get_open_id_connect_provider_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.open_id_connect_provider_arn }
-+    pub fn thumbprint_list(mut self, input: impl ::std::convert::Into<super::super::super::types::ThumbprintListType>) -> Self { self.thumbprint_list = Some(input.into()); self }
-+    pub fn set_thumbprint_list(mut self, input: ::std::option::Option<super::super::super::types::ThumbprintListType>) -> Self { self.thumbprint_list = input; self }
-+    pub fn get_thumbprint_list(&self) -> &::std::option::Option<super::super::super::types::ThumbprintListType> { &self.thumbprint_list }
++    pub fn thumbprint_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ThumbprintType>>) -> Self { self.thumbprint_list = Some(input.into()); self }
++    pub fn set_thumbprint_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>>) -> Self { self.thumbprint_list = input; self }
++    pub fn get_thumbprint_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ThumbprintType>> { &self.thumbprint_list }
 +    pub fn build(self) -> UpdateOpenIdConnectProviderThumbprintInput { UpdateOpenIdConnectProviderThumbprintInput {
 +        open_id_connect_provider_arn: self.open_id_connect_provider_arn,
 +        thumbprint_list: self.thumbprint_list,
@@ -161326,7 +161326,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        Self { input: super::Input::default(), client }
      }
 +    pub fn open_id_connect_provider_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.open_id_connect_provider_arn = Some(value.into()); self }
-+    pub fn thumbprint_list(mut self, value: impl ::std::convert::Into<super::super::super::types::ThumbprintListType>) -> Self { self.input.thumbprint_list = Some(value.into()); self }
++    pub fn thumbprint_list(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ThumbprintType>>) -> Self { self.input.thumbprint_list = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UpdateOpenIdConnectProviderThumbprintOutput, super::UpdateOpenIdConnectProviderThumbprintError> {
@@ -161338,7 +161338,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateOpenIdConnectProviderThumbprintError::Unhandled(format!("UpdateOpenIdConnectProviderThumbprint returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateOpenIdConnectProviderThumbprintOutput::default())
++                         Ok(super::UpdateOpenIdConnectProviderThumbprintOutput)
 +                     }
  }
 -impl UpdateOpenIDConnectProviderThumbprintFluentBuilder {
@@ -162232,7 +162232,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateRoleError::Unhandled(format!("UpdateRole returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateRoleOutput::default())
++                         Ok(super::UpdateRoleOutput)
 +                     }
  }
 -impl UpdateRoleFluentBuilder {
@@ -165134,7 +165134,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateServerCertificateError::Unhandled(format!("UpdateServerCertificate returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateServerCertificateOutput::default())
++                         Ok(super::UpdateServerCertificateOutput)
 +                     }
  }
 +pub use Builder as UpdateServerCertificateFluentBuilder;
@@ -166035,7 +166035,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateServiceSpecificCredentialError::Unhandled(format!("UpdateServiceSpecificCredential returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateServiceSpecificCredentialOutput::default())
++                         Ok(super::UpdateServiceSpecificCredentialOutput)
 +                     }
  }
 +pub use Builder as UpdateServiceSpecificCredentialFluentBuilder;
@@ -166789,7 +166789,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateSigningCertificateError::Unhandled(format!("UpdateSigningCertificate returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateSigningCertificateOutput::default())
++                         Ok(super::UpdateSigningCertificateOutput)
 +                     }
  }
 -impl UpdateSigningCertificateFluentBuilder {
@@ -167683,7 +167683,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateSshPublicKeyError::Unhandled(format!("UpdateSshPublicKey returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateSshPublicKeyOutput::default())
++                         Ok(super::UpdateSshPublicKeyOutput)
 +                     }
  }
 -impl UpdateSSHPublicKeyFluentBuilder {
@@ -168551,7 +168551,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +                         if !status.is_success() {
 +                             return Err(super::UpdateUserError::Unhandled(format!("UpdateUser returned HTTP {}", status)));
 +                         }
-+                         Ok(super::UpdateUserOutput::default())
++                         Ok(super::UpdateUserOutput)
 +                     }
  }
 -impl UpdateUserFluentBuilder {
@@ -169259,7 +169259,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub path: ::std::option::Option<super::super::super::types::PathType>,
 +    pub private_key: ::std::option::Option<super::super::super::types::PrivateKeyType>,
 +    pub server_certificate_name: ::std::option::Option<super::super::super::types::ServerCertificateNameType>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl UploadServerCertificateInput {
 +            pub fn certificate_body(&self) -> ::std::option::Option<&str> { self.certificate_body.as_deref() }
@@ -169366,7 +169366,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    path: ::std::option::Option<super::super::super::types::PathType>,
 +    private_key: ::std::option::Option<super::super::super::types::PrivateKeyType>,
 +    server_certificate_name: ::std::option::Option<super::super::super::types::ServerCertificateNameType>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl UploadServerCertificateInputBuilder {
 -    /// <p>The path for the server certificate. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
@@ -169604,9 +169604,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn server_certificate_name(mut self, input: impl ::std::convert::Into<super::super::super::types::ServerCertificateNameType>) -> Self { self.server_certificate_name = Some(input.into()); self }
 +    pub fn set_server_certificate_name(mut self, input: ::std::option::Option<super::super::super::types::ServerCertificateNameType>) -> Self { self.server_certificate_name = input; self }
 +    pub fn get_server_certificate_name(&self) -> &::std::option::Option<super::super::super::types::ServerCertificateNameType> { &self.server_certificate_name }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> UploadServerCertificateInput { UploadServerCertificateInput {
 +        certificate_body: self.certificate_body,
 +        certificate_chain: self.certificate_chain,
@@ -169655,7 +169655,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self._request_id.as_deref()
 -    }
 +    pub server_certificate_metadata: ::std::option::Option<super::super::super::types::ServerCertificateMetadata>,
-+    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
++    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
 +        impl UploadServerCertificateOutput {
 +            pub fn server_certificate_metadata(&self) -> ::std::option::Option<&super::super::super::types::ServerCertificateMetadata> { self.server_certificate_metadata.as_ref() }
@@ -169678,7 +169678,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -    pub(crate) tags: ::std::option::Option<::std::vec::Vec<crate::types::Tag>>,
 -    _request_id: Option<String>,
 +    server_certificate_metadata: ::std::option::Option<super::super::super::types::ServerCertificateMetadata>,
-+    tags: ::std::option::Option<super::super::super::types::TagListType>,
++    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
  }
  impl UploadServerCertificateOutputBuilder {
 -    /// <p>The meta information of the uploaded server certificate without its certificate body, certificate chain, and private key.</p>
@@ -169735,9 +169735,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn server_certificate_metadata(mut self, input: impl ::std::convert::Into<super::super::super::types::ServerCertificateMetadata>) -> Self { self.server_certificate_metadata = Some(input.into()); self }
 +    pub fn set_server_certificate_metadata(mut self, input: ::std::option::Option<super::super::super::types::ServerCertificateMetadata>) -> Self { self.server_certificate_metadata = input; self }
 +    pub fn get_server_certificate_metadata(&self) -> &::std::option::Option<super::super::super::types::ServerCertificateMetadata> { &self.server_certificate_metadata }
-+    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-+    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
++    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
++    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
++    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
 +    pub fn build(self) -> UploadServerCertificateOutput { UploadServerCertificateOutput {
 +        server_certificate_metadata: self.server_certificate_metadata,
 +        tags: self.tags,
@@ -170068,7 +170068,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub fn path(mut self, value: impl ::std::convert::Into<super::super::super::types::PathType>) -> Self { self.input.path = Some(value.into()); self }
 +    pub fn private_key(mut self, value: impl ::std::convert::Into<super::super::super::types::PrivateKeyType>) -> Self { self.input.private_key = Some(value.into()); self }
 +    pub fn server_certificate_name(mut self, value: impl ::std::convert::Into<super::super::super::types::ServerCertificateNameType>) -> Self { self.input.server_certificate_name = Some(value.into()); self }
-+    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
++    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
 +    pub fn build(self) -> super::Input { self.input }
 +                     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
 +                     pub async fn send(self) -> ::std::result::Result<super::UploadServerCertificateOutput, super::UploadServerCertificateError> {
@@ -175514,7 +175514,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct ContextEntry {
 +        pub context_key_name: ::std::option::Option<self::ContextKeyNameType>,
 +        pub context_key_type: ::std::option::Option<self::ContextKeyTypeEnum>,
-+        pub context_key_values: ::std::option::Option<self::ContextKeyValueListType>,
++        pub context_key_values: ::std::option::Option<::std::vec::Vec<self::ContextKeyValueType>>,
      }
 -}
 -impl ContextEntry {
@@ -175525,7 +175525,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn builder() -> ContextEntryBuilder { ContextEntryBuilder::default() }
 +        pub fn context_key_name(&self) -> &::std::option::Option<self::ContextKeyNameType> { &self.context_key_name }
 +        pub fn context_key_type(&self) -> &::std::option::Option<self::ContextKeyTypeEnum> { &self.context_key_type }
-+        pub fn context_key_values(&self) -> &::std::option::Option<self::ContextKeyValueListType> { &self.context_key_values }
++        pub fn context_key_values(&self) -> &::std::option::Option<::std::vec::Vec<self::ContextKeyValueType>> { &self.context_key_values }
      }
 -}
 
@@ -175555,7 +175555,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct ContextEntryBuilder {
 +        context_key_name: ::std::option::Option<self::ContextKeyNameType>,
 +        context_key_type: ::std::option::Option<self::ContextKeyTypeEnum>,
-+        context_key_values: ::std::option::Option<self::ContextKeyValueListType>,
++        context_key_values: ::std::option::Option<::std::vec::Vec<self::ContextKeyValueType>>,
      }
 -    /// Appends an item to `context_key_values`.
 -    ///
@@ -175605,9 +175605,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn context_key_type(mut self, input: impl ::std::convert::Into<self::ContextKeyTypeEnum>) -> Self { self.context_key_type = Some(input.into()); self }
 +        pub fn set_context_key_type(mut self, input: ::std::option::Option<self::ContextKeyTypeEnum>) -> Self { self.context_key_type = input; self }
 +        pub fn get_context_key_type(&self) -> &::std::option::Option<self::ContextKeyTypeEnum> { &self.context_key_type }
-+        pub fn context_key_values(mut self, input: impl ::std::convert::Into<self::ContextKeyValueListType>) -> Self { self.context_key_values = Some(input.into()); self }
-+        pub fn set_context_key_values(mut self, input: ::std::option::Option<self::ContextKeyValueListType>) -> Self { self.context_key_values = input; self }
-+        pub fn get_context_key_values(&self) -> &::std::option::Option<self::ContextKeyValueListType> { &self.context_key_values }
++        pub fn context_key_values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ContextKeyValueType>>) -> Self { self.context_key_values = Some(input.into()); self }
++        pub fn set_context_key_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::ContextKeyValueType>>) -> Self { self.context_key_values = input; self }
++        pub fn get_context_key_values(&self) -> &::std::option::Option<::std::vec::Vec<self::ContextKeyValueType>> { &self.context_key_values }
 +        pub fn build(self) -> ContextEntry {
 +            ContextEntry {
 +                context_key_name: self.context_key_name,
@@ -175881,7 +175881,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.policy_template_arn.as_deref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct DelegationPermission {
-+        pub parameters: ::std::option::Option<self::PolicyParameterListType>,
++        pub parameters: ::std::option::Option<::std::vec::Vec<self::PolicyParameter>>,
 +        pub policy_template_arn: ::std::option::Option<self::ArnType>,
      }
 -    /// <p>A list of policy parameters that define the scope and constraints of the delegated permissions.</p>
@@ -175891,7 +175891,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.parameters.as_deref().unwrap_or_default()
 +    impl DelegationPermission {
 +        pub fn builder() -> DelegationPermissionBuilder { DelegationPermissionBuilder::default() }
-+        pub fn parameters(&self) -> &::std::option::Option<self::PolicyParameterListType> { &self.parameters }
++        pub fn parameters(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyParameter>> { &self.parameters }
 +        pub fn policy_template_arn(&self) -> &::std::option::Option<self::ArnType> { &self.policy_template_arn }
      }
 -}
@@ -175945,7 +175945,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.parameters
 +    #[derive(Clone, Debug, Default)]
 +    pub struct DelegationPermissionBuilder {
-+        parameters: ::std::option::Option<self::PolicyParameterListType>,
++        parameters: ::std::option::Option<::std::vec::Vec<self::PolicyParameter>>,
 +        policy_template_arn: ::std::option::Option<self::ArnType>,
      }
 -    /// Consumes the builder and constructs a [`DelegationPermission`](crate::types::DelegationPermission).
@@ -175955,9 +175955,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            parameters: self.parameters,
 +
 +    impl DelegationPermissionBuilder {
-+        pub fn parameters(mut self, input: impl ::std::convert::Into<self::PolicyParameterListType>) -> Self { self.parameters = Some(input.into()); self }
-+        pub fn set_parameters(mut self, input: ::std::option::Option<self::PolicyParameterListType>) -> Self { self.parameters = input; self }
-+        pub fn get_parameters(&self) -> &::std::option::Option<self::PolicyParameterListType> { &self.parameters }
++        pub fn parameters(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyParameter>>) -> Self { self.parameters = Some(input.into()); self }
++        pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyParameter>>) -> Self { self.parameters = input; self }
++        pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyParameter>> { &self.parameters }
 +        pub fn policy_template_arn(mut self, input: impl ::std::convert::Into<self::ArnType>) -> Self { self.policy_template_arn = Some(input.into()); self }
 +        pub fn set_policy_template_arn(mut self, input: ::std::option::Option<self::ArnType>) -> Self { self.policy_template_arn = input; self }
 +        pub fn get_policy_template_arn(&self) -> &::std::option::Option<self::ArnType> { &self.policy_template_arn }
@@ -176125,7 +176125,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub request_message: ::std::option::Option<self::RequestMessageType>,
 +        pub requestor_id: ::std::option::Option<self::AccountIdType>,
 +        pub requestor_name: ::std::option::Option<self::RequestorNameType>,
-+        pub role_permission_restriction_arns: ::std::option::Option<self::RolePermissionRestrictionArnListType>,
++        pub role_permission_restriction_arns: ::std::option::Option<::std::vec::Vec<self::ArnType>>,
 +        pub session_duration: ::std::option::Option<self::SessionDurationType>,
 +        pub state: ::std::option::Option<self::StateType>,
 +        pub updated_time: ::std::option::Option<self::DateType>,
@@ -176161,7 +176161,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn request_message(&self) -> &::std::option::Option<self::RequestMessageType> { &self.request_message }
 +        pub fn requestor_id(&self) -> &::std::option::Option<self::AccountIdType> { &self.requestor_id }
 +        pub fn requestor_name(&self) -> &::std::option::Option<self::RequestorNameType> { &self.requestor_name }
-+        pub fn role_permission_restriction_arns(&self) -> &::std::option::Option<self::RolePermissionRestrictionArnListType> { &self.role_permission_restriction_arns }
++        pub fn role_permission_restriction_arns(&self) -> &::std::option::Option<::std::vec::Vec<self::ArnType>> { &self.role_permission_restriction_arns }
 +        pub fn session_duration(&self) -> &::std::option::Option<self::SessionDurationType> { &self.session_duration }
 +        pub fn state(&self) -> &::std::option::Option<self::StateType> { &self.state }
 +        pub fn updated_time(&self) -> &::std::option::Option<self::DateType> { &self.updated_time }
@@ -176323,7 +176323,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        request_message: ::std::option::Option<self::RequestMessageType>,
 +        requestor_id: ::std::option::Option<self::AccountIdType>,
 +        requestor_name: ::std::option::Option<self::RequestorNameType>,
-+        role_permission_restriction_arns: ::std::option::Option<self::RolePermissionRestrictionArnListType>,
++        role_permission_restriction_arns: ::std::option::Option<::std::vec::Vec<self::ArnType>>,
 +        session_duration: ::std::option::Option<self::SessionDurationType>,
 +        state: ::std::option::Option<self::StateType>,
 +        updated_time: ::std::option::Option<self::DateType>,
@@ -176587,9 +176587,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn requestor_name(mut self, input: impl ::std::convert::Into<self::RequestorNameType>) -> Self { self.requestor_name = Some(input.into()); self }
 +        pub fn set_requestor_name(mut self, input: ::std::option::Option<self::RequestorNameType>) -> Self { self.requestor_name = input; self }
 +        pub fn get_requestor_name(&self) -> &::std::option::Option<self::RequestorNameType> { &self.requestor_name }
-+        pub fn role_permission_restriction_arns(mut self, input: impl ::std::convert::Into<self::RolePermissionRestrictionArnListType>) -> Self { self.role_permission_restriction_arns = Some(input.into()); self }
-+        pub fn set_role_permission_restriction_arns(mut self, input: ::std::option::Option<self::RolePermissionRestrictionArnListType>) -> Self { self.role_permission_restriction_arns = input; self }
-+        pub fn get_role_permission_restriction_arns(&self) -> &::std::option::Option<self::RolePermissionRestrictionArnListType> { &self.role_permission_restriction_arns }
++        pub fn role_permission_restriction_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ArnType>>) -> Self { self.role_permission_restriction_arns = Some(input.into()); self }
++        pub fn set_role_permission_restriction_arns(mut self, input: ::std::option::Option<::std::vec::Vec<self::ArnType>>) -> Self { self.role_permission_restriction_arns = input; self }
++        pub fn get_role_permission_restriction_arns(&self) -> &::std::option::Option<::std::vec::Vec<self::ArnType>> { &self.role_permission_restriction_arns }
 +        pub fn session_duration(mut self, input: impl ::std::convert::Into<self::SessionDurationType>) -> Self { self.session_duration = Some(input.into()); self }
 +        pub fn set_session_duration(mut self, input: ::std::option::Option<self::SessionDurationType>) -> Self { self.session_duration = input; self }
 +        pub fn get_session_duration(&self) -> &::std::option::Option<self::SessionDurationType> { &self.session_duration }
@@ -176653,7 +176653,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct DeletionTaskFailureReasonType {
 +        pub reason: ::std::option::Option<self::ReasonType>,
-+        pub role_usage_list: ::std::option::Option<self::RoleUsageListType>,
++        pub role_usage_list: ::std::option::Option<::std::vec::Vec<self::RoleUsageType>>,
      }
 -    /// <p>A list of objects that contains details about the service-linked role deletion failure, if that information is returned by the service. If the service-linked role has active sessions or if any resources that were used by the role have not been deleted from the linked service, the role can't be deleted. This parameter includes a list of the resources that are associated with the role and the Region in which the resources are being used.</p>
 -    ///
@@ -176663,7 +176663,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl DeletionTaskFailureReasonType {
 +        pub fn builder() -> DeletionTaskFailureReasonTypeBuilder { DeletionTaskFailureReasonTypeBuilder::default() }
 +        pub fn reason(&self) -> &::std::option::Option<self::ReasonType> { &self.reason }
-+        pub fn role_usage_list(&self) -> &::std::option::Option<self::RoleUsageListType> { &self.role_usage_list }
++        pub fn role_usage_list(&self) -> &::std::option::Option<::std::vec::Vec<self::RoleUsageType>> { &self.role_usage_list }
      }
 -}
 -impl DeletionTaskFailureReasonType {
@@ -176674,7 +176674,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct DeletionTaskFailureReasonTypeBuilder {
 +        reason: ::std::option::Option<self::ReasonType>,
-+        role_usage_list: ::std::option::Option<self::RoleUsageListType>,
++        role_usage_list: ::std::option::Option<::std::vec::Vec<self::RoleUsageType>>,
      }
 -}
 
@@ -176729,9 +176729,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn reason(mut self, input: impl ::std::convert::Into<self::ReasonType>) -> Self { self.reason = Some(input.into()); self }
 +        pub fn set_reason(mut self, input: ::std::option::Option<self::ReasonType>) -> Self { self.reason = input; self }
 +        pub fn get_reason(&self) -> &::std::option::Option<self::ReasonType> { &self.reason }
-+        pub fn role_usage_list(mut self, input: impl ::std::convert::Into<self::RoleUsageListType>) -> Self { self.role_usage_list = Some(input.into()); self }
-+        pub fn set_role_usage_list(mut self, input: ::std::option::Option<self::RoleUsageListType>) -> Self { self.role_usage_list = input; self }
-+        pub fn get_role_usage_list(&self) -> &::std::option::Option<self::RoleUsageListType> { &self.role_usage_list }
++        pub fn role_usage_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::RoleUsageType>>) -> Self { self.role_usage_list = Some(input.into()); self }
++        pub fn set_role_usage_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::RoleUsageType>>) -> Self { self.role_usage_list = input; self }
++        pub fn get_role_usage_list(&self) -> &::std::option::Option<::std::vec::Vec<self::RoleUsageType>> { &self.role_usage_list }
 +        pub fn build(self) -> DeletionTaskFailureReasonType {
 +            DeletionTaskFailureReasonType {
 +                reason: self.reason,
@@ -177726,13 +177726,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct EvaluationResult {
 +        pub eval_action_name: ::std::option::Option<self::ActionNameType>,
 +        pub eval_decision: ::std::option::Option<self::PolicyEvaluationDecisionType>,
-+        pub eval_decision_details: ::std::option::Option<self::EvalDecisionDetailsType>,
++        pub eval_decision_details: ::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>>,
 +        pub eval_resource_name: ::std::option::Option<self::ResourceNameType>,
-+        pub matched_statements: ::std::option::Option<self::StatementListType>,
-+        pub missing_context_values: ::std::option::Option<self::ContextKeyNamesResultListType>,
++        pub matched_statements: ::std::option::Option<::std::vec::Vec<self::Statement>>,
++        pub missing_context_values: ::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>>,
 +        pub organizations_decision_detail: ::std::option::Option<self::OrganizationsDecisionDetail>,
 +        pub permissions_boundary_decision_detail: ::std::option::Option<self::PermissionsBoundaryDecisionDetail>,
-+        pub resource_specific_results: ::std::option::Option<self::ResourceSpecificResultListType>,
++        pub resource_specific_results: ::std::option::Option<::std::vec::Vec<self::ResourceSpecificResult>>,
      }
 -    /// <p>A list of the statements in the input policies that determine the result for this scenario. Remember that even if multiple statements allow the operation on the resource, if only one statement denies that operation, then the explicit deny overrides any allow. In addition, the deny statement is the only entry included in the result.</p>
 -    /// <p>In the top-level result, this field contains the union of matched statements across all requested resources. Only statements that contributed to the reported decision are included. For per-resource matched statements, see <code>ResourceSpecificResults</code>. This field doesn't include statements from service control policies (SCPs). Only statements from identity-based and resource-based policies appear here.</p>
@@ -177782,13 +177782,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn builder() -> EvaluationResultBuilder { EvaluationResultBuilder::default() }
 +        pub fn eval_action_name(&self) -> &::std::option::Option<self::ActionNameType> { &self.eval_action_name }
 +        pub fn eval_decision(&self) -> &::std::option::Option<self::PolicyEvaluationDecisionType> { &self.eval_decision }
-+        pub fn eval_decision_details(&self) -> &::std::option::Option<self::EvalDecisionDetailsType> { &self.eval_decision_details }
++        pub fn eval_decision_details(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>> { &self.eval_decision_details }
 +        pub fn eval_resource_name(&self) -> &::std::option::Option<self::ResourceNameType> { &self.eval_resource_name }
-+        pub fn matched_statements(&self) -> &::std::option::Option<self::StatementListType> { &self.matched_statements }
-+        pub fn missing_context_values(&self) -> &::std::option::Option<self::ContextKeyNamesResultListType> { &self.missing_context_values }
++        pub fn matched_statements(&self) -> &::std::option::Option<::std::vec::Vec<self::Statement>> { &self.matched_statements }
++        pub fn missing_context_values(&self) -> &::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>> { &self.missing_context_values }
 +        pub fn organizations_decision_detail(&self) -> &::std::option::Option<self::OrganizationsDecisionDetail> { &self.organizations_decision_detail }
 +        pub fn permissions_boundary_decision_detail(&self) -> &::std::option::Option<self::PermissionsBoundaryDecisionDetail> { &self.permissions_boundary_decision_detail }
-+        pub fn resource_specific_results(&self) -> &::std::option::Option<self::ResourceSpecificResultListType> { &self.resource_specific_results }
++        pub fn resource_specific_results(&self) -> &::std::option::Option<::std::vec::Vec<self::ResourceSpecificResult>> { &self.resource_specific_results }
      }
 -}
 
@@ -177979,13 +177979,13 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct EvaluationResultBuilder {
 +        eval_action_name: ::std::option::Option<self::ActionNameType>,
 +        eval_decision: ::std::option::Option<self::PolicyEvaluationDecisionType>,
-+        eval_decision_details: ::std::option::Option<self::EvalDecisionDetailsType>,
++        eval_decision_details: ::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>>,
 +        eval_resource_name: ::std::option::Option<self::ResourceNameType>,
-+        matched_statements: ::std::option::Option<self::StatementListType>,
-+        missing_context_values: ::std::option::Option<self::ContextKeyNamesResultListType>,
++        matched_statements: ::std::option::Option<::std::vec::Vec<self::Statement>>,
++        missing_context_values: ::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>>,
 +        organizations_decision_detail: ::std::option::Option<self::OrganizationsDecisionDetail>,
 +        permissions_boundary_decision_detail: ::std::option::Option<self::PermissionsBoundaryDecisionDetail>,
-+        resource_specific_results: ::std::option::Option<self::ResourceSpecificResultListType>,
++        resource_specific_results: ::std::option::Option<::std::vec::Vec<self::ResourceSpecificResult>>,
      }
 -    /// Appends an item to `resource_specific_results`.
 -    ///
@@ -178041,27 +178041,27 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn eval_decision(mut self, input: impl ::std::convert::Into<self::PolicyEvaluationDecisionType>) -> Self { self.eval_decision = Some(input.into()); self }
 +        pub fn set_eval_decision(mut self, input: ::std::option::Option<self::PolicyEvaluationDecisionType>) -> Self { self.eval_decision = input; self }
 +        pub fn get_eval_decision(&self) -> &::std::option::Option<self::PolicyEvaluationDecisionType> { &self.eval_decision }
-+        pub fn eval_decision_details(mut self, input: impl ::std::convert::Into<self::EvalDecisionDetailsType>) -> Self { self.eval_decision_details = Some(input.into()); self }
-+        pub fn set_eval_decision_details(mut self, input: ::std::option::Option<self::EvalDecisionDetailsType>) -> Self { self.eval_decision_details = input; self }
-+        pub fn get_eval_decision_details(&self) -> &::std::option::Option<self::EvalDecisionDetailsType> { &self.eval_decision_details }
++        pub fn eval_decision_details(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>>) -> Self { self.eval_decision_details = Some(input.into()); self }
++        pub fn set_eval_decision_details(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>>) -> Self { self.eval_decision_details = input; self }
++        pub fn get_eval_decision_details(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>> { &self.eval_decision_details }
 +        pub fn eval_resource_name(mut self, input: impl ::std::convert::Into<self::ResourceNameType>) -> Self { self.eval_resource_name = Some(input.into()); self }
 +        pub fn set_eval_resource_name(mut self, input: ::std::option::Option<self::ResourceNameType>) -> Self { self.eval_resource_name = input; self }
 +        pub fn get_eval_resource_name(&self) -> &::std::option::Option<self::ResourceNameType> { &self.eval_resource_name }
-+        pub fn matched_statements(mut self, input: impl ::std::convert::Into<self::StatementListType>) -> Self { self.matched_statements = Some(input.into()); self }
-+        pub fn set_matched_statements(mut self, input: ::std::option::Option<self::StatementListType>) -> Self { self.matched_statements = input; self }
-+        pub fn get_matched_statements(&self) -> &::std::option::Option<self::StatementListType> { &self.matched_statements }
-+        pub fn missing_context_values(mut self, input: impl ::std::convert::Into<self::ContextKeyNamesResultListType>) -> Self { self.missing_context_values = Some(input.into()); self }
-+        pub fn set_missing_context_values(mut self, input: ::std::option::Option<self::ContextKeyNamesResultListType>) -> Self { self.missing_context_values = input; self }
-+        pub fn get_missing_context_values(&self) -> &::std::option::Option<self::ContextKeyNamesResultListType> { &self.missing_context_values }
++        pub fn matched_statements(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Statement>>) -> Self { self.matched_statements = Some(input.into()); self }
++        pub fn set_matched_statements(mut self, input: ::std::option::Option<::std::vec::Vec<self::Statement>>) -> Self { self.matched_statements = input; self }
++        pub fn get_matched_statements(&self) -> &::std::option::Option<::std::vec::Vec<self::Statement>> { &self.matched_statements }
++        pub fn missing_context_values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ContextKeyNameType>>) -> Self { self.missing_context_values = Some(input.into()); self }
++        pub fn set_missing_context_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>>) -> Self { self.missing_context_values = input; self }
++        pub fn get_missing_context_values(&self) -> &::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>> { &self.missing_context_values }
 +        pub fn organizations_decision_detail(mut self, input: impl ::std::convert::Into<self::OrganizationsDecisionDetail>) -> Self { self.organizations_decision_detail = Some(input.into()); self }
 +        pub fn set_organizations_decision_detail(mut self, input: ::std::option::Option<self::OrganizationsDecisionDetail>) -> Self { self.organizations_decision_detail = input; self }
 +        pub fn get_organizations_decision_detail(&self) -> &::std::option::Option<self::OrganizationsDecisionDetail> { &self.organizations_decision_detail }
 +        pub fn permissions_boundary_decision_detail(mut self, input: impl ::std::convert::Into<self::PermissionsBoundaryDecisionDetail>) -> Self { self.permissions_boundary_decision_detail = Some(input.into()); self }
 +        pub fn set_permissions_boundary_decision_detail(mut self, input: ::std::option::Option<self::PermissionsBoundaryDecisionDetail>) -> Self { self.permissions_boundary_decision_detail = input; self }
 +        pub fn get_permissions_boundary_decision_detail(&self) -> &::std::option::Option<self::PermissionsBoundaryDecisionDetail> { &self.permissions_boundary_decision_detail }
-+        pub fn resource_specific_results(mut self, input: impl ::std::convert::Into<self::ResourceSpecificResultListType>) -> Self { self.resource_specific_results = Some(input.into()); self }
-+        pub fn set_resource_specific_results(mut self, input: ::std::option::Option<self::ResourceSpecificResultListType>) -> Self { self.resource_specific_results = input; self }
-+        pub fn get_resource_specific_results(&self) -> &::std::option::Option<self::ResourceSpecificResultListType> { &self.resource_specific_results }
++        pub fn resource_specific_results(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ResourceSpecificResult>>) -> Self { self.resource_specific_results = Some(input.into()); self }
++        pub fn set_resource_specific_results(mut self, input: ::std::option::Option<::std::vec::Vec<self::ResourceSpecificResult>>) -> Self { self.resource_specific_results = input; self }
++        pub fn get_resource_specific_results(&self) -> &::std::option::Option<::std::vec::Vec<self::ResourceSpecificResult>> { &self.resource_specific_results }
 +        pub fn build(self) -> EvaluationResult {
 +            EvaluationResult {
 +                eval_action_name: self.eval_action_name,
@@ -178634,11 +178634,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct GroupDetail {
 +        pub arn: ::std::option::Option<self::ArnType>,
-+        pub attached_managed_policies: ::std::option::Option<self::AttachedPoliciesListType>,
++        pub attached_managed_policies: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>,
 +        pub create_date: ::std::option::Option<self::DateType>,
 +        pub group_id: ::std::option::Option<self::IdType>,
 +        pub group_name: ::std::option::Option<self::GroupNameType>,
-+        pub group_policy_list: ::std::option::Option<self::PolicyDetailListType>,
++        pub group_policy_list: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>,
 +        pub path: ::std::option::Option<self::PathType>,
      }
 -    /// <p>The Amazon Resource Name (ARN). ARNs are unique identifiers for Amazon Web Services resources.</p>
@@ -178664,11 +178664,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl GroupDetail {
 +        pub fn builder() -> GroupDetailBuilder { GroupDetailBuilder::default() }
 +        pub fn arn(&self) -> &::std::option::Option<self::ArnType> { &self.arn }
-+        pub fn attached_managed_policies(&self) -> &::std::option::Option<self::AttachedPoliciesListType> { &self.attached_managed_policies }
++        pub fn attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::AttachedPolicy>> { &self.attached_managed_policies }
 +        pub fn create_date(&self) -> &::std::option::Option<self::DateType> { &self.create_date }
 +        pub fn group_id(&self) -> &::std::option::Option<self::IdType> { &self.group_id }
 +        pub fn group_name(&self) -> &::std::option::Option<self::GroupNameType> { &self.group_name }
-+        pub fn group_policy_list(&self) -> &::std::option::Option<self::PolicyDetailListType> { &self.group_policy_list }
++        pub fn group_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyDetail>> { &self.group_policy_list }
 +        pub fn path(&self) -> &::std::option::Option<self::PathType> { &self.path }
      }
 -}
@@ -178680,11 +178680,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct GroupDetailBuilder {
 +        arn: ::std::option::Option<self::ArnType>,
-+        attached_managed_policies: ::std::option::Option<self::AttachedPoliciesListType>,
++        attached_managed_policies: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>,
 +        create_date: ::std::option::Option<self::DateType>,
 +        group_id: ::std::option::Option<self::IdType>,
 +        group_name: ::std::option::Option<self::GroupNameType>,
-+        group_policy_list: ::std::option::Option<self::PolicyDetailListType>,
++        group_policy_list: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>,
 +        path: ::std::option::Option<self::PathType>,
      }
 -}
@@ -178829,9 +178829,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn arn(mut self, input: impl ::std::convert::Into<self::ArnType>) -> Self { self.arn = Some(input.into()); self }
 +        pub fn set_arn(mut self, input: ::std::option::Option<self::ArnType>) -> Self { self.arn = input; self }
 +        pub fn get_arn(&self) -> &::std::option::Option<self::ArnType> { &self.arn }
-+        pub fn attached_managed_policies(mut self, input: impl ::std::convert::Into<self::AttachedPoliciesListType>) -> Self { self.attached_managed_policies = Some(input.into()); self }
-+        pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<self::AttachedPoliciesListType>) -> Self { self.attached_managed_policies = input; self }
-+        pub fn get_attached_managed_policies(&self) -> &::std::option::Option<self::AttachedPoliciesListType> { &self.attached_managed_policies }
++        pub fn attached_managed_policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttachedPolicy>>) -> Self { self.attached_managed_policies = Some(input.into()); self }
++        pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>) -> Self { self.attached_managed_policies = input; self }
++        pub fn get_attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::AttachedPolicy>> { &self.attached_managed_policies }
 +        pub fn create_date(mut self, input: impl ::std::convert::Into<self::DateType>) -> Self { self.create_date = Some(input.into()); self }
 +        pub fn set_create_date(mut self, input: ::std::option::Option<self::DateType>) -> Self { self.create_date = input; self }
 +        pub fn get_create_date(&self) -> &::std::option::Option<self::DateType> { &self.create_date }
@@ -178841,9 +178841,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn group_name(mut self, input: impl ::std::convert::Into<self::GroupNameType>) -> Self { self.group_name = Some(input.into()); self }
 +        pub fn set_group_name(mut self, input: ::std::option::Option<self::GroupNameType>) -> Self { self.group_name = input; self }
 +        pub fn get_group_name(&self) -> &::std::option::Option<self::GroupNameType> { &self.group_name }
-+        pub fn group_policy_list(mut self, input: impl ::std::convert::Into<self::PolicyDetailListType>) -> Self { self.group_policy_list = Some(input.into()); self }
-+        pub fn set_group_policy_list(mut self, input: ::std::option::Option<self::PolicyDetailListType>) -> Self { self.group_policy_list = input; self }
-+        pub fn get_group_policy_list(&self) -> &::std::option::Option<self::PolicyDetailListType> { &self.group_policy_list }
++        pub fn group_policy_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyDetail>>) -> Self { self.group_policy_list = Some(input.into()); self }
++        pub fn set_group_policy_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>) -> Self { self.group_policy_list = input; self }
++        pub fn get_group_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyDetail>> { &self.group_policy_list }
 +        pub fn path(mut self, input: impl ::std::convert::Into<self::PathType>) -> Self { self.path = Some(input.into()); self }
 +        pub fn set_path(mut self, input: ::std::option::Option<self::PathType>) -> Self { self.path = input; self }
 +        pub fn get_path(&self) -> &::std::option::Option<self::PathType> { &self.path }
@@ -179207,8 +179207,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub instance_profile_id: ::std::option::Option<self::IdType>,
 +        pub instance_profile_name: ::std::option::Option<self::InstanceProfileNameType>,
 +        pub path: ::std::option::Option<self::PathType>,
-+        pub roles: ::std::option::Option<self::RoleListType>,
-+        pub tags: ::std::option::Option<self::TagListType>,
++        pub roles: ::std::option::Option<::std::vec::Vec<self::Role>>,
++        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
      }
 -    /// <p>The Amazon Resource Name (ARN) specifying the instance profile. For more information about ARNs and how to use them in policies, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
 -    pub fn arn(&self) -> &str {
@@ -179242,8 +179242,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn instance_profile_id(&self) -> &::std::option::Option<self::IdType> { &self.instance_profile_id }
 +        pub fn instance_profile_name(&self) -> &::std::option::Option<self::InstanceProfileNameType> { &self.instance_profile_name }
 +        pub fn path(&self) -> &::std::option::Option<self::PathType> { &self.path }
-+        pub fn roles(&self) -> &::std::option::Option<self::RoleListType> { &self.roles }
-+        pub fn tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn roles(&self) -> &::std::option::Option<::std::vec::Vec<self::Role>> { &self.roles }
++        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
      }
 -}
 
@@ -179272,8 +179272,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        instance_profile_id: ::std::option::Option<self::IdType>,
 +        instance_profile_name: ::std::option::Option<self::InstanceProfileNameType>,
 +        path: ::std::option::Option<self::PathType>,
-+        roles: ::std::option::Option<self::RoleListType>,
-+        tags: ::std::option::Option<self::TagListType>,
++        roles: ::std::option::Option<::std::vec::Vec<self::Role>>,
++        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
      }
 -    /// <p>The path to the instance profile. For more information about paths, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html">IAM identifiers</a> in the <i>IAM User Guide</i>.</p>
 -    pub fn set_path(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
@@ -179351,12 +179351,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn path(mut self, input: impl ::std::convert::Into<self::PathType>) -> Self { self.path = Some(input.into()); self }
 +        pub fn set_path(mut self, input: ::std::option::Option<self::PathType>) -> Self { self.path = input; self }
 +        pub fn get_path(&self) -> &::std::option::Option<self::PathType> { &self.path }
-+        pub fn roles(mut self, input: impl ::std::convert::Into<self::RoleListType>) -> Self { self.roles = Some(input.into()); self }
-+        pub fn set_roles(mut self, input: ::std::option::Option<self::RoleListType>) -> Self { self.roles = input; self }
-+        pub fn get_roles(&self) -> &::std::option::Option<self::RoleListType> { &self.roles }
-+        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+        pub fn set_tags(mut self, input: ::std::option::Option<self::TagListType>) -> Self { self.tags = input; self }
-+        pub fn get_tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn roles(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Role>>) -> Self { self.roles = Some(input.into()); self }
++        pub fn set_roles(mut self, input: ::std::option::Option<::std::vec::Vec<self::Role>>) -> Self { self.roles = input; self }
++        pub fn get_roles(&self) -> &::std::option::Option<::std::vec::Vec<self::Role>> { &self.roles }
++        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
++        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
++        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
 +        pub fn build(self) -> InstanceProfile {
 +            InstanceProfile {
 +                arn: self.arn,
@@ -179647,7 +179647,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.policies.as_deref().unwrap_or_default()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ListPoliciesGrantingServiceAccessEntry {
-+        pub policies: ::std::option::Option<self::PolicyGrantingServiceAccessListType>,
++        pub policies: ::std::option::Option<::std::vec::Vec<self::PolicyGrantingServiceAccess>>,
 +        pub service_namespace: ::std::option::Option<self::ServiceNamespaceType>,
      }
 -}
@@ -179657,7 +179657,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::ListPoliciesGrantingServiceAccessEntryBuilder::default()
 +    impl ListPoliciesGrantingServiceAccessEntry {
 +        pub fn builder() -> ListPoliciesGrantingServiceAccessEntryBuilder { ListPoliciesGrantingServiceAccessEntryBuilder::default() }
-+        pub fn policies(&self) -> &::std::option::Option<self::PolicyGrantingServiceAccessListType> { &self.policies }
++        pub fn policies(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyGrantingServiceAccess>> { &self.policies }
 +        pub fn service_namespace(&self) -> &::std::option::Option<self::ServiceNamespaceType> { &self.service_namespace }
      }
 -}
@@ -179683,7 +179683,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ListPoliciesGrantingServiceAccessEntryBuilder {
-+        policies: ::std::option::Option<self::PolicyGrantingServiceAccessListType>,
++        policies: ::std::option::Option<::std::vec::Vec<self::PolicyGrantingServiceAccess>>,
 +        service_namespace: ::std::option::Option<self::ServiceNamespaceType>,
      }
 -    /// <p>The namespace of the service that was accessed.</p>
@@ -179718,9 +179718,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            policies: self.policies,
 +
 +    impl ListPoliciesGrantingServiceAccessEntryBuilder {
-+        pub fn policies(mut self, input: impl ::std::convert::Into<self::PolicyGrantingServiceAccessListType>) -> Self { self.policies = Some(input.into()); self }
-+        pub fn set_policies(mut self, input: ::std::option::Option<self::PolicyGrantingServiceAccessListType>) -> Self { self.policies = input; self }
-+        pub fn get_policies(&self) -> &::std::option::Option<self::PolicyGrantingServiceAccessListType> { &self.policies }
++        pub fn policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyGrantingServiceAccess>>) -> Self { self.policies = Some(input.into()); self }
++        pub fn set_policies(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyGrantingServiceAccess>>) -> Self { self.policies = input; self }
++        pub fn get_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyGrantingServiceAccess>> { &self.policies }
 +        pub fn service_namespace(mut self, input: impl ::std::convert::Into<self::ServiceNamespaceType>) -> Self { self.service_namespace = Some(input.into()); self }
 +        pub fn set_service_namespace(mut self, input: ::std::option::Option<self::ServiceNamespaceType>) -> Self { self.service_namespace = input; self }
 +        pub fn get_service_namespace(&self) -> &::std::option::Option<self::ServiceNamespaceType> { &self.service_namespace }
@@ -180127,7 +180127,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub permissions_boundary_usage_count: ::std::option::Option<self::AttachmentCountType>,
 +        pub policy_id: ::std::option::Option<self::IdType>,
 +        pub policy_name: ::std::option::Option<self::PolicyNameType>,
-+        pub policy_version_list: ::std::option::Option<self::PolicyDocumentVersionListType>,
++        pub policy_version_list: ::std::option::Option<::std::vec::Vec<self::PolicyVersion>>,
 +        pub update_date: ::std::option::Option<self::DateType>,
      }
 -}
@@ -180147,7 +180147,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn permissions_boundary_usage_count(&self) -> &::std::option::Option<self::AttachmentCountType> { &self.permissions_boundary_usage_count }
 +        pub fn policy_id(&self) -> &::std::option::Option<self::IdType> { &self.policy_id }
 +        pub fn policy_name(&self) -> &::std::option::Option<self::PolicyNameType> { &self.policy_name }
-+        pub fn policy_version_list(&self) -> &::std::option::Option<self::PolicyDocumentVersionListType> { &self.policy_version_list }
++        pub fn policy_version_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyVersion>> { &self.policy_version_list }
 +        pub fn update_date(&self) -> &::std::option::Option<self::DateType> { &self.update_date }
      }
 -}
@@ -180283,7 +180283,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        permissions_boundary_usage_count: ::std::option::Option<self::AttachmentCountType>,
 +        policy_id: ::std::option::Option<self::IdType>,
 +        policy_name: ::std::option::Option<self::PolicyNameType>,
-+        policy_version_list: ::std::option::Option<self::PolicyDocumentVersionListType>,
++        policy_version_list: ::std::option::Option<::std::vec::Vec<self::PolicyVersion>>,
 +        update_date: ::std::option::Option<self::DateType>,
      }
 -    /// <p>The number of entities (users and roles) for which the policy is used as the permissions boundary.</p>
@@ -180423,9 +180423,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn policy_name(mut self, input: impl ::std::convert::Into<self::PolicyNameType>) -> Self { self.policy_name = Some(input.into()); self }
 +        pub fn set_policy_name(mut self, input: ::std::option::Option<self::PolicyNameType>) -> Self { self.policy_name = input; self }
 +        pub fn get_policy_name(&self) -> &::std::option::Option<self::PolicyNameType> { &self.policy_name }
-+        pub fn policy_version_list(mut self, input: impl ::std::convert::Into<self::PolicyDocumentVersionListType>) -> Self { self.policy_version_list = Some(input.into()); self }
-+        pub fn set_policy_version_list(mut self, input: ::std::option::Option<self::PolicyDocumentVersionListType>) -> Self { self.policy_version_list = input; self }
-+        pub fn get_policy_version_list(&self) -> &::std::option::Option<self::PolicyDocumentVersionListType> { &self.policy_version_list }
++        pub fn policy_version_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyVersion>>) -> Self { self.policy_version_list = Some(input.into()); self }
++        pub fn set_policy_version_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyVersion>>) -> Self { self.policy_version_list = input; self }
++        pub fn get_policy_version_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyVersion>> { &self.policy_version_list }
 +        pub fn update_date(mut self, input: impl ::std::convert::Into<self::DateType>) -> Self { self.update_date = Some(input.into()); self }
 +        pub fn set_update_date(mut self, input: ::std::option::Option<self::DateType>) -> Self { self.update_date = input; self }
 +        pub fn get_update_date(&self) -> &::std::option::Option<self::DateType> { &self.update_date }
@@ -180716,7 +180716,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.service_control_policy_input_list.as_deref().unwrap_or_default()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct OrderedOrganizationPolicyType {
-+        pub service_control_policy_input_list: ::std::option::Option<self::SimulationPolicyListType>,
++        pub service_control_policy_input_list: ::std::option::Option<::std::vec::Vec<self::PolicyDocumentType>>,
      }
 -}
 -impl OrderedOrganizationPolicyType {
@@ -180725,7 +180725,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::OrderedOrganizationPolicyTypeBuilder::default()
 +    impl OrderedOrganizationPolicyType {
 +        pub fn builder() -> OrderedOrganizationPolicyTypeBuilder { OrderedOrganizationPolicyTypeBuilder::default() }
-+        pub fn service_control_policy_input_list(&self) -> &::std::option::Option<self::SimulationPolicyListType> { &self.service_control_policy_input_list }
++        pub fn service_control_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyDocumentType>> { &self.service_control_policy_input_list }
      }
 -}
 
@@ -180757,7 +180757,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.service_control_policy_input_list
 +    #[derive(Clone, Debug, Default)]
 +    pub struct OrderedOrganizationPolicyTypeBuilder {
-+        service_control_policy_input_list: ::std::option::Option<self::SimulationPolicyListType>,
++        service_control_policy_input_list: ::std::option::Option<::std::vec::Vec<self::PolicyDocumentType>>,
      }
 -    /// Consumes the builder and constructs a [`OrderedOrganizationPolicyType`](crate::types::OrderedOrganizationPolicyType).
 -    pub fn build(self) -> crate::types::OrderedOrganizationPolicyType {
@@ -180765,9 +180765,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -            service_control_policy_input_list: self.service_control_policy_input_list,
 +
 +    impl OrderedOrganizationPolicyTypeBuilder {
-+        pub fn service_control_policy_input_list(mut self, input: impl ::std::convert::Into<self::SimulationPolicyListType>) -> Self { self.service_control_policy_input_list = Some(input.into()); self }
-+        pub fn set_service_control_policy_input_list(mut self, input: ::std::option::Option<self::SimulationPolicyListType>) -> Self { self.service_control_policy_input_list = input; self }
-+        pub fn get_service_control_policy_input_list(&self) -> &::std::option::Option<self::SimulationPolicyListType> { &self.service_control_policy_input_list }
++        pub fn service_control_policy_input_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyDocumentType>>) -> Self { self.service_control_policy_input_list = Some(input.into()); self }
++        pub fn set_service_control_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyDocumentType>>) -> Self { self.service_control_policy_input_list = input; self }
++        pub fn get_service_control_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyDocumentType>> { &self.service_control_policy_input_list }
 +        pub fn build(self) -> OrderedOrganizationPolicyType {
 +            OrderedOrganizationPolicyType {
 +                service_control_policy_input_list: self.service_control_policy_input_list,
@@ -182242,7 +182242,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub permissions_boundary_usage_count: ::std::option::Option<self::AttachmentCountType>,
 +        pub policy_id: ::std::option::Option<self::IdType>,
 +        pub policy_name: ::std::option::Option<self::PolicyNameType>,
-+        pub tags: ::std::option::Option<self::TagListType>,
++        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
 +        pub update_date: ::std::option::Option<self::DateType>,
      }
 -}
@@ -182262,7 +182262,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn permissions_boundary_usage_count(&self) -> &::std::option::Option<self::AttachmentCountType> { &self.permissions_boundary_usage_count }
 +        pub fn policy_id(&self) -> &::std::option::Option<self::IdType> { &self.policy_id }
 +        pub fn policy_name(&self) -> &::std::option::Option<self::PolicyNameType> { &self.policy_name }
-+        pub fn tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
 +        pub fn update_date(&self) -> &::std::option::Option<self::DateType> { &self.update_date }
      }
 -}
@@ -182395,7 +182395,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        permissions_boundary_usage_count: ::std::option::Option<self::AttachmentCountType>,
 +        policy_id: ::std::option::Option<self::IdType>,
 +        policy_name: ::std::option::Option<self::PolicyNameType>,
-+        tags: ::std::option::Option<self::TagListType>,
++        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
 +        update_date: ::std::option::Option<self::DateType>,
      }
 -    /// <p>The number of entities (users and roles) for which the policy is used to set the permissions boundary.</p>
@@ -182538,9 +182538,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn policy_name(mut self, input: impl ::std::convert::Into<self::PolicyNameType>) -> Self { self.policy_name = Some(input.into()); self }
 +        pub fn set_policy_name(mut self, input: ::std::option::Option<self::PolicyNameType>) -> Self { self.policy_name = input; self }
 +        pub fn get_policy_name(&self) -> &::std::option::Option<self::PolicyNameType> { &self.policy_name }
-+        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+        pub fn set_tags(mut self, input: ::std::option::Option<self::TagListType>) -> Self { self.tags = input; self }
-+        pub fn get_tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
++        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
++        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
 +        pub fn update_date(mut self, input: impl ::std::convert::Into<self::DateType>) -> Self { self.update_date = Some(input.into()); self }
 +        pub fn set_update_date(mut self, input: ::std::option::Option<self::DateType>) -> Self { self.update_date = input; self }
 +        pub fn get_update_date(&self) -> &::std::option::Option<self::DateType> { &self.update_date }
@@ -183575,7 +183575,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct PolicyParameter {
 +        pub name: ::std::option::Option<self::PolicyParameterNameType>,
 +        pub r#type: ::std::option::Option<self::PolicyParameterTypeEnum>,
-+        pub values: ::std::option::Option<self::PolicyParameterValuesListType>,
++        pub values: ::std::option::Option<::std::vec::Vec<self::PolicyParameterValueType>>,
      }
 -    /// <p>The allowed values for the policy parameter.</p>
 -    ///
@@ -183586,7 +183586,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn builder() -> PolicyParameterBuilder { PolicyParameterBuilder::default() }
 +        pub fn name(&self) -> &::std::option::Option<self::PolicyParameterNameType> { &self.name }
 +        pub fn r#type(&self) -> &::std::option::Option<self::PolicyParameterTypeEnum> { &self.r#type }
-+        pub fn values(&self) -> &::std::option::Option<self::PolicyParameterValuesListType> { &self.values }
++        pub fn values(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyParameterValueType>> { &self.values }
      }
 -    /// <p>The data type of the policy parameter value.</p>
 -    pub fn r#type(&self) -> ::std::option::Option<&crate::types::PolicyParameterTypeEnum> {
@@ -183602,7 +183602,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct PolicyParameterBuilder {
 +        name: ::std::option::Option<self::PolicyParameterNameType>,
 +        r#type: ::std::option::Option<self::PolicyParameterTypeEnum>,
-+        values: ::std::option::Option<self::PolicyParameterValuesListType>,
++        values: ::std::option::Option<::std::vec::Vec<self::PolicyParameterValueType>>,
      }
 -}
 
@@ -183676,9 +183676,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn r#type(mut self, input: impl ::std::convert::Into<self::PolicyParameterTypeEnum>) -> Self { self.r#type = Some(input.into()); self }
 +        pub fn set_type(mut self, input: ::std::option::Option<self::PolicyParameterTypeEnum>) -> Self { self.r#type = input; self }
 +        pub fn get_type(&self) -> &::std::option::Option<self::PolicyParameterTypeEnum> { &self.r#type }
-+        pub fn values(mut self, input: impl ::std::convert::Into<self::PolicyParameterValuesListType>) -> Self { self.values = Some(input.into()); self }
-+        pub fn set_values(mut self, input: ::std::option::Option<self::PolicyParameterValuesListType>) -> Self { self.values = input; self }
-+        pub fn get_values(&self) -> &::std::option::Option<self::PolicyParameterValuesListType> { &self.values }
++        pub fn values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyParameterValueType>>) -> Self { self.values = Some(input.into()); self }
++        pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyParameterValueType>>) -> Self { self.values = input; self }
++        pub fn get_values(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyParameterValueType>> { &self.values }
 +        pub fn build(self) -> PolicyParameter {
 +            PolicyParameter {
 +                name: self.name,
@@ -184949,7 +184949,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.values.deref()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ReplacementValueEntry {
-+        pub values: ::std::option::Option<self::ReplacementValueListType>,
++        pub values: ::std::option::Option<::std::vec::Vec<self::StringType>>,
      }
 -}
 -impl ReplacementValueEntry {
@@ -184958,7 +184958,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        crate::types::builders::ReplacementValueEntryBuilder::default()
 +    impl ReplacementValueEntry {
 +        pub fn builder() -> ReplacementValueEntryBuilder { ReplacementValueEntryBuilder::default() }
-+        pub fn values(&self) -> &::std::option::Option<self::ReplacementValueListType> { &self.values }
++        pub fn values(&self) -> &::std::option::Option<::std::vec::Vec<self::StringType>> { &self.values }
      }
 -}
 
@@ -184990,7 +184990,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        &self.values
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ReplacementValueEntryBuilder {
-+        values: ::std::option::Option<self::ReplacementValueListType>,
++        values: ::std::option::Option<::std::vec::Vec<self::StringType>>,
      }
 -    /// Consumes the builder and constructs a [`ReplacementValueEntry`](crate::types::ReplacementValueEntry).
 -    /// This method will fail if any of the following fields are not set:
@@ -185006,9 +185006,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        })
 +
 +    impl ReplacementValueEntryBuilder {
-+        pub fn values(mut self, input: impl ::std::convert::Into<self::ReplacementValueListType>) -> Self { self.values = Some(input.into()); self }
-+        pub fn set_values(mut self, input: ::std::option::Option<self::ReplacementValueListType>) -> Self { self.values = input; self }
-+        pub fn get_values(&self) -> &::std::option::Option<self::ReplacementValueListType> { &self.values }
++        pub fn values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::StringType>>) -> Self { self.values = Some(input.into()); self }
++        pub fn set_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::StringType>>) -> Self { self.values = input; self }
++        pub fn get_values(&self) -> &::std::option::Option<::std::vec::Vec<self::StringType>> { &self.values }
 +        pub fn build(self) -> ReplacementValueEntry {
 +            ReplacementValueEntry {
 +                values: self.values,
@@ -185332,11 +185332,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.matched_statements.as_deref().unwrap_or_default()
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ResourceSpecificResult {
-+        pub eval_decision_details: ::std::option::Option<self::EvalDecisionDetailsType>,
++        pub eval_decision_details: ::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>>,
 +        pub eval_resource_decision: ::std::option::Option<self::PolicyEvaluationDecisionType>,
 +        pub eval_resource_name: ::std::option::Option<self::ResourceNameType>,
-+        pub matched_statements: ::std::option::Option<self::StatementListType>,
-+        pub missing_context_values: ::std::option::Option<self::ContextKeyNamesResultListType>,
++        pub matched_statements: ::std::option::Option<::std::vec::Vec<self::Statement>>,
++        pub missing_context_values: ::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>>,
 +        pub permissions_boundary_decision_detail: ::std::option::Option<self::PermissionsBoundaryDecisionDetail>,
      }
 -    /// <p>A list of context keys that are required by the included input policies but that were not provided by one of the input parameters. This list is used when a list of ARNs is included in the <code>ResourceArns</code> parameter instead of "*". If you do not specify individual resources, by setting <code>ResourceArns</code> to "*" or by not including the <code>ResourceArns</code> parameter, then any missing context values are instead included under the <code>EvaluationResults</code> section. To discover the context keys used by a set of policies, you can call <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForCustomPolicy.html">GetContextKeysForCustomPolicy</a> or <a href="https://docs.aws.amazon.com/IAM/latest/APIReference/API_GetContextKeysForPrincipalPolicy.html">GetContextKeysForPrincipalPolicy</a>.</p>
@@ -185346,11 +185346,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.missing_context_values.as_deref().unwrap_or_default()
 +    impl ResourceSpecificResult {
 +        pub fn builder() -> ResourceSpecificResultBuilder { ResourceSpecificResultBuilder::default() }
-+        pub fn eval_decision_details(&self) -> &::std::option::Option<self::EvalDecisionDetailsType> { &self.eval_decision_details }
++        pub fn eval_decision_details(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>> { &self.eval_decision_details }
 +        pub fn eval_resource_decision(&self) -> &::std::option::Option<self::PolicyEvaluationDecisionType> { &self.eval_resource_decision }
 +        pub fn eval_resource_name(&self) -> &::std::option::Option<self::ResourceNameType> { &self.eval_resource_name }
-+        pub fn matched_statements(&self) -> &::std::option::Option<self::StatementListType> { &self.matched_statements }
-+        pub fn missing_context_values(&self) -> &::std::option::Option<self::ContextKeyNamesResultListType> { &self.missing_context_values }
++        pub fn matched_statements(&self) -> &::std::option::Option<::std::vec::Vec<self::Statement>> { &self.matched_statements }
++        pub fn missing_context_values(&self) -> &::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>> { &self.missing_context_values }
 +        pub fn permissions_boundary_decision_detail(&self) -> &::std::option::Option<self::PermissionsBoundaryDecisionDetail> { &self.permissions_boundary_decision_detail }
      }
 -    /// <p>Additional details about the results of the evaluation decision on a single resource. This parameter is returned only for cross-account simulations. This parameter explains how each policy type contributes to the resource-specific evaluation decision.</p>
@@ -185365,11 +185365,11 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +
 +    #[derive(Clone, Debug, Default)]
 +    pub struct ResourceSpecificResultBuilder {
-+        eval_decision_details: ::std::option::Option<self::EvalDecisionDetailsType>,
++        eval_decision_details: ::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>>,
 +        eval_resource_decision: ::std::option::Option<self::PolicyEvaluationDecisionType>,
 +        eval_resource_name: ::std::option::Option<self::ResourceNameType>,
-+        matched_statements: ::std::option::Option<self::StatementListType>,
-+        missing_context_values: ::std::option::Option<self::ContextKeyNamesResultListType>,
++        matched_statements: ::std::option::Option<::std::vec::Vec<self::Statement>>,
++        missing_context_values: ::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>>,
 +        permissions_boundary_decision_detail: ::std::option::Option<self::PermissionsBoundaryDecisionDetail>,
      }
 -}
@@ -185478,21 +185478,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -        self.eval_decision_details = ::std::option::Option::Some(hash_map);
 -        self
 +    impl ResourceSpecificResultBuilder {
-+        pub fn eval_decision_details(mut self, input: impl ::std::convert::Into<self::EvalDecisionDetailsType>) -> Self { self.eval_decision_details = Some(input.into()); self }
-+        pub fn set_eval_decision_details(mut self, input: ::std::option::Option<self::EvalDecisionDetailsType>) -> Self { self.eval_decision_details = input; self }
-+        pub fn get_eval_decision_details(&self) -> &::std::option::Option<self::EvalDecisionDetailsType> { &self.eval_decision_details }
++        pub fn eval_decision_details(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>>) -> Self { self.eval_decision_details = Some(input.into()); self }
++        pub fn set_eval_decision_details(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>>) -> Self { self.eval_decision_details = input; self }
++        pub fn get_eval_decision_details(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>> { &self.eval_decision_details }
 +        pub fn eval_resource_decision(mut self, input: impl ::std::convert::Into<self::PolicyEvaluationDecisionType>) -> Self { self.eval_resource_decision = Some(input.into()); self }
 +        pub fn set_eval_resource_decision(mut self, input: ::std::option::Option<self::PolicyEvaluationDecisionType>) -> Self { self.eval_resource_decision = input; self }
 +        pub fn get_eval_resource_decision(&self) -> &::std::option::Option<self::PolicyEvaluationDecisionType> { &self.eval_resource_decision }
 +        pub fn eval_resource_name(mut self, input: impl ::std::convert::Into<self::ResourceNameType>) -> Self { self.eval_resource_name = Some(input.into()); self }
 +        pub fn set_eval_resource_name(mut self, input: ::std::option::Option<self::ResourceNameType>) -> Self { self.eval_resource_name = input; self }
 +        pub fn get_eval_resource_name(&self) -> &::std::option::Option<self::ResourceNameType> { &self.eval_resource_name }
-+        pub fn matched_statements(mut self, input: impl ::std::convert::Into<self::StatementListType>) -> Self { self.matched_statements = Some(input.into()); self }
-+        pub fn set_matched_statements(mut self, input: ::std::option::Option<self::StatementListType>) -> Self { self.matched_statements = input; self }
-+        pub fn get_matched_statements(&self) -> &::std::option::Option<self::StatementListType> { &self.matched_statements }
-+        pub fn missing_context_values(mut self, input: impl ::std::convert::Into<self::ContextKeyNamesResultListType>) -> Self { self.missing_context_values = Some(input.into()); self }
-+        pub fn set_missing_context_values(mut self, input: ::std::option::Option<self::ContextKeyNamesResultListType>) -> Self { self.missing_context_values = input; self }
-+        pub fn get_missing_context_values(&self) -> &::std::option::Option<self::ContextKeyNamesResultListType> { &self.missing_context_values }
++        pub fn matched_statements(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Statement>>) -> Self { self.matched_statements = Some(input.into()); self }
++        pub fn set_matched_statements(mut self, input: ::std::option::Option<::std::vec::Vec<self::Statement>>) -> Self { self.matched_statements = input; self }
++        pub fn get_matched_statements(&self) -> &::std::option::Option<::std::vec::Vec<self::Statement>> { &self.matched_statements }
++        pub fn missing_context_values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ContextKeyNameType>>) -> Self { self.missing_context_values = Some(input.into()); self }
++        pub fn set_missing_context_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>>) -> Self { self.missing_context_values = input; self }
++        pub fn get_missing_context_values(&self) -> &::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>> { &self.missing_context_values }
 +        pub fn permissions_boundary_decision_detail(mut self, input: impl ::std::convert::Into<self::PermissionsBoundaryDecisionDetail>) -> Self { self.permissions_boundary_decision_detail = Some(input.into()); self }
 +        pub fn set_permissions_boundary_decision_detail(mut self, input: ::std::option::Option<self::PermissionsBoundaryDecisionDetail>) -> Self { self.permissions_boundary_decision_detail = input; self }
 +        pub fn get_permissions_boundary_decision_detail(&self) -> &::std::option::Option<self::PermissionsBoundaryDecisionDetail> { &self.permissions_boundary_decision_detail }
@@ -185646,7 +185646,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub role_last_used: ::std::option::Option<self::RoleLastUsed>,
 +        pub role_name: ::std::option::Option<self::RoleNameType>,
 +        pub source_role_template: ::std::option::Option<self::SourceRoleTemplate>,
-+        pub tags: ::std::option::Option<self::TagListType>,
++        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
      }
 -    /// <p>The maximum session duration (in seconds) for the specified role. Anyone who uses the CLI, or API to assume the role can specify the duration using the optional <code>DurationSeconds</code> API parameter or <code>duration-seconds</code> CLI parameter.</p>
 -    pub fn max_session_duration(&self) -> ::std::option::Option<i32> {
@@ -185689,7 +185689,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn role_last_used(&self) -> &::std::option::Option<self::RoleLastUsed> { &self.role_last_used }
 +        pub fn role_name(&self) -> &::std::option::Option<self::RoleNameType> { &self.role_name }
 +        pub fn source_role_template(&self) -> &::std::option::Option<self::SourceRoleTemplate> { &self.source_role_template }
-+        pub fn tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
      }
 -}
 
@@ -185803,7 +185803,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        role_last_used: ::std::option::Option<self::RoleLastUsed>,
 +        role_name: ::std::option::Option<self::RoleNameType>,
 +        source_role_template: ::std::option::Option<self::SourceRoleTemplate>,
-+        tags: ::std::option::Option<self::TagListType>,
++        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
      }
 -    /// <p>The policy that grants an entity permission to assume the role.</p>
 -    pub fn set_assume_role_policy_document(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
@@ -185986,9 +185986,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn source_role_template(mut self, input: impl ::std::convert::Into<self::SourceRoleTemplate>) -> Self { self.source_role_template = Some(input.into()); self }
 +        pub fn set_source_role_template(mut self, input: ::std::option::Option<self::SourceRoleTemplate>) -> Self { self.source_role_template = input; self }
 +        pub fn get_source_role_template(&self) -> &::std::option::Option<self::SourceRoleTemplate> { &self.source_role_template }
-+        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+        pub fn set_tags(mut self, input: ::std::option::Option<self::TagListType>) -> Self { self.tags = input; self }
-+        pub fn get_tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
++        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
++        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
 +        pub fn build(self) -> Role {
 +            Role {
 +                arn: self.arn,
@@ -186058,16 +186058,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct RoleDetail {
 +        pub arn: ::std::option::Option<self::ArnType>,
 +        pub assume_role_policy_document: ::std::option::Option<self::PolicyDocumentType>,
-+        pub attached_managed_policies: ::std::option::Option<self::AttachedPoliciesListType>,
++        pub attached_managed_policies: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>,
 +        pub create_date: ::std::option::Option<self::DateType>,
-+        pub instance_profile_list: ::std::option::Option<self::InstanceProfileListType>,
++        pub instance_profile_list: ::std::option::Option<::std::vec::Vec<self::InstanceProfile>>,
 +        pub path: ::std::option::Option<self::PathType>,
 +        pub permissions_boundary: ::std::option::Option<self::AttachedPermissionsBoundary>,
 +        pub role_id: ::std::option::Option<self::IdType>,
 +        pub role_last_used: ::std::option::Option<self::RoleLastUsed>,
 +        pub role_name: ::std::option::Option<self::RoleNameType>,
-+        pub role_policy_list: ::std::option::Option<self::PolicyDetailListType>,
-+        pub tags: ::std::option::Option<self::TagListType>,
++        pub role_policy_list: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>,
++        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
      }
 -    /// <p>The friendly name that identifies the role.</p>
 -    pub fn role_name(&self) -> ::std::option::Option<&str> {
@@ -186093,16 +186093,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn builder() -> RoleDetailBuilder { RoleDetailBuilder::default() }
 +        pub fn arn(&self) -> &::std::option::Option<self::ArnType> { &self.arn }
 +        pub fn assume_role_policy_document(&self) -> &::std::option::Option<self::PolicyDocumentType> { &self.assume_role_policy_document }
-+        pub fn attached_managed_policies(&self) -> &::std::option::Option<self::AttachedPoliciesListType> { &self.attached_managed_policies }
++        pub fn attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::AttachedPolicy>> { &self.attached_managed_policies }
 +        pub fn create_date(&self) -> &::std::option::Option<self::DateType> { &self.create_date }
-+        pub fn instance_profile_list(&self) -> &::std::option::Option<self::InstanceProfileListType> { &self.instance_profile_list }
++        pub fn instance_profile_list(&self) -> &::std::option::Option<::std::vec::Vec<self::InstanceProfile>> { &self.instance_profile_list }
 +        pub fn path(&self) -> &::std::option::Option<self::PathType> { &self.path }
 +        pub fn permissions_boundary(&self) -> &::std::option::Option<self::AttachedPermissionsBoundary> { &self.permissions_boundary }
 +        pub fn role_id(&self) -> &::std::option::Option<self::IdType> { &self.role_id }
 +        pub fn role_last_used(&self) -> &::std::option::Option<self::RoleLastUsed> { &self.role_last_used }
 +        pub fn role_name(&self) -> &::std::option::Option<self::RoleNameType> { &self.role_name }
-+        pub fn role_policy_list(&self) -> &::std::option::Option<self::PolicyDetailListType> { &self.role_policy_list }
-+        pub fn tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn role_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyDetail>> { &self.role_policy_list }
++        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
      }
 -    /// <p>A list of instance profiles that contain this role.</p>
 -    ///
@@ -186141,16 +186141,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub struct RoleDetailBuilder {
 +        arn: ::std::option::Option<self::ArnType>,
 +        assume_role_policy_document: ::std::option::Option<self::PolicyDocumentType>,
-+        attached_managed_policies: ::std::option::Option<self::AttachedPoliciesListType>,
++        attached_managed_policies: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>,
 +        create_date: ::std::option::Option<self::DateType>,
-+        instance_profile_list: ::std::option::Option<self::InstanceProfileListType>,
++        instance_profile_list: ::std::option::Option<::std::vec::Vec<self::InstanceProfile>>,
 +        path: ::std::option::Option<self::PathType>,
 +        permissions_boundary: ::std::option::Option<self::AttachedPermissionsBoundary>,
 +        role_id: ::std::option::Option<self::IdType>,
 +        role_last_used: ::std::option::Option<self::RoleLastUsed>,
 +        role_name: ::std::option::Option<self::RoleNameType>,
-+        role_policy_list: ::std::option::Option<self::PolicyDetailListType>,
-+        tags: ::std::option::Option<self::TagListType>,
++        role_policy_list: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>,
++        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
      }
 -}
 -impl RoleDetail {
@@ -186398,15 +186398,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn assume_role_policy_document(mut self, input: impl ::std::convert::Into<self::PolicyDocumentType>) -> Self { self.assume_role_policy_document = Some(input.into()); self }
 +        pub fn set_assume_role_policy_document(mut self, input: ::std::option::Option<self::PolicyDocumentType>) -> Self { self.assume_role_policy_document = input; self }
 +        pub fn get_assume_role_policy_document(&self) -> &::std::option::Option<self::PolicyDocumentType> { &self.assume_role_policy_document }
-+        pub fn attached_managed_policies(mut self, input: impl ::std::convert::Into<self::AttachedPoliciesListType>) -> Self { self.attached_managed_policies = Some(input.into()); self }
-+        pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<self::AttachedPoliciesListType>) -> Self { self.attached_managed_policies = input; self }
-+        pub fn get_attached_managed_policies(&self) -> &::std::option::Option<self::AttachedPoliciesListType> { &self.attached_managed_policies }
++        pub fn attached_managed_policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttachedPolicy>>) -> Self { self.attached_managed_policies = Some(input.into()); self }
++        pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>) -> Self { self.attached_managed_policies = input; self }
++        pub fn get_attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::AttachedPolicy>> { &self.attached_managed_policies }
 +        pub fn create_date(mut self, input: impl ::std::convert::Into<self::DateType>) -> Self { self.create_date = Some(input.into()); self }
 +        pub fn set_create_date(mut self, input: ::std::option::Option<self::DateType>) -> Self { self.create_date = input; self }
 +        pub fn get_create_date(&self) -> &::std::option::Option<self::DateType> { &self.create_date }
-+        pub fn instance_profile_list(mut self, input: impl ::std::convert::Into<self::InstanceProfileListType>) -> Self { self.instance_profile_list = Some(input.into()); self }
-+        pub fn set_instance_profile_list(mut self, input: ::std::option::Option<self::InstanceProfileListType>) -> Self { self.instance_profile_list = input; self }
-+        pub fn get_instance_profile_list(&self) -> &::std::option::Option<self::InstanceProfileListType> { &self.instance_profile_list }
++        pub fn instance_profile_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::InstanceProfile>>) -> Self { self.instance_profile_list = Some(input.into()); self }
++        pub fn set_instance_profile_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::InstanceProfile>>) -> Self { self.instance_profile_list = input; self }
++        pub fn get_instance_profile_list(&self) -> &::std::option::Option<::std::vec::Vec<self::InstanceProfile>> { &self.instance_profile_list }
 +        pub fn path(mut self, input: impl ::std::convert::Into<self::PathType>) -> Self { self.path = Some(input.into()); self }
 +        pub fn set_path(mut self, input: ::std::option::Option<self::PathType>) -> Self { self.path = input; self }
 +        pub fn get_path(&self) -> &::std::option::Option<self::PathType> { &self.path }
@@ -186422,12 +186422,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn role_name(mut self, input: impl ::std::convert::Into<self::RoleNameType>) -> Self { self.role_name = Some(input.into()); self }
 +        pub fn set_role_name(mut self, input: ::std::option::Option<self::RoleNameType>) -> Self { self.role_name = input; self }
 +        pub fn get_role_name(&self) -> &::std::option::Option<self::RoleNameType> { &self.role_name }
-+        pub fn role_policy_list(mut self, input: impl ::std::convert::Into<self::PolicyDetailListType>) -> Self { self.role_policy_list = Some(input.into()); self }
-+        pub fn set_role_policy_list(mut self, input: ::std::option::Option<self::PolicyDetailListType>) -> Self { self.role_policy_list = input; self }
-+        pub fn get_role_policy_list(&self) -> &::std::option::Option<self::PolicyDetailListType> { &self.role_policy_list }
-+        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+        pub fn set_tags(mut self, input: ::std::option::Option<self::TagListType>) -> Self { self.tags = input; self }
-+        pub fn get_tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn role_policy_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyDetail>>) -> Self { self.role_policy_list = Some(input.into()); self }
++        pub fn set_role_policy_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>) -> Self { self.role_policy_list = input; self }
++        pub fn get_role_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyDetail>> { &self.role_policy_list }
++        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
++        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
++        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
 +        pub fn build(self) -> RoleDetail {
 +            RoleDetail {
 +                arn: self.arn,
@@ -186642,19 +186642,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub default_minor_version: ::std::option::Option<self::MinorVersionType>,
 +        pub description: ::std::option::Option<self::RoleTemplateDescriptionType>,
 +        pub enabled: ::std::option::Option<self::BooleanType>,
-+        pub inline_policy_templates: ::std::option::Option<self::InlinePolicyTemplateListType>,
++        pub inline_policy_templates: ::std::option::Option<::std::vec::Vec<self::InlinePolicy>>,
 +        pub major_version: ::std::option::Option<self::IntegerType>,
 +        pub managed_by_type: ::std::option::Option<self::ManagedByTypeType>,
 +        pub managed_by_value: ::std::option::Option<self::ManagedByValueType>,
-+        pub managed_policy_arns: ::std::option::Option<self::ManagedPolicyArnListType>,
++        pub managed_policy_arns: ::std::option::Option<::std::vec::Vec<self::ArnType>>,
 +        pub max_session_duration: ::std::option::Option<self::RoleMaxSessionDurationType>,
 +        pub minor_version: ::std::option::Option<self::MinorVersionType>,
-+        pub parameters_definition: ::std::option::Option<self::ParametersDefinitionListType>,
++        pub parameters_definition: ::std::option::Option<::std::vec::Vec<self::ParameterDefinition>>,
 +        pub permission_boundary_arn: ::std::option::Option<self::ArnType>,
 +        pub role_description_pattern: ::std::option::Option<self::RoleDescriptionPatternType>,
 +        pub role_name_pattern: ::std::option::Option<self::RoleNamePatternType>,
 +        pub role_path_pattern: ::std::option::Option<self::RolePathPatternType>,
-+        pub role_tags_template: ::std::option::Option<self::TagTemplateListType>,
++        pub role_tags_template: ::std::option::Option<::std::vec::Vec<self::TagTemplate>>,
 +        pub template_arn: ::std::option::Option<self::ArnType>,
 +        pub template_name: ::std::option::Option<self::RoleTemplateNameType>,
 +        pub template_version_id: ::std::option::Option<self::IdType>,
@@ -186762,19 +186762,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn default_minor_version(&self) -> &::std::option::Option<self::MinorVersionType> { &self.default_minor_version }
 +        pub fn description(&self) -> &::std::option::Option<self::RoleTemplateDescriptionType> { &self.description }
 +        pub fn enabled(&self) -> &::std::option::Option<self::BooleanType> { &self.enabled }
-+        pub fn inline_policy_templates(&self) -> &::std::option::Option<self::InlinePolicyTemplateListType> { &self.inline_policy_templates }
++        pub fn inline_policy_templates(&self) -> &::std::option::Option<::std::vec::Vec<self::InlinePolicy>> { &self.inline_policy_templates }
 +        pub fn major_version(&self) -> &::std::option::Option<self::IntegerType> { &self.major_version }
 +        pub fn managed_by_type(&self) -> &::std::option::Option<self::ManagedByTypeType> { &self.managed_by_type }
 +        pub fn managed_by_value(&self) -> &::std::option::Option<self::ManagedByValueType> { &self.managed_by_value }
-+        pub fn managed_policy_arns(&self) -> &::std::option::Option<self::ManagedPolicyArnListType> { &self.managed_policy_arns }
++        pub fn managed_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<self::ArnType>> { &self.managed_policy_arns }
 +        pub fn max_session_duration(&self) -> &::std::option::Option<self::RoleMaxSessionDurationType> { &self.max_session_duration }
 +        pub fn minor_version(&self) -> &::std::option::Option<self::MinorVersionType> { &self.minor_version }
-+        pub fn parameters_definition(&self) -> &::std::option::Option<self::ParametersDefinitionListType> { &self.parameters_definition }
++        pub fn parameters_definition(&self) -> &::std::option::Option<::std::vec::Vec<self::ParameterDefinition>> { &self.parameters_definition }
 +        pub fn permission_boundary_arn(&self) -> &::std::option::Option<self::ArnType> { &self.permission_boundary_arn }
 +        pub fn role_description_pattern(&self) -> &::std::option::Option<self::RoleDescriptionPatternType> { &self.role_description_pattern }
 +        pub fn role_name_pattern(&self) -> &::std::option::Option<self::RoleNamePatternType> { &self.role_name_pattern }
 +        pub fn role_path_pattern(&self) -> &::std::option::Option<self::RolePathPatternType> { &self.role_path_pattern }
-+        pub fn role_tags_template(&self) -> &::std::option::Option<self::TagTemplateListType> { &self.role_tags_template }
++        pub fn role_tags_template(&self) -> &::std::option::Option<::std::vec::Vec<self::TagTemplate>> { &self.role_tags_template }
 +        pub fn template_arn(&self) -> &::std::option::Option<self::ArnType> { &self.template_arn }
 +        pub fn template_name(&self) -> &::std::option::Option<self::RoleTemplateNameType> { &self.template_name }
 +        pub fn template_version_id(&self) -> &::std::option::Option<self::IdType> { &self.template_version_id }
@@ -186824,19 +186824,19 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        default_minor_version: ::std::option::Option<self::MinorVersionType>,
 +        description: ::std::option::Option<self::RoleTemplateDescriptionType>,
 +        enabled: ::std::option::Option<self::BooleanType>,
-+        inline_policy_templates: ::std::option::Option<self::InlinePolicyTemplateListType>,
++        inline_policy_templates: ::std::option::Option<::std::vec::Vec<self::InlinePolicy>>,
 +        major_version: ::std::option::Option<self::IntegerType>,
 +        managed_by_type: ::std::option::Option<self::ManagedByTypeType>,
 +        managed_by_value: ::std::option::Option<self::ManagedByValueType>,
-+        managed_policy_arns: ::std::option::Option<self::ManagedPolicyArnListType>,
++        managed_policy_arns: ::std::option::Option<::std::vec::Vec<self::ArnType>>,
 +        max_session_duration: ::std::option::Option<self::RoleMaxSessionDurationType>,
 +        minor_version: ::std::option::Option<self::MinorVersionType>,
-+        parameters_definition: ::std::option::Option<self::ParametersDefinitionListType>,
++        parameters_definition: ::std::option::Option<::std::vec::Vec<self::ParameterDefinition>>,
 +        permission_boundary_arn: ::std::option::Option<self::ArnType>,
 +        role_description_pattern: ::std::option::Option<self::RoleDescriptionPatternType>,
 +        role_name_pattern: ::std::option::Option<self::RoleNamePatternType>,
 +        role_path_pattern: ::std::option::Option<self::RolePathPatternType>,
-+        role_tags_template: ::std::option::Option<self::TagTemplateListType>,
++        role_tags_template: ::std::option::Option<::std::vec::Vec<self::TagTemplate>>,
 +        template_arn: ::std::option::Option<self::ArnType>,
 +        template_name: ::std::option::Option<self::RoleTemplateNameType>,
 +        template_version_id: ::std::option::Option<self::IdType>,
@@ -187232,9 +187232,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn enabled(mut self, input: impl ::std::convert::Into<self::BooleanType>) -> Self { self.enabled = Some(input.into()); self }
 +        pub fn set_enabled(mut self, input: ::std::option::Option<self::BooleanType>) -> Self { self.enabled = input; self }
 +        pub fn get_enabled(&self) -> &::std::option::Option<self::BooleanType> { &self.enabled }
-+        pub fn inline_policy_templates(mut self, input: impl ::std::convert::Into<self::InlinePolicyTemplateListType>) -> Self { self.inline_policy_templates = Some(input.into()); self }
-+        pub fn set_inline_policy_templates(mut self, input: ::std::option::Option<self::InlinePolicyTemplateListType>) -> Self { self.inline_policy_templates = input; self }
-+        pub fn get_inline_policy_templates(&self) -> &::std::option::Option<self::InlinePolicyTemplateListType> { &self.inline_policy_templates }
++        pub fn inline_policy_templates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::InlinePolicy>>) -> Self { self.inline_policy_templates = Some(input.into()); self }
++        pub fn set_inline_policy_templates(mut self, input: ::std::option::Option<::std::vec::Vec<self::InlinePolicy>>) -> Self { self.inline_policy_templates = input; self }
++        pub fn get_inline_policy_templates(&self) -> &::std::option::Option<::std::vec::Vec<self::InlinePolicy>> { &self.inline_policy_templates }
 +        pub fn major_version(mut self, input: impl ::std::convert::Into<self::IntegerType>) -> Self { self.major_version = Some(input.into()); self }
 +        pub fn set_major_version(mut self, input: ::std::option::Option<self::IntegerType>) -> Self { self.major_version = input; self }
 +        pub fn get_major_version(&self) -> &::std::option::Option<self::IntegerType> { &self.major_version }
@@ -187244,18 +187244,18 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn managed_by_value(mut self, input: impl ::std::convert::Into<self::ManagedByValueType>) -> Self { self.managed_by_value = Some(input.into()); self }
 +        pub fn set_managed_by_value(mut self, input: ::std::option::Option<self::ManagedByValueType>) -> Self { self.managed_by_value = input; self }
 +        pub fn get_managed_by_value(&self) -> &::std::option::Option<self::ManagedByValueType> { &self.managed_by_value }
-+        pub fn managed_policy_arns(mut self, input: impl ::std::convert::Into<self::ManagedPolicyArnListType>) -> Self { self.managed_policy_arns = Some(input.into()); self }
-+        pub fn set_managed_policy_arns(mut self, input: ::std::option::Option<self::ManagedPolicyArnListType>) -> Self { self.managed_policy_arns = input; self }
-+        pub fn get_managed_policy_arns(&self) -> &::std::option::Option<self::ManagedPolicyArnListType> { &self.managed_policy_arns }
++        pub fn managed_policy_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ArnType>>) -> Self { self.managed_policy_arns = Some(input.into()); self }
++        pub fn set_managed_policy_arns(mut self, input: ::std::option::Option<::std::vec::Vec<self::ArnType>>) -> Self { self.managed_policy_arns = input; self }
++        pub fn get_managed_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<self::ArnType>> { &self.managed_policy_arns }
 +        pub fn max_session_duration(mut self, input: impl ::std::convert::Into<self::RoleMaxSessionDurationType>) -> Self { self.max_session_duration = Some(input.into()); self }
 +        pub fn set_max_session_duration(mut self, input: ::std::option::Option<self::RoleMaxSessionDurationType>) -> Self { self.max_session_duration = input; self }
 +        pub fn get_max_session_duration(&self) -> &::std::option::Option<self::RoleMaxSessionDurationType> { &self.max_session_duration }
 +        pub fn minor_version(mut self, input: impl ::std::convert::Into<self::MinorVersionType>) -> Self { self.minor_version = Some(input.into()); self }
 +        pub fn set_minor_version(mut self, input: ::std::option::Option<self::MinorVersionType>) -> Self { self.minor_version = input; self }
 +        pub fn get_minor_version(&self) -> &::std::option::Option<self::MinorVersionType> { &self.minor_version }
-+        pub fn parameters_definition(mut self, input: impl ::std::convert::Into<self::ParametersDefinitionListType>) -> Self { self.parameters_definition = Some(input.into()); self }
-+        pub fn set_parameters_definition(mut self, input: ::std::option::Option<self::ParametersDefinitionListType>) -> Self { self.parameters_definition = input; self }
-+        pub fn get_parameters_definition(&self) -> &::std::option::Option<self::ParametersDefinitionListType> { &self.parameters_definition }
++        pub fn parameters_definition(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ParameterDefinition>>) -> Self { self.parameters_definition = Some(input.into()); self }
++        pub fn set_parameters_definition(mut self, input: ::std::option::Option<::std::vec::Vec<self::ParameterDefinition>>) -> Self { self.parameters_definition = input; self }
++        pub fn get_parameters_definition(&self) -> &::std::option::Option<::std::vec::Vec<self::ParameterDefinition>> { &self.parameters_definition }
 +        pub fn permission_boundary_arn(mut self, input: impl ::std::convert::Into<self::ArnType>) -> Self { self.permission_boundary_arn = Some(input.into()); self }
 +        pub fn set_permission_boundary_arn(mut self, input: ::std::option::Option<self::ArnType>) -> Self { self.permission_boundary_arn = input; self }
 +        pub fn get_permission_boundary_arn(&self) -> &::std::option::Option<self::ArnType> { &self.permission_boundary_arn }
@@ -187268,9 +187268,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn role_path_pattern(mut self, input: impl ::std::convert::Into<self::RolePathPatternType>) -> Self { self.role_path_pattern = Some(input.into()); self }
 +        pub fn set_role_path_pattern(mut self, input: ::std::option::Option<self::RolePathPatternType>) -> Self { self.role_path_pattern = input; self }
 +        pub fn get_role_path_pattern(&self) -> &::std::option::Option<self::RolePathPatternType> { &self.role_path_pattern }
-+        pub fn role_tags_template(mut self, input: impl ::std::convert::Into<self::TagTemplateListType>) -> Self { self.role_tags_template = Some(input.into()); self }
-+        pub fn set_role_tags_template(mut self, input: ::std::option::Option<self::TagTemplateListType>) -> Self { self.role_tags_template = input; self }
-+        pub fn get_role_tags_template(&self) -> &::std::option::Option<self::TagTemplateListType> { &self.role_tags_template }
++        pub fn role_tags_template(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::TagTemplate>>) -> Self { self.role_tags_template = Some(input.into()); self }
++        pub fn set_role_tags_template(mut self, input: ::std::option::Option<::std::vec::Vec<self::TagTemplate>>) -> Self { self.role_tags_template = input; self }
++        pub fn get_role_tags_template(&self) -> &::std::option::Option<::std::vec::Vec<self::TagTemplate>> { &self.role_tags_template }
 +        pub fn template_arn(mut self, input: impl ::std::convert::Into<self::ArnType>) -> Self { self.template_arn = Some(input.into()); self }
 +        pub fn set_template_arn(mut self, input: ::std::option::Option<self::ArnType>) -> Self { self.template_arn = input; self }
 +        pub fn get_template_arn(&self) -> &::std::option::Option<self::ArnType> { &self.template_arn }
@@ -187343,7 +187343,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct RoleUsageType {
 +        pub region: ::std::option::Option<self::RegionNameType>,
-+        pub resources: ::std::option::Option<self::ArnListType>,
++        pub resources: ::std::option::Option<::std::vec::Vec<self::ArnType>>,
      }
 -    /// <p>The name of the resource that is using the service-linked role.</p>
 -    ///
@@ -187353,7 +187353,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl RoleUsageType {
 +        pub fn builder() -> RoleUsageTypeBuilder { RoleUsageTypeBuilder::default() }
 +        pub fn region(&self) -> &::std::option::Option<self::RegionNameType> { &self.region }
-+        pub fn resources(&self) -> &::std::option::Option<self::ArnListType> { &self.resources }
++        pub fn resources(&self) -> &::std::option::Option<::std::vec::Vec<self::ArnType>> { &self.resources }
      }
 -}
 -impl RoleUsageType {
@@ -187364,7 +187364,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct RoleUsageTypeBuilder {
 +        region: ::std::option::Option<self::RegionNameType>,
-+        resources: ::std::option::Option<self::ArnListType>,
++        resources: ::std::option::Option<::std::vec::Vec<self::ArnType>>,
      }
 -}
 
@@ -187419,9 +187419,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn region(mut self, input: impl ::std::convert::Into<self::RegionNameType>) -> Self { self.region = Some(input.into()); self }
 +        pub fn set_region(mut self, input: ::std::option::Option<self::RegionNameType>) -> Self { self.region = input; self }
 +        pub fn get_region(&self) -> &::std::option::Option<self::RegionNameType> { &self.region }
-+        pub fn resources(mut self, input: impl ::std::convert::Into<self::ArnListType>) -> Self { self.resources = Some(input.into()); self }
-+        pub fn set_resources(mut self, input: ::std::option::Option<self::ArnListType>) -> Self { self.resources = input; self }
-+        pub fn get_resources(&self) -> &::std::option::Option<self::ArnListType> { &self.resources }
++        pub fn resources(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ArnType>>) -> Self { self.resources = Some(input.into()); self }
++        pub fn set_resources(mut self, input: ::std::option::Option<::std::vec::Vec<self::ArnType>>) -> Self { self.resources = input; self }
++        pub fn get_resources(&self) -> &::std::option::Option<::std::vec::Vec<self::ArnType>> { &self.resources }
 +        pub fn build(self) -> RoleUsageType {
 +            RoleUsageType {
 +                region: self.region,
@@ -187715,7 +187715,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub certificate_body: ::std::option::Option<self::CertificateBodyType>,
 +        pub certificate_chain: ::std::option::Option<self::CertificateChainType>,
 +        pub server_certificate_metadata: ::std::option::Option<self::ServerCertificateMetadata>,
-+        pub tags: ::std::option::Option<self::TagListType>,
++        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
      }
 -    /// <p>A list of tags that are attached to the server certificate. For more information about tagging, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html">Tagging IAM resources</a> in the <i>IAM User Guide</i>.</p>
 -    ///
@@ -187727,7 +187727,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn certificate_body(&self) -> &::std::option::Option<self::CertificateBodyType> { &self.certificate_body }
 +        pub fn certificate_chain(&self) -> &::std::option::Option<self::CertificateChainType> { &self.certificate_chain }
 +        pub fn server_certificate_metadata(&self) -> &::std::option::Option<self::ServerCertificateMetadata> { &self.server_certificate_metadata }
-+        pub fn tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
      }
 -}
 -impl ServerCertificate {
@@ -187740,7 +187740,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        certificate_body: ::std::option::Option<self::CertificateBodyType>,
 +        certificate_chain: ::std::option::Option<self::CertificateChainType>,
 +        server_certificate_metadata: ::std::option::Option<self::ServerCertificateMetadata>,
-+        tags: ::std::option::Option<self::TagListType>,
++        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
      }
 -}
 
@@ -187774,9 +187774,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn server_certificate_metadata(mut self, input: impl ::std::convert::Into<self::ServerCertificateMetadata>) -> Self { self.server_certificate_metadata = Some(input.into()); self }
 +        pub fn set_server_certificate_metadata(mut self, input: ::std::option::Option<self::ServerCertificateMetadata>) -> Self { self.server_certificate_metadata = input; self }
 +        pub fn get_server_certificate_metadata(&self) -> &::std::option::Option<self::ServerCertificateMetadata> { &self.server_certificate_metadata }
-+        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+        pub fn set_tags(mut self, input: ::std::option::Option<self::TagListType>) -> Self { self.tags = input; self }
-+        pub fn get_tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
++        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
++        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
 +        pub fn build(self) -> ServerCertificate {
 +            ServerCertificate {
 +                certificate_body: self.certificate_body,
@@ -188196,7 +188196,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub service_name: ::std::option::Option<self::ServiceNameType>,
 +        pub service_namespace: ::std::option::Option<self::ServiceNamespaceType>,
 +        pub total_authenticated_entities: ::std::option::Option<self::IntegerType>,
-+        pub tracked_actions_last_accessed: ::std::option::Option<self::TrackedActionsLastAccessed>,
++        pub tracked_actions_last_accessed: ::std::option::Option<::std::vec::Vec<self::TrackedActionLastAccessed>>,
      }
 -}
 -impl ServiceLastAccessed {
@@ -188211,7 +188211,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn service_name(&self) -> &::std::option::Option<self::ServiceNameType> { &self.service_name }
 +        pub fn service_namespace(&self) -> &::std::option::Option<self::ServiceNamespaceType> { &self.service_namespace }
 +        pub fn total_authenticated_entities(&self) -> &::std::option::Option<self::IntegerType> { &self.total_authenticated_entities }
-+        pub fn tracked_actions_last_accessed(&self) -> &::std::option::Option<self::TrackedActionsLastAccessed> { &self.tracked_actions_last_accessed }
++        pub fn tracked_actions_last_accessed(&self) -> &::std::option::Option<::std::vec::Vec<self::TrackedActionLastAccessed>> { &self.tracked_actions_last_accessed }
      }
 -}
 
@@ -188285,7 +188285,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        service_name: ::std::option::Option<self::ServiceNameType>,
 +        service_namespace: ::std::option::Option<self::ServiceNamespaceType>,
 +        total_authenticated_entities: ::std::option::Option<self::IntegerType>,
-+        tracked_actions_last_accessed: ::std::option::Option<self::TrackedActionsLastAccessed>,
++        tracked_actions_last_accessed: ::std::option::Option<::std::vec::Vec<self::TrackedActionLastAccessed>>,
      }
 -    /// <p>The ARN of the authenticated entity (user or role) that last attempted to access the service. Amazon Web Services does not report unauthenticated requests.</p>
 -    /// <p>This field is null if no IAM entities attempted to access the service within the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period">tracking period</a>.</p>
@@ -188335,9 +188335,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn total_authenticated_entities(mut self, input: impl ::std::convert::Into<self::IntegerType>) -> Self { self.total_authenticated_entities = Some(input.into()); self }
 +        pub fn set_total_authenticated_entities(mut self, input: ::std::option::Option<self::IntegerType>) -> Self { self.total_authenticated_entities = input; self }
 +        pub fn get_total_authenticated_entities(&self) -> &::std::option::Option<self::IntegerType> { &self.total_authenticated_entities }
-+        pub fn tracked_actions_last_accessed(mut self, input: impl ::std::convert::Into<self::TrackedActionsLastAccessed>) -> Self { self.tracked_actions_last_accessed = Some(input.into()); self }
-+        pub fn set_tracked_actions_last_accessed(mut self, input: ::std::option::Option<self::TrackedActionsLastAccessed>) -> Self { self.tracked_actions_last_accessed = input; self }
-+        pub fn get_tracked_actions_last_accessed(&self) -> &::std::option::Option<self::TrackedActionsLastAccessed> { &self.tracked_actions_last_accessed }
++        pub fn tracked_actions_last_accessed(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::TrackedActionLastAccessed>>) -> Self { self.tracked_actions_last_accessed = Some(input.into()); self }
++        pub fn set_tracked_actions_last_accessed(mut self, input: ::std::option::Option<::std::vec::Vec<self::TrackedActionLastAccessed>>) -> Self { self.tracked_actions_last_accessed = input; self }
++        pub fn get_tracked_actions_last_accessed(&self) -> &::std::option::Option<::std::vec::Vec<self::TrackedActionLastAccessed>> { &self.tracked_actions_last_accessed }
 +        pub fn build(self) -> ServiceLastAccessed {
 +            ServiceLastAccessed {
 +                last_authenticated: self.last_authenticated,
@@ -191763,7 +191763,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub password_last_used: ::std::option::Option<self::DateType>,
 +        pub path: ::std::option::Option<self::PathType>,
 +        pub permissions_boundary: ::std::option::Option<self::AttachedPermissionsBoundary>,
-+        pub tags: ::std::option::Option<self::TagListType>,
++        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
 +        pub user_id: ::std::option::Option<self::IdType>,
 +        pub user_name: ::std::option::Option<self::UserNameType>,
      }
@@ -191779,7 +191779,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn password_last_used(&self) -> &::std::option::Option<self::DateType> { &self.password_last_used }
 +        pub fn path(&self) -> &::std::option::Option<self::PathType> { &self.path }
 +        pub fn permissions_boundary(&self) -> &::std::option::Option<self::AttachedPermissionsBoundary> { &self.permissions_boundary }
-+        pub fn tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
 +        pub fn user_id(&self) -> &::std::option::Option<self::IdType> { &self.user_id }
 +        pub fn user_name(&self) -> &::std::option::Option<self::UserNameType> { &self.user_name }
      }
@@ -191812,7 +191812,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        password_last_used: ::std::option::Option<self::DateType>,
 +        path: ::std::option::Option<self::PathType>,
 +        permissions_boundary: ::std::option::Option<self::AttachedPermissionsBoundary>,
-+        tags: ::std::option::Option<self::TagListType>,
++        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
 +        user_id: ::std::option::Option<self::IdType>,
 +        user_name: ::std::option::Option<self::UserNameType>,
      }
@@ -191903,9 +191903,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn permissions_boundary(mut self, input: impl ::std::convert::Into<self::AttachedPermissionsBoundary>) -> Self { self.permissions_boundary = Some(input.into()); self }
 +        pub fn set_permissions_boundary(mut self, input: ::std::option::Option<self::AttachedPermissionsBoundary>) -> Self { self.permissions_boundary = input; self }
 +        pub fn get_permissions_boundary(&self) -> &::std::option::Option<self::AttachedPermissionsBoundary> { &self.permissions_boundary }
-+        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+        pub fn set_tags(mut self, input: ::std::option::Option<self::TagListType>) -> Self { self.tags = input; self }
-+        pub fn get_tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
++        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
++        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
 +        pub fn user_id(mut self, input: impl ::std::convert::Into<self::IdType>) -> Self { self.user_id = Some(input.into()); self }
 +        pub fn set_user_id(mut self, input: ::std::option::Option<self::IdType>) -> Self { self.user_id = input; self }
 +        pub fn get_user_id(&self) -> &::std::option::Option<self::IdType> { &self.user_id }
@@ -192085,15 +192085,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct UserDetail {
 +        pub arn: ::std::option::Option<self::ArnType>,
-+        pub attached_managed_policies: ::std::option::Option<self::AttachedPoliciesListType>,
++        pub attached_managed_policies: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>,
 +        pub create_date: ::std::option::Option<self::DateType>,
-+        pub group_list: ::std::option::Option<self::GroupNameListType>,
++        pub group_list: ::std::option::Option<::std::vec::Vec<self::GroupNameType>>,
 +        pub path: ::std::option::Option<self::PathType>,
 +        pub permissions_boundary: ::std::option::Option<self::AttachedPermissionsBoundary>,
-+        pub tags: ::std::option::Option<self::TagListType>,
++        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
 +        pub user_id: ::std::option::Option<self::IdType>,
 +        pub user_name: ::std::option::Option<self::UserNameType>,
-+        pub user_policy_list: ::std::option::Option<self::PolicyDetailListType>,
++        pub user_policy_list: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>,
      }
 -    /// <p>The friendly name identifying the user.</p>
 -    pub fn user_name(&self) -> ::std::option::Option<&str> {
@@ -192143,15 +192143,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    impl UserDetail {
 +        pub fn builder() -> UserDetailBuilder { UserDetailBuilder::default() }
 +        pub fn arn(&self) -> &::std::option::Option<self::ArnType> { &self.arn }
-+        pub fn attached_managed_policies(&self) -> &::std::option::Option<self::AttachedPoliciesListType> { &self.attached_managed_policies }
++        pub fn attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::AttachedPolicy>> { &self.attached_managed_policies }
 +        pub fn create_date(&self) -> &::std::option::Option<self::DateType> { &self.create_date }
-+        pub fn group_list(&self) -> &::std::option::Option<self::GroupNameListType> { &self.group_list }
++        pub fn group_list(&self) -> &::std::option::Option<::std::vec::Vec<self::GroupNameType>> { &self.group_list }
 +        pub fn path(&self) -> &::std::option::Option<self::PathType> { &self.path }
 +        pub fn permissions_boundary(&self) -> &::std::option::Option<self::AttachedPermissionsBoundary> { &self.permissions_boundary }
-+        pub fn tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
 +        pub fn user_id(&self) -> &::std::option::Option<self::IdType> { &self.user_id }
 +        pub fn user_name(&self) -> &::std::option::Option<self::UserNameType> { &self.user_name }
-+        pub fn user_policy_list(&self) -> &::std::option::Option<self::PolicyDetailListType> { &self.user_policy_list }
++        pub fn user_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyDetail>> { &self.user_policy_list }
      }
 -}
 -impl UserDetail {
@@ -192162,15 +192162,15 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    #[derive(Clone, Debug, Default)]
 +    pub struct UserDetailBuilder {
 +        arn: ::std::option::Option<self::ArnType>,
-+        attached_managed_policies: ::std::option::Option<self::AttachedPoliciesListType>,
++        attached_managed_policies: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>,
 +        create_date: ::std::option::Option<self::DateType>,
-+        group_list: ::std::option::Option<self::GroupNameListType>,
++        group_list: ::std::option::Option<::std::vec::Vec<self::GroupNameType>>,
 +        path: ::std::option::Option<self::PathType>,
 +        permissions_boundary: ::std::option::Option<self::AttachedPermissionsBoundary>,
-+        tags: ::std::option::Option<self::TagListType>,
++        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
 +        user_id: ::std::option::Option<self::IdType>,
 +        user_name: ::std::option::Option<self::UserNameType>,
-+        user_policy_list: ::std::option::Option<self::PolicyDetailListType>,
++        user_policy_list: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>,
      }
 -}
 
@@ -192377,33 +192377,33 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn arn(mut self, input: impl ::std::convert::Into<self::ArnType>) -> Self { self.arn = Some(input.into()); self }
 +        pub fn set_arn(mut self, input: ::std::option::Option<self::ArnType>) -> Self { self.arn = input; self }
 +        pub fn get_arn(&self) -> &::std::option::Option<self::ArnType> { &self.arn }
-+        pub fn attached_managed_policies(mut self, input: impl ::std::convert::Into<self::AttachedPoliciesListType>) -> Self { self.attached_managed_policies = Some(input.into()); self }
-+        pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<self::AttachedPoliciesListType>) -> Self { self.attached_managed_policies = input; self }
-+        pub fn get_attached_managed_policies(&self) -> &::std::option::Option<self::AttachedPoliciesListType> { &self.attached_managed_policies }
++        pub fn attached_managed_policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttachedPolicy>>) -> Self { self.attached_managed_policies = Some(input.into()); self }
++        pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>) -> Self { self.attached_managed_policies = input; self }
++        pub fn get_attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::AttachedPolicy>> { &self.attached_managed_policies }
 +        pub fn create_date(mut self, input: impl ::std::convert::Into<self::DateType>) -> Self { self.create_date = Some(input.into()); self }
 +        pub fn set_create_date(mut self, input: ::std::option::Option<self::DateType>) -> Self { self.create_date = input; self }
 +        pub fn get_create_date(&self) -> &::std::option::Option<self::DateType> { &self.create_date }
-+        pub fn group_list(mut self, input: impl ::std::convert::Into<self::GroupNameListType>) -> Self { self.group_list = Some(input.into()); self }
-+        pub fn set_group_list(mut self, input: ::std::option::Option<self::GroupNameListType>) -> Self { self.group_list = input; self }
-+        pub fn get_group_list(&self) -> &::std::option::Option<self::GroupNameListType> { &self.group_list }
++        pub fn group_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::GroupNameType>>) -> Self { self.group_list = Some(input.into()); self }
++        pub fn set_group_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::GroupNameType>>) -> Self { self.group_list = input; self }
++        pub fn get_group_list(&self) -> &::std::option::Option<::std::vec::Vec<self::GroupNameType>> { &self.group_list }
 +        pub fn path(mut self, input: impl ::std::convert::Into<self::PathType>) -> Self { self.path = Some(input.into()); self }
 +        pub fn set_path(mut self, input: ::std::option::Option<self::PathType>) -> Self { self.path = input; self }
 +        pub fn get_path(&self) -> &::std::option::Option<self::PathType> { &self.path }
 +        pub fn permissions_boundary(mut self, input: impl ::std::convert::Into<self::AttachedPermissionsBoundary>) -> Self { self.permissions_boundary = Some(input.into()); self }
 +        pub fn set_permissions_boundary(mut self, input: ::std::option::Option<self::AttachedPermissionsBoundary>) -> Self { self.permissions_boundary = input; self }
 +        pub fn get_permissions_boundary(&self) -> &::std::option::Option<self::AttachedPermissionsBoundary> { &self.permissions_boundary }
-+        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+        pub fn set_tags(mut self, input: ::std::option::Option<self::TagListType>) -> Self { self.tags = input; self }
-+        pub fn get_tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
++        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
++        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
 +        pub fn user_id(mut self, input: impl ::std::convert::Into<self::IdType>) -> Self { self.user_id = Some(input.into()); self }
 +        pub fn set_user_id(mut self, input: ::std::option::Option<self::IdType>) -> Self { self.user_id = input; self }
 +        pub fn get_user_id(&self) -> &::std::option::Option<self::IdType> { &self.user_id }
 +        pub fn user_name(mut self, input: impl ::std::convert::Into<self::UserNameType>) -> Self { self.user_name = Some(input.into()); self }
 +        pub fn set_user_name(mut self, input: ::std::option::Option<self::UserNameType>) -> Self { self.user_name = input; self }
 +        pub fn get_user_name(&self) -> &::std::option::Option<self::UserNameType> { &self.user_name }
-+        pub fn user_policy_list(mut self, input: impl ::std::convert::Into<self::PolicyDetailListType>) -> Self { self.user_policy_list = Some(input.into()); self }
-+        pub fn set_user_policy_list(mut self, input: ::std::option::Option<self::PolicyDetailListType>) -> Self { self.user_policy_list = input; self }
-+        pub fn get_user_policy_list(&self) -> &::std::option::Option<self::PolicyDetailListType> { &self.user_policy_list }
++        pub fn user_policy_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyDetail>>) -> Self { self.user_policy_list = Some(input.into()); self }
++        pub fn set_user_policy_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>) -> Self { self.user_policy_list = input; self }
++        pub fn get_user_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyDetail>> { &self.user_policy_list }
 +        pub fn build(self) -> UserDetail {
 +            UserDetail {
 +                arn: self.arn,
@@ -192481,7 +192481,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub enable_date: ::std::option::Option<self::DateType>,
 +        pub qr_code_png: ::std::option::Option<self::BootstrapDatum>,
 +        pub serial_number: ::std::option::Option<self::SerialNumberType>,
-+        pub tags: ::std::option::Option<self::TagListType>,
++        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
 +        pub user: ::std::option::Option<self::User>,
      }
 -}
@@ -192501,7 +192501,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn enable_date(&self) -> &::std::option::Option<self::DateType> { &self.enable_date }
 +        pub fn qr_code_png(&self) -> &::std::option::Option<self::BootstrapDatum> { &self.qr_code_png }
 +        pub fn serial_number(&self) -> &::std::option::Option<self::SerialNumberType> { &self.serial_number }
-+        pub fn tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
 +        pub fn user(&self) -> &::std::option::Option<self::User> { &self.user }
      }
 -}
@@ -192516,7 +192516,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        enable_date: ::std::option::Option<self::DateType>,
 +        qr_code_png: ::std::option::Option<self::BootstrapDatum>,
 +        serial_number: ::std::option::Option<self::SerialNumberType>,
-+        tags: ::std::option::Option<self::TagListType>,
++        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
 +        user: ::std::option::Option<self::User>,
      }
 -}
@@ -192574,9 +192574,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +        pub fn serial_number(mut self, input: impl ::std::convert::Into<self::SerialNumberType>) -> Self { self.serial_number = Some(input.into()); self }
 +        pub fn set_serial_number(mut self, input: ::std::option::Option<self::SerialNumberType>) -> Self { self.serial_number = input; self }
 +        pub fn get_serial_number(&self) -> &::std::option::Option<self::SerialNumberType> { &self.serial_number }
-+        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagListType>) -> Self { self.tags = Some(input.into()); self }
-+        pub fn set_tags(mut self, input: ::std::option::Option<self::TagListType>) -> Self { self.tags = input; self }
-+        pub fn get_tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
++        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
++        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
++        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
 +        pub fn user(mut self, input: impl ::std::convert::Into<self::User>) -> Self { self.user = Some(input.into()); self }
 +        pub fn set_user(mut self, input: ::std::option::Option<self::User>) -> Self { self.user = input; self }
 +        pub fn get_user(&self) -> &::std::option::Option<self::User> { &self.user }
@@ -197023,7 +197023,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/types.rs
 +++ generated/src/types.rs
-@@ -1,386 +1,359 @@
+@@ -1,386 +1,291 @@
 -// Code generated by software.amazon.smithy.rust.codegen.smithy-rs. DO NOT EDIT.
 -pub use crate::types::_role::Role;
 -
@@ -197396,8 +197396,7 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -mod _tag;
 -
 -mod _tag_template;
-+// Generated by aws-sdk-build aws-sdk-build-rust-native-0.2.0. DO NOT EDIT.
-
+-
 -mod _tracked_action_last_accessed;
 -
 -mod _user;
@@ -197408,35 +197407,29 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 -
 -/// Builders
 -pub mod builders;
--
++// Generated by aws-sdk-build aws-sdk-build-rust-native-0.2.0. DO NOT EDIT.
+
 -/// Error types that AWS Identity and Access Management can respond with.
 -pub mod error;
 +pub mod types {
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_access_advisor_usage_granularity_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_access_detail.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_access_details.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_access_key.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_access_key_last_used.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_access_key_metadata.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_action_name_list_type.rs"));
 +    pub type ActionNameType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_arn_list_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_attached_permissions_boundary.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_attached_policy.rs"));
 +    pub type AttachmentName = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_attachment_type.rs"));
 +    pub type BootstrapDatum = ::std::vec::Vec<u8>;
 +    pub type CertificationKeyType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_certification_map_type.rs"));
 +    pub type CertificationValueType = ::std::string::String;
 +    pub type ColumnNumber = i32;
 +    pub type ConcurrentModificationMessage = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_context_entry.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_context_entry_list_type.rs"));
 +    pub type ContextKeyNameType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_context_key_names_result_list_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_context_key_type_enum.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_context_key_value_list_type.rs"));
 +    pub type ContextKeyValueType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_delegation_permission.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_delegation_request.rs"));
@@ -197447,15 +197440,12 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_entity_info.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_entity_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_error_details.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_eval_decision_details_type.rs"));
 +    pub type EvalDecisionSourceType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_evaluation_result.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_evaluation_results_list_type.rs"));
 +    pub type ExceptionMessage = ::std::string::String;
 +    pub type FeatureDisabledMessage = ::std::string::String;
 +    pub type FeatureEnabledMessage = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_feature_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_features_list_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_group.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_group_detail.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_inline_policy.rs"));
@@ -197466,13 +197456,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_login_profile.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_mfa_device.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_managed_policy_detail.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_managed_policy_detail_list_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_open_id_connect_provider_list_entry.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_open_id_connect_provider_list_type.rs"));
 +    pub type OpenIdConnectProviderUrlType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_ordered_organization_policy_type.rs"));
 +    pub type OrganizationIdType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_organization_policy_list_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_organizations_decision_detail.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_parameter_definition.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_password_policy.rs"));
@@ -197481,21 +197468,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_detail.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_evaluation_decision_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_exclusions_list_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_granting_service_access.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_group.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_group_list_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_identifier.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_identifier_policy_type.rs"));
 +    pub type PolicyIdentifierType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_parameter.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_parameter_type_enum.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_role.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_role_list_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_source_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_usage_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_user.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_user_list_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_version.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_position.rs"));
 +    pub type ReasonType = ::std::string::String;
@@ -197506,57 +197489,43 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type ReportStateDescriptionType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_report_state_type.rs"));
 +    pub type ResourceHandlingOptionType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_resource_name_list_type.rs"));
 +    pub type ResourceNameType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_resource_specific_result.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_resource_specific_result_list_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_role.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_role_detail.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_role_last_used.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_role_template_version.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_role_usage_list_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_role_usage_type.rs"));
 +    pub type SamlMetadataDocumentType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_saml_private_key.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_saml_provider_list_entry.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_saml_provider_list_type.rs"));
 +    pub type SamlProviderNameType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_ssh_public_key.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_ssh_public_key_list_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_ssh_public_key_metadata.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_server_certificate.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_server_certificate_metadata.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_service_last_accessed.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_service_specific_credential.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_service_specific_credential_metadata.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_service_specific_credentials_list_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_services_last_accessed.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_signing_certificate.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_simulation_policy_list_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_source_role_template.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_statement.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_statement_list_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_tag.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_tag_template.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_tracked_action_last_accessed.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_tracked_actions_last_accessed.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_user.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_user_detail.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_virtual_mfa_device.rs"));
 +    pub type AccessKeyIdType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_access_key_metadata_list_type.rs"));
 +    pub type AccessKeySecretType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_account_alias_list_type.rs"));
 +    pub type AccountAliasType = ::std::string::String;
 +    pub type AccountIdType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_account_properties_map_type.rs"));
 +    pub type AccountPropertyKeyType = ::std::string::String;
 +    pub type AccountPropertyValueType = ::std::string::String;
 +    pub type AllUsers = bool;
 +    pub type ArnType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_assertion_encryption_mode_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_assignment_status_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_attached_policies_list_type.rs"));
 +    pub type AttachmentCountType = i32;
 +    pub type AuthenticationCodeType = ::std::string::String;
 +    pub type BooleanObjectType = bool;
@@ -197564,8 +197533,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type CertificateBodyType = ::std::string::String;
 +    pub type CertificateChainType = ::std::string::String;
 +    pub type CertificateIdType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_certificate_list_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_client_id_list_type.rs"));
 +    pub type ClientIdType = ::std::string::String;
 +    pub type ConsoleDeepLinkType = ::std::string::String;
 +    pub type CredentialAgeDays = i32;
@@ -197576,25 +197543,17 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type DateType = ::std::time::SystemTime;
 +    pub type DelegationRequestDescriptionType = ::std::string::String;
 +    pub type DelegationRequestIdType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_delegation_requests_list_type.rs"));
 +    pub type DeleteConflictMessage = ::std::string::String;
 +    pub type DuplicateCertificateMessage = ::std::string::String;
 +    pub type DuplicateSshPublicKeyMessage = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_encoding_type.rs"));
 +    pub type EntityAlreadyExistsMessage = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_entity_details_list_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_entity_list_type.rs"));
 +    pub type EntityNameType = ::std::string::String;
 +    pub type EntityTemporarilyUnmodifiableMessage = ::std::string::String;
 +    pub type ExistingUserNameType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_global_endpoint_token_version.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_group_detail_list_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_group_list_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_group_name_list_type.rs"));
 +    pub type GroupNameType = ::std::string::String;
 +    pub type IdType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_inline_policy_template_list_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_instance_profile_list_type.rs"));
 +    pub type InstanceProfileNameType = ::std::string::String;
 +    pub type IntegerType = i32;
 +    pub type InvalidAuthenticationCodeMessage = ::std::string::String;
@@ -197606,18 +197565,14 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_job_status_type.rs"));
 +    pub type KeyPairMismatchMessage = ::std::string::String;
 +    pub type LimitExceededMessage = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_list_policy_granting_service_access_response_list_type.rs"));
 +    pub type LocaleType = ::std::string::String;
 +    pub type MalformedCertificateMessage = ::std::string::String;
 +    pub type MalformedPolicyDocumentMessage = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_managed_by_type_type.rs"));
 +    pub type ManagedByValueType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_managed_policy_arn_list_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_map_string_replacement_value_entry.rs"));
 +    pub type MarkerType = ::std::string::String;
 +    pub type MaxItemsType = i32;
 +    pub type MaxPasswordAgeType = i32;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_mfa_device_list_type.rs"));
 +    pub type MinimumPasswordLengthType = i32;
 +    pub type MinorVersionType = i32;
 +    pub type NameConflictMessage = ::std::string::String;
@@ -197633,7 +197588,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type ParameterNameType = ::std::string::String;
 +    pub type ParameterSubTypeType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_parameter_type_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_parameters_definition_list_type.rs"));
 +    pub type PasswordPolicyViolationMessage = ::std::string::String;
 +    pub type PasswordReusePreventionType = i32;
 +    pub type PasswordType = ::std::string::String;
@@ -197643,32 +197597,23 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_permission_check_status_type.rs"));
 +    pub type PermissionType = ::std::string::String;
 +    pub type PolicyDescriptionType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_detail_list_type.rs"));
 +    pub type PolicyDocumentType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_document_version_list_type.rs"));
 +    pub type PolicyEvaluationErrorMessage = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_granting_service_access_list_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_list_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_name_list_type.rs"));
 +    pub type PolicyNameType = ::std::string::String;
 +    pub type PolicyNotAttachableMessage = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_owner_entity_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_parameter_list_type.rs"));
 +    pub type PolicyParameterNameType = ::std::string::String;
 +    pub type PolicyParameterValueType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_parameter_values_list_type.rs"));
 +    pub type PolicyPathType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_scope_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_policy_type.rs"));
 +    pub type PolicyVersionIdType = ::std::string::String;
 +    pub type PrivateKeyIdType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_private_key_list.rs"));
 +    pub type PrivateKeyType = ::std::string::String;
 +    pub type PublicKeyFingerprintType = ::std::string::String;
 +    pub type PublicKeyIdType = ::std::string::String;
 +    pub type PublicKeyMaterialType = ::std::string::String;
 +    pub type RedirectUrlType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_replacement_value_list_type.rs"));
 +    pub type ReportGenerationLimitExceededMessage = ::std::string::String;
 +    pub type RequestMessageType = ::std::string::String;
 +    pub type RequestorNameType = ::std::string::String;
@@ -197676,26 +197621,21 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type ResponseMarkerType = ::std::string::String;
 +    pub type RoleDescriptionPatternType = ::std::string::String;
 +    pub type RoleDescriptionType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_role_detail_list_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_role_list_type.rs"));
 +    pub type RoleMaxSessionDurationType = i32;
 +    pub type RoleModifiedMessage = ::std::string::String;
 +    pub type RoleNamePatternType = ::std::string::String;
 +    pub type RoleNameType = ::std::string::String;
 +    pub type RolePathPatternType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_role_permission_restriction_arn_list_type.rs"));
 +    pub type RoleTemplateDescriptionType = ::std::string::String;
 +    pub type RoleTemplateDisabledMessage = ::std::string::String;
 +    pub type RoleTemplateNameType = ::std::string::String;
 +    pub type SerialNumberType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_server_certificate_metadata_list_type.rs"));
 +    pub type ServerCertificateNameType = ::std::string::String;
 +    pub type ServiceCredentialAlias = ::std::string::String;
 +    pub type ServiceCredentialSecret = ::std::string::String;
 +    pub type ServiceFailureExceptionMessage = ::std::string::String;
 +    pub type ServiceName = ::std::string::String;
 +    pub type ServiceNameType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_service_namespace_list_type.rs"));
 +    pub type ServiceNamespaceType = ::std::string::String;
 +    pub type ServiceNotSupportedMessage = ::std::string::String;
 +    pub type ServicePassword = ::std::string::String;
@@ -197708,24 +197648,16 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +    pub type StringType = ::std::string::String;
 +    pub type SummaryContentType = ::std::string::String;
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_summary_key_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_summary_map_type.rs"));
 +    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_summary_state_type.rs"));
 +    pub type SummaryValueType = i32;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_tag_key_list_type.rs"));
 +    pub type TagKeyType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_tag_list_type.rs"));
 +    pub type TagTemplateKeyType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_tag_template_list_type.rs"));
 +    pub type TagTemplateValueType = ::std::string::String;
 +    pub type TagValueType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_thumbprint_list_type.rs"));
 +    pub type ThumbprintType = ::std::string::String;
 +    pub type UnmodifiableEntityMessage = ::std::string::String;
 +    pub type UnrecognizedPublicKeyEncodingMessage = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_user_detail_list_type.rs"));
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_user_list_type.rs"));
 +    pub type UserNameType = ::std::string::String;
-+    include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/_virtual_mfa_device_list_type.rs"));
 +    pub type VirtualMfaDeviceName = ::std::string::String;
 +    pub mod error {
 +        include!(concat!(env!("OUT_DIR"), "/generated/iam/src/types/error/_account_not_management_or_delegated_administrator_exception.rs"));
@@ -198365,74 +198297,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ### Unexpected generated files
 
 - `src/aws_runtime.rs`
-- `src/types/_access_details.rs`
-- `src/types/_access_key_metadata_list_type.rs`
-- `src/types/_account_alias_list_type.rs`
-- `src/types/_account_properties_map_type.rs`
-- `src/types/_action_name_list_type.rs`
-- `src/types/_arn_list_type.rs`
-- `src/types/_attached_policies_list_type.rs`
-- `src/types/_certificate_list_type.rs`
-- `src/types/_certification_map_type.rs`
-- `src/types/_client_id_list_type.rs`
-- `src/types/_context_entry_list_type.rs`
-- `src/types/_context_key_names_result_list_type.rs`
-- `src/types/_context_key_value_list_type.rs`
-- `src/types/_delegation_requests_list_type.rs`
-- `src/types/_entity_details_list_type.rs`
-- `src/types/_entity_list_type.rs`
-- `src/types/_eval_decision_details_type.rs`
-- `src/types/_evaluation_results_list_type.rs`
-- `src/types/_features_list_type.rs`
-- `src/types/_group_detail_list_type.rs`
-- `src/types/_group_list_type.rs`
-- `src/types/_group_name_list_type.rs`
-- `src/types/_inline_policy_template_list_type.rs`
-- `src/types/_instance_profile_list_type.rs`
-- `src/types/_list_policy_granting_service_access_response_list_type.rs`
-- `src/types/_managed_policy_arn_list_type.rs`
-- `src/types/_managed_policy_detail_list_type.rs`
-- `src/types/_map_string_replacement_value_entry.rs`
-- `src/types/_mfa_device_list_type.rs`
-- `src/types/_open_id_connect_provider_list_type.rs`
-- `src/types/_organization_policy_list_type.rs`
-- `src/types/_parameters_definition_list_type.rs`
-- `src/types/_policy_detail_list_type.rs`
-- `src/types/_policy_document_version_list_type.rs`
-- `src/types/_policy_exclusions_list_type.rs`
-- `src/types/_policy_granting_service_access_list_type.rs`
-- `src/types/_policy_group_list_type.rs`
-- `src/types/_policy_list_type.rs`
-- `src/types/_policy_name_list_type.rs`
-- `src/types/_policy_parameter_list_type.rs`
-- `src/types/_policy_parameter_values_list_type.rs`
-- `src/types/_policy_role_list_type.rs`
-- `src/types/_policy_user_list_type.rs`
-- `src/types/_private_key_list.rs`
-- `src/types/_replacement_value_list_type.rs`
-- `src/types/_resource_name_list_type.rs`
-- `src/types/_resource_specific_result_list_type.rs`
-- `src/types/_role_detail_list_type.rs`
-- `src/types/_role_list_type.rs`
-- `src/types/_role_permission_restriction_arn_list_type.rs`
-- `src/types/_role_usage_list_type.rs`
-- `src/types/_saml_provider_list_type.rs`
-- `src/types/_server_certificate_metadata_list_type.rs`
-- `src/types/_service_namespace_list_type.rs`
-- `src/types/_service_specific_credentials_list_type.rs`
-- `src/types/_services_last_accessed.rs`
-- `src/types/_simulation_policy_list_type.rs`
-- `src/types/_ssh_public_key_list_type.rs`
-- `src/types/_statement_list_type.rs`
-- `src/types/_summary_map_type.rs`
-- `src/types/_tag_key_list_type.rs`
-- `src/types/_tag_list_type.rs`
-- `src/types/_tag_template_list_type.rs`
-- `src/types/_thumbprint_list_type.rs`
-- `src/types/_tracked_actions_last_accessed.rs`
-- `src/types/_user_detail_list_type.rs`
-- `src/types/_user_list_type.rs`
-- `src/types/_virtual_mfa_device_list_type.rs`
 
 ### Rust token differences
 

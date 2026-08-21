@@ -4,38 +4,38 @@
     pub struct EvaluationResult {
         pub eval_action_name: ::std::option::Option<self::ActionNameType>,
         pub eval_decision: ::std::option::Option<self::PolicyEvaluationDecisionType>,
-        pub eval_decision_details: ::std::option::Option<self::EvalDecisionDetailsType>,
+        pub eval_decision_details: ::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>>,
         pub eval_resource_name: ::std::option::Option<self::ResourceNameType>,
-        pub matched_statements: ::std::option::Option<self::StatementListType>,
-        pub missing_context_values: ::std::option::Option<self::ContextKeyNamesResultListType>,
+        pub matched_statements: ::std::option::Option<::std::vec::Vec<self::Statement>>,
+        pub missing_context_values: ::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>>,
         pub organizations_decision_detail: ::std::option::Option<self::OrganizationsDecisionDetail>,
         pub permissions_boundary_decision_detail: ::std::option::Option<self::PermissionsBoundaryDecisionDetail>,
-        pub resource_specific_results: ::std::option::Option<self::ResourceSpecificResultListType>,
+        pub resource_specific_results: ::std::option::Option<::std::vec::Vec<self::ResourceSpecificResult>>,
     }
     impl EvaluationResult {
         pub fn builder() -> EvaluationResultBuilder { EvaluationResultBuilder::default() }
         pub fn eval_action_name(&self) -> &::std::option::Option<self::ActionNameType> { &self.eval_action_name }
         pub fn eval_decision(&self) -> &::std::option::Option<self::PolicyEvaluationDecisionType> { &self.eval_decision }
-        pub fn eval_decision_details(&self) -> &::std::option::Option<self::EvalDecisionDetailsType> { &self.eval_decision_details }
+        pub fn eval_decision_details(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>> { &self.eval_decision_details }
         pub fn eval_resource_name(&self) -> &::std::option::Option<self::ResourceNameType> { &self.eval_resource_name }
-        pub fn matched_statements(&self) -> &::std::option::Option<self::StatementListType> { &self.matched_statements }
-        pub fn missing_context_values(&self) -> &::std::option::Option<self::ContextKeyNamesResultListType> { &self.missing_context_values }
+        pub fn matched_statements(&self) -> &::std::option::Option<::std::vec::Vec<self::Statement>> { &self.matched_statements }
+        pub fn missing_context_values(&self) -> &::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>> { &self.missing_context_values }
         pub fn organizations_decision_detail(&self) -> &::std::option::Option<self::OrganizationsDecisionDetail> { &self.organizations_decision_detail }
         pub fn permissions_boundary_decision_detail(&self) -> &::std::option::Option<self::PermissionsBoundaryDecisionDetail> { &self.permissions_boundary_decision_detail }
-        pub fn resource_specific_results(&self) -> &::std::option::Option<self::ResourceSpecificResultListType> { &self.resource_specific_results }
+        pub fn resource_specific_results(&self) -> &::std::option::Option<::std::vec::Vec<self::ResourceSpecificResult>> { &self.resource_specific_results }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct EvaluationResultBuilder {
         eval_action_name: ::std::option::Option<self::ActionNameType>,
         eval_decision: ::std::option::Option<self::PolicyEvaluationDecisionType>,
-        eval_decision_details: ::std::option::Option<self::EvalDecisionDetailsType>,
+        eval_decision_details: ::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>>,
         eval_resource_name: ::std::option::Option<self::ResourceNameType>,
-        matched_statements: ::std::option::Option<self::StatementListType>,
-        missing_context_values: ::std::option::Option<self::ContextKeyNamesResultListType>,
+        matched_statements: ::std::option::Option<::std::vec::Vec<self::Statement>>,
+        missing_context_values: ::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>>,
         organizations_decision_detail: ::std::option::Option<self::OrganizationsDecisionDetail>,
         permissions_boundary_decision_detail: ::std::option::Option<self::PermissionsBoundaryDecisionDetail>,
-        resource_specific_results: ::std::option::Option<self::ResourceSpecificResultListType>,
+        resource_specific_results: ::std::option::Option<::std::vec::Vec<self::ResourceSpecificResult>>,
     }
 
     impl EvaluationResultBuilder {
@@ -45,27 +45,27 @@
         pub fn eval_decision(mut self, input: impl ::std::convert::Into<self::PolicyEvaluationDecisionType>) -> Self { self.eval_decision = Some(input.into()); self }
         pub fn set_eval_decision(mut self, input: ::std::option::Option<self::PolicyEvaluationDecisionType>) -> Self { self.eval_decision = input; self }
         pub fn get_eval_decision(&self) -> &::std::option::Option<self::PolicyEvaluationDecisionType> { &self.eval_decision }
-        pub fn eval_decision_details(mut self, input: impl ::std::convert::Into<self::EvalDecisionDetailsType>) -> Self { self.eval_decision_details = Some(input.into()); self }
-        pub fn set_eval_decision_details(mut self, input: ::std::option::Option<self::EvalDecisionDetailsType>) -> Self { self.eval_decision_details = input; self }
-        pub fn get_eval_decision_details(&self) -> &::std::option::Option<self::EvalDecisionDetailsType> { &self.eval_decision_details }
+        pub fn eval_decision_details(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>>) -> Self { self.eval_decision_details = Some(input.into()); self }
+        pub fn set_eval_decision_details(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>>) -> Self { self.eval_decision_details = input; self }
+        pub fn get_eval_decision_details(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::EvalDecisionSourceType, self::PolicyEvaluationDecisionType>> { &self.eval_decision_details }
         pub fn eval_resource_name(mut self, input: impl ::std::convert::Into<self::ResourceNameType>) -> Self { self.eval_resource_name = Some(input.into()); self }
         pub fn set_eval_resource_name(mut self, input: ::std::option::Option<self::ResourceNameType>) -> Self { self.eval_resource_name = input; self }
         pub fn get_eval_resource_name(&self) -> &::std::option::Option<self::ResourceNameType> { &self.eval_resource_name }
-        pub fn matched_statements(mut self, input: impl ::std::convert::Into<self::StatementListType>) -> Self { self.matched_statements = Some(input.into()); self }
-        pub fn set_matched_statements(mut self, input: ::std::option::Option<self::StatementListType>) -> Self { self.matched_statements = input; self }
-        pub fn get_matched_statements(&self) -> &::std::option::Option<self::StatementListType> { &self.matched_statements }
-        pub fn missing_context_values(mut self, input: impl ::std::convert::Into<self::ContextKeyNamesResultListType>) -> Self { self.missing_context_values = Some(input.into()); self }
-        pub fn set_missing_context_values(mut self, input: ::std::option::Option<self::ContextKeyNamesResultListType>) -> Self { self.missing_context_values = input; self }
-        pub fn get_missing_context_values(&self) -> &::std::option::Option<self::ContextKeyNamesResultListType> { &self.missing_context_values }
+        pub fn matched_statements(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Statement>>) -> Self { self.matched_statements = Some(input.into()); self }
+        pub fn set_matched_statements(mut self, input: ::std::option::Option<::std::vec::Vec<self::Statement>>) -> Self { self.matched_statements = input; self }
+        pub fn get_matched_statements(&self) -> &::std::option::Option<::std::vec::Vec<self::Statement>> { &self.matched_statements }
+        pub fn missing_context_values(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ContextKeyNameType>>) -> Self { self.missing_context_values = Some(input.into()); self }
+        pub fn set_missing_context_values(mut self, input: ::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>>) -> Self { self.missing_context_values = input; self }
+        pub fn get_missing_context_values(&self) -> &::std::option::Option<::std::vec::Vec<self::ContextKeyNameType>> { &self.missing_context_values }
         pub fn organizations_decision_detail(mut self, input: impl ::std::convert::Into<self::OrganizationsDecisionDetail>) -> Self { self.organizations_decision_detail = Some(input.into()); self }
         pub fn set_organizations_decision_detail(mut self, input: ::std::option::Option<self::OrganizationsDecisionDetail>) -> Self { self.organizations_decision_detail = input; self }
         pub fn get_organizations_decision_detail(&self) -> &::std::option::Option<self::OrganizationsDecisionDetail> { &self.organizations_decision_detail }
         pub fn permissions_boundary_decision_detail(mut self, input: impl ::std::convert::Into<self::PermissionsBoundaryDecisionDetail>) -> Self { self.permissions_boundary_decision_detail = Some(input.into()); self }
         pub fn set_permissions_boundary_decision_detail(mut self, input: ::std::option::Option<self::PermissionsBoundaryDecisionDetail>) -> Self { self.permissions_boundary_decision_detail = input; self }
         pub fn get_permissions_boundary_decision_detail(&self) -> &::std::option::Option<self::PermissionsBoundaryDecisionDetail> { &self.permissions_boundary_decision_detail }
-        pub fn resource_specific_results(mut self, input: impl ::std::convert::Into<self::ResourceSpecificResultListType>) -> Self { self.resource_specific_results = Some(input.into()); self }
-        pub fn set_resource_specific_results(mut self, input: ::std::option::Option<self::ResourceSpecificResultListType>) -> Self { self.resource_specific_results = input; self }
-        pub fn get_resource_specific_results(&self) -> &::std::option::Option<self::ResourceSpecificResultListType> { &self.resource_specific_results }
+        pub fn resource_specific_results(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ResourceSpecificResult>>) -> Self { self.resource_specific_results = Some(input.into()); self }
+        pub fn set_resource_specific_results(mut self, input: ::std::option::Option<::std::vec::Vec<self::ResourceSpecificResult>>) -> Self { self.resource_specific_results = input; self }
+        pub fn get_resource_specific_results(&self) -> &::std::option::Option<::std::vec::Vec<self::ResourceSpecificResult>> { &self.resource_specific_results }
         pub fn build(self) -> EvaluationResult {
             EvaluationResult {
                 eval_action_name: self.eval_action_name,

@@ -28,7 +28,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketReplicationError::Unhandled(format!("PutBucketReplication returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketReplicationOutput::default())
+                         Ok(super::PutBucketReplicationOutput)
                      }
 }
 pub use Builder as PutBucketReplicationFluentBuilder;

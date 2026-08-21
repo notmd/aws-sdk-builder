@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct DeleteMessageBatchInput {
-    pub entries: ::std::option::Option<super::super::super::types::DeleteMessageBatchRequestEntryList>,
+    pub entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchRequestEntry>>,
     pub queue_url: ::std::option::Option<super::super::super::types::String>,
 }
         impl DeleteMessageBatchInput {
@@ -14,13 +14,13 @@ impl DeleteMessageBatchInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct DeleteMessageBatchInputBuilder {
-    entries: ::std::option::Option<super::super::super::types::DeleteMessageBatchRequestEntryList>,
+    entries: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchRequestEntry>>,
     queue_url: ::std::option::Option<super::super::super::types::String>,
 }
 impl DeleteMessageBatchInputBuilder {
-    pub fn entries(mut self, input: impl ::std::convert::Into<super::super::super::types::DeleteMessageBatchRequestEntryList>) -> Self { self.entries = Some(input.into()); self }
-    pub fn set_entries(mut self, input: ::std::option::Option<super::super::super::types::DeleteMessageBatchRequestEntryList>) -> Self { self.entries = input; self }
-    pub fn get_entries(&self) -> &::std::option::Option<super::super::super::types::DeleteMessageBatchRequestEntryList> { &self.entries }
+    pub fn entries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DeleteMessageBatchRequestEntry>>) -> Self { self.entries = Some(input.into()); self }
+    pub fn set_entries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchRequestEntry>>) -> Self { self.entries = input; self }
+    pub fn get_entries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMessageBatchRequestEntry>> { &self.entries }
     pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
     pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
     pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }

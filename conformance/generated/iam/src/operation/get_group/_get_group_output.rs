@@ -5,7 +5,7 @@ pub struct GetGroupOutput {
     pub group: ::std::option::Option<super::super::super::types::Group>,
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub users: ::std::option::Option<super::super::super::types::UserListType>,
+    pub users: ::std::option::Option<::std::vec::Vec<super::super::super::types::User>>,
 }
         impl GetGroupOutput {
             pub fn group(&self) -> ::std::option::Option<&super::super::super::types::Group> { self.group.as_ref() }
@@ -21,7 +21,7 @@ pub struct GetGroupOutputBuilder {
     group: ::std::option::Option<super::super::super::types::Group>,
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    users: ::std::option::Option<super::super::super::types::UserListType>,
+    users: ::std::option::Option<::std::vec::Vec<super::super::super::types::User>>,
 }
 impl GetGroupOutputBuilder {
     pub fn group(mut self, input: impl ::std::convert::Into<super::super::super::types::Group>) -> Self { self.group = Some(input.into()); self }
@@ -33,9 +33,9 @@ impl GetGroupOutputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn users(mut self, input: impl ::std::convert::Into<super::super::super::types::UserListType>) -> Self { self.users = Some(input.into()); self }
-    pub fn set_users(mut self, input: ::std::option::Option<super::super::super::types::UserListType>) -> Self { self.users = input; self }
-    pub fn get_users(&self) -> &::std::option::Option<super::super::super::types::UserListType> { &self.users }
+    pub fn users(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::User>>) -> Self { self.users = Some(input.into()); self }
+    pub fn set_users(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::User>>) -> Self { self.users = input; self }
+    pub fn get_users(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::User>> { &self.users }
     pub fn build(self) -> GetGroupOutput { GetGroupOutput {
         group: self.group,
         is_truncated: self.is_truncated,

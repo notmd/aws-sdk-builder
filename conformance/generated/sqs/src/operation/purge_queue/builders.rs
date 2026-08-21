@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PurgeQueueError::Unhandled(format!("PurgeQueue returned HTTP {}", status)));
                          }
-                         Ok(super::PurgeQueueOutput::default())
+                         Ok(super::PurgeQueueOutput)
                      }
 }
 pub use Builder as PurgeQueueFluentBuilder;

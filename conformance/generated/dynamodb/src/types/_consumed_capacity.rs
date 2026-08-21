@@ -3,35 +3,35 @@
     #[derive(Clone, Debug, Default)]
     pub struct ConsumedCapacity {
         pub capacity_units: ::std::option::Option<self::ConsumedCapacityUnits>,
-        pub global_secondary_indexes: ::std::option::Option<self::SecondaryIndexesCapacityMap>,
-        pub local_secondary_indexes: ::std::option::Option<self::SecondaryIndexesCapacityMap>,
+        pub global_secondary_indexes: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>>,
+        pub local_secondary_indexes: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>>,
         pub read_capacity_units: ::std::option::Option<self::ConsumedCapacityUnits>,
         pub table: ::std::option::Option<self::Capacity>,
         pub table_name: ::std::option::Option<self::TableArn>,
-        pub vector_indexes: ::std::option::Option<self::VectorIndexesCapacityMap>,
+        pub vector_indexes: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::VectorCapacity>>,
         pub write_capacity_units: ::std::option::Option<self::ConsumedCapacityUnits>,
     }
     impl ConsumedCapacity {
         pub fn builder() -> ConsumedCapacityBuilder { ConsumedCapacityBuilder::default() }
         pub fn capacity_units(&self) -> &::std::option::Option<self::ConsumedCapacityUnits> { &self.capacity_units }
-        pub fn global_secondary_indexes(&self) -> &::std::option::Option<self::SecondaryIndexesCapacityMap> { &self.global_secondary_indexes }
-        pub fn local_secondary_indexes(&self) -> &::std::option::Option<self::SecondaryIndexesCapacityMap> { &self.local_secondary_indexes }
+        pub fn global_secondary_indexes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>> { &self.global_secondary_indexes }
+        pub fn local_secondary_indexes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>> { &self.local_secondary_indexes }
         pub fn read_capacity_units(&self) -> &::std::option::Option<self::ConsumedCapacityUnits> { &self.read_capacity_units }
         pub fn table(&self) -> &::std::option::Option<self::Capacity> { &self.table }
         pub fn table_name(&self) -> &::std::option::Option<self::TableArn> { &self.table_name }
-        pub fn vector_indexes(&self) -> &::std::option::Option<self::VectorIndexesCapacityMap> { &self.vector_indexes }
+        pub fn vector_indexes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::VectorCapacity>> { &self.vector_indexes }
         pub fn write_capacity_units(&self) -> &::std::option::Option<self::ConsumedCapacityUnits> { &self.write_capacity_units }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ConsumedCapacityBuilder {
         capacity_units: ::std::option::Option<self::ConsumedCapacityUnits>,
-        global_secondary_indexes: ::std::option::Option<self::SecondaryIndexesCapacityMap>,
-        local_secondary_indexes: ::std::option::Option<self::SecondaryIndexesCapacityMap>,
+        global_secondary_indexes: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>>,
+        local_secondary_indexes: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>>,
         read_capacity_units: ::std::option::Option<self::ConsumedCapacityUnits>,
         table: ::std::option::Option<self::Capacity>,
         table_name: ::std::option::Option<self::TableArn>,
-        vector_indexes: ::std::option::Option<self::VectorIndexesCapacityMap>,
+        vector_indexes: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::VectorCapacity>>,
         write_capacity_units: ::std::option::Option<self::ConsumedCapacityUnits>,
     }
 
@@ -39,12 +39,12 @@
         pub fn capacity_units(mut self, input: impl ::std::convert::Into<self::ConsumedCapacityUnits>) -> Self { self.capacity_units = Some(input.into()); self }
         pub fn set_capacity_units(mut self, input: ::std::option::Option<self::ConsumedCapacityUnits>) -> Self { self.capacity_units = input; self }
         pub fn get_capacity_units(&self) -> &::std::option::Option<self::ConsumedCapacityUnits> { &self.capacity_units }
-        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<self::SecondaryIndexesCapacityMap>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
-        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<self::SecondaryIndexesCapacityMap>) -> Self { self.global_secondary_indexes = input; self }
-        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<self::SecondaryIndexesCapacityMap> { &self.global_secondary_indexes }
-        pub fn local_secondary_indexes(mut self, input: impl ::std::convert::Into<self::SecondaryIndexesCapacityMap>) -> Self { self.local_secondary_indexes = Some(input.into()); self }
-        pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<self::SecondaryIndexesCapacityMap>) -> Self { self.local_secondary_indexes = input; self }
-        pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<self::SecondaryIndexesCapacityMap> { &self.local_secondary_indexes }
+        pub fn global_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::IndexName, self::Capacity>>) -> Self { self.global_secondary_indexes = Some(input.into()); self }
+        pub fn set_global_secondary_indexes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>>) -> Self { self.global_secondary_indexes = input; self }
+        pub fn get_global_secondary_indexes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>> { &self.global_secondary_indexes }
+        pub fn local_secondary_indexes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::IndexName, self::Capacity>>) -> Self { self.local_secondary_indexes = Some(input.into()); self }
+        pub fn set_local_secondary_indexes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>>) -> Self { self.local_secondary_indexes = input; self }
+        pub fn get_local_secondary_indexes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::Capacity>> { &self.local_secondary_indexes }
         pub fn read_capacity_units(mut self, input: impl ::std::convert::Into<self::ConsumedCapacityUnits>) -> Self { self.read_capacity_units = Some(input.into()); self }
         pub fn set_read_capacity_units(mut self, input: ::std::option::Option<self::ConsumedCapacityUnits>) -> Self { self.read_capacity_units = input; self }
         pub fn get_read_capacity_units(&self) -> &::std::option::Option<self::ConsumedCapacityUnits> { &self.read_capacity_units }
@@ -54,9 +54,9 @@
         pub fn table_name(mut self, input: impl ::std::convert::Into<self::TableArn>) -> Self { self.table_name = Some(input.into()); self }
         pub fn set_table_name(mut self, input: ::std::option::Option<self::TableArn>) -> Self { self.table_name = input; self }
         pub fn get_table_name(&self) -> &::std::option::Option<self::TableArn> { &self.table_name }
-        pub fn vector_indexes(mut self, input: impl ::std::convert::Into<self::VectorIndexesCapacityMap>) -> Self { self.vector_indexes = Some(input.into()); self }
-        pub fn set_vector_indexes(mut self, input: ::std::option::Option<self::VectorIndexesCapacityMap>) -> Self { self.vector_indexes = input; self }
-        pub fn get_vector_indexes(&self) -> &::std::option::Option<self::VectorIndexesCapacityMap> { &self.vector_indexes }
+        pub fn vector_indexes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::IndexName, self::VectorCapacity>>) -> Self { self.vector_indexes = Some(input.into()); self }
+        pub fn set_vector_indexes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::VectorCapacity>>) -> Self { self.vector_indexes = input; self }
+        pub fn get_vector_indexes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::IndexName, self::VectorCapacity>> { &self.vector_indexes }
         pub fn write_capacity_units(mut self, input: impl ::std::convert::Into<self::ConsumedCapacityUnits>) -> Self { self.write_capacity_units = Some(input.into()); self }
         pub fn set_write_capacity_units(mut self, input: ::std::option::Option<self::ConsumedCapacityUnits>) -> Self { self.write_capacity_units = input; self }
         pub fn get_write_capacity_units(&self) -> &::std::option::Option<self::ConsumedCapacityUnits> { &self.write_capacity_units }

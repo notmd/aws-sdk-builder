@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteBucketPolicyError::Unhandled(format!("DeleteBucketPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteBucketPolicyOutput::default())
+                         Ok(super::DeleteBucketPolicyOutput)
                      }
 }
 pub use Builder as DeleteBucketPolicyFluentBuilder;

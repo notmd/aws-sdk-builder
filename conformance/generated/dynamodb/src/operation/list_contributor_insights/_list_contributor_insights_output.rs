@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListContributorInsightsOutput {
-    pub contributor_insights_summaries: ::std::option::Option<super::super::super::types::ContributorInsightsSummaries>,
+    pub contributor_insights_summaries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsSummary>>,
     pub next_token: ::std::option::Option<super::super::super::types::NextTokenString>,
 }
         impl ListContributorInsightsOutput {
@@ -14,13 +14,13 @@ impl ListContributorInsightsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListContributorInsightsOutputBuilder {
-    contributor_insights_summaries: ::std::option::Option<super::super::super::types::ContributorInsightsSummaries>,
+    contributor_insights_summaries: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsSummary>>,
     next_token: ::std::option::Option<super::super::super::types::NextTokenString>,
 }
 impl ListContributorInsightsOutputBuilder {
-    pub fn contributor_insights_summaries(mut self, input: impl ::std::convert::Into<super::super::super::types::ContributorInsightsSummaries>) -> Self { self.contributor_insights_summaries = Some(input.into()); self }
-    pub fn set_contributor_insights_summaries(mut self, input: ::std::option::Option<super::super::super::types::ContributorInsightsSummaries>) -> Self { self.contributor_insights_summaries = input; self }
-    pub fn get_contributor_insights_summaries(&self) -> &::std::option::Option<super::super::super::types::ContributorInsightsSummaries> { &self.contributor_insights_summaries }
+    pub fn contributor_insights_summaries(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ContributorInsightsSummary>>) -> Self { self.contributor_insights_summaries = Some(input.into()); self }
+    pub fn set_contributor_insights_summaries(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsSummary>>) -> Self { self.contributor_insights_summaries = input; self }
+    pub fn get_contributor_insights_summaries(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ContributorInsightsSummary>> { &self.contributor_insights_summaries }
     pub fn next_token(mut self, input: impl ::std::convert::Into<super::super::super::types::NextTokenString>) -> Self { self.next_token = Some(input.into()); self }
     pub fn set_next_token(mut self, input: ::std::option::Option<super::super::super::types::NextTokenString>) -> Self { self.next_token = input; self }
     pub fn get_next_token(&self) -> &::std::option::Option<super::super::super::types::NextTokenString> { &self.next_token }

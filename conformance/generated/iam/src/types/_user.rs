@@ -7,7 +7,7 @@
         pub password_last_used: ::std::option::Option<self::DateType>,
         pub path: ::std::option::Option<self::PathType>,
         pub permissions_boundary: ::std::option::Option<self::AttachedPermissionsBoundary>,
-        pub tags: ::std::option::Option<self::TagListType>,
+        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
         pub user_id: ::std::option::Option<self::IdType>,
         pub user_name: ::std::option::Option<self::UserNameType>,
     }
@@ -18,7 +18,7 @@
         pub fn password_last_used(&self) -> &::std::option::Option<self::DateType> { &self.password_last_used }
         pub fn path(&self) -> &::std::option::Option<self::PathType> { &self.path }
         pub fn permissions_boundary(&self) -> &::std::option::Option<self::AttachedPermissionsBoundary> { &self.permissions_boundary }
-        pub fn tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
+        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
         pub fn user_id(&self) -> &::std::option::Option<self::IdType> { &self.user_id }
         pub fn user_name(&self) -> &::std::option::Option<self::UserNameType> { &self.user_name }
     }
@@ -30,7 +30,7 @@
         password_last_used: ::std::option::Option<self::DateType>,
         path: ::std::option::Option<self::PathType>,
         permissions_boundary: ::std::option::Option<self::AttachedPermissionsBoundary>,
-        tags: ::std::option::Option<self::TagListType>,
+        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
         user_id: ::std::option::Option<self::IdType>,
         user_name: ::std::option::Option<self::UserNameType>,
     }
@@ -51,9 +51,9 @@
         pub fn permissions_boundary(mut self, input: impl ::std::convert::Into<self::AttachedPermissionsBoundary>) -> Self { self.permissions_boundary = Some(input.into()); self }
         pub fn set_permissions_boundary(mut self, input: ::std::option::Option<self::AttachedPermissionsBoundary>) -> Self { self.permissions_boundary = input; self }
         pub fn get_permissions_boundary(&self) -> &::std::option::Option<self::AttachedPermissionsBoundary> { &self.permissions_boundary }
-        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagListType>) -> Self { self.tags = Some(input.into()); self }
-        pub fn set_tags(mut self, input: ::std::option::Option<self::TagListType>) -> Self { self.tags = input; self }
-        pub fn get_tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
+        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
+        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
+        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
         pub fn user_id(mut self, input: impl ::std::convert::Into<self::IdType>) -> Self { self.user_id = Some(input.into()); self }
         pub fn set_user_id(mut self, input: ::std::option::Option<self::IdType>) -> Self { self.user_id = input; self }
         pub fn get_user_id(&self) -> &::std::option::Option<self::IdType> { &self.user_id }

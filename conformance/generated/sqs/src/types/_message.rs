@@ -2,40 +2,40 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct Message {
-        pub attributes: ::std::option::Option<self::MessageSystemAttributeMap>,
+        pub attributes: ::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeName, self::String>>,
         pub body: ::std::option::Option<self::String>,
         pub md5_of_body: ::std::option::Option<self::String>,
         pub md5_of_message_attributes: ::std::option::Option<self::String>,
-        pub message_attributes: ::std::option::Option<self::MessageBodyAttributeMap>,
+        pub message_attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>,
         pub message_id: ::std::option::Option<self::String>,
         pub receipt_handle: ::std::option::Option<self::String>,
     }
     impl Message {
         pub fn builder() -> MessageBuilder { MessageBuilder::default() }
-        pub fn attributes(&self) -> &::std::option::Option<self::MessageSystemAttributeMap> { &self.attributes }
+        pub fn attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeName, self::String>> { &self.attributes }
         pub fn body(&self) -> ::std::option::Option<&str> { self.body.as_deref() }
         pub fn md5_of_body(&self) -> ::std::option::Option<&str> { self.md5_of_body.as_deref() }
         pub fn md5_of_message_attributes(&self) -> ::std::option::Option<&str> { self.md5_of_message_attributes.as_deref() }
-        pub fn message_attributes(&self) -> &::std::option::Option<self::MessageBodyAttributeMap> { &self.message_attributes }
+        pub fn message_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>> { &self.message_attributes }
         pub fn message_id(&self) -> ::std::option::Option<&str> { self.message_id.as_deref() }
         pub fn receipt_handle(&self) -> ::std::option::Option<&str> { self.receipt_handle.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct MessageBuilder {
-        attributes: ::std::option::Option<self::MessageSystemAttributeMap>,
+        attributes: ::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeName, self::String>>,
         body: ::std::option::Option<self::String>,
         md5_of_body: ::std::option::Option<self::String>,
         md5_of_message_attributes: ::std::option::Option<self::String>,
-        message_attributes: ::std::option::Option<self::MessageBodyAttributeMap>,
+        message_attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>,
         message_id: ::std::option::Option<self::String>,
         receipt_handle: ::std::option::Option<self::String>,
     }
 
     impl MessageBuilder {
-        pub fn attributes(mut self, input: impl ::std::convert::Into<self::MessageSystemAttributeMap>) -> Self { self.attributes = Some(input.into()); self }
-        pub fn set_attributes(mut self, input: ::std::option::Option<self::MessageSystemAttributeMap>) -> Self { self.attributes = input; self }
-        pub fn get_attributes(&self) -> &::std::option::Option<self::MessageSystemAttributeMap> { &self.attributes }
+        pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::MessageSystemAttributeName, self::String>>) -> Self { self.attributes = Some(input.into()); self }
+        pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeName, self::String>>) -> Self { self.attributes = input; self }
+        pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::MessageSystemAttributeName, self::String>> { &self.attributes }
         pub fn body(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.body = Some(input.into()); self }
         pub fn set_body(mut self, input: ::std::option::Option<self::String>) -> Self { self.body = input; self }
         pub fn get_body(&self) -> &::std::option::Option<self::String> { &self.body }
@@ -45,9 +45,9 @@
         pub fn md5_of_message_attributes(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.md5_of_message_attributes = Some(input.into()); self }
         pub fn set_md5_of_message_attributes(mut self, input: ::std::option::Option<self::String>) -> Self { self.md5_of_message_attributes = input; self }
         pub fn get_md5_of_message_attributes(&self) -> &::std::option::Option<self::String> { &self.md5_of_message_attributes }
-        pub fn message_attributes(mut self, input: impl ::std::convert::Into<self::MessageBodyAttributeMap>) -> Self { self.message_attributes = Some(input.into()); self }
-        pub fn set_message_attributes(mut self, input: ::std::option::Option<self::MessageBodyAttributeMap>) -> Self { self.message_attributes = input; self }
-        pub fn get_message_attributes(&self) -> &::std::option::Option<self::MessageBodyAttributeMap> { &self.message_attributes }
+        pub fn message_attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>) -> Self { self.message_attributes = Some(input.into()); self }
+        pub fn set_message_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>) -> Self { self.message_attributes = input; self }
+        pub fn get_message_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>> { &self.message_attributes }
         pub fn message_id(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.message_id = Some(input.into()); self }
         pub fn set_message_id(mut self, input: ::std::option::Option<self::String>) -> Self { self.message_id = input; self }
         pub fn get_message_id(&self) -> &::std::option::Option<self::String> { &self.message_id }

@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SendDelegationTokenError::Unhandled(format!("SendDelegationToken returned HTTP {}", status)));
                          }
-                         Ok(super::SendDelegationTokenOutput::default())
+                         Ok(super::SendDelegationTokenOutput)
                      }
 }
 pub use Builder as SendDelegationTokenFluentBuilder;

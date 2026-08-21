@@ -4,47 +4,47 @@
     pub struct RoleDetail {
         pub arn: ::std::option::Option<self::ArnType>,
         pub assume_role_policy_document: ::std::option::Option<self::PolicyDocumentType>,
-        pub attached_managed_policies: ::std::option::Option<self::AttachedPoliciesListType>,
+        pub attached_managed_policies: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>,
         pub create_date: ::std::option::Option<self::DateType>,
-        pub instance_profile_list: ::std::option::Option<self::InstanceProfileListType>,
+        pub instance_profile_list: ::std::option::Option<::std::vec::Vec<self::InstanceProfile>>,
         pub path: ::std::option::Option<self::PathType>,
         pub permissions_boundary: ::std::option::Option<self::AttachedPermissionsBoundary>,
         pub role_id: ::std::option::Option<self::IdType>,
         pub role_last_used: ::std::option::Option<self::RoleLastUsed>,
         pub role_name: ::std::option::Option<self::RoleNameType>,
-        pub role_policy_list: ::std::option::Option<self::PolicyDetailListType>,
-        pub tags: ::std::option::Option<self::TagListType>,
+        pub role_policy_list: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>,
+        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
     }
     impl RoleDetail {
         pub fn builder() -> RoleDetailBuilder { RoleDetailBuilder::default() }
         pub fn arn(&self) -> &::std::option::Option<self::ArnType> { &self.arn }
         pub fn assume_role_policy_document(&self) -> &::std::option::Option<self::PolicyDocumentType> { &self.assume_role_policy_document }
-        pub fn attached_managed_policies(&self) -> &::std::option::Option<self::AttachedPoliciesListType> { &self.attached_managed_policies }
+        pub fn attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::AttachedPolicy>> { &self.attached_managed_policies }
         pub fn create_date(&self) -> &::std::option::Option<self::DateType> { &self.create_date }
-        pub fn instance_profile_list(&self) -> &::std::option::Option<self::InstanceProfileListType> { &self.instance_profile_list }
+        pub fn instance_profile_list(&self) -> &::std::option::Option<::std::vec::Vec<self::InstanceProfile>> { &self.instance_profile_list }
         pub fn path(&self) -> &::std::option::Option<self::PathType> { &self.path }
         pub fn permissions_boundary(&self) -> &::std::option::Option<self::AttachedPermissionsBoundary> { &self.permissions_boundary }
         pub fn role_id(&self) -> &::std::option::Option<self::IdType> { &self.role_id }
         pub fn role_last_used(&self) -> &::std::option::Option<self::RoleLastUsed> { &self.role_last_used }
         pub fn role_name(&self) -> &::std::option::Option<self::RoleNameType> { &self.role_name }
-        pub fn role_policy_list(&self) -> &::std::option::Option<self::PolicyDetailListType> { &self.role_policy_list }
-        pub fn tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
+        pub fn role_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyDetail>> { &self.role_policy_list }
+        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct RoleDetailBuilder {
         arn: ::std::option::Option<self::ArnType>,
         assume_role_policy_document: ::std::option::Option<self::PolicyDocumentType>,
-        attached_managed_policies: ::std::option::Option<self::AttachedPoliciesListType>,
+        attached_managed_policies: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>,
         create_date: ::std::option::Option<self::DateType>,
-        instance_profile_list: ::std::option::Option<self::InstanceProfileListType>,
+        instance_profile_list: ::std::option::Option<::std::vec::Vec<self::InstanceProfile>>,
         path: ::std::option::Option<self::PathType>,
         permissions_boundary: ::std::option::Option<self::AttachedPermissionsBoundary>,
         role_id: ::std::option::Option<self::IdType>,
         role_last_used: ::std::option::Option<self::RoleLastUsed>,
         role_name: ::std::option::Option<self::RoleNameType>,
-        role_policy_list: ::std::option::Option<self::PolicyDetailListType>,
-        tags: ::std::option::Option<self::TagListType>,
+        role_policy_list: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>,
+        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
     }
 
     impl RoleDetailBuilder {
@@ -54,15 +54,15 @@
         pub fn assume_role_policy_document(mut self, input: impl ::std::convert::Into<self::PolicyDocumentType>) -> Self { self.assume_role_policy_document = Some(input.into()); self }
         pub fn set_assume_role_policy_document(mut self, input: ::std::option::Option<self::PolicyDocumentType>) -> Self { self.assume_role_policy_document = input; self }
         pub fn get_assume_role_policy_document(&self) -> &::std::option::Option<self::PolicyDocumentType> { &self.assume_role_policy_document }
-        pub fn attached_managed_policies(mut self, input: impl ::std::convert::Into<self::AttachedPoliciesListType>) -> Self { self.attached_managed_policies = Some(input.into()); self }
-        pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<self::AttachedPoliciesListType>) -> Self { self.attached_managed_policies = input; self }
-        pub fn get_attached_managed_policies(&self) -> &::std::option::Option<self::AttachedPoliciesListType> { &self.attached_managed_policies }
+        pub fn attached_managed_policies(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttachedPolicy>>) -> Self { self.attached_managed_policies = Some(input.into()); self }
+        pub fn set_attached_managed_policies(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttachedPolicy>>) -> Self { self.attached_managed_policies = input; self }
+        pub fn get_attached_managed_policies(&self) -> &::std::option::Option<::std::vec::Vec<self::AttachedPolicy>> { &self.attached_managed_policies }
         pub fn create_date(mut self, input: impl ::std::convert::Into<self::DateType>) -> Self { self.create_date = Some(input.into()); self }
         pub fn set_create_date(mut self, input: ::std::option::Option<self::DateType>) -> Self { self.create_date = input; self }
         pub fn get_create_date(&self) -> &::std::option::Option<self::DateType> { &self.create_date }
-        pub fn instance_profile_list(mut self, input: impl ::std::convert::Into<self::InstanceProfileListType>) -> Self { self.instance_profile_list = Some(input.into()); self }
-        pub fn set_instance_profile_list(mut self, input: ::std::option::Option<self::InstanceProfileListType>) -> Self { self.instance_profile_list = input; self }
-        pub fn get_instance_profile_list(&self) -> &::std::option::Option<self::InstanceProfileListType> { &self.instance_profile_list }
+        pub fn instance_profile_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::InstanceProfile>>) -> Self { self.instance_profile_list = Some(input.into()); self }
+        pub fn set_instance_profile_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::InstanceProfile>>) -> Self { self.instance_profile_list = input; self }
+        pub fn get_instance_profile_list(&self) -> &::std::option::Option<::std::vec::Vec<self::InstanceProfile>> { &self.instance_profile_list }
         pub fn path(mut self, input: impl ::std::convert::Into<self::PathType>) -> Self { self.path = Some(input.into()); self }
         pub fn set_path(mut self, input: ::std::option::Option<self::PathType>) -> Self { self.path = input; self }
         pub fn get_path(&self) -> &::std::option::Option<self::PathType> { &self.path }
@@ -78,12 +78,12 @@
         pub fn role_name(mut self, input: impl ::std::convert::Into<self::RoleNameType>) -> Self { self.role_name = Some(input.into()); self }
         pub fn set_role_name(mut self, input: ::std::option::Option<self::RoleNameType>) -> Self { self.role_name = input; self }
         pub fn get_role_name(&self) -> &::std::option::Option<self::RoleNameType> { &self.role_name }
-        pub fn role_policy_list(mut self, input: impl ::std::convert::Into<self::PolicyDetailListType>) -> Self { self.role_policy_list = Some(input.into()); self }
-        pub fn set_role_policy_list(mut self, input: ::std::option::Option<self::PolicyDetailListType>) -> Self { self.role_policy_list = input; self }
-        pub fn get_role_policy_list(&self) -> &::std::option::Option<self::PolicyDetailListType> { &self.role_policy_list }
-        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagListType>) -> Self { self.tags = Some(input.into()); self }
-        pub fn set_tags(mut self, input: ::std::option::Option<self::TagListType>) -> Self { self.tags = input; self }
-        pub fn get_tags(&self) -> &::std::option::Option<self::TagListType> { &self.tags }
+        pub fn role_policy_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::PolicyDetail>>) -> Self { self.role_policy_list = Some(input.into()); self }
+        pub fn set_role_policy_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::PolicyDetail>>) -> Self { self.role_policy_list = input; self }
+        pub fn get_role_policy_list(&self) -> &::std::option::Option<::std::vec::Vec<self::PolicyDetail>> { &self.role_policy_list }
+        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
+        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
+        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
         pub fn build(self) -> RoleDetail {
             RoleDetail {
                 arn: self.arn,

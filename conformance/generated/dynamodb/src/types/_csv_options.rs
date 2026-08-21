@@ -3,27 +3,27 @@
     #[derive(Clone, Debug, Default)]
     pub struct CsvOptions {
         pub delimiter: ::std::option::Option<self::CsvDelimiter>,
-        pub header_list: ::std::option::Option<self::CsvHeaderList>,
+        pub header_list: ::std::option::Option<::std::vec::Vec<self::CsvHeader>>,
     }
     impl CsvOptions {
         pub fn builder() -> CsvOptionsBuilder { CsvOptionsBuilder::default() }
         pub fn delimiter(&self) -> &::std::option::Option<self::CsvDelimiter> { &self.delimiter }
-        pub fn header_list(&self) -> &::std::option::Option<self::CsvHeaderList> { &self.header_list }
+        pub fn header_list(&self) -> &::std::option::Option<::std::vec::Vec<self::CsvHeader>> { &self.header_list }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct CsvOptionsBuilder {
         delimiter: ::std::option::Option<self::CsvDelimiter>,
-        header_list: ::std::option::Option<self::CsvHeaderList>,
+        header_list: ::std::option::Option<::std::vec::Vec<self::CsvHeader>>,
     }
 
     impl CsvOptionsBuilder {
         pub fn delimiter(mut self, input: impl ::std::convert::Into<self::CsvDelimiter>) -> Self { self.delimiter = Some(input.into()); self }
         pub fn set_delimiter(mut self, input: ::std::option::Option<self::CsvDelimiter>) -> Self { self.delimiter = input; self }
         pub fn get_delimiter(&self) -> &::std::option::Option<self::CsvDelimiter> { &self.delimiter }
-        pub fn header_list(mut self, input: impl ::std::convert::Into<self::CsvHeaderList>) -> Self { self.header_list = Some(input.into()); self }
-        pub fn set_header_list(mut self, input: ::std::option::Option<self::CsvHeaderList>) -> Self { self.header_list = input; self }
-        pub fn get_header_list(&self) -> &::std::option::Option<self::CsvHeaderList> { &self.header_list }
+        pub fn header_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::CsvHeader>>) -> Self { self.header_list = Some(input.into()); self }
+        pub fn set_header_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::CsvHeader>>) -> Self { self.header_list = input; self }
+        pub fn get_header_list(&self) -> &::std::option::Option<::std::vec::Vec<self::CsvHeader>> { &self.header_list }
         pub fn build(self) -> CsvOptions {
             CsvOptions {
                 delimiter: self.delimiter,

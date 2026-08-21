@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct TagInstanceProfileInput {
     pub instance_profile_name: ::std::option::Option<super::super::super::types::InstanceProfileNameType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl TagInstanceProfileInput {
             pub fn instance_profile_name(&self) -> ::std::option::Option<&str> { self.instance_profile_name.as_deref() }
@@ -15,15 +15,15 @@ impl TagInstanceProfileInput {
 #[derive(Clone, Debug, Default)]
 pub struct TagInstanceProfileInputBuilder {
     instance_profile_name: ::std::option::Option<super::super::super::types::InstanceProfileNameType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl TagInstanceProfileInputBuilder {
     pub fn instance_profile_name(mut self, input: impl ::std::convert::Into<super::super::super::types::InstanceProfileNameType>) -> Self { self.instance_profile_name = Some(input.into()); self }
     pub fn set_instance_profile_name(mut self, input: ::std::option::Option<super::super::super::types::InstanceProfileNameType>) -> Self { self.instance_profile_name = input; self }
     pub fn get_instance_profile_name(&self) -> &::std::option::Option<super::super::super::types::InstanceProfileNameType> { &self.instance_profile_name }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> TagInstanceProfileInput { TagInstanceProfileInput {
         instance_profile_name: self.instance_profile_name,
         tags: self.tags,

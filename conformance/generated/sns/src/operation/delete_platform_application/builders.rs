@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeletePlatformApplicationError::Unhandled(format!("DeletePlatformApplication returned HTTP {}", status)));
                          }
-                         Ok(super::DeletePlatformApplicationOutput::default())
+                         Ok(super::DeletePlatformApplicationOutput)
                      }
 }
 pub use Builder as DeletePlatformApplicationFluentBuilder;

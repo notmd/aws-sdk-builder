@@ -5,14 +5,14 @@
         pub object_size_greater_than: ::std::option::Option<self::ObjectSizeGreaterThanBytes>,
         pub object_size_less_than: ::std::option::Option<self::ObjectSizeLessThanBytes>,
         pub prefix: ::std::option::Option<self::Prefix>,
-        pub tags: ::std::option::Option<self::TagSet>,
+        pub tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
     }
     impl LifecycleRuleAndOperator {
         pub fn builder() -> LifecycleRuleAndOperatorBuilder { LifecycleRuleAndOperatorBuilder::default() }
         pub fn object_size_greater_than(&self) -> &::std::option::Option<self::ObjectSizeGreaterThanBytes> { &self.object_size_greater_than }
         pub fn object_size_less_than(&self) -> &::std::option::Option<self::ObjectSizeLessThanBytes> { &self.object_size_less_than }
         pub fn prefix(&self) -> &::std::option::Option<self::Prefix> { &self.prefix }
-        pub fn tags(&self) -> &::std::option::Option<self::TagSet> { &self.tags }
+        pub fn tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
     }
 
     #[derive(Clone, Debug, Default)]
@@ -20,7 +20,7 @@
         object_size_greater_than: ::std::option::Option<self::ObjectSizeGreaterThanBytes>,
         object_size_less_than: ::std::option::Option<self::ObjectSizeLessThanBytes>,
         prefix: ::std::option::Option<self::Prefix>,
-        tags: ::std::option::Option<self::TagSet>,
+        tags: ::std::option::Option<::std::vec::Vec<self::Tag>>,
     }
 
     impl LifecycleRuleAndOperatorBuilder {
@@ -33,9 +33,9 @@
         pub fn prefix(mut self, input: impl ::std::convert::Into<self::Prefix>) -> Self { self.prefix = Some(input.into()); self }
         pub fn set_prefix(mut self, input: ::std::option::Option<self::Prefix>) -> Self { self.prefix = input; self }
         pub fn get_prefix(&self) -> &::std::option::Option<self::Prefix> { &self.prefix }
-        pub fn tags(mut self, input: impl ::std::convert::Into<self::TagSet>) -> Self { self.tags = Some(input.into()); self }
-        pub fn set_tags(mut self, input: ::std::option::Option<self::TagSet>) -> Self { self.tags = input; self }
-        pub fn get_tags(&self) -> &::std::option::Option<self::TagSet> { &self.tags }
+        pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Tag>>) -> Self { self.tags = Some(input.into()); self }
+        pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<self::Tag>>) -> Self { self.tags = input; self }
+        pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<self::Tag>> { &self.tags }
         pub fn build(self) -> LifecycleRuleAndOperator {
             LifecycleRuleAndOperator {
                 object_size_greater_than: self.object_size_greater_than,

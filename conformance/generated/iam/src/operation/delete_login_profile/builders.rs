@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteLoginProfileError::Unhandled(format!("DeleteLoginProfile returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteLoginProfileOutput::default())
+                         Ok(super::DeleteLoginProfileOutput)
                      }
 }
 pub use Builder as DeleteLoginProfileFluentBuilder;

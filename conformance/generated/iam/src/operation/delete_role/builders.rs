@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteRoleError::Unhandled(format!("DeleteRole returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteRoleOutput::default())
+                         Ok(super::DeleteRoleOutput)
                      }
 }
 pub use Builder as DeleteRoleFluentBuilder;

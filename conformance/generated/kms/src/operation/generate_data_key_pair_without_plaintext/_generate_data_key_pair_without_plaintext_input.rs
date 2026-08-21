@@ -3,14 +3,14 @@
 #[derive(Clone, Debug, Default)]
 pub struct GenerateDataKeyPairWithoutPlaintextInput {
     pub dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-    pub encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-    pub grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
+    pub encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
+    pub grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
     pub key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
     pub key_pair_spec: ::std::option::Option<super::super::super::types::DataKeyPairSpec>,
 }
         impl GenerateDataKeyPairWithoutPlaintextInput {
             pub fn dry_run(&self) -> ::std::option::Option<bool> { self.dry_run }
-            pub fn encryption_context(&self) -> ::std::option::Option<&super::super::super::types::EncryptionContextType> { self.encryption_context.as_ref() }
+            pub fn encryption_context(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { self.encryption_context.as_ref() }
             pub fn grant_tokens(&self) -> &[super::super::super::types::GrantTokenType] { self.grant_tokens.as_deref().unwrap_or(&[]) }
             pub fn key_id(&self) -> ::std::option::Option<&str> { self.key_id.as_deref() }
             pub fn key_pair_spec(&self) -> ::std::option::Option<&super::super::super::types::DataKeyPairSpec> { self.key_pair_spec.as_ref() }
@@ -21,8 +21,8 @@ impl GenerateDataKeyPairWithoutPlaintextInput {
 #[derive(Clone, Debug, Default)]
 pub struct GenerateDataKeyPairWithoutPlaintextInputBuilder {
     dry_run: ::std::option::Option<super::super::super::types::NullableBooleanType>,
-    encryption_context: ::std::option::Option<super::super::super::types::EncryptionContextType>,
-    grant_tokens: ::std::option::Option<super::super::super::types::GrantTokenList>,
+    encryption_context: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>,
+    grant_tokens: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>,
     key_id: ::std::option::Option<super::super::super::types::KeyIdType>,
     key_pair_spec: ::std::option::Option<super::super::super::types::DataKeyPairSpec>,
 }
@@ -30,12 +30,12 @@ impl GenerateDataKeyPairWithoutPlaintextInputBuilder {
     pub fn dry_run(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = Some(input.into()); self }
     pub fn set_dry_run(mut self, input: ::std::option::Option<super::super::super::types::NullableBooleanType>) -> Self { self.dry_run = input; self }
     pub fn get_dry_run(&self) -> &::std::option::Option<super::super::super::types::NullableBooleanType> { &self.dry_run }
-    pub fn encryption_context(mut self, input: impl ::std::convert::Into<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = Some(input.into()); self }
-    pub fn set_encryption_context(mut self, input: ::std::option::Option<super::super::super::types::EncryptionContextType>) -> Self { self.encryption_context = input; self }
-    pub fn get_encryption_context(&self) -> &::std::option::Option<super::super::super::types::EncryptionContextType> { &self.encryption_context }
-    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = Some(input.into()); self }
-    pub fn set_grant_tokens(mut self, input: ::std::option::Option<super::super::super::types::GrantTokenList>) -> Self { self.grant_tokens = input; self }
-    pub fn get_grant_tokens(&self) -> &::std::option::Option<super::super::super::types::GrantTokenList> { &self.grant_tokens }
+    pub fn encryption_context(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = Some(input.into()); self }
+    pub fn set_encryption_context(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>>) -> Self { self.encryption_context = input; self }
+    pub fn get_encryption_context(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::EncryptionContextKey, super::super::super::types::EncryptionContextValue>> { &self.encryption_context }
+    pub fn grant_tokens(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = Some(input.into()); self }
+    pub fn set_grant_tokens(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.grant_tokens = input; self }
+    pub fn get_grant_tokens(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::GrantTokenType>> { &self.grant_tokens }
     pub fn key_id(mut self, input: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.key_id = Some(input.into()); self }
     pub fn set_key_id(mut self, input: ::std::option::Option<super::super::super::types::KeyIdType>) -> Self { self.key_id = input; self }
     pub fn get_key_id(&self) -> &::std::option::Option<super::super::super::types::KeyIdType> { &self.key_id }

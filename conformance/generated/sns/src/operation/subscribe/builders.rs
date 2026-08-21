@@ -10,7 +10,7 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attributes(mut self, value: impl ::std::convert::Into<super::super::super::types::SubscriptionAttributesMap>) -> Self { self.input.attributes = Some(value.into()); self }
+    pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.input.attributes = Some(value.into()); self }
     pub fn endpoint(mut self, value: impl ::std::convert::Into<super::super::super::types::Endpoint2>) -> Self { self.input.endpoint = Some(value.into()); self }
     pub fn protocol(mut self, value: impl ::std::convert::Into<super::super::super::types::Protocol>) -> Self { self.input.protocol = Some(value.into()); self }
     pub fn return_subscription_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::Boolean>) -> Self { self.input.return_subscription_arn = Some(value.into()); self }

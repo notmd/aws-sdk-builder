@@ -19,7 +19,7 @@ pub struct CreateMultipartUploadInput {
     pub grant_read_acp: ::std::option::Option<super::super::super::types::GrantReadAcp>,
     pub grant_write_acp: ::std::option::Option<super::super::super::types::GrantWriteAcp>,
     pub key: ::std::option::Option<super::super::super::types::ObjectKey>,
-    pub metadata: ::std::option::Option<super::super::super::types::Metadata>,
+    pub metadata: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>>,
     pub object_lock_legal_hold_status: ::std::option::Option<super::super::super::types::ObjectLockLegalHoldStatus>,
     pub object_lock_mode: ::std::option::Option<super::super::super::types::ObjectLockMode>,
     pub object_lock_retain_until_date: ::std::option::Option<super::super::super::types::ObjectLockRetainUntilDate>,
@@ -52,7 +52,7 @@ pub struct CreateMultipartUploadInput {
             pub fn grant_read_acp(&self) -> ::std::option::Option<&str> { self.grant_read_acp.as_deref() }
             pub fn grant_write_acp(&self) -> ::std::option::Option<&str> { self.grant_write_acp.as_deref() }
             pub fn key(&self) -> ::std::option::Option<&str> { self.key.as_deref() }
-            pub fn metadata(&self) -> ::std::option::Option<&super::super::super::types::Metadata> { self.metadata.as_ref() }
+            pub fn metadata(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>> { self.metadata.as_ref() }
             pub fn object_lock_legal_hold_status(&self) -> ::std::option::Option<&super::super::super::types::ObjectLockLegalHoldStatus> { self.object_lock_legal_hold_status.as_ref() }
             pub fn object_lock_mode(&self) -> ::std::option::Option<&super::super::super::types::ObjectLockMode> { self.object_lock_mode.as_ref() }
             pub fn object_lock_retain_until_date(&self) -> ::std::option::Option<&super::super::super::types::ObjectLockRetainUntilDate> { self.object_lock_retain_until_date.as_ref() }
@@ -89,7 +89,7 @@ pub struct CreateMultipartUploadInputBuilder {
     grant_read_acp: ::std::option::Option<super::super::super::types::GrantReadAcp>,
     grant_write_acp: ::std::option::Option<super::super::super::types::GrantWriteAcp>,
     key: ::std::option::Option<super::super::super::types::ObjectKey>,
-    metadata: ::std::option::Option<super::super::super::types::Metadata>,
+    metadata: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>>,
     object_lock_legal_hold_status: ::std::option::Option<super::super::super::types::ObjectLockLegalHoldStatus>,
     object_lock_mode: ::std::option::Option<super::super::super::types::ObjectLockMode>,
     object_lock_retain_until_date: ::std::option::Option<super::super::super::types::ObjectLockRetainUntilDate>,
@@ -156,9 +156,9 @@ impl CreateMultipartUploadInputBuilder {
     pub fn key(mut self, input: impl ::std::convert::Into<super::super::super::types::ObjectKey>) -> Self { self.key = Some(input.into()); self }
     pub fn set_key(mut self, input: ::std::option::Option<super::super::super::types::ObjectKey>) -> Self { self.key = input; self }
     pub fn get_key(&self) -> &::std::option::Option<super::super::super::types::ObjectKey> { &self.key }
-    pub fn metadata(mut self, input: impl ::std::convert::Into<super::super::super::types::Metadata>) -> Self { self.metadata = Some(input.into()); self }
-    pub fn set_metadata(mut self, input: ::std::option::Option<super::super::super::types::Metadata>) -> Self { self.metadata = input; self }
-    pub fn get_metadata(&self) -> &::std::option::Option<super::super::super::types::Metadata> { &self.metadata }
+    pub fn metadata(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>>) -> Self { self.metadata = Some(input.into()); self }
+    pub fn set_metadata(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>>) -> Self { self.metadata = input; self }
+    pub fn get_metadata(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::MetadataKey, super::super::super::types::MetadataValue>> { &self.metadata }
     pub fn object_lock_legal_hold_status(mut self, input: impl ::std::convert::Into<super::super::super::types::ObjectLockLegalHoldStatus>) -> Self { self.object_lock_legal_hold_status = Some(input.into()); self }
     pub fn set_object_lock_legal_hold_status(mut self, input: ::std::option::Option<super::super::super::types::ObjectLockLegalHoldStatus>) -> Self { self.object_lock_legal_hold_status = input; self }
     pub fn get_object_lock_legal_hold_status(&self) -> &::std::option::Option<super::super::super::types::ObjectLockLegalHoldStatus> { &self.object_lock_legal_hold_status }

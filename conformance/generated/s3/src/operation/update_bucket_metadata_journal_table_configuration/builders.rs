@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::UpdateBucketMetadataJournalTableConfigurationError::Unhandled(format!("UpdateBucketMetadataJournalTableConfiguration returned HTTP {}", status)));
                          }
-                         Ok(super::UpdateBucketMetadataJournalTableConfigurationOutput::default())
+                         Ok(super::UpdateBucketMetadataJournalTableConfigurationOutput)
                      }
 }
 pub use Builder as UpdateBucketMetadataJournalTableConfigurationFluentBuilder;

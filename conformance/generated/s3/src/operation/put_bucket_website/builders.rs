@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketWebsiteError::Unhandled(format!("PutBucketWebsite returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketWebsiteOutput::default())
+                         Ok(super::PutBucketWebsiteOutput)
                      }
 }
 pub use Builder as PutBucketWebsiteFluentBuilder;

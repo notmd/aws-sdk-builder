@@ -4,10 +4,10 @@
 pub struct GetSamlProviderOutput {
     pub assertion_encryption_mode: ::std::option::Option<super::super::super::types::AssertionEncryptionModeType>,
     pub create_date: ::std::option::Option<super::super::super::types::DateType>,
-    pub private_key_list: ::std::option::Option<super::super::super::types::PrivateKeyList>,
+    pub private_key_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlPrivateKey>>,
     pub saml_metadata_document: ::std::option::Option<super::super::super::types::SamlMetadataDocumentType>,
     pub saml_provider_uuid: ::std::option::Option<super::super::super::types::PrivateKeyIdType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     pub valid_until: ::std::option::Option<super::super::super::types::DateType>,
 }
         impl GetSamlProviderOutput {
@@ -26,10 +26,10 @@ impl GetSamlProviderOutput {
 pub struct GetSamlProviderOutputBuilder {
     assertion_encryption_mode: ::std::option::Option<super::super::super::types::AssertionEncryptionModeType>,
     create_date: ::std::option::Option<super::super::super::types::DateType>,
-    private_key_list: ::std::option::Option<super::super::super::types::PrivateKeyList>,
+    private_key_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlPrivateKey>>,
     saml_metadata_document: ::std::option::Option<super::super::super::types::SamlMetadataDocumentType>,
     saml_provider_uuid: ::std::option::Option<super::super::super::types::PrivateKeyIdType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     valid_until: ::std::option::Option<super::super::super::types::DateType>,
 }
 impl GetSamlProviderOutputBuilder {
@@ -39,18 +39,18 @@ impl GetSamlProviderOutputBuilder {
     pub fn create_date(mut self, input: impl ::std::convert::Into<super::super::super::types::DateType>) -> Self { self.create_date = Some(input.into()); self }
     pub fn set_create_date(mut self, input: ::std::option::Option<super::super::super::types::DateType>) -> Self { self.create_date = input; self }
     pub fn get_create_date(&self) -> &::std::option::Option<super::super::super::types::DateType> { &self.create_date }
-    pub fn private_key_list(mut self, input: impl ::std::convert::Into<super::super::super::types::PrivateKeyList>) -> Self { self.private_key_list = Some(input.into()); self }
-    pub fn set_private_key_list(mut self, input: ::std::option::Option<super::super::super::types::PrivateKeyList>) -> Self { self.private_key_list = input; self }
-    pub fn get_private_key_list(&self) -> &::std::option::Option<super::super::super::types::PrivateKeyList> { &self.private_key_list }
+    pub fn private_key_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::SamlPrivateKey>>) -> Self { self.private_key_list = Some(input.into()); self }
+    pub fn set_private_key_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::SamlPrivateKey>>) -> Self { self.private_key_list = input; self }
+    pub fn get_private_key_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::SamlPrivateKey>> { &self.private_key_list }
     pub fn saml_metadata_document(mut self, input: impl ::std::convert::Into<super::super::super::types::SamlMetadataDocumentType>) -> Self { self.saml_metadata_document = Some(input.into()); self }
     pub fn set_saml_metadata_document(mut self, input: ::std::option::Option<super::super::super::types::SamlMetadataDocumentType>) -> Self { self.saml_metadata_document = input; self }
     pub fn get_saml_metadata_document(&self) -> &::std::option::Option<super::super::super::types::SamlMetadataDocumentType> { &self.saml_metadata_document }
     pub fn saml_provider_uuid(mut self, input: impl ::std::convert::Into<super::super::super::types::PrivateKeyIdType>) -> Self { self.saml_provider_uuid = Some(input.into()); self }
     pub fn set_saml_provider_uuid(mut self, input: ::std::option::Option<super::super::super::types::PrivateKeyIdType>) -> Self { self.saml_provider_uuid = input; self }
     pub fn get_saml_provider_uuid(&self) -> &::std::option::Option<super::super::super::types::PrivateKeyIdType> { &self.saml_provider_uuid }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn valid_until(mut self, input: impl ::std::convert::Into<super::super::super::types::DateType>) -> Self { self.valid_until = Some(input.into()); self }
     pub fn set_valid_until(mut self, input: ::std::option::Option<super::super::super::types::DateType>) -> Self { self.valid_until = input; self }
     pub fn get_valid_until(&self) -> &::std::option::Option<super::super::super::types::DateType> { &self.valid_until }

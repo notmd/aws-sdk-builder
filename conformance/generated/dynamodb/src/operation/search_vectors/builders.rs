@@ -10,13 +10,13 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeNameMap>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
-    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<super::super::super::types::ExpressionAttributeValueMap>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
+    pub fn expression_attribute_names(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeNameVariable, super::super::super::types::AttributeName>>) -> Self { self.input.expression_attribute_names = Some(value.into()); self }
+    pub fn expression_attribute_values(mut self, value: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::ExpressionAttributeValueVariable, super::super::super::types::AttributeValue>>) -> Self { self.input.expression_attribute_values = Some(value.into()); self }
     pub fn index_name(mut self, value: impl ::std::convert::Into<super::super::super::types::IndexName>) -> Self { self.input.index_name = Some(value.into()); self }
     pub fn projection_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::ProjectionExpression>) -> Self { self.input.projection_expression = Some(value.into()); self }
     pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<super::super::super::types::ReturnConsumedCapacity>) -> Self { self.input.return_consumed_capacity = Some(value.into()); self }
     pub fn search_condition_expression(mut self, value: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.input.search_condition_expression = Some(value.into()); self }
-    pub fn search_vector(mut self, value: impl ::std::convert::Into<super::super::super::types::SearchVectorList>) -> Self { self.input.search_vector = Some(value.into()); self }
+    pub fn search_vector(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeValue>>) -> Self { self.input.search_vector = Some(value.into()); self }
     pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
     pub fn top_k(mut self, value: impl ::std::convert::Into<super::super::super::types::TopKInteger>) -> Self { self.input.top_k = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }

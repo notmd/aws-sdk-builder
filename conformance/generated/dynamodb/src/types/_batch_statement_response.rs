@@ -3,20 +3,20 @@
     #[derive(Clone, Debug, Default)]
     pub struct BatchStatementResponse {
         pub error: ::std::option::Option<self::BatchStatementError>,
-        pub item: ::std::option::Option<self::AttributeMap>,
+        pub item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
         pub table_name: ::std::option::Option<self::TableName>,
     }
     impl BatchStatementResponse {
         pub fn builder() -> BatchStatementResponseBuilder { BatchStatementResponseBuilder::default() }
         pub fn error(&self) -> &::std::option::Option<self::BatchStatementError> { &self.error }
-        pub fn item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
+        pub fn item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
         pub fn table_name(&self) -> &::std::option::Option<self::TableName> { &self.table_name }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct BatchStatementResponseBuilder {
         error: ::std::option::Option<self::BatchStatementError>,
-        item: ::std::option::Option<self::AttributeMap>,
+        item: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>,
         table_name: ::std::option::Option<self::TableName>,
     }
 
@@ -24,9 +24,9 @@
         pub fn error(mut self, input: impl ::std::convert::Into<self::BatchStatementError>) -> Self { self.error = Some(input.into()); self }
         pub fn set_error(mut self, input: ::std::option::Option<self::BatchStatementError>) -> Self { self.error = input; self }
         pub fn get_error(&self) -> &::std::option::Option<self::BatchStatementError> { &self.error }
-        pub fn item(mut self, input: impl ::std::convert::Into<self::AttributeMap>) -> Self { self.item = Some(input.into()); self }
-        pub fn set_item(mut self, input: ::std::option::Option<self::AttributeMap>) -> Self { self.item = input; self }
-        pub fn get_item(&self) -> &::std::option::Option<self::AttributeMap> { &self.item }
+        pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
+        pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>>) -> Self { self.item = input; self }
+        pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::AttributeName, self::AttributeValue>> { &self.item }
         pub fn table_name(mut self, input: impl ::std::convert::Into<self::TableName>) -> Self { self.table_name = Some(input.into()); self }
         pub fn set_table_name(mut self, input: ::std::option::Option<self::TableName>) -> Self { self.table_name = input; self }
         pub fn get_table_name(&self) -> &::std::option::Option<self::TableName> { &self.table_name }

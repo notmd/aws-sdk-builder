@@ -4,7 +4,7 @@
 pub struct AssumeRoleWithSamlInput {
     pub duration_seconds: ::std::option::Option<super::super::super::types::RoleDurationSecondsType>,
     pub policy: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>,
-    pub policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
+    pub policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
     pub principal_arn: ::std::option::Option<super::super::super::types::ArnType>,
     pub role_arn: ::std::option::Option<super::super::super::types::ArnType>,
     pub saml_assertion: ::std::option::Option<super::super::super::types::SamlAssertionType>,
@@ -24,7 +24,7 @@ impl AssumeRoleWithSamlInput {
 pub struct AssumeRoleWithSamlInputBuilder {
     duration_seconds: ::std::option::Option<super::super::super::types::RoleDurationSecondsType>,
     policy: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>,
-    policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
+    policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
     principal_arn: ::std::option::Option<super::super::super::types::ArnType>,
     role_arn: ::std::option::Option<super::super::super::types::ArnType>,
     saml_assertion: ::std::option::Option<super::super::super::types::SamlAssertionType>,
@@ -36,9 +36,9 @@ impl AssumeRoleWithSamlInputBuilder {
     pub fn policy(mut self, input: impl ::std::convert::Into<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.policy = Some(input.into()); self }
     pub fn set_policy(mut self, input: ::std::option::Option<super::super::super::types::SessionPolicyDocumentType>) -> Self { self.policy = input; self }
     pub fn get_policy(&self) -> &::std::option::Option<super::super::super::types::SessionPolicyDocumentType> { &self.policy }
-    pub fn policy_arns(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = Some(input.into()); self }
-    pub fn set_policy_arns(mut self, input: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = input; self }
-    pub fn get_policy_arns(&self) -> &::std::option::Option<super::super::super::types::PolicyDescriptorListType> { &self.policy_arns }
+    pub fn policy_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = Some(input.into()); self }
+    pub fn set_policy_arns(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = input; self }
+    pub fn get_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>> { &self.policy_arns }
     pub fn principal_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.principal_arn = Some(input.into()); self }
     pub fn set_principal_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.principal_arn = input; self }
     pub fn get_principal_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.principal_arn }

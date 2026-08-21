@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListGroupsOutput {
-    pub groups: ::std::option::Option<super::super::super::types::GroupListType>,
+    pub groups: ::std::option::Option<::std::vec::Vec<super::super::super::types::Group>>,
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
@@ -16,14 +16,14 @@ impl ListGroupsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListGroupsOutputBuilder {
-    groups: ::std::option::Option<super::super::super::types::GroupListType>,
+    groups: ::std::option::Option<::std::vec::Vec<super::super::super::types::Group>>,
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
 }
 impl ListGroupsOutputBuilder {
-    pub fn groups(mut self, input: impl ::std::convert::Into<super::super::super::types::GroupListType>) -> Self { self.groups = Some(input.into()); self }
-    pub fn set_groups(mut self, input: ::std::option::Option<super::super::super::types::GroupListType>) -> Self { self.groups = input; self }
-    pub fn get_groups(&self) -> &::std::option::Option<super::super::super::types::GroupListType> { &self.groups }
+    pub fn groups(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Group>>) -> Self { self.groups = Some(input.into()); self }
+    pub fn set_groups(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Group>>) -> Self { self.groups = input; self }
+    pub fn get_groups(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Group>> { &self.groups }
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
     pub fn set_is_truncated(mut self, input: ::std::option::Option<super::super::super::types::BooleanType>) -> Self { self.is_truncated = input; self }
     pub fn get_is_truncated(&self) -> &::std::option::Option<super::super::super::types::BooleanType> { &self.is_truncated }

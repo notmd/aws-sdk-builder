@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::AddRoleToInstanceProfileError::Unhandled(format!("AddRoleToInstanceProfile returned HTTP {}", status)));
                          }
-                         Ok(super::AddRoleToInstanceProfileOutput::default())
+                         Ok(super::AddRoleToInstanceProfileOutput)
                      }
 }
 pub use Builder as AddRoleToInstanceProfileFluentBuilder;

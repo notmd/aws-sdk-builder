@@ -3,7 +3,7 @@
     #[derive(Clone, Debug, Default)]
     pub struct ReplicaSettingsUpdate {
         pub region_name: ::std::option::Option<self::RegionName>,
-        pub replica_global_secondary_index_settings_update: ::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsUpdateList>,
+        pub replica_global_secondary_index_settings_update: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsUpdate>>,
         pub replica_provisioned_read_capacity_auto_scaling_settings_update: ::std::option::Option<self::AutoScalingSettingsUpdate>,
         pub replica_provisioned_read_capacity_units: ::std::option::Option<self::PositiveLongObject>,
         pub replica_table_class: ::std::option::Option<self::TableClass>,
@@ -11,7 +11,7 @@
     impl ReplicaSettingsUpdate {
         pub fn builder() -> ReplicaSettingsUpdateBuilder { ReplicaSettingsUpdateBuilder::default() }
         pub fn region_name(&self) -> &::std::option::Option<self::RegionName> { &self.region_name }
-        pub fn replica_global_secondary_index_settings_update(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsUpdateList> { &self.replica_global_secondary_index_settings_update }
+        pub fn replica_global_secondary_index_settings_update(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsUpdate>> { &self.replica_global_secondary_index_settings_update }
         pub fn replica_provisioned_read_capacity_auto_scaling_settings_update(&self) -> &::std::option::Option<self::AutoScalingSettingsUpdate> { &self.replica_provisioned_read_capacity_auto_scaling_settings_update }
         pub fn replica_provisioned_read_capacity_units(&self) -> &::std::option::Option<self::PositiveLongObject> { &self.replica_provisioned_read_capacity_units }
         pub fn replica_table_class(&self) -> &::std::option::Option<self::TableClass> { &self.replica_table_class }
@@ -20,7 +20,7 @@
     #[derive(Clone, Debug, Default)]
     pub struct ReplicaSettingsUpdateBuilder {
         region_name: ::std::option::Option<self::RegionName>,
-        replica_global_secondary_index_settings_update: ::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsUpdateList>,
+        replica_global_secondary_index_settings_update: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsUpdate>>,
         replica_provisioned_read_capacity_auto_scaling_settings_update: ::std::option::Option<self::AutoScalingSettingsUpdate>,
         replica_provisioned_read_capacity_units: ::std::option::Option<self::PositiveLongObject>,
         replica_table_class: ::std::option::Option<self::TableClass>,
@@ -30,9 +30,9 @@
         pub fn region_name(mut self, input: impl ::std::convert::Into<self::RegionName>) -> Self { self.region_name = Some(input.into()); self }
         pub fn set_region_name(mut self, input: ::std::option::Option<self::RegionName>) -> Self { self.region_name = input; self }
         pub fn get_region_name(&self) -> &::std::option::Option<self::RegionName> { &self.region_name }
-        pub fn replica_global_secondary_index_settings_update(mut self, input: impl ::std::convert::Into<self::ReplicaGlobalSecondaryIndexSettingsUpdateList>) -> Self { self.replica_global_secondary_index_settings_update = Some(input.into()); self }
-        pub fn set_replica_global_secondary_index_settings_update(mut self, input: ::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsUpdateList>) -> Self { self.replica_global_secondary_index_settings_update = input; self }
-        pub fn get_replica_global_secondary_index_settings_update(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsUpdateList> { &self.replica_global_secondary_index_settings_update }
+        pub fn replica_global_secondary_index_settings_update(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsUpdate>>) -> Self { self.replica_global_secondary_index_settings_update = Some(input.into()); self }
+        pub fn set_replica_global_secondary_index_settings_update(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsUpdate>>) -> Self { self.replica_global_secondary_index_settings_update = input; self }
+        pub fn get_replica_global_secondary_index_settings_update(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsUpdate>> { &self.replica_global_secondary_index_settings_update }
         pub fn replica_provisioned_read_capacity_auto_scaling_settings_update(mut self, input: impl ::std::convert::Into<self::AutoScalingSettingsUpdate>) -> Self { self.replica_provisioned_read_capacity_auto_scaling_settings_update = Some(input.into()); self }
         pub fn set_replica_provisioned_read_capacity_auto_scaling_settings_update(mut self, input: ::std::option::Option<self::AutoScalingSettingsUpdate>) -> Self { self.replica_provisioned_read_capacity_auto_scaling_settings_update = input; self }
         pub fn get_replica_provisioned_read_capacity_auto_scaling_settings_update(&self) -> &::std::option::Option<self::AutoScalingSettingsUpdate> { &self.replica_provisioned_read_capacity_auto_scaling_settings_update }

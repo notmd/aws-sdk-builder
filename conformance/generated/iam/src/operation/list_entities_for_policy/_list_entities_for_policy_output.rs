@@ -4,9 +4,9 @@
 pub struct ListEntitiesForPolicyOutput {
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub policy_groups: ::std::option::Option<super::super::super::types::PolicyGroupListType>,
-    pub policy_roles: ::std::option::Option<super::super::super::types::PolicyRoleListType>,
-    pub policy_users: ::std::option::Option<super::super::super::types::PolicyUserListType>,
+    pub policy_groups: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyGroup>>,
+    pub policy_roles: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyRole>>,
+    pub policy_users: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyUser>>,
 }
         impl ListEntitiesForPolicyOutput {
             pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -22,9 +22,9 @@ impl ListEntitiesForPolicyOutput {
 pub struct ListEntitiesForPolicyOutputBuilder {
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    policy_groups: ::std::option::Option<super::super::super::types::PolicyGroupListType>,
-    policy_roles: ::std::option::Option<super::super::super::types::PolicyRoleListType>,
-    policy_users: ::std::option::Option<super::super::super::types::PolicyUserListType>,
+    policy_groups: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyGroup>>,
+    policy_roles: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyRole>>,
+    policy_users: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyUser>>,
 }
 impl ListEntitiesForPolicyOutputBuilder {
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
@@ -33,15 +33,15 @@ impl ListEntitiesForPolicyOutputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn policy_groups(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyGroupListType>) -> Self { self.policy_groups = Some(input.into()); self }
-    pub fn set_policy_groups(mut self, input: ::std::option::Option<super::super::super::types::PolicyGroupListType>) -> Self { self.policy_groups = input; self }
-    pub fn get_policy_groups(&self) -> &::std::option::Option<super::super::super::types::PolicyGroupListType> { &self.policy_groups }
-    pub fn policy_roles(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyRoleListType>) -> Self { self.policy_roles = Some(input.into()); self }
-    pub fn set_policy_roles(mut self, input: ::std::option::Option<super::super::super::types::PolicyRoleListType>) -> Self { self.policy_roles = input; self }
-    pub fn get_policy_roles(&self) -> &::std::option::Option<super::super::super::types::PolicyRoleListType> { &self.policy_roles }
-    pub fn policy_users(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyUserListType>) -> Self { self.policy_users = Some(input.into()); self }
-    pub fn set_policy_users(mut self, input: ::std::option::Option<super::super::super::types::PolicyUserListType>) -> Self { self.policy_users = input; self }
-    pub fn get_policy_users(&self) -> &::std::option::Option<super::super::super::types::PolicyUserListType> { &self.policy_users }
+    pub fn policy_groups(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyGroup>>) -> Self { self.policy_groups = Some(input.into()); self }
+    pub fn set_policy_groups(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyGroup>>) -> Self { self.policy_groups = input; self }
+    pub fn get_policy_groups(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyGroup>> { &self.policy_groups }
+    pub fn policy_roles(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyRole>>) -> Self { self.policy_roles = Some(input.into()); self }
+    pub fn set_policy_roles(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyRole>>) -> Self { self.policy_roles = input; self }
+    pub fn get_policy_roles(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyRole>> { &self.policy_roles }
+    pub fn policy_users(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyUser>>) -> Self { self.policy_users = Some(input.into()); self }
+    pub fn set_policy_users(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyUser>>) -> Self { self.policy_users = input; self }
+    pub fn get_policy_users(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyUser>> { &self.policy_users }
     pub fn build(self) -> ListEntitiesForPolicyOutput { ListEntitiesForPolicyOutput {
         is_truncated: self.is_truncated,
         marker: self.marker,

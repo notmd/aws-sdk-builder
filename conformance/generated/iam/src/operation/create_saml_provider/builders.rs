@@ -14,7 +14,7 @@ impl Builder {
     pub fn assertion_encryption_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::AssertionEncryptionModeType>) -> Self { self.input.assertion_encryption_mode = Some(value.into()); self }
     pub fn name(mut self, value: impl ::std::convert::Into<super::super::super::types::SamlProviderNameType>) -> Self { self.input.name = Some(value.into()); self }
     pub fn saml_metadata_document(mut self, value: impl ::std::convert::Into<super::super::super::types::SamlMetadataDocumentType>) -> Self { self.input.saml_metadata_document = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateSamlProviderOutput, super::CreateSamlProviderError> {

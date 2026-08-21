@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ConditionalCheckFailedException {
-        pub item: ::std::option::Option<super::super::types::AttributeMap>,
+        pub item: ::std::option::Option<::std::collections::BTreeMap<super::super::types::AttributeName, super::super::types::AttributeValue>>,
         pub message: ::std::option::Option<super::super::types::ErrorMessage>,
     }
     impl ConditionalCheckFailedException {
         pub fn builder() -> ConditionalCheckFailedExceptionBuilder { ConditionalCheckFailedExceptionBuilder::default() }
-        pub fn item(&self) -> &::std::option::Option<super::super::types::AttributeMap> { &self.item }
+        pub fn item(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::types::AttributeName, super::super::types::AttributeValue>> { &self.item }
         pub fn message(&self) -> &::std::option::Option<super::super::types::ErrorMessage> { &self.message }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ConditionalCheckFailedExceptionBuilder {
-        item: ::std::option::Option<super::super::types::AttributeMap>,
+        item: ::std::option::Option<::std::collections::BTreeMap<super::super::types::AttributeName, super::super::types::AttributeValue>>,
         message: ::std::option::Option<super::super::types::ErrorMessage>,
     }
 
     impl ConditionalCheckFailedExceptionBuilder {
-        pub fn item(mut self, input: impl ::std::convert::Into<super::super::types::AttributeMap>) -> Self { self.item = Some(input.into()); self }
-        pub fn set_item(mut self, input: ::std::option::Option<super::super::types::AttributeMap>) -> Self { self.item = input; self }
-        pub fn get_item(&self) -> &::std::option::Option<super::super::types::AttributeMap> { &self.item }
+        pub fn item(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::types::AttributeName, super::super::types::AttributeValue>>) -> Self { self.item = Some(input.into()); self }
+        pub fn set_item(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::types::AttributeName, super::super::types::AttributeValue>>) -> Self { self.item = input; self }
+        pub fn get_item(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::types::AttributeName, super::super::types::AttributeValue>> { &self.item }
         pub fn message(mut self, input: impl ::std::convert::Into<super::super::types::ErrorMessage>) -> Self { self.message = Some(input.into()); self }
         pub fn set_message(mut self, input: ::std::option::Option<super::super::types::ErrorMessage>) -> Self { self.message = input; self }
         pub fn get_message(&self) -> &::std::option::Option<super::super::types::ErrorMessage> { &self.message }

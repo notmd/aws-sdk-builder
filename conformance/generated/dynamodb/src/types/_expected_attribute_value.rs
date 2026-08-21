@@ -2,14 +2,14 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ExpectedAttributeValue {
-        pub attribute_value_list: ::std::option::Option<self::AttributeValueList>,
+        pub attribute_value_list: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>,
         pub comparison_operator: ::std::option::Option<self::ComparisonOperator>,
         pub exists: ::std::option::Option<self::BooleanObject>,
         pub value: ::std::option::Option<self::AttributeValue>,
     }
     impl ExpectedAttributeValue {
         pub fn builder() -> ExpectedAttributeValueBuilder { ExpectedAttributeValueBuilder::default() }
-        pub fn attribute_value_list(&self) -> &::std::option::Option<self::AttributeValueList> { &self.attribute_value_list }
+        pub fn attribute_value_list(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeValue>> { &self.attribute_value_list }
         pub fn comparison_operator(&self) -> &::std::option::Option<self::ComparisonOperator> { &self.comparison_operator }
         pub fn exists(&self) -> &::std::option::Option<self::BooleanObject> { &self.exists }
         pub fn value(&self) -> &::std::option::Option<self::AttributeValue> { &self.value }
@@ -17,16 +17,16 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ExpectedAttributeValueBuilder {
-        attribute_value_list: ::std::option::Option<self::AttributeValueList>,
+        attribute_value_list: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>,
         comparison_operator: ::std::option::Option<self::ComparisonOperator>,
         exists: ::std::option::Option<self::BooleanObject>,
         value: ::std::option::Option<self::AttributeValue>,
     }
 
     impl ExpectedAttributeValueBuilder {
-        pub fn attribute_value_list(mut self, input: impl ::std::convert::Into<self::AttributeValueList>) -> Self { self.attribute_value_list = Some(input.into()); self }
-        pub fn set_attribute_value_list(mut self, input: ::std::option::Option<self::AttributeValueList>) -> Self { self.attribute_value_list = input; self }
-        pub fn get_attribute_value_list(&self) -> &::std::option::Option<self::AttributeValueList> { &self.attribute_value_list }
+        pub fn attribute_value_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttributeValue>>) -> Self { self.attribute_value_list = Some(input.into()); self }
+        pub fn set_attribute_value_list(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>) -> Self { self.attribute_value_list = input; self }
+        pub fn get_attribute_value_list(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeValue>> { &self.attribute_value_list }
         pub fn comparison_operator(mut self, input: impl ::std::convert::Into<self::ComparisonOperator>) -> Self { self.comparison_operator = Some(input.into()); self }
         pub fn set_comparison_operator(mut self, input: ::std::option::Option<self::ComparisonOperator>) -> Self { self.comparison_operator = input; self }
         pub fn get_comparison_operator(&self) -> &::std::option::Option<self::ComparisonOperator> { &self.comparison_operator }

@@ -5,14 +5,14 @@
         pub error_document: ::std::option::Option<self::ErrorDocument>,
         pub index_document: ::std::option::Option<self::IndexDocument>,
         pub redirect_all_requests_to: ::std::option::Option<self::RedirectAllRequestsTo>,
-        pub routing_rules: ::std::option::Option<self::RoutingRules>,
+        pub routing_rules: ::std::option::Option<::std::vec::Vec<self::RoutingRule>>,
     }
     impl WebsiteConfiguration {
         pub fn builder() -> WebsiteConfigurationBuilder { WebsiteConfigurationBuilder::default() }
         pub fn error_document(&self) -> &::std::option::Option<self::ErrorDocument> { &self.error_document }
         pub fn index_document(&self) -> &::std::option::Option<self::IndexDocument> { &self.index_document }
         pub fn redirect_all_requests_to(&self) -> &::std::option::Option<self::RedirectAllRequestsTo> { &self.redirect_all_requests_to }
-        pub fn routing_rules(&self) -> &::std::option::Option<self::RoutingRules> { &self.routing_rules }
+        pub fn routing_rules(&self) -> &::std::option::Option<::std::vec::Vec<self::RoutingRule>> { &self.routing_rules }
     }
 
     #[derive(Clone, Debug, Default)]
@@ -20,7 +20,7 @@
         error_document: ::std::option::Option<self::ErrorDocument>,
         index_document: ::std::option::Option<self::IndexDocument>,
         redirect_all_requests_to: ::std::option::Option<self::RedirectAllRequestsTo>,
-        routing_rules: ::std::option::Option<self::RoutingRules>,
+        routing_rules: ::std::option::Option<::std::vec::Vec<self::RoutingRule>>,
     }
 
     impl WebsiteConfigurationBuilder {
@@ -33,9 +33,9 @@
         pub fn redirect_all_requests_to(mut self, input: impl ::std::convert::Into<self::RedirectAllRequestsTo>) -> Self { self.redirect_all_requests_to = Some(input.into()); self }
         pub fn set_redirect_all_requests_to(mut self, input: ::std::option::Option<self::RedirectAllRequestsTo>) -> Self { self.redirect_all_requests_to = input; self }
         pub fn get_redirect_all_requests_to(&self) -> &::std::option::Option<self::RedirectAllRequestsTo> { &self.redirect_all_requests_to }
-        pub fn routing_rules(mut self, input: impl ::std::convert::Into<self::RoutingRules>) -> Self { self.routing_rules = Some(input.into()); self }
-        pub fn set_routing_rules(mut self, input: ::std::option::Option<self::RoutingRules>) -> Self { self.routing_rules = input; self }
-        pub fn get_routing_rules(&self) -> &::std::option::Option<self::RoutingRules> { &self.routing_rules }
+        pub fn routing_rules(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::RoutingRule>>) -> Self { self.routing_rules = Some(input.into()); self }
+        pub fn set_routing_rules(mut self, input: ::std::option::Option<::std::vec::Vec<self::RoutingRule>>) -> Self { self.routing_rules = input; self }
+        pub fn get_routing_rules(&self) -> &::std::option::Option<::std::vec::Vec<self::RoutingRule>> { &self.routing_rules }
         pub fn build(self) -> WebsiteConfiguration {
             WebsiteConfiguration {
                 error_document: self.error_document,

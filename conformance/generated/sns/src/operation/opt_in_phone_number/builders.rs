@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::OptInPhoneNumberError::Unhandled(format!("OptInPhoneNumber returned HTTP {}", status)));
                          }
-                         Ok(super::OptInPhoneNumberOutput::default())
+                         Ok(super::OptInPhoneNumberOutput)
                      }
 }
 pub use Builder as OptInPhoneNumberFluentBuilder;

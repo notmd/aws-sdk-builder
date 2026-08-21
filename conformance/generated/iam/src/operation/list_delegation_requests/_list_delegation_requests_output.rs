@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListDelegationRequestsOutput {
-    pub delegation_requests: ::std::option::Option<super::super::super::types::DelegationRequestsListType>,
+    pub delegation_requests: ::std::option::Option<::std::vec::Vec<super::super::super::types::DelegationRequest>>,
     pub marker: ::std::option::Option<super::super::super::types::MarkerType>,
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 }
@@ -16,14 +16,14 @@ impl ListDelegationRequestsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListDelegationRequestsOutputBuilder {
-    delegation_requests: ::std::option::Option<super::super::super::types::DelegationRequestsListType>,
+    delegation_requests: ::std::option::Option<::std::vec::Vec<super::super::super::types::DelegationRequest>>,
     marker: ::std::option::Option<super::super::super::types::MarkerType>,
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
 }
 impl ListDelegationRequestsOutputBuilder {
-    pub fn delegation_requests(mut self, input: impl ::std::convert::Into<super::super::super::types::DelegationRequestsListType>) -> Self { self.delegation_requests = Some(input.into()); self }
-    pub fn set_delegation_requests(mut self, input: ::std::option::Option<super::super::super::types::DelegationRequestsListType>) -> Self { self.delegation_requests = input; self }
-    pub fn get_delegation_requests(&self) -> &::std::option::Option<super::super::super::types::DelegationRequestsListType> { &self.delegation_requests }
+    pub fn delegation_requests(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DelegationRequest>>) -> Self { self.delegation_requests = Some(input.into()); self }
+    pub fn set_delegation_requests(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DelegationRequest>>) -> Self { self.delegation_requests = input; self }
+    pub fn get_delegation_requests(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DelegationRequest>> { &self.delegation_requests }
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.marker }

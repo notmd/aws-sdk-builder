@@ -3,27 +3,27 @@
     #[derive(Clone, Debug, Default)]
     pub struct RoleUsageType {
         pub region: ::std::option::Option<self::RegionNameType>,
-        pub resources: ::std::option::Option<self::ArnListType>,
+        pub resources: ::std::option::Option<::std::vec::Vec<self::ArnType>>,
     }
     impl RoleUsageType {
         pub fn builder() -> RoleUsageTypeBuilder { RoleUsageTypeBuilder::default() }
         pub fn region(&self) -> &::std::option::Option<self::RegionNameType> { &self.region }
-        pub fn resources(&self) -> &::std::option::Option<self::ArnListType> { &self.resources }
+        pub fn resources(&self) -> &::std::option::Option<::std::vec::Vec<self::ArnType>> { &self.resources }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct RoleUsageTypeBuilder {
         region: ::std::option::Option<self::RegionNameType>,
-        resources: ::std::option::Option<self::ArnListType>,
+        resources: ::std::option::Option<::std::vec::Vec<self::ArnType>>,
     }
 
     impl RoleUsageTypeBuilder {
         pub fn region(mut self, input: impl ::std::convert::Into<self::RegionNameType>) -> Self { self.region = Some(input.into()); self }
         pub fn set_region(mut self, input: ::std::option::Option<self::RegionNameType>) -> Self { self.region = input; self }
         pub fn get_region(&self) -> &::std::option::Option<self::RegionNameType> { &self.region }
-        pub fn resources(mut self, input: impl ::std::convert::Into<self::ArnListType>) -> Self { self.resources = Some(input.into()); self }
-        pub fn set_resources(mut self, input: ::std::option::Option<self::ArnListType>) -> Self { self.resources = input; self }
-        pub fn get_resources(&self) -> &::std::option::Option<self::ArnListType> { &self.resources }
+        pub fn resources(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ArnType>>) -> Self { self.resources = Some(input.into()); self }
+        pub fn set_resources(mut self, input: ::std::option::Option<::std::vec::Vec<self::ArnType>>) -> Self { self.resources = input; self }
+        pub fn get_resources(&self) -> &::std::option::Option<::std::vec::Vec<self::ArnType>> { &self.resources }
         pub fn build(self) -> RoleUsageType {
             RoleUsageType {
                 region: self.region,

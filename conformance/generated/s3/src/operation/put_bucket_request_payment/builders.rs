@@ -27,7 +27,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::PutBucketRequestPaymentError::Unhandled(format!("PutBucketRequestPayment returned HTTP {}", status)));
                          }
-                         Ok(super::PutBucketRequestPaymentOutput::default())
+                         Ok(super::PutBucketRequestPaymentOutput)
                      }
 }
 pub use Builder as PutBucketRequestPaymentFluentBuilder;

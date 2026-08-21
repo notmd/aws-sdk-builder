@@ -2,10 +2,10 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ReceiveMessageInput {
-    pub attribute_names: ::std::option::Option<super::super::super::types::AttributeNameList>,
+    pub attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>>,
     pub max_number_of_messages: ::std::option::Option<super::super::super::types::NullableInteger>,
-    pub message_attribute_names: ::std::option::Option<super::super::super::types::MessageAttributeNameList>,
-    pub message_system_attribute_names: ::std::option::Option<super::super::super::types::MessageSystemAttributeList>,
+    pub message_attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::MessageAttributeName>>,
+    pub message_system_attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>>,
     pub queue_url: ::std::option::Option<super::super::super::types::String>,
     pub receive_request_attempt_id: ::std::option::Option<super::super::super::types::String>,
     pub visibility_timeout: ::std::option::Option<super::super::super::types::NullableInteger>,
@@ -26,28 +26,28 @@ impl ReceiveMessageInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ReceiveMessageInputBuilder {
-    attribute_names: ::std::option::Option<super::super::super::types::AttributeNameList>,
+    attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>>,
     max_number_of_messages: ::std::option::Option<super::super::super::types::NullableInteger>,
-    message_attribute_names: ::std::option::Option<super::super::super::types::MessageAttributeNameList>,
-    message_system_attribute_names: ::std::option::Option<super::super::super::types::MessageSystemAttributeList>,
+    message_attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::MessageAttributeName>>,
+    message_system_attribute_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>>,
     queue_url: ::std::option::Option<super::super::super::types::String>,
     receive_request_attempt_id: ::std::option::Option<super::super::super::types::String>,
     visibility_timeout: ::std::option::Option<super::super::super::types::NullableInteger>,
     wait_time_seconds: ::std::option::Option<super::super::super::types::NullableInteger>,
 }
 impl ReceiveMessageInputBuilder {
-    pub fn attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::AttributeNameList>) -> Self { self.attribute_names = Some(input.into()); self }
-    pub fn set_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::AttributeNameList>) -> Self { self.attribute_names = input; self }
-    pub fn get_attribute_names(&self) -> &::std::option::Option<super::super::super::types::AttributeNameList> { &self.attribute_names }
+    pub fn attribute_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::QueueAttributeName>>) -> Self { self.attribute_names = Some(input.into()); self }
+    pub fn set_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>>) -> Self { self.attribute_names = input; self }
+    pub fn get_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::QueueAttributeName>> { &self.attribute_names }
     pub fn max_number_of_messages(mut self, input: impl ::std::convert::Into<super::super::super::types::NullableInteger>) -> Self { self.max_number_of_messages = Some(input.into()); self }
     pub fn set_max_number_of_messages(mut self, input: ::std::option::Option<super::super::super::types::NullableInteger>) -> Self { self.max_number_of_messages = input; self }
     pub fn get_max_number_of_messages(&self) -> &::std::option::Option<super::super::super::types::NullableInteger> { &self.max_number_of_messages }
-    pub fn message_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::MessageAttributeNameList>) -> Self { self.message_attribute_names = Some(input.into()); self }
-    pub fn set_message_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::MessageAttributeNameList>) -> Self { self.message_attribute_names = input; self }
-    pub fn get_message_attribute_names(&self) -> &::std::option::Option<super::super::super::types::MessageAttributeNameList> { &self.message_attribute_names }
-    pub fn message_system_attribute_names(mut self, input: impl ::std::convert::Into<super::super::super::types::MessageSystemAttributeList>) -> Self { self.message_system_attribute_names = Some(input.into()); self }
-    pub fn set_message_system_attribute_names(mut self, input: ::std::option::Option<super::super::super::types::MessageSystemAttributeList>) -> Self { self.message_system_attribute_names = input; self }
-    pub fn get_message_system_attribute_names(&self) -> &::std::option::Option<super::super::super::types::MessageSystemAttributeList> { &self.message_system_attribute_names }
+    pub fn message_attribute_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::MessageAttributeName>>) -> Self { self.message_attribute_names = Some(input.into()); self }
+    pub fn set_message_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MessageAttributeName>>) -> Self { self.message_attribute_names = input; self }
+    pub fn get_message_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MessageAttributeName>> { &self.message_attribute_names }
+    pub fn message_system_attribute_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>>) -> Self { self.message_system_attribute_names = Some(input.into()); self }
+    pub fn set_message_system_attribute_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>>) -> Self { self.message_system_attribute_names = input; self }
+    pub fn get_message_system_attribute_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::MessageSystemAttributeName>> { &self.message_system_attribute_names }
     pub fn queue_url(mut self, input: impl ::std::convert::Into<super::super::super::types::String>) -> Self { self.queue_url = Some(input.into()); self }
     pub fn set_queue_url(mut self, input: ::std::option::Option<super::super::super::types::String>) -> Self { self.queue_url = input; self }
     pub fn get_queue_url(&self) -> &::std::option::Option<super::super::super::types::String> { &self.queue_url }

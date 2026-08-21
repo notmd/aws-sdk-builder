@@ -2,28 +2,28 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ParameterizedStatement {
-        pub parameters: ::std::option::Option<self::PreparedStatementParameters>,
+        pub parameters: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>,
         pub return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
         pub statement: ::std::option::Option<self::PartiQlStatement>,
     }
     impl ParameterizedStatement {
         pub fn builder() -> ParameterizedStatementBuilder { ParameterizedStatementBuilder::default() }
-        pub fn parameters(&self) -> &::std::option::Option<self::PreparedStatementParameters> { &self.parameters }
+        pub fn parameters(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeValue>> { &self.parameters }
         pub fn return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }
         pub fn statement(&self) -> &::std::option::Option<self::PartiQlStatement> { &self.statement }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ParameterizedStatementBuilder {
-        parameters: ::std::option::Option<self::PreparedStatementParameters>,
+        parameters: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>,
         return_values_on_condition_check_failure: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>,
         statement: ::std::option::Option<self::PartiQlStatement>,
     }
 
     impl ParameterizedStatementBuilder {
-        pub fn parameters(mut self, input: impl ::std::convert::Into<self::PreparedStatementParameters>) -> Self { self.parameters = Some(input.into()); self }
-        pub fn set_parameters(mut self, input: ::std::option::Option<self::PreparedStatementParameters>) -> Self { self.parameters = input; self }
-        pub fn get_parameters(&self) -> &::std::option::Option<self::PreparedStatementParameters> { &self.parameters }
+        pub fn parameters(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::AttributeValue>>) -> Self { self.parameters = Some(input.into()); self }
+        pub fn set_parameters(mut self, input: ::std::option::Option<::std::vec::Vec<self::AttributeValue>>) -> Self { self.parameters = input; self }
+        pub fn get_parameters(&self) -> &::std::option::Option<::std::vec::Vec<self::AttributeValue>> { &self.parameters }
         pub fn return_values_on_condition_check_failure(mut self, input: impl ::std::convert::Into<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = Some(input.into()); self }
         pub fn set_return_values_on_condition_check_failure(mut self, input: ::std::option::Option<self::ReturnValuesOnConditionCheckFailure>) -> Self { self.return_values_on_condition_check_failure = input; self }
         pub fn get_return_values_on_condition_check_failure(&self) -> &::std::option::Option<self::ReturnValuesOnConditionCheckFailure> { &self.return_values_on_condition_check_failure }

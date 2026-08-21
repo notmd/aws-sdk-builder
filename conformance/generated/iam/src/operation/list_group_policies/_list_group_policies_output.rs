@@ -4,7 +4,7 @@
 pub struct ListGroupPoliciesOutput {
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub policy_names: ::std::option::Option<super::super::super::types::PolicyNameListType>,
+    pub policy_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>,
 }
         impl ListGroupPoliciesOutput {
             pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -18,7 +18,7 @@ impl ListGroupPoliciesOutput {
 pub struct ListGroupPoliciesOutputBuilder {
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    policy_names: ::std::option::Option<super::super::super::types::PolicyNameListType>,
+    policy_names: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>,
 }
 impl ListGroupPoliciesOutputBuilder {
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
@@ -27,9 +27,9 @@ impl ListGroupPoliciesOutputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn policy_names(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyNameListType>) -> Self { self.policy_names = Some(input.into()); self }
-    pub fn set_policy_names(mut self, input: ::std::option::Option<super::super::super::types::PolicyNameListType>) -> Self { self.policy_names = input; self }
-    pub fn get_policy_names(&self) -> &::std::option::Option<super::super::super::types::PolicyNameListType> { &self.policy_names }
+    pub fn policy_names(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyNameType>>) -> Self { self.policy_names = Some(input.into()); self }
+    pub fn set_policy_names(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>>) -> Self { self.policy_names = input; self }
+    pub fn get_policy_names(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyNameType>> { &self.policy_names }
     pub fn build(self) -> ListGroupPoliciesOutput { ListGroupPoliciesOutput {
         is_truncated: self.is_truncated,
         marker: self.marker,

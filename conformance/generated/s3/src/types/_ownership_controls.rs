@@ -2,22 +2,22 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct OwnershipControls {
-        pub rules: ::std::option::Option<self::OwnershipControlsRules>,
+        pub rules: ::std::option::Option<::std::vec::Vec<self::OwnershipControlsRule>>,
     }
     impl OwnershipControls {
         pub fn builder() -> OwnershipControlsBuilder { OwnershipControlsBuilder::default() }
-        pub fn rules(&self) -> &::std::option::Option<self::OwnershipControlsRules> { &self.rules }
+        pub fn rules(&self) -> &::std::option::Option<::std::vec::Vec<self::OwnershipControlsRule>> { &self.rules }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct OwnershipControlsBuilder {
-        rules: ::std::option::Option<self::OwnershipControlsRules>,
+        rules: ::std::option::Option<::std::vec::Vec<self::OwnershipControlsRule>>,
     }
 
     impl OwnershipControlsBuilder {
-        pub fn rules(mut self, input: impl ::std::convert::Into<self::OwnershipControlsRules>) -> Self { self.rules = Some(input.into()); self }
-        pub fn set_rules(mut self, input: ::std::option::Option<self::OwnershipControlsRules>) -> Self { self.rules = input; self }
-        pub fn get_rules(&self) -> &::std::option::Option<self::OwnershipControlsRules> { &self.rules }
+        pub fn rules(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::OwnershipControlsRule>>) -> Self { self.rules = Some(input.into()); self }
+        pub fn set_rules(mut self, input: ::std::option::Option<::std::vec::Vec<self::OwnershipControlsRule>>) -> Self { self.rules = input; self }
+        pub fn get_rules(&self) -> &::std::option::Option<::std::vec::Vec<self::OwnershipControlsRule>> { &self.rules }
         pub fn build(self) -> OwnershipControls {
             OwnershipControls {
                 rules: self.rules,

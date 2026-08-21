@@ -11,7 +11,7 @@ impl Builder {
         Self { input: super::Input::default(), client }
     }
     pub fn dry_run(mut self, value: impl ::std::convert::Into<super::super::super::types::NullableBooleanType>) -> Self { self.input.dry_run = Some(value.into()); self }
-    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<super::super::super::types::GrantTokenList>) -> Self { self.input.grant_tokens = Some(value.into()); self }
+    pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GrantTokenType>>) -> Self { self.input.grant_tokens = Some(value.into()); self }
     pub fn key_id(mut self, value: impl ::std::convert::Into<super::super::super::types::KeyIdType>) -> Self { self.input.key_id = Some(value.into()); self }
     pub fn mac(mut self, value: impl ::std::convert::Into<super::super::super::types::CiphertextType>) -> Self { self.input.mac = Some(value.into()); self }
     pub fn mac_algorithm(mut self, value: impl ::std::convert::Into<super::super::super::types::MacAlgorithmSpec>) -> Self { self.input.mac_algorithm = Some(value.into()); self }

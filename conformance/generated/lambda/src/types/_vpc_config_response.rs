@@ -3,23 +3,23 @@
     #[derive(Clone, Debug, Default)]
     pub struct VpcConfigResponse {
         pub ipv6_allowed_for_dual_stack: ::std::option::Option<self::NullableBoolean>,
-        pub security_group_ids: ::std::option::Option<self::SecurityGroupIds>,
-        pub subnet_ids: ::std::option::Option<self::SubnetIds>,
+        pub security_group_ids: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>,
+        pub subnet_ids: ::std::option::Option<::std::vec::Vec<self::SubnetId>>,
         pub vpc_id: ::std::option::Option<self::VpcId>,
     }
     impl VpcConfigResponse {
         pub fn builder() -> VpcConfigResponseBuilder { VpcConfigResponseBuilder::default() }
         pub fn ipv6_allowed_for_dual_stack(&self) -> &::std::option::Option<self::NullableBoolean> { &self.ipv6_allowed_for_dual_stack }
-        pub fn security_group_ids(&self) -> &::std::option::Option<self::SecurityGroupIds> { &self.security_group_ids }
-        pub fn subnet_ids(&self) -> &::std::option::Option<self::SubnetIds> { &self.subnet_ids }
+        pub fn security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SecurityGroupId>> { &self.security_group_ids }
+        pub fn subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SubnetId>> { &self.subnet_ids }
         pub fn vpc_id(&self) -> &::std::option::Option<self::VpcId> { &self.vpc_id }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct VpcConfigResponseBuilder {
         ipv6_allowed_for_dual_stack: ::std::option::Option<self::NullableBoolean>,
-        security_group_ids: ::std::option::Option<self::SecurityGroupIds>,
-        subnet_ids: ::std::option::Option<self::SubnetIds>,
+        security_group_ids: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>,
+        subnet_ids: ::std::option::Option<::std::vec::Vec<self::SubnetId>>,
         vpc_id: ::std::option::Option<self::VpcId>,
     }
 
@@ -27,12 +27,12 @@
         pub fn ipv6_allowed_for_dual_stack(mut self, input: impl ::std::convert::Into<self::NullableBoolean>) -> Self { self.ipv6_allowed_for_dual_stack = Some(input.into()); self }
         pub fn set_ipv6_allowed_for_dual_stack(mut self, input: ::std::option::Option<self::NullableBoolean>) -> Self { self.ipv6_allowed_for_dual_stack = input; self }
         pub fn get_ipv6_allowed_for_dual_stack(&self) -> &::std::option::Option<self::NullableBoolean> { &self.ipv6_allowed_for_dual_stack }
-        pub fn security_group_ids(mut self, input: impl ::std::convert::Into<self::SecurityGroupIds>) -> Self { self.security_group_ids = Some(input.into()); self }
-        pub fn set_security_group_ids(mut self, input: ::std::option::Option<self::SecurityGroupIds>) -> Self { self.security_group_ids = input; self }
-        pub fn get_security_group_ids(&self) -> &::std::option::Option<self::SecurityGroupIds> { &self.security_group_ids }
-        pub fn subnet_ids(mut self, input: impl ::std::convert::Into<self::SubnetIds>) -> Self { self.subnet_ids = Some(input.into()); self }
-        pub fn set_subnet_ids(mut self, input: ::std::option::Option<self::SubnetIds>) -> Self { self.subnet_ids = input; self }
-        pub fn get_subnet_ids(&self) -> &::std::option::Option<self::SubnetIds> { &self.subnet_ids }
+        pub fn security_group_ids(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SecurityGroupId>>) -> Self { self.security_group_ids = Some(input.into()); self }
+        pub fn set_security_group_ids(mut self, input: ::std::option::Option<::std::vec::Vec<self::SecurityGroupId>>) -> Self { self.security_group_ids = input; self }
+        pub fn get_security_group_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SecurityGroupId>> { &self.security_group_ids }
+        pub fn subnet_ids(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SubnetId>>) -> Self { self.subnet_ids = Some(input.into()); self }
+        pub fn set_subnet_ids(mut self, input: ::std::option::Option<::std::vec::Vec<self::SubnetId>>) -> Self { self.subnet_ids = input; self }
+        pub fn get_subnet_ids(&self) -> &::std::option::Option<::std::vec::Vec<self::SubnetId>> { &self.subnet_ids }
         pub fn vpc_id(mut self, input: impl ::std::convert::Into<self::VpcId>) -> Self { self.vpc_id = Some(input.into()); self }
         pub fn set_vpc_id(mut self, input: ::std::option::Option<self::VpcId>) -> Self { self.vpc_id = input; self }
         pub fn get_vpc_id(&self) -> &::std::option::Option<self::VpcId> { &self.vpc_id }

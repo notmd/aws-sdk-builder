@@ -2,34 +2,34 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct BatchGetItemOutput {
-    pub consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-    pub responses: ::std::option::Option<super::super::super::types::BatchGetResponseMap>,
-    pub unprocessed_keys: ::std::option::Option<super::super::super::types::BatchGetRequestMap>,
+    pub consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
+    pub responses: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>>,
+    pub unprocessed_keys: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>>,
 }
         impl BatchGetItemOutput {
             pub fn consumed_capacity(&self) -> &[super::super::super::types::ConsumedCapacity] { self.consumed_capacity.as_deref().unwrap_or(&[]) }
-            pub fn responses(&self) -> ::std::option::Option<&super::super::super::types::BatchGetResponseMap> { self.responses.as_ref() }
-            pub fn unprocessed_keys(&self) -> ::std::option::Option<&super::super::super::types::BatchGetRequestMap> { self.unprocessed_keys.as_ref() }
+            pub fn responses(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>> { self.responses.as_ref() }
+            pub fn unprocessed_keys(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>> { self.unprocessed_keys.as_ref() }
         }
 impl BatchGetItemOutput {
     pub fn builder() -> BatchGetItemOutputBuilder { BatchGetItemOutputBuilder::default() }
 }
 #[derive(Clone, Debug, Default)]
 pub struct BatchGetItemOutputBuilder {
-    consumed_capacity: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>,
-    responses: ::std::option::Option<super::super::super::types::BatchGetResponseMap>,
-    unprocessed_keys: ::std::option::Option<super::super::super::types::BatchGetRequestMap>,
+    consumed_capacity: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>,
+    responses: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>>,
+    unprocessed_keys: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>>,
 }
 impl BatchGetItemOutputBuilder {
-    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = Some(input.into()); self }
-    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<super::super::super::types::ConsumedCapacityMultiple>) -> Self { self.consumed_capacity = input; self }
-    pub fn get_consumed_capacity(&self) -> &::std::option::Option<super::super::super::types::ConsumedCapacityMultiple> { &self.consumed_capacity }
-    pub fn responses(mut self, input: impl ::std::convert::Into<super::super::super::types::BatchGetResponseMap>) -> Self { self.responses = Some(input.into()); self }
-    pub fn set_responses(mut self, input: ::std::option::Option<super::super::super::types::BatchGetResponseMap>) -> Self { self.responses = input; self }
-    pub fn get_responses(&self) -> &::std::option::Option<super::super::super::types::BatchGetResponseMap> { &self.responses }
-    pub fn unprocessed_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::BatchGetRequestMap>) -> Self { self.unprocessed_keys = Some(input.into()); self }
-    pub fn set_unprocessed_keys(mut self, input: ::std::option::Option<super::super::super::types::BatchGetRequestMap>) -> Self { self.unprocessed_keys = input; self }
-    pub fn get_unprocessed_keys(&self) -> &::std::option::Option<super::super::super::types::BatchGetRequestMap> { &self.unprocessed_keys }
+    pub fn consumed_capacity(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = Some(input.into()); self }
+    pub fn set_consumed_capacity(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>>) -> Self { self.consumed_capacity = input; self }
+    pub fn get_consumed_capacity(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ConsumedCapacity>> { &self.consumed_capacity }
+    pub fn responses(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>>) -> Self { self.responses = Some(input.into()); self }
+    pub fn set_responses(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>>) -> Self { self.responses = input; self }
+    pub fn get_responses(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, ::std::vec::Vec<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>>> { &self.responses }
+    pub fn unprocessed_keys(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>>) -> Self { self.unprocessed_keys = Some(input.into()); self }
+    pub fn set_unprocessed_keys(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>>) -> Self { self.unprocessed_keys = input; self }
+    pub fn get_unprocessed_keys(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::TableArn, super::super::super::types::KeysAndAttributes>> { &self.unprocessed_keys }
     pub fn build(self) -> BatchGetItemOutput { BatchGetItemOutput {
         consumed_capacity: self.consumed_capacity,
         responses: self.responses,

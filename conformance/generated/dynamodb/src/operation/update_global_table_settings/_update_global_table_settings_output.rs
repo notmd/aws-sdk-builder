@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct UpdateGlobalTableSettingsOutput {
     pub global_table_name: ::std::option::Option<super::super::super::types::TableName>,
-    pub replica_settings: ::std::option::Option<super::super::super::types::ReplicaSettingsDescriptionList>,
+    pub replica_settings: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>,
 }
         impl UpdateGlobalTableSettingsOutput {
             pub fn global_table_name(&self) -> ::std::option::Option<&str> { self.global_table_name.as_deref() }
@@ -15,15 +15,15 @@ impl UpdateGlobalTableSettingsOutput {
 #[derive(Clone, Debug, Default)]
 pub struct UpdateGlobalTableSettingsOutputBuilder {
     global_table_name: ::std::option::Option<super::super::super::types::TableName>,
-    replica_settings: ::std::option::Option<super::super::super::types::ReplicaSettingsDescriptionList>,
+    replica_settings: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>,
 }
 impl UpdateGlobalTableSettingsOutputBuilder {
     pub fn global_table_name(mut self, input: impl ::std::convert::Into<super::super::super::types::TableName>) -> Self { self.global_table_name = Some(input.into()); self }
     pub fn set_global_table_name(mut self, input: ::std::option::Option<super::super::super::types::TableName>) -> Self { self.global_table_name = input; self }
     pub fn get_global_table_name(&self) -> &::std::option::Option<super::super::super::types::TableName> { &self.global_table_name }
-    pub fn replica_settings(mut self, input: impl ::std::convert::Into<super::super::super::types::ReplicaSettingsDescriptionList>) -> Self { self.replica_settings = Some(input.into()); self }
-    pub fn set_replica_settings(mut self, input: ::std::option::Option<super::super::super::types::ReplicaSettingsDescriptionList>) -> Self { self.replica_settings = input; self }
-    pub fn get_replica_settings(&self) -> &::std::option::Option<super::super::super::types::ReplicaSettingsDescriptionList> { &self.replica_settings }
+    pub fn replica_settings(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>) -> Self { self.replica_settings = Some(input.into()); self }
+    pub fn set_replica_settings(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>>) -> Self { self.replica_settings = input; self }
+    pub fn get_replica_settings(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ReplicaSettingsDescription>> { &self.replica_settings }
     pub fn build(self) -> UpdateGlobalTableSettingsOutput { UpdateGlobalTableSettingsOutput {
         global_table_name: self.global_table_name,
         replica_settings: self.replica_settings,

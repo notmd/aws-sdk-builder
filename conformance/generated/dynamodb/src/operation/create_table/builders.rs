@@ -10,14 +10,14 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attribute_definitions(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeDefinitions>) -> Self { self.input.attribute_definitions = Some(value.into()); self }
+    pub fn attribute_definitions(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeDefinition>>) -> Self { self.input.attribute_definitions = Some(value.into()); self }
     pub fn billing_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.input.billing_mode = Some(value.into()); self }
     pub fn deletion_protection_enabled(mut self, value: impl ::std::convert::Into<super::super::super::types::DeletionProtectionEnabled>) -> Self { self.input.deletion_protection_enabled = Some(value.into()); self }
-    pub fn global_secondary_indexes(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexList>) -> Self { self.input.global_secondary_indexes = Some(value.into()); self }
+    pub fn global_secondary_indexes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndex>>) -> Self { self.input.global_secondary_indexes = Some(value.into()); self }
     pub fn global_table_settings_replication_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalTableSettingsReplicationMode>) -> Self { self.input.global_table_settings_replication_mode = Some(value.into()); self }
     pub fn global_table_source_arn(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.global_table_source_arn = Some(value.into()); self }
-    pub fn key_schema(mut self, value: impl ::std::convert::Into<super::super::super::types::KeySchema>) -> Self { self.input.key_schema = Some(value.into()); self }
-    pub fn local_secondary_indexes(mut self, value: impl ::std::convert::Into<super::super::super::types::LocalSecondaryIndexList>) -> Self { self.input.local_secondary_indexes = Some(value.into()); self }
+    pub fn key_schema(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::KeySchemaElement>>) -> Self { self.input.key_schema = Some(value.into()); self }
+    pub fn local_secondary_indexes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::LocalSecondaryIndex>>) -> Self { self.input.local_secondary_indexes = Some(value.into()); self }
     pub fn on_demand_throughput(mut self, value: impl ::std::convert::Into<super::super::super::types::OnDemandThroughput>) -> Self { self.input.on_demand_throughput = Some(value.into()); self }
     pub fn provisioned_throughput(mut self, value: impl ::std::convert::Into<super::super::super::types::ProvisionedThroughput>) -> Self { self.input.provisioned_throughput = Some(value.into()); self }
     pub fn resource_policy(mut self, value: impl ::std::convert::Into<super::super::super::types::ResourcePolicy>) -> Self { self.input.resource_policy = Some(value.into()); self }
@@ -25,8 +25,8 @@ impl Builder {
     pub fn stream_specification(mut self, value: impl ::std::convert::Into<super::super::super::types::StreamSpecification>) -> Self { self.input.stream_specification = Some(value.into()); self }
     pub fn table_class(mut self, value: impl ::std::convert::Into<super::super::super::types::TableClass>) -> Self { self.input.table_class = Some(value.into()); self }
     pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagList>) -> Self { self.input.tags = Some(value.into()); self }
-    pub fn vector_indexes(mut self, value: impl ::std::convert::Into<super::super::super::types::VectorIndexList>) -> Self { self.input.vector_indexes = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn vector_indexes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndex>>) -> Self { self.input.vector_indexes = Some(value.into()); self }
     pub fn warm_throughput(mut self, value: impl ::std::convert::Into<super::super::super::types::WarmThroughput>) -> Self { self.input.warm_throughput = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]

@@ -12,7 +12,7 @@ impl Builder {
     }
     pub fn arn(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.arn = Some(value.into()); self }
     pub fn marker(mut self, value: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.input.marker = Some(value.into()); self }
-    pub fn service_namespaces(mut self, value: impl ::std::convert::Into<super::super::super::types::ServiceNamespaceListType>) -> Self { self.input.service_namespaces = Some(value.into()); self }
+    pub fn service_namespaces(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ServiceNamespaceType>>) -> Self { self.input.service_namespaces = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::ListPoliciesGrantingServiceAccessOutput, super::ListPoliciesGrantingServiceAccessError> {

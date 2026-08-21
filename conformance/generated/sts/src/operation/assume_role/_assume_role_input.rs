@@ -5,15 +5,15 @@ pub struct AssumeRoleInput {
     pub duration_seconds: ::std::option::Option<super::super::super::types::RoleDurationSecondsType>,
     pub external_id: ::std::option::Option<super::super::super::types::ExternalIdType>,
     pub policy: ::std::option::Option<super::super::super::types::UnrestrictedSessionPolicyDocumentType>,
-    pub policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
-    pub provided_contexts: ::std::option::Option<super::super::super::types::ProvidedContextsListType>,
+    pub policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
+    pub provided_contexts: ::std::option::Option<::std::vec::Vec<super::super::super::types::ProvidedContext>>,
     pub role_arn: ::std::option::Option<super::super::super::types::ArnType>,
     pub role_session_name: ::std::option::Option<super::super::super::types::RoleSessionNameType>,
     pub serial_number: ::std::option::Option<super::super::super::types::SerialNumberType>,
     pub source_identity: ::std::option::Option<super::super::super::types::SourceIdentityType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     pub token_code: ::std::option::Option<super::super::super::types::TokenCodeType>,
-    pub transitive_tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
+    pub transitive_tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
 }
         impl AssumeRoleInput {
             pub fn duration_seconds(&self) -> ::std::option::Option<i32> { self.duration_seconds }
@@ -37,15 +37,15 @@ pub struct AssumeRoleInputBuilder {
     duration_seconds: ::std::option::Option<super::super::super::types::RoleDurationSecondsType>,
     external_id: ::std::option::Option<super::super::super::types::ExternalIdType>,
     policy: ::std::option::Option<super::super::super::types::UnrestrictedSessionPolicyDocumentType>,
-    policy_arns: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>,
-    provided_contexts: ::std::option::Option<super::super::super::types::ProvidedContextsListType>,
+    policy_arns: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>,
+    provided_contexts: ::std::option::Option<::std::vec::Vec<super::super::super::types::ProvidedContext>>,
     role_arn: ::std::option::Option<super::super::super::types::ArnType>,
     role_session_name: ::std::option::Option<super::super::super::types::RoleSessionNameType>,
     serial_number: ::std::option::Option<super::super::super::types::SerialNumberType>,
     source_identity: ::std::option::Option<super::super::super::types::SourceIdentityType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
     token_code: ::std::option::Option<super::super::super::types::TokenCodeType>,
-    transitive_tag_keys: ::std::option::Option<super::super::super::types::TagKeyListType>,
+    transitive_tag_keys: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>,
 }
 impl AssumeRoleInputBuilder {
     pub fn duration_seconds(mut self, input: impl ::std::convert::Into<super::super::super::types::RoleDurationSecondsType>) -> Self { self.duration_seconds = Some(input.into()); self }
@@ -57,12 +57,12 @@ impl AssumeRoleInputBuilder {
     pub fn policy(mut self, input: impl ::std::convert::Into<super::super::super::types::UnrestrictedSessionPolicyDocumentType>) -> Self { self.policy = Some(input.into()); self }
     pub fn set_policy(mut self, input: ::std::option::Option<super::super::super::types::UnrestrictedSessionPolicyDocumentType>) -> Self { self.policy = input; self }
     pub fn get_policy(&self) -> &::std::option::Option<super::super::super::types::UnrestrictedSessionPolicyDocumentType> { &self.policy }
-    pub fn policy_arns(mut self, input: impl ::std::convert::Into<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = Some(input.into()); self }
-    pub fn set_policy_arns(mut self, input: ::std::option::Option<super::super::super::types::PolicyDescriptorListType>) -> Self { self.policy_arns = input; self }
-    pub fn get_policy_arns(&self) -> &::std::option::Option<super::super::super::types::PolicyDescriptorListType> { &self.policy_arns }
-    pub fn provided_contexts(mut self, input: impl ::std::convert::Into<super::super::super::types::ProvidedContextsListType>) -> Self { self.provided_contexts = Some(input.into()); self }
-    pub fn set_provided_contexts(mut self, input: ::std::option::Option<super::super::super::types::ProvidedContextsListType>) -> Self { self.provided_contexts = input; self }
-    pub fn get_provided_contexts(&self) -> &::std::option::Option<super::super::super::types::ProvidedContextsListType> { &self.provided_contexts }
+    pub fn policy_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = Some(input.into()); self }
+    pub fn set_policy_arns(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>>) -> Self { self.policy_arns = input; self }
+    pub fn get_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDescriptorType>> { &self.policy_arns }
+    pub fn provided_contexts(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ProvidedContext>>) -> Self { self.provided_contexts = Some(input.into()); self }
+    pub fn set_provided_contexts(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ProvidedContext>>) -> Self { self.provided_contexts = input; self }
+    pub fn get_provided_contexts(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ProvidedContext>> { &self.provided_contexts }
     pub fn role_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.role_arn = Some(input.into()); self }
     pub fn set_role_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.role_arn = input; self }
     pub fn get_role_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.role_arn }
@@ -75,15 +75,15 @@ impl AssumeRoleInputBuilder {
     pub fn source_identity(mut self, input: impl ::std::convert::Into<super::super::super::types::SourceIdentityType>) -> Self { self.source_identity = Some(input.into()); self }
     pub fn set_source_identity(mut self, input: ::std::option::Option<super::super::super::types::SourceIdentityType>) -> Self { self.source_identity = input; self }
     pub fn get_source_identity(&self) -> &::std::option::Option<super::super::super::types::SourceIdentityType> { &self.source_identity }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn token_code(mut self, input: impl ::std::convert::Into<super::super::super::types::TokenCodeType>) -> Self { self.token_code = Some(input.into()); self }
     pub fn set_token_code(mut self, input: ::std::option::Option<super::super::super::types::TokenCodeType>) -> Self { self.token_code = input; self }
     pub fn get_token_code(&self) -> &::std::option::Option<super::super::super::types::TokenCodeType> { &self.token_code }
-    pub fn transitive_tag_keys(mut self, input: impl ::std::convert::Into<super::super::super::types::TagKeyListType>) -> Self { self.transitive_tag_keys = Some(input.into()); self }
-    pub fn set_transitive_tag_keys(mut self, input: ::std::option::Option<super::super::super::types::TagKeyListType>) -> Self { self.transitive_tag_keys = input; self }
-    pub fn get_transitive_tag_keys(&self) -> &::std::option::Option<super::super::super::types::TagKeyListType> { &self.transitive_tag_keys }
+    pub fn transitive_tag_keys(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.transitive_tag_keys = Some(input.into()); self }
+    pub fn set_transitive_tag_keys(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>>) -> Self { self.transitive_tag_keys = input; self }
+    pub fn get_transitive_tag_keys(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::TagKeyType>> { &self.transitive_tag_keys }
     pub fn build(self) -> AssumeRoleInput { AssumeRoleInput {
         duration_seconds: self.duration_seconds,
         external_id: self.external_id,

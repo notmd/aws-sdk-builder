@@ -4,7 +4,7 @@
     pub struct ReplicaSettingsDescription {
         pub region_name: ::std::option::Option<self::RegionName>,
         pub replica_billing_mode_summary: ::std::option::Option<self::BillingModeSummary>,
-        pub replica_global_secondary_index_settings: ::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsDescriptionList>,
+        pub replica_global_secondary_index_settings: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsDescription>>,
         pub replica_provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
         pub replica_provisioned_read_capacity_units: ::std::option::Option<self::NonNegativeLongObject>,
         pub replica_provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
@@ -16,7 +16,7 @@
         pub fn builder() -> ReplicaSettingsDescriptionBuilder { ReplicaSettingsDescriptionBuilder::default() }
         pub fn region_name(&self) -> &::std::option::Option<self::RegionName> { &self.region_name }
         pub fn replica_billing_mode_summary(&self) -> &::std::option::Option<self::BillingModeSummary> { &self.replica_billing_mode_summary }
-        pub fn replica_global_secondary_index_settings(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsDescriptionList> { &self.replica_global_secondary_index_settings }
+        pub fn replica_global_secondary_index_settings(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsDescription>> { &self.replica_global_secondary_index_settings }
         pub fn replica_provisioned_read_capacity_auto_scaling_settings(&self) -> &::std::option::Option<self::AutoScalingSettingsDescription> { &self.replica_provisioned_read_capacity_auto_scaling_settings }
         pub fn replica_provisioned_read_capacity_units(&self) -> &::std::option::Option<self::NonNegativeLongObject> { &self.replica_provisioned_read_capacity_units }
         pub fn replica_provisioned_write_capacity_auto_scaling_settings(&self) -> &::std::option::Option<self::AutoScalingSettingsDescription> { &self.replica_provisioned_write_capacity_auto_scaling_settings }
@@ -29,7 +29,7 @@
     pub struct ReplicaSettingsDescriptionBuilder {
         region_name: ::std::option::Option<self::RegionName>,
         replica_billing_mode_summary: ::std::option::Option<self::BillingModeSummary>,
-        replica_global_secondary_index_settings: ::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsDescriptionList>,
+        replica_global_secondary_index_settings: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsDescription>>,
         replica_provisioned_read_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
         replica_provisioned_read_capacity_units: ::std::option::Option<self::NonNegativeLongObject>,
         replica_provisioned_write_capacity_auto_scaling_settings: ::std::option::Option<self::AutoScalingSettingsDescription>,
@@ -45,9 +45,9 @@
         pub fn replica_billing_mode_summary(mut self, input: impl ::std::convert::Into<self::BillingModeSummary>) -> Self { self.replica_billing_mode_summary = Some(input.into()); self }
         pub fn set_replica_billing_mode_summary(mut self, input: ::std::option::Option<self::BillingModeSummary>) -> Self { self.replica_billing_mode_summary = input; self }
         pub fn get_replica_billing_mode_summary(&self) -> &::std::option::Option<self::BillingModeSummary> { &self.replica_billing_mode_summary }
-        pub fn replica_global_secondary_index_settings(mut self, input: impl ::std::convert::Into<self::ReplicaGlobalSecondaryIndexSettingsDescriptionList>) -> Self { self.replica_global_secondary_index_settings = Some(input.into()); self }
-        pub fn set_replica_global_secondary_index_settings(mut self, input: ::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsDescriptionList>) -> Self { self.replica_global_secondary_index_settings = input; self }
-        pub fn get_replica_global_secondary_index_settings(&self) -> &::std::option::Option<self::ReplicaGlobalSecondaryIndexSettingsDescriptionList> { &self.replica_global_secondary_index_settings }
+        pub fn replica_global_secondary_index_settings(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsDescription>>) -> Self { self.replica_global_secondary_index_settings = Some(input.into()); self }
+        pub fn set_replica_global_secondary_index_settings(mut self, input: ::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsDescription>>) -> Self { self.replica_global_secondary_index_settings = input; self }
+        pub fn get_replica_global_secondary_index_settings(&self) -> &::std::option::Option<::std::vec::Vec<self::ReplicaGlobalSecondaryIndexSettingsDescription>> { &self.replica_global_secondary_index_settings }
         pub fn replica_provisioned_read_capacity_auto_scaling_settings(mut self, input: impl ::std::convert::Into<self::AutoScalingSettingsDescription>) -> Self { self.replica_provisioned_read_capacity_auto_scaling_settings = Some(input.into()); self }
         pub fn set_replica_provisioned_read_capacity_auto_scaling_settings(mut self, input: ::std::option::Option<self::AutoScalingSettingsDescription>) -> Self { self.replica_provisioned_read_capacity_auto_scaling_settings = input; self }
         pub fn get_replica_provisioned_read_capacity_auto_scaling_settings(&self) -> &::std::option::Option<self::AutoScalingSettingsDescription> { &self.replica_provisioned_read_capacity_auto_scaling_settings }

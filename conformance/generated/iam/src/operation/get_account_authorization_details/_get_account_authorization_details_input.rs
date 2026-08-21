@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetAccountAuthorizationDetailsInput {
-    pub filter: ::std::option::Option<super::super::super::types::EntityListType>,
+    pub filter: ::std::option::Option<::std::vec::Vec<super::super::super::types::EntityType>>,
     pub marker: ::std::option::Option<super::super::super::types::MarkerType>,
     pub max_items: ::std::option::Option<super::super::super::types::MaxItemsType>,
 }
@@ -16,14 +16,14 @@ impl GetAccountAuthorizationDetailsInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetAccountAuthorizationDetailsInputBuilder {
-    filter: ::std::option::Option<super::super::super::types::EntityListType>,
+    filter: ::std::option::Option<::std::vec::Vec<super::super::super::types::EntityType>>,
     marker: ::std::option::Option<super::super::super::types::MarkerType>,
     max_items: ::std::option::Option<super::super::super::types::MaxItemsType>,
 }
 impl GetAccountAuthorizationDetailsInputBuilder {
-    pub fn filter(mut self, input: impl ::std::convert::Into<super::super::super::types::EntityListType>) -> Self { self.filter = Some(input.into()); self }
-    pub fn set_filter(mut self, input: ::std::option::Option<super::super::super::types::EntityListType>) -> Self { self.filter = input; self }
-    pub fn get_filter(&self) -> &::std::option::Option<super::super::super::types::EntityListType> { &self.filter }
+    pub fn filter(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::EntityType>>) -> Self { self.filter = Some(input.into()); self }
+    pub fn set_filter(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::EntityType>>) -> Self { self.filter = input; self }
+    pub fn get_filter(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::EntityType>> { &self.filter }
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::MarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::MarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::MarkerType> { &self.marker }

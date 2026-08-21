@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeletePolicyVersionError::Unhandled(format!("DeletePolicyVersion returned HTTP {}", status)));
                          }
-                         Ok(super::DeletePolicyVersionOutput::default())
+                         Ok(super::DeletePolicyVersionOutput)
                      }
 }
 pub use Builder as DeletePolicyVersionFluentBuilder;

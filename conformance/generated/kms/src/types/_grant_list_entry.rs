@@ -10,7 +10,7 @@
         pub issuing_account: ::std::option::Option<self::PrincipalIdType>,
         pub key_id: ::std::option::Option<self::KeyIdType>,
         pub name: ::std::option::Option<self::GrantNameType>,
-        pub operations: ::std::option::Option<self::GrantOperationList>,
+        pub operations: ::std::option::Option<::std::vec::Vec<self::GrantOperation>>,
         pub retiring_principal: ::std::option::Option<self::PrincipalIdType>,
         pub retiring_service_principal: ::std::option::Option<self::ServicePrincipalType>,
     }
@@ -24,7 +24,7 @@
         pub fn issuing_account(&self) -> &::std::option::Option<self::PrincipalIdType> { &self.issuing_account }
         pub fn key_id(&self) -> &::std::option::Option<self::KeyIdType> { &self.key_id }
         pub fn name(&self) -> &::std::option::Option<self::GrantNameType> { &self.name }
-        pub fn operations(&self) -> &::std::option::Option<self::GrantOperationList> { &self.operations }
+        pub fn operations(&self) -> &::std::option::Option<::std::vec::Vec<self::GrantOperation>> { &self.operations }
         pub fn retiring_principal(&self) -> &::std::option::Option<self::PrincipalIdType> { &self.retiring_principal }
         pub fn retiring_service_principal(&self) -> &::std::option::Option<self::ServicePrincipalType> { &self.retiring_service_principal }
     }
@@ -39,7 +39,7 @@
         issuing_account: ::std::option::Option<self::PrincipalIdType>,
         key_id: ::std::option::Option<self::KeyIdType>,
         name: ::std::option::Option<self::GrantNameType>,
-        operations: ::std::option::Option<self::GrantOperationList>,
+        operations: ::std::option::Option<::std::vec::Vec<self::GrantOperation>>,
         retiring_principal: ::std::option::Option<self::PrincipalIdType>,
         retiring_service_principal: ::std::option::Option<self::ServicePrincipalType>,
     }
@@ -69,9 +69,9 @@
         pub fn name(mut self, input: impl ::std::convert::Into<self::GrantNameType>) -> Self { self.name = Some(input.into()); self }
         pub fn set_name(mut self, input: ::std::option::Option<self::GrantNameType>) -> Self { self.name = input; self }
         pub fn get_name(&self) -> &::std::option::Option<self::GrantNameType> { &self.name }
-        pub fn operations(mut self, input: impl ::std::convert::Into<self::GrantOperationList>) -> Self { self.operations = Some(input.into()); self }
-        pub fn set_operations(mut self, input: ::std::option::Option<self::GrantOperationList>) -> Self { self.operations = input; self }
-        pub fn get_operations(&self) -> &::std::option::Option<self::GrantOperationList> { &self.operations }
+        pub fn operations(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::GrantOperation>>) -> Self { self.operations = Some(input.into()); self }
+        pub fn set_operations(mut self, input: ::std::option::Option<::std::vec::Vec<self::GrantOperation>>) -> Self { self.operations = input; self }
+        pub fn get_operations(&self) -> &::std::option::Option<::std::vec::Vec<self::GrantOperation>> { &self.operations }
         pub fn retiring_principal(mut self, input: impl ::std::convert::Into<self::PrincipalIdType>) -> Self { self.retiring_principal = Some(input.into()); self }
         pub fn set_retiring_principal(mut self, input: ::std::option::Option<self::PrincipalIdType>) -> Self { self.retiring_principal = input; self }
         pub fn get_retiring_principal(&self) -> &::std::option::Option<self::PrincipalIdType> { &self.retiring_principal }

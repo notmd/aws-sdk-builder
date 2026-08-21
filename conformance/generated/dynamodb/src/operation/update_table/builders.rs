@@ -10,21 +10,21 @@ impl Builder {
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self { input: super::Input::default(), client }
     }
-    pub fn attribute_definitions(mut self, value: impl ::std::convert::Into<super::super::super::types::AttributeDefinitions>) -> Self { self.input.attribute_definitions = Some(value.into()); self }
+    pub fn attribute_definitions(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::AttributeDefinition>>) -> Self { self.input.attribute_definitions = Some(value.into()); self }
     pub fn billing_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::BillingMode>) -> Self { self.input.billing_mode = Some(value.into()); self }
     pub fn deletion_protection_enabled(mut self, value: impl ::std::convert::Into<super::super::super::types::DeletionProtectionEnabled>) -> Self { self.input.deletion_protection_enabled = Some(value.into()); self }
-    pub fn global_secondary_index_updates(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalSecondaryIndexUpdateList>) -> Self { self.input.global_secondary_index_updates = Some(value.into()); self }
+    pub fn global_secondary_index_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalSecondaryIndexUpdate>>) -> Self { self.input.global_secondary_index_updates = Some(value.into()); self }
     pub fn global_table_settings_replication_mode(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalTableSettingsReplicationMode>) -> Self { self.input.global_table_settings_replication_mode = Some(value.into()); self }
-    pub fn global_table_witness_updates(mut self, value: impl ::std::convert::Into<super::super::super::types::GlobalTableWitnessGroupUpdateList>) -> Self { self.input.global_table_witness_updates = Some(value.into()); self }
+    pub fn global_table_witness_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::GlobalTableWitnessGroupUpdate>>) -> Self { self.input.global_table_witness_updates = Some(value.into()); self }
     pub fn multi_region_consistency(mut self, value: impl ::std::convert::Into<super::super::super::types::MultiRegionConsistency>) -> Self { self.input.multi_region_consistency = Some(value.into()); self }
     pub fn on_demand_throughput(mut self, value: impl ::std::convert::Into<super::super::super::types::OnDemandThroughput>) -> Self { self.input.on_demand_throughput = Some(value.into()); self }
     pub fn provisioned_throughput(mut self, value: impl ::std::convert::Into<super::super::super::types::ProvisionedThroughput>) -> Self { self.input.provisioned_throughput = Some(value.into()); self }
-    pub fn replica_updates(mut self, value: impl ::std::convert::Into<super::super::super::types::ReplicationGroupUpdateList>) -> Self { self.input.replica_updates = Some(value.into()); self }
+    pub fn replica_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ReplicationGroupUpdate>>) -> Self { self.input.replica_updates = Some(value.into()); self }
     pub fn sse_specification(mut self, value: impl ::std::convert::Into<super::super::super::types::SseSpecification>) -> Self { self.input.sse_specification = Some(value.into()); self }
     pub fn stream_specification(mut self, value: impl ::std::convert::Into<super::super::super::types::StreamSpecification>) -> Self { self.input.stream_specification = Some(value.into()); self }
     pub fn table_class(mut self, value: impl ::std::convert::Into<super::super::super::types::TableClass>) -> Self { self.input.table_class = Some(value.into()); self }
     pub fn table_name(mut self, value: impl ::std::convert::Into<super::super::super::types::TableArn>) -> Self { self.input.table_name = Some(value.into()); self }
-    pub fn vector_index_updates(mut self, value: impl ::std::convert::Into<super::super::super::types::VectorIndexUpdateList>) -> Self { self.input.vector_index_updates = Some(value.into()); self }
+    pub fn vector_index_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::VectorIndexUpdate>>) -> Self { self.input.vector_index_updates = Some(value.into()); self }
     pub fn warm_throughput(mut self, value: impl ::std::convert::Into<super::super::super::types::WarmThroughput>) -> Self { self.input.warm_throughput = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]

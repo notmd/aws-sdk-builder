@@ -7,19 +7,19 @@
         pub default_minor_version: ::std::option::Option<self::MinorVersionType>,
         pub description: ::std::option::Option<self::RoleTemplateDescriptionType>,
         pub enabled: ::std::option::Option<self::BooleanType>,
-        pub inline_policy_templates: ::std::option::Option<self::InlinePolicyTemplateListType>,
+        pub inline_policy_templates: ::std::option::Option<::std::vec::Vec<self::InlinePolicy>>,
         pub major_version: ::std::option::Option<self::IntegerType>,
         pub managed_by_type: ::std::option::Option<self::ManagedByTypeType>,
         pub managed_by_value: ::std::option::Option<self::ManagedByValueType>,
-        pub managed_policy_arns: ::std::option::Option<self::ManagedPolicyArnListType>,
+        pub managed_policy_arns: ::std::option::Option<::std::vec::Vec<self::ArnType>>,
         pub max_session_duration: ::std::option::Option<self::RoleMaxSessionDurationType>,
         pub minor_version: ::std::option::Option<self::MinorVersionType>,
-        pub parameters_definition: ::std::option::Option<self::ParametersDefinitionListType>,
+        pub parameters_definition: ::std::option::Option<::std::vec::Vec<self::ParameterDefinition>>,
         pub permission_boundary_arn: ::std::option::Option<self::ArnType>,
         pub role_description_pattern: ::std::option::Option<self::RoleDescriptionPatternType>,
         pub role_name_pattern: ::std::option::Option<self::RoleNamePatternType>,
         pub role_path_pattern: ::std::option::Option<self::RolePathPatternType>,
-        pub role_tags_template: ::std::option::Option<self::TagTemplateListType>,
+        pub role_tags_template: ::std::option::Option<::std::vec::Vec<self::TagTemplate>>,
         pub template_arn: ::std::option::Option<self::ArnType>,
         pub template_name: ::std::option::Option<self::RoleTemplateNameType>,
         pub template_version_id: ::std::option::Option<self::IdType>,
@@ -33,19 +33,19 @@
         pub fn default_minor_version(&self) -> &::std::option::Option<self::MinorVersionType> { &self.default_minor_version }
         pub fn description(&self) -> &::std::option::Option<self::RoleTemplateDescriptionType> { &self.description }
         pub fn enabled(&self) -> &::std::option::Option<self::BooleanType> { &self.enabled }
-        pub fn inline_policy_templates(&self) -> &::std::option::Option<self::InlinePolicyTemplateListType> { &self.inline_policy_templates }
+        pub fn inline_policy_templates(&self) -> &::std::option::Option<::std::vec::Vec<self::InlinePolicy>> { &self.inline_policy_templates }
         pub fn major_version(&self) -> &::std::option::Option<self::IntegerType> { &self.major_version }
         pub fn managed_by_type(&self) -> &::std::option::Option<self::ManagedByTypeType> { &self.managed_by_type }
         pub fn managed_by_value(&self) -> &::std::option::Option<self::ManagedByValueType> { &self.managed_by_value }
-        pub fn managed_policy_arns(&self) -> &::std::option::Option<self::ManagedPolicyArnListType> { &self.managed_policy_arns }
+        pub fn managed_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<self::ArnType>> { &self.managed_policy_arns }
         pub fn max_session_duration(&self) -> &::std::option::Option<self::RoleMaxSessionDurationType> { &self.max_session_duration }
         pub fn minor_version(&self) -> &::std::option::Option<self::MinorVersionType> { &self.minor_version }
-        pub fn parameters_definition(&self) -> &::std::option::Option<self::ParametersDefinitionListType> { &self.parameters_definition }
+        pub fn parameters_definition(&self) -> &::std::option::Option<::std::vec::Vec<self::ParameterDefinition>> { &self.parameters_definition }
         pub fn permission_boundary_arn(&self) -> &::std::option::Option<self::ArnType> { &self.permission_boundary_arn }
         pub fn role_description_pattern(&self) -> &::std::option::Option<self::RoleDescriptionPatternType> { &self.role_description_pattern }
         pub fn role_name_pattern(&self) -> &::std::option::Option<self::RoleNamePatternType> { &self.role_name_pattern }
         pub fn role_path_pattern(&self) -> &::std::option::Option<self::RolePathPatternType> { &self.role_path_pattern }
-        pub fn role_tags_template(&self) -> &::std::option::Option<self::TagTemplateListType> { &self.role_tags_template }
+        pub fn role_tags_template(&self) -> &::std::option::Option<::std::vec::Vec<self::TagTemplate>> { &self.role_tags_template }
         pub fn template_arn(&self) -> &::std::option::Option<self::ArnType> { &self.template_arn }
         pub fn template_name(&self) -> &::std::option::Option<self::RoleTemplateNameType> { &self.template_name }
         pub fn template_version_id(&self) -> &::std::option::Option<self::IdType> { &self.template_version_id }
@@ -60,19 +60,19 @@
         default_minor_version: ::std::option::Option<self::MinorVersionType>,
         description: ::std::option::Option<self::RoleTemplateDescriptionType>,
         enabled: ::std::option::Option<self::BooleanType>,
-        inline_policy_templates: ::std::option::Option<self::InlinePolicyTemplateListType>,
+        inline_policy_templates: ::std::option::Option<::std::vec::Vec<self::InlinePolicy>>,
         major_version: ::std::option::Option<self::IntegerType>,
         managed_by_type: ::std::option::Option<self::ManagedByTypeType>,
         managed_by_value: ::std::option::Option<self::ManagedByValueType>,
-        managed_policy_arns: ::std::option::Option<self::ManagedPolicyArnListType>,
+        managed_policy_arns: ::std::option::Option<::std::vec::Vec<self::ArnType>>,
         max_session_duration: ::std::option::Option<self::RoleMaxSessionDurationType>,
         minor_version: ::std::option::Option<self::MinorVersionType>,
-        parameters_definition: ::std::option::Option<self::ParametersDefinitionListType>,
+        parameters_definition: ::std::option::Option<::std::vec::Vec<self::ParameterDefinition>>,
         permission_boundary_arn: ::std::option::Option<self::ArnType>,
         role_description_pattern: ::std::option::Option<self::RoleDescriptionPatternType>,
         role_name_pattern: ::std::option::Option<self::RoleNamePatternType>,
         role_path_pattern: ::std::option::Option<self::RolePathPatternType>,
-        role_tags_template: ::std::option::Option<self::TagTemplateListType>,
+        role_tags_template: ::std::option::Option<::std::vec::Vec<self::TagTemplate>>,
         template_arn: ::std::option::Option<self::ArnType>,
         template_name: ::std::option::Option<self::RoleTemplateNameType>,
         template_version_id: ::std::option::Option<self::IdType>,
@@ -96,9 +96,9 @@
         pub fn enabled(mut self, input: impl ::std::convert::Into<self::BooleanType>) -> Self { self.enabled = Some(input.into()); self }
         pub fn set_enabled(mut self, input: ::std::option::Option<self::BooleanType>) -> Self { self.enabled = input; self }
         pub fn get_enabled(&self) -> &::std::option::Option<self::BooleanType> { &self.enabled }
-        pub fn inline_policy_templates(mut self, input: impl ::std::convert::Into<self::InlinePolicyTemplateListType>) -> Self { self.inline_policy_templates = Some(input.into()); self }
-        pub fn set_inline_policy_templates(mut self, input: ::std::option::Option<self::InlinePolicyTemplateListType>) -> Self { self.inline_policy_templates = input; self }
-        pub fn get_inline_policy_templates(&self) -> &::std::option::Option<self::InlinePolicyTemplateListType> { &self.inline_policy_templates }
+        pub fn inline_policy_templates(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::InlinePolicy>>) -> Self { self.inline_policy_templates = Some(input.into()); self }
+        pub fn set_inline_policy_templates(mut self, input: ::std::option::Option<::std::vec::Vec<self::InlinePolicy>>) -> Self { self.inline_policy_templates = input; self }
+        pub fn get_inline_policy_templates(&self) -> &::std::option::Option<::std::vec::Vec<self::InlinePolicy>> { &self.inline_policy_templates }
         pub fn major_version(mut self, input: impl ::std::convert::Into<self::IntegerType>) -> Self { self.major_version = Some(input.into()); self }
         pub fn set_major_version(mut self, input: ::std::option::Option<self::IntegerType>) -> Self { self.major_version = input; self }
         pub fn get_major_version(&self) -> &::std::option::Option<self::IntegerType> { &self.major_version }
@@ -108,18 +108,18 @@
         pub fn managed_by_value(mut self, input: impl ::std::convert::Into<self::ManagedByValueType>) -> Self { self.managed_by_value = Some(input.into()); self }
         pub fn set_managed_by_value(mut self, input: ::std::option::Option<self::ManagedByValueType>) -> Self { self.managed_by_value = input; self }
         pub fn get_managed_by_value(&self) -> &::std::option::Option<self::ManagedByValueType> { &self.managed_by_value }
-        pub fn managed_policy_arns(mut self, input: impl ::std::convert::Into<self::ManagedPolicyArnListType>) -> Self { self.managed_policy_arns = Some(input.into()); self }
-        pub fn set_managed_policy_arns(mut self, input: ::std::option::Option<self::ManagedPolicyArnListType>) -> Self { self.managed_policy_arns = input; self }
-        pub fn get_managed_policy_arns(&self) -> &::std::option::Option<self::ManagedPolicyArnListType> { &self.managed_policy_arns }
+        pub fn managed_policy_arns(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ArnType>>) -> Self { self.managed_policy_arns = Some(input.into()); self }
+        pub fn set_managed_policy_arns(mut self, input: ::std::option::Option<::std::vec::Vec<self::ArnType>>) -> Self { self.managed_policy_arns = input; self }
+        pub fn get_managed_policy_arns(&self) -> &::std::option::Option<::std::vec::Vec<self::ArnType>> { &self.managed_policy_arns }
         pub fn max_session_duration(mut self, input: impl ::std::convert::Into<self::RoleMaxSessionDurationType>) -> Self { self.max_session_duration = Some(input.into()); self }
         pub fn set_max_session_duration(mut self, input: ::std::option::Option<self::RoleMaxSessionDurationType>) -> Self { self.max_session_duration = input; self }
         pub fn get_max_session_duration(&self) -> &::std::option::Option<self::RoleMaxSessionDurationType> { &self.max_session_duration }
         pub fn minor_version(mut self, input: impl ::std::convert::Into<self::MinorVersionType>) -> Self { self.minor_version = Some(input.into()); self }
         pub fn set_minor_version(mut self, input: ::std::option::Option<self::MinorVersionType>) -> Self { self.minor_version = input; self }
         pub fn get_minor_version(&self) -> &::std::option::Option<self::MinorVersionType> { &self.minor_version }
-        pub fn parameters_definition(mut self, input: impl ::std::convert::Into<self::ParametersDefinitionListType>) -> Self { self.parameters_definition = Some(input.into()); self }
-        pub fn set_parameters_definition(mut self, input: ::std::option::Option<self::ParametersDefinitionListType>) -> Self { self.parameters_definition = input; self }
-        pub fn get_parameters_definition(&self) -> &::std::option::Option<self::ParametersDefinitionListType> { &self.parameters_definition }
+        pub fn parameters_definition(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ParameterDefinition>>) -> Self { self.parameters_definition = Some(input.into()); self }
+        pub fn set_parameters_definition(mut self, input: ::std::option::Option<::std::vec::Vec<self::ParameterDefinition>>) -> Self { self.parameters_definition = input; self }
+        pub fn get_parameters_definition(&self) -> &::std::option::Option<::std::vec::Vec<self::ParameterDefinition>> { &self.parameters_definition }
         pub fn permission_boundary_arn(mut self, input: impl ::std::convert::Into<self::ArnType>) -> Self { self.permission_boundary_arn = Some(input.into()); self }
         pub fn set_permission_boundary_arn(mut self, input: ::std::option::Option<self::ArnType>) -> Self { self.permission_boundary_arn = input; self }
         pub fn get_permission_boundary_arn(&self) -> &::std::option::Option<self::ArnType> { &self.permission_boundary_arn }
@@ -132,9 +132,9 @@
         pub fn role_path_pattern(mut self, input: impl ::std::convert::Into<self::RolePathPatternType>) -> Self { self.role_path_pattern = Some(input.into()); self }
         pub fn set_role_path_pattern(mut self, input: ::std::option::Option<self::RolePathPatternType>) -> Self { self.role_path_pattern = input; self }
         pub fn get_role_path_pattern(&self) -> &::std::option::Option<self::RolePathPatternType> { &self.role_path_pattern }
-        pub fn role_tags_template(mut self, input: impl ::std::convert::Into<self::TagTemplateListType>) -> Self { self.role_tags_template = Some(input.into()); self }
-        pub fn set_role_tags_template(mut self, input: ::std::option::Option<self::TagTemplateListType>) -> Self { self.role_tags_template = input; self }
-        pub fn get_role_tags_template(&self) -> &::std::option::Option<self::TagTemplateListType> { &self.role_tags_template }
+        pub fn role_tags_template(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::TagTemplate>>) -> Self { self.role_tags_template = Some(input.into()); self }
+        pub fn set_role_tags_template(mut self, input: ::std::option::Option<::std::vec::Vec<self::TagTemplate>>) -> Self { self.role_tags_template = input; self }
+        pub fn get_role_tags_template(&self) -> &::std::option::Option<::std::vec::Vec<self::TagTemplate>> { &self.role_tags_template }
         pub fn template_arn(mut self, input: impl ::std::convert::Into<self::ArnType>) -> Self { self.template_arn = Some(input.into()); self }
         pub fn set_template_arn(mut self, input: ::std::option::Option<self::ArnType>) -> Self { self.template_arn = input; self }
         pub fn get_template_arn(&self) -> &::std::option::Option<self::ArnType> { &self.template_arn }

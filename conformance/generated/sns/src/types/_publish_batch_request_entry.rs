@@ -4,7 +4,7 @@
     pub struct PublishBatchRequestEntry {
         pub id: ::std::option::Option<self::String>,
         pub message: ::std::option::Option<self::Message>,
-        pub message_attributes: ::std::option::Option<self::MessageAttributeMap>,
+        pub message_attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>,
         pub message_deduplication_id: ::std::option::Option<self::String>,
         pub message_group_id: ::std::option::Option<self::String>,
         pub message_structure: ::std::option::Option<self::MessageStructure>,
@@ -14,7 +14,7 @@
         pub fn builder() -> PublishBatchRequestEntryBuilder { PublishBatchRequestEntryBuilder::default() }
         pub fn id(&self) -> ::std::option::Option<&str> { self.id.as_deref() }
         pub fn message(&self) -> &::std::option::Option<self::Message> { &self.message }
-        pub fn message_attributes(&self) -> &::std::option::Option<self::MessageAttributeMap> { &self.message_attributes }
+        pub fn message_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>> { &self.message_attributes }
         pub fn message_deduplication_id(&self) -> ::std::option::Option<&str> { self.message_deduplication_id.as_deref() }
         pub fn message_group_id(&self) -> ::std::option::Option<&str> { self.message_group_id.as_deref() }
         pub fn message_structure(&self) -> &::std::option::Option<self::MessageStructure> { &self.message_structure }
@@ -25,7 +25,7 @@
     pub struct PublishBatchRequestEntryBuilder {
         id: ::std::option::Option<self::String>,
         message: ::std::option::Option<self::Message>,
-        message_attributes: ::std::option::Option<self::MessageAttributeMap>,
+        message_attributes: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>,
         message_deduplication_id: ::std::option::Option<self::String>,
         message_group_id: ::std::option::Option<self::String>,
         message_structure: ::std::option::Option<self::MessageStructure>,
@@ -39,9 +39,9 @@
         pub fn message(mut self, input: impl ::std::convert::Into<self::Message>) -> Self { self.message = Some(input.into()); self }
         pub fn set_message(mut self, input: ::std::option::Option<self::Message>) -> Self { self.message = input; self }
         pub fn get_message(&self) -> &::std::option::Option<self::Message> { &self.message }
-        pub fn message_attributes(mut self, input: impl ::std::convert::Into<self::MessageAttributeMap>) -> Self { self.message_attributes = Some(input.into()); self }
-        pub fn set_message_attributes(mut self, input: ::std::option::Option<self::MessageAttributeMap>) -> Self { self.message_attributes = input; self }
-        pub fn get_message_attributes(&self) -> &::std::option::Option<self::MessageAttributeMap> { &self.message_attributes }
+        pub fn message_attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>) -> Self { self.message_attributes = Some(input.into()); self }
+        pub fn set_message_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>>) -> Self { self.message_attributes = input; self }
+        pub fn get_message_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<self::String, self::MessageAttributeValue>> { &self.message_attributes }
         pub fn message_deduplication_id(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.message_deduplication_id = Some(input.into()); self }
         pub fn set_message_deduplication_id(mut self, input: ::std::option::Option<self::String>) -> Self { self.message_deduplication_id = input; self }
         pub fn get_message_deduplication_id(&self) -> &::std::option::Option<self::String> { &self.message_deduplication_id }

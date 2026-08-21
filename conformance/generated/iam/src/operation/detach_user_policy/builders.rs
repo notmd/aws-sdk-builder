@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DetachUserPolicyError::Unhandled(format!("DetachUserPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::DetachUserPolicyOutput::default())
+                         Ok(super::DetachUserPolicyOutput)
                      }
 }
 pub use Builder as DetachUserPolicyFluentBuilder;

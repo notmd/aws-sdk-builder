@@ -4,7 +4,7 @@
 pub struct ListRolesOutput {
     pub is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     pub marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    pub roles: ::std::option::Option<super::super::super::types::RoleListType>,
+    pub roles: ::std::option::Option<::std::vec::Vec<super::super::super::types::Role>>,
 }
         impl ListRolesOutput {
             pub fn is_truncated(&self) -> ::std::option::Option<bool> { self.is_truncated }
@@ -18,7 +18,7 @@ impl ListRolesOutput {
 pub struct ListRolesOutputBuilder {
     is_truncated: ::std::option::Option<super::super::super::types::BooleanType>,
     marker: ::std::option::Option<super::super::super::types::ResponseMarkerType>,
-    roles: ::std::option::Option<super::super::super::types::RoleListType>,
+    roles: ::std::option::Option<::std::vec::Vec<super::super::super::types::Role>>,
 }
 impl ListRolesOutputBuilder {
     pub fn is_truncated(mut self, input: impl ::std::convert::Into<super::super::super::types::BooleanType>) -> Self { self.is_truncated = Some(input.into()); self }
@@ -27,9 +27,9 @@ impl ListRolesOutputBuilder {
     pub fn marker(mut self, input: impl ::std::convert::Into<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = Some(input.into()); self }
     pub fn set_marker(mut self, input: ::std::option::Option<super::super::super::types::ResponseMarkerType>) -> Self { self.marker = input; self }
     pub fn get_marker(&self) -> &::std::option::Option<super::super::super::types::ResponseMarkerType> { &self.marker }
-    pub fn roles(mut self, input: impl ::std::convert::Into<super::super::super::types::RoleListType>) -> Self { self.roles = Some(input.into()); self }
-    pub fn set_roles(mut self, input: ::std::option::Option<super::super::super::types::RoleListType>) -> Self { self.roles = input; self }
-    pub fn get_roles(&self) -> &::std::option::Option<super::super::super::types::RoleListType> { &self.roles }
+    pub fn roles(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Role>>) -> Self { self.roles = Some(input.into()); self }
+    pub fn set_roles(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Role>>) -> Self { self.roles = input; self }
+    pub fn get_roles(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Role>> { &self.roles }
     pub fn build(self) -> ListRolesOutput { ListRolesOutput {
         is_truncated: self.is_truncated,
         marker: self.marker,

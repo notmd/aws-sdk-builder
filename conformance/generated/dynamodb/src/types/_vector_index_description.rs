@@ -11,7 +11,7 @@
         pub index_status: ::std::option::Option<self::IndexStatus>,
         pub item_count: ::std::option::Option<self::LongObject>,
         pub projection: ::std::option::Option<self::Projection>,
-        pub search_schema: ::std::option::Option<self::SearchSchema>,
+        pub search_schema: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>,
         pub vector_attribute: ::std::option::Option<self::VectorAttributeDefinition>,
     }
     impl VectorIndexDescription {
@@ -25,7 +25,7 @@
         pub fn index_status(&self) -> &::std::option::Option<self::IndexStatus> { &self.index_status }
         pub fn item_count(&self) -> &::std::option::Option<self::LongObject> { &self.item_count }
         pub fn projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
-        pub fn search_schema(&self) -> &::std::option::Option<self::SearchSchema> { &self.search_schema }
+        pub fn search_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>> { &self.search_schema }
         pub fn vector_attribute(&self) -> &::std::option::Option<self::VectorAttributeDefinition> { &self.vector_attribute }
     }
 
@@ -40,7 +40,7 @@
         index_status: ::std::option::Option<self::IndexStatus>,
         item_count: ::std::option::Option<self::LongObject>,
         projection: ::std::option::Option<self::Projection>,
-        search_schema: ::std::option::Option<self::SearchSchema>,
+        search_schema: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>,
         vector_attribute: ::std::option::Option<self::VectorAttributeDefinition>,
     }
 
@@ -72,9 +72,9 @@
         pub fn projection(mut self, input: impl ::std::convert::Into<self::Projection>) -> Self { self.projection = Some(input.into()); self }
         pub fn set_projection(mut self, input: ::std::option::Option<self::Projection>) -> Self { self.projection = input; self }
         pub fn get_projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
-        pub fn search_schema(mut self, input: impl ::std::convert::Into<self::SearchSchema>) -> Self { self.search_schema = Some(input.into()); self }
-        pub fn set_search_schema(mut self, input: ::std::option::Option<self::SearchSchema>) -> Self { self.search_schema = input; self }
-        pub fn get_search_schema(&self) -> &::std::option::Option<self::SearchSchema> { &self.search_schema }
+        pub fn search_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::SearchSchemaElement>>) -> Self { self.search_schema = Some(input.into()); self }
+        pub fn set_search_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>>) -> Self { self.search_schema = input; self }
+        pub fn get_search_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::SearchSchemaElement>> { &self.search_schema }
         pub fn vector_attribute(mut self, input: impl ::std::convert::Into<self::VectorAttributeDefinition>) -> Self { self.vector_attribute = Some(input.into()); self }
         pub fn set_vector_attribute(mut self, input: ::std::option::Option<self::VectorAttributeDefinition>) -> Self { self.vector_attribute = input; self }
         pub fn get_vector_attribute(&self) -> &::std::option::Option<self::VectorAttributeDefinition> { &self.vector_attribute }

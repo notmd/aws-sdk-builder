@@ -2,22 +2,22 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetSubscriptionAttributesOutput {
-    pub attributes: ::std::option::Option<super::super::super::types::SubscriptionAttributesMap>,
+    pub attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 }
         impl GetSubscriptionAttributesOutput {
-            pub fn attributes(&self) -> ::std::option::Option<&super::super::super::types::SubscriptionAttributesMap> { self.attributes.as_ref() }
+            pub fn attributes(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { self.attributes.as_ref() }
         }
 impl GetSubscriptionAttributesOutput {
     pub fn builder() -> GetSubscriptionAttributesOutputBuilder { GetSubscriptionAttributesOutputBuilder::default() }
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetSubscriptionAttributesOutputBuilder {
-    attributes: ::std::option::Option<super::super::super::types::SubscriptionAttributesMap>,
+    attributes: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>,
 }
 impl GetSubscriptionAttributesOutputBuilder {
-    pub fn attributes(mut self, input: impl ::std::convert::Into<super::super::super::types::SubscriptionAttributesMap>) -> Self { self.attributes = Some(input.into()); self }
-    pub fn set_attributes(mut self, input: ::std::option::Option<super::super::super::types::SubscriptionAttributesMap>) -> Self { self.attributes = input; self }
-    pub fn get_attributes(&self) -> &::std::option::Option<super::super::super::types::SubscriptionAttributesMap> { &self.attributes }
+    pub fn attributes(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = Some(input.into()); self }
+    pub fn set_attributes(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>>) -> Self { self.attributes = input; self }
+    pub fn get_attributes(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AttributeName, super::super::super::types::AttributeValue>> { &self.attributes }
     pub fn build(self) -> GetSubscriptionAttributesOutput { GetSubscriptionAttributesOutput {
         attributes: self.attributes,
     } }

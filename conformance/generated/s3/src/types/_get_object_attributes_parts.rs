@@ -6,7 +6,7 @@
         pub max_parts: ::std::option::Option<self::MaxParts>,
         pub next_part_number_marker: ::std::option::Option<self::NextPartNumberMarker>,
         pub part_number_marker: ::std::option::Option<self::PartNumberMarker>,
-        pub parts: ::std::option::Option<self::PartsList>,
+        pub parts: ::std::option::Option<::std::vec::Vec<self::ObjectPart>>,
         pub total_parts_count: ::std::option::Option<self::PartsCount>,
     }
     impl GetObjectAttributesParts {
@@ -15,7 +15,7 @@
         pub fn max_parts(&self) -> &::std::option::Option<self::MaxParts> { &self.max_parts }
         pub fn next_part_number_marker(&self) -> &::std::option::Option<self::NextPartNumberMarker> { &self.next_part_number_marker }
         pub fn part_number_marker(&self) -> &::std::option::Option<self::PartNumberMarker> { &self.part_number_marker }
-        pub fn parts(&self) -> &::std::option::Option<self::PartsList> { &self.parts }
+        pub fn parts(&self) -> &::std::option::Option<::std::vec::Vec<self::ObjectPart>> { &self.parts }
         pub fn total_parts_count(&self) -> &::std::option::Option<self::PartsCount> { &self.total_parts_count }
     }
 
@@ -25,7 +25,7 @@
         max_parts: ::std::option::Option<self::MaxParts>,
         next_part_number_marker: ::std::option::Option<self::NextPartNumberMarker>,
         part_number_marker: ::std::option::Option<self::PartNumberMarker>,
-        parts: ::std::option::Option<self::PartsList>,
+        parts: ::std::option::Option<::std::vec::Vec<self::ObjectPart>>,
         total_parts_count: ::std::option::Option<self::PartsCount>,
     }
 
@@ -42,9 +42,9 @@
         pub fn part_number_marker(mut self, input: impl ::std::convert::Into<self::PartNumberMarker>) -> Self { self.part_number_marker = Some(input.into()); self }
         pub fn set_part_number_marker(mut self, input: ::std::option::Option<self::PartNumberMarker>) -> Self { self.part_number_marker = input; self }
         pub fn get_part_number_marker(&self) -> &::std::option::Option<self::PartNumberMarker> { &self.part_number_marker }
-        pub fn parts(mut self, input: impl ::std::convert::Into<self::PartsList>) -> Self { self.parts = Some(input.into()); self }
-        pub fn set_parts(mut self, input: ::std::option::Option<self::PartsList>) -> Self { self.parts = input; self }
-        pub fn get_parts(&self) -> &::std::option::Option<self::PartsList> { &self.parts }
+        pub fn parts(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::ObjectPart>>) -> Self { self.parts = Some(input.into()); self }
+        pub fn set_parts(mut self, input: ::std::option::Option<::std::vec::Vec<self::ObjectPart>>) -> Self { self.parts = input; self }
+        pub fn get_parts(&self) -> &::std::option::Option<::std::vec::Vec<self::ObjectPart>> { &self.parts }
         pub fn total_parts_count(mut self, input: impl ::std::convert::Into<self::PartsCount>) -> Self { self.total_parts_count = Some(input.into()); self }
         pub fn set_total_parts_count(mut self, input: ::std::option::Option<self::PartsCount>) -> Self { self.total_parts_count = input; self }
         pub fn get_total_parts_count(&self) -> &::std::option::Option<self::PartsCount> { &self.total_parts_count }

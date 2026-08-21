@@ -2,8 +2,8 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct ListObjectVersionsOutput {
-    pub common_prefixes: ::std::option::Option<super::super::super::types::CommonPrefixList>,
-    pub delete_markers: ::std::option::Option<super::super::super::types::DeleteMarkers>,
+    pub common_prefixes: ::std::option::Option<::std::vec::Vec<super::super::super::types::CommonPrefix>>,
+    pub delete_markers: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMarkerEntry>>,
     pub delimiter: ::std::option::Option<super::super::super::types::Delimiter>,
     pub encoding_type: ::std::option::Option<super::super::super::types::EncodingType>,
     pub is_truncated: ::std::option::Option<super::super::super::types::IsTruncated>,
@@ -15,7 +15,7 @@ pub struct ListObjectVersionsOutput {
     pub prefix: ::std::option::Option<super::super::super::types::Prefix>,
     pub request_charged: ::std::option::Option<super::super::super::types::RequestCharged>,
     pub version_id_marker: ::std::option::Option<super::super::super::types::VersionIdMarker>,
-    pub versions: ::std::option::Option<super::super::super::types::ObjectVersionList>,
+    pub versions: ::std::option::Option<::std::vec::Vec<super::super::super::types::ObjectVersion>>,
 }
         impl ListObjectVersionsOutput {
             pub fn common_prefixes(&self) -> &[super::super::super::types::CommonPrefix] { self.common_prefixes.as_deref().unwrap_or(&[]) }
@@ -38,8 +38,8 @@ impl ListObjectVersionsOutput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct ListObjectVersionsOutputBuilder {
-    common_prefixes: ::std::option::Option<super::super::super::types::CommonPrefixList>,
-    delete_markers: ::std::option::Option<super::super::super::types::DeleteMarkers>,
+    common_prefixes: ::std::option::Option<::std::vec::Vec<super::super::super::types::CommonPrefix>>,
+    delete_markers: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMarkerEntry>>,
     delimiter: ::std::option::Option<super::super::super::types::Delimiter>,
     encoding_type: ::std::option::Option<super::super::super::types::EncodingType>,
     is_truncated: ::std::option::Option<super::super::super::types::IsTruncated>,
@@ -51,15 +51,15 @@ pub struct ListObjectVersionsOutputBuilder {
     prefix: ::std::option::Option<super::super::super::types::Prefix>,
     request_charged: ::std::option::Option<super::super::super::types::RequestCharged>,
     version_id_marker: ::std::option::Option<super::super::super::types::VersionIdMarker>,
-    versions: ::std::option::Option<super::super::super::types::ObjectVersionList>,
+    versions: ::std::option::Option<::std::vec::Vec<super::super::super::types::ObjectVersion>>,
 }
 impl ListObjectVersionsOutputBuilder {
-    pub fn common_prefixes(mut self, input: impl ::std::convert::Into<super::super::super::types::CommonPrefixList>) -> Self { self.common_prefixes = Some(input.into()); self }
-    pub fn set_common_prefixes(mut self, input: ::std::option::Option<super::super::super::types::CommonPrefixList>) -> Self { self.common_prefixes = input; self }
-    pub fn get_common_prefixes(&self) -> &::std::option::Option<super::super::super::types::CommonPrefixList> { &self.common_prefixes }
-    pub fn delete_markers(mut self, input: impl ::std::convert::Into<super::super::super::types::DeleteMarkers>) -> Self { self.delete_markers = Some(input.into()); self }
-    pub fn set_delete_markers(mut self, input: ::std::option::Option<super::super::super::types::DeleteMarkers>) -> Self { self.delete_markers = input; self }
-    pub fn get_delete_markers(&self) -> &::std::option::Option<super::super::super::types::DeleteMarkers> { &self.delete_markers }
+    pub fn common_prefixes(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::CommonPrefix>>) -> Self { self.common_prefixes = Some(input.into()); self }
+    pub fn set_common_prefixes(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::CommonPrefix>>) -> Self { self.common_prefixes = input; self }
+    pub fn get_common_prefixes(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::CommonPrefix>> { &self.common_prefixes }
+    pub fn delete_markers(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::DeleteMarkerEntry>>) -> Self { self.delete_markers = Some(input.into()); self }
+    pub fn set_delete_markers(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMarkerEntry>>) -> Self { self.delete_markers = input; self }
+    pub fn get_delete_markers(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::DeleteMarkerEntry>> { &self.delete_markers }
     pub fn delimiter(mut self, input: impl ::std::convert::Into<super::super::super::types::Delimiter>) -> Self { self.delimiter = Some(input.into()); self }
     pub fn set_delimiter(mut self, input: ::std::option::Option<super::super::super::types::Delimiter>) -> Self { self.delimiter = input; self }
     pub fn get_delimiter(&self) -> &::std::option::Option<super::super::super::types::Delimiter> { &self.delimiter }
@@ -93,9 +93,9 @@ impl ListObjectVersionsOutputBuilder {
     pub fn version_id_marker(mut self, input: impl ::std::convert::Into<super::super::super::types::VersionIdMarker>) -> Self { self.version_id_marker = Some(input.into()); self }
     pub fn set_version_id_marker(mut self, input: ::std::option::Option<super::super::super::types::VersionIdMarker>) -> Self { self.version_id_marker = input; self }
     pub fn get_version_id_marker(&self) -> &::std::option::Option<super::super::super::types::VersionIdMarker> { &self.version_id_marker }
-    pub fn versions(mut self, input: impl ::std::convert::Into<super::super::super::types::ObjectVersionList>) -> Self { self.versions = Some(input.into()); self }
-    pub fn set_versions(mut self, input: ::std::option::Option<super::super::super::types::ObjectVersionList>) -> Self { self.versions = input; self }
-    pub fn get_versions(&self) -> &::std::option::Option<super::super::super::types::ObjectVersionList> { &self.versions }
+    pub fn versions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::ObjectVersion>>) -> Self { self.versions = Some(input.into()); self }
+    pub fn set_versions(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::ObjectVersion>>) -> Self { self.versions = input; self }
+    pub fn get_versions(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::ObjectVersion>> { &self.versions }
     pub fn build(self) -> ListObjectVersionsOutput { ListObjectVersionsOutput {
         common_prefixes: self.common_prefixes,
         delete_markers: self.delete_markers,

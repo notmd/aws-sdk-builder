@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct TagPolicyInput {
     pub policy_arn: ::std::option::Option<super::super::super::types::ArnType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl TagPolicyInput {
             pub fn policy_arn(&self) -> ::std::option::Option<&str> { self.policy_arn.as_deref() }
@@ -15,15 +15,15 @@ impl TagPolicyInput {
 #[derive(Clone, Debug, Default)]
 pub struct TagPolicyInputBuilder {
     policy_arn: ::std::option::Option<super::super::super::types::ArnType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl TagPolicyInputBuilder {
     pub fn policy_arn(mut self, input: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.policy_arn = Some(input.into()); self }
     pub fn set_policy_arn(mut self, input: ::std::option::Option<super::super::super::types::ArnType>) -> Self { self.policy_arn = input; self }
     pub fn get_policy_arn(&self) -> &::std::option::Option<super::super::super::types::ArnType> { &self.policy_arn }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> TagPolicyInput { TagPolicyInput {
         policy_arn: self.policy_arn,
         tags: self.tags,

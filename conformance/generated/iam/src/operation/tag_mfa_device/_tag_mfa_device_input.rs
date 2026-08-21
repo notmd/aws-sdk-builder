@@ -3,7 +3,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct TagMfaDeviceInput {
     pub serial_number: ::std::option::Option<super::super::super::types::SerialNumberType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl TagMfaDeviceInput {
             pub fn serial_number(&self) -> ::std::option::Option<&str> { self.serial_number.as_deref() }
@@ -15,15 +15,15 @@ impl TagMfaDeviceInput {
 #[derive(Clone, Debug, Default)]
 pub struct TagMfaDeviceInputBuilder {
     serial_number: ::std::option::Option<super::super::super::types::SerialNumberType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl TagMfaDeviceInputBuilder {
     pub fn serial_number(mut self, input: impl ::std::convert::Into<super::super::super::types::SerialNumberType>) -> Self { self.serial_number = Some(input.into()); self }
     pub fn set_serial_number(mut self, input: ::std::option::Option<super::super::super::types::SerialNumberType>) -> Self { self.serial_number = input; self }
     pub fn get_serial_number(&self) -> &::std::option::Option<super::super::super::types::SerialNumberType> { &self.serial_number }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> TagMfaDeviceInput { TagMfaDeviceInput {
         serial_number: self.serial_number,
         tags: self.tags,

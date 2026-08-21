@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetContextKeysForCustomPolicyInput {
-    pub policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
+    pub policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
 }
         impl GetContextKeysForCustomPolicyInput {
             pub fn policy_input_list(&self) -> &[super::super::super::types::PolicyDocumentType] { self.policy_input_list.as_deref().unwrap_or(&[]) }
@@ -12,12 +12,12 @@ impl GetContextKeysForCustomPolicyInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetContextKeysForCustomPolicyInputBuilder {
-    policy_input_list: ::std::option::Option<super::super::super::types::SimulationPolicyListType>,
+    policy_input_list: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>,
 }
 impl GetContextKeysForCustomPolicyInputBuilder {
-    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<super::super::super::types::SimulationPolicyListType>) -> Self { self.policy_input_list = Some(input.into()); self }
-    pub fn set_policy_input_list(mut self, input: ::std::option::Option<super::super::super::types::SimulationPolicyListType>) -> Self { self.policy_input_list = input; self }
-    pub fn get_policy_input_list(&self) -> &::std::option::Option<super::super::super::types::SimulationPolicyListType> { &self.policy_input_list }
+    pub fn policy_input_list(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.policy_input_list = Some(input.into()); self }
+    pub fn set_policy_input_list(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>>) -> Self { self.policy_input_list = input; self }
+    pub fn get_policy_input_list(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::PolicyDocumentType>> { &self.policy_input_list }
     pub fn build(self) -> GetContextKeysForCustomPolicyInput { GetContextKeysForCustomPolicyInput {
         policy_input_list: self.policy_input_list,
     } }

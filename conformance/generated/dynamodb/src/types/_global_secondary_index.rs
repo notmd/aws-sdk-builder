@@ -3,7 +3,7 @@
     #[derive(Clone, Debug, Default)]
     pub struct GlobalSecondaryIndex {
         pub index_name: ::std::option::Option<self::IndexName>,
-        pub key_schema: ::std::option::Option<self::KeySchema>,
+        pub key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
         pub on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
         pub projection: ::std::option::Option<self::Projection>,
         pub provisioned_throughput: ::std::option::Option<self::ProvisionedThroughput>,
@@ -12,7 +12,7 @@
     impl GlobalSecondaryIndex {
         pub fn builder() -> GlobalSecondaryIndexBuilder { GlobalSecondaryIndexBuilder::default() }
         pub fn index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
-        pub fn key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
+        pub fn key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
         pub fn on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }
         pub fn projection(&self) -> &::std::option::Option<self::Projection> { &self.projection }
         pub fn provisioned_throughput(&self) -> &::std::option::Option<self::ProvisionedThroughput> { &self.provisioned_throughput }
@@ -22,7 +22,7 @@
     #[derive(Clone, Debug, Default)]
     pub struct GlobalSecondaryIndexBuilder {
         index_name: ::std::option::Option<self::IndexName>,
-        key_schema: ::std::option::Option<self::KeySchema>,
+        key_schema: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>,
         on_demand_throughput: ::std::option::Option<self::OnDemandThroughput>,
         projection: ::std::option::Option<self::Projection>,
         provisioned_throughput: ::std::option::Option<self::ProvisionedThroughput>,
@@ -33,9 +33,9 @@
         pub fn index_name(mut self, input: impl ::std::convert::Into<self::IndexName>) -> Self { self.index_name = Some(input.into()); self }
         pub fn set_index_name(mut self, input: ::std::option::Option<self::IndexName>) -> Self { self.index_name = input; self }
         pub fn get_index_name(&self) -> &::std::option::Option<self::IndexName> { &self.index_name }
-        pub fn key_schema(mut self, input: impl ::std::convert::Into<self::KeySchema>) -> Self { self.key_schema = Some(input.into()); self }
-        pub fn set_key_schema(mut self, input: ::std::option::Option<self::KeySchema>) -> Self { self.key_schema = input; self }
-        pub fn get_key_schema(&self) -> &::std::option::Option<self::KeySchema> { &self.key_schema }
+        pub fn key_schema(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = Some(input.into()); self }
+        pub fn set_key_schema(mut self, input: ::std::option::Option<::std::vec::Vec<self::KeySchemaElement>>) -> Self { self.key_schema = input; self }
+        pub fn get_key_schema(&self) -> &::std::option::Option<::std::vec::Vec<self::KeySchemaElement>> { &self.key_schema }
         pub fn on_demand_throughput(mut self, input: impl ::std::convert::Into<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = Some(input.into()); self }
         pub fn set_on_demand_throughput(mut self, input: ::std::option::Option<self::OnDemandThroughput>) -> Self { self.on_demand_throughput = input; self }
         pub fn get_on_demand_throughput(&self) -> &::std::option::Option<self::OnDemandThroughput> { &self.on_demand_throughput }

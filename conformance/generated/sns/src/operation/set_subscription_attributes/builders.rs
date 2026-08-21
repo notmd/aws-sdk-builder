@@ -24,7 +24,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::SetSubscriptionAttributesError::Unhandled(format!("SetSubscriptionAttributes returned HTTP {}", status)));
                          }
-                         Ok(super::SetSubscriptionAttributesOutput::default())
+                         Ok(super::SetSubscriptionAttributesOutput)
                      }
 }
 pub use Builder as SetSubscriptionAttributesFluentBuilder;

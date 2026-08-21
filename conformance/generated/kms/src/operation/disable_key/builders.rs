@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DisableKeyError::Unhandled(format!("DisableKey returned HTTP {}", status)));
                          }
-                         Ok(super::DisableKeyOutput::default())
+                         Ok(super::DisableKeyOutput)
                      }
 }
 pub use Builder as DisableKeyFluentBuilder;

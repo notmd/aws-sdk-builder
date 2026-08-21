@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ListEventSourceMappingsResponse {
-        pub event_source_mappings: ::std::option::Option<self::EventSourceMappingsList>,
+        pub event_source_mappings: ::std::option::Option<::std::vec::Vec<self::EventSourceMappingConfiguration>>,
         pub next_marker: ::std::option::Option<self::String>,
     }
     impl ListEventSourceMappingsResponse {
         pub fn builder() -> ListEventSourceMappingsResponseBuilder { ListEventSourceMappingsResponseBuilder::default() }
-        pub fn event_source_mappings(&self) -> &::std::option::Option<self::EventSourceMappingsList> { &self.event_source_mappings }
+        pub fn event_source_mappings(&self) -> &::std::option::Option<::std::vec::Vec<self::EventSourceMappingConfiguration>> { &self.event_source_mappings }
         pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ListEventSourceMappingsResponseBuilder {
-        event_source_mappings: ::std::option::Option<self::EventSourceMappingsList>,
+        event_source_mappings: ::std::option::Option<::std::vec::Vec<self::EventSourceMappingConfiguration>>,
         next_marker: ::std::option::Option<self::String>,
     }
 
     impl ListEventSourceMappingsResponseBuilder {
-        pub fn event_source_mappings(mut self, input: impl ::std::convert::Into<self::EventSourceMappingsList>) -> Self { self.event_source_mappings = Some(input.into()); self }
-        pub fn set_event_source_mappings(mut self, input: ::std::option::Option<self::EventSourceMappingsList>) -> Self { self.event_source_mappings = input; self }
-        pub fn get_event_source_mappings(&self) -> &::std::option::Option<self::EventSourceMappingsList> { &self.event_source_mappings }
+        pub fn event_source_mappings(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::EventSourceMappingConfiguration>>) -> Self { self.event_source_mappings = Some(input.into()); self }
+        pub fn set_event_source_mappings(mut self, input: ::std::option::Option<::std::vec::Vec<self::EventSourceMappingConfiguration>>) -> Self { self.event_source_mappings = input; self }
+        pub fn get_event_source_mappings(&self) -> &::std::option::Option<::std::vec::Vec<self::EventSourceMappingConfiguration>> { &self.event_source_mappings }
         pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
         pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
         pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }

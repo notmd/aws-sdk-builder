@@ -23,7 +23,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteUserPolicyError::Unhandled(format!("DeleteUserPolicy returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteUserPolicyOutput::default())
+                         Ok(super::DeleteUserPolicyOutput)
                      }
 }
 pub use Builder as DeleteUserPolicyFluentBuilder;

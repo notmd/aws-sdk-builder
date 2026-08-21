@@ -16,7 +16,7 @@ impl Builder {
     pub fn path(mut self, value: impl ::std::convert::Into<super::super::super::types::PathType>) -> Self { self.input.path = Some(value.into()); self }
     pub fn permissions_boundary(mut self, value: impl ::std::convert::Into<super::super::super::types::ArnType>) -> Self { self.input.permissions_boundary = Some(value.into()); self }
     pub fn role_name(mut self, value: impl ::std::convert::Into<super::super::super::types::RoleNameType>) -> Self { self.input.role_name = Some(value.into()); self }
-    pub fn tags(mut self, value: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.input.tags = Some(value.into()); self }
+    pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.input.tags = Some(value.into()); self }
     pub fn build(self) -> super::Input { self.input }
                      #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
                      pub async fn send(self) -> ::std::result::Result<super::CreateRoleOutput, super::CreateRoleError> {

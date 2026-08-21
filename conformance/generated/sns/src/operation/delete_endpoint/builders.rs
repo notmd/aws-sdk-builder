@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteEndpointError::Unhandled(format!("DeleteEndpoint returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteEndpointOutput::default())
+                         Ok(super::DeleteEndpointOutput)
                      }
 }
 pub use Builder as DeleteEndpointFluentBuilder;

@@ -2,22 +2,22 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetAccountPropertiesOutput {
-    pub properties: ::std::option::Option<super::super::super::types::AccountPropertiesMapType>,
+    pub properties: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>>,
 }
         impl GetAccountPropertiesOutput {
-            pub fn properties(&self) -> ::std::option::Option<&super::super::super::types::AccountPropertiesMapType> { self.properties.as_ref() }
+            pub fn properties(&self) -> ::std::option::Option<&::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>> { self.properties.as_ref() }
         }
 impl GetAccountPropertiesOutput {
     pub fn builder() -> GetAccountPropertiesOutputBuilder { GetAccountPropertiesOutputBuilder::default() }
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetAccountPropertiesOutputBuilder {
-    properties: ::std::option::Option<super::super::super::types::AccountPropertiesMapType>,
+    properties: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>>,
 }
 impl GetAccountPropertiesOutputBuilder {
-    pub fn properties(mut self, input: impl ::std::convert::Into<super::super::super::types::AccountPropertiesMapType>) -> Self { self.properties = Some(input.into()); self }
-    pub fn set_properties(mut self, input: ::std::option::Option<super::super::super::types::AccountPropertiesMapType>) -> Self { self.properties = input; self }
-    pub fn get_properties(&self) -> &::std::option::Option<super::super::super::types::AccountPropertiesMapType> { &self.properties }
+    pub fn properties(mut self, input: impl ::std::convert::Into<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>>) -> Self { self.properties = Some(input.into()); self }
+    pub fn set_properties(mut self, input: ::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>>) -> Self { self.properties = input; self }
+    pub fn get_properties(&self) -> &::std::option::Option<::std::collections::BTreeMap<super::super::super::types::AccountPropertyKeyType, super::super::super::types::AccountPropertyValueType>> { &self.properties }
     pub fn build(self) -> GetAccountPropertiesOutput { GetAccountPropertiesOutput {
         properties: self.properties,
     } }

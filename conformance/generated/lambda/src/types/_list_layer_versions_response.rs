@@ -2,25 +2,25 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct ListLayerVersionsResponse {
-        pub layer_versions: ::std::option::Option<self::LayerVersionsList>,
+        pub layer_versions: ::std::option::Option<::std::vec::Vec<self::LayerVersionsListItem>>,
         pub next_marker: ::std::option::Option<self::String>,
     }
     impl ListLayerVersionsResponse {
         pub fn builder() -> ListLayerVersionsResponseBuilder { ListLayerVersionsResponseBuilder::default() }
-        pub fn layer_versions(&self) -> &::std::option::Option<self::LayerVersionsList> { &self.layer_versions }
+        pub fn layer_versions(&self) -> &::std::option::Option<::std::vec::Vec<self::LayerVersionsListItem>> { &self.layer_versions }
         pub fn next_marker(&self) -> ::std::option::Option<&str> { self.next_marker.as_deref() }
     }
 
     #[derive(Clone, Debug, Default)]
     pub struct ListLayerVersionsResponseBuilder {
-        layer_versions: ::std::option::Option<self::LayerVersionsList>,
+        layer_versions: ::std::option::Option<::std::vec::Vec<self::LayerVersionsListItem>>,
         next_marker: ::std::option::Option<self::String>,
     }
 
     impl ListLayerVersionsResponseBuilder {
-        pub fn layer_versions(mut self, input: impl ::std::convert::Into<self::LayerVersionsList>) -> Self { self.layer_versions = Some(input.into()); self }
-        pub fn set_layer_versions(mut self, input: ::std::option::Option<self::LayerVersionsList>) -> Self { self.layer_versions = input; self }
-        pub fn get_layer_versions(&self) -> &::std::option::Option<self::LayerVersionsList> { &self.layer_versions }
+        pub fn layer_versions(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::LayerVersionsListItem>>) -> Self { self.layer_versions = Some(input.into()); self }
+        pub fn set_layer_versions(mut self, input: ::std::option::Option<::std::vec::Vec<self::LayerVersionsListItem>>) -> Self { self.layer_versions = input; self }
+        pub fn get_layer_versions(&self) -> &::std::option::Option<::std::vec::Vec<self::LayerVersionsListItem>> { &self.layer_versions }
         pub fn next_marker(mut self, input: impl ::std::convert::Into<self::String>) -> Self { self.next_marker = Some(input.into()); self }
         pub fn set_next_marker(mut self, input: ::std::option::Option<self::String>) -> Self { self.next_marker = input; self }
         pub fn get_next_marker(&self) -> &::std::option::Option<self::String> { &self.next_marker }

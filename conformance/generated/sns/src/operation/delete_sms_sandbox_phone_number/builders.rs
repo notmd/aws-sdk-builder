@@ -22,7 +22,7 @@ impl Builder {
                          if !status.is_success() {
                              return Err(super::DeleteSmsSandboxPhoneNumberError::Unhandled(format!("DeleteSmsSandboxPhoneNumber returned HTTP {}", status)));
                          }
-                         Ok(super::DeleteSmsSandboxPhoneNumberOutput::default())
+                         Ok(super::DeleteSmsSandboxPhoneNumberOutput)
                      }
 }
 pub use Builder as DeleteSmsSandboxPhoneNumberFluentBuilder;

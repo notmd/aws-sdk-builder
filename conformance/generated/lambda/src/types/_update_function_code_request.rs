@@ -2,7 +2,7 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct UpdateFunctionCodeRequest {
-        pub architectures: ::std::option::Option<self::ArchitecturesList>,
+        pub architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
         pub dry_run: ::std::option::Option<self::Boolean>,
         pub function_name: ::std::option::Option<self::FunctionName>,
         pub image_uri: ::std::option::Option<self::String>,
@@ -18,7 +18,7 @@
     }
     impl UpdateFunctionCodeRequest {
         pub fn builder() -> UpdateFunctionCodeRequestBuilder { UpdateFunctionCodeRequestBuilder::default() }
-        pub fn architectures(&self) -> &::std::option::Option<self::ArchitecturesList> { &self.architectures }
+        pub fn architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.architectures }
         pub fn dry_run(&self) -> &::std::option::Option<self::Boolean> { &self.dry_run }
         pub fn function_name(&self) -> &::std::option::Option<self::FunctionName> { &self.function_name }
         pub fn image_uri(&self) -> ::std::option::Option<&str> { self.image_uri.as_deref() }
@@ -35,7 +35,7 @@
 
     #[derive(Clone, Debug, Default)]
     pub struct UpdateFunctionCodeRequestBuilder {
-        architectures: ::std::option::Option<self::ArchitecturesList>,
+        architectures: ::std::option::Option<::std::vec::Vec<self::Architecture>>,
         dry_run: ::std::option::Option<self::Boolean>,
         function_name: ::std::option::Option<self::FunctionName>,
         image_uri: ::std::option::Option<self::String>,
@@ -51,9 +51,9 @@
     }
 
     impl UpdateFunctionCodeRequestBuilder {
-        pub fn architectures(mut self, input: impl ::std::convert::Into<self::ArchitecturesList>) -> Self { self.architectures = Some(input.into()); self }
-        pub fn set_architectures(mut self, input: ::std::option::Option<self::ArchitecturesList>) -> Self { self.architectures = input; self }
-        pub fn get_architectures(&self) -> &::std::option::Option<self::ArchitecturesList> { &self.architectures }
+        pub fn architectures(mut self, input: impl ::std::convert::Into<::std::vec::Vec<self::Architecture>>) -> Self { self.architectures = Some(input.into()); self }
+        pub fn set_architectures(mut self, input: ::std::option::Option<::std::vec::Vec<self::Architecture>>) -> Self { self.architectures = input; self }
+        pub fn get_architectures(&self) -> &::std::option::Option<::std::vec::Vec<self::Architecture>> { &self.architectures }
         pub fn dry_run(mut self, input: impl ::std::convert::Into<self::Boolean>) -> Self { self.dry_run = Some(input.into()); self }
         pub fn set_dry_run(mut self, input: ::std::option::Option<self::Boolean>) -> Self { self.dry_run = input; self }
         pub fn get_dry_run(&self) -> &::std::option::Option<self::Boolean> { &self.dry_run }

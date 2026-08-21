@@ -2,10 +2,10 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct GetWebIdentityTokenInput {
-    pub audience: ::std::option::Option<super::super::super::types::WebIdentityTokenAudienceListType>,
+    pub audience: ::std::option::Option<::std::vec::Vec<super::super::super::types::WebIdentityTokenAudienceStringType>>,
     pub duration_seconds: ::std::option::Option<super::super::super::types::WebIdentityTokenDurationSecondsType>,
     pub signing_algorithm: ::std::option::Option<super::super::super::types::JwtAlgorithmType>,
-    pub tags: ::std::option::Option<super::super::super::types::TagListType>,
+    pub tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
         impl GetWebIdentityTokenInput {
             pub fn audience(&self) -> &[super::super::super::types::WebIdentityTokenAudienceStringType] { self.audience.as_deref().unwrap_or(&[]) }
@@ -18,24 +18,24 @@ impl GetWebIdentityTokenInput {
 }
 #[derive(Clone, Debug, Default)]
 pub struct GetWebIdentityTokenInputBuilder {
-    audience: ::std::option::Option<super::super::super::types::WebIdentityTokenAudienceListType>,
+    audience: ::std::option::Option<::std::vec::Vec<super::super::super::types::WebIdentityTokenAudienceStringType>>,
     duration_seconds: ::std::option::Option<super::super::super::types::WebIdentityTokenDurationSecondsType>,
     signing_algorithm: ::std::option::Option<super::super::super::types::JwtAlgorithmType>,
-    tags: ::std::option::Option<super::super::super::types::TagListType>,
+    tags: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>,
 }
 impl GetWebIdentityTokenInputBuilder {
-    pub fn audience(mut self, input: impl ::std::convert::Into<super::super::super::types::WebIdentityTokenAudienceListType>) -> Self { self.audience = Some(input.into()); self }
-    pub fn set_audience(mut self, input: ::std::option::Option<super::super::super::types::WebIdentityTokenAudienceListType>) -> Self { self.audience = input; self }
-    pub fn get_audience(&self) -> &::std::option::Option<super::super::super::types::WebIdentityTokenAudienceListType> { &self.audience }
+    pub fn audience(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::WebIdentityTokenAudienceStringType>>) -> Self { self.audience = Some(input.into()); self }
+    pub fn set_audience(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::WebIdentityTokenAudienceStringType>>) -> Self { self.audience = input; self }
+    pub fn get_audience(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::WebIdentityTokenAudienceStringType>> { &self.audience }
     pub fn duration_seconds(mut self, input: impl ::std::convert::Into<super::super::super::types::WebIdentityTokenDurationSecondsType>) -> Self { self.duration_seconds = Some(input.into()); self }
     pub fn set_duration_seconds(mut self, input: ::std::option::Option<super::super::super::types::WebIdentityTokenDurationSecondsType>) -> Self { self.duration_seconds = input; self }
     pub fn get_duration_seconds(&self) -> &::std::option::Option<super::super::super::types::WebIdentityTokenDurationSecondsType> { &self.duration_seconds }
     pub fn signing_algorithm(mut self, input: impl ::std::convert::Into<super::super::super::types::JwtAlgorithmType>) -> Self { self.signing_algorithm = Some(input.into()); self }
     pub fn set_signing_algorithm(mut self, input: ::std::option::Option<super::super::super::types::JwtAlgorithmType>) -> Self { self.signing_algorithm = input; self }
     pub fn get_signing_algorithm(&self) -> &::std::option::Option<super::super::super::types::JwtAlgorithmType> { &self.signing_algorithm }
-    pub fn tags(mut self, input: impl ::std::convert::Into<super::super::super::types::TagListType>) -> Self { self.tags = Some(input.into()); self }
-    pub fn set_tags(mut self, input: ::std::option::Option<super::super::super::types::TagListType>) -> Self { self.tags = input; self }
-    pub fn get_tags(&self) -> &::std::option::Option<super::super::super::types::TagListType> { &self.tags }
+    pub fn tags(mut self, input: impl ::std::convert::Into<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = Some(input.into()); self }
+    pub fn set_tags(mut self, input: ::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>>) -> Self { self.tags = input; self }
+    pub fn get_tags(&self) -> &::std::option::Option<::std::vec::Vec<super::super::super::types::Tag>> { &self.tags }
     pub fn build(self) -> GetWebIdentityTokenInput { GetWebIdentityTokenInput {
         audience: self.audience,
         duration_seconds: self.duration_seconds,
