@@ -15,10 +15,10 @@ Updated 2026-08-21. Prompt.md is the project specification.
   operation, builder, error, shape, enum, and union source, resolves Smithy
   list/map shapes as inline `Vec<T>`/`BTreeMap<K, V>` expressions, and validates
   generated syntax with syn. It is not yet AWS SDK semantic parity.
-- M4: in progress. Generated services now always include `src/aws_runtime.rs`
-  with the initial local HTTP transport and declare `aws-runtime` as a normal
-  downstream dependency for AWS runtime metadata. `aws-sdk-build` remains
-  codegen-only; the generated client no longer references `reqwest`. Full
+- M4: in progress. Generated services now co-locate the initial local HTTP
+  transport with `src/client.rs` and declare `aws-runtime` as a normal downstream
+  dependency for AWS runtime metadata. `aws-sdk-build` remains codegen-only; the generated
+  client no longer references `reqwest`. Full
   protocol serialization, runtime orchestration, endpoint resolution,
   auth/signing, retries, checksums, streaming, pagination, and service
   decorators remain to be ported.
@@ -29,8 +29,8 @@ Updated 2026-08-21. Prompt.md is the project specification.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The current report
-  compares 6,592 files and has 16 exact matches (0.43% arithmetic average),
-  with 3,558 mismatches, 2,887 missing files, and 131 extra files. Both comparison
+  compares 6,584 files and has 16 exact matches (0.43% arithmetic average),
+  with 3,558 mismatches, 2,887 missing files, and 123 extra files. Both comparison
   trees are checked in under `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. The live
   `my_aws_sdk::tests::creates_then_heads_a_bucket` test passes against the
@@ -60,18 +60,20 @@ updated when the port adopts a new reusable abstraction.
   keeps per-type rendering filtered to the requested shape without narrowing the
   model used for recursive type resolution, uses Smithy-compatible underscore
   suffixes for reserved-word type module filenames, and removes two generated-code
-  Clippy warnings for XML-only headers and unit outputs.
+  Clippy warnings for XML-only headers and unit outputs. The local transport is
+  now emitted inside `client.rs`, eliminating the synthetic `aws_runtime.rs` file
+  from every generated service.
 - Evidence: `cargo fmt --all`, `cargo test -p aws-sdk-build`,
   `cargo test --workspace`, and `cargo clippy --workspace --all-targets -- -D warnings`
   pass. `just conformance` completed and intentionally exits 1 because semantic
   parity remains incomplete.
-- Conformance: the current checkpoint compares `6592` files with `16` exact
-  matches, `3558` mismatches, `2887` missing, and `131` extra at `0.43%` average
+- Conformance: the current checkpoint compares `6584` files with `16` exact
+  matches, `3558` mismatches, `2887` missing, and `123` extra at `0.43%` average
   match. Compared with the preceding `6906`-file checkpoint, generated extras
-  fell from `445` to `131` overall and from `47` to `1` for S3; exact matches have
-  not increased yet. The S3 report is `1345` files with `2` exact, `826` mismatches,
-  `516` missing, and `1` extra. The additional mismatch reflects the reserved-word
-  `Type` file moving from an extra generated path to its reference path.
+  fell from `445` to `123` overall and from `47` to `0` for S3; exact matches have
+  not increased yet. The S3 report is `1344` files with `2` exact, `826` mismatches,
+  `516` missing, and `0` extra. The reserved-word `Type` file now uses its
+  reference path, and the local transport no longer creates a synthetic extra file.
 - Next action: continue porting shared operation/protocol semantics against the
   Smithy reference while preserving the model-driven collection resolution.
 

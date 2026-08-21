@@ -45,7 +45,6 @@ pub(crate) fn generate(
         let mut service_files = vec![
             ("src/lib.rs".to_owned(), render_service_lib(entry.key)),
             ("src/primitives.rs".to_owned(), render_primitives()),
-            ("src/aws_runtime.rs".to_owned(), render_aws_runtime()),
             ("src/config.rs".to_owned(), render_config_file()),
             ("src/error.rs".to_owned(), render_error_file()),
             ("src/meta.rs".to_owned(), render_meta(entry.key)),
@@ -174,7 +173,7 @@ pub(crate) fn generate(
         "selected_operations": all_operations,
         "generated_source_files": files,
         "runtime_crate_requirements": ["aws-runtime"],
-        "runtime_source_files": ["src/aws_runtime.rs"],
+        "runtime_source_files": ["src/client.rs"],
     });
     let manifest_path = stage.join("aws_sdk_build_manifest.json");
     let manifest_text = serde_json::to_string_pretty(&manifest)
@@ -204,7 +203,6 @@ fn render_service_lib(service_key: &str) -> String {
     header(&mut output);
     for file in [
         "primitives.rs",
-        "aws_runtime.rs",
         "config.rs",
         "error.rs",
         "meta.rs",
@@ -1998,6 +1996,7 @@ fn render_enum(output: &mut String, shape: &Value, name: &str) {
 
 fn render_client_file(service_key: &str, selected: &SelectedModel) -> String {
     let mut output = String::new();
+    output.push_str(&render_aws_runtime());
     render_client(&mut output, service_key, selected);
     output
 }
@@ -2240,7 +2239,12 @@ mod tests {
 
         let generated = stage.path().join("generated/s3/src");
         assert!(generated.join("lib.rs").is_file());
-        assert!(generated.join("aws_runtime.rs").is_file());
+        assert!(!generated.join("aws_runtime.rs").exists());
+        assert!(
+            fs::read_to_string(generated.join("client.rs"))
+                .unwrap()
+                .contains("pub(crate) mod transport")
+        );
         assert!(generated.join("observability_feature.rs").is_file());
         assert!(generated.join("client.rs").is_file());
         assert!(generated.join("operation.rs").is_file());
