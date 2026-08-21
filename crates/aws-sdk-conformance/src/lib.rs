@@ -31,6 +31,17 @@ impl ServiceReport {
             || !self.read_errors.is_empty()
     }
 
+    /// Return the percentage of compared files that matched exactly.
+    ///
+    /// An empty service has no differences, so it is considered fully matched.
+    pub fn match_percentage(&self) -> f64 {
+        if self.total_files == 0 {
+            100.0
+        } else {
+            (self.matched_files as f64 / self.total_files as f64) * 100.0
+        }
+    }
+
     /// Render the complete deterministic Markdown report for this service.
     pub fn to_markdown(&self, snapshot: Option<&str>) -> String {
         let mut markdown = String::from("# AWS SDK Conformance Report: ");
@@ -121,7 +132,20 @@ impl ConformanceReport {
             .sum()
     }
 
-    /// Render a summary document with links to the complete per-service reports.
+    /// Return the arithmetic mean of the per-service match percentages.
+    pub fn average_match_percentage(&self) -> f64 {
+        if self.services.is_empty() {
+            0.0
+        } else {
+            self.services
+                .iter()
+                .map(ServiceReport::match_percentage)
+                .sum::<f64>()
+                / self.services.len() as f64
+        }
+    }
+
+    /// Render a summary table with links to the complete per-service reports.
     pub fn to_summary_markdown(&self, service_directory: impl AsRef<Path>) -> String {
         let service_directory = service_directory.as_ref();
         let mut markdown = String::from("# AWS SDK Conformance Report\n\n");
@@ -133,23 +157,42 @@ impl ConformanceReport {
         markdown.push_str("**Summary:** ");
         markdown.push_str(&format_summary(self));
         markdown.push_str("\n\n");
-
+        markdown.push_str(
+            "| Service | Compared | Matched | Mismatches | Missing | Extra | Read errors | Match | Report |\n",
+        );
+        markdown.push_str("| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |\n");
         for service in &self.services {
-            markdown.push_str("## ");
-            markdown.push_str(&service.name);
-            markdown.push('\n');
-            append_progress(&mut markdown, service);
-            markdown.push_str("Detailed report: [");
-            markdown.push_str(&escape_inline(&service.name));
-            markdown.push_str("](");
+            markdown.push_str("| ");
+            markdown.push_str(&escape_table(&service.name));
+            markdown.push_str(" | ");
+            markdown.push_str(&format!(
+                "{}/{}",
+                service.compared_files, service.total_files
+            ));
+            markdown.push_str(" | ");
+            markdown.push_str(&service.matched_files.to_string());
+            markdown.push_str(" | ");
+            markdown.push_str(&service.mismatched_files.to_string());
+            markdown.push_str(" | ");
+            markdown.push_str(&service.missing_files.len().to_string());
+            markdown.push_str(" | ");
+            markdown.push_str(&service.extra_files.len().to_string());
+            markdown.push_str(" | ");
+            markdown.push_str(&service.read_errors.len().to_string());
+            markdown.push_str(" | ");
+            markdown.push_str(&format!("{:.2}%", service.match_percentage()));
+            markdown.push_str(" | [report](");
             markdown.push_str(
                 &service_directory
                     .join(format!("{}.md", service.name))
                     .display()
                     .to_string(),
             );
-            markdown.push_str(")\n\n");
+            markdown.push_str(") |\n");
         }
+        markdown.push_str("| **Average** | — | — | — | — | — | — | **");
+        markdown.push_str(&format!("{:.2}%", self.average_match_percentage()));
+        markdown.push_str("** | — |\n");
 
         markdown
     }
@@ -216,8 +259,8 @@ pub fn write_markdown(
 
 /// Write the summary report and one complete report per service.
 ///
-/// The summary path `reports/aws-sdk-conformance.md` produces service reports at
-/// `reports/aws-sdk-conformance/<service>.md`. Each file is replaced atomically,
+/// The summary path `conformance/summary.md` produces service reports at
+/// `conformance/summary/<service>.md`. Each file is replaced atomically,
 /// and stale Markdown files in that generated directory are removed after all
 /// current service reports have been written.
 pub fn write_reports(
@@ -543,7 +586,7 @@ fn append_diagnostics(markdown: &mut String, title: &str, values: &[String]) {
 
 fn format_summary(report: &ConformanceReport) -> String {
     format!(
-        "`{}/{} files compared` · `{}` matched · `{}` mismatches · `{}` missing · `{}` extra · `{}` read errors",
+        "`{}/{} files compared` · `{}` matched · `{}` mismatches · `{}` missing · `{}` extra · `{}` read errors · `{:.2}%` average match",
         report.compared_files(),
         report.total_files(),
         report.matched_files(),
@@ -551,11 +594,16 @@ fn format_summary(report: &ConformanceReport) -> String {
         report.missing_files(),
         report.extra_files(),
         report.read_errors(),
+        report.average_match_percentage(),
     )
 }
 
 fn escape_inline(value: &str) -> String {
     value.replace('`', "\\`").replace('\n', " ")
+}
+
+fn escape_table(value: &str) -> String {
+    escape_inline(value).replace('|', "\\|")
 }
 
 fn append_progress(markdown: &mut String, service: &ServiceReport) {
@@ -571,7 +619,9 @@ fn append_progress(markdown: &mut String, service: &ServiceReport) {
     markdown.push_str(&service.missing_files.len().to_string());
     markdown.push_str("` missing · `");
     markdown.push_str(&service.extra_files.len().to_string());
-    markdown.push_str("` extra\n\n");
+    markdown.push_str("` extra · `");
+    markdown.push_str(&format!("{:.2}%", service.match_percentage()));
+    markdown.push_str("` match (100.00% means fully matched)\n\n");
 }
 
 fn append_service_details(markdown: &mut String, service: &ServiceReport) {
@@ -688,6 +738,8 @@ mod tests {
         assert!(markdown.contains("--- reference/operation/get.rs"));
         assert!(markdown.contains("+++ generated/operation/get.rs"));
         assert!(markdown.contains("Snapshot: `abc`"));
+        assert!(markdown.contains("`33.33%` match (100.00% means fully matched)"));
+        assert!((report.average_match_percentage() - 33.3333).abs() < 0.001);
     }
 
     #[test]
@@ -711,9 +763,11 @@ mod tests {
             compare_directories(reference.path(), generated.path(), None::<String>).unwrap();
         assert!(!report.has_differences());
         assert_eq!(report.services[0].compared_files, 1);
+        assert_eq!(report.services[0].match_percentage(), 100.0);
+        assert_eq!(report.average_match_percentage(), 100.0);
         assert!(report
             .to_markdown()
-            .contains("**Progress:** `1/1` files compared · `1` matched · `0` mismatches · `0` missing · `0` extra"));
+            .contains("**Progress:** `1/1` files compared · `1` matched · `0` mismatches · `0` missing · `0` extra · `100.00%` match"));
     }
 
     #[test]
@@ -758,7 +812,12 @@ mod tests {
         let summary = fs::read_to_string(&output).unwrap();
         let service = fs::read_to_string(service_directory.join("s3.md")).unwrap();
         assert!(summary.contains("**Summary:**"));
-        assert!(summary.contains("Detailed report: [s3](conformance/s3.md)"));
+        assert!(summary.contains("| Service | Compared | Matched | Mismatches | Missing | Extra | Read errors | Match | Report |"));
+        assert!(
+            summary
+                .contains("| s3 | 1/1 | 0 | 1 | 0 | 0 | 1 | 0.00% | [report](conformance/s3.md) |")
+        );
+        assert!(summary.contains("| **Average** | — | — | — | — | — | — | **0.00%** | — |"));
         assert!(!summary.contains("```diff"));
         assert!(service.contains("# AWS SDK Conformance Report: s3"));
         assert!(service.contains("```diff"));

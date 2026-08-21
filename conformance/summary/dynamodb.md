@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `1249/1249` files compared · `0` matched · `293` mismatches · `610` missing · `346` extra
+**Progress:** `1249/1249` files compared · `0` matched · `293` mismatches · `610` missing · `346` extra · `0.00%` match (100.00% means fully matched)
 
 ### `src/client/batch_execute_statement.rs`
 

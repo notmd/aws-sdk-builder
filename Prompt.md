@@ -314,13 +314,15 @@ changed UTF-8 source file and preserve the resulting unified patch in a fenced
 
 The report must be deterministic: no timestamps, absolute paths, ANSI color, or
 machine-specific headings. Write it only after all selected services have been
-compared, preferably by atomically replacing the destination file. A report must
-contain a global summary followed by one section for every SDK service, sorted by
-service key. The first content line in each service section is its progress line:
+compared, preferably by atomically replacing the destination file. The summary must
+contain a global summary followed by a table with one row for every SDK service,
+sorted by service key, including a link to that service's detailed report. Each
+detailed service report keeps its progress line as the first content line after the
+service heading:
 
 ```markdown
 ## s3
-**Progress:** `428/428` files compared · `428` matched · `0` mismatches · `0` missing · `0` extra
+**Progress:** `428/428` files compared · `428` matched · `0` mismatches · `0` missing · `0` extra · `100.00%` match
 ```
 
 The progress line represents the complete service comparison, including files that
@@ -329,8 +331,10 @@ mismatch must include its repository-relative path and a `diffy` unified patch w
 headers identify `reference/...` and `generated/...`. Missing, extra, and binary
 files must remain visible as explicit diagnostics rather than being silently skipped.
 The report summary must include total files, matched files, mismatches, missing files,
-extra files, and read/parse errors. The CLI exits non-zero when differences exist, but
-still leaves the complete Markdown report available for review.
+extra files, read/parse errors, and the arithmetic average of per-service match
+percentages. Each service progress line must include its exact-match percentage;
+`100.00%` means every compared file matched. The CLI exits non-zero when differences
+exist, but still leaves the complete Markdown report available for review.
 
 The checked-in runner should expose an invocation equivalent to:
 
@@ -338,13 +342,13 @@ The checked-in runner should expose an invocation equivalent to:
 cargo run -p aws-sdk-conformance -- \
   --reference conformance/reference \
   --generated conformance/generated \
-  --output reports/aws-sdk-conformance.md \
+  --output conformance/summary.md \
   --snapshot <pinned-aws-sdk-rust-sha>
 ```
 
 Every conformance run must save its deterministic Markdown output at
-`reports/aws-sdk-conformance.md` and commit that summary plus one detailed report per
-service under `reports/aws-sdk-conformance/` to version control for reviewable history.
+`conformance/summary.md` and commit that summary plus one detailed report per service
+under `conformance/summary/` to version control for reviewable history.
 The pinned reference and generated source trees must also be checked in under
 `conformance/`, with provenance recorded in `conformance/manifest.json`. The report
 must retain non-zero differences; a committed report is evidence of what was compared,
@@ -470,10 +474,10 @@ and update the status/audit markdown before moving on.
 - [ ] M6 — Add conformance. Pin references, generate every operation for P0, compare
   source and tokens under the namespace-only normalization, and write deterministic
   `diffy` Markdown reports to the checked-in summary
-  `reports/aws-sdk-conformance.md` plus one report per service. Keep the reference and
-  generated source trees in `conformance/`, with a completed progress line at the top
-  of every service report. Commit each snapshot/report so parity changes remain
-  reviewable in git history.
+  `conformance/summary.md` plus one report per service. Keep the reference and
+  generated source trees in `conformance/`, with a completed progress line and match
+  percentage at the top of every service report. Commit each snapshot/report so
+  parity changes remain reviewable in git history.
 - [ ] M6a — Add the Floci smoke test. Run the basic S3 operation sequence against the
   local emulator and record the endpoint, SDK versions, and result without treating it
   as source-conformance evidence.

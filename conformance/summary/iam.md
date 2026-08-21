@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `2160/2160` files compared · `0` matched · `463` mismatches · `1168` missing · `529` extra
+**Progress:** `2160/2160` files compared · `0` matched · `463` mismatches · `1168` missing · `529` extra · `0.00%` match (100.00% means fully matched)
 
 ### `src/client/accept_delegation_request.rs`
 

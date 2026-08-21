@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## kms
-**Progress:** `805/805` files compared · `0` matched · `161` mismatches · `438` missing · `206` extra
+**Progress:** `805/805` files compared · `0` matched · `161` mismatches · `438` missing · `206` extra · `0.00%` match (100.00% means fully matched)
 
 ### `src/client/cancel_key_deletion.rs`
 

@@ -22,7 +22,7 @@ Updated 2026-08-21. Prompt.md is the project specification.
   clean generated-consumer cargo check passes.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
-  under `reports/aws-sdk-conformance.md` and `reports/aws-sdk-conformance/`. The
+  under `conformance/summary.md` and `conformance/summary/`. The
   report is intentionally nonconformant: the current generator has a different source
   layout and no files matched. Both comparison trees are checked in under
   `conformance/` and described by `conformance/manifest.json`.

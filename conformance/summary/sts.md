@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## sts
-**Progress:** `244/244` files compared · `0` matched · `36` mismatches · `116` missing · `92` extra
+**Progress:** `244/244` files compared · `0` matched · `36` mismatches · `116` missing · `92` extra · `0.00%` match (100.00% means fully matched)
 
 ### `src/client/assume_role.rs`
 

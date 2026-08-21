@@ -39,12 +39,12 @@ with:
     cargo run -p aws-sdk-conformance -- \
       --reference conformance/reference \
       --generated conformance/generated \
-      --output reports/aws-sdk-conformance.md \
+      --output conformance/summary.md \
       --snapshot 3c6d526c9d4775f41a8ef1ed2ef574d1b14481db
 
-or use `just conformance`. The existing Markdown file is the summary; detailed
-per-service reports are stored under `reports/aws-sdk-conformance/`. The pinned
-reference and generated source trees are checked in under `conformance/`.
+or use `just conformance`. The summary is `conformance/summary.md`; detailed
+per-service reports are stored under `conformance/summary/`. The pinned reference
+and generated source trees are checked in under `conformance/`.
 
 For a local S3 emulator smoke test, start Floci yourself and run
 scripts/check-s3-floci.sh. The launcher never starts or stops the emulator
