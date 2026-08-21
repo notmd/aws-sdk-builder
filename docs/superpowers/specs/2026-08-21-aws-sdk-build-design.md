@@ -51,7 +51,7 @@ The pruned model is written deterministically. Shape and member ordering follows
 
 ### Smithy invocation
 
-The runner uses the Smithy CLI as the external tool, analogous to tonic-build using `protoc`. The build API resolves the executable in this order: an explicit `.smithy(...)` path, `SMITHY_CLI`, then `smithy` on `PATH`. The generated `smithy-build.json` configures the `rust-client-codegen` plugin with AWS SDK customizations, the selected service shape, module name, output directory, and runtime configuration. Smithy stdout/stderr are captured and included in errors with the exact command and output.
+The runner uses the Smithy CLI as the external tool, analogous to tonic-build using `protoc`. The build API resolves the executable in this order: an explicit `.smithy(...)` path, `SMITHY_CLI`, then `smithy` on `PATH`. The generated `smithy-build.json` configures the `rust-client-codegen` plugin with AWS SDK customizations, the selected service shape, module name, output directory, and runtime configuration. Consumer builds set `customizationConfig.awsSdk.awsSdkBuild` to `false` and suppress the release-only README: upstream smithy-rs requires a partitions file and `awsConfigVersion` when that flag is `true`, while the AWS customizations, runtime types, auth, and fluent client remain available in consumer mode. Smithy stdout/stderr are captured and included in errors with the exact command and output.
 
 The project documents the required Smithy CLI and smithy-rs plugin versions and supports an explicit plugin/classpath option so CI can pin the generator. It does not silently download code or execute an unpinned remote artifact from a consumer build.
 

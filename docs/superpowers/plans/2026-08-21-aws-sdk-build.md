@@ -240,7 +240,9 @@ Write the pruned model as `model.json` under a temporary workspace. Generate a c
           "moduleVersion": "0.1.0",
           "moduleAuthors": ["aws-sdk-build"],
           "codegen": { "includeFluentClient": true },
-          "customizationConfig": { "awsSdk": { "awsSdkBuild": true } }
+          "customizationConfig": {
+            "awsSdk": { "awsSdkBuild": false, "suppressReadme": true }
+          }
         }
       }
     }

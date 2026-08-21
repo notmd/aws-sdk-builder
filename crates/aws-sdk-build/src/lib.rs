@@ -2,6 +2,8 @@ mod config;
 mod error;
 pub mod model;
 pub(crate) mod prune;
+pub mod runner;
+pub mod smithy;
 
 pub use config::Builder;
 pub use error::BuildError;

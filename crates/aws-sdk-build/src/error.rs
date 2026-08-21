@@ -47,4 +47,19 @@ pub enum BuildError {
         referenced_from: String,
         shape: String,
     },
+    #[error("Smithy executable was not found; searched: {searched:?}")]
+    SmithyExecutableNotFound { searched: Vec<String> },
+    #[error("failed to start Smithy command {command}: {source}")]
+    SmithySpawn {
+        command: String,
+        #[source]
+        source: io::Error,
+    },
+    #[error("Smithy command failed ({status}): {command}\nstdout:\n{stdout}\nstderr:\n{stderr}")]
+    SmithyToolFailed {
+        command: String,
+        status: String,
+        stdout: String,
+        stderr: String,
+    },
 }
