@@ -4,7 +4,7 @@
   "reference_snapshot_date": "2026-08-21",
   "reference_root": "conformance/reference",
   "generated_root": "conformance/generated",
-  "generator": "examples/conformance-consumer",
+  "generator": "aws-sdk-build-rust-native-0.1.0",
   "services": [
     {"service_key": "dynamodb", "reference_files": 903, "generated_files": 639},
     {"service_key": "iam", "reference_files": 1631, "generated_files": 992},
