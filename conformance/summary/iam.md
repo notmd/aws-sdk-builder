@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1631/1631` files compared · `124` matched · `918` mismatches · `589` missing · `0` extra · `7.60%` match (100.00% means fully matched)
+**Progress:** `1631/1631` files compared · `125` matched · `917` mismatches · `589` missing · `0` extra · `7.66%` match (100.00% means fully matched)
 
 ### `src/client/add_client_id_to_open_id_connect_provider.rs`
 
@@ -471,22 +471,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub fn get_group(&self) -> crate::operation::get_group::builders::GetGroupFluentBuilder {
 ```
 
-### `src/client/get_human_readable_summary.rs`
-
-```diff
---- reference/src/client/get_human_readable_summary.rs
-+++ generated/src/client/get_human_readable_summary.rs
-@@ -4,7 +4,7 @@
-     ///
-     /// - The fluent builder is configurable:
-     ///   - [`entity_arn(impl Into<String>)`](crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryFluentBuilder::entity_arn) / [`set_entity_arn(Option<String>)`](crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryFluentBuilder::set_entity_arn):<br>required: **true**<br><p>Arn of the entity to be summarized. At this time, the only supported entity type is <code>delegation-request</code></p><br>
--    ///   - [`locale(impl Into<String>)`](crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryFluentBuilder::locale) / [`set_locale(Option<String>)`](crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryFluentBuilder::set_locale):<br>required: **false**<br><p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages"> Supported languages of the Amazon Web Services Management Console </a>.</p><br>
-+    ///   - [`locale(impl Into<String>)`](crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryFluentBuilder::locale) / [`set_locale(Option<String>)`](crate::operation::get_human_readable_summary::builders::GetHumanReadableSummaryFluentBuilder::set_locale):<br>required: **false**<br><p>A string representing the locale to use for the summary generation. The supported locale strings are based on the <a href="/awsconsolehelpdocs/latest/gsg/change-language.html#supported-languages">Supported languages of the Amazon Web Services Management Console </a>.</p><br>
-     /// - On success, responds with [`GetHumanReadableSummaryOutput`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput) with field(s):
-     ///   - [`summary_content(Option<String>)`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput::summary_content): <p>Summary content in the specified locale. Summary content is non-empty only if the <code>SummaryState</code> is <code>AVAILABLE</code>.</p>
-     ///   - [`locale(Option<String>)`](crate::operation::get_human_readable_summary::GetHumanReadableSummaryOutput::locale): <p>The locale that this response was generated for. This maps to the input locale.</p>
-```
-
 ### `src/client/get_mfa_device.rs`
 
 ```diff
@@ -507,11 +491,10 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      ///   - [`user_name(Option<String>)`](crate::operation::get_mfa_device::GetMfaDeviceOutput::user_name): <p>The friendly name identifying the user.</p>
      ///   - [`serial_number(String)`](crate::operation::get_mfa_device::GetMfaDeviceOutput::serial_number): <p>Serial number that uniquely identifies the MFA device. For this API, we only accept FIDO security key <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">ARNs</a>.</p>
      ///   - [`enable_date(Option<DateTime>)`](crate::operation::get_mfa_device::GetMfaDeviceOutput::enable_date): <p>The date that a specified user's MFA device was first enabled.</p>
--    ///   - [`certifications(Option<HashMap::<String, String>>)`](crate::operation::get_mfa_device::GetMfaDeviceOutput::certifications): <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
+     ///   - [`certifications(Option<HashMap::<String, String>>)`](crate::operation::get_mfa_device::GetMfaDeviceOutput::certifications): <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/"> FIDO Alliance Metadata Service (MDS)</a>.</p>
 -    /// - On failure, responds with [`SdkError<GetMFADeviceError>`](crate::operation::get_mfa_device::GetMFADeviceError)
 -    pub fn get_mfa_device(&self) -> crate::operation::get_mfa_device::builders::GetMFADeviceFluentBuilder {
 -        crate::operation::get_mfa_device::builders::GetMFADeviceFluentBuilder::new(self.handle.clone())
-+    ///   - [`certifications(Option<HashMap::<String, String>>)`](crate::operation::get_mfa_device::GetMfaDeviceOutput::certifications): <p>The certifications of a specified user's MFA device. We currently provide FIPS-140-2, FIPS-140-3, and FIDO certification levels obtained from <a href="https://fidoalliance.org/metadata/">FIDO Alliance Metadata Service (MDS)</a>.</p>
 +    /// - On failure, responds with [`SdkError<GetMfaDeviceError>`](crate::operation::get_mfa_device::GetMfaDeviceError)
 +    pub fn get_mfa_device(&self) -> crate::operation::get_mfa_device::builders::GetMfaDeviceFluentBuilder {
 +        crate::operation::get_mfa_device::builders::GetMfaDeviceFluentBuilder::new(self.handle.clone())
@@ -173898,7 +173881,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/client/enable_outbound_web_identity_federation.rs`
 - `src/client/get_account_authorization_details.rs`
 - `src/client/get_group.rs`
-- `src/client/get_human_readable_summary.rs`
 - `src/client/get_mfa_device.rs`
 - `src/client/get_open_id_connect_provider.rs`
 - `src/client/get_organizations_access_report.rs`

@@ -3334,13 +3334,21 @@ fn normalize_documentation_text(
             return escape_documentation_text(text);
         }
         let mut output = String::new();
+        let preserve_leading_space = text.chars().next().is_some_and(|character| {
+            character.is_whitespace()
+                && previous.is_some_and(|token| {
+                    matches!(token, DocumentationToken::Tag(tag) if documentation_tag_name(tag)
+                            .is_some_and(|name| documentation_is_inline(&name)))
+                })
+        });
         let mut whitespace = false;
         for character in text.chars() {
             if character.is_whitespace() {
                 whitespace = true;
             } else {
                 if whitespace
-                    && (!output.is_empty()
+                    && (preserve_leading_space
+                        || !output.is_empty()
                         || previous.is_some_and(|token| {
                             matches!(token, DocumentationToken::Tag(tag) if tag.starts_with("</"))
                         }))
@@ -3357,13 +3365,21 @@ fn normalize_documentation_text(
         return output;
     }
     let mut output = String::new();
+    let preserve_leading_space = text.chars().next().is_some_and(|character| {
+        character.is_whitespace()
+            && previous.is_some_and(|token| {
+                matches!(token, DocumentationToken::Tag(tag) if documentation_tag_name(tag)
+                        .is_some_and(|name| documentation_is_inline(&name)))
+            })
+    });
     let mut whitespace = false;
     for character in text.chars() {
         if character.is_whitespace() {
             whitespace = true;
         } else {
             if whitespace
-                && (!output.is_empty()
+                && (preserve_leading_space
+                    || !output.is_empty()
                     || previous.is_some_and(|token| {
                         matches!(token, DocumentationToken::Tag(tag) if tag.starts_with("</"))
                     }))

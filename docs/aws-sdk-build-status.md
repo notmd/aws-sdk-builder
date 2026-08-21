@@ -30,8 +30,8 @@ Updated 2026-08-21. Prompt.md is the project specification.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The current report
-  compares 6,584 files and has 483 exact matches (6.75% arithmetic average),
-  with 3,091 mismatches, 2,887 missing files, and 123 extra files. Both comparison
+  compares 6,584 files and has 490 exact matches (6.82% arithmetic average),
+  with 3,084 mismatches, 2,887 missing files, and 123 extra files. Both comparison
   trees are checked in under `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. The live
   `my_aws_sdk::tests::creates_then_heads_a_bucket` test passes against the
@@ -51,22 +51,25 @@ updated when the port adopts a new reusable abstraction.
 
 ## Evidence
 
-### Checkpoint: 2026-08-21 — Client operation documentation parity
+### Checkpoint: 2026-08-21 — Inline client documentation whitespace parity
 
 - State: in progress
 - Changed: `crates/aws-sdk-build/src/codegen.rs` now renders client operation
   documentation from the selected Smithy model, including model-driven primitive,
   collection, and named-shape types, target-shape documentation fallbacks,
   required-member reporting, output fields, paginated-operation links, and
-  Smithy-style HTML whitespace. Long client method signatures use generic rendered
-  length-based wrapping, and nested list closing gaps preserve serializer spacing.
-- Evidence: `cargo fmt --all`, `cargo test -p aws-sdk-build`, `git diff --check`,
-  and `just conformance` completed. Conformance intentionally exits 1 because
-  semantic parity remains incomplete.
-- Conformance: the previous checkpoint had `400` exact matches; this checkpoint
-  has `483` exact matches out of `6,584`, with `3,091` mismatches, `2,887` missing,
-  `123` extra, and `6.75%` average match. The increase is primarily in client
-  operation documentation and signature formatting.
+  Smithy-style HTML whitespace. Inline text immediately inside opening tags now
+  preserves the leading space emitted by Smithy’s Jsoup normalizer. Long client
+  method signatures use generic rendered length-based wrapping, and nested list
+  closing gaps preserve serializer spacing.
+- Evidence: `cargo fmt --all`, `cargo test --workspace`, `cargo clippy
+  --workspace --all-targets -- -D warnings`, `cargo fmt --all -- --check`,
+  `git diff --check`, and `just conformance` completed. Conformance
+  intentionally exits 1 because semantic parity remains incomplete.
+- Conformance: the previous checkpoint had `483` exact matches; this checkpoint
+  has `490` exact matches out of `6,584`, with `3,084` mismatches, `2,887` missing,
+  `123` extra, and `6.82%` average match. S3 improved from `148` to `153` exact
+  matches, with `675` mismatches and `516` missing files.
 - Blocker: request-ID fields, protocol/runtime behavior, endpoint/auth/retry/checksum
   support, and the remaining missing source tree are still incomplete.
 - Next action: port request-ID fields and the next shared operation/protocol source
