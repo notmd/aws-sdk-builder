@@ -14,7 +14,7 @@ impl ListSamlProviderTags {
     ) -> ::std::result::Result<
         crate::operation::list_saml_provider_tags::ListSamlProviderTagsOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_saml_provider_tags::ListSamlProviderTagsError,
+            crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl ListSamlProviderTags {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::list_saml_provider_tags::ListSamlProviderTagsError>()
+                err.downcast::<crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError>()
                     .expect("correct error type")
             })
         };
@@ -129,9 +129,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListSam
                             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListSamlProviderTagsTelemetryInputCaptureInterceptor))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(ListSamlProviderTagsEndpointParamsInterceptor))
-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_saml_provider_tags::ListSamlProviderTagsError>::new())
-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_saml_provider_tags::ListSamlProviderTagsError>::new())
-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_saml_provider_tags::ListSamlProviderTagsError>::builder().transient_errors({
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError>::builder().transient_errors({
                                             let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                                             transient_errors.push("InternalError");
                                             ::std::borrow::Cow::Owned(transient_errors)
@@ -302,10 +302,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListSamlProvi
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `ListSamlProviderTagsError` operation.
+/// Error type for the `ListSAMLProviderTagsError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum ListSamlProviderTagsError {
+pub enum ListSAMLProviderTagsError {
     /// <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
     InvalidInputException(crate::types::error::InvalidInputException),
     /// <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
@@ -318,11 +318,11 @@ pub enum ListSamlProviderTagsError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListSamlProviderTagsError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListSAMLProviderTagsError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl ListSamlProviderTagsError {
-    /// Creates the `ListSamlProviderTagsError::Unhandled` variant from any error type.
+impl ListSAMLProviderTagsError {
+    /// Creates the `ListSAMLProviderTagsError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -332,7 +332,7 @@ impl ListSamlProviderTagsError {
         })
     }
 
-    /// Creates the `ListSamlProviderTagsError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `ListSAMLProviderTagsError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -351,20 +351,20 @@ impl ListSamlProviderTagsError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `ListSamlProviderTagsError::InvalidInputException`.
+    /// Returns `true` if the error kind is `ListSAMLProviderTagsError::InvalidInputException`.
     pub fn is_invalid_input_exception(&self) -> bool {
         matches!(self, Self::InvalidInputException(_))
     }
-    /// Returns `true` if the error kind is `ListSamlProviderTagsError::NoSuchEntityException`.
+    /// Returns `true` if the error kind is `ListSAMLProviderTagsError::NoSuchEntityException`.
     pub fn is_no_such_entity_exception(&self) -> bool {
         matches!(self, Self::NoSuchEntityException(_))
     }
-    /// Returns `true` if the error kind is `ListSamlProviderTagsError::ServiceFailureException`.
+    /// Returns `true` if the error kind is `ListSAMLProviderTagsError::ServiceFailureException`.
     pub fn is_service_failure_exception(&self) -> bool {
         matches!(self, Self::ServiceFailureException(_))
     }
 }
-impl ::std::error::Error for ListSamlProviderTagsError {
+impl ::std::error::Error for ListSAMLProviderTagsError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::InvalidInputException(_inner) => ::std::option::Option::Some(_inner),
@@ -374,7 +374,7 @@ impl ::std::error::Error for ListSamlProviderTagsError {
         }
     }
 }
-impl ::std::fmt::Display for ListSamlProviderTagsError {
+impl ::std::fmt::Display for ListSAMLProviderTagsError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::InvalidInputException(_inner) => _inner.fmt(f),
@@ -390,7 +390,7 @@ impl ::std::fmt::Display for ListSamlProviderTagsError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for ListSamlProviderTagsError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for ListSAMLProviderTagsError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -398,7 +398,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for ListSamlProviderTagsError {
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListSamlProviderTagsError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListSAMLProviderTagsError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::InvalidInputException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -408,7 +408,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListSamlProvi
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListSamlProviderTagsError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListSAMLProviderTagsError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -419,12 +419,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListSaml
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::list_saml_provider_tags::ListSamlProviderTagsError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::list_saml_provider_tags::ListSamlProviderTagsError {
+impl ::aws_types::request_id::RequestId for crate::operation::list_saml_provider_tags::ListSAMLProviderTagsError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

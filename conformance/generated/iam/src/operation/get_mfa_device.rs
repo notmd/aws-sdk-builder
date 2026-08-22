@@ -14,7 +14,7 @@ impl GetMfaDevice {
     ) -> ::std::result::Result<
         crate::operation::get_mfa_device::GetMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_mfa_device::GetMfaDeviceError,
+            crate::operation::get_mfa_device::GetMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl GetMfaDevice {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::get_mfa_device::GetMfaDeviceError>()
+                err.downcast::<crate::operation::get_mfa_device::GetMFADeviceError>()
                     .expect("correct error type")
             })
         };
@@ -133,13 +133,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetMfaD
                 GetMfaDeviceEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::get_mfa_device::GetMfaDeviceError,
+                crate::operation::get_mfa_device::GetMFADeviceError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::get_mfa_device::GetMfaDeviceError,
+                crate::operation::get_mfa_device::GetMFADeviceError,
             >::new())
             .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_mfa_device::GetMfaDeviceError>::builder()
+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_mfa_device::GetMFADeviceError>::builder()
                     .transient_errors({
                         let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                         transient_errors.push("InternalError");
@@ -311,10 +311,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetMfaDeviceE
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `GetMfaDeviceError` operation.
+/// Error type for the `GetMFADeviceError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum GetMfaDeviceError {
+pub enum GetMFADeviceError {
     /// <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
     NoSuchEntityException(crate::types::error::NoSuchEntityException),
     /// <p>The request processing has failed because of an unknown error, exception or failure.</p>
@@ -325,11 +325,11 @@ pub enum GetMfaDeviceError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GetMfaDeviceError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GetMFADeviceError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl GetMfaDeviceError {
-    /// Creates the `GetMfaDeviceError::Unhandled` variant from any error type.
+impl GetMFADeviceError {
+    /// Creates the `GetMFADeviceError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -339,7 +339,7 @@ impl GetMfaDeviceError {
         })
     }
 
-    /// Creates the `GetMfaDeviceError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `GetMFADeviceError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -357,16 +357,16 @@ impl GetMfaDeviceError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `GetMfaDeviceError::NoSuchEntityException`.
+    /// Returns `true` if the error kind is `GetMFADeviceError::NoSuchEntityException`.
     pub fn is_no_such_entity_exception(&self) -> bool {
         matches!(self, Self::NoSuchEntityException(_))
     }
-    /// Returns `true` if the error kind is `GetMfaDeviceError::ServiceFailureException`.
+    /// Returns `true` if the error kind is `GetMFADeviceError::ServiceFailureException`.
     pub fn is_service_failure_exception(&self) -> bool {
         matches!(self, Self::ServiceFailureException(_))
     }
 }
-impl ::std::error::Error for GetMfaDeviceError {
+impl ::std::error::Error for GetMFADeviceError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::NoSuchEntityException(_inner) => ::std::option::Option::Some(_inner),
@@ -375,7 +375,7 @@ impl ::std::error::Error for GetMfaDeviceError {
         }
     }
 }
-impl ::std::fmt::Display for GetMfaDeviceError {
+impl ::std::fmt::Display for GetMFADeviceError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::NoSuchEntityException(_inner) => _inner.fmt(f),
@@ -390,7 +390,7 @@ impl ::std::fmt::Display for GetMfaDeviceError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for GetMfaDeviceError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for GetMFADeviceError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -398,7 +398,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for GetMfaDeviceError {
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetMfaDeviceError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetMFADeviceError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::NoSuchEntityException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -407,7 +407,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetMfaDeviceE
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetMfaDeviceError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetMFADeviceError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -418,12 +418,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetMfaDe
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::get_mfa_device::GetMfaDeviceError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::get_mfa_device::GetMFADeviceError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::get_mfa_device::GetMfaDeviceError {
+impl ::aws_types::request_id::RequestId for crate::operation::get_mfa_device::GetMFADeviceError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

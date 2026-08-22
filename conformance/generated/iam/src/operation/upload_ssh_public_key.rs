@@ -14,7 +14,7 @@ impl UploadSshPublicKey {
     ) -> ::std::result::Result<
         crate::operation::upload_ssh_public_key::UploadSshPublicKeyOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::upload_ssh_public_key::UploadSshPublicKeyError,
+            crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl UploadSshPublicKey {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::upload_ssh_public_key::UploadSshPublicKeyError>()
+                err.downcast::<crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError>()
                     .expect("correct error type")
             })
         };
@@ -126,9 +126,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UploadS
                             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UploadSshPublicKeyTelemetryInputCaptureInterceptor))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UploadSshPublicKeyEndpointParamsInterceptor))
-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::upload_ssh_public_key::UploadSshPublicKeyError>::new())
-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::upload_ssh_public_key::UploadSshPublicKeyError>::new())
-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::upload_ssh_public_key::UploadSshPublicKeyError>::builder().transient_errors({
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError>::builder().transient_errors({
                                             let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                                             transient_errors.push("InternalError");
                                             ::std::borrow::Cow::Owned(transient_errors)
@@ -299,10 +299,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UploadSshPubl
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `UploadSshPublicKeyError` operation.
+/// Error type for the `UploadSSHPublicKeyError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum UploadSshPublicKeyError {
+pub enum UploadSSHPublicKeyError {
     /// <p>The request was rejected because the SSH public key is already associated with the specified IAM user.</p>
     DuplicateSshPublicKeyException(crate::types::error::DuplicateSshPublicKeyException),
     /// <p>The request was rejected because the public key is malformed or otherwise invalid.</p>
@@ -319,11 +319,11 @@ pub enum UploadSshPublicKeyError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-UploadSshPublicKeyError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-UploadSSHPublicKeyError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl UploadSshPublicKeyError {
-    /// Creates the `UploadSshPublicKeyError::Unhandled` variant from any error type.
+impl UploadSSHPublicKeyError {
+    /// Creates the `UploadSSHPublicKeyError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -333,7 +333,7 @@ impl UploadSshPublicKeyError {
         })
     }
 
-    /// Creates the `UploadSshPublicKeyError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `UploadSSHPublicKeyError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -354,28 +354,28 @@ impl UploadSshPublicKeyError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `UploadSshPublicKeyError::DuplicateSshPublicKeyException`.
+    /// Returns `true` if the error kind is `UploadSSHPublicKeyError::DuplicateSshPublicKeyException`.
     pub fn is_duplicate_ssh_public_key_exception(&self) -> bool {
         matches!(self, Self::DuplicateSshPublicKeyException(_))
     }
-    /// Returns `true` if the error kind is `UploadSshPublicKeyError::InvalidPublicKeyException`.
+    /// Returns `true` if the error kind is `UploadSSHPublicKeyError::InvalidPublicKeyException`.
     pub fn is_invalid_public_key_exception(&self) -> bool {
         matches!(self, Self::InvalidPublicKeyException(_))
     }
-    /// Returns `true` if the error kind is `UploadSshPublicKeyError::LimitExceededException`.
+    /// Returns `true` if the error kind is `UploadSSHPublicKeyError::LimitExceededException`.
     pub fn is_limit_exceeded_exception(&self) -> bool {
         matches!(self, Self::LimitExceededException(_))
     }
-    /// Returns `true` if the error kind is `UploadSshPublicKeyError::NoSuchEntityException`.
+    /// Returns `true` if the error kind is `UploadSSHPublicKeyError::NoSuchEntityException`.
     pub fn is_no_such_entity_exception(&self) -> bool {
         matches!(self, Self::NoSuchEntityException(_))
     }
-    /// Returns `true` if the error kind is `UploadSshPublicKeyError::UnrecognizedPublicKeyEncodingException`.
+    /// Returns `true` if the error kind is `UploadSSHPublicKeyError::UnrecognizedPublicKeyEncodingException`.
     pub fn is_unrecognized_public_key_encoding_exception(&self) -> bool {
         matches!(self, Self::UnrecognizedPublicKeyEncodingException(_))
     }
 }
-impl ::std::error::Error for UploadSshPublicKeyError {
+impl ::std::error::Error for UploadSSHPublicKeyError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::DuplicateSshPublicKeyException(_inner) => ::std::option::Option::Some(_inner),
@@ -387,7 +387,7 @@ impl ::std::error::Error for UploadSshPublicKeyError {
         }
     }
 }
-impl ::std::fmt::Display for UploadSshPublicKeyError {
+impl ::std::fmt::Display for UploadSSHPublicKeyError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::DuplicateSshPublicKeyException(_inner) => _inner.fmt(f),
@@ -405,7 +405,7 @@ impl ::std::fmt::Display for UploadSshPublicKeyError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for UploadSshPublicKeyError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for UploadSSHPublicKeyError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -413,7 +413,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for UploadSshPublicKeyError {
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UploadSshPublicKeyError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UploadSSHPublicKeyError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::DuplicateSshPublicKeyException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -425,7 +425,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UploadSshPubl
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UploadSshPublicKeyError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UploadSSHPublicKeyError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -436,12 +436,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UploadSs
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::upload_ssh_public_key::UploadSshPublicKeyError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::upload_ssh_public_key::UploadSshPublicKeyError {
+impl ::aws_types::request_id::RequestId for crate::operation::upload_ssh_public_key::UploadSSHPublicKeyError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

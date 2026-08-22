@@ -14,7 +14,7 @@ impl AddClientIdToOpenIdConnectProvider {
     ) -> ::std::result::Result<
         crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
+            crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl AddClientIdToOpenIdConnectProvider {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError>()
+                err.downcast::<crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError>()
                     .expect("correct error type")
             })
         };
@@ -142,14 +142,14 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for AddClie
                 AddClientIdToOpenIdConnectProviderEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
+                crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
+                crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
             >::new())
             .with_retry_classifier(
                 ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError,
+                    crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError,
                 >::builder()
                 .transient_errors({
                     let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -330,10 +330,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for AddClientIdTo
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `AddClientIdToOpenIdConnectProviderError` operation.
+/// Error type for the `AddClientIDToOpenIDConnectProviderError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum AddClientIdToOpenIdConnectProviderError {
+pub enum AddClientIDToOpenIDConnectProviderError {
     /// <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
     ConcurrentModificationException(crate::types::error::ConcurrentModificationException),
     /// <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
@@ -350,11 +350,11 @@ pub enum AddClientIdToOpenIdConnectProviderError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-AddClientIdToOpenIdConnectProviderError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-AddClientIDToOpenIDConnectProviderError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl AddClientIdToOpenIdConnectProviderError {
-    /// Creates the `AddClientIdToOpenIdConnectProviderError::Unhandled` variant from any error type.
+impl AddClientIDToOpenIDConnectProviderError {
+    /// Creates the `AddClientIDToOpenIDConnectProviderError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -364,7 +364,7 @@ impl AddClientIdToOpenIdConnectProviderError {
         })
     }
 
-    /// Creates the `AddClientIdToOpenIdConnectProviderError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `AddClientIDToOpenIDConnectProviderError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -385,28 +385,28 @@ impl AddClientIdToOpenIdConnectProviderError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `AddClientIdToOpenIdConnectProviderError::ConcurrentModificationException`.
+    /// Returns `true` if the error kind is `AddClientIDToOpenIDConnectProviderError::ConcurrentModificationException`.
     pub fn is_concurrent_modification_exception(&self) -> bool {
         matches!(self, Self::ConcurrentModificationException(_))
     }
-    /// Returns `true` if the error kind is `AddClientIdToOpenIdConnectProviderError::InvalidInputException`.
+    /// Returns `true` if the error kind is `AddClientIDToOpenIDConnectProviderError::InvalidInputException`.
     pub fn is_invalid_input_exception(&self) -> bool {
         matches!(self, Self::InvalidInputException(_))
     }
-    /// Returns `true` if the error kind is `AddClientIdToOpenIdConnectProviderError::LimitExceededException`.
+    /// Returns `true` if the error kind is `AddClientIDToOpenIDConnectProviderError::LimitExceededException`.
     pub fn is_limit_exceeded_exception(&self) -> bool {
         matches!(self, Self::LimitExceededException(_))
     }
-    /// Returns `true` if the error kind is `AddClientIdToOpenIdConnectProviderError::NoSuchEntityException`.
+    /// Returns `true` if the error kind is `AddClientIDToOpenIDConnectProviderError::NoSuchEntityException`.
     pub fn is_no_such_entity_exception(&self) -> bool {
         matches!(self, Self::NoSuchEntityException(_))
     }
-    /// Returns `true` if the error kind is `AddClientIdToOpenIdConnectProviderError::ServiceFailureException`.
+    /// Returns `true` if the error kind is `AddClientIDToOpenIDConnectProviderError::ServiceFailureException`.
     pub fn is_service_failure_exception(&self) -> bool {
         matches!(self, Self::ServiceFailureException(_))
     }
 }
-impl ::std::error::Error for AddClientIdToOpenIdConnectProviderError {
+impl ::std::error::Error for AddClientIDToOpenIDConnectProviderError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::ConcurrentModificationException(_inner) => ::std::option::Option::Some(_inner),
@@ -418,7 +418,7 @@ impl ::std::error::Error for AddClientIdToOpenIdConnectProviderError {
         }
     }
 }
-impl ::std::fmt::Display for AddClientIdToOpenIdConnectProviderError {
+impl ::std::fmt::Display for AddClientIDToOpenIDConnectProviderError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::ConcurrentModificationException(_inner) => _inner.fmt(f),
@@ -436,7 +436,7 @@ impl ::std::fmt::Display for AddClientIdToOpenIdConnectProviderError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for AddClientIdToOpenIdConnectProviderError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for AddClientIDToOpenIDConnectProviderError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -444,7 +444,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for AddClientIdToOpenIdConnectP
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for AddClientIdToOpenIdConnectProviderError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for AddClientIDToOpenIDConnectProviderError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::ConcurrentModificationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -456,7 +456,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for AddClientIdTo
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for AddClientIdToOpenIdConnectProviderError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for AddClientIDToOpenIDConnectProviderError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -467,12 +467,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for AddClien
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::add_client_id_to_open_id_connect_provider::AddClientIdToOpenIdConnectProviderError {
+impl ::aws_types::request_id::RequestId for crate::operation::add_client_id_to_open_id_connect_provider::AddClientIDToOpenIDConnectProviderError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

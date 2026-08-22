@@ -14,7 +14,7 @@ impl CreateVirtualMfaDevice {
     ) -> ::std::result::Result<
         crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
+            crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl CreateVirtualMfaDevice {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError>()
+                err.downcast::<crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError>()
                     .expect("correct error type")
             })
         };
@@ -138,14 +138,14 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for CreateV
                     CreateVirtualMfaDeviceEndpointParamsInterceptor,
                 ))
                 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                    crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
+                    crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
                 >::new())
                 .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                    crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
+                    crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
                 >::new())
                 .with_retry_classifier(
                     ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                        crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError,
+                        crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError,
                     >::builder()
                     .transient_errors({
                         let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -320,10 +320,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CreateVirtual
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `CreateVirtualMfaDeviceError` operation.
+/// Error type for the `CreateVirtualMFADeviceError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum CreateVirtualMfaDeviceError {
+pub enum CreateVirtualMFADeviceError {
     /// <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
     ConcurrentModificationException(crate::types::error::ConcurrentModificationException),
     /// <p>The request was rejected because it attempted to create a resource that already exists.</p>
@@ -340,11 +340,11 @@ pub enum CreateVirtualMfaDeviceError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-CreateVirtualMfaDeviceError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-CreateVirtualMFADeviceError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl CreateVirtualMfaDeviceError {
-    /// Creates the `CreateVirtualMfaDeviceError::Unhandled` variant from any error type.
+impl CreateVirtualMFADeviceError {
+    /// Creates the `CreateVirtualMFADeviceError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -354,7 +354,7 @@ impl CreateVirtualMfaDeviceError {
         })
     }
 
-    /// Creates the `CreateVirtualMfaDeviceError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `CreateVirtualMFADeviceError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -375,28 +375,28 @@ impl CreateVirtualMfaDeviceError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `CreateVirtualMfaDeviceError::ConcurrentModificationException`.
+    /// Returns `true` if the error kind is `CreateVirtualMFADeviceError::ConcurrentModificationException`.
     pub fn is_concurrent_modification_exception(&self) -> bool {
         matches!(self, Self::ConcurrentModificationException(_))
     }
-    /// Returns `true` if the error kind is `CreateVirtualMfaDeviceError::EntityAlreadyExistsException`.
+    /// Returns `true` if the error kind is `CreateVirtualMFADeviceError::EntityAlreadyExistsException`.
     pub fn is_entity_already_exists_exception(&self) -> bool {
         matches!(self, Self::EntityAlreadyExistsException(_))
     }
-    /// Returns `true` if the error kind is `CreateVirtualMfaDeviceError::InvalidInputException`.
+    /// Returns `true` if the error kind is `CreateVirtualMFADeviceError::InvalidInputException`.
     pub fn is_invalid_input_exception(&self) -> bool {
         matches!(self, Self::InvalidInputException(_))
     }
-    /// Returns `true` if the error kind is `CreateVirtualMfaDeviceError::LimitExceededException`.
+    /// Returns `true` if the error kind is `CreateVirtualMFADeviceError::LimitExceededException`.
     pub fn is_limit_exceeded_exception(&self) -> bool {
         matches!(self, Self::LimitExceededException(_))
     }
-    /// Returns `true` if the error kind is `CreateVirtualMfaDeviceError::ServiceFailureException`.
+    /// Returns `true` if the error kind is `CreateVirtualMFADeviceError::ServiceFailureException`.
     pub fn is_service_failure_exception(&self) -> bool {
         matches!(self, Self::ServiceFailureException(_))
     }
 }
-impl ::std::error::Error for CreateVirtualMfaDeviceError {
+impl ::std::error::Error for CreateVirtualMFADeviceError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::ConcurrentModificationException(_inner) => ::std::option::Option::Some(_inner),
@@ -408,7 +408,7 @@ impl ::std::error::Error for CreateVirtualMfaDeviceError {
         }
     }
 }
-impl ::std::fmt::Display for CreateVirtualMfaDeviceError {
+impl ::std::fmt::Display for CreateVirtualMFADeviceError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::ConcurrentModificationException(_inner) => _inner.fmt(f),
@@ -426,7 +426,7 @@ impl ::std::fmt::Display for CreateVirtualMfaDeviceError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for CreateVirtualMfaDeviceError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for CreateVirtualMFADeviceError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -434,7 +434,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for CreateVirtualMfaDeviceError
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CreateVirtualMfaDeviceError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CreateVirtualMFADeviceError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::ConcurrentModificationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -446,7 +446,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CreateVirtual
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for CreateVirtualMfaDeviceError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for CreateVirtualMFADeviceError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -457,12 +457,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for CreateVi
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::create_virtual_mfa_device::CreateVirtualMfaDeviceError {
+impl ::aws_types::request_id::RequestId for crate::operation::create_virtual_mfa_device::CreateVirtualMFADeviceError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

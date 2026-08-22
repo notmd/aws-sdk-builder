@@ -4,6 +4,32 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Model-driven shared error metadata
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now emits the standalone
+  Smithy-RS-style `error.rs`, sealed `error/sealed_unhandled.rs`, service-level
+  `error_meta.rs`, service error conversions, waiter/event-stream conversions, and
+  request-ID forwarding from model traits. Consumer-namespace output keeps the
+  existing legacy error module. Operation error symbols preserve Smithy-RS acronym
+  runs such as `SAML`, `SMS`, and `ID`; service variants and conversion impls use the
+  original Smithy-RS ordering rules.
+- Evidence: inspected the pinned Smithy-RS `ServiceErrorGenerator.kt` and
+  `OperationErrorGenerator.kt` under `/tmp/smithy-rs`. `just conformance` regenerated
+  8 all-operation snapshots and formatted 4,575 generated Rust files. All eight
+  generated service `error.rs`, `error_meta.rs`, and `error/sealed_unhandled.rs`
+  files are byte-exact with the reference.
+- Conformance: overall `3,509/1,049/1,903/1` -> `3,533/1,041/1,887/1`
+  (matched/mismatched/missing/extra); IAM `756/342/533/0` -> `757/341/533/0`,
+  KMS `229/166/204/1` -> `230/165/204/1`, Lambda `498/219/367/0` ->
+  `499/218/367/0`, S3 `1,171/86/87/0` -> `1,172/85/87/0`, and SQS
+  `136/48/115/0` -> `137/47/115/0`.
+- Verification: `cargo test --workspace`, `cargo clippy --workspace --all-targets
+  -- -D warnings`, `cargo fmt --all`, and `git diff --check` pass. The full
+  conformance command exits 1 because broader source-tree parity remains incomplete.
+- Next action: continue the generic parity loop with the remaining shared client,
+  protocol, runtime, and test/package-tree gaps.
+
 ### Checkpoint: 2026-08-23 — Shared customization, presigning, config, and idempotency modules
 
 - State: in progress
@@ -61,8 +87,8 @@ full audit trail.
   consumer fixture compiles.
 - M6: in progress. The comparator runs against the pinned AWS SDK Rust `3c6d...` P0
   service trees and checks in deterministic summary and per-service reports. The
-  current report compares 6,462 files: 2,948 exact, 1,545 mismatches, 1,968 missing,
-  and 1 extra (41.46% arithmetic-average match).
+  current report compares 6,462 files: 3,533 exact, 1,041 mismatches, 1,887 missing,
+  and 1 extra (51.14% arithmetic-average match).
 - M6a: launcher and Rust Floci example are implemented; the local S3 create/head
   smoke test passes against `http://localhost:4566`.
 - M7: not complete; semantic parity gates for the priority queue remain open.

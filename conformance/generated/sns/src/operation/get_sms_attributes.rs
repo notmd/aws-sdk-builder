@@ -14,7 +14,7 @@ impl GetSmsAttributes {
     ) -> ::std::result::Result<
         crate::operation::get_sms_attributes::GetSmsAttributesOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_sms_attributes::GetSmsAttributesError,
+            crate::operation::get_sms_attributes::GetSMSAttributesError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl GetSmsAttributes {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::get_sms_attributes::GetSmsAttributesError>()
+                err.downcast::<crate::operation::get_sms_attributes::GetSMSAttributesError>()
                     .expect("correct error type")
             })
         };
@@ -133,13 +133,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetSmsA
                 GetSmsAttributesEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::get_sms_attributes::GetSmsAttributesError,
+                crate::operation::get_sms_attributes::GetSMSAttributesError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::get_sms_attributes::GetSmsAttributesError,
+                crate::operation::get_sms_attributes::GetSMSAttributesError,
             >::new())
             .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_sms_attributes::GetSmsAttributesError>::builder()
+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::get_sms_attributes::GetSMSAttributesError>::builder()
                     .transient_errors({
                         let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                         transient_errors.push("InternalError");
@@ -303,10 +303,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetSmsAttribu
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `GetSmsAttributesError` operation.
+/// Error type for the `GetSMSAttributesError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum GetSmsAttributesError {
+pub enum GetSMSAttributesError {
     /// <p>Indicates that the user has been denied access to the requested resource.</p>
     AuthorizationErrorException(crate::types::error::AuthorizationErrorException),
     /// <p>Indicates an internal service error.</p>
@@ -321,11 +321,11 @@ pub enum GetSmsAttributesError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GetSmsAttributesError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GetSMSAttributesError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl GetSmsAttributesError {
-    /// Creates the `GetSmsAttributesError::Unhandled` variant from any error type.
+impl GetSMSAttributesError {
+    /// Creates the `GetSMSAttributesError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -335,7 +335,7 @@ impl GetSmsAttributesError {
         })
     }
 
-    /// Creates the `GetSmsAttributesError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `GetSMSAttributesError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -355,24 +355,24 @@ impl GetSmsAttributesError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `GetSmsAttributesError::AuthorizationErrorException`.
+    /// Returns `true` if the error kind is `GetSMSAttributesError::AuthorizationErrorException`.
     pub fn is_authorization_error_exception(&self) -> bool {
         matches!(self, Self::AuthorizationErrorException(_))
     }
-    /// Returns `true` if the error kind is `GetSmsAttributesError::InternalErrorException`.
+    /// Returns `true` if the error kind is `GetSMSAttributesError::InternalErrorException`.
     pub fn is_internal_error_exception(&self) -> bool {
         matches!(self, Self::InternalErrorException(_))
     }
-    /// Returns `true` if the error kind is `GetSmsAttributesError::InvalidParameterException`.
+    /// Returns `true` if the error kind is `GetSMSAttributesError::InvalidParameterException`.
     pub fn is_invalid_parameter_exception(&self) -> bool {
         matches!(self, Self::InvalidParameterException(_))
     }
-    /// Returns `true` if the error kind is `GetSmsAttributesError::ThrottledException`.
+    /// Returns `true` if the error kind is `GetSMSAttributesError::ThrottledException`.
     pub fn is_throttled_exception(&self) -> bool {
         matches!(self, Self::ThrottledException(_))
     }
 }
-impl ::std::error::Error for GetSmsAttributesError {
+impl ::std::error::Error for GetSMSAttributesError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::AuthorizationErrorException(_inner) => ::std::option::Option::Some(_inner),
@@ -383,7 +383,7 @@ impl ::std::error::Error for GetSmsAttributesError {
         }
     }
 }
-impl ::std::fmt::Display for GetSmsAttributesError {
+impl ::std::fmt::Display for GetSMSAttributesError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::AuthorizationErrorException(_inner) => _inner.fmt(f),
@@ -400,7 +400,7 @@ impl ::std::fmt::Display for GetSmsAttributesError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for GetSmsAttributesError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for GetSMSAttributesError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -408,7 +408,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for GetSmsAttributesError {
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetSmsAttributesError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetSMSAttributesError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::AuthorizationErrorException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -419,7 +419,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetSmsAttribu
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetSmsAttributesError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetSMSAttributesError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -430,12 +430,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetSmsAt
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::get_sms_attributes::GetSmsAttributesError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::get_sms_attributes::GetSMSAttributesError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::get_sms_attributes::GetSmsAttributesError {
+impl ::aws_types::request_id::RequestId for crate::operation::get_sms_attributes::GetSMSAttributesError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

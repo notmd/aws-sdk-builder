@@ -14,7 +14,7 @@ impl UpdateOpenIdConnectProviderThumbprint {
     ) -> ::std::result::Result<
         crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+            crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl UpdateOpenIdConnectProviderThumbprint {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError>()
+                err.downcast::<crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError>()
                     .expect("correct error type")
             })
         };
@@ -142,14 +142,14 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateO
                 UpdateOpenIdConnectProviderThumbprintEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+                crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+                crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
             >::new())
             .with_retry_classifier(
                 ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError,
+                    crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError,
                 >::builder()
                 .transient_errors({
                     let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -325,10 +325,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UpdateOpenIdC
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `UpdateOpenIdConnectProviderThumbprintError` operation.
+/// Error type for the `UpdateOpenIDConnectProviderThumbprintError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum UpdateOpenIdConnectProviderThumbprintError {
+pub enum UpdateOpenIDConnectProviderThumbprintError {
     /// <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
     ConcurrentModificationException(crate::types::error::ConcurrentModificationException),
     /// <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
@@ -343,11 +343,11 @@ pub enum UpdateOpenIdConnectProviderThumbprintError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-UpdateOpenIdConnectProviderThumbprintError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-UpdateOpenIDConnectProviderThumbprintError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl UpdateOpenIdConnectProviderThumbprintError {
-    /// Creates the `UpdateOpenIdConnectProviderThumbprintError::Unhandled` variant from any error type.
+impl UpdateOpenIDConnectProviderThumbprintError {
+    /// Creates the `UpdateOpenIDConnectProviderThumbprintError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -357,7 +357,7 @@ impl UpdateOpenIdConnectProviderThumbprintError {
         })
     }
 
-    /// Creates the `UpdateOpenIdConnectProviderThumbprintError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `UpdateOpenIDConnectProviderThumbprintError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -377,24 +377,24 @@ impl UpdateOpenIdConnectProviderThumbprintError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `UpdateOpenIdConnectProviderThumbprintError::ConcurrentModificationException`.
+    /// Returns `true` if the error kind is `UpdateOpenIDConnectProviderThumbprintError::ConcurrentModificationException`.
     pub fn is_concurrent_modification_exception(&self) -> bool {
         matches!(self, Self::ConcurrentModificationException(_))
     }
-    /// Returns `true` if the error kind is `UpdateOpenIdConnectProviderThumbprintError::InvalidInputException`.
+    /// Returns `true` if the error kind is `UpdateOpenIDConnectProviderThumbprintError::InvalidInputException`.
     pub fn is_invalid_input_exception(&self) -> bool {
         matches!(self, Self::InvalidInputException(_))
     }
-    /// Returns `true` if the error kind is `UpdateOpenIdConnectProviderThumbprintError::NoSuchEntityException`.
+    /// Returns `true` if the error kind is `UpdateOpenIDConnectProviderThumbprintError::NoSuchEntityException`.
     pub fn is_no_such_entity_exception(&self) -> bool {
         matches!(self, Self::NoSuchEntityException(_))
     }
-    /// Returns `true` if the error kind is `UpdateOpenIdConnectProviderThumbprintError::ServiceFailureException`.
+    /// Returns `true` if the error kind is `UpdateOpenIDConnectProviderThumbprintError::ServiceFailureException`.
     pub fn is_service_failure_exception(&self) -> bool {
         matches!(self, Self::ServiceFailureException(_))
     }
 }
-impl ::std::error::Error for UpdateOpenIdConnectProviderThumbprintError {
+impl ::std::error::Error for UpdateOpenIDConnectProviderThumbprintError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::ConcurrentModificationException(_inner) => ::std::option::Option::Some(_inner),
@@ -405,7 +405,7 @@ impl ::std::error::Error for UpdateOpenIdConnectProviderThumbprintError {
         }
     }
 }
-impl ::std::fmt::Display for UpdateOpenIdConnectProviderThumbprintError {
+impl ::std::fmt::Display for UpdateOpenIDConnectProviderThumbprintError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::ConcurrentModificationException(_inner) => _inner.fmt(f),
@@ -422,7 +422,7 @@ impl ::std::fmt::Display for UpdateOpenIdConnectProviderThumbprintError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for UpdateOpenIdConnectProviderThumbprintError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for UpdateOpenIDConnectProviderThumbprintError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -430,7 +430,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for UpdateOpenIdConnectProvider
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UpdateOpenIdConnectProviderThumbprintError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UpdateOpenIDConnectProviderThumbprintError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::ConcurrentModificationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -441,7 +441,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UpdateOpenIdC
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UpdateOpenIdConnectProviderThumbprintError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UpdateOpenIDConnectProviderThumbprintError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -452,12 +452,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UpdateOp
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIdConnectProviderThumbprintError {
+impl ::aws_types::request_id::RequestId for crate::operation::update_open_id_connect_provider_thumbprint::UpdateOpenIDConnectProviderThumbprintError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

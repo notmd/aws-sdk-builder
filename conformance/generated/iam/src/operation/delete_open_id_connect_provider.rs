@@ -14,7 +14,7 @@ impl DeleteOpenIdConnectProvider {
     ) -> ::std::result::Result<
         crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
+            crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl DeleteOpenIdConnectProvider {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError>()
+                err.downcast::<crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError>()
                     .expect("correct error type")
             })
         };
@@ -136,14 +136,14 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteO
                 DeleteOpenIdConnectProviderEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
+                crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
+                crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
             >::new())
             .with_retry_classifier(
                 ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError,
+                    crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError,
                 >::builder()
                 .transient_errors({
                     let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -313,10 +313,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeleteOpenIdC
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `DeleteOpenIdConnectProviderError` operation.
+/// Error type for the `DeleteOpenIDConnectProviderError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum DeleteOpenIdConnectProviderError {
+pub enum DeleteOpenIDConnectProviderError {
     /// <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
     InvalidInputException(crate::types::error::InvalidInputException),
     /// <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
@@ -329,11 +329,11 @@ pub enum DeleteOpenIdConnectProviderError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DeleteOpenIdConnectProviderError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DeleteOpenIDConnectProviderError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl DeleteOpenIdConnectProviderError {
-    /// Creates the `DeleteOpenIdConnectProviderError::Unhandled` variant from any error type.
+impl DeleteOpenIDConnectProviderError {
+    /// Creates the `DeleteOpenIDConnectProviderError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -343,7 +343,7 @@ impl DeleteOpenIdConnectProviderError {
         })
     }
 
-    /// Creates the `DeleteOpenIdConnectProviderError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `DeleteOpenIDConnectProviderError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -362,20 +362,20 @@ impl DeleteOpenIdConnectProviderError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `DeleteOpenIdConnectProviderError::InvalidInputException`.
+    /// Returns `true` if the error kind is `DeleteOpenIDConnectProviderError::InvalidInputException`.
     pub fn is_invalid_input_exception(&self) -> bool {
         matches!(self, Self::InvalidInputException(_))
     }
-    /// Returns `true` if the error kind is `DeleteOpenIdConnectProviderError::NoSuchEntityException`.
+    /// Returns `true` if the error kind is `DeleteOpenIDConnectProviderError::NoSuchEntityException`.
     pub fn is_no_such_entity_exception(&self) -> bool {
         matches!(self, Self::NoSuchEntityException(_))
     }
-    /// Returns `true` if the error kind is `DeleteOpenIdConnectProviderError::ServiceFailureException`.
+    /// Returns `true` if the error kind is `DeleteOpenIDConnectProviderError::ServiceFailureException`.
     pub fn is_service_failure_exception(&self) -> bool {
         matches!(self, Self::ServiceFailureException(_))
     }
 }
-impl ::std::error::Error for DeleteOpenIdConnectProviderError {
+impl ::std::error::Error for DeleteOpenIDConnectProviderError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::InvalidInputException(_inner) => ::std::option::Option::Some(_inner),
@@ -385,7 +385,7 @@ impl ::std::error::Error for DeleteOpenIdConnectProviderError {
         }
     }
 }
-impl ::std::fmt::Display for DeleteOpenIdConnectProviderError {
+impl ::std::fmt::Display for DeleteOpenIDConnectProviderError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::InvalidInputException(_inner) => _inner.fmt(f),
@@ -401,7 +401,7 @@ impl ::std::fmt::Display for DeleteOpenIdConnectProviderError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for DeleteOpenIdConnectProviderError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for DeleteOpenIDConnectProviderError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -409,7 +409,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for DeleteOpenIdConnectProvider
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeleteOpenIdConnectProviderError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeleteOpenIDConnectProviderError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::InvalidInputException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -419,7 +419,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeleteOpenIdC
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteOpenIdConnectProviderError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteOpenIDConnectProviderError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -430,12 +430,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteOp
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::delete_open_id_connect_provider::DeleteOpenIdConnectProviderError {
+impl ::aws_types::request_id::RequestId for crate::operation::delete_open_id_connect_provider::DeleteOpenIDConnectProviderError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

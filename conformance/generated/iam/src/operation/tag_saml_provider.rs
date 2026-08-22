@@ -14,7 +14,7 @@ impl TagSamlProvider {
     ) -> ::std::result::Result<
         crate::operation::tag_saml_provider::TagSamlProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::tag_saml_provider::TagSamlProviderError,
+            crate::operation::tag_saml_provider::TagSAMLProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl TagSamlProvider {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::tag_saml_provider::TagSamlProviderError>()
+                err.downcast::<crate::operation::tag_saml_provider::TagSAMLProviderError>()
                     .expect("correct error type")
             })
         };
@@ -133,13 +133,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for TagSaml
                 TagSamlProviderEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::tag_saml_provider::TagSamlProviderError,
+                crate::operation::tag_saml_provider::TagSAMLProviderError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::tag_saml_provider::TagSamlProviderError,
+                crate::operation::tag_saml_provider::TagSAMLProviderError,
             >::new())
             .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::tag_saml_provider::TagSamlProviderError>::builder()
+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::tag_saml_provider::TagSAMLProviderError>::builder()
                     .transient_errors({
                         let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                         transient_errors.push("InternalError");
@@ -308,10 +308,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for TagSamlProvid
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `TagSamlProviderError` operation.
+/// Error type for the `TagSAMLProviderError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum TagSamlProviderError {
+pub enum TagSAMLProviderError {
     /// <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
     ConcurrentModificationException(crate::types::error::ConcurrentModificationException),
     /// <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
@@ -328,11 +328,11 @@ pub enum TagSamlProviderError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-TagSamlProviderError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-TagSAMLProviderError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl TagSamlProviderError {
-    /// Creates the `TagSamlProviderError::Unhandled` variant from any error type.
+impl TagSAMLProviderError {
+    /// Creates the `TagSAMLProviderError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -342,7 +342,7 @@ impl TagSamlProviderError {
         })
     }
 
-    /// Creates the `TagSamlProviderError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `TagSAMLProviderError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -363,28 +363,28 @@ impl TagSamlProviderError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `TagSamlProviderError::ConcurrentModificationException`.
+    /// Returns `true` if the error kind is `TagSAMLProviderError::ConcurrentModificationException`.
     pub fn is_concurrent_modification_exception(&self) -> bool {
         matches!(self, Self::ConcurrentModificationException(_))
     }
-    /// Returns `true` if the error kind is `TagSamlProviderError::InvalidInputException`.
+    /// Returns `true` if the error kind is `TagSAMLProviderError::InvalidInputException`.
     pub fn is_invalid_input_exception(&self) -> bool {
         matches!(self, Self::InvalidInputException(_))
     }
-    /// Returns `true` if the error kind is `TagSamlProviderError::LimitExceededException`.
+    /// Returns `true` if the error kind is `TagSAMLProviderError::LimitExceededException`.
     pub fn is_limit_exceeded_exception(&self) -> bool {
         matches!(self, Self::LimitExceededException(_))
     }
-    /// Returns `true` if the error kind is `TagSamlProviderError::NoSuchEntityException`.
+    /// Returns `true` if the error kind is `TagSAMLProviderError::NoSuchEntityException`.
     pub fn is_no_such_entity_exception(&self) -> bool {
         matches!(self, Self::NoSuchEntityException(_))
     }
-    /// Returns `true` if the error kind is `TagSamlProviderError::ServiceFailureException`.
+    /// Returns `true` if the error kind is `TagSAMLProviderError::ServiceFailureException`.
     pub fn is_service_failure_exception(&self) -> bool {
         matches!(self, Self::ServiceFailureException(_))
     }
 }
-impl ::std::error::Error for TagSamlProviderError {
+impl ::std::error::Error for TagSAMLProviderError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::ConcurrentModificationException(_inner) => ::std::option::Option::Some(_inner),
@@ -396,7 +396,7 @@ impl ::std::error::Error for TagSamlProviderError {
         }
     }
 }
-impl ::std::fmt::Display for TagSamlProviderError {
+impl ::std::fmt::Display for TagSAMLProviderError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::ConcurrentModificationException(_inner) => _inner.fmt(f),
@@ -414,7 +414,7 @@ impl ::std::fmt::Display for TagSamlProviderError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for TagSamlProviderError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for TagSAMLProviderError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -422,7 +422,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for TagSamlProviderError {
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for TagSamlProviderError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for TagSAMLProviderError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::ConcurrentModificationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -434,7 +434,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for TagSamlProvid
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for TagSamlProviderError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for TagSAMLProviderError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -445,12 +445,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for TagSamlP
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::tag_saml_provider::TagSamlProviderError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::tag_saml_provider::TagSAMLProviderError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::tag_saml_provider::TagSamlProviderError {
+impl ::aws_types::request_id::RequestId for crate::operation::tag_saml_provider::TagSAMLProviderError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

@@ -14,7 +14,7 @@ impl AssumeRoleWithSaml {
     ) -> ::std::result::Result<
         crate::operation::assume_role_with_saml::AssumeRoleWithSamlOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::assume_role_with_saml::AssumeRoleWithSamlError,
+            crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl AssumeRoleWithSaml {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::assume_role_with_saml::AssumeRoleWithSamlError>()
+                err.downcast::<crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError>()
                     .expect("correct error type")
             })
         };
@@ -127,9 +127,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for AssumeR
                             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(AssumeRoleWithSamlTelemetryInputCaptureInterceptor))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(AssumeRoleWithSamlEndpointParamsInterceptor))
-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::assume_role_with_saml::AssumeRoleWithSamlError>::new())
-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::assume_role_with_saml::AssumeRoleWithSamlError>::new())
-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::assume_role_with_saml::AssumeRoleWithSamlError>::builder().transient_errors({
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError>::builder().transient_errors({
                                             let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                                             transient_errors.push("InternalError");
                                             ::std::borrow::Cow::Owned(transient_errors)
@@ -305,10 +305,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for AssumeRoleWit
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `AssumeRoleWithSamlError` operation.
+/// Error type for the `AssumeRoleWithSAMLError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum AssumeRoleWithSamlError {
+pub enum AssumeRoleWithSAMLError {
     /// <p>The web identity token that was passed is expired or is not valid. Get a new identity token from the identity provider and then retry the request.</p>
     ExpiredTokenException(crate::types::error::ExpiredTokenException),
     /// <p>The identity provider (IdP) reported that authentication failed. This might be because the claim is invalid.</p>
@@ -329,11 +329,11 @@ pub enum AssumeRoleWithSamlError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-AssumeRoleWithSamlError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-AssumeRoleWithSAMLError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl AssumeRoleWithSamlError {
-    /// Creates the `AssumeRoleWithSamlError::Unhandled` variant from any error type.
+impl AssumeRoleWithSAMLError {
+    /// Creates the `AssumeRoleWithSAMLError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -343,7 +343,7 @@ impl AssumeRoleWithSamlError {
         })
     }
 
-    /// Creates the `AssumeRoleWithSamlError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `AssumeRoleWithSAMLError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -365,32 +365,32 @@ impl AssumeRoleWithSamlError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `AssumeRoleWithSamlError::ExpiredTokenException`.
+    /// Returns `true` if the error kind is `AssumeRoleWithSAMLError::ExpiredTokenException`.
     pub fn is_expired_token_exception(&self) -> bool {
         matches!(self, Self::ExpiredTokenException(_))
     }
-    /// Returns `true` if the error kind is `AssumeRoleWithSamlError::IdpRejectedClaimException`.
+    /// Returns `true` if the error kind is `AssumeRoleWithSAMLError::IdpRejectedClaimException`.
     pub fn is_idp_rejected_claim_exception(&self) -> bool {
         matches!(self, Self::IdpRejectedClaimException(_))
     }
-    /// Returns `true` if the error kind is `AssumeRoleWithSamlError::InvalidIdentityTokenException`.
+    /// Returns `true` if the error kind is `AssumeRoleWithSAMLError::InvalidIdentityTokenException`.
     pub fn is_invalid_identity_token_exception(&self) -> bool {
         matches!(self, Self::InvalidIdentityTokenException(_))
     }
-    /// Returns `true` if the error kind is `AssumeRoleWithSamlError::MalformedPolicyDocumentException`.
+    /// Returns `true` if the error kind is `AssumeRoleWithSAMLError::MalformedPolicyDocumentException`.
     pub fn is_malformed_policy_document_exception(&self) -> bool {
         matches!(self, Self::MalformedPolicyDocumentException(_))
     }
-    /// Returns `true` if the error kind is `AssumeRoleWithSamlError::PackedPolicyTooLargeException`.
+    /// Returns `true` if the error kind is `AssumeRoleWithSAMLError::PackedPolicyTooLargeException`.
     pub fn is_packed_policy_too_large_exception(&self) -> bool {
         matches!(self, Self::PackedPolicyTooLargeException(_))
     }
-    /// Returns `true` if the error kind is `AssumeRoleWithSamlError::RegionDisabledException`.
+    /// Returns `true` if the error kind is `AssumeRoleWithSAMLError::RegionDisabledException`.
     pub fn is_region_disabled_exception(&self) -> bool {
         matches!(self, Self::RegionDisabledException(_))
     }
 }
-impl ::std::error::Error for AssumeRoleWithSamlError {
+impl ::std::error::Error for AssumeRoleWithSAMLError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::ExpiredTokenException(_inner) => ::std::option::Option::Some(_inner),
@@ -403,7 +403,7 @@ impl ::std::error::Error for AssumeRoleWithSamlError {
         }
     }
 }
-impl ::std::fmt::Display for AssumeRoleWithSamlError {
+impl ::std::fmt::Display for AssumeRoleWithSAMLError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::ExpiredTokenException(_inner) => _inner.fmt(f),
@@ -422,7 +422,7 @@ impl ::std::fmt::Display for AssumeRoleWithSamlError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for AssumeRoleWithSamlError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for AssumeRoleWithSAMLError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -430,7 +430,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for AssumeRoleWithSamlError {
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for AssumeRoleWithSamlError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for AssumeRoleWithSAMLError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::ExpiredTokenException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -443,7 +443,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for AssumeRoleWit
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for AssumeRoleWithSamlError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for AssumeRoleWithSAMLError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -454,12 +454,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for AssumeRo
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::assume_role_with_saml::AssumeRoleWithSamlError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::assume_role_with_saml::AssumeRoleWithSamlError {
+impl ::aws_types::request_id::RequestId for crate::operation::assume_role_with_saml::AssumeRoleWithSAMLError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

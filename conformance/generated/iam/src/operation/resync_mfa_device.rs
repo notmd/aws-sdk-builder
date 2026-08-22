@@ -14,7 +14,7 @@ impl ResyncMfaDevice {
     ) -> ::std::result::Result<
         crate::operation::resync_mfa_device::ResyncMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::resync_mfa_device::ResyncMfaDeviceError,
+            crate::operation::resync_mfa_device::ResyncMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl ResyncMfaDevice {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::resync_mfa_device::ResyncMfaDeviceError>()
+                err.downcast::<crate::operation::resync_mfa_device::ResyncMFADeviceError>()
                     .expect("correct error type")
             })
         };
@@ -133,13 +133,13 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ResyncM
                 ResyncMfaDeviceEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::resync_mfa_device::ResyncMfaDeviceError,
+                crate::operation::resync_mfa_device::ResyncMFADeviceError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::resync_mfa_device::ResyncMfaDeviceError,
+                crate::operation::resync_mfa_device::ResyncMFADeviceError,
             >::new())
             .with_retry_classifier(
-                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::resync_mfa_device::ResyncMfaDeviceError>::builder()
+                ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::resync_mfa_device::ResyncMFADeviceError>::builder()
                     .transient_errors({
                         let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                         transient_errors.push("InternalError");
@@ -323,10 +323,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ResyncMfaDevi
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `ResyncMfaDeviceError` operation.
+/// Error type for the `ResyncMFADeviceError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum ResyncMfaDeviceError {
+pub enum ResyncMFADeviceError {
     /// <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
     ConcurrentModificationException(crate::types::error::ConcurrentModificationException),
     /// <p>The request was rejected because the authentication code was not recognized. The error message describes the specific error.</p>
@@ -343,11 +343,11 @@ pub enum ResyncMfaDeviceError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ResyncMfaDeviceError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ResyncMFADeviceError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl ResyncMfaDeviceError {
-    /// Creates the `ResyncMfaDeviceError::Unhandled` variant from any error type.
+impl ResyncMFADeviceError {
+    /// Creates the `ResyncMFADeviceError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -357,7 +357,7 @@ impl ResyncMfaDeviceError {
         })
     }
 
-    /// Creates the `ResyncMfaDeviceError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `ResyncMFADeviceError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -378,28 +378,28 @@ impl ResyncMfaDeviceError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `ResyncMfaDeviceError::ConcurrentModificationException`.
+    /// Returns `true` if the error kind is `ResyncMFADeviceError::ConcurrentModificationException`.
     pub fn is_concurrent_modification_exception(&self) -> bool {
         matches!(self, Self::ConcurrentModificationException(_))
     }
-    /// Returns `true` if the error kind is `ResyncMfaDeviceError::InvalidAuthenticationCodeException`.
+    /// Returns `true` if the error kind is `ResyncMFADeviceError::InvalidAuthenticationCodeException`.
     pub fn is_invalid_authentication_code_exception(&self) -> bool {
         matches!(self, Self::InvalidAuthenticationCodeException(_))
     }
-    /// Returns `true` if the error kind is `ResyncMfaDeviceError::LimitExceededException`.
+    /// Returns `true` if the error kind is `ResyncMFADeviceError::LimitExceededException`.
     pub fn is_limit_exceeded_exception(&self) -> bool {
         matches!(self, Self::LimitExceededException(_))
     }
-    /// Returns `true` if the error kind is `ResyncMfaDeviceError::NoSuchEntityException`.
+    /// Returns `true` if the error kind is `ResyncMFADeviceError::NoSuchEntityException`.
     pub fn is_no_such_entity_exception(&self) -> bool {
         matches!(self, Self::NoSuchEntityException(_))
     }
-    /// Returns `true` if the error kind is `ResyncMfaDeviceError::ServiceFailureException`.
+    /// Returns `true` if the error kind is `ResyncMFADeviceError::ServiceFailureException`.
     pub fn is_service_failure_exception(&self) -> bool {
         matches!(self, Self::ServiceFailureException(_))
     }
 }
-impl ::std::error::Error for ResyncMfaDeviceError {
+impl ::std::error::Error for ResyncMFADeviceError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::ConcurrentModificationException(_inner) => ::std::option::Option::Some(_inner),
@@ -411,7 +411,7 @@ impl ::std::error::Error for ResyncMfaDeviceError {
         }
     }
 }
-impl ::std::fmt::Display for ResyncMfaDeviceError {
+impl ::std::fmt::Display for ResyncMFADeviceError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::ConcurrentModificationException(_inner) => _inner.fmt(f),
@@ -429,7 +429,7 @@ impl ::std::fmt::Display for ResyncMfaDeviceError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for ResyncMfaDeviceError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for ResyncMFADeviceError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -437,7 +437,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for ResyncMfaDeviceError {
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ResyncMfaDeviceError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ResyncMFADeviceError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::ConcurrentModificationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -449,7 +449,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ResyncMfaDevi
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ResyncMfaDeviceError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ResyncMFADeviceError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -460,12 +460,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ResyncMf
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::resync_mfa_device::ResyncMfaDeviceError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::resync_mfa_device::ResyncMFADeviceError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::resync_mfa_device::ResyncMfaDeviceError {
+impl ::aws_types::request_id::RequestId for crate::operation::resync_mfa_device::ResyncMFADeviceError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

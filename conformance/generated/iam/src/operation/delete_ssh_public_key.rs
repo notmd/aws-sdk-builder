@@ -14,7 +14,7 @@ impl DeleteSshPublicKey {
     ) -> ::std::result::Result<
         crate::operation::delete_ssh_public_key::DeleteSshPublicKeyOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_ssh_public_key::DeleteSshPublicKeyError,
+            crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl DeleteSshPublicKey {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::delete_ssh_public_key::DeleteSshPublicKeyError>()
+                err.downcast::<crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError>()
                     .expect("correct error type")
             })
         };
@@ -126,9 +126,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteS
                             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteSshPublicKeyTelemetryInputCaptureInterceptor))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteSshPublicKeyEndpointParamsInterceptor))
-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::delete_ssh_public_key::DeleteSshPublicKeyError>::new())
-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::delete_ssh_public_key::DeleteSshPublicKeyError>::new())
-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_ssh_public_key::DeleteSshPublicKeyError>::builder().transient_errors({
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError>::builder().transient_errors({
                                             let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                                             transient_errors.push("InternalError");
                                             ::std::borrow::Cow::Owned(transient_errors)
@@ -299,10 +299,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeleteSshPubl
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `DeleteSshPublicKeyError` operation.
+/// Error type for the `DeleteSSHPublicKeyError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum DeleteSshPublicKeyError {
+pub enum DeleteSSHPublicKeyError {
     /// <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
     NoSuchEntityException(crate::types::error::NoSuchEntityException),
     /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
@@ -311,11 +311,11 @@ pub enum DeleteSshPublicKeyError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DeleteSshPublicKeyError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DeleteSSHPublicKeyError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl DeleteSshPublicKeyError {
-    /// Creates the `DeleteSshPublicKeyError::Unhandled` variant from any error type.
+impl DeleteSSHPublicKeyError {
+    /// Creates the `DeleteSSHPublicKeyError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -325,7 +325,7 @@ impl DeleteSshPublicKeyError {
         })
     }
 
-    /// Creates the `DeleteSshPublicKeyError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `DeleteSSHPublicKeyError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -342,12 +342,12 @@ impl DeleteSshPublicKeyError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `DeleteSshPublicKeyError::NoSuchEntityException`.
+    /// Returns `true` if the error kind is `DeleteSSHPublicKeyError::NoSuchEntityException`.
     pub fn is_no_such_entity_exception(&self) -> bool {
         matches!(self, Self::NoSuchEntityException(_))
     }
 }
-impl ::std::error::Error for DeleteSshPublicKeyError {
+impl ::std::error::Error for DeleteSSHPublicKeyError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::NoSuchEntityException(_inner) => ::std::option::Option::Some(_inner),
@@ -355,7 +355,7 @@ impl ::std::error::Error for DeleteSshPublicKeyError {
         }
     }
 }
-impl ::std::fmt::Display for DeleteSshPublicKeyError {
+impl ::std::fmt::Display for DeleteSSHPublicKeyError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::NoSuchEntityException(_inner) => _inner.fmt(f),
@@ -369,7 +369,7 @@ impl ::std::fmt::Display for DeleteSshPublicKeyError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for DeleteSshPublicKeyError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for DeleteSSHPublicKeyError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -377,7 +377,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for DeleteSshPublicKeyError {
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeleteSshPublicKeyError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeleteSSHPublicKeyError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::NoSuchEntityException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -385,7 +385,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeleteSshPubl
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteSshPublicKeyError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteSSHPublicKeyError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -396,12 +396,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteSs
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::delete_ssh_public_key::DeleteSshPublicKeyError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::delete_ssh_public_key::DeleteSshPublicKeyError {
+impl ::aws_types::request_id::RequestId for crate::operation::delete_ssh_public_key::DeleteSSHPublicKeyError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

@@ -14,7 +14,7 @@ impl GetSmsSandboxAccountStatus {
     ) -> ::std::result::Result<
         crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
+            crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl GetSmsSandboxAccountStatus {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError>()
+                err.downcast::<crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError>()
                     .expect("correct error type")
             })
         };
@@ -136,14 +136,14 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for GetSmsS
                 GetSmsSandboxAccountStatusEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
+                crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
+                crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
             >::new())
             .with_retry_classifier(
                 ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError,
+                    crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError,
                 >::builder()
                 .transient_errors({
                     let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -302,10 +302,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for GetSmsSandbox
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `GetSmsSandboxAccountStatusError` operation.
+/// Error type for the `GetSMSSandboxAccountStatusError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum GetSmsSandboxAccountStatusError {
+pub enum GetSMSSandboxAccountStatusError {
     /// <p>Indicates that the user has been denied access to the requested resource.</p>
     AuthorizationErrorException(crate::types::error::AuthorizationErrorException),
     /// <p>Indicates an internal service error.</p>
@@ -318,11 +318,11 @@ pub enum GetSmsSandboxAccountStatusError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GetSmsSandboxAccountStatusError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-GetSMSSandboxAccountStatusError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl GetSmsSandboxAccountStatusError {
-    /// Creates the `GetSmsSandboxAccountStatusError::Unhandled` variant from any error type.
+impl GetSMSSandboxAccountStatusError {
+    /// Creates the `GetSMSSandboxAccountStatusError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -332,7 +332,7 @@ impl GetSmsSandboxAccountStatusError {
         })
     }
 
-    /// Creates the `GetSmsSandboxAccountStatusError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `GetSMSSandboxAccountStatusError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -351,20 +351,20 @@ impl GetSmsSandboxAccountStatusError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `GetSmsSandboxAccountStatusError::AuthorizationErrorException`.
+    /// Returns `true` if the error kind is `GetSMSSandboxAccountStatusError::AuthorizationErrorException`.
     pub fn is_authorization_error_exception(&self) -> bool {
         matches!(self, Self::AuthorizationErrorException(_))
     }
-    /// Returns `true` if the error kind is `GetSmsSandboxAccountStatusError::InternalErrorException`.
+    /// Returns `true` if the error kind is `GetSMSSandboxAccountStatusError::InternalErrorException`.
     pub fn is_internal_error_exception(&self) -> bool {
         matches!(self, Self::InternalErrorException(_))
     }
-    /// Returns `true` if the error kind is `GetSmsSandboxAccountStatusError::ThrottledException`.
+    /// Returns `true` if the error kind is `GetSMSSandboxAccountStatusError::ThrottledException`.
     pub fn is_throttled_exception(&self) -> bool {
         matches!(self, Self::ThrottledException(_))
     }
 }
-impl ::std::error::Error for GetSmsSandboxAccountStatusError {
+impl ::std::error::Error for GetSMSSandboxAccountStatusError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::AuthorizationErrorException(_inner) => ::std::option::Option::Some(_inner),
@@ -374,7 +374,7 @@ impl ::std::error::Error for GetSmsSandboxAccountStatusError {
         }
     }
 }
-impl ::std::fmt::Display for GetSmsSandboxAccountStatusError {
+impl ::std::fmt::Display for GetSMSSandboxAccountStatusError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::AuthorizationErrorException(_inner) => _inner.fmt(f),
@@ -390,7 +390,7 @@ impl ::std::fmt::Display for GetSmsSandboxAccountStatusError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for GetSmsSandboxAccountStatusError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for GetSMSSandboxAccountStatusError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -398,7 +398,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for GetSmsSandboxAccountStatusE
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetSmsSandboxAccountStatusError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetSMSSandboxAccountStatusError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::AuthorizationErrorException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -408,7 +408,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for GetSmsSandbox
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetSmsSandboxAccountStatusError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetSMSSandboxAccountStatusError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -419,12 +419,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for GetSmsSa
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::get_sms_sandbox_account_status::GetSmsSandboxAccountStatusError {
+impl ::aws_types::request_id::RequestId for crate::operation::get_sms_sandbox_account_status::GetSMSSandboxAccountStatusError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

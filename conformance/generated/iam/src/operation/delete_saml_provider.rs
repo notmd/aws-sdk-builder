@@ -14,7 +14,7 @@ impl DeleteSamlProvider {
     ) -> ::std::result::Result<
         crate::operation::delete_saml_provider::DeleteSamlProviderOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::delete_saml_provider::DeleteSamlProviderError,
+            crate::operation::delete_saml_provider::DeleteSAMLProviderError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl DeleteSamlProvider {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::delete_saml_provider::DeleteSamlProviderError>()
+                err.downcast::<crate::operation::delete_saml_provider::DeleteSAMLProviderError>()
                     .expect("correct error type")
             })
         };
@@ -126,9 +126,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for DeleteS
                             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteSamlProviderTelemetryInputCaptureInterceptor))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeleteSamlProviderEndpointParamsInterceptor))
-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::delete_saml_provider::DeleteSamlProviderError>::new())
-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::delete_saml_provider::DeleteSamlProviderError>::new())
-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_saml_provider::DeleteSamlProviderError>::builder().transient_errors({
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::delete_saml_provider::DeleteSAMLProviderError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::delete_saml_provider::DeleteSAMLProviderError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::delete_saml_provider::DeleteSAMLProviderError>::builder().transient_errors({
                                             let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                                             transient_errors.push("InternalError");
                                             ::std::borrow::Cow::Owned(transient_errors)
@@ -294,10 +294,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeleteSamlPro
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `DeleteSamlProviderError` operation.
+/// Error type for the `DeleteSAMLProviderError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum DeleteSamlProviderError {
+pub enum DeleteSAMLProviderError {
     /// <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
     InvalidInputException(crate::types::error::InvalidInputException),
     /// <p>The request was rejected because it attempted to create resources beyond the current Amazon Web Services account limits. The error message describes the limit exceeded.</p>
@@ -312,11 +312,11 @@ pub enum DeleteSamlProviderError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DeleteSamlProviderError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DeleteSAMLProviderError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl DeleteSamlProviderError {
-    /// Creates the `DeleteSamlProviderError::Unhandled` variant from any error type.
+impl DeleteSAMLProviderError {
+    /// Creates the `DeleteSAMLProviderError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -326,7 +326,7 @@ impl DeleteSamlProviderError {
         })
     }
 
-    /// Creates the `DeleteSamlProviderError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `DeleteSAMLProviderError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -346,24 +346,24 @@ impl DeleteSamlProviderError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `DeleteSamlProviderError::InvalidInputException`.
+    /// Returns `true` if the error kind is `DeleteSAMLProviderError::InvalidInputException`.
     pub fn is_invalid_input_exception(&self) -> bool {
         matches!(self, Self::InvalidInputException(_))
     }
-    /// Returns `true` if the error kind is `DeleteSamlProviderError::LimitExceededException`.
+    /// Returns `true` if the error kind is `DeleteSAMLProviderError::LimitExceededException`.
     pub fn is_limit_exceeded_exception(&self) -> bool {
         matches!(self, Self::LimitExceededException(_))
     }
-    /// Returns `true` if the error kind is `DeleteSamlProviderError::NoSuchEntityException`.
+    /// Returns `true` if the error kind is `DeleteSAMLProviderError::NoSuchEntityException`.
     pub fn is_no_such_entity_exception(&self) -> bool {
         matches!(self, Self::NoSuchEntityException(_))
     }
-    /// Returns `true` if the error kind is `DeleteSamlProviderError::ServiceFailureException`.
+    /// Returns `true` if the error kind is `DeleteSAMLProviderError::ServiceFailureException`.
     pub fn is_service_failure_exception(&self) -> bool {
         matches!(self, Self::ServiceFailureException(_))
     }
 }
-impl ::std::error::Error for DeleteSamlProviderError {
+impl ::std::error::Error for DeleteSAMLProviderError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::InvalidInputException(_inner) => ::std::option::Option::Some(_inner),
@@ -374,7 +374,7 @@ impl ::std::error::Error for DeleteSamlProviderError {
         }
     }
 }
-impl ::std::fmt::Display for DeleteSamlProviderError {
+impl ::std::fmt::Display for DeleteSAMLProviderError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::InvalidInputException(_inner) => _inner.fmt(f),
@@ -391,7 +391,7 @@ impl ::std::fmt::Display for DeleteSamlProviderError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for DeleteSamlProviderError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for DeleteSAMLProviderError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -399,7 +399,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for DeleteSamlProviderError {
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeleteSamlProviderError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeleteSAMLProviderError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::InvalidInputException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -410,7 +410,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeleteSamlPro
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteSamlProviderError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteSAMLProviderError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -421,12 +421,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeleteSa
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::delete_saml_provider::DeleteSamlProviderError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::delete_saml_provider::DeleteSAMLProviderError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::delete_saml_provider::DeleteSamlProviderError {
+impl ::aws_types::request_id::RequestId for crate::operation::delete_saml_provider::DeleteSAMLProviderError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

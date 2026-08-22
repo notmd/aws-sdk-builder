@@ -14,7 +14,7 @@ impl CreateSmsSandboxPhoneNumber {
     ) -> ::std::result::Result<
         crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+            crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl CreateSmsSandboxPhoneNumber {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError>()
+                err.downcast::<crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError>()
                     .expect("correct error type")
             })
         };
@@ -136,14 +136,14 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for CreateS
                 CreateSmsSandboxPhoneNumberEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+                crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+                crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
             >::new())
             .with_retry_classifier(
                 ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError,
+                    crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError,
                 >::builder()
                 .transient_errors({
                     let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -308,10 +308,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for CreateSmsSand
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `CreateSmsSandboxPhoneNumberError` operation.
+/// Error type for the `CreateSMSSandboxPhoneNumberError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum CreateSmsSandboxPhoneNumberError {
+pub enum CreateSMSSandboxPhoneNumberError {
     /// <p>Indicates that the user has been denied access to the requested resource.</p>
     AuthorizationErrorException(crate::types::error::AuthorizationErrorException),
     /// <p>Indicates an internal service error.</p>
@@ -330,11 +330,11 @@ pub enum CreateSmsSandboxPhoneNumberError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-CreateSmsSandboxPhoneNumberError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-CreateSMSSandboxPhoneNumberError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl CreateSmsSandboxPhoneNumberError {
-    /// Creates the `CreateSmsSandboxPhoneNumberError::Unhandled` variant from any error type.
+impl CreateSMSSandboxPhoneNumberError {
+    /// Creates the `CreateSMSSandboxPhoneNumberError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -344,7 +344,7 @@ impl CreateSmsSandboxPhoneNumberError {
         })
     }
 
-    /// Creates the `CreateSmsSandboxPhoneNumberError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `CreateSMSSandboxPhoneNumberError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -366,32 +366,32 @@ impl CreateSmsSandboxPhoneNumberError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `CreateSmsSandboxPhoneNumberError::AuthorizationErrorException`.
+    /// Returns `true` if the error kind is `CreateSMSSandboxPhoneNumberError::AuthorizationErrorException`.
     pub fn is_authorization_error_exception(&self) -> bool {
         matches!(self, Self::AuthorizationErrorException(_))
     }
-    /// Returns `true` if the error kind is `CreateSmsSandboxPhoneNumberError::InternalErrorException`.
+    /// Returns `true` if the error kind is `CreateSMSSandboxPhoneNumberError::InternalErrorException`.
     pub fn is_internal_error_exception(&self) -> bool {
         matches!(self, Self::InternalErrorException(_))
     }
-    /// Returns `true` if the error kind is `CreateSmsSandboxPhoneNumberError::InvalidParameterException`.
+    /// Returns `true` if the error kind is `CreateSMSSandboxPhoneNumberError::InvalidParameterException`.
     pub fn is_invalid_parameter_exception(&self) -> bool {
         matches!(self, Self::InvalidParameterException(_))
     }
-    /// Returns `true` if the error kind is `CreateSmsSandboxPhoneNumberError::OptedOutException`.
+    /// Returns `true` if the error kind is `CreateSMSSandboxPhoneNumberError::OptedOutException`.
     pub fn is_opted_out_exception(&self) -> bool {
         matches!(self, Self::OptedOutException(_))
     }
-    /// Returns `true` if the error kind is `CreateSmsSandboxPhoneNumberError::ThrottledException`.
+    /// Returns `true` if the error kind is `CreateSMSSandboxPhoneNumberError::ThrottledException`.
     pub fn is_throttled_exception(&self) -> bool {
         matches!(self, Self::ThrottledException(_))
     }
-    /// Returns `true` if the error kind is `CreateSmsSandboxPhoneNumberError::UserErrorException`.
+    /// Returns `true` if the error kind is `CreateSMSSandboxPhoneNumberError::UserErrorException`.
     pub fn is_user_error_exception(&self) -> bool {
         matches!(self, Self::UserErrorException(_))
     }
 }
-impl ::std::error::Error for CreateSmsSandboxPhoneNumberError {
+impl ::std::error::Error for CreateSMSSandboxPhoneNumberError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::AuthorizationErrorException(_inner) => ::std::option::Option::Some(_inner),
@@ -404,7 +404,7 @@ impl ::std::error::Error for CreateSmsSandboxPhoneNumberError {
         }
     }
 }
-impl ::std::fmt::Display for CreateSmsSandboxPhoneNumberError {
+impl ::std::fmt::Display for CreateSMSSandboxPhoneNumberError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::AuthorizationErrorException(_inner) => _inner.fmt(f),
@@ -423,7 +423,7 @@ impl ::std::fmt::Display for CreateSmsSandboxPhoneNumberError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for CreateSmsSandboxPhoneNumberError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for CreateSMSSandboxPhoneNumberError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -431,7 +431,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for CreateSmsSandboxPhoneNumber
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CreateSmsSandboxPhoneNumberError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CreateSMSSandboxPhoneNumberError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::AuthorizationErrorException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -444,7 +444,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for CreateSmsSand
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for CreateSmsSandboxPhoneNumberError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for CreateSMSSandboxPhoneNumberError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -455,12 +455,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for CreateSm
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::create_sms_sandbox_phone_number::CreateSmsSandboxPhoneNumberError {
+impl ::aws_types::request_id::RequestId for crate::operation::create_sms_sandbox_phone_number::CreateSMSSandboxPhoneNumberError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

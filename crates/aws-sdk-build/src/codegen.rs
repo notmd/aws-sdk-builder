@@ -49,7 +49,10 @@ pub(crate) fn generate(
                 render_primitives(&selected, consumer_namespace),
             ),
             ("src/config.rs".to_owned(), render_config_file()),
-            ("src/error.rs".to_owned(), render_error_file()),
+            (
+                "src/error.rs".to_owned(),
+                render_error_file(consumer_namespace, model_has_enum(&selected)),
+            ),
             ("src/meta.rs".to_owned(), render_meta(entry.key)),
             (
                 "src/observability_feature.rs".to_owned(),
@@ -120,6 +123,16 @@ pub(crate) fn generate(
             service_files.push((
                 "src/client_idempotency_token.rs".to_owned(),
                 include_str!("../assets/client_idempotency_token.rs").to_owned(),
+            ));
+        }
+        if !consumer_namespace {
+            service_files.push((
+                "src/error_meta.rs".to_owned(),
+                render_service_error_metadata(&selected),
+            ));
+            service_files.push((
+                "src/error/sealed_unhandled.rs".to_owned(),
+                include_str!("../assets/error_sealed_unhandled.rs").to_owned(),
             ));
         }
         if !consumer_namespace {
@@ -368,6 +381,9 @@ fn render_service_lib(
 ) -> String {
     let mut output = String::new();
     header(&mut output);
+    if !consumer_namespace {
+        output.push_str("pub use error_meta::Error;\n\n");
+    }
     for file in [
         "primitives.rs",
         "config.rs",
@@ -402,6 +418,9 @@ fn render_service_lib(
             "include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/{file}\"));"
         )
         .unwrap();
+    }
+    if !consumer_namespace {
+        output.push_str("\nmod error_meta;\n");
     }
     writeln!(
         output,
@@ -1050,13 +1069,37 @@ fn render_config(output: &mut String) {
     );
 }
 
-fn render_error_file() -> String {
+fn render_error_file(consumer_namespace: bool, has_enum: bool) -> String {
     let mut output = String::new();
-    render_error(&mut output);
+    if consumer_namespace {
+        render_legacy_error(&mut output);
+    } else {
+        render_standalone_error(&mut output, has_enum);
+    }
     output
 }
 
-fn render_error(output: &mut String) {
+fn render_standalone_error(output: &mut String, has_enum: bool) {
+    client_operation_header(output);
+    output.push_str(
+        "pub use ::aws_smithy_runtime_api::box_error::BoxError;\n\n\
+         /// Error type returned by the client.\n\
+         pub type SdkError<E, R = ::aws_smithy_runtime_api::client::orchestrator::HttpResponse> = ::aws_smithy_runtime_api::client::result::SdkError<E, R>;\n\
+         pub use ::aws_smithy_runtime_api::client::result::ConnectorError;\n\
+         pub use ::aws_smithy_types::error::operation::BuildError;\n\n\
+         pub use ::aws_smithy_types::error::display::DisplayErrorContext;\n\
+         pub use ::aws_smithy_types::error::metadata::ErrorMetadata;\n\
+         pub use ::aws_smithy_types::error::metadata::ProvideErrorMetadata;\n",
+    );
+    if has_enum {
+        output.push_str(
+            "\n/// The given enum value failed to parse since it is not a known value.\n#[derive(Debug)]\npub struct UnknownVariantError {\n    value: ::std::string::String,\n}\nimpl UnknownVariantError {\n    pub(crate) fn new(value: impl ::std::convert::Into<::std::string::String>) -> Self {\n        Self { value: value.into() }\n    }\n}\nimpl ::std::fmt::Display for UnknownVariantError {\n    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::result::Result<(), ::std::fmt::Error> {\n        write!(f, \"unknown enum variant: '{}'\", self.value)\n    }\n}\nimpl ::std::error::Error for UnknownVariantError {}\n",
+        );
+    }
+    output.push_str("\npub(crate) mod sealed_unhandled;\n");
+}
+
+fn render_legacy_error(output: &mut String) {
     header(output);
     output.push_str(
         "#[derive(Clone, Debug)]\n\
@@ -1109,6 +1152,195 @@ fn render_error(output: &mut String) {
          }\n\
          impl ::std::error::Error for BuildError {}\n\n",
     );
+}
+
+fn render_service_error_metadata(selected: &SelectedModel) -> String {
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    let error_ids = service_error_shape_ids(selected);
+    output.push_str(
+        "/// All possible error types for this service.\n#[non_exhaustive]\n#[derive(::std::fmt::Debug)]\npub enum Error {\n",
+    );
+    for error_id in &error_ids {
+        let Some(shape) = selected.model.shapes.get(error_id) else {
+            continue;
+        };
+        if let Some(documentation) = documentation(shape) {
+            render_doc_lines(&mut output, &documentation, 4);
+        } else {
+            output.push_str("    #[allow(missing_docs)] // documentation missing in model\n");
+        }
+        render_deprecated_attribute(&mut output, shape, 4);
+        writeln!(
+            output,
+            "    {}(crate::types::error::{}),",
+            rust_type_name(terminal(error_id)),
+            rust_type_name(terminal(error_id)),
+        )
+        .unwrap();
+    }
+    output.push_str(
+        r###"    /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    variable wildcard pattern and check `.code()`:
+     \
+    &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+     \
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-Error) for what information is available for the error.")]
+    Unhandled(crate::error::sealed_unhandled::Unhandled),
+}
+"###,
+    );
+
+    output.push_str("impl ::std::fmt::Display for Error {\n    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {\n        match self {\n");
+    for error_id in &error_ids {
+        let name = rust_type_name(terminal(error_id));
+        writeln!(output, "            Error::{name}(inner) => inner.fmt(f),").unwrap();
+    }
+    output.push_str(
+        "            Error::Unhandled(_) => {\n                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {\n                    write!(f, \"unhandled error ({code})\")\n                } else {\n                    f.write_str(\"unhandled error\")\n                }\n            }\n        }\n    }\n}\n",
+    );
+    output.push_str(
+        "impl From<::aws_smithy_types::error::operation::BuildError> for Error {\n    fn from(value: ::aws_smithy_types::error::operation::BuildError) -> Self {\n        Error::Unhandled(crate::error::sealed_unhandled::Unhandled {\n            source: value.into(),\n            meta: ::std::default::Default::default(),\n        })\n    }\n}\n",
+    );
+    output.push_str(
+        "impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for Error {\n    fn meta(&self) -> &::aws_smithy_types::error::metadata::ErrorMetadata {\n        match self {\n",
+    );
+    for error_id in &error_ids {
+        let name = rust_type_name(terminal(error_id));
+        writeln!(output, "            Self::{name}(inner) => inner.meta(),").unwrap();
+    }
+    output.push_str("            Self::Unhandled(inner) => &inner.meta,\n        }\n    }\n}\n");
+
+    let mut operations = selected.operations.clone();
+    operations.sort_by_key(|operation| operation.to_ascii_lowercase());
+    for operation_name in operations {
+        let Some(operation) = operation_shape(selected, &operation_name) else {
+            continue;
+        };
+        render_service_operation_error_conversions(&mut output, &operation_name, operation);
+    }
+    if has_waiters(selected) {
+        output.push_str(
+            "impl<O, E> ::std::convert::From<::aws_smithy_runtime_api::client::waiters::error::WaiterError<O, E>> for Error\nwhere\n    O: ::std::fmt::Debug + ::std::marker::Send + ::std::marker::Sync + 'static,\n    E: ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static,\n{\n    fn from(err: ::aws_smithy_runtime_api::client::waiters::error::WaiterError<O, E>) -> Self {\n        Error::Unhandled(crate::error::sealed_unhandled::Unhandled {\n            meta: ::std::default::Default::default(),\n            source: err.into(),\n        })\n    }\n}\n",
+        );
+    }
+    for union_id in streaming_error_union_ids(selected) {
+        let error_name = format!("{}Error", rust_type_name(terminal(&union_id)));
+        render_service_event_stream_conversions(&mut output, &error_name);
+    }
+
+    output.push_str(
+        "impl ::std::error::Error for Error {\n    fn source(&self) -> std::option::Option<&(dyn ::std::error::Error + 'static)> {\n        match self {\n",
+    );
+    for error_id in &error_ids {
+        let name = rust_type_name(terminal(error_id));
+        writeln!(
+            output,
+            "            Error::{name}(inner) => inner.source(),"
+        )
+        .unwrap();
+    }
+    output.push_str(
+        "            Error::Unhandled(inner) => ::std::option::Option::Some(&*inner.source),\n        }\n    }\n}\n",
+    );
+    let request_id_plan = request_id_plan(selected);
+    if request_id_plan.extended {
+        output.push_str(
+            "impl crate::s3_request_id::RequestIdExt for Error {\n    fn extended_request_id(&self) -> Option<&str> {\n        match self {\n",
+        );
+        for error_id in &error_ids {
+            let name = rust_type_name(terminal(error_id));
+            writeln!(
+                output,
+                "            Self::{name}(e) => e.extended_request_id(),"
+            )
+            .unwrap();
+        }
+        output.push_str(
+            "            Self::Unhandled(e) => e.meta.extended_request_id(),\n        }\n    }\n}\n",
+        );
+    }
+    if request_id_plan.standard {
+        output.push_str(
+            "impl ::aws_types::request_id::RequestId for Error {\n    fn request_id(&self) -> Option<&str> {\n        match self {\n",
+        );
+        for error_id in &error_ids {
+            let name = rust_type_name(terminal(error_id));
+            writeln!(output, "            Self::{name}(e) => e.request_id(),").unwrap();
+        }
+        output.push_str(
+            "            Self::Unhandled(e) => e.meta.request_id(),\n        }\n    }\n}\n",
+        );
+    }
+    output
+}
+
+fn render_service_operation_error_conversions(
+    output: &mut String,
+    operation_name: &str,
+    operation: &Value,
+) {
+    let module = names::snake_case(operation_name);
+    let error_path = format!(
+        "crate::operation::{module}::{}Error",
+        operation_error_type_name(operation_name)
+    );
+    writeln!(
+        output,
+        "impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<{error_path}, R>> for Error\nwhere\n    R: Send + Sync + std::fmt::Debug + 'static,\n{{\n    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<{error_path}, R>) -> Self {{\n        match err {{\n            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),\n            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {{\n                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),\n                source: err.into(),\n            }}),\n        }}\n    }}\n}}"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "impl From<{error_path}> for Error {{\n    fn from(err: {error_path}) -> Self {{\n        match err {{"
+    )
+    .unwrap();
+    if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
+        for error in errors.iter().filter_map(target_value) {
+            let error_name = rust_type_name(terminal(error));
+            writeln!(
+                output,
+                "            {error_path}::{error_name}(inner) => Error::{error_name}(inner),"
+            )
+            .unwrap();
+        }
+    }
+    writeln!(
+        output,
+        "            {error_path}::Unhandled(inner) => Error::Unhandled(inner),\n        }}\n    }}\n}}"
+    )
+    .unwrap();
+}
+
+fn render_service_event_stream_conversions(output: &mut String, error_name: &str) {
+    let error_path = format!("crate::types::error::{error_name}");
+    writeln!(
+        output,
+        "impl<R> From<::aws_smithy_runtime_api::client::result::SdkError<{error_path}, R>> for Error\nwhere\n    R: Send + Sync + std::fmt::Debug + 'static,\n{{\n    fn from(err: ::aws_smithy_runtime_api::client::result::SdkError<{error_path}, R>) -> Self {{\n        match err {{\n            ::aws_smithy_runtime_api::client::result::SdkError::ServiceError(context) => Self::from(context.into_err()),\n            _ => Error::Unhandled(crate::error::sealed_unhandled::Unhandled {{\n                meta: ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(&err).clone(),\n                source: err.into(),\n            }}),\n        }}\n    }}\n}}\nimpl From<{error_path}> for Error {{\n    fn from(err: {error_path}) -> Self {{\n        match err {{\n            {error_path}::Unhandled(inner) => Error::Unhandled(inner),\n        }}\n    }}\n}}"
+    )
+    .unwrap();
+}
+
+fn service_error_shape_ids(selected: &SelectedModel) -> Vec<String> {
+    let mut ids = error_shape_ids(selected);
+    ids.sort_by_key(|id| terminal(id).to_owned());
+    ids
+}
+
+fn streaming_error_union_ids(selected: &SelectedModel) -> Vec<String> {
+    let mut ids = selected
+        .model
+        .shapes
+        .iter()
+        .filter_map(|(id, shape)| {
+            (shape.get("type").and_then(Value::as_str) == Some("union")
+                && has_trait(shape, "smithy.api#streaming"))
+            .then_some(id.clone())
+        })
+        .collect::<Vec<_>>();
+    ids.sort();
+    ids
 }
 
 fn render_meta(service_key: &str) -> String {
@@ -2104,7 +2336,10 @@ fn render_standalone_operation_file(selected: &SelectedModel, operation_name: &s
     let service_id = service_sdk_id(selected);
     let input_path = format!("crate::operation::{module}::{operation_type}Input");
     let output_path = format!("crate::operation::{module}::{operation_type}Output");
-    let error_path = format!("crate::operation::{module}::{operation_type}Error");
+    let error_path = format!(
+        "crate::operation::{module}::{}Error",
+        operation_error_type_name(operation_name)
+    );
     let idempotency_member = operation
         .get("input")
         .and_then(target_value)
@@ -3762,7 +3997,7 @@ fn render_standalone_operation_error(
     operation_name: &str,
     operation: &Value,
 ) {
-    let operation_type = rust_type_name(operation_name);
+    let operation_type = operation_error_type_name(operation_name);
     let error_path = format!(
         "crate::operation::{}::{}Error",
         names::snake_case(operation_name),
@@ -12088,6 +12323,50 @@ fn rust_type_name(value: &str) -> String {
     } else {
         result
     }
+}
+
+/// Smithy keeps all-uppercase runs in operation symbols (for example, the
+/// `SAML` segment of `AssumeRoleWithSAML`) while modeled member/enum names use
+/// the ordinary Rust type-name normalization above.
+fn operation_error_type_name(value: &str) -> String {
+    let mut result = rust_type_name(value);
+    let chars = value.chars().collect::<Vec<_>>();
+    let mut index = 0;
+    while index < chars.len() {
+        if !chars[index].is_ascii_uppercase() {
+            index += 1;
+            continue;
+        }
+        let start = index;
+        while index < chars.len() && chars[index].is_ascii_uppercase() {
+            if index > start
+                && chars
+                    .get(index + 1)
+                    .is_some_and(|next| next.is_ascii_lowercase())
+            {
+                break;
+            }
+            index += 1;
+        }
+        if index - start < 2 {
+            continue;
+        }
+        let acronym = chars[start..index].iter().collect::<String>();
+        let normalized = acronym
+            .chars()
+            .next()
+            .into_iter()
+            .flat_map(|first| first.to_uppercase())
+            .chain(
+                acronym
+                    .chars()
+                    .skip(1)
+                    .flat_map(|character| character.to_lowercase()),
+            )
+            .collect::<String>();
+        result = result.replace(&normalized, &acronym);
+    }
+    result
 }
 
 fn terminal(value: &str) -> &str {

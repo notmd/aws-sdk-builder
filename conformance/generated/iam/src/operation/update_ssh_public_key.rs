@@ -14,7 +14,7 @@ impl UpdateSshPublicKey {
     ) -> ::std::result::Result<
         crate::operation::update_ssh_public_key::UpdateSshPublicKeyOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::update_ssh_public_key::UpdateSshPublicKeyError,
+            crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl UpdateSshPublicKey {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::update_ssh_public_key::UpdateSshPublicKeyError>()
+                err.downcast::<crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError>()
                     .expect("correct error type")
             })
         };
@@ -126,9 +126,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for UpdateS
                             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateSshPublicKeyTelemetryInputCaptureInterceptor))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(UpdateSshPublicKeyEndpointParamsInterceptor))
-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::update_ssh_public_key::UpdateSshPublicKeyError>::new())
-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::update_ssh_public_key::UpdateSshPublicKeyError>::new())
-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_ssh_public_key::UpdateSshPublicKeyError>::builder().transient_errors({
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError>::builder().transient_errors({
                                             let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                                             transient_errors.push("InternalError");
                                             ::std::borrow::Cow::Owned(transient_errors)
@@ -299,10 +299,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for UpdateSshPubl
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `UpdateSshPublicKeyError` operation.
+/// Error type for the `UpdateSSHPublicKeyError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum UpdateSshPublicKeyError {
+pub enum UpdateSSHPublicKeyError {
     /// <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
     InvalidInputException(crate::types::error::InvalidInputException),
     /// <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
@@ -313,11 +313,11 @@ pub enum UpdateSshPublicKeyError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-UpdateSshPublicKeyError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-UpdateSSHPublicKeyError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl UpdateSshPublicKeyError {
-    /// Creates the `UpdateSshPublicKeyError::Unhandled` variant from any error type.
+impl UpdateSSHPublicKeyError {
+    /// Creates the `UpdateSSHPublicKeyError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -327,7 +327,7 @@ impl UpdateSshPublicKeyError {
         })
     }
 
-    /// Creates the `UpdateSshPublicKeyError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `UpdateSSHPublicKeyError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -345,16 +345,16 @@ impl UpdateSshPublicKeyError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `UpdateSshPublicKeyError::InvalidInputException`.
+    /// Returns `true` if the error kind is `UpdateSSHPublicKeyError::InvalidInputException`.
     pub fn is_invalid_input_exception(&self) -> bool {
         matches!(self, Self::InvalidInputException(_))
     }
-    /// Returns `true` if the error kind is `UpdateSshPublicKeyError::NoSuchEntityException`.
+    /// Returns `true` if the error kind is `UpdateSSHPublicKeyError::NoSuchEntityException`.
     pub fn is_no_such_entity_exception(&self) -> bool {
         matches!(self, Self::NoSuchEntityException(_))
     }
 }
-impl ::std::error::Error for UpdateSshPublicKeyError {
+impl ::std::error::Error for UpdateSSHPublicKeyError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::InvalidInputException(_inner) => ::std::option::Option::Some(_inner),
@@ -363,7 +363,7 @@ impl ::std::error::Error for UpdateSshPublicKeyError {
         }
     }
 }
-impl ::std::fmt::Display for UpdateSshPublicKeyError {
+impl ::std::fmt::Display for UpdateSSHPublicKeyError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::InvalidInputException(_inner) => _inner.fmt(f),
@@ -378,7 +378,7 @@ impl ::std::fmt::Display for UpdateSshPublicKeyError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for UpdateSshPublicKeyError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for UpdateSSHPublicKeyError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -386,7 +386,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for UpdateSshPublicKeyError {
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UpdateSshPublicKeyError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UpdateSSHPublicKeyError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::InvalidInputException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -395,7 +395,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for UpdateSshPubl
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UpdateSshPublicKeyError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UpdateSSHPublicKeyError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -406,12 +406,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for UpdateSs
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::update_ssh_public_key::UpdateSshPublicKeyError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::update_ssh_public_key::UpdateSshPublicKeyError {
+impl ::aws_types::request_id::RequestId for crate::operation::update_ssh_public_key::UpdateSSHPublicKeyError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

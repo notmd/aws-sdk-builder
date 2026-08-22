@@ -14,7 +14,7 @@ impl ListOpenIdConnectProviderTags {
     ) -> ::std::result::Result<
         crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
+            crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl ListOpenIdConnectProviderTags {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError>()
+                err.downcast::<crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError>()
                     .expect("correct error type")
             })
         };
@@ -136,14 +136,14 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for ListOpe
                 ListOpenIdConnectProviderTagsEndpointParamsInterceptor,
             ))
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<
-                crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
+                crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
             >::new())
             .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<
-                crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
+                crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
             >::new())
             .with_retry_classifier(
                 ::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<
-                    crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError,
+                    crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError,
                 >::builder()
                 .transient_errors({
                     let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
@@ -320,10 +320,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for ListOpenIdCon
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `ListOpenIdConnectProviderTagsError` operation.
+/// Error type for the `ListOpenIDConnectProviderTagsError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum ListOpenIdConnectProviderTagsError {
+pub enum ListOpenIDConnectProviderTagsError {
     /// <p>The request was rejected because an invalid or out-of-range value was supplied for an input parameter.</p>
     InvalidInputException(crate::types::error::InvalidInputException),
     /// <p>The request was rejected because it referenced a resource entity that does not exist. The error message describes the resource.</p>
@@ -336,11 +336,11 @@ pub enum ListOpenIdConnectProviderTagsError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListOpenIdConnectProviderTagsError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-ListOpenIDConnectProviderTagsError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl ListOpenIdConnectProviderTagsError {
-    /// Creates the `ListOpenIdConnectProviderTagsError::Unhandled` variant from any error type.
+impl ListOpenIDConnectProviderTagsError {
+    /// Creates the `ListOpenIDConnectProviderTagsError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -350,7 +350,7 @@ impl ListOpenIdConnectProviderTagsError {
         })
     }
 
-    /// Creates the `ListOpenIdConnectProviderTagsError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `ListOpenIDConnectProviderTagsError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -369,20 +369,20 @@ impl ListOpenIdConnectProviderTagsError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `ListOpenIdConnectProviderTagsError::InvalidInputException`.
+    /// Returns `true` if the error kind is `ListOpenIDConnectProviderTagsError::InvalidInputException`.
     pub fn is_invalid_input_exception(&self) -> bool {
         matches!(self, Self::InvalidInputException(_))
     }
-    /// Returns `true` if the error kind is `ListOpenIdConnectProviderTagsError::NoSuchEntityException`.
+    /// Returns `true` if the error kind is `ListOpenIDConnectProviderTagsError::NoSuchEntityException`.
     pub fn is_no_such_entity_exception(&self) -> bool {
         matches!(self, Self::NoSuchEntityException(_))
     }
-    /// Returns `true` if the error kind is `ListOpenIdConnectProviderTagsError::ServiceFailureException`.
+    /// Returns `true` if the error kind is `ListOpenIDConnectProviderTagsError::ServiceFailureException`.
     pub fn is_service_failure_exception(&self) -> bool {
         matches!(self, Self::ServiceFailureException(_))
     }
 }
-impl ::std::error::Error for ListOpenIdConnectProviderTagsError {
+impl ::std::error::Error for ListOpenIDConnectProviderTagsError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::InvalidInputException(_inner) => ::std::option::Option::Some(_inner),
@@ -392,7 +392,7 @@ impl ::std::error::Error for ListOpenIdConnectProviderTagsError {
         }
     }
 }
-impl ::std::fmt::Display for ListOpenIdConnectProviderTagsError {
+impl ::std::fmt::Display for ListOpenIDConnectProviderTagsError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::InvalidInputException(_inner) => _inner.fmt(f),
@@ -408,7 +408,7 @@ impl ::std::fmt::Display for ListOpenIdConnectProviderTagsError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for ListOpenIdConnectProviderTagsError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for ListOpenIDConnectProviderTagsError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -416,7 +416,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for ListOpenIdConnectProviderTa
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListOpenIdConnectProviderTagsError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListOpenIDConnectProviderTagsError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::InvalidInputException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -426,7 +426,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for ListOpenIdCon
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListOpenIdConnectProviderTagsError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListOpenIDConnectProviderTagsError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -437,12 +437,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for ListOpen
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::list_open_id_connect_provider_tags::ListOpenIdConnectProviderTagsError {
+impl ::aws_types::request_id::RequestId for crate::operation::list_open_id_connect_provider_tags::ListOpenIDConnectProviderTagsError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }

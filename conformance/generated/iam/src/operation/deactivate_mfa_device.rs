@@ -14,7 +14,7 @@ impl DeactivateMfaDevice {
     ) -> ::std::result::Result<
         crate::operation::deactivate_mfa_device::DeactivateMfaDeviceOutput,
         ::aws_smithy_runtime_api::client::result::SdkError<
-            crate::operation::deactivate_mfa_device::DeactivateMfaDeviceError,
+            crate::operation::deactivate_mfa_device::DeactivateMFADeviceError,
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >,
     > {
@@ -23,7 +23,7 @@ impl DeactivateMfaDevice {
             ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,
         >| {
             err.map_service_error(|err| {
-                err.downcast::<crate::operation::deactivate_mfa_device::DeactivateMfaDeviceError>()
+                err.downcast::<crate::operation::deactivate_mfa_device::DeactivateMFADeviceError>()
                     .expect("correct error type")
             })
         };
@@ -129,9 +129,9 @@ impl ::aws_smithy_runtime_api::client::runtime_plugin::RuntimePlugin for Deactiv
                             .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeactivateMfaDeviceTelemetryInputCaptureInterceptor))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(::aws_smithy_runtime::client::stalled_stream_protection::StalledStreamProtectionInterceptor::default()))
 .with_interceptor(::aws_smithy_runtime_api::client::interceptors::SharedInterceptor::permanent(DeactivateMfaDeviceEndpointParamsInterceptor))
-                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::deactivate_mfa_device::DeactivateMfaDeviceError>::new())
-.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::deactivate_mfa_device::DeactivateMfaDeviceError>::new())
-.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::deactivate_mfa_device::DeactivateMfaDeviceError>::builder().transient_errors({
+                            .with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::TransientErrorClassifier::<crate::operation::deactivate_mfa_device::DeactivateMFADeviceError>::new())
+.with_retry_classifier(::aws_smithy_runtime::client::retries::classifiers::ModeledAsRetryableClassifier::<crate::operation::deactivate_mfa_device::DeactivateMFADeviceError>::new())
+.with_retry_classifier(::aws_runtime::retries::classifiers::AwsErrorCodeClassifier::<crate::operation::deactivate_mfa_device::DeactivateMFADeviceError>::builder().transient_errors({
                                             let mut transient_errors: Vec<&'static str> = ::aws_runtime::retries::classifiers::TRANSIENT_ERRORS.into();
                                             transient_errors.push("InternalError");
                                             ::std::borrow::Cow::Owned(transient_errors)
@@ -302,10 +302,10 @@ impl ::aws_smithy_runtime_api::client::interceptors::Intercept for DeactivateMfa
 // The get_* functions below are generated from JMESPath expressions in the
 // operationContextParams trait. They target the operation's input shape.
 
-/// Error type for the `DeactivateMfaDeviceError` operation.
+/// Error type for the `DeactivateMFADeviceError` operation.
 #[non_exhaustive]
 #[derive(::std::fmt::Debug)]
-pub enum DeactivateMfaDeviceError {
+pub enum DeactivateMFADeviceError {
     /// <p>The request was rejected because multiple requests to change this object were submitted simultaneously. Wait a few minutes and submit your request again.</p>
     ConcurrentModificationException(crate::types::error::ConcurrentModificationException),
     /// <p>The request was rejected because it referenced an entity that is temporarily unmodifiable, such as a user name that was deleted and then recreated. The error indicates that the request is likely to succeed if you try again after waiting several minutes. The error message describes the entity.</p>
@@ -322,11 +322,11 @@ pub enum DeactivateMfaDeviceError {
      \
     &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
      \
-    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DeactivateMfaDeviceError) for what information is available for the error.")]
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-DeactivateMFADeviceError) for what information is available for the error.")]
     Unhandled(crate::error::sealed_unhandled::Unhandled),
 }
-impl DeactivateMfaDeviceError {
-    /// Creates the `DeactivateMfaDeviceError::Unhandled` variant from any error type.
+impl DeactivateMFADeviceError {
+    /// Creates the `DeactivateMFADeviceError::Unhandled` variant from any error type.
     pub fn unhandled(
         err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
     ) -> Self {
@@ -336,7 +336,7 @@ impl DeactivateMfaDeviceError {
         })
     }
 
-    /// Creates the `DeactivateMfaDeviceError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    /// Creates the `DeactivateMFADeviceError::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
     pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
         Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
             source: err.clone().into(),
@@ -357,28 +357,28 @@ impl DeactivateMfaDeviceError {
             Self::Unhandled(e) => &e.meta,
         }
     }
-    /// Returns `true` if the error kind is `DeactivateMfaDeviceError::ConcurrentModificationException`.
+    /// Returns `true` if the error kind is `DeactivateMFADeviceError::ConcurrentModificationException`.
     pub fn is_concurrent_modification_exception(&self) -> bool {
         matches!(self, Self::ConcurrentModificationException(_))
     }
-    /// Returns `true` if the error kind is `DeactivateMfaDeviceError::EntityTemporarilyUnmodifiableException`.
+    /// Returns `true` if the error kind is `DeactivateMFADeviceError::EntityTemporarilyUnmodifiableException`.
     pub fn is_entity_temporarily_unmodifiable_exception(&self) -> bool {
         matches!(self, Self::EntityTemporarilyUnmodifiableException(_))
     }
-    /// Returns `true` if the error kind is `DeactivateMfaDeviceError::LimitExceededException`.
+    /// Returns `true` if the error kind is `DeactivateMFADeviceError::LimitExceededException`.
     pub fn is_limit_exceeded_exception(&self) -> bool {
         matches!(self, Self::LimitExceededException(_))
     }
-    /// Returns `true` if the error kind is `DeactivateMfaDeviceError::NoSuchEntityException`.
+    /// Returns `true` if the error kind is `DeactivateMFADeviceError::NoSuchEntityException`.
     pub fn is_no_such_entity_exception(&self) -> bool {
         matches!(self, Self::NoSuchEntityException(_))
     }
-    /// Returns `true` if the error kind is `DeactivateMfaDeviceError::ServiceFailureException`.
+    /// Returns `true` if the error kind is `DeactivateMFADeviceError::ServiceFailureException`.
     pub fn is_service_failure_exception(&self) -> bool {
         matches!(self, Self::ServiceFailureException(_))
     }
 }
-impl ::std::error::Error for DeactivateMfaDeviceError {
+impl ::std::error::Error for DeactivateMFADeviceError {
     fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
         match self {
             Self::ConcurrentModificationException(_inner) => ::std::option::Option::Some(_inner),
@@ -390,7 +390,7 @@ impl ::std::error::Error for DeactivateMfaDeviceError {
         }
     }
 }
-impl ::std::fmt::Display for DeactivateMfaDeviceError {
+impl ::std::fmt::Display for DeactivateMFADeviceError {
     fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         match self {
             Self::ConcurrentModificationException(_inner) => _inner.fmt(f),
@@ -408,7 +408,7 @@ impl ::std::fmt::Display for DeactivateMfaDeviceError {
         }
     }
 }
-impl ::aws_smithy_types::retry::ProvideErrorKind for DeactivateMfaDeviceError {
+impl ::aws_smithy_types::retry::ProvideErrorKind for DeactivateMFADeviceError {
     fn code(&self) -> ::std::option::Option<&str> {
         ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
     }
@@ -416,7 +416,7 @@ impl ::aws_smithy_types::retry::ProvideErrorKind for DeactivateMfaDeviceError {
         ::std::option::Option::None
     }
 }
-impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeactivateMfaDeviceError {
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeactivateMFADeviceError {
     fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
         match self {
             Self::ConcurrentModificationException(_inner) => ::aws_smithy_types::error::metadata::ProvideErrorMetadata::meta(_inner),
@@ -428,7 +428,7 @@ impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for DeactivateMfa
         }
     }
 }
-impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeactivateMfaDeviceError {
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for DeactivateMFADeviceError {
     fn create_unhandled_error(
         source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
         meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
@@ -439,12 +439,12 @@ impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for Deactiva
         })
     }
 }
-impl crate::s3_request_id::RequestIdExt for crate::operation::deactivate_mfa_device::DeactivateMfaDeviceError {
+impl crate::s3_request_id::RequestIdExt for crate::operation::deactivate_mfa_device::DeactivateMFADeviceError {
     fn extended_request_id(&self) -> Option<&str> {
         self.meta().extended_request_id()
     }
 }
-impl ::aws_types::request_id::RequestId for crate::operation::deactivate_mfa_device::DeactivateMfaDeviceError {
+impl ::aws_types::request_id::RequestId for crate::operation::deactivate_mfa_device::DeactivateMFADeviceError {
     fn request_id(&self) -> Option<&str> {
         self.meta().request_id()
     }
