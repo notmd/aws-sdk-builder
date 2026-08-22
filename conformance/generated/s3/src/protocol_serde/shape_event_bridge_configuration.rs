@@ -9,5 +9,6 @@ pub fn de_event_bridge_configuration(
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::EventBridgeConfiguration::builder();
+    let _ = decoder;
     Ok(builder.build())
 }

@@ -14,8 +14,21 @@ pub fn de_invalid_object_state_xml_err(
     let depth = 0u32;
     while let Some(mut tag) = error_decoder.next_tag() {
         match tag.start_el() {
-            s if s.matches("StorageClass") /* StorageClass com.amazonaws.s3#InvalidObjectState$StorageClass */ =>  {
+            s if s.matches("Message") /* Message com.amazonaws.s3#InvalidObjectState$Message */ =>  {
                 let var_1 =
+                    Some(
+                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
+                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
+                            .into()
+                        )
+                        ?
+                    )
+                ;
+                builder = builder.set_message(var_1);
+            }
+            ,
+            s if s.matches("StorageClass") /* StorageClass com.amazonaws.s3#InvalidObjectState$StorageClass */ =>  {
+                let var_2 =
                     Some(
                         Result::<crate::types::StorageClass, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
                             crate::types::StorageClass::from(
@@ -25,11 +38,11 @@ pub fn de_invalid_object_state_xml_err(
                         ?
                     )
                 ;
-                builder = builder.set_storage_class(var_1);
+                builder = builder.set_storage_class(var_2);
             }
             ,
             s if s.matches("AccessTier") /* AccessTier com.amazonaws.s3#InvalidObjectState$AccessTier */ =>  {
-                let var_2 =
+                let var_3 =
                     Some(
                         Result::<crate::types::IntelligentTieringAccessTier, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
                             crate::types::IntelligentTieringAccessTier::from(
@@ -39,20 +52,7 @@ pub fn de_invalid_object_state_xml_err(
                         ?
                     )
                 ;
-                builder = builder.set_access_tier(var_2);
-            }
-            ,
-            s if s.matches("Message") /* Message com.amazonaws.s3#InvalidObjectState$Message */ =>  {
-                let var_3 =
-                    Some(
-                        Result::<::std::string::String, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(
-                            ::aws_smithy_xml::decode::try_data(&mut tag)?.as_ref()
-                            .into()
-                        )
-                        ?
-                    )
-                ;
-                builder = builder.set_message(var_3);
+                builder = builder.set_access_tier(var_3);
             }
             ,
             _ => {}

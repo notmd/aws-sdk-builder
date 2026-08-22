@@ -72,6 +72,11 @@ pub fn de_get_bucket_notification_configuration(
     let start_el = decoder.start_el();
     #[allow(unused_variables)]
     let depth = 0u32;
+    if !start_el.matches("NotificationConfiguration") {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "encountered invalid XML root: expected NotificationConfiguration but got {start_el:?}. This is likely a bug in the SDK."
+        )));
+    }
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("CloudFunctionConfiguration") /* LambdaFunctionConfigurations com.amazonaws.s3.synthetic#GetBucketNotificationConfigurationOutput$LambdaFunctionConfigurations */ =>  {

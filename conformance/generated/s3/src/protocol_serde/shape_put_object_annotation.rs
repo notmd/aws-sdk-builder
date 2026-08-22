@@ -439,6 +439,11 @@ pub fn de_put_object_annotation(
     let start_el = decoder.start_el();
     #[allow(unused_variables)]
     let depth = 0u32;
+    if !start_el.matches("PutObjectAnnotationOutput") {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "encountered invalid XML root: expected PutObjectAnnotationOutput but got {start_el:?}. This is likely a bug in the SDK."
+        )));
+    }
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("Key") /* Key com.amazonaws.s3.synthetic#PutObjectAnnotationOutput$Key */ =>  {

@@ -467,7 +467,21 @@ fn synthetic_operation_shape(
         .or_insert_with(|| Value::Object(Map::new()))
         .as_object_mut()
         .expect("shape traits must be an object");
-    traits.insert(synthetic_trait.to_owned(), Value::Object(Map::new()));
+    let mut synthetic_metadata = Map::new();
+    synthetic_metadata.insert(
+        "operation".to_owned(),
+        Value::String(operation_id.to_owned()),
+    );
+    if let Some(original_id) = original_id {
+        synthetic_metadata.insert(
+            "originalId".to_owned(),
+            Value::String(original_id.to_owned()),
+        );
+    }
+    traits.insert(
+        synthetic_trait.to_owned(),
+        Value::Object(synthetic_metadata),
+    );
     if is_input {
         traits
             .entry("smithy.api#input".to_owned())
@@ -879,6 +893,20 @@ mod tests {
                 .model
                 .shapes
                 .contains_key("com.amazonaws.s3#GetBucketNotificationConfigurationOutput")
+        );
+        let synthetic_output = selected
+            .model
+            .shapes
+            .get(output_id)
+            .and_then(|shape| shape.get("traits"))
+            .and_then(Value::as_object)
+            .and_then(|traits| traits.get("smithy.api.internal#syntheticOutput"))
+            .and_then(Value::as_object)
+            .and_then(|metadata| metadata.get("originalId"))
+            .and_then(Value::as_str);
+        assert_eq!(
+            synthetic_output,
+            Some("com.amazonaws.s3#NotificationConfiguration")
         );
     }
 

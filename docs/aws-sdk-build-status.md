@@ -28,8 +28,8 @@ full audit trail.
   consumer fixture compiles.
 - M6: in progress. The comparator runs against the pinned AWS SDK Rust `3c6d...` P0
   service trees and checks in deterministic summary and per-service reports. The
-  current report compares 6,462 files: 2,940 exact, 1,553 mismatches, 1,968 missing,
-  and 1 extra (41.30% arithmetic-average match).
+  current report compares 6,462 files: 2,948 exact, 1,545 mismatches, 1,968 missing,
+  and 1 extra (41.46% arithmetic-average match).
 - M6a: launcher and Rust Floci example are implemented; the local S3 create/head
   smoke test passes against `http://localhost:4566`.
 - M7: not complete; semantic parity gates for the priority queue remain open.
@@ -55,6 +55,32 @@ inspection mirror at `/tmp/smithy-rs` so newer upstream behavior does not silent
 change conformance inputs.
 
 ## Evidence
+
+### Checkpoint: 2026-08-23 — Generic Rest XML metadata and parser parity
+
+- State: in progress
+- Changed: synthetic operation shapes now preserve Smithy-RS `originalId` metadata;
+  XML operation-output roots recover names from the original shape or synthetic
+  operation identity; timestamp parsing and serialization honor all Smithy timestamp
+  formats, including `http-date`; empty XML structures consume their decoder;
+  modeled error `Message` members render first; and root-validation errors use the
+  Smithy-RS parser template. These changes are model- and protocol-driven with no
+  service- or operation-specific branches.
+- Evidence: inspected the Smithy-RS model transform and `RestXmlParserGenerator`
+  under `/tmp/smithy-rs`. `just conformance` regenerated 8 all-operation snapshots,
+  formatted 4,494 generated Rust files, and exited 1 as expected because parity
+  remains incomplete. The overall report is `2,948/1,545/1,968/1`; S3 is
+  `1,055/188/101/0` (matched/mismatched/missing/extra), improving the previous
+  checkpoint by 8 exact files overall and in S3. The one remaining root-validation
+  mismatch is formatting-only: the pinned reference retains Smithy-RS template
+  indentation while the local runner rustfmt-normalizes generated sources.
+- Verification: `cargo test --workspace`, `cargo clippy --workspace --all-targets
+  -- -D warnings`, `cargo fmt --all -- --check`, and `git diff --check` pass.
+- Blocker: operation builder architecture, Rest XML helper ordering and temporary
+  naming, endpoint/auth/retry/checksum, streaming, and remaining shared
+  client/runtime source parity gaps remain open.
+- Next action: continue generic shared protocol-helper ordering parity while
+  preserving Smithy-RS shape-dependent lazy writer behavior.
 
 ### Checkpoint: 2026-08-23 — Generic long-operation and union rendering
 

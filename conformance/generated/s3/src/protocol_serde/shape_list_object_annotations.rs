@@ -149,6 +149,11 @@ pub fn de_list_object_annotations(
     let start_el = decoder.start_el();
     #[allow(unused_variables)]
     let depth = 0u32;
+    if !start_el.matches("ListObjectAnnotationsOutput") {
+        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(
+            "encountered invalid XML root: expected ListObjectAnnotationsOutput but got {start_el:?}. This is likely a bug in the SDK."
+        )));
+    }
     while let Some(mut tag) = decoder.next_tag() {
         match tag.start_el() {
             s if s.matches("NextContinuationToken") /* NextContinuationToken com.amazonaws.s3.synthetic#ListObjectAnnotationsOutput$NextContinuationToken */ =>  {

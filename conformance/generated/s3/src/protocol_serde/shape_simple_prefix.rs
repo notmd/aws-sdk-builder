@@ -9,5 +9,6 @@ pub fn de_simple_prefix(
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::SimplePrefix::builder();
+    let _ = decoder;
     Ok(builder.build())
 }

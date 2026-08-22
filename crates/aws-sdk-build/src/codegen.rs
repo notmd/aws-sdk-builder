@@ -5825,6 +5825,40 @@ fn xml_name(value: &Value) -> Option<String> {
         .map(ToOwned::to_owned)
 }
 
+fn synthetic_original_shape_id(shape: &Value) -> Option<&str> {
+    shape
+        .get("traits")
+        .and_then(Value::as_object)
+        .and_then(|traits| {
+            [
+                "smithy.api.internal#syntheticInput",
+                "smithy.api.internal#syntheticOutput",
+            ]
+            .into_iter()
+            .find_map(|trait_id| {
+                traits
+                    .get(trait_id)
+                    .and_then(Value::as_object)
+                    .and_then(|metadata| metadata.get("originalId"))
+                    .and_then(Value::as_str)
+            })
+        })
+}
+
+fn protocol_operation_output_xml_name(
+    selected: &SelectedModel,
+    output_shape_id: &str,
+    output_shape: &Value,
+) -> Option<String> {
+    let original_id = synthetic_original_shape_id(output_shape);
+    let original_shape = original_id.and_then(|id| selected.model.shapes.get(id));
+    original_shape
+        .and_then(xml_name)
+        .or_else(|| xml_name(output_shape))
+        .or_else(|| original_id.map(|id| terminal(id).to_owned()))
+        .or_else(|| Some(terminal(output_shape_id).to_owned()))
+}
+
 fn is_xml_body_member(member: &Value) -> bool {
     let Some(traits) = member.get("traits").and_then(Value::as_object) else {
         return true;
@@ -6355,10 +6389,13 @@ fn render_protocol_operation_output_parser(
         .unwrap();
     } else {
         let allow_invalid_root = has_trait(output_shape, "smithy.api.internal#allowInvalidXmlRoot");
-        if let Some(root) = xml_name(output_shape).filter(|_| !allow_invalid_root) {
+        if let Some(root) =
+            protocol_operation_output_xml_name(selected, output_shape_id, output_shape)
+                .filter(|_| !allow_invalid_root)
+        {
             writeln!(
                 output,
-                "    if !start_el.matches({root:?}) {{\n        return Err(::aws_smithy_xml::decode::XmlDecodeError::custom(format!(\n            \"encountered invalid XML root: expected {root} but got {{start_el:?}}. This is likely a bug in the SDK.\"\n        )));\n    }}"
+                "    if !start_el.matches({root:?}) {{\n        return Err(\n            ::aws_smithy_xml::decode::XmlDecodeError::custom(\n                format!(\"encountered invalid XML root: expected {root} but got {{start_el:?}}. This is likely a bug in the SDK.\")\n            )\n        );\n    }}"
             )
             .unwrap();
         }
@@ -6951,9 +6988,26 @@ fn protocol_primitive_encode(selected: &SelectedModel, target: &str, expression:
             format!("::aws_smithy_types::primitive::Encoder::from({value}).encode()")
         }
         "timestamp" => format!(
-            "{expression_without_reference}.fmt(::aws_smithy_types::date_time::Format::DateTimeWithOffset)?.as_ref()"
+            "{expression_without_reference}.fmt(::aws_smithy_types::date_time::Format::{})?.as_ref()",
+            protocol_timestamp_format(selected, target)
         ),
         _ => format!("{expression_without_reference}.to_string()"),
+    }
+}
+
+fn protocol_timestamp_format(selected: &SelectedModel, target: &str) -> &'static str {
+    match selected
+        .model
+        .shapes
+        .get(target)
+        .and_then(|shape| shape.get("traits"))
+        .and_then(|traits| traits.get("smithy.api#timestampFormat"))
+        .and_then(Value::as_str)
+    {
+        Some("date-time") => "DateTimeWithOffset",
+        Some("epoch-seconds") => "EpochSeconds",
+        Some("http-date") => "HttpDate",
+        _ => "DateTimeWithOffset",
     }
 }
 
@@ -7408,7 +7462,8 @@ fn protocol_parse_primitive_data(selected: &SelectedModel, target: &str, data: &
             "Result::<{ty}, ::aws_smithy_xml::decode::XmlDecodeError>::Ok(\n    {data}\n    .into()\n)"
         ),
         "timestamp" => format!(
-            "::aws_smithy_types::DateTime::from_str(\n    {data}\n    , ::aws_smithy_types::date_time::Format::DateTimeWithOffset\n)\n.map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom(\"expected (timestamp: `{target}`)\"))"
+            "::aws_smithy_types::DateTime::from_str(\n    {data}\n    , ::aws_smithy_types::date_time::Format::{format}\n)\n.map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom(\"expected (timestamp: `{target}`)\"))",
+            format = protocol_timestamp_format(selected, target)
         ),
         "boolean" | "integer" | "long" | "short" | "byte" | "float" | "double" => format!(
             " {{\n    <{ty} as ::aws_smithy_types::primitive::Parse>::parse_smithy_primitive(\n        {data}\n    )\n    .map_err(|_|::aws_smithy_xml::decode::XmlDecodeError::custom(\"expected ({kind}: `{target}`)\"))\n}}"
@@ -7480,6 +7535,9 @@ fn render_protocol_structure_deserializer(
         .into_iter()
         .filter(|(_, member)| !protocol_member_is_attribute(member))
         .collect::<Vec<_>>();
+    if members(shape).is_empty() {
+        output.push_str("    let _ = decoder;\n");
+    }
     if !data_members.is_empty() {
         output.push_str(
             "    while let Some(mut tag) = decoder.next_tag() {\n        match tag.start_el() {\n",
@@ -7689,7 +7747,16 @@ fn render_protocol_error_file(selected: &SelectedModel, shape_id: &str) -> Strin
     )
     .unwrap();
     let mut state = ProtocolRenderState::default();
-    for (member_name, member) in members(shape) {
+    let mut error_members = Vec::new();
+    if let Some((member_name, member)) = error_message_member(shape) {
+        error_members.push((member_name, member));
+    }
+    error_members.extend(
+        members(shape)
+            .into_iter()
+            .filter(|(member_name, _)| !member_name.eq_ignore_ascii_case("message")),
+    );
+    for (member_name, member) in error_members {
         let target = member_target(member).unwrap_or_default();
         let field = names::rust_identifier(&member_name);
         let xml_name = protocol_member_xml_name(selected, &member_name, member);

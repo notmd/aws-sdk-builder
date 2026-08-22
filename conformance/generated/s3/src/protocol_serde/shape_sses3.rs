@@ -9,5 +9,6 @@ pub fn de_sses3(
     }
     #[allow(unused_mut)]
     let mut builder = crate::types::Sses3::builder();
+    let _ = decoder;
     Ok(builder.build())
 }
