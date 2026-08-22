@@ -122,6 +122,22 @@ pub(crate) fn generate(
                 format!("src/client/{module}.rs"),
                 render_client_operation_file(&selected, &operation_name, consumer_namespace),
             ));
+            if protocol == crate::model::ProtocolKind::RestXml {
+                service_files.push((
+                    format!("src/protocol_serde/shape_{module}.rs"),
+                    render_protocol_operation_file(&selected, &operation_name, consumer_namespace),
+                ));
+                if protocol_output_has_headers(&selected, &operation_name) {
+                    service_files.push((
+                        format!("src/protocol_serde/shape_{module}_output.rs"),
+                        render_protocol_output_headers(
+                            &selected,
+                            &operation_name,
+                            consumer_namespace,
+                        ),
+                    ));
+                }
+            }
         }
         let operation_shapes = operation_shape_ids(&selected);
         let mut shape_ids = selected.model.shapes.keys().cloned().collect::<Vec<_>>();
@@ -1407,12 +1423,12 @@ fn render_operation_shape_file(
     consumer_namespace: bool,
 ) -> String {
     let operation = operation_shape(selected, operation_name).expect("selected operation exists");
+    let module = names::snake_case(operation_name);
     let shape_id = operation
         .get(if input { "input" } else { "output" })
         .and_then(target_value);
     let shape = shape_id.and_then(|id| selected.model.shapes.get(id));
     let rust_name = operation_shape_file_name(operation_name, input);
-    let module = names::snake_case(operation_name);
     let mut output = String::new();
     header(&mut output);
     // Smithy emits operation input/output modules directly after the header;
@@ -2060,6 +2076,442 @@ fn render_request_headers(
             output
         }
     }
+}
+
+/// Render the Smithy protocol glue for one operation.
+///
+/// The operation-level file is deliberately driven by HTTP binding traits. It
+/// does not know which AWS service owns the operation; service-specific request
+/// ID behavior comes from the selected service metadata via `RequestIdPlan`.
+fn render_protocol_operation_file(
+    selected: &SelectedModel,
+    operation_name: &str,
+    consumer_namespace: bool,
+) -> String {
+    let operation = operation_shape(selected, operation_name).expect("selected operation exists");
+    let output_shape = operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    let input_shape = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    let mut output = String::new();
+    client_operation_header(&mut output);
+
+    render_protocol_http_error(
+        &mut output,
+        selected,
+        operation_name,
+        operation,
+        consumer_namespace,
+    );
+    render_protocol_http_response(
+        &mut output,
+        selected,
+        operation_name,
+        output_shape,
+        consumer_namespace,
+    );
+    render_protocol_request_headers(
+        &mut output,
+        selected,
+        operation_name,
+        input_shape,
+        consumer_namespace,
+    );
+    output
+}
+
+fn render_protocol_http_error(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    operation: &Value,
+    consumer_namespace: bool,
+) {
+    let module = names::snake_case(operation_name);
+    let rust_operation = rust_type_name(operation_name);
+    let output_path =
+        protocol_operation_type_path(&module, &rust_operation, "Output", consumer_namespace);
+    let error_path =
+        protocol_operation_type_path(&module, &rust_operation, "Error", consumer_namespace);
+    writeln!(
+        output,
+        "#[allow(clippy::unnecessary_wraps)]\npub fn de_{module}_http_error(\n    _response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    _response_body: &[u8],\n) -> std::result::Result<{output_path}, {error_path}> {{"
+    )
+    .unwrap();
+    output.push_str("    #[allow(unused_mut)]\n");
+    writeln!(
+        output,
+        "    let mut generic_builder = crate::protocol_serde::parse_http_error_metadata(_response_status, _response_headers, _response_body)\n        .map_err({error_path}::unhandled)?;"
+    )
+    .unwrap();
+    let request_ids = request_id_plan(selected);
+    if request_ids.extended {
+        writeln!(
+            output,
+            "    generic_builder = crate::s3_request_id::apply_extended_request_id(generic_builder, _response_headers);"
+        )
+        .unwrap();
+    }
+    if request_ids.standard {
+        output.push_str(
+            "    generic_builder = ::aws_types::request_id::apply_request_id(generic_builder, _response_headers);\n",
+        );
+    }
+    output.push_str("    let generic = generic_builder.build();\n");
+    let errors = operation
+        .get("errors")
+        .and_then(Value::as_array)
+        .map(|errors| errors.iter().filter_map(target_value).collect::<Vec<_>>())
+        .unwrap_or_default();
+    if errors.is_empty() {
+        writeln!(output, "    Err({error_path}::generic(generic))\n}}\n").unwrap();
+        return;
+    }
+
+    output.push_str(
+        "    let error_code = match generic.code() {\n        Some(code) => code,\n        None => return Err(",
+    );
+    writeln!(output, "{error_path}::unhandled(generic)),").unwrap();
+    output.push_str("    };\n\n    let _error_message = generic.message().map(|msg| msg.to_owned());\n    Err(match error_code {\n");
+    for error in errors {
+        render_protocol_error_arm(output, &error_path, error);
+    }
+    writeln!(
+        output,
+        "        _ => {error_path}::generic(generic),\n    }})\n}}\n"
+    )
+    .unwrap();
+}
+
+fn render_protocol_error_arm(output: &mut String, error_path: &str, error: &str) {
+    let error_name = rust_type_name(terminal(error));
+    let error_module = names::snake_case(terminal(error));
+    writeln!(
+        output,
+        "        {error_name:?} => {error_path}::{error_name}({{"
+    )
+    .unwrap();
+    output.push_str("            #[allow(unused_mut)]\n            let mut tmp = {\n");
+    writeln!(
+        output,
+        "                #[allow(unused_mut)]\n                let mut output = crate::types::error::builders::{error_name}Builder::default();"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "                output = crate::protocol_serde::shape_{error_module}::de_{error_module}_xml_err(_response_body, output)\n                    .map_err({error_path}::unhandled)?;"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "                let output = output.meta(generic);\n                output.build()\n            }};"
+    )
+    .unwrap();
+    output.push_str("            if tmp.message.is_none() {\n                tmp.message = _error_message;\n            }\n            tmp\n        }),\n");
+}
+
+fn protocol_operation_type_path(
+    module: &str,
+    operation: &str,
+    suffix: &str,
+    consumer_namespace: bool,
+) -> String {
+    if consumer_namespace {
+        format!("super::super::super::{module}::{operation}{suffix}")
+    } else {
+        format!("crate::operation::{module}::{operation}{suffix}")
+    }
+}
+
+fn render_protocol_http_response(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    output_shape: Option<&Value>,
+    consumer_namespace: bool,
+) {
+    let module = names::snake_case(operation_name);
+    let rust_operation = rust_type_name(operation_name);
+    let output_path =
+        protocol_operation_type_path(&module, &rust_operation, "Output", consumer_namespace);
+    let error_path =
+        protocol_operation_type_path(&module, &rust_operation, "Error", consumer_namespace);
+    writeln!(
+        output,
+        "#[allow(clippy::unnecessary_wraps)]\npub fn de_{module}_http_response(\n    _response_status: u16,\n    _response_headers: &::aws_smithy_runtime_api::http::Headers,\n    _response_body: &[u8],\n) -> std::result::Result<{output_path}, {error_path}> {{"
+    )
+    .unwrap();
+    output.push_str("    Ok({\n        #[allow(unused_mut)]\n");
+    let builder_path = if consumer_namespace {
+        format!("super::super::super::{module}::builders::{rust_operation}OutputBuilder")
+    } else {
+        format!("crate::operation::{module}::builders::{rust_operation}OutputBuilder")
+    };
+    writeln!(
+        output,
+        "        let mut output = {builder_path}::default();"
+    )
+    .unwrap();
+    if let Some(shape) = output_shape {
+        for (name, member) in sorted_members(shape) {
+            let Some(header) = member
+                .get("traits")
+                .and_then(|traits| traits.get("smithy.api#httpHeader"))
+                .and_then(Value::as_str)
+            else {
+                continue;
+            };
+            let field = names::rust_identifier(&name);
+            let helper_module = format!("shape_{module}_output");
+            let helper_path = if consumer_namespace {
+                format!("super::super::super::protocol_serde::{helper_module}")
+            } else {
+                format!("crate::protocol_serde::{helper_module}")
+            };
+            let error_path =
+                protocol_operation_type_path(&module, &rust_operation, "Error", consumer_namespace);
+            writeln!(
+                output,
+                "        output = output.set_{field}(\n            {helper_path}::de_{field}_header(_response_headers).map_err(|_| {{\n                {error_path}::unhandled(\"Failed to parse {name} from header `{header}\")\n            }})?,\n        );"
+            )
+            .unwrap();
+        }
+    }
+    let request_ids = request_id_plan(selected);
+    if request_ids.extended {
+        output.push_str(
+            "        output._set_extended_request_id(crate::s3_request_id::RequestIdExt::extended_request_id(_response_headers).map(str::to_string));\n",
+        );
+    }
+    if request_ids.standard {
+        output.push_str(
+            "        output._set_request_id(::aws_types::request_id::RequestId::request_id(_response_headers).map(str::to_string));\n",
+        );
+    }
+    output.push_str("        output.build()\n    })\n}\n\n");
+}
+
+fn render_protocol_request_headers(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_name: &str,
+    input_shape: Option<&Value>,
+    consumer_namespace: bool,
+) {
+    let module = names::snake_case(operation_name);
+    let rust_operation = rust_type_name(operation_name);
+    let input_path =
+        protocol_operation_type_path(&module, &rust_operation, "Input", consumer_namespace);
+    output.push_str(&format!(
+        "pub fn ser_{module}_headers(\n    input: &{input_path},\n    mut builder: ::http_1x::request::Builder,\n) -> std::result::Result<::http_1x::request::Builder, ::aws_smithy_types::error::operation::BuildError> {{\n"
+    ));
+    let mut index = 1usize;
+    if let Some(shape) = input_shape {
+        for (name, member) in members(shape) {
+            let Some(header) = member
+                .get("traits")
+                .and_then(|traits| traits.get("smithy.api#httpHeader"))
+                .and_then(Value::as_str)
+            else {
+                continue;
+            };
+            let Some(target) = member_target(member) else {
+                continue;
+            };
+            if member
+                .get("traits")
+                .and_then(Value::as_object)
+                .is_some_and(|traits| traits.contains_key("smithy.api#httpPrefixHeaders"))
+            {
+                continue;
+            }
+            render_protocol_request_header(output, selected, &name, member, target, header, index);
+            index += 2;
+        }
+    }
+    output.push_str("    Ok(builder)\n}\n");
+}
+
+fn render_protocol_request_header(
+    output: &mut String,
+    selected: &SelectedModel,
+    name: &str,
+    member: &Value,
+    target: &str,
+    header: &str,
+    index: usize,
+) {
+    let field = names::rust_identifier(name);
+    let type_name = rust_type_name(name);
+    let shape = selected.model.shapes.get(target);
+    let kind = shape
+        .and_then(|shape| shape.get("type"))
+        .and_then(Value::as_str)
+        .or_else(|| target.strip_prefix("smithy.api#"))
+        .unwrap_or("string");
+    writeln!(
+        output,
+        "    if let ::std::option::Option::Some(inner_{index}) = &input.{field} {{"
+    )
+    .unwrap();
+    let formatted = index + 1;
+    if matches!(kind, "string" | "enum") {
+        writeln!(
+            output,
+            "        let formatted_{formatted} = inner_{index}.as_str();"
+        )
+        .unwrap();
+    } else if matches!(kind, "timestamp") {
+        writeln!(
+            output,
+            "        let formatted_{formatted} = inner_{index}.fmt(::aws_smithy_types::date_time::Format::HttpDate)?;"
+        )
+        .unwrap();
+    } else if matches!(
+        kind,
+        "boolean" | "integer" | "long" | "short" | "byte" | "float" | "double"
+    ) {
+        writeln!(
+            output,
+            "        let mut encoder = ::aws_smithy_types::primitive::Encoder::from(*inner_{index});\n        let formatted_{formatted} = encoder.encode();"
+        )
+        .unwrap();
+    } else {
+        writeln!(
+            output,
+            "        let formatted_{formatted} = inner_{index}.to_string();"
+        )
+        .unwrap();
+    }
+    let redacted = value_should_redact(selected, member, &mut BTreeSet::new());
+    let display_expression = if redacted {
+        "&\"*** Sensitive Data Redacted ***\"".to_owned()
+    } else {
+        "&header_value".to_owned()
+    };
+    writeln!(
+        output,
+        "        let header_value = formatted_{formatted};\n        let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {{\n            ::aws_smithy_types::error::operation::BuildError::invalid_field(\n                {type_name:?},\n                format!(\"`{{}}` cannot be used as a header value: {{}}\", {display_expression}, err),\n            )\n        }})?;\n        builder = builder.header({header:?}, header_value);\n    }}"
+    )
+    .unwrap();
+}
+
+fn protocol_output_has_headers(selected: &SelectedModel, operation_name: &str) -> bool {
+    operation_shape(selected, operation_name)
+        .and_then(|operation| operation.get("output"))
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id))
+        .is_some_and(|shape| {
+            members(shape).iter().any(|(_, member)| {
+                member
+                    .get("traits")
+                    .and_then(|traits| traits.get("smithy.api#httpHeader"))
+                    .is_some()
+            })
+        })
+}
+
+fn render_protocol_output_headers(
+    selected: &SelectedModel,
+    operation_name: &str,
+    _consumer_namespace: bool,
+) -> String {
+    let operation = operation_shape(selected, operation_name).expect("selected operation exists");
+    let output_shape = operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    let Some(shape) = output_shape else {
+        return output;
+    };
+    let mut index = 1usize;
+    for (name, member) in sorted_members(shape) {
+        let Some(header_name) = member
+            .get("traits")
+            .and_then(|traits| traits.get("smithy.api#httpHeader"))
+            .and_then(Value::as_str)
+        else {
+            continue;
+        };
+        let Some(target) = member_target(member) else {
+            continue;
+        };
+        render_protocol_response_header(&mut output, selected, &name, target, header_name, index);
+        if response_header_uses_variable(selected, target) {
+            index += 1;
+        }
+    }
+    output
+}
+
+fn response_header_uses_variable(selected: &SelectedModel, target: &str) -> bool {
+    let kind = selected
+        .model
+        .shapes
+        .get(target)
+        .and_then(|shape| shape.get("type"))
+        .and_then(Value::as_str)
+        .or_else(|| target.strip_prefix("smithy.api#"))
+        .unwrap_or("string");
+    matches!(
+        kind,
+        "boolean" | "integer" | "long" | "short" | "byte" | "float" | "double" | "timestamp"
+    )
+}
+
+fn render_protocol_response_header(
+    output: &mut String,
+    selected: &SelectedModel,
+    name: &str,
+    target: &str,
+    header_name: &str,
+    index: usize,
+) {
+    let field = names::rust_identifier(name);
+    let kind = selected
+        .model
+        .shapes
+        .get(target)
+        .and_then(|shape| shape.get("type"))
+        .and_then(Value::as_str)
+        .or_else(|| target.strip_prefix("smithy.api#"))
+        .unwrap_or("string");
+    let return_type = type_expr(
+        selected,
+        target,
+        Context::Types {
+            consumer_namespace: false,
+        },
+    );
+    writeln!(
+        output,
+        "pub(crate) fn de_{field}_header(\n    header_map: &::aws_smithy_runtime_api::http::Headers,\n) -> ::std::result::Result<::std::option::Option<{return_type}>, ::aws_smithy_http::header::ParseError> {{\n    let headers = header_map.get_all({header_name:?});"
+    )
+    .unwrap();
+    match kind {
+        "boolean" | "integer" | "long" | "short" | "byte" | "float" | "double" => {
+            writeln!(
+                output,
+                "    let var_{index} = ::aws_smithy_http::header::read_many_primitive::<{return_type}>(headers)?;\n    if var_{index}.len() > 1 {{\n        Err(::aws_smithy_http::header::ParseError::new(format!(\n            \"expected one item but found {{}}\",\n            var_{index}.len()\n        )))\n    }} else {{\n        let mut var_{index} = var_{index};\n        Ok(var_{index}.pop())\n    }}"
+            )
+            .unwrap();
+        }
+        "timestamp" => {
+            writeln!(
+                output,
+                "    let var_{index}: Vec<{return_type}> = ::aws_smithy_http::header::many_dates(headers, ::aws_smithy_types::date_time::Format::HttpDate)?;\n    if var_{index}.len() > 1 {{\n        Err(::aws_smithy_http::header::ParseError::new(format!(\n            \"expected one item but found {{}}\",\n            var_{index}.len()\n        )))\n    }} else {{\n        let mut var_{index} = var_{index};\n        Ok(var_{index}.pop())\n    }}"
+            )
+            .unwrap();
+        }
+        _ => output.push_str("    ::aws_smithy_http::header::one_or_none(headers)\n"),
+    }
+    output.push_str("}\n\n");
 }
 
 fn render_response_decode(

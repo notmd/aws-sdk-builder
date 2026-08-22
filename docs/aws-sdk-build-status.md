@@ -30,8 +30,8 @@ Updated 2026-08-22. Prompt.md is the project specification.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The current report
-  compares 6,584 files and has 1,554 exact matches (22.78% arithmetic average),
-  with 2,044 mismatches, 2,863 missing files, and 123 extra files. Both comparison
+  compares 6,584 files and has 1,586 exact matches (23.08% arithmetic average),
+  with 2,162 mismatches, 2,713 missing files, and 123 extra files. Both comparison
   trees are checked in under `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. The live
   `my_aws_sdk::tests::creates_then_heads_a_bucket` test passes against the
@@ -83,6 +83,28 @@ updated when the port adopts a new reusable abstraction.
   support, pagination/waiters, and full operation semantics remain.
 - Next action: port the next shared protocol serialization/runtime boundary while
   preserving the verified Smithy formatter, streaming, and redaction rules.
+
+### Checkpoint: 2026-08-22 — RestXml operation protocol files
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now emits model-driven
+  `src/protocol_serde/shape_<operation>.rs` files for RestXml operations, plus
+  response-header helpers when the modeled output has HTTP header bindings. The
+  generator uses Smithy HTTP binding member ordering and preserves the existing
+  operation input/output header format.
+- Formatter audit: the pinned Smithy-RS `ClientCodegenVisitor.kt` runs
+  `cargo fmt -- --config max_width=150` after generation. The local snapshot
+  generator applies the equivalent per-file `rustfmt --edition 2021 --config
+  max_width=150,skip_children=true` configuration because snapshots have no
+  temporary Cargo manifest.
+- Evidence: `just conformance` regenerated all 8 all-operation snapshots (496
+  operations) and compared 6,584 files. The exact count increased from 1,554 to
+  1,586 overall and from 445 to 477 for S3; missing files fell from 2,863 to
+  2,713. The comparison still exits 1 because parity is incomplete.
+- Blocker: XML document payload serializers/deserializers, modeled error XML,
+  module wiring, and the remaining protocol/runtime layers are not yet emitted.
+- Next action: add the shared XML document binding layer and rerun conformance,
+  keeping this checkpoint only if exact coverage continues to increase.
 
 ### Checkpoint: 2026-08-22 — Smithy HTML documentation and builder parity
 
