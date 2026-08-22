@@ -2258,6 +2258,31 @@ fn render_protocol_http_response(
     .unwrap();
     if let Some(shape) = output_shape {
         for (name, member) in sorted_members(shape) {
+            if let Some(prefix) = member
+                .get("traits")
+                .and_then(|traits| traits.get("smithy.api#httpPrefixHeaders"))
+                .and_then(Value::as_str)
+            {
+                let field = names::rust_identifier(&name);
+                let helper_module = format!("shape_{module}_output");
+                let helper_path = if consumer_namespace {
+                    format!("super::super::super::protocol_serde::{helper_module}")
+                } else {
+                    format!("crate::protocol_serde::{helper_module}")
+                };
+                let error_path = protocol_operation_type_path(
+                    &module,
+                    &rust_operation,
+                    "Error",
+                    consumer_namespace,
+                );
+                writeln!(
+                    output,
+                    "        output = output.set_{field}(\n            {helper_path}::de_{field}_prefix_header(_response_headers).map_err(|_| {{\n                {error_path}::unhandled(\"Failed to parse {name} from prefix header `{prefix}\")\n            }})?,\n        );"
+                )
+                .unwrap();
+                continue;
+            }
             let Some(header) = member
                 .get("traits")
                 .and_then(|traits| traits.get("smithy.api#httpHeader"))
@@ -2312,9 +2337,25 @@ fn render_protocol_request_headers(
     let mut index = 1usize;
     if let Some(shape) = input_shape {
         for (name, member) in members(shape) {
-            let Some(header) = member
+            let Some(traits) = member.get("traits").and_then(Value::as_object) else {
+                continue;
+            };
+            let Some(target) = member_target(member) else {
+                continue;
+            };
+            if traits.contains_key("smithy.api#httpPrefixHeaders") {
+                continue;
+            }
+            let Some(header) = traits.get("smithy.api#httpHeader").and_then(Value::as_str) else {
+                continue;
+            };
+            render_protocol_request_header(output, selected, &name, member, target, header, index);
+            index += 2;
+        }
+        for (name, member) in members(shape) {
+            let Some(prefix) = member
                 .get("traits")
-                .and_then(|traits| traits.get("smithy.api#httpHeader"))
+                .and_then(|traits| traits.get("smithy.api#httpPrefixHeaders"))
                 .and_then(Value::as_str)
             else {
                 continue;
@@ -2322,15 +2363,9 @@ fn render_protocol_request_headers(
             let Some(target) = member_target(member) else {
                 continue;
             };
-            if member
-                .get("traits")
-                .and_then(Value::as_object)
-                .is_some_and(|traits| traits.contains_key("smithy.api#httpPrefixHeaders"))
-            {
-                continue;
-            }
-            render_protocol_request_header(output, selected, &name, member, target, header, index);
-            index += 2;
+            render_protocol_request_prefix_header(
+                output, selected, &name, member, target, prefix, index,
+            );
         }
     }
     output.push_str("    Ok(builder)\n}\n");
@@ -2365,9 +2400,10 @@ fn render_protocol_request_header(
         )
         .unwrap();
     } else if matches!(kind, "timestamp") {
+        let timestamp_format = header_timestamp_format(selected, member, target);
         writeln!(
             output,
-            "        let formatted_{formatted} = inner_{index}.fmt(::aws_smithy_types::date_time::Format::HttpDate)?;"
+            "        let formatted_{formatted} = inner_{index}.fmt(::aws_smithy_types::date_time::Format::{timestamp_format})?;"
         )
         .unwrap();
     } else if matches!(
@@ -2399,6 +2435,102 @@ fn render_protocol_request_header(
     .unwrap();
 }
 
+fn render_protocol_request_prefix_header(
+    output: &mut String,
+    selected: &SelectedModel,
+    name: &str,
+    member: &Value,
+    target: &str,
+    prefix: &str,
+    index: usize,
+) {
+    let field = names::rust_identifier(name);
+    let Some(map_shape) = selected.model.shapes.get(target) else {
+        return;
+    };
+    let Some(value_target) = map_shape.get("value").and_then(member_target) else {
+        return;
+    };
+    let value_shape = selected.model.shapes.get(value_target);
+    let value_kind = value_shape
+        .and_then(|shape| shape.get("type"))
+        .and_then(Value::as_str)
+        .or_else(|| value_target.strip_prefix("smithy.api#"))
+        .unwrap_or("string");
+    let value_expression = match value_kind {
+        "string" | "enum" => "v.as_str()".to_owned(),
+        "timestamp" => format!(
+            "v.fmt(::aws_smithy_types::date_time::Format::{})?",
+            header_timestamp_format(selected, member, value_target)
+        ),
+        "boolean" | "integer" | "long" | "short" | "byte" | "float" | "double" => {
+            "::aws_smithy_types::primitive::Encoder::from(*v).encode()".to_owned()
+        }
+        _ => "v.to_string()".to_owned(),
+    };
+    writeln!(
+        output,
+        "    if let ::std::option::Option::Some(inner_{index}) = &input.{field} {{"
+    )
+    .unwrap();
+    output.push_str(&format!(
+        "        {{\n            for (k, v) in inner_{index} {{\n                use std::str::FromStr;\n"
+    ));
+    writeln!(
+        output,
+        "                let header_name = ::http_1x::HeaderName::from_str(&format!(\"{{}}{{}}\", {prefix:?}, &k)).map_err(|err| {{"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "                    ::aws_smithy_types::error::operation::BuildError::invalid_field(\n                        {field:?},\n                        format!(\"`{{k}}` cannot be used as a header name: {{err}}\"),\n                    )\n                }})?;"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "                let header_value = {value_expression};"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "                let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {{\n                    ::aws_smithy_types::error::operation::BuildError::invalid_field(\n                        {field:?},\n                        format!(\"`{{v}}` cannot be used as a header value: {{err}}\"),\n                    )\n                }})?;"
+    )
+    .unwrap();
+    output.push_str("                builder = builder.header(header_name, header_value);\n            }\n        }\n    }\n");
+}
+
+fn header_timestamp_format(selected: &SelectedModel, member: &Value, target: &str) -> &'static str {
+    let format = member
+        .get("traits")
+        .and_then(|traits| traits.get("smithy.api#timestampFormat"))
+        .and_then(Value::as_str)
+        .or_else(|| {
+            selected
+                .model
+                .shapes
+                .get(target)
+                .and_then(|shape| shape.get("traits"))
+                .and_then(|traits| traits.get("smithy.api#timestampFormat"))
+                .and_then(Value::as_str)
+        });
+    match format {
+        Some("date-time") => "DateTime",
+        Some("epoch-seconds") => "EpochSeconds",
+        _ => "HttpDate",
+    }
+}
+
+fn response_header_timestamp_format(selected: &SelectedModel, target: &str) -> &'static str {
+    match header_timestamp_format(
+        selected,
+        selected.model.shapes.get(target).unwrap_or(&Value::Null),
+        target,
+    ) {
+        "DateTime" => "DateTimeWithOffset",
+        format => format,
+    }
+}
+
 fn protocol_output_has_headers(selected: &SelectedModel, operation_name: &str) -> bool {
     operation_shape(selected, operation_name)
         .and_then(|operation| operation.get("output"))
@@ -2408,8 +2540,11 @@ fn protocol_output_has_headers(selected: &SelectedModel, operation_name: &str) -
             members(shape).iter().any(|(_, member)| {
                 member
                     .get("traits")
-                    .and_then(|traits| traits.get("smithy.api#httpHeader"))
-                    .is_some()
+                    .and_then(Value::as_object)
+                    .is_some_and(|traits| {
+                        traits.contains_key("smithy.api#httpHeader")
+                            || traits.contains_key("smithy.api#httpPrefixHeaders")
+                    })
             })
         })
 }
@@ -2430,21 +2565,39 @@ fn render_protocol_output_headers(
         return output;
     };
     let mut index = 1usize;
+    let mut prefix_headers = Vec::new();
     for (name, member) in sorted_members(shape) {
-        let Some(header_name) = member
-            .get("traits")
-            .and_then(|traits| traits.get("smithy.api#httpHeader"))
-            .and_then(Value::as_str)
-        else {
+        let Some(target) = member_target(member) else {
             continue;
         };
-        let Some(target) = member_target(member) else {
+        let Some(traits) = member.get("traits").and_then(Value::as_object) else {
+            continue;
+        };
+        if let Some(prefix) = traits
+            .get("smithy.api#httpPrefixHeaders")
+            .and_then(Value::as_str)
+        {
+            render_protocol_response_prefix_header(
+                &mut output,
+                selected,
+                &names::snake_case(operation_name),
+                &name,
+                target,
+                prefix,
+            );
+            prefix_headers.push((name, target.to_owned()));
+            continue;
+        }
+        let Some(header_name) = traits.get("smithy.api#httpHeader").and_then(Value::as_str) else {
             continue;
         };
         render_protocol_response_header(&mut output, selected, &name, target, header_name, index);
         if response_header_uses_variable(selected, target) {
             index += 1;
         }
+    }
+    for (name, target) in prefix_headers {
+        render_protocol_response_prefix_inner(&mut output, selected, &name, &target);
     }
     output
 }
@@ -2502,15 +2655,72 @@ fn render_protocol_response_header(
             .unwrap();
         }
         "timestamp" => {
+            let timestamp_format = response_header_timestamp_format(selected, target);
             writeln!(
                 output,
-                "    let var_{index}: Vec<{return_type}> = ::aws_smithy_http::header::many_dates(headers, ::aws_smithy_types::date_time::Format::HttpDate)?;\n    if var_{index}.len() > 1 {{\n        Err(::aws_smithy_http::header::ParseError::new(format!(\n            \"expected one item but found {{}}\",\n            var_{index}.len()\n        )))\n    }} else {{\n        let mut var_{index} = var_{index};\n        Ok(var_{index}.pop())\n    }}"
+                "    let var_{index}: Vec<{return_type}> = ::aws_smithy_http::header::many_dates(headers, ::aws_smithy_types::date_time::Format::{timestamp_format})?;\n    if var_{index}.len() > 1 {{\n        Err(::aws_smithy_http::header::ParseError::new(format!(\n            \"expected one item but found {{}}\",\n            var_{index}.len()\n        )))\n    }} else {{\n        let mut var_{index} = var_{index};\n        Ok(var_{index}.pop())\n    }}"
             )
             .unwrap();
         }
         _ => output.push_str("    ::aws_smithy_http::header::one_or_none(headers)\n"),
     }
     output.push_str("}\n\n");
+}
+
+fn render_protocol_response_prefix_header(
+    output: &mut String,
+    selected: &SelectedModel,
+    operation_module: &str,
+    name: &str,
+    target: &str,
+    prefix: &str,
+) {
+    let field = names::rust_identifier(name);
+    let Some(map_shape) = selected.model.shapes.get(target) else {
+        return;
+    };
+    let Some(value_target) = map_shape.get("value").and_then(member_target) else {
+        return;
+    };
+    let value_type = type_expr(
+        selected,
+        value_target,
+        Context::Types {
+            consumer_namespace: false,
+        },
+    );
+    writeln!(
+        output,
+        "pub(crate) fn de_{field}_prefix_header(\n    header_map: &::aws_smithy_runtime_api::http::Headers,\n) -> std::result::Result<::std::option::Option<::std::collections::HashMap<::std::string::String, {value_type}>>, ::aws_smithy_http::header::ParseError> {{\n    let headers = ::aws_smithy_http::header::headers_for_prefix(header_map.iter().map(|(k, _)| k), {prefix:?});\n    let out: std::result::Result<_, _> = headers.map(|(key, header_name)| {{\n                            let values = header_map.get_all(header_name);\n                            crate::protocol_serde::shape_{operation_module}_output::de_{field}_inner(values).map(|v| (key.to_string(), v.expect(\n                                \"we have checked there is at least one value for this header name; please file a bug report under https://github.com/smithy-lang/smithy-rs/issues\"\n                            )))\n                        }}).collect();\n    out.map(Some)\n}}\n\n"
+    )
+    .unwrap();
+}
+
+fn render_protocol_response_prefix_inner(
+    output: &mut String,
+    selected: &SelectedModel,
+    name: &str,
+    target: &str,
+) {
+    let field = names::rust_identifier(name);
+    let Some(map_shape) = selected.model.shapes.get(target) else {
+        return;
+    };
+    let Some(value_target) = map_shape.get("value").and_then(member_target) else {
+        return;
+    };
+    let value_type = type_expr(
+        selected,
+        value_target,
+        Context::Types {
+            consumer_namespace: false,
+        },
+    );
+    writeln!(
+        output,
+        "pub fn de_{field}_inner<'a>(\n    headers: impl ::std::iter::Iterator<Item = &'a str>,\n) -> std::result::Result<Option<{value_type}>, ::aws_smithy_http::header::ParseError> {{\n    ::aws_smithy_http::header::one_or_none(headers)\n}}\n"
+    )
+    .unwrap();
 }
 
 fn render_response_decode(

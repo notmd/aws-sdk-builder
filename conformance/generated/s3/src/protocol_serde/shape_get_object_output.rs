@@ -226,6 +226,22 @@ pub(crate) fn de_last_modified_header(
     }
 }
 
+pub(crate) fn de_metadata_prefix_header(
+    header_map: &::aws_smithy_runtime_api::http::Headers,
+) -> std::result::Result<
+    ::std::option::Option<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
+    ::aws_smithy_http::header::ParseError,
+> {
+    let headers = ::aws_smithy_http::header::headers_for_prefix(header_map.iter().map(|(k, _)| k), "x-amz-meta-");
+    let out: std::result::Result<_, _> = headers.map(|(key, header_name)| {
+                            let values = header_map.get_all(header_name);
+                            crate::protocol_serde::shape_get_object_output::de_metadata_inner(values).map(|v| (key.to_string(), v.expect(
+                                "we have checked there is at least one value for this header name; please file a bug report under https://github.com/smithy-lang/smithy-rs/issues"
+                            )))
+                        }).collect();
+    out.map(Some)
+}
+
 pub(crate) fn de_missing_meta_header(
     header_map: &::aws_smithy_runtime_api::http::Headers,
 ) -> ::std::result::Result<::std::option::Option<i32>, ::aws_smithy_http::header::ParseError> {
@@ -260,7 +276,8 @@ pub(crate) fn de_object_lock_retain_until_date_header(
     header_map: &::aws_smithy_runtime_api::http::Headers,
 ) -> ::std::result::Result<::std::option::Option<::aws_smithy_types::DateTime>, ::aws_smithy_http::header::ParseError> {
     let headers = header_map.get_all("x-amz-object-lock-retain-until-date");
-    let var_7: Vec<::aws_smithy_types::DateTime> = ::aws_smithy_http::header::many_dates(headers, ::aws_smithy_types::date_time::Format::HttpDate)?;
+    let var_7: Vec<::aws_smithy_types::DateTime> =
+        ::aws_smithy_http::header::many_dates(headers, ::aws_smithy_types::date_time::Format::DateTimeWithOffset)?;
     if var_7.len() > 1 {
         Err(::aws_smithy_http::header::ParseError::new(format!(
             "expected one item but found {}",
@@ -371,5 +388,11 @@ pub(crate) fn de_website_redirect_location_header(
     header_map: &::aws_smithy_runtime_api::http::Headers,
 ) -> ::std::result::Result<::std::option::Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
     let headers = header_map.get_all("x-amz-website-redirect-location");
+    ::aws_smithy_http::header::one_or_none(headers)
+}
+
+pub fn de_metadata_inner<'a>(
+    headers: impl ::std::iter::Iterator<Item = &'a str>,
+) -> std::result::Result<Option<::std::string::String>, ::aws_smithy_http::header::ParseError> {
     ::aws_smithy_http::header::one_or_none(headers)
 }

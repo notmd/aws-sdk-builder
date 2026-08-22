@@ -371,7 +371,7 @@ pub fn ser_create_multipart_upload_headers(
         builder = builder.header("x-amz-object-lock-mode", header_value);
     }
     if let ::std::option::Option::Some(inner_47) = &input.object_lock_retain_until_date {
-        let formatted_48 = inner_47.fmt(::aws_smithy_types::date_time::Format::HttpDate)?;
+        let formatted_48 = inner_47.fmt(::aws_smithy_types::date_time::Format::DateTime)?;
         let header_value = formatted_48;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
@@ -424,6 +424,27 @@ pub fn ser_create_multipart_upload_headers(
             )
         })?;
         builder = builder.header("x-amz-checksum-type", header_value);
+    }
+    if let ::std::option::Option::Some(inner_57) = &input.metadata {
+        {
+            for (k, v) in inner_57 {
+                use std::str::FromStr;
+                let header_name = ::http_1x::HeaderName::from_str(&format!("{}{}", "x-amz-meta-", &k)).map_err(|err| {
+                    ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                        "metadata",
+                        format!("`{k}` cannot be used as a header name: {err}"),
+                    )
+                })?;
+                let header_value = v.as_str();
+                let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+                    ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                        "metadata",
+                        format!("`{v}` cannot be used as a header value: {err}"),
+                    )
+                })?;
+                builder = builder.header(header_name, header_value);
+            }
+        }
     }
     Ok(builder)
 }

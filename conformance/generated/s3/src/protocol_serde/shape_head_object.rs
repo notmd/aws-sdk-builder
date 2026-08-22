@@ -174,6 +174,10 @@ pub fn de_head_object_http_response(
             crate::protocol_serde::shape_head_object_output::de_last_modified_header(_response_headers)
                 .map_err(|_| crate::operation::head_object::HeadObjectError::unhandled("Failed to parse LastModified from header `Last-Modified"))?,
         );
+        output = output.set_metadata(
+            crate::protocol_serde::shape_head_object_output::de_metadata_prefix_header(_response_headers)
+                .map_err(|_| crate::operation::head_object::HeadObjectError::unhandled("Failed to parse Metadata from prefix header `x-amz-meta-"))?,
+        );
         output = output.set_missing_meta(
             crate::protocol_serde::shape_head_object_output::de_missing_meta_header(_response_headers).map_err(|_| {
                 crate::operation::head_object::HeadObjectError::unhandled("Failed to parse MissingMeta from header `x-amz-missing-meta")

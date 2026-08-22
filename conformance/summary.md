@@ -2,7 +2,7 @@
 
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
-**Summary:** `6584/6584 files compared` · `1642` matched · `2106` mismatches · `2713` missing · `123` extra · `0` read errors · `23.60%` average match
+**Summary:** `6584/6584 files compared` · `1646` matched · `2102` mismatches · `2713` missing · `123` extra · `0` read errors · `23.63%` average match
 
 | Service | Compared | Matched | Mismatches | Missing | Extra | Read errors | Match | Report |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |
@@ -10,8 +10,8 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 | iam | 1631/1631 | 319 | 726 | 586 | 0 | 0 | 19.56% | [report](summary/iam.md) |
 | kms | 600/600 | 119 | 255 | 225 | 1 | 0 | 19.83% | [report](summary/kms.md) |
 | lambda | 1206/1206 | 198 | 119 | 767 | 122 | 0 | 16.42% | [report](summary/lambda.md) |
-| s3 | 1344/1344 | 533 | 449 | 362 | 0 | 0 | 39.66% | [report](summary/s3.md) |
+| s3 | 1344/1344 | 537 | 445 | 362 | 0 | 0 | 39.96% | [report](summary/s3.md) |
 | sns | 449/449 | 90 | 181 | 178 | 0 | 0 | 20.04% | [report](summary/sns.md) |
 | sqs | 299/299 | 67 | 102 | 130 | 0 | 0 | 22.41% | [report](summary/sqs.md) |
 | sts | 152/152 | 29 | 55 | 68 | 0 | 0 | 19.08% | [report](summary/sts.md) |
-| **Average** | — | — | — | — | — | — | **23.60%** | — |
+| **Average** | — | — | — | — | — | — | **23.63%** | — |

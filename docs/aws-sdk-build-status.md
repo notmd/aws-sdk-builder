@@ -30,8 +30,8 @@ Updated 2026-08-22. Prompt.md is the project specification.
 - M6: the comparator has now run against the pinned AWS SDK Rust `3c6d...` P0
   service trees and the deterministic summary plus per-service results are checked in
   under `conformance/summary.md` and `conformance/summary/`. The current report
-  compares 6,584 files and has 1,642 exact matches (23.60% arithmetic average),
-  with 2,106 mismatches, 2,713 missing files, and 123 extra files. Both comparison
+  compares 6,584 files and has 1,646 exact matches (23.63% arithmetic average),
+  with 2,102 mismatches, 2,713 missing files, and 123 extra files. Both comparison
   trees are checked in under `conformance/` and described by `conformance/manifest.json`.
 - M6a: launcher and Rust Floci example are implemented. The live
   `my_aws_sdk::tests::creates_then_heads_a_bucket` test passes against the
@@ -124,6 +124,26 @@ updated when the port adopts a new reusable abstraction.
   emitted.
 - Next action: emit generic RestXml payload helper files and nested shape
   serializers/deserializers from model XML traits.
+
+### Checkpoint: 2026-08-22 — RestXml timestamp and prefix-header bindings
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now derives request-header
+  timestamp formats from member/target `timestampFormat` traits, uses the
+  response-side `DateTimeWithOffset` parser where Smithy does, and emits generic
+  `httpPrefixHeaders` request map serializers and response map parsers. Prefix
+  helper placement and binding order follow Smithy’s HTTP binding generator.
+- Reference: Smithy-RS `HttpBindingGenerator.kt` renders ordinary headers first,
+  uses `determineTimestampFormat`, and handles prefix maps through
+  `headers_for_prefix`/`HeaderName::from_str`.
+- Evidence: `just conformance` regenerated all 8 all-operation snapshots (496
+  operations) and compared 6,584 files. Exact matches increased from 1,642 to
+  1,646 overall and from 533 to 537 for S3; mismatches fell from 2,106 to 2,102.
+  The comparison still exits 1 because parity is incomplete.
+- Blocker: XML document payload serializers/deserializers, modeled error XML, the
+  missing protocol payload helper files, and remaining runtime behavior remain.
+- Next action: generate RestXml `httpPayload` wrappers and generic nested shape
+  serializer/deserializer files from XML traits.
 
 ### Checkpoint: 2026-08-22 — Smithy HTML documentation and builder parity
 

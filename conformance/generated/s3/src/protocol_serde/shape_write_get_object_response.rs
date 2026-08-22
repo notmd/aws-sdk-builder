@@ -385,7 +385,7 @@ pub fn ser_write_get_object_response_headers(
         builder = builder.header("x-amz-fwd-header-x-amz-object-lock-legal-hold", header_value);
     }
     if let ::std::option::Option::Some(inner_63) = &input.object_lock_retain_until_date {
-        let formatted_64 = inner_63.fmt(::aws_smithy_types::date_time::Format::HttpDate)?;
+        let formatted_64 = inner_63.fmt(::aws_smithy_types::date_time::Format::DateTime)?;
         let header_value = formatted_64;
         let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
             ::aws_smithy_types::error::operation::BuildError::invalid_field(
@@ -529,6 +529,27 @@ pub fn ser_write_get_object_response_headers(
             )
         })?;
         builder = builder.header("x-amz-fwd-header-x-amz-server-side-encryption-bucket-key-enabled", header_value);
+    }
+    if let ::std::option::Option::Some(inner_89) = &input.metadata {
+        {
+            for (k, v) in inner_89 {
+                use std::str::FromStr;
+                let header_name = ::http_1x::HeaderName::from_str(&format!("{}{}", "x-amz-meta-", &k)).map_err(|err| {
+                    ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                        "metadata",
+                        format!("`{k}` cannot be used as a header name: {err}"),
+                    )
+                })?;
+                let header_value = v.as_str();
+                let header_value: ::http_1x::HeaderValue = header_value.parse().map_err(|err| {
+                    ::aws_smithy_types::error::operation::BuildError::invalid_field(
+                        "metadata",
+                        format!("`{v}` cannot be used as a header value: {err}"),
+                    )
+                })?;
+                builder = builder.header(header_name, header_value);
+            }
+        }
     }
     Ok(builder)
 }
