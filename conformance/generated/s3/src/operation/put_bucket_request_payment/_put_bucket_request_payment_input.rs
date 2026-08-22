@@ -108,6 +108,7 @@ impl PutBucketRequestPaymentInputBuilder {
         &self.checksum_algorithm
     }
     /// <p>Container for Payer.</p>
+    /// This field is required.
     pub fn request_payment_configuration(mut self, input: crate::types::RequestPaymentConfiguration) -> Self {
         self.request_payment_configuration = ::std::option::Option::Some(input);
         self

@@ -17,7 +17,16 @@ pub struct UploadPartCopyInput {
     /// <li>
     /// <p>For objects not accessed through an access point, specify the name of the source bucket and key of the source object, separated by a slash (/). For example, to copy the object <code>reports/january.pdf</code> from the bucket <code>awsexamplebucket</code>, use <code>awsexamplebucket/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
     /// <li>
-    /// <p>For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format <code>arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through access point <code>my-access-point</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf</code>. The value must be URL encoded.</p><note>
+    /// <p>For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format <code>arn:aws:s3:<region>
+    /// :
+    /// <account-id>
+    /// :accesspoint/
+    /// <access-point-name>
+    /// /object/
+    /// <key></key>
+    /// </access-point-name>
+    /// </account-id>
+    /// </region></code>. For example, to copy the object <code>reports/january.pdf</code> through access point <code>my-access-point</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf</code>. The value must be URL encoded.</p><note>
     /// <ul>
     /// <li>
     /// <p>Amazon S3 supports copy operations using Access points only when the source and destination buckets are in the same Amazon Web Services Region.</p></li>
@@ -25,9 +34,18 @@ pub struct UploadPartCopyInput {
     /// <p>Access points are not supported by directory buckets.</p></li>
     /// </ul>
     /// </note>
-    /// <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
+    /// <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<region>
+    /// :
+    /// <account-id>
+    /// :outpost/
+    /// <outpost-id>
+    /// /object/
+    /// <key></key>
+    /// </outpost-id>
+    /// </account-id>
+    /// </region></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
     /// </ul>
-    /// <p>If your bucket has versioning enabled, you could have multiple versions of the same object. By default, <code>x-amz-copy-source</code> identifies the current version of the source object to copy. To copy a specific version of the source object to copy, append <code>?versionId=<version-id></code> to the <code>x-amz-copy-source</code> request header (for example, <code>x-amz-copy-source: /awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893</code>).</p>
+    /// <p>If your bucket has versioning enabled, you could have multiple versions of the same object. By default, <code>x-amz-copy-source</code> identifies the current version of the source object to copy. To copy a specific version of the source object to copy, append <code>?versionId=<version-id></version-id></code> to the <code>x-amz-copy-source</code> request header (for example, <code>x-amz-copy-source: /awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893</code>).</p>
     /// <p>If the current version is a delete marker and you don't specify a versionId in the <code>x-amz-copy-source</code> request header, Amazon S3 returns a <code>404 Not Found</code> error, because the object does not exist. If you specify versionId in the <code>x-amz-copy-source</code> and the versionId is a delete marker, Amazon S3 returns an HTTP <code>400 Bad Request</code> error, because you are not allowed to specify a delete marker as a version for the <code>x-amz-copy-source</code>.</p><note>
     /// <p><b>Directory buckets</b> - S3 Versioning isn't enabled and supported for directory buckets.</p>
     /// </note>
@@ -114,7 +132,16 @@ impl UploadPartCopyInput {
     /// <li>
     /// <p>For objects not accessed through an access point, specify the name of the source bucket and key of the source object, separated by a slash (/). For example, to copy the object <code>reports/january.pdf</code> from the bucket <code>awsexamplebucket</code>, use <code>awsexamplebucket/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
     /// <li>
-    /// <p>For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format <code>arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through access point <code>my-access-point</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf</code>. The value must be URL encoded.</p><note>
+    /// <p>For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format <code>arn:aws:s3:<region>
+    /// :
+    /// <account-id>
+    /// :accesspoint/
+    /// <access-point-name>
+    /// /object/
+    /// <key></key>
+    /// </access-point-name>
+    /// </account-id>
+    /// </region></code>. For example, to copy the object <code>reports/january.pdf</code> through access point <code>my-access-point</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf</code>. The value must be URL encoded.</p><note>
     /// <ul>
     /// <li>
     /// <p>Amazon S3 supports copy operations using Access points only when the source and destination buckets are in the same Amazon Web Services Region.</p></li>
@@ -122,9 +149,18 @@ impl UploadPartCopyInput {
     /// <p>Access points are not supported by directory buckets.</p></li>
     /// </ul>
     /// </note>
-    /// <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
+    /// <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<region>
+    /// :
+    /// <account-id>
+    /// :outpost/
+    /// <outpost-id>
+    /// /object/
+    /// <key></key>
+    /// </outpost-id>
+    /// </account-id>
+    /// </region></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
     /// </ul>
-    /// <p>If your bucket has versioning enabled, you could have multiple versions of the same object. By default, <code>x-amz-copy-source</code> identifies the current version of the source object to copy. To copy a specific version of the source object to copy, append <code>?versionId=<version-id></code> to the <code>x-amz-copy-source</code> request header (for example, <code>x-amz-copy-source: /awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893</code>).</p>
+    /// <p>If your bucket has versioning enabled, you could have multiple versions of the same object. By default, <code>x-amz-copy-source</code> identifies the current version of the source object to copy. To copy a specific version of the source object to copy, append <code>?versionId=<version-id></version-id></code> to the <code>x-amz-copy-source</code> request header (for example, <code>x-amz-copy-source: /awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893</code>).</p>
     /// <p>If the current version is a delete marker and you don't specify a versionId in the <code>x-amz-copy-source</code> request header, Amazon S3 returns a <code>404 Not Found</code> error, because the object does not exist. If you specify versionId in the <code>x-amz-copy-source</code> and the versionId is a delete marker, Amazon S3 returns an HTTP <code>400 Bad Request</code> error, because you are not allowed to specify a delete marker as a version for the <code>x-amz-copy-source</code>.</p><note>
     /// <p><b>Directory buckets</b> - S3 Versioning isn't enabled and supported for directory buckets.</p>
     /// </note>
@@ -328,7 +364,16 @@ impl UploadPartCopyInputBuilder {
     /// <li>
     /// <p>For objects not accessed through an access point, specify the name of the source bucket and key of the source object, separated by a slash (/). For example, to copy the object <code>reports/january.pdf</code> from the bucket <code>awsexamplebucket</code>, use <code>awsexamplebucket/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
     /// <li>
-    /// <p>For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format <code>arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through access point <code>my-access-point</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf</code>. The value must be URL encoded.</p><note>
+    /// <p>For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format <code>arn:aws:s3:<region>
+    /// :
+    /// <account-id>
+    /// :accesspoint/
+    /// <access-point-name>
+    /// /object/
+    /// <key></key>
+    /// </access-point-name>
+    /// </account-id>
+    /// </region></code>. For example, to copy the object <code>reports/january.pdf</code> through access point <code>my-access-point</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf</code>. The value must be URL encoded.</p><note>
     /// <ul>
     /// <li>
     /// <p>Amazon S3 supports copy operations using Access points only when the source and destination buckets are in the same Amazon Web Services Region.</p></li>
@@ -336,9 +381,18 @@ impl UploadPartCopyInputBuilder {
     /// <p>Access points are not supported by directory buckets.</p></li>
     /// </ul>
     /// </note>
-    /// <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
+    /// <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<region>
+    /// :
+    /// <account-id>
+    /// :outpost/
+    /// <outpost-id>
+    /// /object/
+    /// <key></key>
+    /// </outpost-id>
+    /// </account-id>
+    /// </region></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
     /// </ul>
-    /// <p>If your bucket has versioning enabled, you could have multiple versions of the same object. By default, <code>x-amz-copy-source</code> identifies the current version of the source object to copy. To copy a specific version of the source object to copy, append <code>?versionId=<version-id></code> to the <code>x-amz-copy-source</code> request header (for example, <code>x-amz-copy-source: /awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893</code>).</p>
+    /// <p>If your bucket has versioning enabled, you could have multiple versions of the same object. By default, <code>x-amz-copy-source</code> identifies the current version of the source object to copy. To copy a specific version of the source object to copy, append <code>?versionId=<version-id></version-id></code> to the <code>x-amz-copy-source</code> request header (for example, <code>x-amz-copy-source: /awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893</code>).</p>
     /// <p>If the current version is a delete marker and you don't specify a versionId in the <code>x-amz-copy-source</code> request header, Amazon S3 returns a <code>404 Not Found</code> error, because the object does not exist. If you specify versionId in the <code>x-amz-copy-source</code> and the versionId is a delete marker, Amazon S3 returns an HTTP <code>400 Bad Request</code> error, because you are not allowed to specify a delete marker as a version for the <code>x-amz-copy-source</code>.</p><note>
     /// <p><b>Directory buckets</b> - S3 Versioning isn't enabled and supported for directory buckets.</p>
     /// </note>
@@ -352,7 +406,16 @@ impl UploadPartCopyInputBuilder {
     /// <li>
     /// <p>For objects not accessed through an access point, specify the name of the source bucket and key of the source object, separated by a slash (/). For example, to copy the object <code>reports/january.pdf</code> from the bucket <code>awsexamplebucket</code>, use <code>awsexamplebucket/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
     /// <li>
-    /// <p>For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format <code>arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through access point <code>my-access-point</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf</code>. The value must be URL encoded.</p><note>
+    /// <p>For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format <code>arn:aws:s3:<region>
+    /// :
+    /// <account-id>
+    /// :accesspoint/
+    /// <access-point-name>
+    /// /object/
+    /// <key></key>
+    /// </access-point-name>
+    /// </account-id>
+    /// </region></code>. For example, to copy the object <code>reports/january.pdf</code> through access point <code>my-access-point</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf</code>. The value must be URL encoded.</p><note>
     /// <ul>
     /// <li>
     /// <p>Amazon S3 supports copy operations using Access points only when the source and destination buckets are in the same Amazon Web Services Region.</p></li>
@@ -360,9 +423,18 @@ impl UploadPartCopyInputBuilder {
     /// <p>Access points are not supported by directory buckets.</p></li>
     /// </ul>
     /// </note>
-    /// <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
+    /// <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<region>
+    /// :
+    /// <account-id>
+    /// :outpost/
+    /// <outpost-id>
+    /// /object/
+    /// <key></key>
+    /// </outpost-id>
+    /// </account-id>
+    /// </region></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
     /// </ul>
-    /// <p>If your bucket has versioning enabled, you could have multiple versions of the same object. By default, <code>x-amz-copy-source</code> identifies the current version of the source object to copy. To copy a specific version of the source object to copy, append <code>?versionId=<version-id></code> to the <code>x-amz-copy-source</code> request header (for example, <code>x-amz-copy-source: /awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893</code>).</p>
+    /// <p>If your bucket has versioning enabled, you could have multiple versions of the same object. By default, <code>x-amz-copy-source</code> identifies the current version of the source object to copy. To copy a specific version of the source object to copy, append <code>?versionId=<version-id></version-id></code> to the <code>x-amz-copy-source</code> request header (for example, <code>x-amz-copy-source: /awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893</code>).</p>
     /// <p>If the current version is a delete marker and you don't specify a versionId in the <code>x-amz-copy-source</code> request header, Amazon S3 returns a <code>404 Not Found</code> error, because the object does not exist. If you specify versionId in the <code>x-amz-copy-source</code> and the versionId is a delete marker, Amazon S3 returns an HTTP <code>400 Bad Request</code> error, because you are not allowed to specify a delete marker as a version for the <code>x-amz-copy-source</code>.</p><note>
     /// <p><b>Directory buckets</b> - S3 Versioning isn't enabled and supported for directory buckets.</p>
     /// </note>
@@ -375,7 +447,16 @@ impl UploadPartCopyInputBuilder {
     /// <li>
     /// <p>For objects not accessed through an access point, specify the name of the source bucket and key of the source object, separated by a slash (/). For example, to copy the object <code>reports/january.pdf</code> from the bucket <code>awsexamplebucket</code>, use <code>awsexamplebucket/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
     /// <li>
-    /// <p>For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format <code>arn:aws:s3:<Region>:<account-id>:accesspoint/<access-point-name>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through access point <code>my-access-point</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf</code>. The value must be URL encoded.</p><note>
+    /// <p>For objects accessed through access points, specify the Amazon Resource Name (ARN) of the object as accessed through the access point, in the format <code>arn:aws:s3:<region>
+    /// :
+    /// <account-id>
+    /// :accesspoint/
+    /// <access-point-name>
+    /// /object/
+    /// <key></key>
+    /// </access-point-name>
+    /// </account-id>
+    /// </region></code>. For example, to copy the object <code>reports/january.pdf</code> through access point <code>my-access-point</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3:us-west-2:123456789012:accesspoint/my-access-point/object/reports/january.pdf</code>. The value must be URL encoded.</p><note>
     /// <ul>
     /// <li>
     /// <p>Amazon S3 supports copy operations using Access points only when the source and destination buckets are in the same Amazon Web Services Region.</p></li>
@@ -383,9 +464,18 @@ impl UploadPartCopyInputBuilder {
     /// <p>Access points are not supported by directory buckets.</p></li>
     /// </ul>
     /// </note>
-    /// <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<Region>:<account-id>:outpost/<outpost-id>/object/<key></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
+    /// <p>Alternatively, for objects accessed through Amazon S3 on Outposts, specify the ARN of the object as accessed in the format <code>arn:aws:s3-outposts:<region>
+    /// :
+    /// <account-id>
+    /// :outpost/
+    /// <outpost-id>
+    /// /object/
+    /// <key></key>
+    /// </outpost-id>
+    /// </account-id>
+    /// </region></code>. For example, to copy the object <code>reports/january.pdf</code> through outpost <code>my-outpost</code> owned by account <code>123456789012</code> in Region <code>us-west-2</code>, use the URL encoding of <code>arn:aws:s3-outposts:us-west-2:123456789012:outpost/my-outpost/object/reports/january.pdf</code>. The value must be URL-encoded.</p></li>
     /// </ul>
-    /// <p>If your bucket has versioning enabled, you could have multiple versions of the same object. By default, <code>x-amz-copy-source</code> identifies the current version of the source object to copy. To copy a specific version of the source object to copy, append <code>?versionId=<version-id></code> to the <code>x-amz-copy-source</code> request header (for example, <code>x-amz-copy-source: /awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893</code>).</p>
+    /// <p>If your bucket has versioning enabled, you could have multiple versions of the same object. By default, <code>x-amz-copy-source</code> identifies the current version of the source object to copy. To copy a specific version of the source object to copy, append <code>?versionId=<version-id></version-id></code> to the <code>x-amz-copy-source</code> request header (for example, <code>x-amz-copy-source: /awsexamplebucket/reports/january.pdf?versionId=QUpfdndhfd8438MNFDN93jdnJFkdmqnh893</code>).</p>
     /// <p>If the current version is a delete marker and you don't specify a versionId in the <code>x-amz-copy-source</code> request header, Amazon S3 returns a <code>404 Not Found</code> error, because the object does not exist. If you specify versionId in the <code>x-amz-copy-source</code> and the versionId is a delete marker, Amazon S3 returns an HTTP <code>400 Bad Request</code> error, because you are not allowed to specify a delete marker as a version for the <code>x-amz-copy-source</code>.</p><note>
     /// <p><b>Directory buckets</b> - S3 Versioning isn't enabled and supported for directory buckets.</p>
     /// </note>

@@ -74,6 +74,7 @@ impl PutBucketCorsInputBuilder {
         &self.bucket
     }
     /// <p>Describes the cross-origin access configuration for objects in an Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">Enabling Cross-Origin Resource Sharing</a> in the <i>Amazon S3 User Guide</i>.</p>
+    /// This field is required.
     pub fn cors_configuration(mut self, input: crate::types::CorsConfiguration) -> Self {
         self.cors_configuration = ::std::option::Option::Some(input);
         self

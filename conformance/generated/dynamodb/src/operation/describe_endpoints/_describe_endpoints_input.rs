@@ -16,7 +16,9 @@ impl DescribeEndpointsInput {
 pub struct DescribeEndpointsInputBuilder {}
 impl DescribeEndpointsInputBuilder {
     /// Consumes the builder and constructs a [`DescribeEndpointsInput`](crate::operation::describe_endpoints::DescribeEndpointsInput).
-    pub fn build(self) -> crate::operation::describe_endpoints::DescribeEndpointsInput {
-        crate::operation::describe_endpoints::DescribeEndpointsInput {}
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::operation::describe_endpoints::DescribeEndpointsInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::describe_endpoints::DescribeEndpointsInput {})
     }
 }

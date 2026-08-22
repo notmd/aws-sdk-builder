@@ -93,6 +93,7 @@ impl PutBucketIntelligentTieringConfigurationInputBuilder {
         &self.expected_bucket_owner
     }
     /// <p>Container for S3 Intelligent-Tiering configuration.</p>
+    /// This field is required.
     pub fn intelligent_tiering_configuration(mut self, input: crate::types::IntelligentTieringConfiguration) -> Self {
         self.intelligent_tiering_configuration = ::std::option::Option::Some(input);
         self

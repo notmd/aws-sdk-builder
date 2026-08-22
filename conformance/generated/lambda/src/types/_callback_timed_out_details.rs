@@ -28,6 +28,7 @@ pub struct CallbackTimedOutDetailsBuilder {
 }
 impl CallbackTimedOutDetailsBuilder {
     /// <p>Details about the callback timeout.</p>
+    /// This field is required.
     pub fn error(mut self, input: crate::types::EventError) -> Self {
         self.error = ::std::option::Option::Some(input);
         self

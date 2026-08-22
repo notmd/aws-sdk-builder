@@ -27,11 +27,11 @@ impl Builder {
         self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-    pub async fn send(self) -> ::std::result::Result<super::ListSmsSandboxPhoneNumbersOutput, super::ListSmsSandboxPhoneNumbersError> {
+    pub async fn send(self) -> ::std::result::Result<super::ListSmsSandboxPhoneNumbersOutput, super::ListSMSSandboxPhoneNumbersError> {
         let input = self
             .input
             .build()
-            .map_err(|error| super::ListSmsSandboxPhoneNumbersError::Unhandled(error.to_string()))?;
+            .map_err(|error| super::ListSMSSandboxPhoneNumbersError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();
@@ -39,11 +39,11 @@ impl Builder {
             .client
             .request(super::super::super::transport::Method::Post, &path, &headers, &body)
             .await
-            .map_err(super::ListSmsSandboxPhoneNumbersError::Unhandled)?;
+            .map_err(super::ListSMSSandboxPhoneNumbersError::Unhandled)?;
         let status = response.status();
         if !status.is_success() {
-            return Err(super::ListSmsSandboxPhoneNumbersError::unhandled_with_request_ids(
-                format!("ListSmsSandboxPhoneNumbers returned HTTP {}", status),
+            return Err(super::ListSMSSandboxPhoneNumbersError::unhandled_with_request_ids(
+                format!("ListSMSSandboxPhoneNumbers returned HTTP {}", status),
                 response.header("x-amzn-requestid").map(str::to_owned),
                 ::std::option::Option::None,
             ));
@@ -52,7 +52,7 @@ impl Builder {
         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
         output
             .build()
-            .map_err(|error| super::ListSmsSandboxPhoneNumbersError::Unhandled(error.to_string()))
+            .map_err(|error| super::ListSMSSandboxPhoneNumbersError::Unhandled(error.to_string()))
     }
 }
-pub use Builder as ListSmsSandboxPhoneNumbersFluentBuilder;
+pub use Builder as ListSMSSandboxPhoneNumbersFluentBuilder;

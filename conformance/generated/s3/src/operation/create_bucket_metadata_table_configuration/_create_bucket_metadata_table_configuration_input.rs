@@ -98,6 +98,7 @@ impl CreateBucketMetadataTableConfigurationInputBuilder {
         &self.checksum_algorithm
     }
     /// <p>The contents of your metadata table configuration.</p>
+    /// This field is required.
     pub fn metadata_table_configuration(mut self, input: crate::types::MetadataTableConfiguration) -> Self {
         self.metadata_table_configuration = ::std::option::Option::Some(input);
         self

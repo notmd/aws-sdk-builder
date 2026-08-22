@@ -365,6 +365,7 @@ impl CreateFunctionRequestBuilder {
         &self.handler
     }
     /// <p>The code for the function.</p>
+    /// This field is required.
     pub fn code(mut self, input: crate::types::FunctionCode) -> Self {
         self.code = ::std::option::Option::Some(input);
         self

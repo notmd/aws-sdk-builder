@@ -60,6 +60,7 @@ pub struct SelectParametersBuilder {
 }
 impl SelectParametersBuilder {
     /// <p>Describes the serialization format of the object.</p>
+    /// This field is required.
     pub fn input_serialization(mut self, input: crate::types::InputSerialization) -> Self {
         self.input_serialization = ::std::option::Option::Some(input);
         self
@@ -113,6 +114,7 @@ impl SelectParametersBuilder {
         &self.expression
     }
     /// <p>Describes how the results of the Select job are serialized.</p>
+    /// This field is required.
     pub fn output_serialization(mut self, input: crate::types::OutputSerialization) -> Self {
         self.output_serialization = ::std::option::Option::Some(input);
         self

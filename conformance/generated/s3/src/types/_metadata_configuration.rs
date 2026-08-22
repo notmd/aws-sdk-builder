@@ -42,6 +42,7 @@ pub struct MetadataConfigurationBuilder {
 }
 impl MetadataConfigurationBuilder {
     /// <p>The journal table configuration for a metadata configuration.</p>
+    /// This field is required.
     pub fn journal_table_configuration(mut self, input: crate::types::JournalTableConfiguration) -> Self {
         self.journal_table_configuration = ::std::option::Option::Some(input);
         self

@@ -31,11 +31,11 @@ impl Builder {
         self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-    pub async fn send(self) -> ::std::result::Result<super::ListMfaDevicesOutput, super::ListMfaDevicesError> {
+    pub async fn send(self) -> ::std::result::Result<super::ListMfaDevicesOutput, super::ListMFADevicesError> {
         let input = self
             .input
             .build()
-            .map_err(|error| super::ListMfaDevicesError::Unhandled(error.to_string()))?;
+            .map_err(|error| super::ListMFADevicesError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();
@@ -43,18 +43,18 @@ impl Builder {
             .client
             .request(super::super::super::transport::Method::Post, &path, &headers, &body)
             .await
-            .map_err(super::ListMfaDevicesError::Unhandled)?;
+            .map_err(super::ListMFADevicesError::Unhandled)?;
         let status = response.status();
         if !status.is_success() {
-            return Err(super::ListMfaDevicesError::unhandled_with_request_ids(
-                format!("ListMfaDevices returned HTTP {}", status),
+            return Err(super::ListMFADevicesError::unhandled_with_request_ids(
+                format!("ListMFADevices returned HTTP {}", status),
                 response.header("x-amzn-requestid").map(str::to_owned),
                 ::std::option::Option::None,
             ));
         }
         let mut output = super::_list_mfa_devices_output::ListMfaDevicesOutputBuilder::default();
         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-        output.build().map_err(|error| super::ListMfaDevicesError::Unhandled(error.to_string()))
+        output.build().map_err(|error| super::ListMFADevicesError::Unhandled(error.to_string()))
     }
 }
-pub use Builder as ListMfaDevicesFluentBuilder;
+pub use Builder as ListMFADevicesFluentBuilder;

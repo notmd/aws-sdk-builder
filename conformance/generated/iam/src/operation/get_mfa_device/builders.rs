@@ -27,11 +27,11 @@ impl Builder {
         self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-    pub async fn send(self) -> ::std::result::Result<super::GetMfaDeviceOutput, super::GetMfaDeviceError> {
+    pub async fn send(self) -> ::std::result::Result<super::GetMfaDeviceOutput, super::GetMFADeviceError> {
         let input = self
             .input
             .build()
-            .map_err(|error| super::GetMfaDeviceError::Unhandled(error.to_string()))?;
+            .map_err(|error| super::GetMFADeviceError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();
@@ -39,18 +39,18 @@ impl Builder {
             .client
             .request(super::super::super::transport::Method::Post, &path, &headers, &body)
             .await
-            .map_err(super::GetMfaDeviceError::Unhandled)?;
+            .map_err(super::GetMFADeviceError::Unhandled)?;
         let status = response.status();
         if !status.is_success() {
-            return Err(super::GetMfaDeviceError::unhandled_with_request_ids(
-                format!("GetMfaDevice returned HTTP {}", status),
+            return Err(super::GetMFADeviceError::unhandled_with_request_ids(
+                format!("GetMFADevice returned HTTP {}", status),
                 response.header("x-amzn-requestid").map(str::to_owned),
                 ::std::option::Option::None,
             ));
         }
         let mut output = super::_get_mfa_device_output::GetMfaDeviceOutputBuilder::default();
         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
-        output.build().map_err(|error| super::GetMfaDeviceError::Unhandled(error.to_string()))
+        output.build().map_err(|error| super::GetMFADeviceError::Unhandled(error.to_string()))
     }
 }
-pub use Builder as GetMfaDeviceFluentBuilder;
+pub use Builder as GetMFADeviceFluentBuilder;

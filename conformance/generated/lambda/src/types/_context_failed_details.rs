@@ -28,6 +28,7 @@ pub struct ContextFailedDetailsBuilder {
 }
 impl ContextFailedDetailsBuilder {
     /// <p>Details about the context failure.</p>
+    /// This field is required.
     pub fn error(mut self, input: crate::types::EventError) -> Self {
         self.error = ::std::option::Option::Some(input);
         self

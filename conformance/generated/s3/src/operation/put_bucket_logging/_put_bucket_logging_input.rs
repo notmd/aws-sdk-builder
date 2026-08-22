@@ -74,6 +74,7 @@ impl PutBucketLoggingInputBuilder {
         &self.bucket
     }
     /// <p>Container for logging status information.</p>
+    /// This field is required.
     pub fn bucket_logging_status(mut self, input: crate::types::BucketLoggingStatus) -> Self {
         self.bucket_logging_status = ::std::option::Option::Some(input);
         self

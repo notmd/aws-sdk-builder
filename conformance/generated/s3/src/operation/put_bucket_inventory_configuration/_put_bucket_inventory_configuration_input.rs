@@ -87,6 +87,7 @@ impl PutBucketInventoryConfigurationInputBuilder {
         &self.id
     }
     /// <p>Specifies the inventory configuration.</p>
+    /// This field is required.
     pub fn inventory_configuration(mut self, input: crate::types::InventoryConfiguration) -> Self {
         self.inventory_configuration = ::std::option::Option::Some(input);
         self

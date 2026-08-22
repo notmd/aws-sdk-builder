@@ -34,7 +34,7 @@ pub struct PutObjectInput {
     pub content_length: ::std::option::Option<i64>,
     /// <p>The Base64 encoded 128-bit <code>MD5</code> digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p><note>
     /// <p>The <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is required for any request to upload an object with a retention period configured using Amazon S3 Object Lock. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket </a> in the <i>Amazon S3 User Guide</i>.</p>
-    /// </note><note>
+    /// </note> <note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
     pub content_md5: ::std::option::Option<::std::string::String>,
@@ -273,7 +273,7 @@ impl PutObjectInput {
     }
     /// <p>The Base64 encoded 128-bit <code>MD5</code> digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p><note>
     /// <p>The <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is required for any request to upload an object with a retention period configured using Amazon S3 Object Lock. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket </a> in the <i>Amazon S3 User Guide</i>.</p>
-    /// </note><note>
+    /// </note> <note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
     pub fn content_md5(&self) -> ::std::option::Option<&str> {
@@ -807,7 +807,7 @@ impl PutObjectInputBuilder {
     }
     /// <p>The Base64 encoded 128-bit <code>MD5</code> digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p><note>
     /// <p>The <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is required for any request to upload an object with a retention period configured using Amazon S3 Object Lock. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket </a> in the <i>Amazon S3 User Guide</i>.</p>
-    /// </note><note>
+    /// </note> <note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
     pub fn content_md5(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -816,7 +816,7 @@ impl PutObjectInputBuilder {
     }
     /// <p>The Base64 encoded 128-bit <code>MD5</code> digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p><note>
     /// <p>The <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is required for any request to upload an object with a retention period configured using Amazon S3 Object Lock. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket </a> in the <i>Amazon S3 User Guide</i>.</p>
-    /// </note><note>
+    /// </note> <note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
     pub fn set_content_md5(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
@@ -825,7 +825,7 @@ impl PutObjectInputBuilder {
     }
     /// <p>The Base64 encoded 128-bit <code>MD5</code> digest of the message (without the headers) according to RFC 1864. This header can be used as a message integrity check to verify that the data is the same data that was originally sent. Although it is optional, we recommend using the Content-MD5 mechanism as an end-to-end integrity check. For more information about REST request authentication, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html">REST Authentication</a>.</p><note>
     /// <p>The <code>Content-MD5</code> or <code>x-amz-sdk-checksum-algorithm</code> header is required for any request to upload an object with a retention period configured using Amazon S3 Object Lock. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lock-managing.html#object-lock-put-object">Uploading objects to an Object Lock enabled bucket </a> in the <i>Amazon S3 User Guide</i>.</p>
-    /// </note><note>
+    /// </note> <note>
     /// <p>This functionality is not supported for directory buckets.</p>
     /// </note>
     pub fn get_content_md5(&self) -> &::std::option::Option<::std::string::String> {

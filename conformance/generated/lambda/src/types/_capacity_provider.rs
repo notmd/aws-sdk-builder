@@ -122,6 +122,7 @@ impl CapacityProviderBuilder {
         &self.state
     }
     /// <p>The VPC configuration for the capacity provider.</p>
+    /// This field is required.
     pub fn vpc_config(mut self, input: crate::types::CapacityProviderVpcConfig) -> Self {
         self.vpc_config = ::std::option::Option::Some(input);
         self
@@ -136,6 +137,7 @@ impl CapacityProviderBuilder {
         &self.vpc_config
     }
     /// <p>The permissions configuration for the capacity provider.</p>
+    /// This field is required.
     pub fn permissions_config(mut self, input: crate::types::CapacityProviderPermissionsConfig) -> Self {
         self.permissions_config = ::std::option::Option::Some(input);
         self

@@ -86,6 +86,7 @@ impl ImportTableInputBuilder {
         &self.client_token
     }
     /// <p>The S3 bucket that provides the source for the import.</p>
+    /// This field is required.
     pub fn s3_bucket_source(mut self, input: crate::types::S3BucketSource) -> Self {
         self.s3_bucket_source = ::std::option::Option::Some(input);
         self
@@ -143,6 +144,7 @@ impl ImportTableInputBuilder {
         &self.input_compression_type
     }
     /// <p>Parameters for the table to import the data into.</p>
+    /// This field is required.
     pub fn table_creation_parameters(mut self, input: crate::types::TableCreationParameters) -> Self {
         self.table_creation_parameters = ::std::option::Option::Some(input);
         self

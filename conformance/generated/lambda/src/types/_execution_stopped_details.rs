@@ -28,6 +28,7 @@ pub struct ExecutionStoppedDetailsBuilder {
 }
 impl ExecutionStoppedDetailsBuilder {
     /// <p>Details about why the execution stopped.</p>
+    /// This field is required.
     pub fn error(mut self, input: crate::types::EventError) -> Self {
         self.error = ::std::option::Option::Some(input);
         self

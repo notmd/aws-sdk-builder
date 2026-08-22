@@ -100,6 +100,7 @@ impl CreateCapacityProviderRequestBuilder {
         &self.capacity_provider_name
     }
     /// <p>The VPC configuration for the capacity provider, including subnet IDs and security group IDs where compute instances will be launched.</p>
+    /// This field is required.
     pub fn vpc_config(mut self, input: crate::types::CapacityProviderVpcConfig) -> Self {
         self.vpc_config = ::std::option::Option::Some(input);
         self
@@ -114,6 +115,7 @@ impl CreateCapacityProviderRequestBuilder {
         &self.vpc_config
     }
     /// <p>The permissions configuration that specifies the IAM role ARN used by the capacity provider to manage compute resources.</p>
+    /// This field is required.
     pub fn permissions_config(mut self, input: crate::types::CapacityProviderPermissionsConfig) -> Self {
         self.permissions_config = ::std::option::Option::Some(input);
         self

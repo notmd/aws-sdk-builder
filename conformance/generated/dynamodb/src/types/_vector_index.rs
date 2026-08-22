@@ -81,6 +81,7 @@ impl VectorIndexBuilder {
         &self.index_name
     }
     /// <p>The vector attribute configuration for the index.</p>
+    /// This field is required.
     pub fn vector_attribute(mut self, input: crate::types::VectorAttributeDefinition) -> Self {
         self.vector_attribute = ::std::option::Option::Some(input);
         self
@@ -115,6 +116,7 @@ impl VectorIndexBuilder {
         &self.search_schema
     }
     /// <p>Specifies attributes that are copied (projected) from the table into the vector index.</p>
+    /// This field is required.
     pub fn projection(mut self, input: crate::types::Projection) -> Self {
         self.projection = ::std::option::Option::Some(input);
         self

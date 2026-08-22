@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1206/1206` files compared · `212` matched · `105` mismatches · `767` missing · `122` extra · `17.58%` match (100.00% means fully matched)
+**Progress:** `1206/1206` files compared · `231` matched · `86` mismatches · `767` missing · `122` extra · `19.15%` match (100.00% means fully matched)
 
 ### `src/client/delete_function.rs`
 
@@ -5342,26 +5342,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 +pub type DeleteResourcePolicyError = Error;
 +pub type DeleteResourcePolicyFluentBuilder = builders::Builder;
-```
-
-### `src/operation/get_account_settings/_get_account_settings_input.rs`
-
-```diff
---- reference/src/operation/get_account_settings/_get_account_settings_input.rs
-+++ generated/src/operation/get_account_settings/_get_account_settings_input.rs
-@@ -16,10 +16,7 @@
- pub struct GetAccountSettingsInputBuilder {}
- impl GetAccountSettingsInputBuilder {
-     /// Consumes the builder and constructs a [`GetAccountSettingsInput`](crate::operation::get_account_settings::GetAccountSettingsInput).
--    pub fn build(
--        self,
--    ) -> ::std::result::Result<crate::operation::get_account_settings::GetAccountSettingsInput, ::aws_smithy_types::error::operation::BuildError>
--    {
--        ::std::result::Result::Ok(crate::operation::get_account_settings::GetAccountSettingsInput {})
-+    pub fn build(self) -> crate::operation::get_account_settings::GetAccountSettingsInput {
-+        crate::operation::get_account_settings::GetAccountSettingsInput {}
-     }
- }
 ```
 
 ### `src/operation/get_account_settings/builders.rs`
@@ -15998,21 +15978,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  }
 ```
 
-### `src/types/_callback_failed_details.rs`
-
-```diff
---- reference/src/types/_callback_failed_details.rs
-+++ generated/src/types/_callback_failed_details.rs
-@@ -28,7 +28,6 @@
- }
- impl CallbackFailedDetailsBuilder {
-     /// <p>An error object that contains details about the failure.</p>
--    /// This field is required.
-     pub fn error(mut self, input: crate::types::EventError) -> Self {
-         self.error = ::std::option::Option::Some(input);
-         self
-```
-
 ### `src/types/_callback_options.rs`
 
 ```diff
@@ -16051,74 +16016,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          }
      }
  }
-```
-
-### `src/types/_callback_succeeded_details.rs`
-
-```diff
---- reference/src/types/_callback_succeeded_details.rs
-+++ generated/src/types/_callback_succeeded_details.rs
-@@ -28,7 +28,6 @@
- }
- impl CallbackSucceededDetailsBuilder {
-     /// <p>The response payload from the successful operation.</p>
--    /// This field is required.
-     pub fn result(mut self, input: crate::types::EventResult) -> Self {
-         self.result = ::std::option::Option::Some(input);
-         self
-```
-
-### `src/types/_callback_timed_out_details.rs`
-
-```diff
---- reference/src/types/_callback_timed_out_details.rs
-+++ generated/src/types/_callback_timed_out_details.rs
-@@ -28,7 +28,6 @@
- }
- impl CallbackTimedOutDetailsBuilder {
-     /// <p>Details about the callback timeout.</p>
--    /// This field is required.
-     pub fn error(mut self, input: crate::types::EventError) -> Self {
-         self.error = ::std::option::Option::Some(input);
-         self
-```
-
-### `src/types/_capacity_provider.rs`
-
-```diff
---- reference/src/types/_capacity_provider.rs
-+++ generated/src/types/_capacity_provider.rs
-@@ -122,7 +122,6 @@
-         &self.state
-     }
-     /// <p>The VPC configuration for the capacity provider.</p>
--    /// This field is required.
-     pub fn vpc_config(mut self, input: crate::types::CapacityProviderVpcConfig) -> Self {
-         self.vpc_config = ::std::option::Option::Some(input);
-         self
-@@ -137,7 +136,6 @@
-         &self.vpc_config
-     }
-     /// <p>The permissions configuration for the capacity provider.</p>
--    /// This field is required.
-     pub fn permissions_config(mut self, input: crate::types::CapacityProviderPermissionsConfig) -> Self {
-         self.permissions_config = ::std::option::Option::Some(input);
-         self
-```
-
-### `src/types/_capacity_provider_config.rs`
-
-```diff
---- reference/src/types/_capacity_provider_config.rs
-+++ generated/src/types/_capacity_provider_config.rs
-@@ -30,7 +30,6 @@
- }
- impl CapacityProviderConfigBuilder {
-     /// <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
--    /// This field is required.
-     pub fn lambda_managed_instances_capacity_provider_config(mut self, input: crate::types::LambdaManagedInstancesCapacityProviderConfig) -> Self {
-         self.lambda_managed_instances_capacity_provider_config = ::std::option::Option::Some(input);
-         self
 ```
 
 ### `src/types/_capacity_provider_logging_config.rs`
@@ -16167,89 +16064,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      }
 ```
 
-### `src/types/_chained_invoke_failed_details.rs`
-
-```diff
---- reference/src/types/_chained_invoke_failed_details.rs
-+++ generated/src/types/_chained_invoke_failed_details.rs
-@@ -28,7 +28,6 @@
- }
- impl ChainedInvokeFailedDetailsBuilder {
-     /// <p>Details about the chained invocation failure.</p>
--    /// This field is required.
-     pub fn error(mut self, input: crate::types::EventError) -> Self {
-         self.error = ::std::option::Option::Some(input);
-         self
-```
-
-### `src/types/_chained_invoke_stopped_details.rs`
-
-```diff
---- reference/src/types/_chained_invoke_stopped_details.rs
-+++ generated/src/types/_chained_invoke_stopped_details.rs
-@@ -28,7 +28,6 @@
- }
- impl ChainedInvokeStoppedDetailsBuilder {
-     /// <p>Details about why the chained invocation stopped.</p>
--    /// This field is required.
-     pub fn error(mut self, input: crate::types::EventError) -> Self {
-         self.error = ::std::option::Option::Some(input);
-         self
-```
-
-### `src/types/_chained_invoke_succeeded_details.rs`
-
-```diff
---- reference/src/types/_chained_invoke_succeeded_details.rs
-+++ generated/src/types/_chained_invoke_succeeded_details.rs
-@@ -28,7 +28,6 @@
- }
- impl ChainedInvokeSucceededDetailsBuilder {
-     /// <p>The response payload from the successful operation.</p>
--    /// This field is required.
-     pub fn result(mut self, input: crate::types::EventResult) -> Self {
-         self.result = ::std::option::Option::Some(input);
-         self
-```
-
-### `src/types/_chained_invoke_timed_out_details.rs`
-
-```diff
---- reference/src/types/_chained_invoke_timed_out_details.rs
-+++ generated/src/types/_chained_invoke_timed_out_details.rs
-@@ -28,7 +28,6 @@
- }
- impl ChainedInvokeTimedOutDetailsBuilder {
-     /// <p>Details about the chained invocation timeout.</p>
--    /// This field is required.
-     pub fn error(mut self, input: crate::types::EventError) -> Self {
-         self.error = ::std::option::Option::Some(input);
-         self
-```
-
-### `src/types/_code_signing_config.rs`
-
-```diff
---- reference/src/types/_code_signing_config.rs
-+++ generated/src/types/_code_signing_config.rs
-@@ -110,7 +110,6 @@
-         &self.description
-     }
-     /// <p>List of allowed publishers.</p>
--    /// This field is required.
-     pub fn allowed_publishers(mut self, input: crate::types::AllowedPublishers) -> Self {
-         self.allowed_publishers = ::std::option::Option::Some(input);
-         self
-@@ -125,7 +124,6 @@
-         &self.allowed_publishers
-     }
-     /// <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
--    /// This field is required.
-     pub fn code_signing_policies(mut self, input: crate::types::CodeSigningPolicies) -> Self {
-         self.code_signing_policies = ::std::option::Option::Some(input);
-         self
-```
-
 ### `src/types/_concurrency.rs`
 
 ```diff
@@ -16261,36 +16075,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  #[allow(missing_docs)] // documentation missing in model
  #[non_exhaustive]
  #[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug)]
-```
-
-### `src/types/_context_failed_details.rs`
-
-```diff
---- reference/src/types/_context_failed_details.rs
-+++ generated/src/types/_context_failed_details.rs
-@@ -28,7 +28,6 @@
- }
- impl ContextFailedDetailsBuilder {
-     /// <p>Details about the context failure.</p>
--    /// This field is required.
-     pub fn error(mut self, input: crate::types::EventError) -> Self {
-         self.error = ::std::option::Option::Some(input);
-         self
-```
-
-### `src/types/_context_succeeded_details.rs`
-
-```diff
---- reference/src/types/_context_succeeded_details.rs
-+++ generated/src/types/_context_succeeded_details.rs
-@@ -28,7 +28,6 @@
- }
- impl ContextSucceededDetailsBuilder {
-     /// <p>The JSON response payload from the successful context.</p>
--    /// This field is required.
-     pub fn result(mut self, input: crate::types::EventResult) -> Self {
-         self.result = ::std::option::Option::Some(input);
-         self
 ```
 
 ### `src/types/_event.rs`
@@ -16325,66 +16109,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              id: self.id,
              name: self.name,
              event_timestamp: self.event_timestamp,
-```
-
-### `src/types/_execution_failed_details.rs`
-
-```diff
---- reference/src/types/_execution_failed_details.rs
-+++ generated/src/types/_execution_failed_details.rs
-@@ -28,7 +28,6 @@
- }
- impl ExecutionFailedDetailsBuilder {
-     /// <p>Details about the execution failure.</p>
--    /// This field is required.
-     pub fn error(mut self, input: crate::types::EventError) -> Self {
-         self.error = ::std::option::Option::Some(input);
-         self
-```
-
-### `src/types/_execution_started_details.rs`
-
-```diff
---- reference/src/types/_execution_started_details.rs
-+++ generated/src/types/_execution_started_details.rs
-@@ -35,7 +35,6 @@
- }
- impl ExecutionStartedDetailsBuilder {
-     /// <p>The input payload provided for the durable execution.</p>
--    /// This field is required.
-     pub fn input(mut self, input: crate::types::EventInput) -> Self {
-         self.input = ::std::option::Option::Some(input);
-         self
-```
-
-### `src/types/_execution_stopped_details.rs`
-
-```diff
---- reference/src/types/_execution_stopped_details.rs
-+++ generated/src/types/_execution_stopped_details.rs
-@@ -28,7 +28,6 @@
- }
- impl ExecutionStoppedDetailsBuilder {
-     /// <p>Details about why the execution stopped.</p>
--    /// This field is required.
-     pub fn error(mut self, input: crate::types::EventError) -> Self {
-         self.error = ::std::option::Option::Some(input);
-         self
-```
-
-### `src/types/_execution_succeeded_details.rs`
-
-```diff
---- reference/src/types/_execution_succeeded_details.rs
-+++ generated/src/types/_execution_succeeded_details.rs
-@@ -28,7 +28,6 @@
- }
- impl ExecutionSucceededDetailsBuilder {
-     /// <p>The response payload from the successful operation.</p>
--    /// This field is required.
-     pub fn result(mut self, input: crate::types::EventResult) -> Self {
-         self.result = ::std::option::Option::Some(input);
-         self
 ```
 
 ### `src/types/_function_code.rs`
@@ -17007,52 +16731,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
              next_attempt_timestamp: self.next_attempt_timestamp,
              result: self.result,
              error: self.error,
-```
-
-### `src/types/_step_failed_details.rs`
-
-```diff
---- reference/src/types/_step_failed_details.rs
-+++ generated/src/types/_step_failed_details.rs
-@@ -35,7 +35,6 @@
- }
- impl StepFailedDetailsBuilder {
-     /// <p>Details about the step failure.</p>
--    /// This field is required.
-     pub fn error(mut self, input: crate::types::EventError) -> Self {
-         self.error = ::std::option::Option::Some(input);
-         self
-@@ -50,7 +49,6 @@
-         &self.error
-     }
-     /// <p>Information about retry attempts for this step operation.</p>
--    /// This field is required.
-     pub fn retry_details(mut self, input: crate::types::RetryDetails) -> Self {
-         self.retry_details = ::std::option::Option::Some(input);
-         self
-```
-
-### `src/types/_step_succeeded_details.rs`
-
-```diff
---- reference/src/types/_step_succeeded_details.rs
-+++ generated/src/types/_step_succeeded_details.rs
-@@ -35,7 +35,6 @@
- }
- impl StepSucceededDetailsBuilder {
-     /// <p>The response payload from the successful operation.</p>
--    /// This field is required.
-     pub fn result(mut self, input: crate::types::EventResult) -> Self {
-         self.result = ::std::option::Option::Some(input);
-         self
-@@ -50,7 +49,6 @@
-         &self.result
-     }
-     /// <p>Information about retry attempts for this step operation.</p>
--    /// This field is required.
-     pub fn retry_details(mut self, input: crate::types::RetryDetails) -> Self {
-         self.retry_details = ::std::option::Option::Some(input);
-         self
 ```
 
 ### `src/types/error/_ec2_access_denied_exception.rs`
@@ -19989,7 +19667,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/delete_function_event_invoke_config.rs`
 - `src/operation/delete_resource_policy/builders.rs`
 - `src/operation/delete_resource_policy.rs`
-- `src/operation/get_account_settings/_get_account_settings_input.rs`
 - `src/operation/get_account_settings/builders.rs`
 - `src/operation/get_account_settings.rs`
 - `src/operation/get_function_event_invoke_config/builders.rs`
@@ -20020,25 +19697,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation.rs`
 - `src/types/_account_limit.rs`
 - `src/types/_account_usage.rs`
-- `src/types/_callback_failed_details.rs`
 - `src/types/_callback_options.rs`
-- `src/types/_callback_succeeded_details.rs`
-- `src/types/_callback_timed_out_details.rs`
-- `src/types/_capacity_provider.rs`
-- `src/types/_capacity_provider_config.rs`
 - `src/types/_capacity_provider_logging_config.rs`
-- `src/types/_chained_invoke_failed_details.rs`
-- `src/types/_chained_invoke_stopped_details.rs`
-- `src/types/_chained_invoke_succeeded_details.rs`
-- `src/types/_chained_invoke_timed_out_details.rs`
-- `src/types/_code_signing_config.rs`
-- `src/types/_context_failed_details.rs`
-- `src/types/_context_succeeded_details.rs`
 - `src/types/_event.rs`
-- `src/types/_execution_failed_details.rs`
-- `src/types/_execution_started_details.rs`
-- `src/types/_execution_stopped_details.rs`
-- `src/types/_execution_succeeded_details.rs`
 - `src/types/_function_code.rs`
 - `src/types/_function_configuration.rs`
 - `src/types/_invoke_response_stream_update.rs`
@@ -20055,8 +19716,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_retry_details.rs`
 - `src/types/_s3_object_storage_mode.rs`
 - `src/types/_step_details.rs`
-- `src/types/_step_failed_details.rs`
-- `src/types/_step_succeeded_details.rs`
 - `src/types/error/_ec2_access_denied_exception.rs`
 - `src/types/error/_ec2_throttled_exception.rs`
 - `src/types/error/_ec2_unexpected_exception.rs`

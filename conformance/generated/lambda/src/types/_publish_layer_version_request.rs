@@ -115,6 +115,7 @@ impl PublishLayerVersionRequestBuilder {
         &self.description
     }
     /// <p>The function layer archive.</p>
+    /// This field is required.
     pub fn content(mut self, input: crate::types::LayerVersionContentInput) -> Self {
         self.content = ::std::option::Option::Some(input);
         self

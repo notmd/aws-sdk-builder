@@ -78,6 +78,7 @@ impl PutBucketAnalyticsConfigurationInputBuilder {
         &self.id
     }
     /// <p>The configuration and any analyses for the analytics filter.</p>
+    /// This field is required.
     pub fn analytics_configuration(mut self, input: crate::types::AnalyticsConfiguration) -> Self {
         self.analytics_configuration = ::std::option::Option::Some(input);
         self

@@ -30,6 +30,7 @@ pub struct MetadataTableConfigurationBuilder {
 }
 impl MetadataTableConfigurationBuilder {
     /// <p>The destination information for the metadata table configuration. The destination table bucket must be in the same Region and Amazon Web Services account as the general purpose bucket. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.</p>
+    /// This field is required.
     pub fn s3_tables_destination(mut self, input: crate::types::S3TablesDestination) -> Self {
         self.s3_tables_destination = ::std::option::Option::Some(input);
         self

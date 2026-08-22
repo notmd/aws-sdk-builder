@@ -77,6 +77,7 @@ pub struct InventoryConfigurationBuilder {
 }
 impl InventoryConfigurationBuilder {
     /// <p>Contains information about where to publish the inventory results.</p>
+    /// This field is required.
     pub fn destination(mut self, input: crate::types::InventoryDestination) -> Self {
         self.destination = ::std::option::Option::Some(input);
         self
@@ -176,6 +177,7 @@ impl InventoryConfigurationBuilder {
         &self.optional_fields
     }
     /// <p>Specifies the schedule for generating inventory results.</p>
+    /// This field is required.
     pub fn schedule(mut self, input: crate::types::InventorySchedule) -> Self {
         self.schedule = ::std::option::Option::Some(input);
         self

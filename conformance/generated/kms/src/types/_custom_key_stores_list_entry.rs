@@ -70,7 +70,9 @@ pub struct CustomKeyStoresListEntry {
     /// <li>
     /// <p>It must have a network load balancer (NLB) connected to at least two subnets, each in a different Availability Zone.</p></li>
     /// <li>
-    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>.amazonaws.com</code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
+    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>
+    /// .amazonaws.com
+    /// </region></code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
     /// <li>
     /// <p>It must <i>not</i> require <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html">acceptance</a> of connection requests.</p></li>
     /// <li>
@@ -169,7 +171,9 @@ impl CustomKeyStoresListEntry {
     /// <li>
     /// <p>It must have a network load balancer (NLB) connected to at least two subnets, each in a different Availability Zone.</p></li>
     /// <li>
-    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>.amazonaws.com</code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
+    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>
+    /// .amazonaws.com
+    /// </region></code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
     /// <li>
     /// <p>It must <i>not</i> require <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html">acceptance</a> of connection requests.</p></li>
     /// <li>
@@ -355,7 +359,9 @@ impl CustomKeyStoresListEntryBuilder {
     /// <li>
     /// <p>It must have a network load balancer (NLB) connected to at least two subnets, each in a different Availability Zone.</p></li>
     /// <li>
-    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>.amazonaws.com</code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
+    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>
+    /// .amazonaws.com
+    /// </region></code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
     /// <li>
     /// <p>It must <i>not</i> require <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html">acceptance</a> of connection requests.</p></li>
     /// <li>
@@ -424,7 +430,9 @@ impl CustomKeyStoresListEntryBuilder {
     /// <li>
     /// <p>It must have a network load balancer (NLB) connected to at least two subnets, each in a different Availability Zone.</p></li>
     /// <li>
-    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>.amazonaws.com</code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
+    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>
+    /// .amazonaws.com
+    /// </region></code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
     /// <li>
     /// <p>It must <i>not</i> require <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html">acceptance</a> of connection requests.</p></li>
     /// <li>
@@ -493,7 +501,9 @@ impl CustomKeyStoresListEntryBuilder {
     /// <li>
     /// <p>It must have a network load balancer (NLB) connected to at least two subnets, each in a different Availability Zone.</p></li>
     /// <li>
-    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>.amazonaws.com</code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
+    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>
+    /// .amazonaws.com
+    /// </region></code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
     /// <li>
     /// <p>It must <i>not</i> require <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html">acceptance</a> of connection requests.</p></li>
     /// <li>

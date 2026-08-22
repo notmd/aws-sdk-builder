@@ -133,6 +133,7 @@ impl CreateDelegationRequestInputBuilder {
         &self.description
     }
     /// <p>The permissions to be delegated in this delegation request.</p>
+    /// This field is required.
     pub fn permissions(mut self, input: crate::types::DelegationPermission) -> Self {
         self.permissions = ::std::option::Option::Some(input);
         self

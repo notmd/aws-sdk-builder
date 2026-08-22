@@ -29,11 +29,11 @@ impl Builder {
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(
         self,
-    ) -> ::std::result::Result<super::RemoveClientIdFromOpenIdConnectProviderOutput, super::RemoveClientIdFromOpenIdConnectProviderError> {
+    ) -> ::std::result::Result<super::RemoveClientIdFromOpenIdConnectProviderOutput, super::RemoveClientIDFromOpenIDConnectProviderError> {
         let input = self
             .input
             .build()
-            .map_err(|error| super::RemoveClientIdFromOpenIdConnectProviderError::Unhandled(error.to_string()))?;
+            .map_err(|error| super::RemoveClientIDFromOpenIDConnectProviderError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();
@@ -41,11 +41,11 @@ impl Builder {
             .client
             .request(super::super::super::transport::Method::Post, &path, &headers, &body)
             .await
-            .map_err(super::RemoveClientIdFromOpenIdConnectProviderError::Unhandled)?;
+            .map_err(super::RemoveClientIDFromOpenIDConnectProviderError::Unhandled)?;
         let status = response.status();
         if !status.is_success() {
-            return Err(super::RemoveClientIdFromOpenIdConnectProviderError::unhandled_with_request_ids(
-                format!("RemoveClientIdFromOpenIdConnectProvider returned HTTP {}", status),
+            return Err(super::RemoveClientIDFromOpenIDConnectProviderError::unhandled_with_request_ids(
+                format!("RemoveClientIDFromOpenIDConnectProvider returned HTTP {}", status),
                 response.header("x-amzn-requestid").map(str::to_owned),
                 ::std::option::Option::None,
             ));
@@ -56,4 +56,4 @@ impl Builder {
         Ok(output.build())
     }
 }
-pub use Builder as RemoveClientIdFromOpenIdConnectProviderFluentBuilder;
+pub use Builder as RemoveClientIDFromOpenIDConnectProviderFluentBuilder;

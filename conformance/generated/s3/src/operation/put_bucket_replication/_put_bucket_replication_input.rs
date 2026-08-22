@@ -115,6 +115,7 @@ impl PutBucketReplicationInputBuilder {
         &self.checksum_algorithm
     }
     /// <p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.</p>
+    /// This field is required.
     pub fn replication_configuration(mut self, input: crate::types::ReplicationConfiguration) -> Self {
         self.replication_configuration = ::std::option::Option::Some(input);
         self

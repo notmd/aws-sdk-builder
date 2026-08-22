@@ -17,7 +17,14 @@ impl EnableOrganizationsRootCredentialsManagementInput {
 pub struct EnableOrganizationsRootCredentialsManagementInputBuilder {}
 impl EnableOrganizationsRootCredentialsManagementInputBuilder {
     /// Consumes the builder and constructs a [`EnableOrganizationsRootCredentialsManagementInput`](crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementInput).
-    pub fn build(self) -> crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementInput {
-        crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementInput {}
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(
+            crate::operation::enable_organizations_root_credentials_management::EnableOrganizationsRootCredentialsManagementInput {},
+        )
     }
 }

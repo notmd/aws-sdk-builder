@@ -35,6 +35,7 @@ pub struct ExecutionStartedDetailsBuilder {
 }
 impl ExecutionStartedDetailsBuilder {
     /// <p>The input payload provided for the durable execution.</p>
+    /// This field is required.
     pub fn input(mut self, input: crate::types::EventInput) -> Self {
         self.input = ::std::option::Option::Some(input);
         self

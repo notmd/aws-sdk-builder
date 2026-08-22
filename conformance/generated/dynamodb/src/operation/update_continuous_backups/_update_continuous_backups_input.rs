@@ -49,6 +49,7 @@ impl UpdateContinuousBackupsInputBuilder {
         &self.table_name
     }
     /// <p>Represents the settings used to enable point in time recovery.</p>
+    /// This field is required.
     pub fn point_in_time_recovery_specification(mut self, input: crate::types::PointInTimeRecoverySpecification) -> Self {
         self.point_in_time_recovery_specification = ::std::option::Option::Some(input);
         self

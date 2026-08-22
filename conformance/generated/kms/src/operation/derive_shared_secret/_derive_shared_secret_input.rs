@@ -25,7 +25,7 @@ pub struct DeriveSharedSecretInput {
     /// <p><code>GetPublicKey</code> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p><note>
     /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
     /// </note>
-    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></code>) or in-line using a Base64 encoded string.</p>
+    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
     pub public_key: ::std::option::Option<::std::vec::Vec<u8>>,
     /// <p>A list of grant tokens.</p>
     /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -66,7 +66,7 @@ impl DeriveSharedSecretInput {
     /// <p><code>GetPublicKey</code> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p><note>
     /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
     /// </note>
-    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></code>) or in-line using a Base64 encoded string.</p>
+    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
     pub fn public_key(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
         self.public_key.as_ref()
     }
@@ -183,7 +183,7 @@ impl DeriveSharedSecretInputBuilder {
     /// <p><code>GetPublicKey</code> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p><note>
     /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
     /// </note>
-    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></code>) or in-line using a Base64 encoded string.</p>
+    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
     /// This field is required.
     pub fn public_key(mut self, input: ::std::vec::Vec<u8>) -> Self {
         self.public_key = ::std::option::Option::Some(input);
@@ -194,7 +194,7 @@ impl DeriveSharedSecretInputBuilder {
     /// <p><code>GetPublicKey</code> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p><note>
     /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
     /// </note>
-    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></code>) or in-line using a Base64 encoded string.</p>
+    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
     pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
         self.public_key = input;
         self
@@ -204,7 +204,7 @@ impl DeriveSharedSecretInputBuilder {
     /// <p><code>GetPublicKey</code> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p><note>
     /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
     /// </note>
-    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></code>) or in-line using a Base64 encoded string.</p>
+    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
     pub fn get_public_key(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
         &self.public_key
     }

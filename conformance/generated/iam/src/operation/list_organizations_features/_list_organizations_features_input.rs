@@ -16,7 +16,12 @@ impl ListOrganizationsFeaturesInput {
 pub struct ListOrganizationsFeaturesInputBuilder {}
 impl ListOrganizationsFeaturesInputBuilder {
     /// Consumes the builder and constructs a [`ListOrganizationsFeaturesInput`](crate::operation::list_organizations_features::ListOrganizationsFeaturesInput).
-    pub fn build(self) -> crate::operation::list_organizations_features::ListOrganizationsFeaturesInput {
-        crate::operation::list_organizations_features::ListOrganizationsFeaturesInput {}
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::list_organizations_features::ListOrganizationsFeaturesInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(crate::operation::list_organizations_features::ListOrganizationsFeaturesInput {})
     }
 }

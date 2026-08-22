@@ -199,6 +199,7 @@ impl SourceTableDetailsBuilder {
         &self.table_creation_date_time
     }
     /// <p>Read IOPs and Write IOPS on the table when the backup was created.</p>
+    /// This field is required.
     pub fn provisioned_throughput(mut self, input: crate::types::ProvisionedThroughput) -> Self {
         self.provisioned_throughput = ::std::option::Option::Some(input);
         self

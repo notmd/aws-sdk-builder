@@ -28,6 +28,7 @@ pub struct ChainedInvokeSucceededDetailsBuilder {
 }
 impl ChainedInvokeSucceededDetailsBuilder {
     /// <p>The response payload from the successful operation.</p>
+    /// This field is required.
     pub fn result(mut self, input: crate::types::EventResult) -> Self {
         self.result = ::std::option::Option::Some(input);
         self

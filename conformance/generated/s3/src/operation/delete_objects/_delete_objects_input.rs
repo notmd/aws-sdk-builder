@@ -175,6 +175,7 @@ impl DeleteObjectsInputBuilder {
         &self.bucket
     }
     /// <p>Container for the request.</p>
+    /// This field is required.
     pub fn delete(mut self, input: crate::types::Delete) -> Self {
         self.delete = ::std::option::Option::Some(input);
         self

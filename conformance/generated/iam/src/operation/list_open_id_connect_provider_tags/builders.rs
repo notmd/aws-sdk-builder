@@ -31,11 +31,11 @@ impl Builder {
         self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-    pub async fn send(self) -> ::std::result::Result<super::ListOpenIdConnectProviderTagsOutput, super::ListOpenIdConnectProviderTagsError> {
+    pub async fn send(self) -> ::std::result::Result<super::ListOpenIdConnectProviderTagsOutput, super::ListOpenIDConnectProviderTagsError> {
         let input = self
             .input
             .build()
-            .map_err(|error| super::ListOpenIdConnectProviderTagsError::Unhandled(error.to_string()))?;
+            .map_err(|error| super::ListOpenIDConnectProviderTagsError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();
@@ -43,11 +43,11 @@ impl Builder {
             .client
             .request(super::super::super::transport::Method::Post, &path, &headers, &body)
             .await
-            .map_err(super::ListOpenIdConnectProviderTagsError::Unhandled)?;
+            .map_err(super::ListOpenIDConnectProviderTagsError::Unhandled)?;
         let status = response.status();
         if !status.is_success() {
-            return Err(super::ListOpenIdConnectProviderTagsError::unhandled_with_request_ids(
-                format!("ListOpenIdConnectProviderTags returned HTTP {}", status),
+            return Err(super::ListOpenIDConnectProviderTagsError::unhandled_with_request_ids(
+                format!("ListOpenIDConnectProviderTags returned HTTP {}", status),
                 response.header("x-amzn-requestid").map(str::to_owned),
                 ::std::option::Option::None,
             ));
@@ -56,7 +56,7 @@ impl Builder {
         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
         output
             .build()
-            .map_err(|error| super::ListOpenIdConnectProviderTagsError::Unhandled(error.to_string()))
+            .map_err(|error| super::ListOpenIDConnectProviderTagsError::Unhandled(error.to_string()))
     }
 }
-pub use Builder as ListOpenIdConnectProviderTagsFluentBuilder;
+pub use Builder as ListOpenIDConnectProviderTagsFluentBuilder;

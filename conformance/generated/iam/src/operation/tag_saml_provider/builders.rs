@@ -27,11 +27,11 @@ impl Builder {
         self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-    pub async fn send(self) -> ::std::result::Result<super::TagSamlProviderOutput, super::TagSamlProviderError> {
+    pub async fn send(self) -> ::std::result::Result<super::TagSamlProviderOutput, super::TagSAMLProviderError> {
         let input = self
             .input
             .build()
-            .map_err(|error| super::TagSamlProviderError::Unhandled(error.to_string()))?;
+            .map_err(|error| super::TagSAMLProviderError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();
@@ -39,11 +39,11 @@ impl Builder {
             .client
             .request(super::super::super::transport::Method::Post, &path, &headers, &body)
             .await
-            .map_err(super::TagSamlProviderError::Unhandled)?;
+            .map_err(super::TagSAMLProviderError::Unhandled)?;
         let status = response.status();
         if !status.is_success() {
-            return Err(super::TagSamlProviderError::unhandled_with_request_ids(
-                format!("TagSamlProvider returned HTTP {}", status),
+            return Err(super::TagSAMLProviderError::unhandled_with_request_ids(
+                format!("TagSAMLProvider returned HTTP {}", status),
                 response.header("x-amzn-requestid").map(str::to_owned),
                 ::std::option::Option::None,
             ));
@@ -53,4 +53,4 @@ impl Builder {
         Ok(output.build())
     }
 }
-pub use Builder as TagSamlProviderFluentBuilder;
+pub use Builder as TagSAMLProviderFluentBuilder;

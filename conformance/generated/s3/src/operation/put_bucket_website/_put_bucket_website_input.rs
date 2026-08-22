@@ -108,6 +108,7 @@ impl PutBucketWebsiteInputBuilder {
         &self.checksum_algorithm
     }
     /// <p>Container for the request.</p>
+    /// This field is required.
     pub fn website_configuration(mut self, input: crate::types::WebsiteConfiguration) -> Self {
         self.website_configuration = ::std::option::Option::Some(input);
         self

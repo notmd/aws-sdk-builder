@@ -28,6 +28,7 @@ pub struct GetBucketMetadataConfigurationResultBuilder {
 }
 impl GetBucketMetadataConfigurationResultBuilder {
     /// <p>The metadata configuration for a general purpose bucket.</p>
+    /// This field is required.
     pub fn metadata_configuration_result(mut self, input: crate::types::MetadataConfigurationResult) -> Self {
         self.metadata_configuration_result = ::std::option::Option::Some(input);
         self

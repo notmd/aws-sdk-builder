@@ -129,6 +129,7 @@ impl PutBucketVersioningInputBuilder {
         &self.mfa
     }
     /// <p>Container for setting the versioning state.</p>
+    /// This field is required.
     pub fn versioning_configuration(mut self, input: crate::types::VersioningConfiguration) -> Self {
         self.versioning_configuration = ::std::option::Option::Some(input);
         self

@@ -148,6 +148,7 @@ impl CreateSessionOutputBuilder {
         &self.bucket_key_enabled
     }
     /// <p>The established temporary security credentials for the created session.</p>
+    /// This field is required.
     pub fn credentials(mut self, input: crate::types::SessionCredentials) -> Self {
         self.credentials = ::std::option::Option::Some(input);
         self

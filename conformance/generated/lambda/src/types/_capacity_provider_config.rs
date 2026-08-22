@@ -30,6 +30,7 @@ pub struct CapacityProviderConfigBuilder {
 }
 impl CapacityProviderConfigBuilder {
     /// <p>Configuration for Lambda-managed instances used by the capacity provider.</p>
+    /// This field is required.
     pub fn lambda_managed_instances_capacity_provider_config(mut self, input: crate::types::LambdaManagedInstancesCapacityProviderConfig) -> Self {
         self.lambda_managed_instances_capacity_provider_config = ::std::option::Option::Some(input);
         self

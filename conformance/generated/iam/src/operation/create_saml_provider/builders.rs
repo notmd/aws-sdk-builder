@@ -39,11 +39,11 @@ impl Builder {
         self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-    pub async fn send(self) -> ::std::result::Result<super::CreateSamlProviderOutput, super::CreateSamlProviderError> {
+    pub async fn send(self) -> ::std::result::Result<super::CreateSamlProviderOutput, super::CreateSAMLProviderError> {
         let input = self
             .input
             .build()
-            .map_err(|error| super::CreateSamlProviderError::Unhandled(error.to_string()))?;
+            .map_err(|error| super::CreateSAMLProviderError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();
@@ -51,11 +51,11 @@ impl Builder {
             .client
             .request(super::super::super::transport::Method::Post, &path, &headers, &body)
             .await
-            .map_err(super::CreateSamlProviderError::Unhandled)?;
+            .map_err(super::CreateSAMLProviderError::Unhandled)?;
         let status = response.status();
         if !status.is_success() {
-            return Err(super::CreateSamlProviderError::unhandled_with_request_ids(
-                format!("CreateSamlProvider returned HTTP {}", status),
+            return Err(super::CreateSAMLProviderError::unhandled_with_request_ids(
+                format!("CreateSAMLProvider returned HTTP {}", status),
                 response.header("x-amzn-requestid").map(str::to_owned),
                 ::std::option::Option::None,
             ));
@@ -65,4 +65,4 @@ impl Builder {
         Ok(output.build())
     }
 }
-pub use Builder as CreateSamlProviderFluentBuilder;
+pub use Builder as CreateSAMLProviderFluentBuilder;

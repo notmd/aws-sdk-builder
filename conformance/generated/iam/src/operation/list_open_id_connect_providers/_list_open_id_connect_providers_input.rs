@@ -16,7 +16,12 @@ impl ListOpenIdConnectProvidersInput {
 pub struct ListOpenIdConnectProvidersInputBuilder {}
 impl ListOpenIdConnectProvidersInputBuilder {
     /// Consumes the builder and constructs a [`ListOpenIdConnectProvidersInput`](crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersInput).
-    pub fn build(self) -> crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersInput {
-        crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersInput {}
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(crate::operation::list_open_id_connect_providers::ListOpenIdConnectProvidersInput {})
     }
 }

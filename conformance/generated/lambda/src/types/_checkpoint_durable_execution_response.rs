@@ -49,6 +49,7 @@ impl CheckpointDurableExecutionResponseBuilder {
         &self.checkpoint_token
     }
     /// <p>Updated execution state information that includes any changes that occurred since the last checkpoint, such as completed callbacks or expired timers. This allows the SDK to update its internal state during replay.</p>
+    /// This field is required.
     pub fn new_execution_state(mut self, input: crate::types::CheckpointUpdatedExecutionState) -> Self {
         self.new_execution_state = ::std::option::Option::Some(input);
         self

@@ -100,6 +100,7 @@ impl UpdateBucketMetadataAnnotationTableConfigurationInputBuilder {
         &self.checksum_algorithm
     }
     /// <p>The annotation table configuration updates to apply.</p>
+    /// This field is required.
     pub fn annotation_table_configuration(mut self, input: crate::types::AnnotationTableConfigurationUpdates) -> Self {
         self.annotation_table_configuration = ::std::option::Option::Some(input);
         self

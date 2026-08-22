@@ -1288,11 +1288,12 @@ fn render_operation_file(
     let module = names::snake_case(operation_name);
     let operation = operation_shape(selected, operation_name).expect("selected operation exists");
     let rust_operation = rust_type_name(operation_name);
+    let operation_symbol = operation_name;
     let mut output = String::new();
     header(&mut output);
     writeln!(
         output,
-        "#[derive(Clone, Debug, Default)]\npub struct {rust_operation};\nimpl {rust_operation} {{ pub fn new() -> Self {{ Self }} }}"
+        "#[derive(Clone, Debug, Default)]\npub struct {operation_symbol};\nimpl {operation_symbol} {{ pub fn new() -> Self {{ Self }} }}"
     )
     .unwrap();
     render_operation_error(&mut output, selected, operation, consumer_namespace);
@@ -1315,7 +1316,7 @@ fn render_operation_file(
     output.push_str("}\n");
     writeln!(
         output,
-        "pub type {rust_operation}Error = Error;\npub type {rust_operation}FluentBuilder = builders::Builder;"
+        "pub type {operation_symbol}Error = Error;\npub type {operation_symbol}FluentBuilder = builders::Builder;"
     )
     .unwrap();
     output
@@ -1367,7 +1368,9 @@ fn render_operation_shape_file(
     header(&mut output);
     // Smithy emits operation input/output modules directly after the header;
     // the standalone modeled type files retain the separating blank line.
-    output.pop();
+    if shape.is_none_or(|shape| documentation(shape).is_none()) {
+        output.pop();
+    }
     if let Some(shape) = shape {
         render_structure_at_indent(
             &mut output,
@@ -1464,6 +1467,7 @@ fn render_operation_builder_file(
         .expect("selected model protocol was validated before rendering");
     let module = names::snake_case(operation_name);
     let rust_operation = rust_type_name(operation_name);
+    let operation_symbol = operation_name;
     let mut output = String::new();
     header(&mut output);
     let input_has_streaming_member = operation
@@ -1520,7 +1524,11 @@ fn render_operation_builder_file(
         consumer_namespace,
     );
     output.push_str("}\n");
-    writeln!(output, "pub use Builder as {rust_operation}FluentBuilder;").unwrap();
+    writeln!(
+        output,
+        "pub use Builder as {operation_symbol}FluentBuilder;"
+    )
+    .unwrap();
     output
 }
 
@@ -1600,6 +1608,7 @@ fn render_operation_send(
     consumer_namespace: bool,
 ) {
     let rust_operation = rust_type_name(operation_name);
+    let operation_symbol = operation_name;
     let request_id_plan = request_id_plan(selected);
     let method = operation
         .get("traits")
@@ -1641,12 +1650,12 @@ fn render_operation_send(
 
     writeln!(
         output,
-        "                     {send_allow}\n                     pub async fn send(self) -> ::std::result::Result<super::{rust_operation}Output, super::{rust_operation}Error> {{"
+        "                     {send_allow}\n                     pub async fn send(self) -> ::std::result::Result<super::{rust_operation}Output, super::{operation_symbol}Error> {{"
     )
     .unwrap();
     writeln!(
         output,
-        "                         let input = self.input.build().map_err(|error| super::{rust_operation}Error::Unhandled(error.to_string()))?;"
+        "                         let input = self.input.build().map_err(|error| super::{operation_symbol}Error::Unhandled(error.to_string()))?;"
     )
     .unwrap();
     if let Some(shape) = input_shape {
@@ -1659,7 +1668,7 @@ fn render_operation_send(
             if required && uri.contains(&format!("{{{name}")) {
                 writeln!(
                     output,
-                    "                         let {field} = input.{field}.as_deref().ok_or_else(|| super::{rust_operation}Error::Unhandled(\"{rust_operation} requires {field}\".to_owned()))?;"
+                    "                         let {field} = input.{field}.as_deref().ok_or_else(|| super::{operation_symbol}Error::Unhandled(\"{operation_symbol} requires {field}\".to_owned()))?;"
                 )
                 .unwrap();
             }
@@ -1667,13 +1676,13 @@ fn render_operation_send(
     }
     writeln!(
         output,
-        "                         let path = {path_expression};\n                         let body = {body_expression};\n                         let headers = {headers_expression};\n                         let response = self.client.request(super::super::super::transport::Method::{http_method}, &path, &headers, &body).await.map_err(super::{rust_operation}Error::Unhandled)?;"
+        "                         let path = {path_expression};\n                         let body = {body_expression};\n                         let headers = {headers_expression};\n                         let response = self.client.request(super::super::super::transport::Method::{http_method}, &path, &headers, &body).await.map_err(super::{operation_symbol}Error::Unhandled)?;"
     )
     .unwrap();
     output.push_str("                         let status = response.status();\n                         if !status.is_success() {\n");
     writeln!(
         output,
-        "                             return Err(super::{rust_operation}Error::unhandled_with_request_ids(format!(\"{rust_operation} returned HTTP {{}}\", status), response.header(\"x-amzn-requestid\").map(str::to_owned), {extended_request_id}));"
+        "                             return Err(super::{operation_symbol}Error::unhandled_with_request_ids(format!(\"{operation_symbol} returned HTTP {{}}\", status), response.header(\"x-amzn-requestid\").map(str::to_owned), {extended_request_id}));"
     )
     .unwrap();
     output.push_str("                         }\n");
@@ -2777,6 +2786,7 @@ fn render_response_decode(
     consumer_namespace: bool,
 ) {
     let rust_operation = rust_type_name(operation_name);
+    let operation_symbol = operation_name;
     let request_id_plan = request_id_plan(selected);
     let byte_stream_type = if consumer_namespace {
         "super::super::super::primitives::ByteStream"
@@ -2846,7 +2856,7 @@ fn render_response_decode(
             if output_requires_validation {
                 writeln!(
                     output,
-                    "                         output.build().map_err(|error| super::{rust_operation}Error::Unhandled(error.to_string()))"
+                    "                         output.build().map_err(|error| super::{operation_symbol}Error::Unhandled(error.to_string()))"
                 )
                 .unwrap();
             } else {
@@ -2874,7 +2884,7 @@ fn render_response_decode(
         });
     if has_xml_body || !xml_flattened_lists.is_empty() {
         output.push_str(&format!(
-            "                         let body = response.text().await.map_err(super::{rust_operation}Error::Unhandled)?;\n"
+            "                         let body = response.text().await.map_err(super::{operation_symbol}Error::Unhandled)?;\n"
         ));
     }
     if let Some(shape) = shape {
@@ -2952,7 +2962,7 @@ fn render_response_decode(
     if output_requires_validation {
         writeln!(
             output,
-            "                         output.build().map_err(|error| super::{rust_operation}Error::Unhandled(error.to_string()))"
+        "                         output.build().map_err(|error| super::{operation_symbol}Error::Unhandled(error.to_string()))"
         )
         .unwrap();
     } else {
@@ -3951,8 +3961,22 @@ fn render_type_builder(
             "{inner}/// Consumes the builder and constructs a [`{rust_name}`]({value_path})."
         )
         .unwrap();
-        writeln!(output, "{inner}pub fn build(self) -> {value_path} {{").unwrap();
-        writeln!(output, "{inner}    {value_path} {{}}").unwrap();
+        if operation_input(&context) {
+            writeln!(
+                output,
+                "{inner}pub fn build(self) -> ::std::result::Result<{value_path}, {}> {{",
+                build_error_type(&context)
+            )
+            .unwrap();
+            writeln!(
+                output,
+                "{inner}    ::std::result::Result::Ok({value_path} {{}})"
+            )
+            .unwrap();
+        } else {
+            writeln!(output, "{inner}pub fn build(self) -> {value_path} {{").unwrap();
+            writeln!(output, "{inner}    {value_path} {{}}").unwrap();
+        }
         writeln!(output, "{inner}}}").unwrap();
         writeln!(output, "{padding}}}").unwrap();
         return;
@@ -4051,13 +4075,7 @@ fn render_type_builder(
             .unwrap();
         } else {
             let argument = builder_argument_type(selected, target_id, &target);
-            render_builder_docs(
-                output,
-                selected,
-                member,
-                &inner,
-                member_is_effectively_required(selected, member, target_id),
-            );
+            render_builder_docs(output, selected, member, &inner, member_is_required(member));
             render_deprecated_attribute(output, member, indent + 4);
             writeln!(
                 output,
@@ -4605,6 +4623,7 @@ fn render_client_operation_file(
 ) -> String {
     let module = names::snake_case(operation);
     let rust_operation = rust_type_name(operation);
+    let operation_symbol = operation;
     let mut output = String::new();
     client_operation_header(&mut output);
     if !consumer_namespace {
@@ -4622,13 +4641,13 @@ fn render_client_operation_file(
         output.push_str("impl super::Client {\n");
         writeln!(
             output,
-            "    /// Constructs a fluent builder for the [`{rust_operation}`](crate::operation::{module}::builders::{rust_operation}FluentBuilder) operation."
+            "    /// Constructs a fluent builder for the [`{operation_symbol}`](crate::operation::{module}::builders::{operation_symbol}FluentBuilder) operation."
         )
         .unwrap();
         if operation_is_paginated(operation_shape) {
             writeln!(
                 output,
-                "    /// This operation supports pagination; See [`into_paginator()`](crate::operation::{module}::builders::{rust_operation}FluentBuilder::into_paginator)."
+                "    /// This operation supports pagination; See [`into_paginator()`](crate::operation::{module}::builders::{operation_symbol}FluentBuilder::into_paginator)."
             )
             .unwrap();
         }
@@ -4636,7 +4655,7 @@ fn render_client_operation_file(
         if input_members.is_empty() {
             writeln!(
                 output,
-                "    /// - The fluent builder takes no input, just [`send`](crate::operation::{module}::builders::{rust_operation}FluentBuilder::send) it."
+                "    /// - The fluent builder takes no input, just [`send`](crate::operation::{module}::builders::{operation_symbol}FluentBuilder::send) it."
             )
             .unwrap();
         } else {
@@ -4651,7 +4670,7 @@ fn render_client_operation_file(
                 let documentation = member_documentation(selected, member);
                 writeln!(
                     output,
-                    "    ///   - [`{field_method}({argument})`](crate::operation::{module}::builders::{rust_operation}FluentBuilder::{field_method}) / [`set_{field_method}(Option<{target}>)`](crate::operation::{module}::builders::{rust_operation}FluentBuilder::set_{field_method}):<br>required: **{required}**<br>{documentation}<br>"
+                    "    ///   - [`{field_method}({argument})`](crate::operation::{module}::builders::{operation_symbol}FluentBuilder::{field_method}) / [`set_{field_method}(Option<{target}>)`](crate::operation::{module}::builders::{operation_symbol}FluentBuilder::set_{field_method}):<br>required: **{required}**<br>{documentation}<br>"
                 )
                 .unwrap();
             }
@@ -4699,11 +4718,11 @@ fn render_client_operation_file(
         }
         writeln!(
             output,
-            "    /// - On failure, responds with [`SdkError<{rust_operation}Error>`](crate::operation::{module}::{rust_operation}Error)"
+            "    /// - On failure, responds with [`SdkError<{operation_symbol}Error>`](crate::operation::{module}::{operation_symbol}Error)"
         )
         .unwrap();
         let fluent_builder_path =
-            format!("crate::operation::{module}::builders::{rust_operation}FluentBuilder");
+            format!("crate::operation::{module}::builders::{operation_symbol}FluentBuilder");
         let method_signature = format!("    pub fn {module}(&self) -> {fluent_builder_path}");
         if method_signature.len() > 160 {
             writeln!(
@@ -4716,7 +4735,7 @@ fn render_client_operation_file(
         }
         writeln!(
             output,
-            "        crate::operation::{module}::builders::{rust_operation}FluentBuilder::new(self.handle.clone())"
+            "        crate::operation::{module}::builders::{operation_symbol}FluentBuilder::new(self.handle.clone())"
         )
         .unwrap();
         output.push_str("    }\n}\n");
@@ -4724,7 +4743,7 @@ fn render_client_operation_file(
     }
     writeln!(
         output,
-        "impl Client {{\n    pub fn {module}(&self) -> operation::{module}::{rust_operation}FluentBuilder {{ operation::{module}::{rust_operation}FluentBuilder::with_client(self.clone()) }}\n}}\n"
+        "impl Client {{\n    pub fn {module}(&self) -> operation::{module}::{operation_symbol}FluentBuilder {{ operation::{module}::{operation_symbol}FluentBuilder::with_client(self.clone()) }}\n}}\n"
     )
     .unwrap();
     output
@@ -4873,7 +4892,7 @@ fn client_documentation_argument_type(selected: &SelectedModel, target: &str) ->
 enum DocumentationToken {
     Tag(String),
     Text(String),
-    Whitespace,
+    Whitespace(String),
 }
 
 fn documentation_tokens(value: &str) -> Vec<DocumentationToken> {
@@ -4900,7 +4919,7 @@ fn documentation_tokens(value: &str) -> Vec<DocumentationToken> {
             };
             let raw = &rest[..end];
             if raw.trim().is_empty() {
-                tokens.push(DocumentationToken::Whitespace);
+                tokens.push(DocumentationToken::Whitespace(raw.to_owned()));
             } else {
                 tokens.push(DocumentationToken::Text(raw.to_owned()));
             }
@@ -4916,16 +4935,40 @@ fn normalize_model_documentation(value: &str) -> String {
     let mut stack = Vec::<String>::new();
     let mut previous_tag = None::<(bool, String)>;
     let mut pending_whitespace = false;
+    let mut pending_newline = false;
 
     for token in tokens {
         match token {
-            DocumentationToken::Whitespace => pending_whitespace = true,
+            DocumentationToken::Whitespace(text) => {
+                pending_whitespace = true;
+                pending_newline |= text
+                    .chars()
+                    .any(|character| matches!(character, '\n' | '\r'));
+            }
             DocumentationToken::Tag(tag) => {
                 let closing = tag.trim_start().starts_with("</");
                 let (normalized_tag, name) = normalize_documentation_tag(&tag, closing, &stack);
 
                 if closing {
-                    if documentation_newline_before_close(&name, previous_tag.as_ref()) {
+                    if let Some(opening_index) = stack.iter().rposition(|current| current == &name)
+                    {
+                        while stack.len() > opening_index + 1 {
+                            let unclosed = stack.pop().expect("opening tag exists");
+                            if !documentation_is_inline(&unclosed)
+                                && !previous_tag.as_ref().is_some_and(|(is_closing, previous)| {
+                                    !is_closing && previous == &unclosed
+                                })
+                            {
+                                documentation_newline(&mut output);
+                            }
+                            output.push_str(&format!("</{unclosed}>"));
+                            previous_tag = Some((true, unclosed));
+                        }
+                    }
+                    if ((!documentation_known_tag(&name) || pending_newline)
+                        && documentation_pseudo_tag_in_stack(&stack))
+                        || documentation_newline_before_close(&name, previous_tag.as_ref())
+                    {
                         documentation_newline(&mut output);
                     } else if pending_whitespace
                         && documentation_space_before_tag(
@@ -4943,7 +4986,13 @@ fn normalize_model_documentation(value: &str) -> String {
                     }
                     previous_tag = Some((true, name));
                 } else {
-                    if documentation_block_tag(&name) {
+                    if documentation_block_tag(&name)
+                        || (pending_newline && documentation_pseudo_tag_in_stack(&stack))
+                        || (!documentation_known_tag(&name)
+                            && documentation_pseudo_tag_in_stack(&stack))
+                        || (documentation_pseudo_tag_in_stack(&stack)
+                            && documentation_is_inline(&name))
+                    {
                         documentation_newline(&mut output);
                     } else if pending_whitespace
                         && documentation_space_before_tag(
@@ -4964,6 +5013,7 @@ fn normalize_model_documentation(value: &str) -> String {
                     previous_tag = Some((false, name));
                 }
                 pending_whitespace = false;
+                pending_newline = false;
             }
             DocumentationToken::Text(text) => {
                 let trimmed = text.split_whitespace().collect::<Vec<_>>().join(" ");
@@ -4974,6 +5024,15 @@ fn normalize_model_documentation(value: &str) -> String {
                 if previous_tag
                     .as_ref()
                     .is_some_and(|(closing, name)| !closing && name == "dt")
+                    || (documentation_pseudo_tag_in_stack(&stack)
+                        && (pending_newline
+                            || text
+                                .chars()
+                                .next()
+                                .is_some_and(|character| matches!(character, '\n' | '\r'))
+                            || previous_tag.as_ref().is_some_and(|(closing, name)| {
+                                !closing && !documentation_known_tag(name)
+                            })))
                 {
                     documentation_newline(&mut output);
                 } else if (pending_whitespace || has_leading_whitespace)
@@ -4983,6 +5042,10 @@ fn normalize_model_documentation(value: &str) -> String {
                 }
                 output.push_str(&escape_documentation_text(&escape_doc_brackets(&trimmed)));
                 pending_whitespace = text.chars().last().is_some_and(char::is_whitespace);
+                pending_newline = text
+                    .chars()
+                    .last()
+                    .is_some_and(|character| matches!(character, '\n' | '\r'));
                 previous_tag = None;
             }
         }
@@ -4999,7 +5062,42 @@ fn normalize_documentation_tag(tag: &str, closing: bool, stack: &[String]) -> (S
     if name == "a" && closing && stack.last().is_some_and(|current| current == "code") {
         return ("</code>".to_owned(), "code".to_owned());
     }
-    (tag.to_owned(), name)
+    (lowercase_documentation_tag(tag), name)
+}
+
+fn lowercase_documentation_tag(tag: &str) -> String {
+    let Some(name_start) = tag.find(|character: char| character.is_ascii_alphabetic()) else {
+        return tag.to_owned();
+    };
+    let name_end = tag[name_start..]
+        .find(|character: char| {
+            !(character.is_ascii_alphanumeric() || character == '-' || character == ':')
+        })
+        .map_or(tag.len(), |offset| name_start + offset);
+    let original = &tag[name_start..name_end];
+    if original
+        .chars()
+        .all(|character| !character.is_ascii_uppercase())
+    {
+        return tag.to_owned();
+    }
+    format!(
+        "{}{}{}",
+        &tag[..name_start],
+        original.to_ascii_lowercase(),
+        &tag[name_end..]
+    )
+}
+
+fn documentation_pseudo_tag_in_stack(stack: &[String]) -> bool {
+    stack.iter().any(|name| !documentation_known_tag(name))
+}
+
+fn documentation_known_tag(name: &str) -> bool {
+    documentation_block_tag(name)
+        || documentation_custom_tag(name)
+        || documentation_is_inline(name)
+        || matches!(name, "br" | "hr" | "img" | "meta" | "link")
 }
 
 fn documentation_block_tag(name: &str) -> bool {
@@ -5063,7 +5161,12 @@ fn documentation_space_before_tag(
     stack: &[String],
     previous_tag: Option<&(bool, String)>,
 ) -> bool {
-    if documentation_block_tag(name) || documentation_custom_tag(name) {
+    if documentation_block_tag(name)
+        || (documentation_custom_tag(name)
+            && previous_tag.is_some_and(|(is_closing, previous)| {
+                *is_closing && documentation_block_tag(previous)
+            }))
+    {
         return false;
     }
     if previous_tag.is_some_and(|(is_closing, previous)| {
@@ -5121,12 +5224,12 @@ fn normalize_client_documentation(value: &str) -> String {
     let mut next = None;
     for index in (0..tokens.len()).rev() {
         next_significant[index] = next;
-        if !matches!(tokens[index], DocumentationToken::Whitespace) {
+        if !matches!(tokens[index], DocumentationToken::Whitespace(_)) {
             next = Some(index);
         }
     }
     for (index, token) in tokens.iter().enumerate() {
-        if matches!(token, DocumentationToken::Whitespace) {
+        if matches!(token, DocumentationToken::Whitespace(_)) {
             let next = next_significant[index].map(|next| &tokens[next]);
             let gap = documentation_gap(previous.as_ref(), next, &stack);
             output.push_str(&gap);
@@ -5154,7 +5257,7 @@ fn normalize_client_documentation(value: &str) -> String {
                     stack.last(),
                 ));
             }
-            DocumentationToken::Whitespace => unreachable!(),
+            DocumentationToken::Whitespace(_) => unreachable!(),
         }
         previous = Some(token.clone());
     }
@@ -5194,7 +5297,7 @@ fn documentation_gap(
     let next_name = match next {
         DocumentationToken::Tag(tag) => documentation_tag_name(tag),
         DocumentationToken::Text(_) => None,
-        DocumentationToken::Whitespace => unreachable!(),
+        DocumentationToken::Whitespace(_) => unreachable!(),
     };
 
     if let Some(next_name) = next_name {
@@ -5633,6 +5736,33 @@ fn sorted_members(shape: &Value) -> BTreeMap<String, &Value> {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn normalize_model_documentation_preserves_malformed_html_structure() {
+        assert_eq!(
+            normalize_documentation_tag("</key>", true, &["code".to_owned()]),
+            ("</key>".to_owned(), "key".to_owned())
+        );
+        let normalized = normalize_model_documentation(
+            "<p><code><scanrange><start>50</start></scanrange></code></p>",
+        );
+        assert_eq!(
+            normalized,
+            "<p><code><scanrange>\n<start>\n50\n</start>\n</scanrange></code></p>"
+        );
+        assert_eq!(
+            normalize_model_documentation(
+                "<p>Returned in the <Code> tag of the error\n      XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful\n        <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes\n      from S3 are sentence-cased. The regular expression (regex) value is\n      <code>\"^[A-Z][a-zA-Z]+$\"</code>.</p>"
+            ),
+            "<p>Returned in the <code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>\"^\\[A-Z\\]\\[a-zA-Z\\]+$\"</code>.</code></p>"
+        );
+        assert_eq!(
+            normalize_model_documentation(
+                "<p>Contains a generic description of the error condition. Returned in the <Message> tag of the\n      error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful\n        <code>StatusCode</code> header or when the transformed object is provided in body.</p>"
+            ),
+            "<p>Contains a generic description of the error condition. Returned in the <message>\ntag of the error XML response for a corresponding\n<code>GetObject</code> call. Cannot be used with a successful\n<code>StatusCode</code> header or when the transformed object is provided in body.\n</message></p>"
+        );
+    }
 
     #[test]
     fn xml_body_detection_respects_http_response_bindings() {

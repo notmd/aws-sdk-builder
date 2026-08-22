@@ -50,6 +50,7 @@ impl ReplicationTimeBuilder {
         &self.status
     }
     /// <p>A container specifying the time by which replication should be complete for all objects and operations on objects.</p>
+    /// This field is required.
     pub fn time(mut self, input: crate::types::ReplicationTimeValue) -> Self {
         self.time = ::std::option::Option::Some(input);
         self

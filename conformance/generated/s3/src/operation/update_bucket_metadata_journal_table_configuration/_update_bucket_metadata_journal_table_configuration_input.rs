@@ -100,6 +100,7 @@ impl UpdateBucketMetadataJournalTableConfigurationInputBuilder {
         &self.checksum_algorithm
     }
     /// <p>The contents of your journal table configuration.</p>
+    /// This field is required.
     pub fn journal_table_configuration(mut self, input: crate::types::JournalTableConfigurationUpdates) -> Self {
         self.journal_table_configuration = ::std::option::Option::Some(input);
         self

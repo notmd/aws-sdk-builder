@@ -16,7 +16,9 @@ impl GetCallerIdentityInput {
 pub struct GetCallerIdentityInputBuilder {}
 impl GetCallerIdentityInputBuilder {
     /// Consumes the builder and constructs a [`GetCallerIdentityInput`](crate::operation::get_caller_identity::GetCallerIdentityInput).
-    pub fn build(self) -> crate::operation::get_caller_identity::GetCallerIdentityInput {
-        crate::operation::get_caller_identity::GetCallerIdentityInput {}
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::operation::get_caller_identity::GetCallerIdentityInput, ::aws_smithy_types::error::operation::BuildError> {
+        ::std::result::Result::Ok(crate::operation::get_caller_identity::GetCallerIdentityInput {})
     }
 }

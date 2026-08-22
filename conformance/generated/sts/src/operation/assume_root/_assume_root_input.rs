@@ -94,6 +94,7 @@ impl AssumeRootInputBuilder {
     /// <li>
     /// <p><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/security-iam-awsmanpol.html#security-iam-awsmanpol-SQSUnlockQueuePolicy">SQSUnlockQueuePolicy</a></p></li>
     /// </ul>
+    /// This field is required.
     pub fn task_policy_arn(mut self, input: crate::types::PolicyDescriptorType) -> Self {
         self.task_policy_arn = ::std::option::Option::Some(input);
         self

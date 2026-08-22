@@ -28,6 +28,7 @@ pub struct CreateCapacityProviderResponseBuilder {
 }
 impl CreateCapacityProviderResponseBuilder {
     /// <p>Information about the capacity provider that was created.</p>
+    /// This field is required.
     pub fn capacity_provider(mut self, input: crate::types::CapacityProvider) -> Self {
         self.capacity_provider = ::std::option::Option::Some(input);
         self

@@ -26,8 +26,8 @@ full audit trail.
   consumer fixture compiles.
 - M6: in progress. The comparator runs against the pinned AWS SDK Rust `3c6d...` P0
   service trees and checks in deterministic summary and per-service reports. The
-  current report compares 6,584 files: 2,055 exact, 1,732 mismatches, 2,674 missing,
-  and 123 extra (29.01% arithmetic-average match).
+  current report compares 6,584 files: 2,331 exact, 1,456 mismatches, 2,674 missing,
+  and 123 extra (33.84% arithmetic-average match).
 - M6a: launcher and Rust Floci example are implemented; the local S3 create/head
   smoke test passes against `http://localhost:4566`.
 - M7: not complete; semantic parity gates for the priority queue remain open.
@@ -69,6 +69,27 @@ a new reusable abstraction.
   incomplete; the full conformance command still exits 1.
 - Next action: align the remaining streaming operation-input derive metadata from
   Smithy streaming traits and verify the 31 remaining S3 input mismatches.
+
+### Checkpoint: 2026-08-22 — Operation input parity and malformed documentation
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now preserves Smithy operation
+  symbols in generated public aliases and operation errors, makes operation input
+  builders fallible with required-field validation, emits required-field builder
+  documentation, and normalizes malformed model HTML with Smithy-compatible
+  pseudo-tag closure and formatting rules.
+- Evidence: `just conformance` regenerated 8 all-operation snapshots (496
+  operations), formatted 3,910 Rust files, compared 6,584 files, and exited 1
+  because semantic parity remains incomplete. The four remaining S3 operation-input
+  documentation diffs from the prior run are now exact.
+- Conformance: `2,055/1,732/2,674/123` -> `2,331/1,456/2,674/123`
+  overall and `657/364/323/0` -> `710/311/323/0` for S3
+  (matched/mismatched/missing/extra). `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass.
+- Blocker: modeled errors, remaining protocol/runtime behavior, endpoint/auth/retry/
+  checksum support, pagination, and the missing reference source tree remain
+  incomplete; the full conformance command still exits 1.
 
 ## Passing checks
 

@@ -14,7 +14,9 @@ pub struct ListObjectVersionsInput {
     pub encoding_type: ::std::option::Option<crate::types::EncodingType>,
     /// <p>Specifies the key to start with when listing objects in a bucket.</p>
     pub key_marker: ::std::option::Option<::std::string::String>,
-    /// <p>Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because <code>max-keys</code> was exceeded, the response contains <code><isTruncated>true</isTruncated></code>. To return the additional keys, see <code>key-marker</code> and <code>version-id-marker</code>.</p>
+    /// <p>Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because <code>max-keys</code> was exceeded, the response contains <code><istruncated>
+    /// true
+    /// </istruncated></code>. To return the additional keys, see <code>key-marker</code> and <code>version-id-marker</code>.</p>
     pub max_keys: ::std::option::Option<i32>,
     /// <p>Use this parameter to select only those keys that begin with the specified prefix. You can use prefixes to separate a bucket into different groupings of keys. (You can think of using <code>prefix</code> to make groups in the same way that you'd use a folder in a file system.) You can use <code>prefix</code> with <code>delimiter</code> to roll up numerous objects into a single result under <code>CommonPrefixes</code>.</p>
     pub prefix: ::std::option::Option<::std::string::String>,
@@ -49,7 +51,9 @@ impl ListObjectVersionsInput {
     pub fn key_marker(&self) -> ::std::option::Option<&str> {
         self.key_marker.as_deref()
     }
-    /// <p>Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because <code>max-keys</code> was exceeded, the response contains <code><isTruncated>true</isTruncated></code>. To return the additional keys, see <code>key-marker</code> and <code>version-id-marker</code>.</p>
+    /// <p>Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because <code>max-keys</code> was exceeded, the response contains <code><istruncated>
+    /// true
+    /// </istruncated></code>. To return the additional keys, see <code>key-marker</code> and <code>version-id-marker</code>.</p>
     pub fn max_keys(&self) -> ::std::option::Option<i32> {
         self.max_keys
     }
@@ -167,17 +171,23 @@ impl ListObjectVersionsInputBuilder {
     pub fn get_key_marker(&self) -> &::std::option::Option<::std::string::String> {
         &self.key_marker
     }
-    /// <p>Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because <code>max-keys</code> was exceeded, the response contains <code><isTruncated>true</isTruncated></code>. To return the additional keys, see <code>key-marker</code> and <code>version-id-marker</code>.</p>
+    /// <p>Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because <code>max-keys</code> was exceeded, the response contains <code><istruncated>
+    /// true
+    /// </istruncated></code>. To return the additional keys, see <code>key-marker</code> and <code>version-id-marker</code>.</p>
     pub fn max_keys(mut self, input: i32) -> Self {
         self.max_keys = ::std::option::Option::Some(input);
         self
     }
-    /// <p>Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because <code>max-keys</code> was exceeded, the response contains <code><isTruncated>true</isTruncated></code>. To return the additional keys, see <code>key-marker</code> and <code>version-id-marker</code>.</p>
+    /// <p>Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because <code>max-keys</code> was exceeded, the response contains <code><istruncated>
+    /// true
+    /// </istruncated></code>. To return the additional keys, see <code>key-marker</code> and <code>version-id-marker</code>.</p>
     pub fn set_max_keys(mut self, input: ::std::option::Option<i32>) -> Self {
         self.max_keys = input;
         self
     }
-    /// <p>Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because <code>max-keys</code> was exceeded, the response contains <code><isTruncated>true</isTruncated></code>. To return the additional keys, see <code>key-marker</code> and <code>version-id-marker</code>.</p>
+    /// <p>Sets the maximum number of keys returned in the response. By default, the action returns up to 1,000 key names. The response might contain fewer keys but will never contain more. If additional keys satisfy the search criteria, but were not returned because <code>max-keys</code> was exceeded, the response contains <code><istruncated>
+    /// true
+    /// </istruncated></code>. To return the additional keys, see <code>key-marker</code> and <code>version-id-marker</code>.</p>
     pub fn get_max_keys(&self) -> &::std::option::Option<i32> {
         &self.max_keys
     }

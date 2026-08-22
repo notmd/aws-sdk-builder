@@ -16,7 +16,12 @@ impl EnableOrganizationsRootSessionsInput {
 pub struct EnableOrganizationsRootSessionsInputBuilder {}
 impl EnableOrganizationsRootSessionsInputBuilder {
     /// Consumes the builder and constructs a [`EnableOrganizationsRootSessionsInput`](crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsInput).
-    pub fn build(self) -> crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsInput {
-        crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsInput {}
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<
+        crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsInput,
+        ::aws_smithy_types::error::operation::BuildError,
+    > {
+        ::std::result::Result::Ok(crate::operation::enable_organizations_root_sessions::EnableOrganizationsRootSessionsInput {})
     }
 }

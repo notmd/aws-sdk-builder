@@ -40,7 +40,7 @@ pub struct DeleteObjectInput {
     pub if_match_last_modified_time: ::std::option::Option<::aws_smithy_types::DateTime>,
     /// <p>If present, the object is deleted only if its size matches the provided size in bytes. If the <code>Size</code> value does not match, the operation returns a <code>412 Precondition Failed</code> error. If the <code>Size</code> matches or if the object doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
-    /// </note><important>
+    /// </note> <important>
     /// <p>You can use the <code>If-Match</code>, <code>x-amz-if-match-last-modified-time</code> and <code>x-amz-if-match-size</code> conditional headers in conjunction with each-other or individually.</p>
     /// </important>
     pub if_match_size: ::std::option::Option<i64>,
@@ -101,7 +101,7 @@ impl DeleteObjectInput {
     }
     /// <p>If present, the object is deleted only if its size matches the provided size in bytes. If the <code>Size</code> value does not match, the operation returns a <code>412 Precondition Failed</code> error. If the <code>Size</code> matches or if the object doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
-    /// </note><important>
+    /// </note> <important>
     /// <p>You can use the <code>If-Match</code>, <code>x-amz-if-match-last-modified-time</code> and <code>x-amz-if-match-size</code> conditional headers in conjunction with each-other or individually.</p>
     /// </important>
     pub fn if_match_size(&self) -> ::std::option::Option<i64> {
@@ -312,7 +312,7 @@ impl DeleteObjectInputBuilder {
     }
     /// <p>If present, the object is deleted only if its size matches the provided size in bytes. If the <code>Size</code> value does not match, the operation returns a <code>412 Precondition Failed</code> error. If the <code>Size</code> matches or if the object doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
-    /// </note><important>
+    /// </note> <important>
     /// <p>You can use the <code>If-Match</code>, <code>x-amz-if-match-last-modified-time</code> and <code>x-amz-if-match-size</code> conditional headers in conjunction with each-other or individually.</p>
     /// </important>
     pub fn if_match_size(mut self, input: i64) -> Self {
@@ -321,7 +321,7 @@ impl DeleteObjectInputBuilder {
     }
     /// <p>If present, the object is deleted only if its size matches the provided size in bytes. If the <code>Size</code> value does not match, the operation returns a <code>412 Precondition Failed</code> error. If the <code>Size</code> matches or if the object doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
-    /// </note><important>
+    /// </note> <important>
     /// <p>You can use the <code>If-Match</code>, <code>x-amz-if-match-last-modified-time</code> and <code>x-amz-if-match-size</code> conditional headers in conjunction with each-other or individually.</p>
     /// </important>
     pub fn set_if_match_size(mut self, input: ::std::option::Option<i64>) -> Self {
@@ -330,7 +330,7 @@ impl DeleteObjectInputBuilder {
     }
     /// <p>If present, the object is deleted only if its size matches the provided size in bytes. If the <code>Size</code> value does not match, the operation returns a <code>412 Precondition Failed</code> error. If the <code>Size</code> matches or if the object doesn’t exist, the operation returns a <code>204 Success (No Content)</code> response.</p><note>
     /// <p>This functionality is only supported for directory buckets.</p>
-    /// </note><important>
+    /// </note> <important>
     /// <p>You can use the <code>If-Match</code>, <code>x-amz-if-match-last-modified-time</code> and <code>x-amz-if-match-size</code> conditional headers in conjunction with each-other or individually.</p>
     /// </important>
     pub fn get_if_match_size(&self) -> &::std::option::Option<i64> {

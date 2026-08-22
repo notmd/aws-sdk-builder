@@ -87,6 +87,7 @@ impl PutBucketMetricsConfigurationInputBuilder {
         &self.id
     }
     /// <p>Specifies the metrics configuration.</p>
+    /// This field is required.
     pub fn metrics_configuration(mut self, input: crate::types::MetricsConfiguration) -> Self {
         self.metrics_configuration = ::std::option::Option::Some(input);
         self

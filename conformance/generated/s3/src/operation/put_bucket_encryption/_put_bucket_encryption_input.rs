@@ -137,6 +137,7 @@ impl PutBucketEncryptionInputBuilder {
         &self.checksum_algorithm
     }
     /// <p>Specifies the default server-side-encryption configuration.</p>
+    /// This field is required.
     pub fn server_side_encryption_configuration(mut self, input: crate::types::ServerSideEncryptionConfiguration) -> Self {
         self.server_side_encryption_configuration = ::std::option::Option::Some(input);
         self

@@ -31,11 +31,11 @@ impl Builder {
         self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-    pub async fn send(self) -> ::std::result::Result<super::GetSshPublicKeyOutput, super::GetSshPublicKeyError> {
+    pub async fn send(self) -> ::std::result::Result<super::GetSshPublicKeyOutput, super::GetSSHPublicKeyError> {
         let input = self
             .input
             .build()
-            .map_err(|error| super::GetSshPublicKeyError::Unhandled(error.to_string()))?;
+            .map_err(|error| super::GetSSHPublicKeyError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();
@@ -43,11 +43,11 @@ impl Builder {
             .client
             .request(super::super::super::transport::Method::Post, &path, &headers, &body)
             .await
-            .map_err(super::GetSshPublicKeyError::Unhandled)?;
+            .map_err(super::GetSSHPublicKeyError::Unhandled)?;
         let status = response.status();
         if !status.is_success() {
-            return Err(super::GetSshPublicKeyError::unhandled_with_request_ids(
-                format!("GetSshPublicKey returned HTTP {}", status),
+            return Err(super::GetSSHPublicKeyError::unhandled_with_request_ids(
+                format!("GetSSHPublicKey returned HTTP {}", status),
                 response.header("x-amzn-requestid").map(str::to_owned),
                 ::std::option::Option::None,
             ));
@@ -57,4 +57,4 @@ impl Builder {
         Ok(output.build())
     }
 }
-pub use Builder as GetSshPublicKeyFluentBuilder;
+pub use Builder as GetSSHPublicKeyFluentBuilder;

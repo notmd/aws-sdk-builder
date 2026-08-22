@@ -28,6 +28,7 @@ pub struct ExecutionFailedDetailsBuilder {
 }
 impl ExecutionFailedDetailsBuilder {
     /// <p>Details about the execution failure.</p>
+    /// This field is required.
     pub fn error(mut self, input: crate::types::EventError) -> Self {
         self.error = ::std::option::Option::Some(input);
         self

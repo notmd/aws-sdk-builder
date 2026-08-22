@@ -35,6 +35,7 @@ pub struct StepSucceededDetailsBuilder {
 }
 impl StepSucceededDetailsBuilder {
     /// <p>The response payload from the successful operation.</p>
+    /// This field is required.
     pub fn result(mut self, input: crate::types::EventResult) -> Self {
         self.result = ::std::option::Option::Some(input);
         self
@@ -49,6 +50,7 @@ impl StepSucceededDetailsBuilder {
         &self.result
     }
     /// <p>Information about retry attempts for this step operation.</p>
+    /// This field is required.
     pub fn retry_details(mut self, input: crate::types::RetryDetails) -> Self {
         self.retry_details = ::std::option::Option::Some(input);
         self

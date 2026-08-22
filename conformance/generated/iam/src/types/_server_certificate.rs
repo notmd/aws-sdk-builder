@@ -53,6 +53,7 @@ pub struct ServerCertificateBuilder {
 }
 impl ServerCertificateBuilder {
     /// <p>The meta information of the server certificate, such as its name, path, ID, and ARN.</p>
+    /// This field is required.
     pub fn server_certificate_metadata(mut self, input: crate::types::ServerCertificateMetadata) -> Self {
         self.server_certificate_metadata = ::std::option::Option::Some(input);
         self

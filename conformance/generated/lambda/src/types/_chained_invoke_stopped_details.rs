@@ -28,6 +28,7 @@ pub struct ChainedInvokeStoppedDetailsBuilder {
 }
 impl ChainedInvokeStoppedDetailsBuilder {
     /// <p>Details about why the chained invocation stopped.</p>
+    /// This field is required.
     pub fn error(mut self, input: crate::types::EventError) -> Self {
         self.error = ::std::option::Option::Some(input);
         self

@@ -19,11 +19,11 @@ impl Builder {
         self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-    pub async fn send(self) -> ::std::result::Result<super::GetSmsSandboxAccountStatusOutput, super::GetSmsSandboxAccountStatusError> {
+    pub async fn send(self) -> ::std::result::Result<super::GetSmsSandboxAccountStatusOutput, super::GetSMSSandboxAccountStatusError> {
         let input = self
             .input
             .build()
-            .map_err(|error| super::GetSmsSandboxAccountStatusError::Unhandled(error.to_string()))?;
+            .map_err(|error| super::GetSMSSandboxAccountStatusError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();
@@ -31,11 +31,11 @@ impl Builder {
             .client
             .request(super::super::super::transport::Method::Post, &path, &headers, &body)
             .await
-            .map_err(super::GetSmsSandboxAccountStatusError::Unhandled)?;
+            .map_err(super::GetSMSSandboxAccountStatusError::Unhandled)?;
         let status = response.status();
         if !status.is_success() {
-            return Err(super::GetSmsSandboxAccountStatusError::unhandled_with_request_ids(
-                format!("GetSmsSandboxAccountStatus returned HTTP {}", status),
+            return Err(super::GetSMSSandboxAccountStatusError::unhandled_with_request_ids(
+                format!("GetSMSSandboxAccountStatus returned HTTP {}", status),
                 response.header("x-amzn-requestid").map(str::to_owned),
                 ::std::option::Option::None,
             ));
@@ -44,7 +44,7 @@ impl Builder {
         output._set_request_id(response.header("x-amzn-requestid").map(str::to_owned));
         output
             .build()
-            .map_err(|error| super::GetSmsSandboxAccountStatusError::Unhandled(error.to_string()))
+            .map_err(|error| super::GetSMSSandboxAccountStatusError::Unhandled(error.to_string()))
     }
 }
-pub use Builder as GetSmsSandboxAccountStatusFluentBuilder;
+pub use Builder as GetSMSSandboxAccountStatusFluentBuilder;

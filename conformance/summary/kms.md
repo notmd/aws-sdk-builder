@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## kms
-**Progress:** `600/600` files compared · `162` matched · `212` mismatches · `225` missing · `1` extra · `27.00%` match (100.00% means fully matched)
+**Progress:** `600/600` files compared · `166` matched · `208` mismatches · `225` missing · `1` extra · `27.67%` match (100.00% means fully matched)
 
 ### `src/client/cancel_key_deletion.rs`
 
@@ -8334,58 +8334,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +pub type CreateGrantFluentBuilder = builders::Builder;
 ```
 
-### `src/operation/create_key/_create_key_input.rs`
-
-```diff
---- reference/src/operation/create_key/_create_key_input.rs
-+++ generated/src/operation/create_key/_create_key_input.rs
-@@ -138,7 +138,7 @@
-     pub bypass_policy_lockout_safety_check: ::std::option::Option<bool>,
-     /// <p>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the <code>TagResource</code> operation.</p><important>
-     /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
--    /// </important> <note>
-+    /// </important><note>
-     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     /// </note>
-     /// <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
-@@ -309,7 +309,7 @@
-     }
-     /// <p>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the <code>TagResource</code> operation.</p><important>
-     /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
--    /// </important> <note>
-+    /// </important><note>
-     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     /// </note>
-     /// <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
-@@ -829,7 +829,7 @@
-     ///
-     /// <p>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the <code>TagResource</code> operation.</p><important>
-     /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
--    /// </important> <note>
-+    /// </important><note>
-     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     /// </note>
-     /// <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
-@@ -843,7 +843,7 @@
-     }
-     /// <p>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the <code>TagResource</code> operation.</p><important>
-     /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
--    /// </important> <note>
-+    /// </important><note>
-     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     /// </note>
-     /// <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
-@@ -855,7 +855,7 @@
-     }
-     /// <p>Assigns one or more tags to the KMS key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the <code>TagResource</code> operation.</p><important>
-     /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
--    /// </important> <note>
-+    /// </important><note>
-     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     /// </note>
-     /// <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
-```
-
 ### `src/operation/create_key/builders.rs`
 
 ```diff
@@ -13310,24 +13258,20 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 ```diff
 --- reference/src/operation/derive_shared_secret/_derive_shared_secret_input.rs
 +++ generated/src/operation/derive_shared_secret/_derive_shared_secret_input.rs
-@@ -25,8 +25,8 @@
-     /// <p><code>GetPublicKey</code> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p><note>
+@@ -26,7 +26,7 @@
      /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
      /// </note>
--    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
+     /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
 -    pub public_key: ::std::option::Option<::aws_smithy_types::Blob>,
-+    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></code>) or in-line using a Base64 encoded string.</p>
 +    pub public_key: ::std::option::Option<::std::vec::Vec<u8>>,
      /// <p>A list of grant tokens.</p>
      /// <p>Use a grant token when your permission to call this operation comes from a new grant that has not yet achieved <i>eventual consistency</i>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#grant_token">Grant token</a> and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant token</a> in the <i>Key Management Service Developer Guide</i>.</p>
      pub grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
-@@ -66,8 +66,8 @@
-     /// <p><code>GetPublicKey</code> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p><note>
+@@ -67,7 +67,7 @@
      /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
      /// </note>
--    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
+     /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
 -    pub fn public_key(&self) -> ::std::option::Option<&::aws_smithy_types::Blob> {
-+    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></code>) or in-line using a Base64 encoded string.</p>
 +    pub fn public_key(&self) -> ::std::option::Option<&::std::vec::Vec<u8>> {
          self.public_key.as_ref()
      }
@@ -13341,36 +13285,29 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      pub(crate) grant_tokens: ::std::option::Option<::std::vec::Vec<::std::string::String>>,
      pub(crate) dry_run: ::std::option::Option<bool>,
      pub(crate) recipient: ::std::option::Option<crate::types::RecipientInfo>,
-@@ -183,9 +183,9 @@
-     /// <p><code>GetPublicKey</code> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p><note>
-     /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
+@@ -185,7 +185,7 @@
      /// </note>
--    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
-+    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></code>) or in-line using a Base64 encoded string.</p>
+     /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
      /// This field is required.
 -    pub fn public_key(mut self, input: ::aws_smithy_types::Blob) -> Self {
 +    pub fn public_key(mut self, input: ::std::vec::Vec<u8>) -> Self {
          self.public_key = ::std::option::Option::Some(input);
          self
      }
-@@ -194,8 +194,8 @@
-     /// <p><code>GetPublicKey</code> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p><note>
+@@ -195,7 +195,7 @@
      /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
      /// </note>
--    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
+     /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
 -    pub fn set_public_key(mut self, input: ::std::option::Option<::aws_smithy_types::Blob>) -> Self {
-+    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></code>) or in-line using a Base64 encoded string.</p>
 +    pub fn set_public_key(mut self, input: ::std::option::Option<::std::vec::Vec<u8>>) -> Self {
          self.public_key = input;
          self
      }
-@@ -204,8 +204,8 @@
-     /// <p><code>GetPublicKey</code> returns the public key of an asymmetric KMS key pair in the required DER-encoded format.</p><note>
+@@ -205,7 +205,7 @@
      /// <p>If you use <a href="https://docs.aws.amazon.com/cli/v1/userguide/cli-chap-welcome.html">Amazon Web Services CLI version 1</a>, you must provide the DER-encoded X.509 public key in a file. Otherwise, the Amazon Web Services CLI Base64-encodes the public key a second time, resulting in a <code>ValidationException</code>.</p>
      /// </note>
--    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
+     /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></path-to-file></code>) or in-line using a Base64 encoded string.</p>
 -    pub fn get_public_key(&self) -> &::std::option::Option<::aws_smithy_types::Blob> {
-+    /// <p>You can specify the public key as binary data in a file using fileb (<code>fileb://<path-to-file></code>) or in-line using a Base64 encoded string.</p>
 +    pub fn get_public_key(&self) -> &::std::option::Option<::std::vec::Vec<u8>> {
          &self.public_key
      }
@@ -40512,58 +40449,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +pub type ReEncryptFluentBuilder = builders::Builder;
 ```
 
-### `src/operation/replicate_key/_replicate_key_input.rs`
-
-```diff
---- reference/src/operation/replicate_key/_replicate_key_input.rs
-+++ generated/src/operation/replicate_key/_replicate_key_input.rs
-@@ -51,7 +51,7 @@
-     pub description: ::std::option::Option<::std::string::String>,
-     /// <p>Assigns one or more tags to the replica key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the <code>TagResource</code> operation.</p><important>
-     /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
--    /// </important> <note>
-+    /// </important><note>
-     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     /// </note>
-     /// <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
-@@ -119,7 +119,7 @@
-     }
-     /// <p>Assigns one or more tags to the replica key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the <code>TagResource</code> operation.</p><important>
-     /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
--    /// </important> <note>
-+    /// </important><note>
-     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     /// </note>
-     /// <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
-@@ -337,7 +337,7 @@
-     ///
-     /// <p>Assigns one or more tags to the replica key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the <code>TagResource</code> operation.</p><important>
-     /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
--    /// </important> <note>
-+    /// </important><note>
-     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     /// </note>
-     /// <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
-@@ -352,7 +352,7 @@
-     }
-     /// <p>Assigns one or more tags to the replica key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the <code>TagResource</code> operation.</p><important>
-     /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
--    /// </important> <note>
-+    /// </important><note>
-     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     /// </note>
-     /// <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
-@@ -365,7 +365,7 @@
-     }
-     /// <p>Assigns one or more tags to the replica key. Use this parameter to tag the KMS key when it is created. To tag an existing KMS key, use the <code>TagResource</code> operation.</p><important>
-     /// <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p>
--    /// </important> <note>
-+    /// </important><note>
-     /// <p>Tagging or untagging a KMS key can allow or deny permission to the KMS key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/abac.html">ABAC for KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
-     /// </note>
-     /// <p>To use this parameter, you must have <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> permission in an IAM policy.</p>
-```
-
 ### `src/operation/replicate_key/builders.rs`
 
 ```diff
@@ -53593,68 +53478,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 +}
 ```
 
-### `src/types/_custom_key_stores_list_entry.rs`
-
-```diff
---- reference/src/types/_custom_key_stores_list_entry.rs
-+++ generated/src/types/_custom_key_stores_list_entry.rs
-@@ -70,9 +70,7 @@
-     /// <li>
-     /// <p>It must have a network load balancer (NLB) connected to at least two subnets, each in a different Availability Zone.</p></li>
-     /// <li>
--    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>
--    /// .amazonaws.com
--    /// </region></code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
-+    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>.amazonaws.com</code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
-     /// <li>
-     /// <p>It must <i>not</i> require <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html">acceptance</a> of connection requests.</p></li>
-     /// <li>
-@@ -171,9 +169,7 @@
-     /// <li>
-     /// <p>It must have a network load balancer (NLB) connected to at least two subnets, each in a different Availability Zone.</p></li>
-     /// <li>
--    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>
--    /// .amazonaws.com
--    /// </region></code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
-+    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>.amazonaws.com</code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
-     /// <li>
-     /// <p>It must <i>not</i> require <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html">acceptance</a> of connection requests.</p></li>
-     /// <li>
-@@ -359,9 +355,7 @@
-     /// <li>
-     /// <p>It must have a network load balancer (NLB) connected to at least two subnets, each in a different Availability Zone.</p></li>
-     /// <li>
--    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>
--    /// .amazonaws.com
--    /// </region></code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
-+    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>.amazonaws.com</code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
-     /// <li>
-     /// <p>It must <i>not</i> require <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html">acceptance</a> of connection requests.</p></li>
-     /// <li>
-@@ -430,9 +424,7 @@
-     /// <li>
-     /// <p>It must have a network load balancer (NLB) connected to at least two subnets, each in a different Availability Zone.</p></li>
-     /// <li>
--    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>
--    /// .amazonaws.com
--    /// </region></code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
-+    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>.amazonaws.com</code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
-     /// <li>
-     /// <p>It must <i>not</i> require <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html">acceptance</a> of connection requests.</p></li>
-     /// <li>
-@@ -501,9 +493,7 @@
-     /// <li>
-     /// <p>It must have a network load balancer (NLB) connected to at least two subnets, each in a different Availability Zone.</p></li>
-     /// <li>
--    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>
--    /// .amazonaws.com
--    /// </region></code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
-+    /// <p>The <code>Allow principals</code> list must include the KMS service principal for the Region, <code>cks.kms.<region>.amazonaws.com</code>, such as <code>cks.kms.us-east-1.amazonaws.com</code>.</p></li>
-     /// <li>
-     /// <p>It must <i>not</i> require <a href="https://docs.aws.amazon.com/vpc/latest/privatelink/create-endpoint-service.html">acceptance</a> of connection requests.</p></li>
-     /// <li>
-```
-
 ### `src/types/_customer_master_key_spec.rs`
 
 ```diff
@@ -53757,22 +53580,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
          &self.attestation_document
      }
      /// Consumes the builder and constructs a [`RecipientInfo`](crate::types::RecipientInfo).
-```
-
-### `src/types/error/_cloud_hsm_cluster_invalid_configuration_exception.rs`
-
-```diff
---- reference/src/types/error/_cloud_hsm_cluster_invalid_configuration_exception.rs
-+++ generated/src/types/error/_cloud_hsm_cluster_invalid_configuration_exception.rs
-@@ -5,7 +5,7 @@
- /// <li>
- /// <p>The CloudHSM cluster must be configured with private subnets in at least two different Availability Zones in the Region.</p></li>
- /// <li>
--/// <p>The <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">security group for the cluster</a> (cloudhsm-cluster-<i><cluster-id></cluster-id></i>-sg) must include inbound rules and outbound rules that allow TCP traffic on ports 2223-2225. The <b>Source</b> in the inbound rules and the <b>Destination</b> in the outbound rules must match the security group ID. These rules are set by default when you create the CloudHSM cluster. Do not delete or change them. To get information about a particular security group, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html">DescribeSecurityGroups</a> operation.</p></li>
-+/// <p>The <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/configure-sg.html">security group for the cluster</a> (cloudhsm-cluster-<i><cluster-id></i>-sg) must include inbound rules and outbound rules that allow TCP traffic on ports 2223-2225. The <b>Source</b> in the inbound rules and the <b>Destination</b> in the outbound rules must match the security group ID. These rules are set by default when you create the CloudHSM cluster. Do not delete or change them. To get information about a particular security group, use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html">DescribeSecurityGroups</a> operation.</p></li>
- /// <li>
- /// <p>The CloudHSM cluster must contain at least as many HSMs as the operation requires. To add HSMs, use the CloudHSM <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">CreateHsm</a> operation.</p>
- /// <p>For the <code>CreateCustomKeyStore</code>, <code>UpdateCustomKeyStore</code>, and <code>CreateKey</code> operations, the CloudHSM cluster must have at least two active HSMs, each in a different Availability Zone. For the <code>ConnectCustomKeyStore</code> operation, the CloudHSM must contain at least one active HSM.</p></li>
 ```
 
 ### `src/types/error/_kms_internal_exception.rs`
@@ -54594,7 +54401,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/create_custom_key_store.rs`
 - `src/operation/create_grant/builders.rs`
 - `src/operation/create_grant.rs`
-- `src/operation/create_key/_create_key_input.rs`
 - `src/operation/create_key/builders.rs`
 - `src/operation/create_key.rs`
 - `src/operation/decrypt/_decrypt_input.rs`
@@ -54692,7 +54498,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/re_encrypt/_re_encrypt_output.rs`
 - `src/operation/re_encrypt/builders.rs`
 - `src/operation/re_encrypt.rs`
-- `src/operation/replicate_key/_replicate_key_input.rs`
 - `src/operation/replicate_key/builders.rs`
 - `src/operation/replicate_key.rs`
 - `src/operation/retire_grant/builders.rs`
@@ -54728,11 +54533,9 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/operation/verify_mac/builders.rs`
 - `src/operation/verify_mac.rs`
 - `src/operation.rs`
-- `src/types/_custom_key_stores_list_entry.rs`
 - `src/types/_customer_master_key_spec.rs`
 - `src/types/_key_metadata.rs`
 - `src/types/_recipient_info.rs`
-- `src/types/error/_cloud_hsm_cluster_invalid_configuration_exception.rs`
 - `src/types/error/_kms_internal_exception.rs`
 - `src/types/error/_kms_invalid_mac_exception.rs`
 - `src/types/error/_kms_invalid_signature_exception.rs`

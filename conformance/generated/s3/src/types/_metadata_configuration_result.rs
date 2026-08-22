@@ -49,6 +49,7 @@ pub struct MetadataConfigurationResultBuilder {
 }
 impl MetadataConfigurationResultBuilder {
     /// <p>The destination settings for a metadata configuration.</p>
+    /// This field is required.
     pub fn destination_result(mut self, input: crate::types::DestinationResult) -> Self {
         self.destination_result = ::std::option::Option::Some(input);
         self

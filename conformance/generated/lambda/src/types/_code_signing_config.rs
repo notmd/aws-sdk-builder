@@ -110,6 +110,7 @@ impl CodeSigningConfigBuilder {
         &self.description
     }
     /// <p>List of allowed publishers.</p>
+    /// This field is required.
     pub fn allowed_publishers(mut self, input: crate::types::AllowedPublishers) -> Self {
         self.allowed_publishers = ::std::option::Option::Some(input);
         self
@@ -124,6 +125,7 @@ impl CodeSigningConfigBuilder {
         &self.allowed_publishers
     }
     /// <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
+    /// This field is required.
     pub fn code_signing_policies(mut self, input: crate::types::CodeSigningPolicies) -> Self {
         self.code_signing_policies = ::std::option::Option::Some(input);
         self

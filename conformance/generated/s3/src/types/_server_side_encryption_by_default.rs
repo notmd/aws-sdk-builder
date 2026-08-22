@@ -41,7 +41,7 @@ pub struct ServerSideEncryptionByDefault {
     /// <li>
     /// <p><b>Directory buckets</b> - When you specify an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">KMS customer managed key</a> for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.</p></li>
     /// </ul>
-    /// </note><important>
+    /// </note> <important>
     /// <p>Amazon S3 only supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
     /// </important>
     pub kms_master_key_id: ::std::option::Option<::std::string::String>,
@@ -77,7 +77,7 @@ impl ServerSideEncryptionByDefault {
     /// <li>
     /// <p><b>Directory buckets</b> - When you specify an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">KMS customer managed key</a> for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.</p></li>
     /// </ul>
-    /// </note><important>
+    /// </note> <important>
     /// <p>Amazon S3 only supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
     /// </important>
     pub fn kms_master_key_id(&self) -> ::std::option::Option<&str> {
@@ -152,7 +152,7 @@ impl ServerSideEncryptionByDefaultBuilder {
     /// <li>
     /// <p><b>Directory buckets</b> - When you specify an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">KMS customer managed key</a> for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.</p></li>
     /// </ul>
-    /// </note><important>
+    /// </note> <important>
     /// <p>Amazon S3 only supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
     /// </important>
     pub fn kms_master_key_id(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
@@ -183,7 +183,7 @@ impl ServerSideEncryptionByDefaultBuilder {
     /// <li>
     /// <p><b>Directory buckets</b> - When you specify an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">KMS customer managed key</a> for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.</p></li>
     /// </ul>
-    /// </note><important>
+    /// </note> <important>
     /// <p>Amazon S3 only supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
     /// </important>
     pub fn set_kms_master_key_id(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
@@ -214,7 +214,7 @@ impl ServerSideEncryptionByDefaultBuilder {
     /// <li>
     /// <p><b>Directory buckets</b> - When you specify an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">KMS customer managed key</a> for encryption in your directory bucket, only use the key ID or key ARN. The key alias format of the KMS key isn't supported.</p></li>
     /// </ul>
-    /// </note><important>
+    /// </note> <important>
     /// <p>Amazon S3 only supports symmetric encryption KMS keys. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric keys in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer Guide</i>.</p>
     /// </important>
     pub fn get_kms_master_key_id(&self) -> &::std::option::Option<::std::string::String> {

@@ -105,6 +105,7 @@ impl PutBucketOwnershipControlsInputBuilder {
         &self.expected_bucket_owner
     }
     /// <p>The <code>OwnershipControls</code> (BucketOwnerEnforced, BucketOwnerPreferred, or ObjectWriter) that you want to apply to this Amazon S3 bucket.</p>
+    /// This field is required.
     pub fn ownership_controls(mut self, input: crate::types::OwnershipControls) -> Self {
         self.ownership_controls = ::std::option::Option::Some(input);
         self

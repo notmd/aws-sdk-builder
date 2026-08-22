@@ -166,6 +166,7 @@ impl JournalTableConfigurationResultBuilder {
         &self.table_arn
     }
     /// <p>The journal table record expiration settings for the journal table.</p>
+    /// This field is required.
     pub fn record_expiration(mut self, input: crate::types::RecordExpiration) -> Self {
         self.record_expiration = ::std::option::Option::Some(input);
         self

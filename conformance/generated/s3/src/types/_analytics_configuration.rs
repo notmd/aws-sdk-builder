@@ -72,6 +72,7 @@ impl AnalyticsConfigurationBuilder {
         &self.filter
     }
     /// <p>Contains data related to access patterns to be collected and made available to analyze the tradeoffs between different storage classes.</p>
+    /// This field is required.
     pub fn storage_class_analysis(mut self, input: crate::types::StorageClassAnalysis) -> Self {
         self.storage_class_analysis = ::std::option::Option::Some(input);
         self

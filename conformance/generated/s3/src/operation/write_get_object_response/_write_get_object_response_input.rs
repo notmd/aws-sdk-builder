@@ -40,9 +40,13 @@ pub struct WriteGetObjectResponseInput {
     /// <p><code>503 - Service Unavailable</code></p></li>
     /// </ul>
     pub status_code: ::std::option::Option<i32>,
-    /// <p>A string that uniquely identifies an error condition. Returned in the <Code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
+    /// <p>A string that uniquely identifies an error condition. Returned in the <code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</code></p>
     pub error_code: ::std::option::Option<::std::string::String>,
-    /// <p>Contains a generic description of the error condition. Returned in the <Message> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
+    /// <p>Contains a generic description of the error condition. Returned in the <message>
+    /// tag of the error XML response for a corresponding
+    /// <code>GetObject</code> call. Cannot be used with a successful
+    /// <code>StatusCode</code> header or when the transformed object is provided in body.
+    /// </message></p>
     pub error_message: ::std::option::Option<::std::string::String>,
     /// <p>Indicates that a range of bytes was specified.</p>
     pub accept_ranges: ::std::option::Option<::std::string::String>,
@@ -182,11 +186,15 @@ impl WriteGetObjectResponseInput {
     pub fn status_code(&self) -> ::std::option::Option<i32> {
         self.status_code
     }
-    /// <p>A string that uniquely identifies an error condition. Returned in the <Code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
+    /// <p>A string that uniquely identifies an error condition. Returned in the <code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</code></p>
     pub fn error_code(&self) -> ::std::option::Option<&str> {
         self.error_code.as_deref()
     }
-    /// <p>Contains a generic description of the error condition. Returned in the <Message> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
+    /// <p>Contains a generic description of the error condition. Returned in the <message>
+    /// tag of the error XML response for a corresponding
+    /// <code>GetObject</code> call. Cannot be used with a successful
+    /// <code>StatusCode</code> header or when the transformed object is provided in body.
+    /// </message></p>
     pub fn error_message(&self) -> ::std::option::Option<&str> {
         self.error_message.as_deref()
     }
@@ -620,31 +628,43 @@ impl WriteGetObjectResponseInputBuilder {
     pub fn get_status_code(&self) -> &::std::option::Option<i32> {
         &self.status_code
     }
-    /// <p>A string that uniquely identifies an error condition. Returned in the <Code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
+    /// <p>A string that uniquely identifies an error condition. Returned in the <code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</code></p>
     pub fn error_code(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.error_code = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>A string that uniquely identifies an error condition. Returned in the <Code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
+    /// <p>A string that uniquely identifies an error condition. Returned in the <code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</code></p>
     pub fn set_error_code(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_code = input;
         self
     }
-    /// <p>A string that uniquely identifies an error condition. Returned in the <Code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</p>
+    /// <p>A string that uniquely identifies an error condition. Returned in the <code> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in the body. All error codes from S3 are sentence-cased. The regular expression (regex) value is <code>"^\[A-Z\]\[a-zA-Z\]+$"</code>.</code></p>
     pub fn get_error_code(&self) -> &::std::option::Option<::std::string::String> {
         &self.error_code
     }
-    /// <p>Contains a generic description of the error condition. Returned in the <Message> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
+    /// <p>Contains a generic description of the error condition. Returned in the <message>
+    /// tag of the error XML response for a corresponding
+    /// <code>GetObject</code> call. Cannot be used with a successful
+    /// <code>StatusCode</code> header or when the transformed object is provided in body.
+    /// </message></p>
     pub fn error_message(mut self, input: impl ::std::convert::Into<::std::string::String>) -> Self {
         self.error_message = ::std::option::Option::Some(input.into());
         self
     }
-    /// <p>Contains a generic description of the error condition. Returned in the <Message> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
+    /// <p>Contains a generic description of the error condition. Returned in the <message>
+    /// tag of the error XML response for a corresponding
+    /// <code>GetObject</code> call. Cannot be used with a successful
+    /// <code>StatusCode</code> header or when the transformed object is provided in body.
+    /// </message></p>
     pub fn set_error_message(mut self, input: ::std::option::Option<::std::string::String>) -> Self {
         self.error_message = input;
         self
     }
-    /// <p>Contains a generic description of the error condition. Returned in the <Message> tag of the error XML response for a corresponding <code>GetObject</code> call. Cannot be used with a successful <code>StatusCode</code> header or when the transformed object is provided in body.</p>
+    /// <p>Contains a generic description of the error condition. Returned in the <message>
+    /// tag of the error XML response for a corresponding
+    /// <code>GetObject</code> call. Cannot be used with a successful
+    /// <code>StatusCode</code> header or when the transformed object is provided in body.
+    /// </message></p>
     pub fn get_error_message(&self) -> &::std::option::Option<::std::string::String> {
         &self.error_message
     }

@@ -35,6 +35,7 @@ pub struct StepFailedDetailsBuilder {
 }
 impl StepFailedDetailsBuilder {
     /// <p>Details about the step failure.</p>
+    /// This field is required.
     pub fn error(mut self, input: crate::types::EventError) -> Self {
         self.error = ::std::option::Option::Some(input);
         self
@@ -49,6 +50,7 @@ impl StepFailedDetailsBuilder {
         &self.error
     }
     /// <p>Information about retry attempts for this step operation.</p>
+    /// This field is required.
     pub fn retry_details(mut self, input: crate::types::RetryDetails) -> Self {
         self.retry_details = ::std::option::Option::Some(input);
         self

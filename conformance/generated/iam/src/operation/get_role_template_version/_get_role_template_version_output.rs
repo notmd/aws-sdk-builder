@@ -34,6 +34,7 @@ pub struct GetRoleTemplateVersionOutputBuilder {
 }
 impl GetRoleTemplateVersionOutputBuilder {
     /// <p>A structure that contains details about the requested role template version.</p>
+    /// This field is required.
     pub fn role_template_version(mut self, input: crate::types::RoleTemplateVersion) -> Self {
         self.role_template_version = ::std::option::Option::Some(input);
         self

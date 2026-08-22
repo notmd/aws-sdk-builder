@@ -28,6 +28,7 @@ pub struct ContextSucceededDetailsBuilder {
 }
 impl ContextSucceededDetailsBuilder {
     /// <p>The JSON response payload from the successful context.</p>
+    /// This field is required.
     pub fn result(mut self, input: crate::types::EventResult) -> Self {
         self.result = ::std::option::Option::Some(input);
         self

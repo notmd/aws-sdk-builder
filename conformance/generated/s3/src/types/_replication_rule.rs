@@ -219,6 +219,7 @@ impl ReplicationRuleBuilder {
         &self.existing_object_replication
     }
     /// <p>A container for information about the replication destination and its configurations including enabling the S3 Replication Time Control (S3 RTC).</p>
+    /// This field is required.
     pub fn destination(mut self, input: crate::types::Destination) -> Self {
         self.destination = ::std::option::Option::Some(input);
         self

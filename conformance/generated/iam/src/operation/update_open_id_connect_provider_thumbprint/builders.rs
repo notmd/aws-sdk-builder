@@ -29,11 +29,11 @@ impl Builder {
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(
         self,
-    ) -> ::std::result::Result<super::UpdateOpenIdConnectProviderThumbprintOutput, super::UpdateOpenIdConnectProviderThumbprintError> {
+    ) -> ::std::result::Result<super::UpdateOpenIdConnectProviderThumbprintOutput, super::UpdateOpenIDConnectProviderThumbprintError> {
         let input = self
             .input
             .build()
-            .map_err(|error| super::UpdateOpenIdConnectProviderThumbprintError::Unhandled(error.to_string()))?;
+            .map_err(|error| super::UpdateOpenIDConnectProviderThumbprintError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();
@@ -41,11 +41,11 @@ impl Builder {
             .client
             .request(super::super::super::transport::Method::Post, &path, &headers, &body)
             .await
-            .map_err(super::UpdateOpenIdConnectProviderThumbprintError::Unhandled)?;
+            .map_err(super::UpdateOpenIDConnectProviderThumbprintError::Unhandled)?;
         let status = response.status();
         if !status.is_success() {
-            return Err(super::UpdateOpenIdConnectProviderThumbprintError::unhandled_with_request_ids(
-                format!("UpdateOpenIdConnectProviderThumbprint returned HTTP {}", status),
+            return Err(super::UpdateOpenIDConnectProviderThumbprintError::unhandled_with_request_ids(
+                format!("UpdateOpenIDConnectProviderThumbprint returned HTTP {}", status),
                 response.header("x-amzn-requestid").map(str::to_owned),
                 ::std::option::Option::None,
             ));
@@ -55,4 +55,4 @@ impl Builder {
         Ok(output.build())
     }
 }
-pub use Builder as UpdateOpenIdConnectProviderThumbprintFluentBuilder;
+pub use Builder as UpdateOpenIDConnectProviderThumbprintFluentBuilder;

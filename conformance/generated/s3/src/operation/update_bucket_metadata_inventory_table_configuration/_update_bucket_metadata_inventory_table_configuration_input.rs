@@ -100,6 +100,7 @@ impl UpdateBucketMetadataInventoryTableConfigurationInputBuilder {
         &self.checksum_algorithm
     }
     /// <p>The contents of your inventory table configuration.</p>
+    /// This field is required.
     pub fn inventory_table_configuration(mut self, input: crate::types::InventoryTableConfigurationUpdates) -> Self {
         self.inventory_table_configuration = ::std::option::Option::Some(input);
         self

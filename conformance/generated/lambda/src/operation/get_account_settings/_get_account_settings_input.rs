@@ -16,7 +16,10 @@ impl GetAccountSettingsInput {
 pub struct GetAccountSettingsInputBuilder {}
 impl GetAccountSettingsInputBuilder {
     /// Consumes the builder and constructs a [`GetAccountSettingsInput`](crate::operation::get_account_settings::GetAccountSettingsInput).
-    pub fn build(self) -> crate::operation::get_account_settings::GetAccountSettingsInput {
-        crate::operation::get_account_settings::GetAccountSettingsInput {}
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::operation::get_account_settings::GetAccountSettingsInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::get_account_settings::GetAccountSettingsInput {})
     }
 }

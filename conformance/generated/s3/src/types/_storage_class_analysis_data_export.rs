@@ -50,6 +50,7 @@ impl StorageClassAnalysisDataExportBuilder {
         &self.output_schema_version
     }
     /// <p>The place to store the data for an analysis.</p>
+    /// This field is required.
     pub fn destination(mut self, input: crate::types::AnalyticsExportDestination) -> Self {
         self.destination = ::std::option::Option::Some(input);
         self

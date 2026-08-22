@@ -102,6 +102,7 @@ impl CreateGlobalSecondaryIndexActionBuilder {
         &self.key_schema
     }
     /// <p>Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.</p>
+    /// This field is required.
     pub fn projection(mut self, input: crate::types::Projection) -> Self {
         self.projection = ::std::option::Option::Some(input);
         self

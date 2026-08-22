@@ -34,6 +34,7 @@ pub struct AcquireRoleOutputBuilder {
 }
 impl AcquireRoleOutputBuilder {
     /// <p>A structure that contains details about the IAM role that was created.</p>
+    /// This field is required.
     pub fn role(mut self, input: crate::types::Role) -> Self {
         self.role = ::std::option::Option::Some(input);
         self

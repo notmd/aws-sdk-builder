@@ -65,6 +65,7 @@ impl PutBucketAccelerateConfigurationInputBuilder {
         &self.bucket
     }
     /// <p>Container for setting the transfer acceleration state.</p>
+    /// This field is required.
     pub fn accelerate_configuration(mut self, input: crate::types::AccelerateConfiguration) -> Self {
         self.accelerate_configuration = ::std::option::Option::Some(input);
         self

@@ -35,11 +35,11 @@ impl Builder {
         self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
-    pub async fn send(self) -> ::std::result::Result<super::CreateOpenIdConnectProviderOutput, super::CreateOpenIdConnectProviderError> {
+    pub async fn send(self) -> ::std::result::Result<super::CreateOpenIdConnectProviderOutput, super::CreateOpenIDConnectProviderError> {
         let input = self
             .input
             .build()
-            .map_err(|error| super::CreateOpenIdConnectProviderError::Unhandled(error.to_string()))?;
+            .map_err(|error| super::CreateOpenIDConnectProviderError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();
@@ -47,11 +47,11 @@ impl Builder {
             .client
             .request(super::super::super::transport::Method::Post, &path, &headers, &body)
             .await
-            .map_err(super::CreateOpenIdConnectProviderError::Unhandled)?;
+            .map_err(super::CreateOpenIDConnectProviderError::Unhandled)?;
         let status = response.status();
         if !status.is_success() {
-            return Err(super::CreateOpenIdConnectProviderError::unhandled_with_request_ids(
-                format!("CreateOpenIdConnectProvider returned HTTP {}", status),
+            return Err(super::CreateOpenIDConnectProviderError::unhandled_with_request_ids(
+                format!("CreateOpenIDConnectProvider returned HTTP {}", status),
                 response.header("x-amzn-requestid").map(str::to_owned),
                 ::std::option::Option::None,
             ));
@@ -61,4 +61,4 @@ impl Builder {
         Ok(output.build())
     }
 }
-pub use Builder as CreateOpenIdConnectProviderFluentBuilder;
+pub use Builder as CreateOpenIDConnectProviderFluentBuilder;

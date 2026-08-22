@@ -168,6 +168,7 @@ impl PutObjectTaggingInputBuilder {
         &self.checksum_algorithm
     }
     /// <p>Container for the <code>TagSet</code> and <code>Tag</code> elements</p>
+    /// This field is required.
     pub fn tagging(mut self, input: crate::types::Tagging) -> Self {
         self.tagging = ::std::option::Option::Some(input);
         self
