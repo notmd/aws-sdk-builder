@@ -4,6 +4,27 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Preserve source operation order for type discovery
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/model.rs` now retains the source service
+  operation sequence separately from the caller's selected operation list, including
+  a deterministic fallback for resource-attached operations. `codegen.rs` uses that
+  model-derived sequence for breadth-first shared-type discovery, matching Smithy's
+  `ListObjectsV2`/`ListObjectVersions` ordering without service-specific logic.
+  Regenerated IAM, Lambda, and S3 all-operation snapshots and conformance reports.
+- Evidence: inspected the pinned Smithy-RS model/type generation behavior under
+  `/tmp/smithy-rs`. `just conformance` regenerated 8 snapshots and formatted 4,575
+  generated Rust files; it exits 1 because parity remains incomplete. Workspace tests,
+  Clippy with `-D warnings`, formatting, and `git diff --check` pass.
+- Conformance: overall `3,533/1,041/1,887/1` -> `3,537/1,037/1,887/1`;
+  S3 `1,172/85/87/0` -> `1,174/83/87/0` (matched/mismatched/missing/extra).
+- Blocker: shared client/config/protocol/runtime source and reference package/test
+  trees remain incomplete; no new blocker introduced by this checkpoint.
+- Next action: fix the generic required-field documentation link rendering for raw
+  identifiers, starting with the `GranteeBuilder::r#type` versus `GranteeBuilder::type`
+  mismatch.
+
 ### Checkpoint: 2026-08-23 — Model-driven shared error metadata
 
 - State: in progress

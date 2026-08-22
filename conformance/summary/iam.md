@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## iam
-**Progress:** `1631/1631` files compared · `757` matched · `341` mismatches · `533` missing · `0` extra · `46.41%` match (100.00% means fully matched)
+**Progress:** `1631/1631` files compared · `759` matched · `339` mismatches · `533` missing · `0` extra · `46.54%` match (100.00% means fully matched)
 
 ### `src/client/delete_service_linked_role.rs`
 
@@ -31029,41 +31029,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
      /// <p>The IAM user associated with this virtual MFA device.</p>
 ```
 
-### `src/types/builders.rs`
-
-```diff
---- reference/src/types/builders.rs
-+++ generated/src/types/builders.rs
-@@ -31,12 +31,12 @@
-
- pub use crate::types::_role_template_version::RoleTemplateVersionBuilder;
-
-+pub use crate::types::_ssh_public_key::SshPublicKeyBuilder;
-+
- pub use crate::types::_server_certificate::ServerCertificateBuilder;
-
- pub use crate::types::_deletion_task_failure_reason_type::DeletionTaskFailureReasonTypeBuilder;
-
--pub use crate::types::_ssh_public_key::SshPublicKeyBuilder;
--
- pub use crate::types::_server_certificate_metadata::ServerCertificateMetadataBuilder;
-
- pub use crate::types::_signing_certificate::SigningCertificateBuilder;
-@@ -85,10 +85,10 @@
-
- pub use crate::types::_saml_provider_list_entry::SamlProviderListEntryBuilder;
-
-+pub use crate::types::_ssh_public_key_metadata::SshPublicKeyMetadataBuilder;
-+
- pub use crate::types::_service_specific_credential_metadata::ServiceSpecificCredentialMetadataBuilder;
-
--pub use crate::types::_ssh_public_key_metadata::SshPublicKeyMetadataBuilder;
--
- pub use crate::types::_ordered_organization_policy_type::OrderedOrganizationPolicyTypeBuilder;
-
- pub use crate::types::_context_entry::ContextEntryBuilder;
-```
-
 ### `src/types/error/_duplicate_ssh_public_key_exception.rs`
 
 ```diff
@@ -31133,48 +31098,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
  mod _account_not_management_or_delegated_administrator_exception;
 
  mod _caller_is_not_management_account_exception;
-```
-
-### `src/types.rs`
-
-```diff
---- reference/src/types.rs
-+++ generated/src/types.rs
-@@ -49,6 +49,10 @@
-
- pub use crate::types::_role_template_version::RoleTemplateVersion;
-
-+pub use crate::types::_encoding_type::EncodingType;
-+
-+pub use crate::types::_ssh_public_key::SshPublicKey;
-+
- pub use crate::types::_server_certificate::ServerCertificate;
-
- pub use crate::types::_deletion_task_status_type::DeletionTaskStatusType;
-@@ -55,10 +59,6 @@
-
- pub use crate::types::_deletion_task_failure_reason_type::DeletionTaskFailureReasonType;
-
--pub use crate::types::_encoding_type::EncodingType;
--
--pub use crate::types::_ssh_public_key::SshPublicKey;
--
- pub use crate::types::_entity_type::EntityType;
-
- pub use crate::types::_policy_usage_type::PolicyUsageType;
-@@ -127,10 +127,10 @@
-
- pub use crate::types::_saml_provider_list_entry::SamlProviderListEntry;
-
-+pub use crate::types::_ssh_public_key_metadata::SshPublicKeyMetadata;
-+
- pub use crate::types::_service_specific_credential_metadata::ServiceSpecificCredentialMetadata;
-
--pub use crate::types::_ssh_public_key_metadata::SshPublicKeyMetadata;
--
- pub use crate::types::_ordered_organization_policy_type::OrderedOrganizationPolicyType;
-
- pub use crate::types::_context_entry::ContextEntry;
 ```
 
 ### Missing reference files
@@ -32049,8 +31972,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/types/_service_specific_credential_metadata.rs`
 - `src/types/_tracked_action_last_accessed.rs`
 - `src/types/_virtual_mfa_device.rs`
-- `src/types/builders.rs`
 - `src/types/error/_duplicate_ssh_public_key_exception.rs`
 - `src/types/error/builders.rs`
 - `src/types/error.rs`
-- `src/types.rs`

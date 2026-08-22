@@ -1909,7 +1909,7 @@ fn service_title(selected: &SelectedModel) -> String {
 /// is what gives the facade its characteristic model-derived ordering.
 fn type_shape_order(selected: &SelectedModel) -> Vec<String> {
     let mut queue = VecDeque::new();
-    for operation_name in &selected.operations {
+    for operation_name in &selected.operation_order {
         let Some(operation) = operation_shape(selected, operation_name) else {
             continue;
         };

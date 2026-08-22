@@ -159,11 +159,11 @@ pub use crate::types::_common_prefix::CommonPrefixBuilder;
 
 pub use crate::types::_annotation_entry::AnnotationEntryBuilder;
 
+pub use crate::types::_object::ObjectBuilder;
+
 pub use crate::types::_object_version::ObjectVersionBuilder;
 
 pub use crate::types::_delete_marker_entry::DeleteMarkerEntryBuilder;
-
-pub use crate::types::_object::ObjectBuilder;
 
 pub use crate::types::_part::PartBuilder;
 

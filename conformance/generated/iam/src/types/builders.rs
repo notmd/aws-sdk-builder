@@ -31,11 +31,11 @@ pub use crate::types::_error_details::ErrorDetailsBuilder;
 
 pub use crate::types::_role_template_version::RoleTemplateVersionBuilder;
 
-pub use crate::types::_ssh_public_key::SshPublicKeyBuilder;
-
 pub use crate::types::_server_certificate::ServerCertificateBuilder;
 
 pub use crate::types::_deletion_task_failure_reason_type::DeletionTaskFailureReasonTypeBuilder;
+
+pub use crate::types::_ssh_public_key::SshPublicKeyBuilder;
 
 pub use crate::types::_server_certificate_metadata::ServerCertificateMetadataBuilder;
 
@@ -85,9 +85,9 @@ pub use crate::types::_list_policies_granting_service_access_entry::ListPolicies
 
 pub use crate::types::_saml_provider_list_entry::SamlProviderListEntryBuilder;
 
-pub use crate::types::_ssh_public_key_metadata::SshPublicKeyMetadataBuilder;
-
 pub use crate::types::_service_specific_credential_metadata::ServiceSpecificCredentialMetadataBuilder;
+
+pub use crate::types::_ssh_public_key_metadata::SshPublicKeyMetadataBuilder;
 
 pub use crate::types::_ordered_organization_policy_type::OrderedOrganizationPolicyTypeBuilder;
 

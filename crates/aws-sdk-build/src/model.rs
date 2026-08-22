@@ -17,6 +17,13 @@ pub(crate) struct Model {
 pub(crate) struct SelectedModel {
     pub(crate) model: Model,
     pub(crate) operations: Vec<String>,
+    /// Operation order from the source service shape, restricted to the selection.
+    ///
+    /// Smithy uses the model's service operation order while discovering shared
+    /// shapes for the public `types` re-exports. The selected operation list is
+    /// intentionally kept separate because callers may request operations in a
+    /// different order.
+    pub(crate) operation_order: Vec<String>,
     pub(crate) protocol_tests: Vec<Value>,
 }
 
@@ -124,6 +131,28 @@ impl Model {
                 .collect::<Result<Vec<_>, _>>()?
         };
 
+        let selected_set = selected_ids.iter().cloned().collect::<BTreeSet<_>>();
+        let mut operation_order = self
+            .root
+            .get("shapes")
+            .and_then(Value::as_object)
+            .and_then(|shapes| shapes.get(self.entry.service_shape_id))
+            .and_then(|service| service.get("operations"))
+            .and_then(Value::as_array)
+            .into_iter()
+            .flatten()
+            .filter_map(member_target)
+            .filter(|id| selected_set.contains(*id))
+            .map(terminal_name)
+            .map(ToOwned::to_owned)
+            .collect::<Vec<_>>();
+        for operation_id in &selected_ids {
+            let operation_name = terminal_name(operation_id);
+            if !operation_order.iter().any(|name| name == operation_name) {
+                operation_order.push(operation_name.to_owned());
+            }
+        }
+
         let mut queue = VecDeque::from_iter(
             std::iter::once(self.entry.service_shape_id.to_owned()).chain(selected_ids.clone()),
         );
@@ -218,6 +247,7 @@ impl Model {
                 protocol_tests: self.protocol_tests.clone(),
             },
             operations,
+            operation_order,
             protocol_tests: selected_protocol_tests,
         })
     }
