@@ -4,6 +4,30 @@ Updated 2026-08-23. `Prompt.md` is the project specification. Superseded checkpo
 details are intentionally kept out of this working summary; git history preserves the
 full audit trail.
 
+### Checkpoint: 2026-08-23 — Generic fluent builders and presigning
+
+- State: in progress
+- Changed: `crates/aws-sdk-build/src/codegen.rs` now emits standalone Smithy-RS-style
+  fluent operation builders, including input/output builder re-exports, `send_with`,
+  customization/config hooks, paginators, collection/scalar setters and getters,
+  model-derived documentation, streaming-aware derives, and presigning methods. The
+  presigning predicate is derived from HTTP path/query bindings and streaming traits;
+  it has no service- or operation-name switch. The service library header regression
+  from the experiment was also corrected.
+- Evidence: inspected the pinned Smithy-RS `FluentBuilderGenerator.kt` and
+  `AwsPresigningDecorator.kt` under `/tmp/smithy-rs`. `just conformance` regenerated
+  8 all-operation snapshots and formatted 4,494 generated Rust files.
+- Conformance: overall `2,948/1,545/1,968/1` -> `3,444/1,049/1,968/1` and S3
+  `1,055/188/101/0` -> `1,157/86/101/0` (matched/mismatched/missing/extra). Four
+  of the five model-selected S3 presignable builders are exact; the remaining
+  `HeadObject` builder has an unrelated documentation-tag whitespace mismatch.
+- Blocker: the reference still contains 101 missing S3 files, primarily shared
+  runtime/config/presigning modules and tests; remaining mismatches include shared
+  client/config/protocol/type source and a small set of builder documentation/layout
+  differences.
+- Next action: port the generic shared client customization and presigning support
+  files needed by the newly generated presigning builders, then rerun conformance.
+
 ## Current implementation
 
 - M1: complete for the public surface. Builder configuration is repeated `add` calls

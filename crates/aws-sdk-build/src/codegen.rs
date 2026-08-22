@@ -5389,6 +5389,9 @@ fn render_operation_builder_file(
     operation_name: &str,
     consumer_namespace: bool,
 ) -> String {
+    if !consumer_namespace {
+        return render_standalone_fluent_operation_builder_file(selected, operation_name);
+    }
     let operation = operation_shape(selected, operation_name).expect("selected operation exists");
     let protocol = selected
         .model
@@ -5481,6 +5484,260 @@ fn render_operation_builder_file(
     )
     .unwrap();
     output
+}
+
+fn render_standalone_fluent_operation_builder_file(
+    selected: &SelectedModel,
+    operation_name: &str,
+) -> String {
+    let operation = operation_shape(selected, operation_name).expect("selected operation exists");
+    let module = names::snake_case(operation_name);
+    let operation_type = rust_type_name(operation_name);
+    let input_builder_path =
+        format!("crate::operation::{module}::builders::{operation_type}InputBuilder");
+    let output_path = format!("crate::operation::{module}::{operation_type}Output");
+    let error_path = format!("crate::operation::{module}::{operation_type}Error");
+    let input_shape = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    writeln!(
+        output,
+        "pub use crate::operation::{module}::_{module}_input::{operation_type}InputBuilder;\n\npub use crate::operation::{module}::_{module}_output::{operation_type}OutputBuilder;\n"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "impl {input_builder_path} {{\n    /// Sends a request with this input using the given client.\n    pub async fn send_with(\n        self,\n        client: &crate::Client,\n    ) -> ::std::result::Result<\n        {output_path},\n        ::aws_smithy_runtime_api::client::result::SdkError<\n            {error_path},\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        >,\n    > {{\n        let mut fluent_builder = client.{module}();\n        fluent_builder.inner = self;\n        fluent_builder.send().await\n    }}\n}}"
+    )
+    .unwrap();
+
+    writeln!(
+        output,
+        "/// Fluent builder constructing a request to `{operation_type}`."
+    )
+    .unwrap();
+    if let Some(documentation) = documentation(operation) {
+        output.push_str("///\n");
+        render_doc_lines(&mut output, &documentation, 0);
+    }
+    render_deprecated_attribute(&mut output, operation, 0);
+    if input_shape.is_some_and(structure_has_streaming_member) {
+        output.push_str("#[derive(::std::fmt::Debug)]\n");
+    } else {
+        output.push_str("#[derive(::std::clone::Clone, ::std::fmt::Debug)]\n");
+    }
+    writeln!(
+        output,
+        "pub struct {operation_type}FluentBuilder {{\n    handle: ::std::sync::Arc<crate::client::Handle>,\n    inner: {input_builder_path},\n    config_override: ::std::option::Option<crate::config::Builder>,\n}}"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "impl\n    crate::client::customize::internal::CustomizableSend<\n        {output_path},\n        {error_path},\n    > for {operation_type}FluentBuilder\n{{\n    fn send(\n        self,\n        config_override: crate::config::Builder,\n    ) -> crate::client::customize::internal::BoxFuture<\n        crate::client::customize::internal::SendResult<\n            {output_path},\n            {error_path},\n        >,\n    > {{\n        ::std::boxed::Box::pin(async move {{ self.config_override(config_override).send().await }})\n    }}\n}}"
+    )
+    .unwrap();
+    writeln!(
+        output,
+        "impl {operation_type}FluentBuilder {{\n    /// Creates a new `{operation_type}FluentBuilder`.\n    pub(crate) fn new(handle: ::std::sync::Arc<crate::client::Handle>) -> Self {{\n        Self {{\n            handle,\n            inner: ::std::default::Default::default(),\n            config_override: ::std::option::Option::None,\n        }}\n    }}\n    /// Access the {operation_type} as a reference.\n    pub fn as_input(&self) -> &{input_builder_path} {{\n        &self.inner\n    }}"
+    )
+    .unwrap();
+    output.push_str(
+        "    /// Sends the request and returns the response.\n    ///\n    /// If an error occurs, an `SdkError` will be returned with additional details that\n    /// can be matched against.\n    ///\n    /// By default, any retryable failures will be retried twice. Retry behavior\n    /// is configurable with the [RetryConfig](aws_smithy_types::retry::RetryConfig), which can be\n    /// set when configuring the client.\n    pub async fn send(\n        self,\n    ) -> ::std::result::Result<\n",
+    );
+    writeln!(
+        output,
+        "        {output_path},\n        ::aws_smithy_runtime_api::client::result::SdkError<\n            {error_path},\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        >,\n    > {{\n        let input = self\n            .inner\n            .build()\n            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;\n        let runtime_plugins = crate::operation::{module}::{operation_type}::operation_runtime_plugins(\n            self.handle.runtime_plugins.clone(),\n            &self.handle.conf,\n            self.config_override,\n        );\n        crate::operation::{module}::{operation_type}::orchestrate(&runtime_plugins, input).await\n    }}\n\n    /// Consumes this builder, creating a customizable operation that can be modified before being sent.\n    pub fn customize(\n        self,\n    ) -> crate::client::customize::CustomizableOperation<\n        {output_path},\n        {error_path},\n        Self,\n    > {{\n        crate::client::customize::CustomizableOperation::new(self)\n    }}\n    pub(crate) fn config_override(mut self, config_override: impl ::std::convert::Into<crate::config::Builder>) -> Self {{\n        self.set_config_override(::std::option::Option::Some(config_override.into()));\n        self\n    }}\n\n    pub(crate) fn set_config_override(&mut self, config_override: ::std::option::Option<crate::config::Builder>) -> &mut Self {{\n        self.config_override = config_override;\n        self\n    }}"
+    )
+    .unwrap();
+    if operation_pagination_info(selected, operation_name).is_some() {
+        writeln!(
+            output,
+            "    /// Create a paginator for this request\n    ///\n    /// Paginators are used by calling [`send().await`](crate::operation::{module}::paginator::{operation_type}Paginator::send) which returns a [`PaginationStream`](aws_smithy_async::future::pagination_stream::PaginationStream).\n    pub fn into_paginator(self) -> crate::operation::{module}::paginator::{operation_type}Paginator {{\n        crate::operation::{module}::paginator::{operation_type}Paginator::new(self.handle, self.inner)\n    }}"
+        )
+        .unwrap();
+    }
+    if operation_is_presignable(selected, operation) {
+        render_standalone_presigned_method(&mut output, &module, &operation_type);
+    }
+    if let Some(shape) = input_shape {
+        for (member_name, member) in members(shape) {
+            render_standalone_fluent_member_helpers(
+                &mut output,
+                selected,
+                &module,
+                member_name,
+                member,
+            );
+        }
+    }
+    output.push_str("}\n");
+    if operation_is_presignable(selected, operation) {
+        writeln!(
+            output,
+            "\nimpl crate::client::customize::internal::CustomizablePresigned<crate::operation::{module}::{operation_type}Error> for {operation_type}FluentBuilder {{\n    fn presign(\n        self,\n        config_override: crate::config::Builder,\n        presigning_config: crate::presigning::PresigningConfig,\n    ) -> crate::client::customize::internal::BoxFuture<\n        crate::client::customize::internal::SendResult<crate::presigning::PresignedRequest, crate::operation::{module}::{operation_type}Error>,\n    > {{\n        ::std::boxed::Box::pin(async move {{ self.config_override(config_override).presigned(presigning_config).await }})\n    }}\n}}"
+        )
+        .unwrap();
+    }
+    output
+}
+
+fn operation_is_presignable(selected: &SelectedModel, operation: &Value) -> bool {
+    let Some(http) = operation_http_trait(operation) else {
+        return false;
+    };
+    let Some(uri) = http.get("uri").and_then(Value::as_str) else {
+        return false;
+    };
+    let (path, query) = uri.split_once('?').unwrap_or((uri, ""));
+    if path != "/{Bucket}/{Key+}" {
+        return false;
+    }
+    let input_shape = operation
+        .get("input")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    let output_shape = operation
+        .get("output")
+        .and_then(target_value)
+        .and_then(|id| selected.model.shapes.get(id));
+    let method = http
+        .get("method")
+        .and_then(Value::as_str)
+        .unwrap_or_default();
+    let has_query = |name: &str| {
+        input_shape.is_some_and(|shape| {
+            members(shape).into_iter().any(|(_, member)| {
+                member
+                    .get("traits")
+                    .and_then(Value::as_object)
+                    .and_then(|traits| traits.get("smithy.api#httpQuery"))
+                    .and_then(Value::as_str)
+                    .is_some_and(|value| value.eq_ignore_ascii_case(name))
+            })
+        })
+    };
+    match method {
+        "DELETE" => query.starts_with("x-id=") && !has_query("uploadId"),
+        "GET" => {
+            query.starts_with("x-id=") && output_shape.is_some_and(structure_has_streaming_member)
+        }
+        "HEAD" => query.is_empty(),
+        "PUT" => {
+            query.starts_with("x-id=") && input_shape.is_some_and(structure_has_streaming_member)
+        }
+        _ => false,
+    }
+}
+
+fn render_standalone_presigned_method(output: &mut String, module: &str, operation_type: &str) {
+    output.push_str(
+        "    ///\n    /// Creates a presigned request for this operation.\n    ///\n    /// The `presigning_config` provides additional presigning-specific config values, such as the\n    /// amount of time the request should be valid for after creation.\n    ///\n    /// Presigned requests can be given to other users or applications to access a resource or perform\n    /// an operation without having access to the AWS security credentials.\n    ///\n    /// _Important:_ If you're using credentials that can expire, such as those from STS AssumeRole or SSO, then\n    /// the presigned request can only be valid for as long as the credentials used to create it are.\n    ///\n    #[allow(unused_mut)]\n    pub async fn presigned(\n        mut self,\n        presigning_config: crate::presigning::PresigningConfig,\n    ) -> ::std::result::Result<\n        crate::presigning::PresignedRequest,\n        ::aws_smithy_runtime_api::client::result::SdkError<\n",
+    );
+    writeln!(
+        output,
+        "            crate::operation::{module}::{operation_type}Error,\n            ::aws_smithy_runtime_api::client::orchestrator::HttpResponse,\n        >,\n    > {{\n        let runtime_plugins = crate::operation::{module}::{operation_type}::operation_runtime_plugins(\n            self.handle.runtime_plugins.clone(),\n            &self.handle.conf,\n            self.config_override,\n        )\n        .with_client_plugin(crate::presigning_interceptors::SigV4PresigningRuntimePlugin::new(\n            presigning_config,\n            ::aws_sigv4::http_request::SignableBody::UnsignedPayload,\n        ));\n\n        let input = self\n            .inner\n            .build()\n            .map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)?;\n        let mut context = crate::operation::{module}::{operation_type}::orchestrate_with_stop_point(\n            &runtime_plugins,\n            input,\n            ::aws_smithy_runtime::client::orchestrator::StopPoint::BeforeTransmit,\n        )\n        .await\n        .map_err(|err| {{\n            err.map_service_error(|err| {{\n                err.downcast::<crate::operation::{module}::{operation_type}Error>()\n                    .expect(\"correct error type\")\n            }})\n        }})?;\n        let request = context.take_request().expect(\"request set before transmit\");\n        crate::presigning::PresignedRequest::new(request).map_err(::aws_smithy_runtime_api::client::result::SdkError::construction_failure)\n    }}"
+    )
+    .unwrap();
+}
+
+fn render_standalone_fluent_member_helpers(
+    output: &mut String,
+    selected: &SelectedModel,
+    module: &str,
+    member_name: String,
+    member: &Value,
+) {
+    let field = names::rust_identifier(&member_name);
+    let field_method = field.strip_prefix("r#").unwrap_or(&field);
+    let target_id = member_target(member).unwrap_or("smithy.api#String");
+    let context = Context::Builder {
+        module: module.to_owned(),
+        input: true,
+        consumer_namespace: false,
+    };
+    let target = type_expr(selected, target_id, context.clone());
+    let target_shape = selected.model.shapes.get(target_id);
+    if let Some(list_shape) =
+        target_shape.filter(|shape| shape.get("type").and_then(Value::as_str) == Some("list"))
+    {
+        let element_target = list_shape
+            .get("member")
+            .and_then(member_target)
+            .unwrap_or("smithy.api#String");
+        let element_type = type_expr(selected, element_target, context.clone());
+        let argument = builder_argument_type(selected, element_target, &element_type);
+        output.push_str(&format!(
+            "    ///\n    /// Appends an item to `{member_name}`.\n    ///\n    /// To override the contents of this collection use [`set_{field_method}`](Self::set_{field_method}).\n    ///\n"
+        ));
+        render_fluent_member_docs(output, selected, member);
+        render_deprecated_attribute(output, member, 4);
+        writeln!(
+            output,
+            "    pub fn {field}(mut self, input: {argument}) -> Self {{\n        self.inner = self.inner.{field}({});\n        self\n    }}",
+            builder_argument_value(&argument, "input")
+        )
+        .unwrap();
+    } else if let Some(map_shape) =
+        target_shape.filter(|shape| shape.get("type").and_then(Value::as_str) == Some("map"))
+    {
+        let key_target = map_shape
+            .get("key")
+            .and_then(member_target)
+            .unwrap_or("smithy.api#String");
+        let value_target = map_shape
+            .get("value")
+            .and_then(member_target)
+            .unwrap_or("smithy.api#String");
+        let key_type = type_expr(selected, key_target, context.clone());
+        let value_type = type_expr(selected, value_target, context.clone());
+        let key_argument = builder_argument_type(selected, key_target, &key_type);
+        let value_argument = builder_argument_type(selected, value_target, &value_type);
+        output.push_str(&format!(
+            "    ///\n    /// Adds a key-value pair to `{member_name}`.\n    ///\n    /// To override the contents of this collection use [`set_{field_method}`](Self::set_{field_method}).\n    ///\n"
+        ));
+        render_fluent_member_docs(output, selected, member);
+        render_deprecated_attribute(output, member, 4);
+        writeln!(
+            output,
+            "    pub fn {field}(mut self, k: {key_argument}, v: {value_argument}) -> Self {{\n        self.inner = self.inner.{field}({}, {});\n        self\n    }}",
+            builder_argument_value(&key_argument, "k"),
+            builder_argument_value(&value_argument, "v")
+        )
+        .unwrap();
+    } else {
+        let argument = builder_argument_type(selected, target_id, &target);
+        render_fluent_member_docs(output, selected, member);
+        render_deprecated_attribute(output, member, 4);
+        writeln!(
+            output,
+            "    pub fn {field}(mut self, input: {argument}) -> Self {{\n        self.inner = self.inner.{field}({});\n        self\n    }}",
+            builder_argument_value(&argument, "input")
+        )
+        .unwrap();
+    }
+    render_fluent_member_docs(output, selected, member);
+    render_deprecated_attribute(output, member, 4);
+    writeln!(
+        output,
+        "    pub fn set_{field_method}(mut self, input: ::std::option::Option<{target}>) -> Self {{\n        self.inner = self.inner.set_{field_method}(input);\n        self\n    }}"
+    )
+    .unwrap();
+    render_fluent_member_docs(output, selected, member);
+    render_deprecated_attribute(output, member, 4);
+    writeln!(
+        output,
+        "    pub fn get_{field_method}(&self) -> &::std::option::Option<{target}> {{\n        self.inner.get_{field_method}()\n    }}"
+    )
+    .unwrap();
+}
+
+fn render_fluent_member_docs(output: &mut String, selected: &SelectedModel, member: &Value) {
+    if let Some(documentation) = modeled_member_documentation(selected, member) {
+        render_doc_lines(output, &documentation, 4);
+    }
 }
 
 fn render_operation_error(
