@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## dynamodb
-**Progress:** `903/903` files compared · `449` matched · `82` mismatches · `372` missing · `0` extra · `49.72%` match (100.00% means fully matched)
+**Progress:** `903/903` files compared · `451` matched · `82` mismatches · `370` missing · `0` extra · `49.94%` match (100.00% means fully matched)
 
 ### `src/client/batch_get_item.rs`
 
@@ -10272,7 +10272,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `benches/deserialization_bench.rs`
 - `benches/serialization_bench.rs`
 - `src/account_id_endpoint.rs`
-- `src/client_idempotency_token.rs`
 - `src/config/auth.rs`
 - `src/config/endpoint.rs`
 - `src/endpoint_lib/arn.rs`
@@ -10285,7 +10284,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/endpoint_lib.rs`
 - `src/error/sealed_unhandled.rs`
 - `src/error_meta.rs`
-- `src/idempotency_token.rs`
 - `src/json_errors.rs`
 - `src/protocol_serde/shape_archival_summary.rs`
 - `src/protocol_serde/shape_attribute_definition.rs`

@@ -112,6 +112,16 @@ pub(crate) fn generate(
                 render_serde_util_file(&selected),
             ),
         ];
+        if has_idempotency_operations(&selected) {
+            service_files.push((
+                "src/idempotency_token.rs".to_owned(),
+                include_str!("../assets/idempotency_token.rs").to_owned(),
+            ));
+            service_files.push((
+                "src/client_idempotency_token.rs".to_owned(),
+                include_str!("../assets/client_idempotency_token.rs").to_owned(),
+            ));
+        }
         if !consumer_namespace {
             service_files.push((
                 "src/primitives/event_stream.rs".to_owned(),
@@ -10872,6 +10882,20 @@ fn has_presignable_operations(selected: &SelectedModel) -> bool {
     selected.operations.iter().any(|operation_name| {
         operation_shape(selected, operation_name)
             .is_some_and(|operation| operation_is_presignable(selected, operation))
+    })
+}
+
+fn has_idempotency_operations(selected: &SelectedModel) -> bool {
+    selected.operations.iter().any(|operation_name| {
+        operation_shape(selected, operation_name)
+            .and_then(|operation| operation.get("input"))
+            .and_then(target_value)
+            .and_then(|id| selected.model.shapes.get(id))
+            .is_some_and(|shape| {
+                members(shape)
+                    .into_iter()
+                    .any(|(_, member)| has_trait(member, "smithy.api#idempotencyToken"))
+            })
     })
 }
 

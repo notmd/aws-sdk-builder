@@ -3,7 +3,7 @@
 Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 
 ## lambda
-**Progress:** `1084/1084` files compared · `494` matched · `219` mismatches · `371` missing · `0` extra · `45.57%` match (100.00% means fully matched)
+**Progress:** `1084/1084` files compared · `496` matched · `219` mismatches · `369` missing · `0` extra · `45.76%` match (100.00% means fully matched)
 
 ### `src/client/create_function.rs`
 
@@ -17144,7 +17144,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `Cargo.toml`
 - `LICENSE`
 - `README.md`
-- `src/client_idempotency_token.rs`
 - `src/config/auth.rs`
 - `src/config/endpoint.rs`
 - `src/endpoint_lib/bdd_interpreter.rs`
@@ -17156,7 +17155,6 @@ Snapshot: `3c6d526c9d4775f41a8ef1ed2ef574d1b14481db`
 - `src/error_meta.rs`
 - `src/event_receiver.rs`
 - `src/event_stream_serde.rs`
-- `src/idempotency_token.rs`
 - `src/json_errors.rs`
 - `src/protocol_serde/shape_account_limit.rs`
 - `src/protocol_serde/shape_account_usage.rs`
