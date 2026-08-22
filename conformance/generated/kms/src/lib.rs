@@ -4,7 +4,9 @@ include!(concat!(env!("OUT_DIR"), "/generated/kms/src/primitives.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/kms/src/config.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/kms/src/error.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/kms/src/meta.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types.rs"));
+pub mod types {
+    include!(concat!(env!("OUT_DIR"), "/generated/kms/src/types.rs"));
+}
 include!(concat!(env!("OUT_DIR"), "/generated/kms/src/operation.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/kms/src/client.rs"));
 mod serde_util {

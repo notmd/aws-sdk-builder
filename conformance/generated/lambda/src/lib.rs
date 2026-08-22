@@ -4,7 +4,9 @@ include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/primitives.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/config.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/error.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/meta.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types.rs"));
+pub mod types {
+    include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/types.rs"));
+}
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/operation.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/lambda/src/client.rs"));
 mod serde_util {

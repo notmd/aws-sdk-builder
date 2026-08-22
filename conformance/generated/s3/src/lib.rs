@@ -7,7 +7,9 @@ pub mod s3_request_id {
     include!(concat!(env!("OUT_DIR"), "/generated/s3/src/s3_request_id.rs"));
 }
 include!(concat!(env!("OUT_DIR"), "/generated/s3/src/meta.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types.rs"));
+pub mod types {
+    include!(concat!(env!("OUT_DIR"), "/generated/s3/src/types.rs"));
+}
 include!(concat!(env!("OUT_DIR"), "/generated/s3/src/operation.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/s3/src/client.rs"));
 mod serde_util {

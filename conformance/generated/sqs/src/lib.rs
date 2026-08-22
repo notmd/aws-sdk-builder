@@ -4,7 +4,9 @@ include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/primitives.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/config.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/error.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/meta.rs"));
-include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types.rs"));
+pub mod types {
+    include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/types.rs"));
+}
 include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/operation.rs"));
 include!(concat!(env!("OUT_DIR"), "/generated/sqs/src/client.rs"));
 mod serde_util {

@@ -1,6 +1,6 @@
 use serde_json::Value;
 use std::{
-    collections::{BTreeMap, BTreeSet},
+    collections::{BTreeMap, BTreeSet, VecDeque},
     fmt::Write,
     fs,
     path::Path,
@@ -57,6 +57,14 @@ pub(crate) fn generate(
             (
                 "src/types.rs".to_owned(),
                 render_types_file(entry.key, &selected, consumer_namespace),
+            ),
+            (
+                "src/types/builders.rs".to_owned(),
+                render_types_builders_file(&selected, consumer_namespace),
+            ),
+            (
+                "src/types/error.rs".to_owned(),
+                render_error_types_file(entry.key, &selected, consumer_namespace),
             ),
             (
                 "src/types/error/builders.rs".to_owned(),
@@ -295,6 +303,14 @@ fn render_service_lib(service_key: &str, selected: &SelectedModel) -> String {
             writeln!(
                 output,
                 "pub mod s3_request_id {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/{file}\"));\n}}"
+            )
+            .unwrap();
+            continue;
+        }
+        if file == "types.rs" {
+            writeln!(
+                output,
+                "pub mod types {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/{file}\"));\n}}"
             )
             .unwrap();
             continue;
@@ -1198,63 +1214,401 @@ fn render_types_file(
     consumer_namespace: bool,
 ) -> String {
     let mut output = String::new();
-    header(&mut output);
-    output.push_str("pub mod types {\n");
-    let mut ids = selected.model.shapes.keys().cloned().collect::<Vec<_>>();
-    ids.sort();
-    for id in ids {
+    client_operation_header(&mut output);
+
+    if consumer_namespace {
+        let mut module_ids = selected
+            .model
+            .shapes
+            .iter()
+            .filter_map(|(id, shape)| {
+                (id != selected.model.entry.service_shape_id
+                    && is_file_renderable_type(Some(shape))
+                    && !is_error_shape(shape)
+                    && !is_synthetic_operation_shape(shape))
+                .then_some(id.clone())
+            })
+            .collect::<Vec<_>>();
+        module_ids.sort_by_key(|id| type_file_name(id));
+        for id in module_ids {
+            writeln!(
+                output,
+                "include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/{}\"));",
+                type_file_name(&id)
+            )
+            .unwrap();
+        }
+        writeln!(
+            output,
+            "pub mod builders {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/builders.rs\"));\n}}"
+        )
+        .unwrap();
+        writeln!(
+            output,
+            "pub mod error {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/error.rs\"));\n}}"
+        )
+        .unwrap();
+        return output;
+    }
+
+    for id in type_shape_order(selected) {
+        let filename = type_file_name(&id);
+        writeln!(
+            output,
+            "pub use crate::types::{module}::{name};\n",
+            module = filename.trim_end_matches(".rs"),
+            name = rust_type_name(terminal(&id)),
+        )
+        .unwrap();
+    }
+
+    let mut module_ids = selected
+        .model
+        .shapes
+        .iter()
+        .filter_map(|(id, shape)| {
+            (id != selected.model.entry.service_shape_id
+                && is_file_renderable_type(Some(shape))
+                && !is_error_shape(shape)
+                && !is_synthetic_operation_shape(shape))
+            .then_some(id.clone())
+        })
+        .collect::<Vec<_>>();
+    module_ids.sort_by_key(|id| type_file_name(id));
+    for id in module_ids {
+        let filename = type_file_name(&id);
+        writeln!(output, "mod {};\n", filename.trim_end_matches(".rs")).unwrap();
+    }
+
+    output.push_str("/// Builders\npub mod builders;\n\n");
+    writeln!(
+        output,
+        "/// Error types that {} can respond with.\npub mod error;",
+        service_title(selected)
+    )
+    .unwrap();
+    output
+}
+
+fn render_types_builders_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
+    let mut output = String::new();
+    client_operation_header(&mut output);
+    for id in type_shape_order(selected) {
         let Some(shape) = selected.model.shapes.get(&id) else {
             continue;
         };
-        if id == selected.model.entry.service_shape_id
-            || operation_shape_ids(selected).contains(&id)
-            || (!is_file_renderable_type(Some(shape)) && !is_primitive_shape(shape))
-            || is_error_shape(shape)
-        {
+        if shape.get("type").and_then(Value::as_str) != Some("structure") || is_error_shape(shape) {
             continue;
         }
-        if is_primitive_shape(shape) {
+        let name = rust_type_name(terminal(&id));
+        let module = type_file_name(&id).trim_end_matches(".rs").to_owned();
+        let path = if consumer_namespace {
+            format!("super::{name}Builder")
+        } else {
+            format!("crate::types::{module}::{name}Builder")
+        };
+        writeln!(output, "pub use {path};\n").unwrap();
+    }
+    output
+}
+
+fn render_error_types_file(
+    service_key: &str,
+    selected: &SelectedModel,
+    consumer_namespace: bool,
+) -> String {
+    let mut output = String::new();
+    client_operation_header(&mut output);
+
+    if consumer_namespace {
+        let mut module_ids = error_shape_ids(selected);
+        module_ids.sort_by_key(|id| type_file_name(id));
+        for id in module_ids {
             writeln!(
                 output,
-                "    pub type {} = {};",
-                rust_type_name(terminal(&id)),
-                primitive_type_for_namespace(
-                    shape
-                        .get("type")
-                        .and_then(Value::as_str)
-                        .unwrap_or("string"),
-                    consumer_namespace,
-                )
+                "include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/error/{}\"));",
+                type_file_name(&id)
             )
             .unwrap();
+        }
+        let mut event_stream_ids = selected
+            .model
+            .shapes
+            .iter()
+            .filter_map(|(id, shape)| {
+                (shape.get("type").and_then(Value::as_str) == Some("union")
+                    && has_trait(shape, "smithy.api#streaming"))
+                .then_some(id.clone())
+            })
+            .collect::<Vec<_>>();
+        event_stream_ids.sort();
+        for id in event_stream_ids {
+            render_event_stream_error(&mut output, selected, &id, consumer_namespace);
+        }
+        writeln!(
+            output,
+            "pub mod builders {{\n    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/error/builders.rs\"));\n}}"
+        )
+        .unwrap();
+        return output;
+    }
+
+    for id in error_shape_ids(selected) {
+        let name = rust_type_name(terminal(&id));
+        let module = type_file_name(&id).trim_end_matches(".rs").to_owned();
+        let path = if consumer_namespace {
+            format!("super::{module}::{name}")
+        } else {
+            format!("crate::types::error::{module}::{name}")
+        };
+        writeln!(output, "pub use {path};\n").unwrap();
+    }
+
+    let mut event_stream_ids = selected
+        .model
+        .shapes
+        .iter()
+        .filter_map(|(id, shape)| {
+            (shape.get("type").and_then(Value::as_str) == Some("union")
+                && has_trait(shape, "smithy.api#streaming"))
+            .then_some(id.clone())
+        })
+        .collect::<Vec<_>>();
+    event_stream_ids.sort();
+    for id in event_stream_ids {
+        render_event_stream_error(&mut output, selected, &id, consumer_namespace);
+    }
+
+    let mut module_ids = error_shape_ids(selected);
+    module_ids.sort_by_key(|id| type_file_name(id));
+    for id in module_ids {
+        writeln!(
+            output,
+            "mod {};\n",
+            type_file_name(&id).trim_end_matches(".rs")
+        )
+        .unwrap();
+    }
+    output.push_str("/// Builders\npub mod builders;\n");
+    output
+}
+
+fn render_event_stream_error(
+    output: &mut String,
+    selected: &SelectedModel,
+    union_id: &str,
+    consumer_namespace: bool,
+) {
+    let error_name = format!("{}Error", rust_type_name(terminal(union_id)));
+    let module = selected.model.entry.module_name;
+    let error_type_path = if consumer_namespace {
+        format!("crate::{module}::types::error::{error_name}")
+    } else {
+        format!("crate::types::error::{error_name}")
+    };
+    let request_id_path = if consumer_namespace {
+        format!("crate::{module}::s3_request_id")
+    } else {
+        "crate::s3_request_id".to_owned()
+    };
+    let template = r###"/// Error type for the `__ERROR_NAME__` operation.
+#[non_exhaustive]
+#[derive(::std::fmt::Debug)]
+pub enum __ERROR_NAME__ {
+    /// An unexpected error occurred (e.g., invalid JSON returned by the service or an unknown error code).
+    #[deprecated(note = "Matching `Unhandled` directly is not forwards compatible. Instead, match using a \
+    variable wildcard pattern and check `.code()`:
+     \
+    &nbsp;&nbsp;&nbsp;`err if err.code() == Some(\"SpecificExceptionCode\") => { /* handle the error */ }`
+     \
+    See [`ProvideErrorMetadata`](#impl-ProvideErrorMetadata-for-__ERROR_NAME__) for what information is available for the error.")]
+    Unhandled(crate::error::sealed_unhandled::Unhandled),
+}
+impl __ERROR_NAME__ {
+    /// Creates the `__ERROR_NAME__::Unhandled` variant from any error type.
+    pub fn unhandled(
+        err: impl ::std::convert::Into<::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>>,
+    ) -> Self {
+        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            source: err.into(),
+            meta: ::std::default::Default::default(),
+        })
+    }
+
+    /// Creates the `__ERROR_NAME__::Unhandled` variant from an [`ErrorMetadata`](::aws_smithy_types::error::ErrorMetadata).
+    pub fn generic(err: ::aws_smithy_types::error::ErrorMetadata) -> Self {
+        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            source: err.clone().into(),
+            meta: err,
+        })
+    }
+    ///
+    /// Returns error metadata, which includes the error code, message,
+    /// request ID, and potentially additional information.
+    ///
+    pub fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+        match self {
+            Self::Unhandled(e) => &e.meta,
+        }
+    }
+}
+impl ::std::error::Error for __ERROR_NAME__ {
+    fn source(&self) -> ::std::option::Option<&(dyn ::std::error::Error + 'static)> {
+        match self {
+            Self::Unhandled(_inner) => ::std::option::Option::Some(&*_inner.source),
+        }
+    }
+}
+impl ::std::fmt::Display for __ERROR_NAME__ {
+    fn fmt(&self, f: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        match self {
+            Self::Unhandled(_inner) => {
+                if let ::std::option::Option::Some(code) = ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self) {
+                    write!(f, "unhandled error ({code})")
+                } else {
+                    f.write_str("unhandled error")
+                }
+            }
+        }
+    }
+}
+impl ::aws_smithy_types::retry::ProvideErrorKind for __ERROR_NAME__ {
+    fn code(&self) -> ::std::option::Option<&str> {
+        ::aws_smithy_types::error::metadata::ProvideErrorMetadata::code(self)
+    }
+    fn retryable_error_kind(&self) -> ::std::option::Option<::aws_smithy_types::retry::ErrorKind> {
+        ::std::option::Option::None
+    }
+}
+impl ::aws_smithy_types::error::metadata::ProvideErrorMetadata for __ERROR_NAME__ {
+    fn meta(&self) -> &::aws_smithy_types::error::ErrorMetadata {
+        match self {
+            Self::Unhandled(_inner) => &_inner.meta,
+        }
+    }
+}
+impl ::aws_smithy_runtime_api::client::result::CreateUnhandledError for __ERROR_NAME__ {
+    fn create_unhandled_error(
+        source: ::std::boxed::Box<dyn ::std::error::Error + ::std::marker::Send + ::std::marker::Sync + 'static>,
+        meta: ::std::option::Option<::aws_smithy_types::error::ErrorMetadata>,
+    ) -> Self {
+        Self::Unhandled(crate::error::sealed_unhandled::Unhandled {
+            source,
+            meta: meta.unwrap_or_default(),
+        })
+    }
+}
+impl __REQUEST_ID_PATH__::RequestIdExt for __ERROR_TYPE_PATH__ {
+    fn extended_request_id(&self) -> Option<&str> {
+        self.meta().extended_request_id()
+    }
+}
+impl ::aws_types::request_id::RequestId for __ERROR_TYPE_PATH__ {
+    fn request_id(&self) -> Option<&str> {
+        self.meta().request_id()
+    }
+}
+
+"###;
+    output.push_str(
+        &template
+            .replace("__ERROR_NAME__", &error_name)
+            .replace("__ERROR_TYPE_PATH__", &error_type_path)
+            .replace("__REQUEST_ID_PATH__", &request_id_path),
+    );
+}
+
+fn service_title(selected: &SelectedModel) -> String {
+    selected
+        .model
+        .shapes
+        .get(selected.model.entry.service_shape_id)
+        .and_then(|shape| shape.get("traits"))
+        .and_then(Value::as_object)
+        .and_then(|traits| traits.get("smithy.api#title"))
+        .and_then(Value::as_str)
+        .map(ToOwned::to_owned)
+        .unwrap_or_else(|| terminal(selected.model.entry.service_shape_id).to_owned())
+}
+
+/// Return modeled public types in Smithy's first-discovery order.
+///
+/// Smithy normalizes every operation to synthetic input/output roots. The
+/// writer then discovers shared types breadth-first from all of those roots;
+/// the roots themselves are operation-owned and are therefore not re-exported
+/// from `types`. Keeping discovery separate from the sorted module declarations
+/// is what gives the facade its characteristic model-derived ordering.
+fn type_shape_order(selected: &SelectedModel) -> Vec<String> {
+    let mut queue = VecDeque::new();
+    for operation_name in &selected.operations {
+        let Some(operation) = operation_shape(selected, operation_name) else {
+            continue;
+        };
+        if let Some(input) = operation.get("input").and_then(target_value) {
+            queue.push_back(input.to_owned());
+        }
+        if let Some(output) = operation.get("output").and_then(target_value) {
+            queue.push_back(output.to_owned());
+        }
+        if let Some(errors) = operation.get("errors").and_then(Value::as_array) {
+            for error in errors.iter().filter_map(target_value) {
+                queue.push_back(error.to_owned());
+            }
+        }
+    }
+
+    let mut scheduled = BTreeSet::new();
+    let mut seen = BTreeSet::new();
+    for id in queue.iter() {
+        scheduled.insert(id.clone());
+    }
+    let mut order = Vec::new();
+    while let Some(id) = queue.pop_front() {
+        if !seen.insert(id.clone()) {
             continue;
         }
-        let filename = type_file_name(&id);
-        writeln!(
-            output,
-            "    include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/{filename}\"));"
-        )
-        .unwrap();
+        let Some(shape) = selected.model.shapes.get(&id) else {
+            continue;
+        };
+        for target in ordered_shape_targets(shape) {
+            if !scheduled.insert(target.to_owned()) {
+                continue;
+            }
+            let Some(target_shape) = selected.model.shapes.get(target) else {
+                continue;
+            };
+            if is_file_renderable_type(Some(target_shape))
+                && !is_error_shape(target_shape)
+                && !is_synthetic_operation_shape(target_shape)
+            {
+                order.push(target.to_owned());
+            }
+            queue.push_back(target.to_owned());
+        }
     }
-    output.push_str("    pub mod error {\n");
-    for id in error_shape_ids(selected) {
-        let filename = type_file_name(&id);
-        writeln!(
-            output,
-            "        include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/error/{filename}\"));"
-        )
-        .unwrap();
+    order
+}
+
+fn ordered_shape_targets(shape: &Value) -> Vec<&str> {
+    match shape.get("type").and_then(Value::as_str) {
+        Some("structure" | "union") => members(shape)
+            .into_iter()
+            .filter_map(|(_, member)| member_target(member))
+            .collect(),
+        Some("list") => shape
+            .get("member")
+            .and_then(|member| member_target(member))
+            .into_iter()
+            .collect(),
+        Some("map") => [
+            shape.get("key").and_then(member_target),
+            shape.get("value").and_then(member_target),
+        ]
+        .into_iter()
+        .flatten()
+        .collect(),
+        _ => Vec::new(),
     }
-    output.push_str("    pub mod builders {\n");
-    writeln!(
-        output,
-        "        include!(concat!(env!(\"OUT_DIR\"), \"/generated/{service_key}/src/types/error/builders.rs\"));"
-    )
-    .unwrap();
-    output.push_str("    }\n");
-    output.push_str("    }\n");
-    output.push_str("}\n\n");
-    output
 }
 
 fn render_error_builders_file(selected: &SelectedModel, consumer_namespace: bool) -> String {
@@ -1412,25 +1766,6 @@ fn is_file_renderable_type(shape: Option<&Value>) -> bool {
             .and_then(|shape| shape.get("type"))
             .and_then(Value::as_str),
         Some("structure" | "union" | "enum")
-    )
-}
-
-fn is_primitive_shape(shape: &Value) -> bool {
-    matches!(
-        shape.get("type").and_then(Value::as_str),
-        Some(
-            "string"
-                | "integer"
-                | "long"
-                | "short"
-                | "byte"
-                | "float"
-                | "double"
-                | "boolean"
-                | "blob"
-                | "timestamp"
-                | "document"
-        )
     )
 }
 
@@ -8009,6 +8344,8 @@ mod tests {
         assert!(generated.join("observability_feature.rs").is_file());
         assert!(generated.join("client.rs").is_file());
         assert!(generated.join("operation.rs").is_file());
+        assert!(generated.join("types/builders.rs").is_file());
+        assert!(generated.join("types/error.rs").is_file());
         assert!(
             generated
                 .join("operation/abort_multipart_upload.rs")
@@ -8032,7 +8369,7 @@ mod tests {
         assert!(
             fs::read_to_string(generated.join("types.rs"))
                 .unwrap()
-                .contains("pub type BucketName = ::std::string::String;")
+                .contains("/generated/s3/src/types/_")
         );
         assert!(!stage.path().join("aws_sdk_build_manifest.json").exists());
         assert!(!stage.path().join("generated/aws_sdk_s3.rs").exists());

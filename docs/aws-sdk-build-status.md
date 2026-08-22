@@ -14,7 +14,8 @@ full audit trail.
   crate/module mappings, canonical operation lists, SHA-256 checksums, and pinned
   snapshot SHAs in `models-manifest.json`.
 - M3: in progress. The Rust generator emits deterministic service/config/client,
-  operation, builder, error, shape, enum, and union source; resolves Smithy list/map
+  operation, builder, error, shape, enum, and union source; owns shared shapes,
+  builders, and modeled errors in Smithy-RS-style modules; resolves Smithy list/map
   shapes as inline collection expressions; ports forward-compatible enums; and
   validates generated syntax with `syn`. It is not yet AWS SDK semantic parity.
 - M4: in progress. Generated services co-locate the initial local HTTP transport in
@@ -26,8 +27,8 @@ full audit trail.
   consumer fixture compiles.
 - M6: in progress. The comparator runs against the pinned AWS SDK Rust `3c6d...` P0
   service trees and checks in deterministic summary and per-service reports. The
-  current report compares 6,584 files: 2,555 exact, 1,446 mismatches, 2,460 missing,
-  and 123 extra (35.93% arithmetic-average match).
+  current report compares 6,584 files: 2,584 exact, 1,435 mismatches, 2,442 missing,
+  and 123 extra (36.59% arithmetic-average match).
 - M6a: launcher and Rust Floci example are implemented; the local S3 create/head
   smoke test passes against `http://localhost:4566`.
 - M7: not complete; semantic parity gates for the priority queue remain open.
@@ -53,6 +54,36 @@ inspection mirror at `/tmp/smithy-rs` so newer upstream behavior does not silent
 change conformance inputs.
 
 ## Evidence
+
+### Checkpoint: 2026-08-22 — Smithy-RS shared type ownership
+
+- State: in progress
+- Changed: crates/aws-sdk-build/src/codegen.rs now emits a `types` facade with
+  model-ordered public re-exports and sorted physical shape modules, plus separate
+  `types/builders.rs` and `types/error.rs` files. Modeled errors and event-stream
+  errors use the shared error module, service titles drive the service error docs,
+  operation error roots participate in first-discovery type ordering, and consumer
+  namespace output includes physical modules inside the generated `types` module.
+  Primitive aliases were removed from the shared facade. The generator regression
+  test now checks the new shared files and module output.
+- Evidence: inspected the Smithy-RS mirror at `/tmp/smithy-rs` (`56ee88c`), including
+  `CodegenDelegator.kt`, `ClientRustModule.kt`, and `BuilderGenerator.kt`. The S3
+  `src/types.rs`, `src/types/builders.rs`, `src/types/error.rs`, and
+  `src/types/error/builders.rs` snapshots are byte-exact with the pinned reference;
+  the `my_aws_sdk` consumer fixture compiles. `just conformance` regenerated 8
+  all-operation snapshots (496 operations), formatted the generated Rust, and exited
+  1 as expected because parity remains incomplete. The final report compares 6,584
+  files: 2,584 matched, 1,435 mismatched, 2,442 missing, 123 extra, and 0 read
+  errors.
+- Conformance: overall `2,555/1,446/2,460/123` -> `2,584/1,435/2,442/123`;
+  S3 `934/295/115/0` -> `937/294/113/0` (matched/mismatched/missing/extra).
+  `cargo clippy --workspace --all-targets -- -D warnings`,
+  `cargo fmt --all -- --check`, and `git diff --check` pass.
+- Blocker: the conformance command is still non-zero; protocol/runtime,
+  endpoint/auth/retry/checksum/pagination/waiter generation, and the missing
+  reference test/package tree remain incomplete.
+- Next action: continue the conformance mismatch loop with the next highest-impact
+  Smithy-RS module or protocol ownership rule, then rerun the full comparison.
 
 ### Checkpoint: 2026-08-22 — Generic operation normalization and shared-shape closure
 
