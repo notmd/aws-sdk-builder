@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_create_bucket_metadata_table_configuration_input::CreateBucketMetadataTableConfigurationInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,38 +11,42 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.content_md5 = Some(value.into());
+        self.input = self.input.set_content_md5(Some(value.into()));
         self
     }
     pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
-        self.input.checksum_algorithm = Some(value.into());
+        self.input = self.input.set_checksum_algorithm(Some(value.into()));
         self
     }
     pub fn metadata_table_configuration(mut self, value: impl ::std::convert::Into<crate::types::MetadataTableConfiguration>) -> Self {
-        self.input.metadata_table_configuration = Some(value.into());
+        self.input = self.input.set_metadata_table_configuration(Some(value.into()));
         self
     }
     pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.expected_bucket_owner = Some(value.into());
+        self.input = self.input.set_expected_bucket_owner(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(
         self,
     ) -> ::std::result::Result<super::CreateBucketMetadataTableConfigurationOutput, super::CreateBucketMetadataTableConfigurationError> {
-        let bucket = self.input.bucket.as_deref().ok_or_else(|| {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::CreateBucketMetadataTableConfigurationError::Unhandled(error.to_string()))?;
+        let bucket = input.bucket.as_deref().ok_or_else(|| {
             super::CreateBucketMetadataTableConfigurationError::Unhandled("CreateBucketMetadataTableConfiguration requires bucket".to_owned())
         })?;
         let path = {
@@ -52,7 +56,7 @@ impl Builder {
         };
         let body = {
             let mut body = ::std::string::String::new();
-            if let Some(value) = self.input.metadata_table_configuration.as_ref() {
+            if let Some(value) = input.metadata_table_configuration.as_ref() {
                 body.push_str("<MetadataTableConfiguration>");
                 if let Some(value) = value.s3_tables_destination.as_ref() {
                     body.push_str("<S3TablesDestination>");
@@ -70,7 +74,7 @@ impl Builder {
         };
         let headers = {
             let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
-            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+            if let Some(value) = input.expected_bucket_owner.as_deref() {
                 headers.push(("x-amz-expected-bucket-owner", value));
             }
             headers.push(("content-type", "application/xml"));

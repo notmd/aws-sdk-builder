@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_add_permission_input::AddPermissionInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,31 +11,35 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn topic_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.topic_arn = Some(value.into());
+        self.input = self.input.set_topic_arn(Some(value.into()));
         self
     }
     pub fn label(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.label = Some(value.into());
+        self.input = self.input.set_label(Some(value.into()));
         self
     }
     pub fn aws_account_id(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.input.aws_account_id = Some(value.into());
+        self.input = self.input.set_aws_account_id(Some(value.into()));
         self
     }
     pub fn action_name(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.input.action_name = Some(value.into());
+        self.input = self.input.set_action_name(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::AddPermissionOutput, super::AddPermissionError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::AddPermissionError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

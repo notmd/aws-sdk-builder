@@ -26,8 +26,8 @@ full audit trail.
   consumer fixture compiles.
 - M6: in progress. The comparator runs against the pinned AWS SDK Rust `3c6d...` P0
   service trees and checks in deterministic summary and per-service reports. The
-  current report compares 6,584 files: 1,685 exact, 2,102 mismatches, 2,674 missing,
-  and 123 extra (24.00% arithmetic-average match).
+  current report compares 6,584 files: 2,055 exact, 1,732 mismatches, 2,674 missing,
+  and 123 extra (29.01% arithmetic-average match).
 - M6a: launcher and Rust Floci example are implemented; the local S3 create/head
   smoke test passes against `http://localhost:4566`.
 - M7: not complete; semantic parity gates for the priority queue remain open.
@@ -46,26 +46,29 @@ a new reusable abstraction.
 
 ## Evidence
 
-### Checkpoint: 2026-08-22 — RestXml payload wrapper module alignment
+### Checkpoint: 2026-08-22 — Fallible operation-input builders
 
 - State: in progress
-- Changed: `crates/aws-sdk-build/src/codegen.rs` now derives the structured RestXml
-  payload wrapper’s self-call from `shape_<operation>_input`; nested model serializers
-  continue to target `shape_<model>`. Added a focused regression test and regenerated
-  34 affected S3 protocol snapshots plus deterministic conformance reports.
-- Evidence: inspected the pinned smithy-rs checkout at
-  `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`. `just conformance` regenerated 8
-  all-operation snapshots (496 operations), formatted 3,910 Rust files, compared
-  6,584 files, and exited 1 because parity remains incomplete. `cargo test
-  --workspace`, `cargo clippy --workspace --all-targets -- -D warnings`,
-  `cargo fmt --all -- --check`, and `git diff --check` pass.
-- Conformance: overall `1,651/2,136/2,674/123` -> `1,685/2,102/2,674/123`
-  (matched/mismatched/missing/extra); S3 `542/479/323/0` -> `576/445/323/0`.
+- Changed: `crates/aws-sdk-build/src/codegen.rs` ports the smithy-rs
+  `BuilderGenerator` rule that every operation input builder is fallible, while
+  keeping the model-derived required-field documentation conditional. Operation
+  inputs no longer derive `Default`; the local fluent builder owns the generated
+  input builder and materializes it before request serialization. Regenerated 992
+  operation input/builder snapshots and all deterministic reports.
+- Evidence: compared the pinned smithy-rs `f1b64a9c0dd001d4bac4277fec4041da59c1f48d`
+  `BuilderGenerator` behavior. `just conformance` regenerated 8 all-operation
+  snapshots (496 operations), formatted 3,910 Rust files, compared 6,584 files,
+  and exited 1 because parity remains incomplete. `cargo test --workspace`,
+  `cargo clippy --workspace --all-targets -- -D warnings`, `cargo fmt --all -- --check`,
+  and `git diff --check` pass.
+- Conformance: overall `1,685/2,102/2,674/123` -> `2,055/1,732/2,674/123`
+  (matched/mismatched/missing/extra); S3 `576/445/323/0` -> `657/364/323/0`.
+  S3 operation-input files are now exact for 81 of 112 operations.
 - Blocker: modeled errors, remaining protocol/runtime behavior, endpoint/auth/retry/
   checksum support, pagination, and the missing reference source tree remain
   incomplete; the full conformance command still exits 1.
-- Next action: inspect the next largest S3 mismatch category in
-  `conformance/summary/s3.md` and port one reusable model/protocol rule.
+- Next action: align the remaining streaming operation-input derive metadata from
+  Smithy streaming traits and verify the 31 remaining S3 input mismatches.
 
 ## Passing checks
 

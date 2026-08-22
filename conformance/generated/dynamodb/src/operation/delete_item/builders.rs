@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_delete_item_input::DeleteItemInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,71 +11,72 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.table_name = Some(value.into());
+        self.input = self.input.set_table_name(Some(value.into()));
         self
     }
     pub fn key(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>) -> Self {
-        self.input.key = Some(value.into());
+        self.input = self.input.set_key(Some(value.into()));
         self
     }
     pub fn expected(
         mut self,
         value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::ExpectedAttributeValue>>,
     ) -> Self {
-        self.input.expected = Some(value.into());
+        self.input = self.input.set_expected(Some(value.into()));
         self
     }
     pub fn conditional_operator(mut self, value: impl ::std::convert::Into<crate::types::ConditionalOperator>) -> Self {
-        self.input.conditional_operator = Some(value.into());
+        self.input = self.input.set_conditional_operator(Some(value.into()));
         self
     }
     pub fn return_values(mut self, value: impl ::std::convert::Into<crate::types::ReturnValue>) -> Self {
-        self.input.return_values = Some(value.into());
+        self.input = self.input.set_return_values(Some(value.into()));
         self
     }
     pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self {
-        self.input.return_consumed_capacity = Some(value.into());
+        self.input = self.input.set_return_consumed_capacity(Some(value.into()));
         self
     }
     pub fn return_item_collection_metrics(mut self, value: impl ::std::convert::Into<crate::types::ReturnItemCollectionMetrics>) -> Self {
-        self.input.return_item_collection_metrics = Some(value.into());
+        self.input = self.input.set_return_item_collection_metrics(Some(value.into()));
         self
     }
     pub fn condition_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.condition_expression = Some(value.into());
+        self.input = self.input.set_condition_expression(Some(value.into()));
         self
     }
     pub fn expression_attribute_names(
         mut self,
         value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
-        self.input.expression_attribute_names = Some(value.into());
+        self.input = self.input.set_expression_attribute_names(Some(value.into()));
         self
     }
     pub fn expression_attribute_values(
         mut self,
         value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     ) -> Self {
-        self.input.expression_attribute_values = Some(value.into());
+        self.input = self.input.set_expression_attribute_values(Some(value.into()));
         self
     }
     pub fn return_values_on_condition_check_failure(
         mut self,
         value: impl ::std::convert::Into<crate::types::ReturnValuesOnConditionCheckFailure>,
     ) -> Self {
-        self.input.return_values_on_condition_check_failure = Some(value.into());
+        self.input = self.input.set_return_values_on_condition_check_failure(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::DeleteItemOutput, super::DeleteItemError> {
+        let input = self.input.build().map_err(|error| super::DeleteItemError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

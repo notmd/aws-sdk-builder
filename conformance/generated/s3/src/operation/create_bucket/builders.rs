@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_create_bucket_input::CreateBucketInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,61 +11,64 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn acl(mut self, value: impl ::std::convert::Into<crate::types::BucketCannedAcl>) -> Self {
-        self.input.acl = Some(value.into());
+        self.input = self.input.set_acl(Some(value.into()));
         self
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn create_bucket_configuration(mut self, value: impl ::std::convert::Into<crate::types::CreateBucketConfiguration>) -> Self {
-        self.input.create_bucket_configuration = Some(value.into());
+        self.input = self.input.set_create_bucket_configuration(Some(value.into()));
         self
     }
     pub fn grant_full_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grant_full_control = Some(value.into());
+        self.input = self.input.set_grant_full_control(Some(value.into()));
         self
     }
     pub fn grant_read(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grant_read = Some(value.into());
+        self.input = self.input.set_grant_read(Some(value.into()));
         self
     }
     pub fn grant_read_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grant_read_acp = Some(value.into());
+        self.input = self.input.set_grant_read_acp(Some(value.into()));
         self
     }
     pub fn grant_write(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grant_write = Some(value.into());
+        self.input = self.input.set_grant_write(Some(value.into()));
         self
     }
     pub fn grant_write_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grant_write_acp = Some(value.into());
+        self.input = self.input.set_grant_write_acp(Some(value.into()));
         self
     }
     pub fn object_lock_enabled_for_bucket(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.object_lock_enabled_for_bucket = Some(value.into());
+        self.input = self.input.set_object_lock_enabled_for_bucket(Some(value.into()));
         self
     }
     pub fn object_ownership(mut self, value: impl ::std::convert::Into<crate::types::ObjectOwnership>) -> Self {
-        self.input.object_ownership = Some(value.into());
+        self.input = self.input.set_object_ownership(Some(value.into()));
         self
     }
     pub fn bucket_namespace(mut self, value: impl ::std::convert::Into<crate::types::BucketNamespace>) -> Self {
-        self.input.bucket_namespace = Some(value.into());
+        self.input = self.input.set_bucket_namespace(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::CreateBucketOutput, super::CreateBucketError> {
-        let bucket = self
+        let input = self
             .input
+            .build()
+            .map_err(|error| super::CreateBucketError::Unhandled(error.to_string()))?;
+        let bucket = input
             .bucket
             .as_deref()
             .ok_or_else(|| super::CreateBucketError::Unhandled("CreateBucket requires bucket".to_owned()))?;
@@ -76,7 +79,7 @@ impl Builder {
         };
         let body = {
             let mut body = ::std::string::String::new();
-            if let Some(value) = self.input.create_bucket_configuration.as_ref() {
+            if let Some(value) = input.create_bucket_configuration.as_ref() {
                 body.push_str("<CreateBucketConfiguration>");
                 if let Some(value) = value.location_constraint.as_ref() {
                     body.push_str("<LocationConstraint>");

@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_start_message_move_task_input::StartMessageMoveTaskInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,27 +11,31 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn source_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.source_arn = Some(value.into());
+        self.input = self.input.set_source_arn(Some(value.into()));
         self
     }
     pub fn destination_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.destination_arn = Some(value.into());
+        self.input = self.input.set_destination_arn(Some(value.into()));
         self
     }
     pub fn max_number_of_messages_per_second(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.max_number_of_messages_per_second = Some(value.into());
+        self.input = self.input.set_max_number_of_messages_per_second(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::StartMessageMoveTaskOutput, super::StartMessageMoveTaskError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::StartMessageMoveTaskError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

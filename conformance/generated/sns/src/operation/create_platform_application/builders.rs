@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_create_platform_application_input::CreatePlatformApplicationInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,27 +11,31 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.name = Some(value.into());
+        self.input = self.input.set_name(Some(value.into()));
         self
     }
     pub fn platform(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.platform = Some(value.into());
+        self.input = self.input.set_platform(Some(value.into()));
         self
     }
     pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.input.attributes = Some(value.into());
+        self.input = self.input.set_attributes(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::CreatePlatformApplicationOutput, super::CreatePlatformApplicationError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::CreatePlatformApplicationError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

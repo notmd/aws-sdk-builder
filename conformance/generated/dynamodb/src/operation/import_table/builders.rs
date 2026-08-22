@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_import_table_input::ImportTableInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,39 +11,43 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn client_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.client_token = Some(value.into());
+        self.input = self.input.set_client_token(Some(value.into()));
         self
     }
     pub fn s3_bucket_source(mut self, value: impl ::std::convert::Into<crate::types::S3BucketSource>) -> Self {
-        self.input.s3_bucket_source = Some(value.into());
+        self.input = self.input.set_s3_bucket_source(Some(value.into()));
         self
     }
     pub fn input_format(mut self, value: impl ::std::convert::Into<crate::types::InputFormat>) -> Self {
-        self.input.input_format = Some(value.into());
+        self.input = self.input.set_input_format(Some(value.into()));
         self
     }
     pub fn input_format_options(mut self, value: impl ::std::convert::Into<crate::types::InputFormatOptions>) -> Self {
-        self.input.input_format_options = Some(value.into());
+        self.input = self.input.set_input_format_options(Some(value.into()));
         self
     }
     pub fn input_compression_type(mut self, value: impl ::std::convert::Into<crate::types::InputCompressionType>) -> Self {
-        self.input.input_compression_type = Some(value.into());
+        self.input = self.input.set_input_compression_type(Some(value.into()));
         self
     }
     pub fn table_creation_parameters(mut self, value: impl ::std::convert::Into<crate::types::TableCreationParameters>) -> Self {
-        self.input.table_creation_parameters = Some(value.into());
+        self.input = self.input.set_table_creation_parameters(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ImportTableOutput, super::ImportTableError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::ImportTableError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

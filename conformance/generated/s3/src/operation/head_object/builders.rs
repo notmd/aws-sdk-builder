@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_head_object_input::HeadObjectInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,148 +11,147 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.if_match = Some(value.into());
+        self.input = self.input.set_if_match(Some(value.into()));
         self
     }
     pub fn if_modified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
-        self.input.if_modified_since = Some(value.into());
+        self.input = self.input.set_if_modified_since(Some(value.into()));
         self
     }
     pub fn if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.if_none_match = Some(value.into());
+        self.input = self.input.set_if_none_match(Some(value.into()));
         self
     }
     pub fn if_unmodified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
-        self.input.if_unmodified_since = Some(value.into());
+        self.input = self.input.set_if_unmodified_since(Some(value.into()));
         self
     }
     pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.key = Some(value.into());
+        self.input = self.input.set_key(Some(value.into()));
         self
     }
     pub fn range(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.range = Some(value.into());
+        self.input = self.input.set_range(Some(value.into()));
         self
     }
     pub fn response_cache_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.response_cache_control = Some(value.into());
+        self.input = self.input.set_response_cache_control(Some(value.into()));
         self
     }
     pub fn response_content_disposition(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.response_content_disposition = Some(value.into());
+        self.input = self.input.set_response_content_disposition(Some(value.into()));
         self
     }
     pub fn response_content_encoding(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.response_content_encoding = Some(value.into());
+        self.input = self.input.set_response_content_encoding(Some(value.into()));
         self
     }
     pub fn response_content_language(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.response_content_language = Some(value.into());
+        self.input = self.input.set_response_content_language(Some(value.into()));
         self
     }
     pub fn response_content_type(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.response_content_type = Some(value.into());
+        self.input = self.input.set_response_content_type(Some(value.into()));
         self
     }
     pub fn response_expires(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
-        self.input.response_expires = Some(value.into());
+        self.input = self.input.set_response_expires(Some(value.into()));
         self
     }
     pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.version_id = Some(value.into());
+        self.input = self.input.set_version_id(Some(value.into()));
         self
     }
     pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.sse_customer_algorithm = Some(value.into());
+        self.input = self.input.set_sse_customer_algorithm(Some(value.into()));
         self
     }
     pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.sse_customer_key = Some(value.into());
+        self.input = self.input.set_sse_customer_key(Some(value.into()));
         self
     }
     pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.sse_customer_key_md5 = Some(value.into());
+        self.input = self.input.set_sse_customer_key_md5(Some(value.into()));
         self
     }
     pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
-        self.input.request_payer = Some(value.into());
+        self.input = self.input.set_request_payer(Some(value.into()));
         self
     }
     pub fn part_number(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.part_number = Some(value.into());
+        self.input = self.input.set_part_number(Some(value.into()));
         self
     }
     pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.expected_bucket_owner = Some(value.into());
+        self.input = self.input.set_expected_bucket_owner(Some(value.into()));
         self
     }
     pub fn checksum_mode(mut self, value: impl ::std::convert::Into<crate::types::ChecksumMode>) -> Self {
-        self.input.checksum_mode = Some(value.into());
+        self.input = self.input.set_checksum_mode(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::HeadObjectOutput, super::HeadObjectError> {
-        let bucket = self
-            .input
+        let input = self.input.build().map_err(|error| super::HeadObjectError::Unhandled(error.to_string()))?;
+        let bucket = input
             .bucket
             .as_deref()
             .ok_or_else(|| super::HeadObjectError::Unhandled("HeadObject requires bucket".to_owned()))?;
-        let key = self
-            .input
+        let key = input
             .key
             .as_deref()
             .ok_or_else(|| super::HeadObjectError::Unhandled("HeadObject requires key".to_owned()))?;
         let path = {
             let mut path = ::std::string::String::from("/{Bucket}/{Key+}");
-            if let Some(value) = self.input.response_cache_control.as_deref() {
+            if let Some(value) = input.response_cache_control.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("response-cache-control");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(value));
             }
-            if let Some(value) = self.input.response_content_disposition.as_deref() {
+            if let Some(value) = input.response_content_disposition.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("response-content-disposition");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(value));
             }
-            if let Some(value) = self.input.response_content_encoding.as_deref() {
+            if let Some(value) = input.response_content_encoding.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("response-content-encoding");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(value));
             }
-            if let Some(value) = self.input.response_content_language.as_deref() {
+            if let Some(value) = input.response_content_language.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("response-content-language");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(value));
             }
-            if let Some(value) = self.input.response_content_type.as_deref() {
+            if let Some(value) = input.response_content_type.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("response-content-type");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(value));
             }
-            if let Some(value) = self.input.version_id.as_deref() {
+            if let Some(value) = input.version_id.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("versionId");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(value));
             }
-            if let Some(value) = self.input.part_number.as_ref() {
+            if let Some(value) = input.part_number.as_ref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("partNumber");
                 path.push('=');
@@ -165,7 +164,7 @@ impl Builder {
         let body = ::std::vec::Vec::new();
         let headers = {
             let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
-            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+            if let Some(value) = input.expected_bucket_owner.as_deref() {
                 headers.push(("x-amz-expected-bucket-owner", value));
             }
             headers

@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_list_backups_input::ListBackupsInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,39 +11,43 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.table_name = Some(value.into());
+        self.input = self.input.set_table_name(Some(value.into()));
         self
     }
     pub fn limit(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.limit = Some(value.into());
+        self.input = self.input.set_limit(Some(value.into()));
         self
     }
     pub fn time_range_lower_bound(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
-        self.input.time_range_lower_bound = Some(value.into());
+        self.input = self.input.set_time_range_lower_bound(Some(value.into()));
         self
     }
     pub fn time_range_upper_bound(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
-        self.input.time_range_upper_bound = Some(value.into());
+        self.input = self.input.set_time_range_upper_bound(Some(value.into()));
         self
     }
     pub fn exclusive_start_backup_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.exclusive_start_backup_arn = Some(value.into());
+        self.input = self.input.set_exclusive_start_backup_arn(Some(value.into()));
         self
     }
     pub fn backup_type(mut self, value: impl ::std::convert::Into<crate::types::BackupTypeFilter>) -> Self {
-        self.input.backup_type = Some(value.into());
+        self.input = self.input.set_backup_type(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ListBackupsOutput, super::ListBackupsError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::ListBackupsError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

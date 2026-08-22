@@ -2,7 +2,7 @@
 
 #[derive(Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_put_object_annotation_input::PutObjectAnnotationInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,114 +11,116 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.key = Some(value.into());
+        self.input = self.input.set_key(Some(value.into()));
         self
     }
     pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.version_id = Some(value.into());
+        self.input = self.input.set_version_id(Some(value.into()));
         self
     }
     pub fn annotation_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.annotation_name = Some(value.into());
+        self.input = self.input.set_annotation_name(Some(value.into()));
         self
     }
     pub fn annotation_payload(mut self, value: impl ::std::convert::Into<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
-        self.input.annotation_payload = value.into();
+        self.input = self.input.set_annotation_payload(Some(value.into()));
         self
     }
     pub fn object_if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.object_if_match = Some(value.into());
+        self.input = self.input.set_object_if_match(Some(value.into()));
         self
     }
     pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
-        self.input.checksum_algorithm = Some(value.into());
+        self.input = self.input.set_checksum_algorithm(Some(value.into()));
         self
     }
     pub fn checksum_crc32(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_crc32 = Some(value.into());
+        self.input = self.input.set_checksum_crc32(Some(value.into()));
         self
     }
     pub fn checksum_crc32_c(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_crc32_c = Some(value.into());
+        self.input = self.input.set_checksum_crc32_c(Some(value.into()));
         self
     }
     pub fn checksum_crc64_nvme(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_crc64_nvme = Some(value.into());
+        self.input = self.input.set_checksum_crc64_nvme(Some(value.into()));
         self
     }
     pub fn checksum_sha1(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_sha1 = Some(value.into());
+        self.input = self.input.set_checksum_sha1(Some(value.into()));
         self
     }
     pub fn checksum_sha256(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_sha256 = Some(value.into());
+        self.input = self.input.set_checksum_sha256(Some(value.into()));
         self
     }
     pub fn checksum_sha512(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_sha512 = Some(value.into());
+        self.input = self.input.set_checksum_sha512(Some(value.into()));
         self
     }
     pub fn checksum_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_md5 = Some(value.into());
+        self.input = self.input.set_checksum_md5(Some(value.into()));
         self
     }
     pub fn checksum_xxhash64(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_xxhash64 = Some(value.into());
+        self.input = self.input.set_checksum_xxhash64(Some(value.into()));
         self
     }
     pub fn checksum_xxhash3(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_xxhash3 = Some(value.into());
+        self.input = self.input.set_checksum_xxhash3(Some(value.into()));
         self
     }
     pub fn checksum_xxhash128(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_xxhash128 = Some(value.into());
+        self.input = self.input.set_checksum_xxhash128(Some(value.into()));
         self
     }
     pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.content_md5 = Some(value.into());
+        self.input = self.input.set_content_md5(Some(value.into()));
         self
     }
     pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
-        self.input.request_payer = Some(value.into());
+        self.input = self.input.set_request_payer(Some(value.into()));
         self
     }
     pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.expected_bucket_owner = Some(value.into());
+        self.input = self.input.set_expected_bucket_owner(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::PutObjectAnnotationOutput, super::PutObjectAnnotationError> {
-        let bucket = self
+        let input = self
             .input
+            .build()
+            .map_err(|error| super::PutObjectAnnotationError::Unhandled(error.to_string()))?;
+        let bucket = input
             .bucket
             .as_deref()
             .ok_or_else(|| super::PutObjectAnnotationError::Unhandled("PutObjectAnnotation requires bucket".to_owned()))?;
-        let key = self
-            .input
+        let key = input
             .key
             .as_deref()
             .ok_or_else(|| super::PutObjectAnnotationError::Unhandled("PutObjectAnnotation requires key".to_owned()))?;
         let path = {
             let mut path = ::std::string::String::from("/{Bucket}/{Key+}?annotation");
-            if let Some(value) = self.input.version_id.as_deref() {
+            if let Some(value) = input.version_id.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("versionId");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(value));
             }
-            if let Some(value) = self.input.annotation_name.as_deref() {
+            if let Some(value) = input.annotation_name.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("annotationName");
                 path.push('=');
@@ -128,10 +130,10 @@ impl Builder {
             path = path.replace("{Key+}", &super::super::super::transport::encode_path(key));
             path
         };
-        let body = self.input.annotation_payload.clone().into_inner();
+        let body = input.annotation_payload.clone().into_inner();
         let headers = {
             let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
-            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+            if let Some(value) = input.expected_bucket_owner.as_deref() {
                 headers.push(("x-amz-expected-bucket-owner", value));
             }
             headers

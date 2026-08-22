@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_create_role_input::CreateRoleInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,43 +11,44 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.path = Some(value.into());
+        self.input = self.input.set_path(Some(value.into()));
         self
     }
     pub fn role_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.role_name = Some(value.into());
+        self.input = self.input.set_role_name(Some(value.into()));
         self
     }
     pub fn assume_role_policy_document(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.assume_role_policy_document = Some(value.into());
+        self.input = self.input.set_assume_role_policy_document(Some(value.into()));
         self
     }
     pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.description = Some(value.into());
+        self.input = self.input.set_description(Some(value.into()));
         self
     }
     pub fn max_session_duration(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.max_session_duration = Some(value.into());
+        self.input = self.input.set_max_session_duration(Some(value.into()));
         self
     }
     pub fn permissions_boundary(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.permissions_boundary = Some(value.into());
+        self.input = self.input.set_permissions_boundary(Some(value.into()));
         self
     }
     pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self {
-        self.input.tags = Some(value.into());
+        self.input = self.input.set_tags(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::CreateRoleOutput, super::CreateRoleError> {
+        let input = self.input.build().map_err(|error| super::CreateRoleError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

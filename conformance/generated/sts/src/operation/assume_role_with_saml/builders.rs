@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_assume_role_with_saml_input::AssumeRoleWithSamlInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,39 +11,43 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn role_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.role_arn = Some(value.into());
+        self.input = self.input.set_role_arn(Some(value.into()));
         self
     }
     pub fn principal_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.principal_arn = Some(value.into());
+        self.input = self.input.set_principal_arn(Some(value.into()));
         self
     }
     pub fn saml_assertion(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.saml_assertion = Some(value.into());
+        self.input = self.input.set_saml_assertion(Some(value.into()));
         self
     }
     pub fn policy_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::PolicyDescriptorType>>) -> Self {
-        self.input.policy_arns = Some(value.into());
+        self.input = self.input.set_policy_arns(Some(value.into()));
         self
     }
     pub fn policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.policy = Some(value.into());
+        self.input = self.input.set_policy(Some(value.into()));
         self
     }
     pub fn duration_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.duration_seconds = Some(value.into());
+        self.input = self.input.set_duration_seconds(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::AssumeRoleWithSamlOutput, super::AssumeRoleWithSamlError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::AssumeRoleWithSamlError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

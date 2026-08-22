@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_get_delegation_request_input::GetDelegationRequestInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,23 +11,27 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn delegation_request_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.delegation_request_id = Some(value.into());
+        self.input = self.input.set_delegation_request_id(Some(value.into()));
         self
     }
     pub fn delegation_permission_check(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.delegation_permission_check = Some(value.into());
+        self.input = self.input.set_delegation_permission_check(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::GetDelegationRequestOutput, super::GetDelegationRequestError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::GetDelegationRequestError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

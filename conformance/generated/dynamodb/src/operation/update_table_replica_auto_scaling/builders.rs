@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_update_table_replica_auto_scaling_input::UpdateTableReplicaAutoScalingInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,7 +11,7 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
@@ -19,29 +19,33 @@ impl Builder {
         mut self,
         value: impl ::std::convert::Into<::std::vec::Vec<crate::types::GlobalSecondaryIndexAutoScalingUpdate>>,
     ) -> Self {
-        self.input.global_secondary_index_updates = Some(value.into());
+        self.input = self.input.set_global_secondary_index_updates(Some(value.into()));
         self
     }
     pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.table_name = Some(value.into());
+        self.input = self.input.set_table_name(Some(value.into()));
         self
     }
     pub fn provisioned_write_capacity_auto_scaling_update(
         mut self,
         value: impl ::std::convert::Into<crate::types::AutoScalingSettingsUpdate>,
     ) -> Self {
-        self.input.provisioned_write_capacity_auto_scaling_update = Some(value.into());
+        self.input = self.input.set_provisioned_write_capacity_auto_scaling_update(Some(value.into()));
         self
     }
     pub fn replica_updates(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::ReplicaAutoScalingUpdate>>) -> Self {
-        self.input.replica_updates = Some(value.into());
+        self.input = self.input.set_replica_updates(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::UpdateTableReplicaAutoScalingOutput, super::UpdateTableReplicaAutoScalingError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::UpdateTableReplicaAutoScalingError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

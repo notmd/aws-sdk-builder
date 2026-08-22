@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_tag_user_input::TagUserInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,23 +11,24 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.user_name = Some(value.into());
+        self.input = self.input.set_user_name(Some(value.into()));
         self
     }
     pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self {
-        self.input.tags = Some(value.into());
+        self.input = self.input.set_tags(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::TagUserOutput, super::TagUserError> {
+        let input = self.input.build().map_err(|error| super::TagUserError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

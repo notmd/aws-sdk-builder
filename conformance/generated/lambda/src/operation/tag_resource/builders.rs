@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_tag_resource_input::TagResourceInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,25 +11,28 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn resource(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.resource = Some(value.into());
+        self.input = self.input.set_resource(Some(value.into()));
         self
     }
     pub fn tags(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.input.tags = Some(value.into());
+        self.input = self.input.set_tags(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::TagResourceOutput, super::TagResourceError> {
-        let resource = self
+        let input = self
             .input
+            .build()
+            .map_err(|error| super::TagResourceError::Unhandled(error.to_string()))?;
+        let resource = input
             .resource
             .as_deref()
             .ok_or_else(|| super::TagResourceError::Unhandled("TagResource requires resource".to_owned()))?;

@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_update_kinesis_streaming_destination_input::UpdateKinesisStreamingDestinationInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,30 +11,34 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.table_name = Some(value.into());
+        self.input = self.input.set_table_name(Some(value.into()));
         self
     }
     pub fn stream_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.stream_arn = Some(value.into());
+        self.input = self.input.set_stream_arn(Some(value.into()));
         self
     }
     pub fn update_kinesis_streaming_configuration(
         mut self,
         value: impl ::std::convert::Into<crate::types::UpdateKinesisStreamingConfiguration>,
     ) -> Self {
-        self.input.update_kinesis_streaming_configuration = Some(value.into());
+        self.input = self.input.set_update_kinesis_streaming_configuration(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::UpdateKinesisStreamingDestinationOutput, super::UpdateKinesisStreamingDestinationError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::UpdateKinesisStreamingDestinationError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

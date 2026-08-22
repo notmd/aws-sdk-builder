@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_list_retirable_grants_input::ListRetirableGrantsInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,31 +11,35 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn limit(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.limit = Some(value.into());
+        self.input = self.input.set_limit(Some(value.into()));
         self
     }
     pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.marker = Some(value.into());
+        self.input = self.input.set_marker(Some(value.into()));
         self
     }
     pub fn retiring_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.retiring_principal = Some(value.into());
+        self.input = self.input.set_retiring_principal(Some(value.into()));
         self
     }
     pub fn retiring_service_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.retiring_service_principal = Some(value.into());
+        self.input = self.input.set_retiring_service_principal(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ListRetirableGrantsOutput, super::ListRetirableGrantsError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::ListRetirableGrantsError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

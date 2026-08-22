@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_tag_saml_provider_input::TagSamlProviderInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,23 +11,27 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn saml_provider_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.saml_provider_arn = Some(value.into());
+        self.input = self.input.set_saml_provider_arn(Some(value.into()));
         self
     }
     pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self {
-        self.input.tags = Some(value.into());
+        self.input = self.input.set_tags(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::TagSamlProviderOutput, super::TagSamlProviderError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::TagSamlProviderError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

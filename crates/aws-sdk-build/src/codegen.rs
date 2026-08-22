@@ -1406,11 +1406,7 @@ fn render_operation_shape_file(
             0,
         );
     } else if input {
-        writeln!(
-            output,
-            "#[derive(Clone, Debug, Default)]\npub struct {rust_name};"
-        )
-        .unwrap();
+        writeln!(output, "#[derive(Clone, Debug)]\npub struct {rust_name};").unwrap();
     } else {
         let empty_output = serde_json::json!({
             "type": "structure",
@@ -1480,9 +1476,10 @@ fn render_operation_builder_file(
     } else {
         "Clone, Debug, Default"
     };
+    let input_builder_path = format!("super::_{module}_input::{rust_operation}InputBuilder");
     writeln!(
         output,
-        "#[derive({builder_derives})]\npub struct Builder {{\n    input: super::Input,\n    client: super::super::super::Client,\n}}\nimpl Builder {{\n    pub fn new() -> Self {{ Self::default() }}\n    pub fn with_client(client: super::super::super::Client) -> Self {{\n        Self {{ input: super::Input::default(), client }}\n    }}"
+        "#[derive({builder_derives})]\npub struct Builder {{\n    input: {input_builder_path},\n    client: super::super::super::Client,\n}}\nimpl Builder {{\n    pub fn new() -> Self {{ Self::default() }}\n    pub fn with_client(client: super::super::super::Client) -> Self {{\n        Self {{ input: ::std::default::Default::default(), client }}\n    }}"
     )
     .unwrap();
     if let Some(input_id) = operation.get("input").and_then(target_value)
@@ -1503,11 +1500,7 @@ fn render_operation_builder_file(
                     )
                 })
                 .unwrap_or_else(|| "::std::string::String".to_owned());
-            let assignment = if member_target(member).is_some_and(is_streaming_target) {
-                format!("self.input.{field} = value.into()")
-            } else {
-                format!("self.input.{field} = Some(value.into())")
-            };
+            let assignment = format!("self.input = self.input.set_{field}(Some(value.into()))");
             writeln!(
                 output,
                 "    pub fn {field}(mut self, value: impl ::std::convert::Into<{target}>) -> Self {{ {assignment}; self }}"
@@ -1515,7 +1508,9 @@ fn render_operation_builder_file(
             .unwrap();
         }
     }
-    output.push_str("    pub fn build(self) -> super::Input { self.input }\n");
+    output.push_str(
+        "    pub fn build(self) -> super::Input { self.input.build().expect(\"operation input builder cannot fail\") }\n",
+    );
     render_operation_send(
         &mut output,
         operation_name,
@@ -1649,6 +1644,11 @@ fn render_operation_send(
         "                     {send_allow}\n                     pub async fn send(self) -> ::std::result::Result<super::{rust_operation}Output, super::{rust_operation}Error> {{"
     )
     .unwrap();
+    writeln!(
+        output,
+        "                         let input = self.input.build().map_err(|error| super::{rust_operation}Error::Unhandled(error.to_string()))?;"
+    )
+    .unwrap();
     if let Some(shape) = input_shape {
         for (name, member) in members(shape) {
             let field = names::rust_identifier(&name);
@@ -1659,7 +1659,7 @@ fn render_operation_send(
             if required && uri.contains(&format!("{{{name}")) {
                 writeln!(
                     output,
-                    "                         let {field} = self.input.{field}.as_deref().ok_or_else(|| super::{rust_operation}Error::Unhandled(\"{rust_operation} requires {field}\".to_owned()))?;"
+                    "                         let {field} = input.{field}.as_deref().ok_or_else(|| super::{rust_operation}Error::Unhandled(\"{rust_operation} requires {field}\".to_owned()))?;"
                 )
                 .unwrap();
             }
@@ -1707,7 +1707,7 @@ fn render_request_body(
     let field = names::rust_identifier(&name);
     let target = member_target(member).unwrap_or_default();
     if terminal(target) == "StreamingBlob" {
-        return format!("self.input.{field}.clone().into_inner()");
+        return format!("input.{field}.clone().into_inner()");
     }
     if protocol != crate::model::ProtocolKind::RestXml {
         return "::std::vec::Vec::new()".to_owned();
@@ -1717,9 +1717,8 @@ fn render_request_body(
         return "::std::vec::Vec::new()".to_owned();
     };
     let root = xml_name(member).unwrap_or_else(|| terminal(target).to_owned());
-    let mut expression = String::from(
-        "{ let mut body = ::std::string::String::new(); if let Some(value) = self.input.",
-    );
+    let mut expression =
+        String::from("{ let mut body = ::std::string::String::new(); if let Some(value) = input.");
     expression.push_str(&field);
     expression.push_str(".as_ref() {");
     render_xml_value(
@@ -1914,7 +1913,7 @@ fn render_request_path(uri: &str, input_shape: Option<&Value>, selected: &Select
                 let target_shape = selected.model.shapes.get(target);
                 if is_string_type(target, target_shape) {
                     expression.push_str(&format!(
-                        " if let Some(value) = self.input.{field}.as_deref() {{ path.push_str(if path.contains('?') {{ \"&\" }} else {{ \"?\" }}); path.push_str({query:?}); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); }}"
+                        " if let Some(value) = input.{field}.as_deref() {{ path.push_str(if path.contains('?') {{ \"&\" }} else {{ \"?\" }}); path.push_str({query:?}); path.push('='); path.push_str(&super::super::super::transport::encode_path(value)); }}"
                     ));
                 } else if !matches!(
                     target_shape
@@ -1925,7 +1924,7 @@ fn render_request_path(uri: &str, input_shape: Option<&Value>, selected: &Select
                     )
                 ) {
                     expression.push_str(&format!(
-                        " if let Some(value) = self.input.{field}.as_ref() {{ path.push_str(if path.contains('?') {{ \"&\" }} else {{ \"?\" }}); path.push_str({query:?}); path.push('='); path.push_str(&super::super::super::transport::encode_path(&value.to_string())); }}"
+                        " if let Some(value) = input.{field}.as_ref() {{ path.push_str(if path.contains('?') {{ \"&\" }} else {{ \"?\" }}); path.push_str({query:?}); path.push('='); path.push_str(&super::super::super::transport::encode_path(&value.to_string())); }}"
                     ));
                 }
             }
@@ -1977,7 +1976,7 @@ fn render_request_headers(
             }
             let field = names::rust_identifier(&name);
             header_pushes.push(format!(
-                " if let Some(value) = self.input.{field}.as_deref() {{ headers.push(({header:?}, value)); }}"
+                " if let Some(value) = input.{field}.as_deref() {{ headers.push(({header:?}, value)); }}"
             ));
         }
     }
@@ -3544,11 +3543,7 @@ fn render_structure_at_indent(
         .unwrap();
     }
     writeln!(output, "{padding}#[non_exhaustive]").unwrap();
-    let derives = if operation_input(&context) {
-        "::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default, ::std::fmt::Debug"
-    } else {
-        "::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug"
-    };
+    let derives = "::std::clone::Clone, ::std::cmp::PartialEq, ::std::fmt::Debug";
     let mut excluded_derives = Vec::new();
     if structure_has_streaming_member(shape) {
         excluded_derives.extend(["::std::clone::Clone", "::std::cmp::PartialEq"]);
@@ -4137,7 +4132,8 @@ fn render_type_builder(
         })
         .map(|(member_name, _)| member_name)
         .collect::<Vec<_>>();
-    if required_members.is_empty() {
+    let fallible_builder = operation_input(&context) || !required_members.is_empty();
+    if !fallible_builder {
         writeln!(
             output,
             "{inner}/// Consumes the builder and constructs a [`{rust_name}`]({value_path})."
@@ -4150,20 +4146,22 @@ fn render_type_builder(
             "{inner}/// Consumes the builder and constructs a [`{rust_name}`]({value_path})."
         )
         .unwrap();
-        writeln!(
-            output,
-            "{inner}/// This method will fail if any of the following fields are not set:"
-        )
-        .unwrap();
-        let builder_path = builder_type_path(&context, &rust_name);
-        for member_name in &required_members {
-            let field_method = names::rust_identifier(member_name);
-            let field_link = if context.consumer_namespace() {
-                format!("Self::{field_method}")
-            } else {
-                format!("{builder_path}::{field_method}")
-            };
-            writeln!(output, "{inner}/// - [`{field_method}`]({field_link})").unwrap();
+        if !required_members.is_empty() {
+            writeln!(
+                output,
+                "{inner}/// This method will fail if any of the following fields are not set:"
+            )
+            .unwrap();
+            let builder_path = builder_type_path(&context, &rust_name);
+            for member_name in &required_members {
+                let field_method = names::rust_identifier(member_name);
+                let field_link = if context.consumer_namespace() {
+                    format!("Self::{field_method}")
+                } else {
+                    format!("{builder_path}::{field_method}")
+                };
+                writeln!(output, "{inner}/// - [`{field_method}`]({field_link})").unwrap();
+            }
         }
         writeln!(
             output,
@@ -4177,7 +4175,7 @@ fn render_type_builder(
         )
         .unwrap();
     }
-    if required_members.is_empty() {
+    if !fallible_builder {
         writeln!(output, "{inner}    {value_path} {{").unwrap();
     }
     for (member_name, _) in members(shape) {
@@ -4223,7 +4221,7 @@ fn render_type_builder(
         )
         .unwrap();
     }
-    if required_members.is_empty() {
+    if !fallible_builder {
         writeln!(output, "{inner}    }}").unwrap();
         writeln!(output, "{inner}}}").unwrap();
     } else {

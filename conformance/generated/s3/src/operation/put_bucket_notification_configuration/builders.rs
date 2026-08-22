@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_put_bucket_notification_configuration_input::PutBucketNotificationConfigurationInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,34 +11,38 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn notification_configuration(mut self, value: impl ::std::convert::Into<crate::types::NotificationConfiguration>) -> Self {
-        self.input.notification_configuration = Some(value.into());
+        self.input = self.input.set_notification_configuration(Some(value.into()));
         self
     }
     pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.expected_bucket_owner = Some(value.into());
+        self.input = self.input.set_expected_bucket_owner(Some(value.into()));
         self
     }
     pub fn skip_destination_validation(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.skip_destination_validation = Some(value.into());
+        self.input = self.input.set_skip_destination_validation(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(
         self,
     ) -> ::std::result::Result<super::PutBucketNotificationConfigurationOutput, super::PutBucketNotificationConfigurationError> {
-        let bucket = self.input.bucket.as_deref().ok_or_else(|| {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::PutBucketNotificationConfigurationError::Unhandled(error.to_string()))?;
+        let bucket = input.bucket.as_deref().ok_or_else(|| {
             super::PutBucketNotificationConfigurationError::Unhandled("PutBucketNotificationConfiguration requires bucket".to_owned())
         })?;
         let path = {
@@ -48,7 +52,7 @@ impl Builder {
         };
         let body = {
             let mut body = ::std::string::String::new();
-            if let Some(value) = self.input.notification_configuration.as_ref() {
+            if let Some(value) = input.notification_configuration.as_ref() {
                 body.push_str("<NotificationConfiguration>");
                 if let Some(value) = value.topic_configurations.as_ref() {
                     for item in value {
@@ -189,7 +193,7 @@ impl Builder {
         };
         let headers = {
             let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
-            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+            if let Some(value) = input.expected_bucket_owner.as_deref() {
                 headers.push(("x-amz-expected-bucket-owner", value));
             }
             headers.push(("content-type", "application/xml"));

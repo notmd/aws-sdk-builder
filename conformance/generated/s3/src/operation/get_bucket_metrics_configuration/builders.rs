@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_get_bucket_metrics_configuration_input::GetBucketMetricsConfigurationInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,35 +11,38 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.id = Some(value.into());
+        self.input = self.input.set_id(Some(value.into()));
         self
     }
     pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.expected_bucket_owner = Some(value.into());
+        self.input = self.input.set_expected_bucket_owner(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::GetBucketMetricsConfigurationOutput, super::GetBucketMetricsConfigurationError> {
-        let bucket = self
+        let input = self
             .input
+            .build()
+            .map_err(|error| super::GetBucketMetricsConfigurationError::Unhandled(error.to_string()))?;
+        let bucket = input
             .bucket
             .as_deref()
             .ok_or_else(|| super::GetBucketMetricsConfigurationError::Unhandled("GetBucketMetricsConfiguration requires bucket".to_owned()))?;
         let path = {
             let mut path = ::std::string::String::from("/{Bucket}?metrics&x-id=GetBucketMetricsConfiguration");
-            if let Some(value) = self.input.id.as_deref() {
+            if let Some(value) = input.id.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("id");
                 path.push('=');
@@ -51,7 +54,7 @@ impl Builder {
         let body = ::std::vec::Vec::new();
         let headers = {
             let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
-            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+            if let Some(value) = input.expected_bucket_owner.as_deref() {
                 headers.push(("x-amz-expected-bucket-owner", value));
             }
             headers

@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_generate_mac_input::GenerateMacInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,35 +11,39 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn message(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self {
-        self.input.message = Some(value.into());
+        self.input = self.input.set_message(Some(value.into()));
         self
     }
     pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.key_id = Some(value.into());
+        self.input = self.input.set_key_id(Some(value.into()));
         self
     }
     pub fn mac_algorithm(mut self, value: impl ::std::convert::Into<crate::types::MacAlgorithmSpec>) -> Self {
-        self.input.mac_algorithm = Some(value.into());
+        self.input = self.input.set_mac_algorithm(Some(value.into()));
         self
     }
     pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.input.grant_tokens = Some(value.into());
+        self.input = self.input.set_grant_tokens(Some(value.into()));
         self
     }
     pub fn dry_run(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.dry_run = Some(value.into());
+        self.input = self.input.set_dry_run(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::GenerateMacOutput, super::GenerateMacError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::GenerateMacError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

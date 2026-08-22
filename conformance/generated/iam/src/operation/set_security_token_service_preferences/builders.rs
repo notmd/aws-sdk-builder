@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_set_security_token_service_preferences_input::SetSecurityTokenServicePreferencesInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,21 +11,25 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn global_endpoint_token_version(mut self, value: impl ::std::convert::Into<crate::types::GlobalEndpointTokenVersion>) -> Self {
-        self.input.global_endpoint_token_version = Some(value.into());
+        self.input = self.input.set_global_endpoint_token_version(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(
         self,
     ) -> ::std::result::Result<super::SetSecurityTokenServicePreferencesOutput, super::SetSecurityTokenServicePreferencesError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::SetSecurityTokenServicePreferencesError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

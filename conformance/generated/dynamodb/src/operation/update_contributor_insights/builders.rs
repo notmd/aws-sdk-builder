@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_update_contributor_insights_input::UpdateContributorInsightsInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,31 +11,35 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.table_name = Some(value.into());
+        self.input = self.input.set_table_name(Some(value.into()));
         self
     }
     pub fn index_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.index_name = Some(value.into());
+        self.input = self.input.set_index_name(Some(value.into()));
         self
     }
     pub fn contributor_insights_action(mut self, value: impl ::std::convert::Into<crate::types::ContributorInsightsAction>) -> Self {
-        self.input.contributor_insights_action = Some(value.into());
+        self.input = self.input.set_contributor_insights_action(Some(value.into()));
         self
     }
     pub fn contributor_insights_mode(mut self, value: impl ::std::convert::Into<crate::types::ContributorInsightsMode>) -> Self {
-        self.input.contributor_insights_mode = Some(value.into());
+        self.input = self.input.set_contributor_insights_mode(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::UpdateContributorInsightsOutput, super::UpdateContributorInsightsError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::UpdateContributorInsightsError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

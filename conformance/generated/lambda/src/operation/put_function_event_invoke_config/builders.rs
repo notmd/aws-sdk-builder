@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_put_function_event_invoke_config_input::PutFunctionEventInvokeConfigInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,42 +11,46 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn function_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.function_name = Some(value.into());
+        self.input = self.input.set_function_name(Some(value.into()));
         self
     }
     pub fn qualifier(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.qualifier = Some(value.into());
+        self.input = self.input.set_qualifier(Some(value.into()));
         self
     }
     pub fn maximum_retry_attempts(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.maximum_retry_attempts = Some(value.into());
+        self.input = self.input.set_maximum_retry_attempts(Some(value.into()));
         self
     }
     pub fn maximum_event_age_in_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.maximum_event_age_in_seconds = Some(value.into());
+        self.input = self.input.set_maximum_event_age_in_seconds(Some(value.into()));
         self
     }
     pub fn destination_config(mut self, value: impl ::std::convert::Into<crate::types::DestinationConfig>) -> Self {
-        self.input.destination_config = Some(value.into());
+        self.input = self.input.set_destination_config(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::PutFunctionEventInvokeConfigOutput, super::PutFunctionEventInvokeConfigError> {
-        let function_name =
-            self.input.function_name.as_deref().ok_or_else(|| {
-                super::PutFunctionEventInvokeConfigError::Unhandled("PutFunctionEventInvokeConfig requires function_name".to_owned())
-            })?;
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::PutFunctionEventInvokeConfigError::Unhandled(error.to_string()))?;
+        let function_name = input
+            .function_name
+            .as_deref()
+            .ok_or_else(|| super::PutFunctionEventInvokeConfigError::Unhandled("PutFunctionEventInvokeConfig requires function_name".to_owned()))?;
         let path = {
             let mut path = ::std::string::String::from("/2019-09-25/functions/{FunctionName}/event-invoke-config");
-            if let Some(value) = self.input.qualifier.as_deref() {
+            if let Some(value) = input.qualifier.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("Qualifier");
                 path.push('=');

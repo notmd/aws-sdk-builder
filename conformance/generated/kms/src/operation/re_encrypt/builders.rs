@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_re_encrypt_input::ReEncryptInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,61 +11,62 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn ciphertext_blob(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self {
-        self.input.ciphertext_blob = Some(value.into());
+        self.input = self.input.set_ciphertext_blob(Some(value.into()));
         self
     }
     pub fn source_encryption_context(
         mut self,
         value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
-        self.input.source_encryption_context = Some(value.into());
+        self.input = self.input.set_source_encryption_context(Some(value.into()));
         self
     }
     pub fn source_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.source_key_id = Some(value.into());
+        self.input = self.input.set_source_key_id(Some(value.into()));
         self
     }
     pub fn destination_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.destination_key_id = Some(value.into());
+        self.input = self.input.set_destination_key_id(Some(value.into()));
         self
     }
     pub fn destination_encryption_context(
         mut self,
         value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
-        self.input.destination_encryption_context = Some(value.into());
+        self.input = self.input.set_destination_encryption_context(Some(value.into()));
         self
     }
     pub fn source_encryption_algorithm(mut self, value: impl ::std::convert::Into<crate::types::EncryptionAlgorithmSpec>) -> Self {
-        self.input.source_encryption_algorithm = Some(value.into());
+        self.input = self.input.set_source_encryption_algorithm(Some(value.into()));
         self
     }
     pub fn destination_encryption_algorithm(mut self, value: impl ::std::convert::Into<crate::types::EncryptionAlgorithmSpec>) -> Self {
-        self.input.destination_encryption_algorithm = Some(value.into());
+        self.input = self.input.set_destination_encryption_algorithm(Some(value.into()));
         self
     }
     pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.input.grant_tokens = Some(value.into());
+        self.input = self.input.set_grant_tokens(Some(value.into()));
         self
     }
     pub fn dry_run(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.dry_run = Some(value.into());
+        self.input = self.input.set_dry_run(Some(value.into()));
         self
     }
     pub fn dry_run_modifiers(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::DryRunModifierType>>) -> Self {
-        self.input.dry_run_modifiers = Some(value.into());
+        self.input = self.input.set_dry_run_modifiers(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ReEncryptOutput, super::ReEncryptError> {
+        let input = self.input.build().map_err(|error| super::ReEncryptError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

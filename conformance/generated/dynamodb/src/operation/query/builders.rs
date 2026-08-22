@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_query_input::QueryInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,98 +11,99 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.table_name = Some(value.into());
+        self.input = self.input.set_table_name(Some(value.into()));
         self
     }
     pub fn index_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.index_name = Some(value.into());
+        self.input = self.input.set_index_name(Some(value.into()));
         self
     }
     pub fn select(mut self, value: impl ::std::convert::Into<crate::types::Select>) -> Self {
-        self.input.select = Some(value.into());
+        self.input = self.input.set_select(Some(value.into()));
         self
     }
     pub fn attributes_to_get(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.input.attributes_to_get = Some(value.into());
+        self.input = self.input.set_attributes_to_get(Some(value.into()));
         self
     }
     pub fn limit(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.limit = Some(value.into());
+        self.input = self.input.set_limit(Some(value.into()));
         self
     }
     pub fn consistent_read(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.consistent_read = Some(value.into());
+        self.input = self.input.set_consistent_read(Some(value.into()));
         self
     }
     pub fn key_conditions(
         mut self,
         value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::Condition>>,
     ) -> Self {
-        self.input.key_conditions = Some(value.into());
+        self.input = self.input.set_key_conditions(Some(value.into()));
         self
     }
     pub fn query_filter(
         mut self,
         value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::Condition>>,
     ) -> Self {
-        self.input.query_filter = Some(value.into());
+        self.input = self.input.set_query_filter(Some(value.into()));
         self
     }
     pub fn conditional_operator(mut self, value: impl ::std::convert::Into<crate::types::ConditionalOperator>) -> Self {
-        self.input.conditional_operator = Some(value.into());
+        self.input = self.input.set_conditional_operator(Some(value.into()));
         self
     }
     pub fn scan_index_forward(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.scan_index_forward = Some(value.into());
+        self.input = self.input.set_scan_index_forward(Some(value.into()));
         self
     }
     pub fn exclusive_start_key(
         mut self,
         value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     ) -> Self {
-        self.input.exclusive_start_key = Some(value.into());
+        self.input = self.input.set_exclusive_start_key(Some(value.into()));
         self
     }
     pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self {
-        self.input.return_consumed_capacity = Some(value.into());
+        self.input = self.input.set_return_consumed_capacity(Some(value.into()));
         self
     }
     pub fn projection_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.projection_expression = Some(value.into());
+        self.input = self.input.set_projection_expression(Some(value.into()));
         self
     }
     pub fn filter_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.filter_expression = Some(value.into());
+        self.input = self.input.set_filter_expression(Some(value.into()));
         self
     }
     pub fn key_condition_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.key_condition_expression = Some(value.into());
+        self.input = self.input.set_key_condition_expression(Some(value.into()));
         self
     }
     pub fn expression_attribute_names(
         mut self,
         value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
-        self.input.expression_attribute_names = Some(value.into());
+        self.input = self.input.set_expression_attribute_names(Some(value.into()));
         self
     }
     pub fn expression_attribute_values(
         mut self,
         value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     ) -> Self {
-        self.input.expression_attribute_values = Some(value.into());
+        self.input = self.input.set_expression_attribute_values(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::QueryOutput, super::QueryError> {
+        let input = self.input.build().map_err(|error| super::QueryError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

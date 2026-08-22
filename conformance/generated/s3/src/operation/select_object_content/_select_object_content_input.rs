@@ -4,7 +4,7 @@
 /// </note>
 /// <p>Request to filter the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records. It returns only records that match the specified SQL expression. You must also specify the data serialization format for the response. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectSELECTContent.html">S3Select API Documentation</a>.</p>
 #[non_exhaustive]
-#[derive(::std::clone::Clone, ::std::cmp::PartialEq, ::std::default::Default)]
+#[derive(::std::clone::Clone, ::std::cmp::PartialEq)]
 pub struct SelectObjectContentInput {
     /// <p>The S3 bucket.</p>
     pub bucket: ::std::option::Option<::std::string::String>,
@@ -342,8 +342,11 @@ impl SelectObjectContentInputBuilder {
         &self.expected_bucket_owner
     }
     /// Consumes the builder and constructs a [`SelectObjectContentInput`](crate::operation::select_object_content::SelectObjectContentInput).
-    pub fn build(self) -> crate::operation::select_object_content::SelectObjectContentInput {
-        crate::operation::select_object_content::SelectObjectContentInput {
+    pub fn build(
+        self,
+    ) -> ::std::result::Result<crate::operation::select_object_content::SelectObjectContentInput, ::aws_smithy_types::error::operation::BuildError>
+    {
+        ::std::result::Result::Ok(crate::operation::select_object_content::SelectObjectContentInput {
             bucket: self.bucket,
             key: self.key,
             sse_customer_algorithm: self.sse_customer_algorithm,
@@ -356,7 +359,7 @@ impl SelectObjectContentInputBuilder {
             output_serialization: self.output_serialization,
             scan_range: self.scan_range,
             expected_bucket_owner: self.expected_bucket_owner,
-        }
+        })
     }
 }
 impl ::std::fmt::Debug for SelectObjectContentInputBuilder {

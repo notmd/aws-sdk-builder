@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_list_origination_numbers_input::ListOriginationNumbersInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,23 +11,27 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn next_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.next_token = Some(value.into());
+        self.input = self.input.set_next_token(Some(value.into()));
         self
     }
     pub fn max_results(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.max_results = Some(value.into());
+        self.input = self.input.set_max_results(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ListOriginationNumbersOutput, super::ListOriginationNumbersError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::ListOriginationNumbersError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

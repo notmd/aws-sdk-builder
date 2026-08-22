@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_send_durable_execution_callback_success_input::SendDurableExecutionCallbackSuccessInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,26 +11,30 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn callback_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.callback_id = Some(value.into());
+        self.input = self.input.set_callback_id(Some(value.into()));
         self
     }
     pub fn result(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self {
-        self.input.result = Some(value.into());
+        self.input = self.input.set_result(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(
         self,
     ) -> ::std::result::Result<super::SendDurableExecutionCallbackSuccessOutput, super::SendDurableExecutionCallbackSuccessError> {
-        let callback_id = self.input.callback_id.as_deref().ok_or_else(|| {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::SendDurableExecutionCallbackSuccessError::Unhandled(error.to_string()))?;
+        let callback_id = input.callback_id.as_deref().ok_or_else(|| {
             super::SendDurableExecutionCallbackSuccessError::Unhandled("SendDurableExecutionCallbackSuccess requires callback_id".to_owned())
         })?;
         let path = {

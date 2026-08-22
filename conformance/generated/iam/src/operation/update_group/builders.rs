@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_update_group_input::UpdateGroupInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,27 +11,31 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn group_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.group_name = Some(value.into());
+        self.input = self.input.set_group_name(Some(value.into()));
         self
     }
     pub fn new_path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.new_path = Some(value.into());
+        self.input = self.input.set_new_path(Some(value.into()));
         self
     }
     pub fn new_group_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.new_group_name = Some(value.into());
+        self.input = self.input.set_new_group_name(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::UpdateGroupOutput, super::UpdateGroupError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::UpdateGroupError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

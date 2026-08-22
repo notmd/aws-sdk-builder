@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_rename_object_input::RenameObjectInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,70 +11,72 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.key = Some(value.into());
+        self.input = self.input.set_key(Some(value.into()));
         self
     }
     pub fn rename_source(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.rename_source = Some(value.into());
+        self.input = self.input.set_rename_source(Some(value.into()));
         self
     }
     pub fn destination_if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.destination_if_match = Some(value.into());
+        self.input = self.input.set_destination_if_match(Some(value.into()));
         self
     }
     pub fn destination_if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.destination_if_none_match = Some(value.into());
+        self.input = self.input.set_destination_if_none_match(Some(value.into()));
         self
     }
     pub fn destination_if_modified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
-        self.input.destination_if_modified_since = Some(value.into());
+        self.input = self.input.set_destination_if_modified_since(Some(value.into()));
         self
     }
     pub fn destination_if_unmodified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
-        self.input.destination_if_unmodified_since = Some(value.into());
+        self.input = self.input.set_destination_if_unmodified_since(Some(value.into()));
         self
     }
     pub fn source_if_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.source_if_match = Some(value.into());
+        self.input = self.input.set_source_if_match(Some(value.into()));
         self
     }
     pub fn source_if_none_match(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.source_if_none_match = Some(value.into());
+        self.input = self.input.set_source_if_none_match(Some(value.into()));
         self
     }
     pub fn source_if_modified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
-        self.input.source_if_modified_since = Some(value.into());
+        self.input = self.input.set_source_if_modified_since(Some(value.into()));
         self
     }
     pub fn source_if_unmodified_since(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
-        self.input.source_if_unmodified_since = Some(value.into());
+        self.input = self.input.set_source_if_unmodified_since(Some(value.into()));
         self
     }
     pub fn client_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.client_token = Some(value.into());
+        self.input = self.input.set_client_token(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::RenameObjectOutput, super::RenameObjectError> {
-        let bucket = self
+        let input = self
             .input
+            .build()
+            .map_err(|error| super::RenameObjectError::Unhandled(error.to_string()))?;
+        let bucket = input
             .bucket
             .as_deref()
             .ok_or_else(|| super::RenameObjectError::Unhandled("RenameObject requires bucket".to_owned()))?;
-        let key = self
-            .input
+        let key = input
             .key
             .as_deref()
             .ok_or_else(|| super::RenameObjectError::Unhandled("RenameObject requires key".to_owned()))?;

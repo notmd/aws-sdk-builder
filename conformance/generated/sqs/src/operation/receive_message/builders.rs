@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_receive_message_input::ReceiveMessageInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,50 +11,54 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn queue_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.queue_url = Some(value.into());
+        self.input = self.input.set_queue_url(Some(value.into()));
         self
     }
     pub fn attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::QueueAttributeName>>) -> Self {
-        self.input.attribute_names = Some(value.into());
+        self.input = self.input.set_attribute_names(Some(value.into()));
         self
     }
     pub fn message_system_attribute_names(
         mut self,
         value: impl ::std::convert::Into<::std::vec::Vec<crate::types::MessageSystemAttributeName>>,
     ) -> Self {
-        self.input.message_system_attribute_names = Some(value.into());
+        self.input = self.input.set_message_system_attribute_names(Some(value.into()));
         self
     }
     pub fn message_attribute_names(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.input.message_attribute_names = Some(value.into());
+        self.input = self.input.set_message_attribute_names(Some(value.into()));
         self
     }
     pub fn max_number_of_messages(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.max_number_of_messages = Some(value.into());
+        self.input = self.input.set_max_number_of_messages(Some(value.into()));
         self
     }
     pub fn visibility_timeout(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.visibility_timeout = Some(value.into());
+        self.input = self.input.set_visibility_timeout(Some(value.into()));
         self
     }
     pub fn wait_time_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.wait_time_seconds = Some(value.into());
+        self.input = self.input.set_wait_time_seconds(Some(value.into()));
         self
     }
     pub fn receive_request_attempt_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.receive_request_attempt_id = Some(value.into());
+        self.input = self.input.set_receive_request_attempt_id(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ReceiveMessageOutput, super::ReceiveMessageError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::ReceiveMessageError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

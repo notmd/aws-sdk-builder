@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_get_federation_token_input::GetFederationTokenInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,35 +11,39 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.name = Some(value.into());
+        self.input = self.input.set_name(Some(value.into()));
         self
     }
     pub fn policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.policy = Some(value.into());
+        self.input = self.input.set_policy(Some(value.into()));
         self
     }
     pub fn policy_arns(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::PolicyDescriptorType>>) -> Self {
-        self.input.policy_arns = Some(value.into());
+        self.input = self.input.set_policy_arns(Some(value.into()));
         self
     }
     pub fn duration_seconds(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.duration_seconds = Some(value.into());
+        self.input = self.input.set_duration_seconds(Some(value.into()));
         self
     }
     pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self {
-        self.input.tags = Some(value.into());
+        self.input = self.input.set_tags(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::GetFederationTokenOutput, super::GetFederationTokenError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::GetFederationTokenError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

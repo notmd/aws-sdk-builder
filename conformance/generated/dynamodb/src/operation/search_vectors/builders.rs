@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_search_vectors_input::SearchVectorsInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,57 +11,61 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.table_name = Some(value.into());
+        self.input = self.input.set_table_name(Some(value.into()));
         self
     }
     pub fn index_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.index_name = Some(value.into());
+        self.input = self.input.set_index_name(Some(value.into()));
         self
     }
     pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self {
-        self.input.return_consumed_capacity = Some(value.into());
+        self.input = self.input.set_return_consumed_capacity(Some(value.into()));
         self
     }
     pub fn expression_attribute_names(
         mut self,
         value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>,
     ) -> Self {
-        self.input.expression_attribute_names = Some(value.into());
+        self.input = self.input.set_expression_attribute_names(Some(value.into()));
         self
     }
     pub fn expression_attribute_values(
         mut self,
         value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, crate::types::AttributeValue>>,
     ) -> Self {
-        self.input.expression_attribute_values = Some(value.into());
+        self.input = self.input.set_expression_attribute_values(Some(value.into()));
         self
     }
     pub fn projection_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.projection_expression = Some(value.into());
+        self.input = self.input.set_projection_expression(Some(value.into()));
         self
     }
     pub fn search_vector(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
-        self.input.search_vector = Some(value.into());
+        self.input = self.input.set_search_vector(Some(value.into()));
         self
     }
     pub fn search_condition_expression(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.search_condition_expression = Some(value.into());
+        self.input = self.input.set_search_condition_expression(Some(value.into()));
         self
     }
     pub fn top_k(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.top_k = Some(value.into());
+        self.input = self.input.set_top_k(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::SearchVectorsOutput, super::SearchVectorsError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::SearchVectorsError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

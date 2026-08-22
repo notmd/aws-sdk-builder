@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_untag_open_id_connect_provider_input::UntagOpenIdConnectProviderInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,23 +11,27 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn open_id_connect_provider_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.open_id_connect_provider_arn = Some(value.into());
+        self.input = self.input.set_open_id_connect_provider_arn(Some(value.into()));
         self
     }
     pub fn tag_keys(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.input.tag_keys = Some(value.into());
+        self.input = self.input.set_tag_keys(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::UntagOpenIdConnectProviderOutput, super::UntagOpenIdConnectProviderError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::UntagOpenIdConnectProviderError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

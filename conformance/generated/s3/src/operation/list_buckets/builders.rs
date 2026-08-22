@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_list_buckets_input::ListBucketsInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,52 +11,56 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn max_buckets(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.max_buckets = Some(value.into());
+        self.input = self.input.set_max_buckets(Some(value.into()));
         self
     }
     pub fn continuation_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.continuation_token = Some(value.into());
+        self.input = self.input.set_continuation_token(Some(value.into()));
         self
     }
     pub fn prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.prefix = Some(value.into());
+        self.input = self.input.set_prefix(Some(value.into()));
         self
     }
     pub fn bucket_region(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket_region = Some(value.into());
+        self.input = self.input.set_bucket_region(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ListBucketsOutput, super::ListBucketsError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::ListBucketsError::Unhandled(error.to_string()))?;
         let path = {
             let mut path = ::std::string::String::from("/?x-id=ListBuckets");
-            if let Some(value) = self.input.max_buckets.as_ref() {
+            if let Some(value) = input.max_buckets.as_ref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("max-buckets");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(&value.to_string()));
             }
-            if let Some(value) = self.input.continuation_token.as_deref() {
+            if let Some(value) = input.continuation_token.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("continuation-token");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(value));
             }
-            if let Some(value) = self.input.prefix.as_deref() {
+            if let Some(value) = input.prefix.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("prefix");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(value));
             }
-            if let Some(value) = self.input.bucket_region.as_deref() {
+            if let Some(value) = input.bucket_region.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("bucket-region");
                 path.push('=');

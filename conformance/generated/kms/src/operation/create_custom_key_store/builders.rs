@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_create_custom_key_store_input::CreateCustomKeyStoreInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,62 +11,66 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn custom_key_store_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.custom_key_store_name = Some(value.into());
+        self.input = self.input.set_custom_key_store_name(Some(value.into()));
         self
     }
     pub fn cloud_hsm_cluster_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.cloud_hsm_cluster_id = Some(value.into());
+        self.input = self.input.set_cloud_hsm_cluster_id(Some(value.into()));
         self
     }
     pub fn trust_anchor_certificate(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.trust_anchor_certificate = Some(value.into());
+        self.input = self.input.set_trust_anchor_certificate(Some(value.into()));
         self
     }
     pub fn key_store_password(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.key_store_password = Some(value.into());
+        self.input = self.input.set_key_store_password(Some(value.into()));
         self
     }
     pub fn custom_key_store_type(mut self, value: impl ::std::convert::Into<crate::types::CustomKeyStoreType>) -> Self {
-        self.input.custom_key_store_type = Some(value.into());
+        self.input = self.input.set_custom_key_store_type(Some(value.into()));
         self
     }
     pub fn xks_proxy_uri_endpoint(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.xks_proxy_uri_endpoint = Some(value.into());
+        self.input = self.input.set_xks_proxy_uri_endpoint(Some(value.into()));
         self
     }
     pub fn xks_proxy_uri_path(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.xks_proxy_uri_path = Some(value.into());
+        self.input = self.input.set_xks_proxy_uri_path(Some(value.into()));
         self
     }
     pub fn xks_proxy_vpc_endpoint_service_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.xks_proxy_vpc_endpoint_service_name = Some(value.into());
+        self.input = self.input.set_xks_proxy_vpc_endpoint_service_name(Some(value.into()));
         self
     }
     pub fn xks_proxy_vpc_endpoint_service_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.xks_proxy_vpc_endpoint_service_owner = Some(value.into());
+        self.input = self.input.set_xks_proxy_vpc_endpoint_service_owner(Some(value.into()));
         self
     }
     pub fn xks_proxy_authentication_credential(
         mut self,
         value: impl ::std::convert::Into<crate::types::XksProxyAuthenticationCredentialType>,
     ) -> Self {
-        self.input.xks_proxy_authentication_credential = Some(value.into());
+        self.input = self.input.set_xks_proxy_authentication_credential(Some(value.into()));
         self
     }
     pub fn xks_proxy_connectivity(mut self, value: impl ::std::convert::Into<crate::types::XksProxyConnectivityType>) -> Self {
-        self.input.xks_proxy_connectivity = Some(value.into());
+        self.input = self.input.set_xks_proxy_connectivity(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::CreateCustomKeyStoreOutput, super::CreateCustomKeyStoreError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::CreateCustomKeyStoreError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

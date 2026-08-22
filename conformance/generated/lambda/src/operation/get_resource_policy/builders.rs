@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_get_resource_policy_input::GetResourcePolicyInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,21 +11,24 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn resource_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.resource_arn = Some(value.into());
+        self.input = self.input.set_resource_arn(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::GetResourcePolicyOutput, super::GetResourcePolicyError> {
-        let resource_arn = self
+        let input = self
             .input
+            .build()
+            .map_err(|error| super::GetResourcePolicyError::Unhandled(error.to_string()))?;
+        let resource_arn = input
             .resource_arn
             .as_deref()
             .ok_or_else(|| super::GetResourcePolicyError::Unhandled("GetResourcePolicy requires resource_arn".to_owned()))?;

@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_list_bucket_analytics_configurations_input::ListBucketAnalyticsConfigurationsInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,33 +11,37 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn continuation_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.continuation_token = Some(value.into());
+        self.input = self.input.set_continuation_token(Some(value.into()));
         self
     }
     pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.expected_bucket_owner = Some(value.into());
+        self.input = self.input.set_expected_bucket_owner(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ListBucketAnalyticsConfigurationsOutput, super::ListBucketAnalyticsConfigurationsError> {
-        let bucket = self.input.bucket.as_deref().ok_or_else(|| {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::ListBucketAnalyticsConfigurationsError::Unhandled(error.to_string()))?;
+        let bucket = input.bucket.as_deref().ok_or_else(|| {
             super::ListBucketAnalyticsConfigurationsError::Unhandled("ListBucketAnalyticsConfigurations requires bucket".to_owned())
         })?;
         let path = {
             let mut path = ::std::string::String::from("/{Bucket}?analytics&x-id=ListBucketAnalyticsConfigurations");
-            if let Some(value) = self.input.continuation_token.as_deref() {
+            if let Some(value) = input.continuation_token.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("continuation-token");
                 path.push('=');
@@ -49,7 +53,7 @@ impl Builder {
         let body = ::std::vec::Vec::new();
         let headers = {
             let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
-            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+            if let Some(value) = input.expected_bucket_owner.as_deref() {
                 headers.push(("x-amz-expected-bucket-owner", value));
             }
             headers

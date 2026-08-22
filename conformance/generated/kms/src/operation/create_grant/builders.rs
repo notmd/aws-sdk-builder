@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_create_grant_input::CreateGrantInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,55 +11,59 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.key_id = Some(value.into());
+        self.input = self.input.set_key_id(Some(value.into()));
         self
     }
     pub fn grantee_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grantee_principal = Some(value.into());
+        self.input = self.input.set_grantee_principal(Some(value.into()));
         self
     }
     pub fn retiring_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.retiring_principal = Some(value.into());
+        self.input = self.input.set_retiring_principal(Some(value.into()));
         self
     }
     pub fn operations(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::GrantOperation>>) -> Self {
-        self.input.operations = Some(value.into());
+        self.input = self.input.set_operations(Some(value.into()));
         self
     }
     pub fn constraints(mut self, value: impl ::std::convert::Into<crate::types::GrantConstraints>) -> Self {
-        self.input.constraints = Some(value.into());
+        self.input = self.input.set_constraints(Some(value.into()));
         self
     }
     pub fn grant_tokens(mut self, value: impl ::std::convert::Into<::std::vec::Vec<::std::string::String>>) -> Self {
-        self.input.grant_tokens = Some(value.into());
+        self.input = self.input.set_grant_tokens(Some(value.into()));
         self
     }
     pub fn name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.name = Some(value.into());
+        self.input = self.input.set_name(Some(value.into()));
         self
     }
     pub fn dry_run(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.dry_run = Some(value.into());
+        self.input = self.input.set_dry_run(Some(value.into()));
         self
     }
     pub fn grantee_service_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grantee_service_principal = Some(value.into());
+        self.input = self.input.set_grantee_service_principal(Some(value.into()));
         self
     }
     pub fn retiring_service_principal(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.retiring_service_principal = Some(value.into());
+        self.input = self.input.set_retiring_service_principal(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::CreateGrantOutput, super::CreateGrantError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::CreateGrantError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

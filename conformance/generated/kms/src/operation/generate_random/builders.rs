@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_generate_random_input::GenerateRandomInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,27 +11,31 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn number_of_bytes(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.number_of_bytes = Some(value.into());
+        self.input = self.input.set_number_of_bytes(Some(value.into()));
         self
     }
     pub fn custom_key_store_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.custom_key_store_id = Some(value.into());
+        self.input = self.input.set_custom_key_store_id(Some(value.into()));
         self
     }
     pub fn recipient(mut self, value: impl ::std::convert::Into<crate::types::RecipientInfo>) -> Self {
-        self.input.recipient = Some(value.into());
+        self.input = self.input.set_recipient(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::GenerateRandomOutput, super::GenerateRandomError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::GenerateRandomError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

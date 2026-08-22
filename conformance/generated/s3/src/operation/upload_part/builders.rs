@@ -2,7 +2,7 @@
 
 #[derive(Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_upload_part_input::UploadPartInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,126 +11,125 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn body(mut self, value: impl ::std::convert::Into<::aws_smithy_types::byte_stream::ByteStream>) -> Self {
-        self.input.body = value.into();
+        self.input = self.input.set_body(Some(value.into()));
         self
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn content_length(mut self, value: impl ::std::convert::Into<i64>) -> Self {
-        self.input.content_length = Some(value.into());
+        self.input = self.input.set_content_length(Some(value.into()));
         self
     }
     pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.content_md5 = Some(value.into());
+        self.input = self.input.set_content_md5(Some(value.into()));
         self
     }
     pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
-        self.input.checksum_algorithm = Some(value.into());
+        self.input = self.input.set_checksum_algorithm(Some(value.into()));
         self
     }
     pub fn checksum_crc32(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_crc32 = Some(value.into());
+        self.input = self.input.set_checksum_crc32(Some(value.into()));
         self
     }
     pub fn checksum_crc32_c(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_crc32_c = Some(value.into());
+        self.input = self.input.set_checksum_crc32_c(Some(value.into()));
         self
     }
     pub fn checksum_crc64_nvme(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_crc64_nvme = Some(value.into());
+        self.input = self.input.set_checksum_crc64_nvme(Some(value.into()));
         self
     }
     pub fn checksum_sha1(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_sha1 = Some(value.into());
+        self.input = self.input.set_checksum_sha1(Some(value.into()));
         self
     }
     pub fn checksum_sha256(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_sha256 = Some(value.into());
+        self.input = self.input.set_checksum_sha256(Some(value.into()));
         self
     }
     pub fn checksum_sha512(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_sha512 = Some(value.into());
+        self.input = self.input.set_checksum_sha512(Some(value.into()));
         self
     }
     pub fn checksum_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_md5 = Some(value.into());
+        self.input = self.input.set_checksum_md5(Some(value.into()));
         self
     }
     pub fn checksum_xxhash64(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_xxhash64 = Some(value.into());
+        self.input = self.input.set_checksum_xxhash64(Some(value.into()));
         self
     }
     pub fn checksum_xxhash3(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_xxhash3 = Some(value.into());
+        self.input = self.input.set_checksum_xxhash3(Some(value.into()));
         self
     }
     pub fn checksum_xxhash128(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.checksum_xxhash128 = Some(value.into());
+        self.input = self.input.set_checksum_xxhash128(Some(value.into()));
         self
     }
     pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.key = Some(value.into());
+        self.input = self.input.set_key(Some(value.into()));
         self
     }
     pub fn part_number(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.part_number = Some(value.into());
+        self.input = self.input.set_part_number(Some(value.into()));
         self
     }
     pub fn upload_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.upload_id = Some(value.into());
+        self.input = self.input.set_upload_id(Some(value.into()));
         self
     }
     pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.sse_customer_algorithm = Some(value.into());
+        self.input = self.input.set_sse_customer_algorithm(Some(value.into()));
         self
     }
     pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.sse_customer_key = Some(value.into());
+        self.input = self.input.set_sse_customer_key(Some(value.into()));
         self
     }
     pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.sse_customer_key_md5 = Some(value.into());
+        self.input = self.input.set_sse_customer_key_md5(Some(value.into()));
         self
     }
     pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
-        self.input.request_payer = Some(value.into());
+        self.input = self.input.set_request_payer(Some(value.into()));
         self
     }
     pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.expected_bucket_owner = Some(value.into());
+        self.input = self.input.set_expected_bucket_owner(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::UploadPartOutput, super::UploadPartError> {
-        let bucket = self
-            .input
+        let input = self.input.build().map_err(|error| super::UploadPartError::Unhandled(error.to_string()))?;
+        let bucket = input
             .bucket
             .as_deref()
             .ok_or_else(|| super::UploadPartError::Unhandled("UploadPart requires bucket".to_owned()))?;
-        let key = self
-            .input
+        let key = input
             .key
             .as_deref()
             .ok_or_else(|| super::UploadPartError::Unhandled("UploadPart requires key".to_owned()))?;
         let path = {
             let mut path = ::std::string::String::from("/{Bucket}/{Key+}?x-id=UploadPart");
-            if let Some(value) = self.input.part_number.as_ref() {
+            if let Some(value) = input.part_number.as_ref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("partNumber");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(&value.to_string()));
             }
-            if let Some(value) = self.input.upload_id.as_deref() {
+            if let Some(value) = input.upload_id.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("uploadId");
                 path.push('=');
@@ -140,10 +139,10 @@ impl Builder {
             path = path.replace("{Key+}", &super::super::super::transport::encode_path(key));
             path
         };
-        let body = self.input.body.clone().into_inner();
+        let body = input.body.clone().into_inner();
         let headers = {
             let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
-            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+            if let Some(value) = input.expected_bucket_owner.as_deref() {
                 headers.push(("x-amz-expected-bucket-owner", value));
             }
             headers

@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_delete_message_batch_input::DeleteMessageBatchInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,23 +11,27 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn queue_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.queue_url = Some(value.into());
+        self.input = self.input.set_queue_url(Some(value.into()));
         self
     }
     pub fn entries(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::DeleteMessageBatchRequestEntry>>) -> Self {
-        self.input.entries = Some(value.into());
+        self.input = self.input.set_entries(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::DeleteMessageBatchOutput, super::DeleteMessageBatchError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::DeleteMessageBatchError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

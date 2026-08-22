@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_put_object_acl_input::PutObjectAclInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,84 +11,86 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn acl(mut self, value: impl ::std::convert::Into<crate::types::ObjectCannedAcl>) -> Self {
-        self.input.acl = Some(value.into());
+        self.input = self.input.set_acl(Some(value.into()));
         self
     }
     pub fn access_control_policy(mut self, value: impl ::std::convert::Into<crate::types::AccessControlPolicy>) -> Self {
-        self.input.access_control_policy = Some(value.into());
+        self.input = self.input.set_access_control_policy(Some(value.into()));
         self
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn content_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.content_md5 = Some(value.into());
+        self.input = self.input.set_content_md5(Some(value.into()));
         self
     }
     pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
-        self.input.checksum_algorithm = Some(value.into());
+        self.input = self.input.set_checksum_algorithm(Some(value.into()));
         self
     }
     pub fn grant_full_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grant_full_control = Some(value.into());
+        self.input = self.input.set_grant_full_control(Some(value.into()));
         self
     }
     pub fn grant_read(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grant_read = Some(value.into());
+        self.input = self.input.set_grant_read(Some(value.into()));
         self
     }
     pub fn grant_read_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grant_read_acp = Some(value.into());
+        self.input = self.input.set_grant_read_acp(Some(value.into()));
         self
     }
     pub fn grant_write(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grant_write = Some(value.into());
+        self.input = self.input.set_grant_write(Some(value.into()));
         self
     }
     pub fn grant_write_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grant_write_acp = Some(value.into());
+        self.input = self.input.set_grant_write_acp(Some(value.into()));
         self
     }
     pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.key = Some(value.into());
+        self.input = self.input.set_key(Some(value.into()));
         self
     }
     pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
-        self.input.request_payer = Some(value.into());
+        self.input = self.input.set_request_payer(Some(value.into()));
         self
     }
     pub fn version_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.version_id = Some(value.into());
+        self.input = self.input.set_version_id(Some(value.into()));
         self
     }
     pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.expected_bucket_owner = Some(value.into());
+        self.input = self.input.set_expected_bucket_owner(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::PutObjectAclOutput, super::PutObjectAclError> {
-        let bucket = self
+        let input = self
             .input
+            .build()
+            .map_err(|error| super::PutObjectAclError::Unhandled(error.to_string()))?;
+        let bucket = input
             .bucket
             .as_deref()
             .ok_or_else(|| super::PutObjectAclError::Unhandled("PutObjectAcl requires bucket".to_owned()))?;
-        let key = self
-            .input
+        let key = input
             .key
             .as_deref()
             .ok_or_else(|| super::PutObjectAclError::Unhandled("PutObjectAcl requires key".to_owned()))?;
         let path = {
             let mut path = ::std::string::String::from("/{Bucket}/{Key+}?acl");
-            if let Some(value) = self.input.version_id.as_deref() {
+            if let Some(value) = input.version_id.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("versionId");
                 path.push('=');
@@ -100,7 +102,7 @@ impl Builder {
         };
         let body = {
             let mut body = ::std::string::String::new();
-            if let Some(value) = self.input.access_control_policy.as_ref() {
+            if let Some(value) = input.access_control_policy.as_ref() {
                 body.push_str("<AccessControlPolicy>");
                 if let Some(value) = value.grants.as_ref() {
                     body.push_str("<AccessControlList>");
@@ -162,7 +164,7 @@ impl Builder {
         };
         let headers = {
             let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
-            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+            if let Some(value) = input.expected_bucket_owner.as_deref() {
                 headers.push(("x-amz-expected-bucket-owner", value));
             }
             headers.push(("content-type", "application/xml"));

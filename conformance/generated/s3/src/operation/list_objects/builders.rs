@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_list_objects_input::ListObjectsInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,83 +11,86 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn delimiter(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.delimiter = Some(value.into());
+        self.input = self.input.set_delimiter(Some(value.into()));
         self
     }
     pub fn encoding_type(mut self, value: impl ::std::convert::Into<crate::types::EncodingType>) -> Self {
-        self.input.encoding_type = Some(value.into());
+        self.input = self.input.set_encoding_type(Some(value.into()));
         self
     }
     pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.marker = Some(value.into());
+        self.input = self.input.set_marker(Some(value.into()));
         self
     }
     pub fn max_keys(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.max_keys = Some(value.into());
+        self.input = self.input.set_max_keys(Some(value.into()));
         self
     }
     pub fn prefix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.prefix = Some(value.into());
+        self.input = self.input.set_prefix(Some(value.into()));
         self
     }
     pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
-        self.input.request_payer = Some(value.into());
+        self.input = self.input.set_request_payer(Some(value.into()));
         self
     }
     pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.expected_bucket_owner = Some(value.into());
+        self.input = self.input.set_expected_bucket_owner(Some(value.into()));
         self
     }
     pub fn optional_object_attributes(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::OptionalObjectAttributes>>) -> Self {
-        self.input.optional_object_attributes = Some(value.into());
+        self.input = self.input.set_optional_object_attributes(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ListObjectsOutput, super::ListObjectsError> {
-        let bucket = self
+        let input = self
             .input
+            .build()
+            .map_err(|error| super::ListObjectsError::Unhandled(error.to_string()))?;
+        let bucket = input
             .bucket
             .as_deref()
             .ok_or_else(|| super::ListObjectsError::Unhandled("ListObjects requires bucket".to_owned()))?;
         let path = {
             let mut path = ::std::string::String::from("/{Bucket}");
-            if let Some(value) = self.input.delimiter.as_deref() {
+            if let Some(value) = input.delimiter.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("delimiter");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(value));
             }
-            if let Some(value) = self.input.encoding_type.as_ref() {
+            if let Some(value) = input.encoding_type.as_ref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("encoding-type");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(&value.to_string()));
             }
-            if let Some(value) = self.input.marker.as_deref() {
+            if let Some(value) = input.marker.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("marker");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(value));
             }
-            if let Some(value) = self.input.max_keys.as_ref() {
+            if let Some(value) = input.max_keys.as_ref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("max-keys");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(&value.to_string()));
             }
-            if let Some(value) = self.input.prefix.as_deref() {
+            if let Some(value) = input.prefix.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("prefix");
                 path.push('=');
@@ -99,7 +102,7 @@ impl Builder {
         let body = ::std::vec::Vec::new();
         let headers = {
             let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
-            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+            if let Some(value) = input.expected_bucket_owner.as_deref() {
                 headers.push(("x-amz-expected-bucket-owner", value));
             }
             headers

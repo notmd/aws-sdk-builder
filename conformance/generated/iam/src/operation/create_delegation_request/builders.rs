@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_create_delegation_request_input::CreateDelegationRequestInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,51 +11,55 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn owner_account_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.owner_account_id = Some(value.into());
+        self.input = self.input.set_owner_account_id(Some(value.into()));
         self
     }
     pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.description = Some(value.into());
+        self.input = self.input.set_description(Some(value.into()));
         self
     }
     pub fn permissions(mut self, value: impl ::std::convert::Into<crate::types::DelegationPermission>) -> Self {
-        self.input.permissions = Some(value.into());
+        self.input = self.input.set_permissions(Some(value.into()));
         self
     }
     pub fn request_message(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.request_message = Some(value.into());
+        self.input = self.input.set_request_message(Some(value.into()));
         self
     }
     pub fn requestor_workflow_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.requestor_workflow_id = Some(value.into());
+        self.input = self.input.set_requestor_workflow_id(Some(value.into()));
         self
     }
     pub fn redirect_url(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.redirect_url = Some(value.into());
+        self.input = self.input.set_redirect_url(Some(value.into()));
         self
     }
     pub fn notification_channel(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.notification_channel = Some(value.into());
+        self.input = self.input.set_notification_channel(Some(value.into()));
         self
     }
     pub fn session_duration(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.session_duration = Some(value.into());
+        self.input = self.input.set_session_duration(Some(value.into()));
         self
     }
     pub fn only_send_by_owner(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.only_send_by_owner = Some(value.into());
+        self.input = self.input.set_only_send_by_owner(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::CreateDelegationRequestOutput, super::CreateDelegationRequestError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::CreateDelegationRequestError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

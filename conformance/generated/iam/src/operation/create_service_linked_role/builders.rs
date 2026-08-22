@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_create_service_linked_role_input::CreateServiceLinkedRoleInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,27 +11,31 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn aws_service_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.aws_service_name = Some(value.into());
+        self.input = self.input.set_aws_service_name(Some(value.into()));
         self
     }
     pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.description = Some(value.into());
+        self.input = self.input.set_description(Some(value.into()));
         self
     }
     pub fn custom_suffix(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.custom_suffix = Some(value.into());
+        self.input = self.input.set_custom_suffix(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::CreateServiceLinkedRoleOutput, super::CreateServiceLinkedRoleError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::CreateServiceLinkedRoleError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

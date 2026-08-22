@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_restore_table_to_point_in_time_input::RestoreTableToPointInTimeInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,63 +11,67 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn source_table_arn(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.source_table_arn = Some(value.into());
+        self.input = self.input.set_source_table_arn(Some(value.into()));
         self
     }
     pub fn source_table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.source_table_name = Some(value.into());
+        self.input = self.input.set_source_table_name(Some(value.into()));
         self
     }
     pub fn target_table_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.target_table_name = Some(value.into());
+        self.input = self.input.set_target_table_name(Some(value.into()));
         self
     }
     pub fn use_latest_restorable_time(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.use_latest_restorable_time = Some(value.into());
+        self.input = self.input.set_use_latest_restorable_time(Some(value.into()));
         self
     }
     pub fn restore_date_time(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
-        self.input.restore_date_time = Some(value.into());
+        self.input = self.input.set_restore_date_time(Some(value.into()));
         self
     }
     pub fn billing_mode_override(mut self, value: impl ::std::convert::Into<crate::types::BillingMode>) -> Self {
-        self.input.billing_mode_override = Some(value.into());
+        self.input = self.input.set_billing_mode_override(Some(value.into()));
         self
     }
     pub fn global_secondary_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::GlobalSecondaryIndex>>) -> Self {
-        self.input.global_secondary_index_override = Some(value.into());
+        self.input = self.input.set_global_secondary_index_override(Some(value.into()));
         self
     }
     pub fn local_secondary_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::LocalSecondaryIndex>>) -> Self {
-        self.input.local_secondary_index_override = Some(value.into());
+        self.input = self.input.set_local_secondary_index_override(Some(value.into()));
         self
     }
     pub fn provisioned_throughput_override(mut self, value: impl ::std::convert::Into<crate::types::ProvisionedThroughput>) -> Self {
-        self.input.provisioned_throughput_override = Some(value.into());
+        self.input = self.input.set_provisioned_throughput_override(Some(value.into()));
         self
     }
     pub fn on_demand_throughput_override(mut self, value: impl ::std::convert::Into<crate::types::OnDemandThroughput>) -> Self {
-        self.input.on_demand_throughput_override = Some(value.into());
+        self.input = self.input.set_on_demand_throughput_override(Some(value.into()));
         self
     }
     pub fn sse_specification_override(mut self, value: impl ::std::convert::Into<crate::types::SseSpecification>) -> Self {
-        self.input.sse_specification_override = Some(value.into());
+        self.input = self.input.set_sse_specification_override(Some(value.into()));
         self
     }
     pub fn vector_index_override(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::VectorIndex>>) -> Self {
-        self.input.vector_index_override = Some(value.into());
+        self.input = self.input.set_vector_index_override(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::RestoreTableToPointInTimeOutput, super::RestoreTableToPointInTimeError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::RestoreTableToPointInTimeError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

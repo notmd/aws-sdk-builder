@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_list_function_event_invoke_configs_input::ListFunctionEventInvokeConfigsInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,39 +11,43 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn function_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.function_name = Some(value.into());
+        self.input = self.input.set_function_name(Some(value.into()));
         self
     }
     pub fn marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.marker = Some(value.into());
+        self.input = self.input.set_marker(Some(value.into()));
         self
     }
     pub fn max_items(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.max_items = Some(value.into());
+        self.input = self.input.set_max_items(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ListFunctionEventInvokeConfigsOutput, super::ListFunctionEventInvokeConfigsError> {
-        let function_name = self.input.function_name.as_deref().ok_or_else(|| {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::ListFunctionEventInvokeConfigsError::Unhandled(error.to_string()))?;
+        let function_name = input.function_name.as_deref().ok_or_else(|| {
             super::ListFunctionEventInvokeConfigsError::Unhandled("ListFunctionEventInvokeConfigs requires function_name".to_owned())
         })?;
         let path = {
             let mut path = ::std::string::String::from("/2019-09-25/functions/{FunctionName}/event-invoke-config/list");
-            if let Some(value) = self.input.marker.as_deref() {
+            if let Some(value) = input.marker.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("Marker");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(value));
             }
-            if let Some(value) = self.input.max_items.as_ref() {
+            if let Some(value) = input.max_items.as_ref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("MaxItems");
                 path.push('=');

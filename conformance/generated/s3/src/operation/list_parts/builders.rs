@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_list_parts_input::ListPartsInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,80 +11,79 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.key = Some(value.into());
+        self.input = self.input.set_key(Some(value.into()));
         self
     }
     pub fn max_parts(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.max_parts = Some(value.into());
+        self.input = self.input.set_max_parts(Some(value.into()));
         self
     }
     pub fn part_number_marker(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.part_number_marker = Some(value.into());
+        self.input = self.input.set_part_number_marker(Some(value.into()));
         self
     }
     pub fn upload_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.upload_id = Some(value.into());
+        self.input = self.input.set_upload_id(Some(value.into()));
         self
     }
     pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
-        self.input.request_payer = Some(value.into());
+        self.input = self.input.set_request_payer(Some(value.into()));
         self
     }
     pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.expected_bucket_owner = Some(value.into());
+        self.input = self.input.set_expected_bucket_owner(Some(value.into()));
         self
     }
     pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.sse_customer_algorithm = Some(value.into());
+        self.input = self.input.set_sse_customer_algorithm(Some(value.into()));
         self
     }
     pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.sse_customer_key = Some(value.into());
+        self.input = self.input.set_sse_customer_key(Some(value.into()));
         self
     }
     pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.sse_customer_key_md5 = Some(value.into());
+        self.input = self.input.set_sse_customer_key_md5(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ListPartsOutput, super::ListPartsError> {
-        let bucket = self
-            .input
+        let input = self.input.build().map_err(|error| super::ListPartsError::Unhandled(error.to_string()))?;
+        let bucket = input
             .bucket
             .as_deref()
             .ok_or_else(|| super::ListPartsError::Unhandled("ListParts requires bucket".to_owned()))?;
-        let key = self
-            .input
+        let key = input
             .key
             .as_deref()
             .ok_or_else(|| super::ListPartsError::Unhandled("ListParts requires key".to_owned()))?;
         let path = {
             let mut path = ::std::string::String::from("/{Bucket}/{Key+}?x-id=ListParts");
-            if let Some(value) = self.input.max_parts.as_ref() {
+            if let Some(value) = input.max_parts.as_ref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("max-parts");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(&value.to_string()));
             }
-            if let Some(value) = self.input.part_number_marker.as_deref() {
+            if let Some(value) = input.part_number_marker.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("part-number-marker");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(value));
             }
-            if let Some(value) = self.input.upload_id.as_deref() {
+            if let Some(value) = input.upload_id.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("uploadId");
                 path.push('=');
@@ -97,7 +96,7 @@ impl Builder {
         let body = ::std::vec::Vec::new();
         let headers = {
             let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
-            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+            if let Some(value) = input.expected_bucket_owner.as_deref() {
                 headers.push(("x-amz-expected-bucket-owner", value));
             }
             headers

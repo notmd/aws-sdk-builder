@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_create_multipart_upload_input::CreateMultipartUploadInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,146 +11,148 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn acl(mut self, value: impl ::std::convert::Into<crate::types::ObjectCannedAcl>) -> Self {
-        self.input.acl = Some(value.into());
+        self.input = self.input.set_acl(Some(value.into()));
         self
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn cache_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.cache_control = Some(value.into());
+        self.input = self.input.set_cache_control(Some(value.into()));
         self
     }
     pub fn content_disposition(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.content_disposition = Some(value.into());
+        self.input = self.input.set_content_disposition(Some(value.into()));
         self
     }
     pub fn content_encoding(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.content_encoding = Some(value.into());
+        self.input = self.input.set_content_encoding(Some(value.into()));
         self
     }
     pub fn content_language(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.content_language = Some(value.into());
+        self.input = self.input.set_content_language(Some(value.into()));
         self
     }
     pub fn content_type(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.content_type = Some(value.into());
+        self.input = self.input.set_content_type(Some(value.into()));
         self
     }
     pub fn expires(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
-        self.input.expires = Some(value.into());
+        self.input = self.input.set_expires(Some(value.into()));
         self
     }
     pub fn grant_full_control(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grant_full_control = Some(value.into());
+        self.input = self.input.set_grant_full_control(Some(value.into()));
         self
     }
     pub fn grant_read(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grant_read = Some(value.into());
+        self.input = self.input.set_grant_read(Some(value.into()));
         self
     }
     pub fn grant_read_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grant_read_acp = Some(value.into());
+        self.input = self.input.set_grant_read_acp(Some(value.into()));
         self
     }
     pub fn grant_write_acp(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.grant_write_acp = Some(value.into());
+        self.input = self.input.set_grant_write_acp(Some(value.into()));
         self
     }
     pub fn key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.key = Some(value.into());
+        self.input = self.input.set_key(Some(value.into()));
         self
     }
     pub fn metadata(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.input.metadata = Some(value.into());
+        self.input = self.input.set_metadata(Some(value.into()));
         self
     }
     pub fn server_side_encryption(mut self, value: impl ::std::convert::Into<crate::types::ServerSideEncryption>) -> Self {
-        self.input.server_side_encryption = Some(value.into());
+        self.input = self.input.set_server_side_encryption(Some(value.into()));
         self
     }
     pub fn storage_class(mut self, value: impl ::std::convert::Into<crate::types::StorageClass>) -> Self {
-        self.input.storage_class = Some(value.into());
+        self.input = self.input.set_storage_class(Some(value.into()));
         self
     }
     pub fn website_redirect_location(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.website_redirect_location = Some(value.into());
+        self.input = self.input.set_website_redirect_location(Some(value.into()));
         self
     }
     pub fn sse_customer_algorithm(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.sse_customer_algorithm = Some(value.into());
+        self.input = self.input.set_sse_customer_algorithm(Some(value.into()));
         self
     }
     pub fn sse_customer_key(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.sse_customer_key = Some(value.into());
+        self.input = self.input.set_sse_customer_key(Some(value.into()));
         self
     }
     pub fn sse_customer_key_md5(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.sse_customer_key_md5 = Some(value.into());
+        self.input = self.input.set_sse_customer_key_md5(Some(value.into()));
         self
     }
     pub fn ssekms_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.ssekms_key_id = Some(value.into());
+        self.input = self.input.set_ssekms_key_id(Some(value.into()));
         self
     }
     pub fn ssekms_encryption_context(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.ssekms_encryption_context = Some(value.into());
+        self.input = self.input.set_ssekms_encryption_context(Some(value.into()));
         self
     }
     pub fn bucket_key_enabled(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.bucket_key_enabled = Some(value.into());
+        self.input = self.input.set_bucket_key_enabled(Some(value.into()));
         self
     }
     pub fn request_payer(mut self, value: impl ::std::convert::Into<crate::types::RequestPayer>) -> Self {
-        self.input.request_payer = Some(value.into());
+        self.input = self.input.set_request_payer(Some(value.into()));
         self
     }
     pub fn tagging(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.tagging = Some(value.into());
+        self.input = self.input.set_tagging(Some(value.into()));
         self
     }
     pub fn object_lock_mode(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockMode>) -> Self {
-        self.input.object_lock_mode = Some(value.into());
+        self.input = self.input.set_object_lock_mode(Some(value.into()));
         self
     }
     pub fn object_lock_retain_until_date(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
-        self.input.object_lock_retain_until_date = Some(value.into());
+        self.input = self.input.set_object_lock_retain_until_date(Some(value.into()));
         self
     }
     pub fn object_lock_legal_hold_status(mut self, value: impl ::std::convert::Into<crate::types::ObjectLockLegalHoldStatus>) -> Self {
-        self.input.object_lock_legal_hold_status = Some(value.into());
+        self.input = self.input.set_object_lock_legal_hold_status(Some(value.into()));
         self
     }
     pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.expected_bucket_owner = Some(value.into());
+        self.input = self.input.set_expected_bucket_owner(Some(value.into()));
         self
     }
     pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
-        self.input.checksum_algorithm = Some(value.into());
+        self.input = self.input.set_checksum_algorithm(Some(value.into()));
         self
     }
     pub fn checksum_type(mut self, value: impl ::std::convert::Into<crate::types::ChecksumType>) -> Self {
-        self.input.checksum_type = Some(value.into());
+        self.input = self.input.set_checksum_type(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::CreateMultipartUploadOutput, super::CreateMultipartUploadError> {
-        let bucket = self
+        let input = self
             .input
+            .build()
+            .map_err(|error| super::CreateMultipartUploadError::Unhandled(error.to_string()))?;
+        let bucket = input
             .bucket
             .as_deref()
             .ok_or_else(|| super::CreateMultipartUploadError::Unhandled("CreateMultipartUpload requires bucket".to_owned()))?;
-        let key = self
-            .input
+        let key = input
             .key
             .as_deref()
             .ok_or_else(|| super::CreateMultipartUploadError::Unhandled("CreateMultipartUpload requires key".to_owned()))?;
@@ -163,7 +165,7 @@ impl Builder {
         let body = ::std::vec::Vec::new();
         let headers = {
             let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
-            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+            if let Some(value) = input.expected_bucket_owner.as_deref() {
                 headers.push(("x-amz-expected-bucket-owner", value));
             }
             headers

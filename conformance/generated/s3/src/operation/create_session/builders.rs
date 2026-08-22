@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_create_session_input::CreateSessionInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,41 +11,44 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn session_mode(mut self, value: impl ::std::convert::Into<crate::types::SessionMode>) -> Self {
-        self.input.session_mode = Some(value.into());
+        self.input = self.input.set_session_mode(Some(value.into()));
         self
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn server_side_encryption(mut self, value: impl ::std::convert::Into<crate::types::ServerSideEncryption>) -> Self {
-        self.input.server_side_encryption = Some(value.into());
+        self.input = self.input.set_server_side_encryption(Some(value.into()));
         self
     }
     pub fn ssekms_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.ssekms_key_id = Some(value.into());
+        self.input = self.input.set_ssekms_key_id(Some(value.into()));
         self
     }
     pub fn ssekms_encryption_context(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.ssekms_encryption_context = Some(value.into());
+        self.input = self.input.set_ssekms_encryption_context(Some(value.into()));
         self
     }
     pub fn bucket_key_enabled(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.bucket_key_enabled = Some(value.into());
+        self.input = self.input.set_bucket_key_enabled(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::CreateSessionOutput, super::CreateSessionError> {
-        let bucket = self
+        let input = self
             .input
+            .build()
+            .map_err(|error| super::CreateSessionError::Unhandled(error.to_string()))?;
+        let bucket = input
             .bucket
             .as_deref()
             .ok_or_else(|| super::CreateSessionError::Unhandled("CreateSession requires bucket".to_owned()))?;

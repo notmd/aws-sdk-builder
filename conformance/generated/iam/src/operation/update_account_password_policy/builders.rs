@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_update_account_password_policy_input::UpdateAccountPasswordPolicyInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,51 +11,55 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn minimum_password_length(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.minimum_password_length = Some(value.into());
+        self.input = self.input.set_minimum_password_length(Some(value.into()));
         self
     }
     pub fn require_symbols(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.require_symbols = Some(value.into());
+        self.input = self.input.set_require_symbols(Some(value.into()));
         self
     }
     pub fn require_numbers(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.require_numbers = Some(value.into());
+        self.input = self.input.set_require_numbers(Some(value.into()));
         self
     }
     pub fn require_uppercase_characters(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.require_uppercase_characters = Some(value.into());
+        self.input = self.input.set_require_uppercase_characters(Some(value.into()));
         self
     }
     pub fn require_lowercase_characters(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.require_lowercase_characters = Some(value.into());
+        self.input = self.input.set_require_lowercase_characters(Some(value.into()));
         self
     }
     pub fn allow_users_to_change_password(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.allow_users_to_change_password = Some(value.into());
+        self.input = self.input.set_allow_users_to_change_password(Some(value.into()));
         self
     }
     pub fn max_password_age(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.max_password_age = Some(value.into());
+        self.input = self.input.set_max_password_age(Some(value.into()));
         self
     }
     pub fn password_reuse_prevention(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.password_reuse_prevention = Some(value.into());
+        self.input = self.input.set_password_reuse_prevention(Some(value.into()));
         self
     }
     pub fn hard_expiry(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.hard_expiry = Some(value.into());
+        self.input = self.input.set_hard_expiry(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::UpdateAccountPasswordPolicyOutput, super::UpdateAccountPasswordPolicyError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::UpdateAccountPasswordPolicyError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

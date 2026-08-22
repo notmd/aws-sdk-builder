@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_list_directory_buckets_input::ListDirectoryBucketsInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,32 +11,36 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn continuation_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.continuation_token = Some(value.into());
+        self.input = self.input.set_continuation_token(Some(value.into()));
         self
     }
     pub fn max_directory_buckets(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.max_directory_buckets = Some(value.into());
+        self.input = self.input.set_max_directory_buckets(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ListDirectoryBucketsOutput, super::ListDirectoryBucketsError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::ListDirectoryBucketsError::Unhandled(error.to_string()))?;
         let path = {
             let mut path = ::std::string::String::from("/?x-id=ListDirectoryBuckets");
-            if let Some(value) = self.input.continuation_token.as_deref() {
+            if let Some(value) = input.continuation_token.as_deref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("continuation-token");
                 path.push('=');
                 path.push_str(&super::super::super::transport::encode_path(value));
             }
-            if let Some(value) = self.input.max_directory_buckets.as_ref() {
+            if let Some(value) = input.max_directory_buckets.as_ref() {
                 path.push_str(if path.contains('?') { "&" } else { "?" });
                 path.push_str("max-directory-buckets");
                 path.push('=');

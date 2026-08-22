@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_create_topic_input::CreateTopicInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,31 +11,35 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.name = Some(value.into());
+        self.input = self.input.set_name(Some(value.into()));
         self
     }
     pub fn attributes(mut self, value: impl ::std::convert::Into<::std::collections::HashMap<::std::string::String, ::std::string::String>>) -> Self {
-        self.input.attributes = Some(value.into());
+        self.input = self.input.set_attributes(Some(value.into()));
         self
     }
     pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self {
-        self.input.tags = Some(value.into());
+        self.input = self.input.set_tags(Some(value.into()));
         self
     }
     pub fn data_protection_policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.data_protection_policy = Some(value.into());
+        self.input = self.input.set_data_protection_policy(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::CreateTopicOutput, super::CreateTopicError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::CreateTopicError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_execute_statement_input::ExecuteStatementInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,46 +11,50 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn statement(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.statement = Some(value.into());
+        self.input = self.input.set_statement(Some(value.into()));
         self
     }
     pub fn parameters(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::AttributeValue>>) -> Self {
-        self.input.parameters = Some(value.into());
+        self.input = self.input.set_parameters(Some(value.into()));
         self
     }
     pub fn consistent_read(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.consistent_read = Some(value.into());
+        self.input = self.input.set_consistent_read(Some(value.into()));
         self
     }
     pub fn next_token(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.next_token = Some(value.into());
+        self.input = self.input.set_next_token(Some(value.into()));
         self
     }
     pub fn return_consumed_capacity(mut self, value: impl ::std::convert::Into<crate::types::ReturnConsumedCapacity>) -> Self {
-        self.input.return_consumed_capacity = Some(value.into());
+        self.input = self.input.set_return_consumed_capacity(Some(value.into()));
         self
     }
     pub fn limit(mut self, value: impl ::std::convert::Into<i32>) -> Self {
-        self.input.limit = Some(value.into());
+        self.input = self.input.set_limit(Some(value.into()));
         self
     }
     pub fn return_values_on_condition_check_failure(
         mut self,
         value: impl ::std::convert::Into<crate::types::ReturnValuesOnConditionCheckFailure>,
     ) -> Self {
-        self.input.return_values_on_condition_check_failure = Some(value.into());
+        self.input = self.input.set_return_values_on_condition_check_failure(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ExecuteStatementOutput, super::ExecuteStatementError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::ExecuteStatementError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

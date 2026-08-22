@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_put_bucket_lifecycle_configuration_input::PutBucketLifecycleConfigurationInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,42 +11,46 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn bucket(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.bucket = Some(value.into());
+        self.input = self.input.set_bucket(Some(value.into()));
         self
     }
     pub fn checksum_algorithm(mut self, value: impl ::std::convert::Into<crate::types::ChecksumAlgorithm>) -> Self {
-        self.input.checksum_algorithm = Some(value.into());
+        self.input = self.input.set_checksum_algorithm(Some(value.into()));
         self
     }
     pub fn lifecycle_configuration(mut self, value: impl ::std::convert::Into<crate::types::BucketLifecycleConfiguration>) -> Self {
-        self.input.lifecycle_configuration = Some(value.into());
+        self.input = self.input.set_lifecycle_configuration(Some(value.into()));
         self
     }
     pub fn expected_bucket_owner(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.expected_bucket_owner = Some(value.into());
+        self.input = self.input.set_expected_bucket_owner(Some(value.into()));
         self
     }
     pub fn transition_default_minimum_object_size(
         mut self,
         value: impl ::std::convert::Into<crate::types::TransitionDefaultMinimumObjectSize>,
     ) -> Self {
-        self.input.transition_default_minimum_object_size = Some(value.into());
+        self.input = self.input.set_transition_default_minimum_object_size(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::PutBucketLifecycleConfigurationOutput, super::PutBucketLifecycleConfigurationError> {
-        let bucket =
-            self.input.bucket.as_deref().ok_or_else(|| {
-                super::PutBucketLifecycleConfigurationError::Unhandled("PutBucketLifecycleConfiguration requires bucket".to_owned())
-            })?;
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::PutBucketLifecycleConfigurationError::Unhandled(error.to_string()))?;
+        let bucket = input
+            .bucket
+            .as_deref()
+            .ok_or_else(|| super::PutBucketLifecycleConfigurationError::Unhandled("PutBucketLifecycleConfiguration requires bucket".to_owned()))?;
         let path = {
             let mut path = ::std::string::String::from("/{Bucket}?lifecycle");
             path = path.replace("{Bucket}", &super::super::super::transport::encode_path(bucket));
@@ -54,7 +58,7 @@ impl Builder {
         };
         let body = {
             let mut body = ::std::string::String::new();
-            if let Some(value) = self.input.lifecycle_configuration.as_ref() {
+            if let Some(value) = input.lifecycle_configuration.as_ref() {
                 body.push_str("<LifecycleConfiguration>");
                 if let Some(value) = value.rules.as_ref() {
                     for item in value {
@@ -225,7 +229,7 @@ impl Builder {
         };
         let headers = {
             let mut headers: ::std::vec::Vec<(&str, &str)> = ::std::vec::Vec::new();
-            if let Some(value) = self.input.expected_bucket_owner.as_deref() {
+            if let Some(value) = input.expected_bucket_owner.as_deref() {
                 headers.push(("x-amz-expected-bucket-owner", value));
             }
             headers.push(("content-type", "application/xml"));

@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_reset_service_specific_credential_input::ResetServiceSpecificCredentialInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,23 +11,27 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn user_name(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.user_name = Some(value.into());
+        self.input = self.input.set_user_name(Some(value.into()));
         self
     }
     pub fn service_specific_credential_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.service_specific_credential_id = Some(value.into());
+        self.input = self.input.set_service_specific_credential_id(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ResetServiceSpecificCredentialOutput, super::ResetServiceSpecificCredentialError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::ResetServiceSpecificCredentialError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

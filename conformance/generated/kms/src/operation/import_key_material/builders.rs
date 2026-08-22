@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_import_key_material_input::ImportKeyMaterialInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,47 +11,51 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.key_id = Some(value.into());
+        self.input = self.input.set_key_id(Some(value.into()));
         self
     }
     pub fn import_token(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self {
-        self.input.import_token = Some(value.into());
+        self.input = self.input.set_import_token(Some(value.into()));
         self
     }
     pub fn encrypted_key_material(mut self, value: impl ::std::convert::Into<::std::vec::Vec<u8>>) -> Self {
-        self.input.encrypted_key_material = Some(value.into());
+        self.input = self.input.set_encrypted_key_material(Some(value.into()));
         self
     }
     pub fn valid_to(mut self, value: impl ::std::convert::Into<::aws_smithy_types::DateTime>) -> Self {
-        self.input.valid_to = Some(value.into());
+        self.input = self.input.set_valid_to(Some(value.into()));
         self
     }
     pub fn expiration_model(mut self, value: impl ::std::convert::Into<crate::types::ExpirationModelType>) -> Self {
-        self.input.expiration_model = Some(value.into());
+        self.input = self.input.set_expiration_model(Some(value.into()));
         self
     }
     pub fn import_type(mut self, value: impl ::std::convert::Into<crate::types::ImportType>) -> Self {
-        self.input.import_type = Some(value.into());
+        self.input = self.input.set_import_type(Some(value.into()));
         self
     }
     pub fn key_material_description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.key_material_description = Some(value.into());
+        self.input = self.input.set_key_material_description(Some(value.into()));
         self
     }
     pub fn key_material_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.key_material_id = Some(value.into());
+        self.input = self.input.set_key_material_id(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::ImportKeyMaterialOutput, super::ImportKeyMaterialError> {
+        let input = self
+            .input
+            .build()
+            .map_err(|error| super::ImportKeyMaterialError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();

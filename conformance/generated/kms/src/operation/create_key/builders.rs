@@ -2,7 +2,7 @@
 
 #[derive(Clone, Debug, Default)]
 pub struct Builder {
-    input: super::Input,
+    input: super::_create_key_input::CreateKeyInputBuilder,
     client: super::super::super::Client,
 }
 impl Builder {
@@ -11,59 +11,60 @@ impl Builder {
     }
     pub fn with_client(client: super::super::super::Client) -> Self {
         Self {
-            input: super::Input::default(),
+            input: ::std::default::Default::default(),
             client,
         }
     }
     pub fn policy(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.policy = Some(value.into());
+        self.input = self.input.set_policy(Some(value.into()));
         self
     }
     pub fn description(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.description = Some(value.into());
+        self.input = self.input.set_description(Some(value.into()));
         self
     }
     pub fn key_usage(mut self, value: impl ::std::convert::Into<crate::types::KeyUsageType>) -> Self {
-        self.input.key_usage = Some(value.into());
+        self.input = self.input.set_key_usage(Some(value.into()));
         self
     }
     pub fn customer_master_key_spec(mut self, value: impl ::std::convert::Into<crate::types::CustomerMasterKeySpec>) -> Self {
-        self.input.customer_master_key_spec = Some(value.into());
+        self.input = self.input.set_customer_master_key_spec(Some(value.into()));
         self
     }
     pub fn key_spec(mut self, value: impl ::std::convert::Into<crate::types::KeySpec>) -> Self {
-        self.input.key_spec = Some(value.into());
+        self.input = self.input.set_key_spec(Some(value.into()));
         self
     }
     pub fn origin(mut self, value: impl ::std::convert::Into<crate::types::OriginType>) -> Self {
-        self.input.origin = Some(value.into());
+        self.input = self.input.set_origin(Some(value.into()));
         self
     }
     pub fn custom_key_store_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.custom_key_store_id = Some(value.into());
+        self.input = self.input.set_custom_key_store_id(Some(value.into()));
         self
     }
     pub fn bypass_policy_lockout_safety_check(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.bypass_policy_lockout_safety_check = Some(value.into());
+        self.input = self.input.set_bypass_policy_lockout_safety_check(Some(value.into()));
         self
     }
     pub fn tags(mut self, value: impl ::std::convert::Into<::std::vec::Vec<crate::types::Tag>>) -> Self {
-        self.input.tags = Some(value.into());
+        self.input = self.input.set_tags(Some(value.into()));
         self
     }
     pub fn multi_region(mut self, value: impl ::std::convert::Into<bool>) -> Self {
-        self.input.multi_region = Some(value.into());
+        self.input = self.input.set_multi_region(Some(value.into()));
         self
     }
     pub fn xks_key_id(mut self, value: impl ::std::convert::Into<::std::string::String>) -> Self {
-        self.input.xks_key_id = Some(value.into());
+        self.input = self.input.set_xks_key_id(Some(value.into()));
         self
     }
     pub fn build(self) -> super::Input {
-        self.input
+        self.input.build().expect("operation input builder cannot fail")
     }
     #[allow(clippy::possible_missing_else, clippy::field_reassign_with_default)]
     pub async fn send(self) -> ::std::result::Result<super::CreateKeyOutput, super::CreateKeyError> {
+        let input = self.input.build().map_err(|error| super::CreateKeyError::Unhandled(error.to_string()))?;
         let path = "/";
         let body = ::std::vec::Vec::new();
         let headers = ::std::vec::Vec::new();
